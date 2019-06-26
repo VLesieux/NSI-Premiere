@@ -1,2 +1,3 @@
-# NSI LYCÉE ANGELLIER DUNKERQUE
+# NSI
 Numérique et Sciences Informatiques
+Lycée Angellier Dunkerque
