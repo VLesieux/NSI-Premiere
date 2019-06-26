@@ -1,2 +1,2 @@
 # NSI
-Travaux Numériques et Sciences de l'Informatique
+Numériques et Sciences de l'Informatique
