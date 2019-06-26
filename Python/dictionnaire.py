@@ -3,7 +3,7 @@
 d = dict() # ou = {}
 
 # avec initialisation de valeurs
-boxoffice = {'Aladdin' : 569439,                   # France, semaine du 29/05/2019
+boxoffice = {'Aladdin' : 569439,               
              'Godzilla 2' : 342574,
              'Rocketman' : 277017}
 
