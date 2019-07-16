@@ -35,7 +35,7 @@ for film in boxoffice:
 
 # collection des clefs
 boxoffice.keys()
-# colletion des valeurs
+# collection des valeurs
 boxoffice.values()
 # collection des enregistrements
 boxoffice.items()
