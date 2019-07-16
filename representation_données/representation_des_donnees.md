@@ -400,7 +400,7 @@ une compatibilité avec cet encodage.
 
 Voici [la table des caractères ISO-8859-1](http://std.dkuug.dk/jtc1/sc2/wg3/docs/n411.pdf) :
 
-![](./fig/iso-8859-1.png)
+![](iso-8859-1.png)
 
 ### UTF-8
 
@@ -435,7 +435,7 @@ table ci-dessous :
 L'encodage UTF-8 est lui aussi compatible avec l'ASCII. En revanche ISO-8859-1
 et UTF-8 sont incompatibles entre eux pouvant conduire à ce genre de problèmes :
 
-![](fig/martine.jpg)
+![](martine.jpg)
 
 # Aller plus loin
 
