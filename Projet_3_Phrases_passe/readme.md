@@ -73,7 +73,7 @@ from liste_7776_mots import LISTE_MOTS
 
 La variable `LISTE_MOTS` contient une liste de 7776 mots.
 
-### À faire
+> ### À faire n°1
 
 Vérifiez que la valeur que définit cette variable est bien de type tuple.
 
@@ -87,24 +87,24 @@ Nous admettrons que
    * chacune de ces chaînes ne contient que des lettres (non accentuées) ;
    * tous les mots sont différents.
 
-### À faire
+> ### À faire n°2
 
 Vérifiez que ces hypothèses sont vérifiées, à l'exclusion du fait
 qu'il s'agit bien de "vrais" mots de la langue française bien sûr.
 
-_Aide._ Étudiez les documentations des fonctions prédéfinies
+**Indications** : Étudiez les documentations des fonctions prédéfinies
 (*built-in*) `all()`, `isinstance()` et d'une des méthodes `upper()`
 ou `lower()` du type `str`, elles peuvent vous être utiles.
 
 
-### À faire
+> ### À faire n°3
 
 Calculez les longueurs minimales et maximales des mots de cette liste.
 
 
-### À faire
+> ### À faire n°4
 
-Écrivez **une** instruction qui imprime le mot de cette liste,
+Écrivez une instruction ` decrire_liste`qui imprime le premier mot de cette liste,
 le dernier et celui d'indice 2094. Pour chaque mot, on aura quelque
 chose comme :
 

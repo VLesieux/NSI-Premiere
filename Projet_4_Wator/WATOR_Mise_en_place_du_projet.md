@@ -124,7 +124,7 @@ def fonction_boucle(nombre_de_tours):
 ```  
 3. Utilisation d'une _**docstring**_ et tester avec _**doctest**_ : 
 
-[Pour en savoir plus, consultez la documentation](https://docs.python.org/3/library/doctest.html) !
+[Pour en savoir plus, consultez la documentation en ligne de Python](https://docs.python.org/3/library/doctest.html) ou [cette page de l'université de Lille](http://www.fil.univ-lille1.fr/~L1S2API/CoursTP/tp_doctest.html)
 
 Réaliser une telle chaîne de documentation permet:   
 - à l’utilisateur de la fonction de savoir   

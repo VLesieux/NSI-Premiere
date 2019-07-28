@@ -1,18 +1,12 @@
----
-title: Base 64
-author: Équipe pédagogique DIE-EIL Lille
-date: juin 2019
-geometry: width=18cm, height=25cm
-graphics: oui
-numbersections: oui
----
-
-**Objectif :** 
+**Objectifs :** 
 
 * découvrir un moyen de transmission de documents binaire
 * l'un de ces moyens est l'usage de la base 64
 * comprendre le principe du codage en base 64
 * le programmer
+* utiliser les dictionnaires
+
+**[À propos des dictionnaires](dictionnaire.py)**
 
 # Scénario de la séance
 
@@ -21,13 +15,13 @@ numbersections: oui
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou 
   autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes
+* lire le contenu de ce fichier avec un simple éditeur de textes : **[Le consulter](texte_image)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, (le mail ne peut transporter
   que des caractères ASCII, d'ailleurs peut-être remarquer l'encodage des caractères accentués
   du message)
 * seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions
   majuscules et minuscules, les 10 chiffres, le `+` et le `/`)
-* utiliser dans un shell la commande base64 pour coder/décoder
+* utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld`)
 * présenter le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée 
   binaire à encoder
   sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles
@@ -101,21 +95,21 @@ Que faire si la taille du fichier binaire n'est pas multiple de trois octets ? L
 		  
 	  Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 	  
-## Exercices
+## Exercices à faire manuellement
 
 1. Codez la séquence d'octets (12, 133, 4, 32, 178, 200, 44, 177).
 2. Décodez la chaîne de caractères `Hyk7Ag==`.
 3. Quels sont les symboles possibles précédent un simple symbole `=` ? Même question pour un double.
 4. Si on code une donnée constituée de $`n`$ octets, exprimez en fonction de $`n`$ la longueur de la chaîne de caractères obtenue en incluant les éventuels symboles `=`.
 
-# En Python
+# Programmation en Python
 
 ## Entiers littéraux
 
 * écriture usuelle décimale
 * possibilité d'écrire 
   
-  * en binaire en préfixant par les littéraux par `0b`
+  * en binaire (base 2) en préfixant par les littéraux par `0b`
   
     ```python
 	>>> 0b10100
@@ -124,7 +118,7 @@ Que faire si la taille du fichier binaire n'est pas multiple de trois octets ? L
 	-60
 	```
 
-  * en octal en préfixant par les littéraux par `0o`
+  * en octal (base 8) en préfixant par les littéraux par `0o`
   
     ```python
 	>>> 0o24
@@ -133,7 +127,7 @@ Que faire si la taille du fichier binaire n'est pas multiple de trois octets ? L
 	-60
 	```
 	
-  * en hexadécimal en préfixant par les littéraux par `0x`
+  * en hexadécimal (base 16) en préfixant par les littéraux par `0x`
   
     ```python
 	>>> 0x14
