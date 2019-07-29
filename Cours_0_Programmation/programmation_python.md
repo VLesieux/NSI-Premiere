@@ -449,3 +449,10 @@ plt.plot(x,y)
 plt.grid()
 plt.show()
 ```
+
+# Analogies avec la programmation en JavaScript
+
+Consultez : [Une première approche de la programmation en JavaScript](http://isnangellier.alwaysdata.net/php/Prerequis.html) !
+
+
+
