@@ -122,65 +122,6 @@ def fonction_boucle(nombre_de_tours):
 >>> fonction_boucle(5)
 ['a', 'a', 'a', 'a', 'a']
 ```  
-3. Utilisation d'une _**docstring**_ et tester avec _**doctest**_ : 
-
-[Pour en savoir plus, consultez la documentation en ligne de Python](https://docs.python.org/3/library/doctest.html) ou [cette page de l'université de Lille](http://www.fil.univ-lille1.fr/~L1S2API/CoursTP/tp_doctest.html)
-
-Réaliser une telle chaîne de documentation permet:   
-- à l’utilisateur de la fonction de savoir   
-		-	à quoi peut servir la fonction ;    
-		-	comment il peut l’utiliser ;    
-		-	quelles conditions il doit respecter pour l’utiliser (CU).    
-- au programmeur de la fonction de préciser   
-		- le nombre et la nature de ses paramètres ;    
-		- la relation entre la valeur renvoyée et celle du ou des paramètres ;    
-		- ses idées avec quelques exemples.   
- 
- (Tout cela bien entendu à condition que cette documentation soit rédigée avant la réalisation du programme et non le contraire)
-
-```python
-def fonction_boucle(nombre_de_tours):
-    """
-    :param nombre_de_tours: (int) représente le nombre de répétition de la boucle
-    :return: (list)  une liste de "a" de longueur égale au nombre de tours
-    :CU : nombre_de_tours entier strictement positif
-    :Exemples:
-
-     >>> fonction_boucle(5)
-     ['a', 'a', 'a', 'a', 'a']
-
-    """    
-    liste=[]
-    for i in range(nombre_de_tours):
-        liste.append("a")
-    return liste
-
-fonction_boucle(5)
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose = True)  
-
-``` 
-
-Remarque : pour que les tests soient validés, séparer dans vos exemples de résultat attendu, les items d'un tableau ou d'un tuple par une virgule suivie d'une espace. Par exemple écrire (1, 2, 0) au lieu de (1,2,0).
-
-```python
-Trying:
-    fonction_boucle(5)
-Expecting:
-    ['a', 'a', 'a', 'a', 'a']
-ok
-1 items had no tests:
-    __main__
-1 items passed all tests:
-   1 tests in __main__.fonction_boucle
-1 tests in 2 items.
-1 passed and 0 failed.
-Test passed.
-
-``` 
-La fonction testmod du _**module**_ doctest est allée chercher dans la docstring de la fonction l'exemple (reconnaissable à la présence des triples chevrons >>>), et a vérifié que la fonction documentée satisfaisait bien cet exemple. Il n’y a eu aucun échec (failed=0).
 
 > **À vous de jouer n°1** : _écrire la fonction ```creer_grille``` utilisant la première méthode avec son docstring !_
 
