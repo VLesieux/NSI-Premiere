@@ -32,9 +32,13 @@ Ce qui peut  se représenter :
 
 
 Le mot binaire de 8 bits appelé octet de valeur décimale 97 s'écrit donc : (0,1,1,0,0,0,0,1).  
-On peut l'écrire plus simplement 1100001 en supprimant les 0 _**non significatifs**_ de la partie gauche.
+On peut l'écrire plus simplement 1100001<sub>2</sub> en supprimant les 0 _**non significatifs**_ de la partie gauche.   
+Le bit le plus à gauche est appelé **bit de poids fort**, le bit le plus à droite est appelé **bit de poids faible.**
 
-Remarque : un mot binaire de 8 bits offre 2 possibilités 0 ou 1 par bits, soit 2^8=256 possibilités de valeurs comprises entre 0 : 00000000 et 255 : 11111111
+Remarques : 
+- un mot binaire de 8 bits offre 2 possibilités 0 ou 1 par bits, soit 2^8=256 possibilités de valeurs comprises entre 0 : 00000000 et 255 : 11111111 ; avec n bits on écrit tous les nombres compris entre 0 et 2<sup>n</sup>-1
+- Pour multiplier par deux un nombre écrit en base deux, il suffit d'ajouter un zéro à droite du nombre : 1011<sub>2</sub>×10<sub>2</sub>=10110<sub>2</sub>. De la même façon, 1011<sub>2</sub>×100<sub>2</sub>=101100<sub>2</sub>
+- L'addition de deux nombres binaires se fait comme en base dix. À partir de 0 + 0 = 0 , 1 + 0 = 0 + 1 = 1 et 1 + 1 = 10, on pose l'addition avec le même système de retenue. Attention, si la machine est limitée à 4 bits, lors de l'addition de 1101 (treize) avec 1001 (neuf), le résultat est 0110 soit 6 et non 10110 (vingt deux) car le cinquième bit à gauche est perdu.
 
 
 ## 2) Passer de la notation binaire à la valeur décimale    
@@ -127,62 +131,27 @@ On utilise la notation _**//**_ pour obtenir le quotient entier d'une division e
 ```
 
 ```python
-x=input("Entrez un nombre entier : ")
-a=""
-dividende=int(x)
-#on prend soin de transformer le string x en entier
-quotient=dividende//2
-while quotient>0:#on réalise une boucle non bornée
-    reste=dividende%2
-    a=str(reste)+a
-    quotient=dividende//2
-    dividende=quotient
-print(a) 
+def base2(n):
+    if n==0:
+        return "0"
+    b=""
+    while n!=0:
+        r=n%2
+        n=n//2
+        b=str(r)+b#on ajoute le reste à la chaîne
+    return b
 ```
 
 Dans ce programme, on utilise une _**boucle non bornée**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into) pour voir son déroulement.
 On observera également l'_**indentation**_ qui a été réalisée pour écrire cette boucle.
 
-## 4) Améliorations du programme
-
-Une première amélioration consiste à prévenir l'arrêt du programme si l'utilisateur entre autre chose qu'un nombre, on pourra alors lui demander gentiment de recommencer la saisie. 
-Dans Python le mécanisme de traitement des exceptions se fait avec les _**instructions**_ `try - except`.
-De plus on peut demander au programme de réinterroger l'utilisateur après exécution ; celui-ci mettra fin au programme en cliquant sur le bouton STOP.
-
-Deux _**fonctions**_ sont utilisées dans le programme.  
-La première fonction `est_un_nombre_entier(valeur_entree)` retourne le _**booléen True**_ si l'utilisateur  entre effectivement un entier ; cette fonction admet comme _**paramètre**_ la valeur entrée au clavier.   
-La deuxième fonction `convertir()` n'admet pas de paramètre et lance la conversion. 
-
-```python
-def est_un_nombre_entier(valeur_entree):#définition d'une première fonction
-    try:
-        return type(int(valeur_entree))==int
-    except:
-        print("veuillez entrer un nombre entier S.V.P ")
-        convertir()
-def convertir():#définition d'une deuxième fonction
-    x=input("Veuillez entrer un nombre entier : ")
-    if est_un_nombre_entier(x):#on utilise l'instruction conditionnelle if et un appel à la première fonction
-        a=""
-        dividende=int(x)
-        quotient=dividende//2
-        while quotient>0:
-            reste=dividende%2
-            a=str(reste)+a
-            quotient=dividende//2
-            dividende=quotient
-        print(a)
-        convertir()#pour faire des demandes réitérées, on appelle à nouveau la fonction
-convertir()#pour réaliser la première demande, on appelle une première fois la fonction
-```
-
-## 5) Programmation de la conversion binaire-décimal
+## 4) Programmation de la conversion binaire-décimal
 
 On demande à l'utilisateur d'entrer une chaîne de caractère correspondant au mot binaire.
 On parcourt la chaîne de caractères en traitant les bits les uns après les autres pour obtenir la valeur décimale.
 On réalise cette fois une _**boucle bornée**_ ou _**boucle for**_ car on sait combien de tours devront être effectués, c'est la longueur de la chaîne de caractère.
 
-Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une _**chaîne de caractère_** qui se comporte comme une _**liste**_.
+Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une _**chaîne de caractère**_ qui se comporte comme une _**liste**_.
 
 ```python
 >>> liste=[1,5,"A",4,"e"]
@@ -201,7 +170,7 @@ Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une
 'ri'
 >>> mot[5:2:-1]#on récupère tous les éléments depuis l'indice 5 à 2 non compris avec un pas de -1
 'nid'
->>> mot[::-1]#on récupère la chaîne de caractère renversée ; c'est ce qu'on va utiliser pour notre programme
+>>> mot[::-1]#on récupère la chaîne de caractère renversée
 'nidraj'
 >>> len(liste)
 5
@@ -213,7 +182,7 @@ Pour bien comprendre la boucle for, commençons par un exemple simple :
 
 ```python
 x="jardin"
-for i in range(5):# de 0 compris à 5 non compris
+for i in range(5):# de 0 compris à 5 non compris mais 5 tours de boucle
     print(x[i])
 ```
 ```
@@ -242,13 +211,27 @@ n
 D'où la proposition de programme pour réaliser la conversion binaire-décimal : 
 
 ```python
-a=0
-x=input("Veuillez entrer un nombre binaire : ")
-for i in range(len(x)):
-    a+=int(x[::-1][i])*(2**i)  
-#la notation 2**i signifie 2 à la puissance i
-#il est nécessaire d'utiliser int pour transformer le caractère en entier
-print(a)
+def base10(mot):
+    a=0
+    for i in range(len(mot)):
+        a+=int(mot[::-1][i])*(2**i)
+    return a
 ```
 
-**Application** : Écrire un programme de conversion décimal-hexadécimal (base 16) dans les deux sens utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F"
+ou 
+
+plus rapidement :
+
+```python
+def base10(mot):
+    n=0
+    for bit in mot:
+        n=2*n+int(bit)
+    return n
+```
+
+>Écrire un programme de conversion décimal-hexadécimal (base 16) dans les deux sens utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F"
+
+Exemple de conversion en hexadécimal : 
+
+170<sub>10</sub>=1010 1010<sub>2</sub>=AA<sub>16</sub>

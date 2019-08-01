@@ -1,14 +1,16 @@
----
-title: Représentation des données : types et valeurs de base
-subtitle : Bloc 1
-author: |
-    | Département informatique, Univ. Lille
-    | DIU Enseigner l'informatique au lycée
-date: juin 2019
----
-
-
 # Représentation des données : types et valeurs de base
+## Un peu d'histoire
+
+Pour représenter l'information dans la machine, on utilise le code binaire formé des bits (binary digit) 0 et 1. Ces codes correspondent aux états ouvert ou fermé des interrupteurs utilisés dans les circuits électroniques. 
+Une variable qui a deux états 0 ou 1, ou, False ou True, est également appelée **booléenne** en hommage au britannique **George Boole** qui a créé au XIX<sup>e</sup> siècle l'algèbre , fondement de la logique booléenne utilisée en mathématique, philosophie et informatique.  
+<img width="150" src="Boole.png" /><img width="150" src="Atanasov.png" /><img width="150" src="Atansov_Berry_computer.png" /><img width="250" src="Eniac.png" />. 
+
+À la fin des années 1930, **Djon Atanasov**, physicien, mathématicien et ingénieur américain d'origine Bulgare, travaillait avec son étudiant Clifford Berry sur la construction d'un calculateur électronique (sans programme enregistré). Atanasov avait compris que la solution du fonctionnement était le binaire. L'**ABC** (Atanasov Berry Computer) entra en service à la fin **1939**. Il pouvait effectuer une opération toutes les 15 secondes et pesait plus de 300 kilos.   
+Pendant ce temps, la construction de l'**ENIAC** avait commencé; Eckert et Mauchly, concepteurs et constructeurs, vont breveté leur invention d'un ordinateur en **1945**. Un procès aura lieu dans les années 1970, Atanasov affirmant que l'ENIAC avait été construit sur la base de ses idées. Une Cour des États-Unis finira par invalider le brevet d'Eckert et Mauchly, tombé alors dans le domaine public, et attribuera ainsi l'invention du premier ordinateur électronique à Atanasov.
+
+## Les attendus du programme
+
+![Programme officiel ](bo.png)
 
 ## Écriture d'un entier positif en base b≥2
 
@@ -30,6 +32,7 @@ Toutes ces représentations correspondent au nombre dix. Peu importe la
 représentation donnée en entrée, en interne toutes les données sont en
 binaire.
 
+> Écrire en base cinq le nombre qui s'écrit 175 en base dix
 
 Algorithme de conversion d'un entier en base b≥2 :
 ```
@@ -83,7 +86,7 @@ ki, Mi, Gi, Ti, etc.
 Le fait que l'entier soit relatif ne change finalement pas grand chose. Il
 faut uniquement prendre en commpte un bit en plus afin de stocker le signe.
 
-En utilisant exactement $`n`$ bits on peut représenter les entiers naturels de
+En utilisant exactement $`n`$ bits (avec un nième bit non nul) on peut représenter les entiers naturels de
 $`2^{n-1}`$ à $`2^n-1`$.  Si on veut connaître le nombre de bits pour
 représenter un entier donné, il faut utiliser la fonction inverse $`\log_2`$
 (mais qui n'est pas présentée en 1è).
@@ -95,7 +98,7 @@ D'un point de vue plus pratique les entiers naturels représentables sur 8, 16,
 
 ## Complément à 2
 
-Pour représenter un nombre signé on pense intuitivement qu'il suffit d'ajouter
+Pour représenter un **nombre signé** on pense intuitivement qu'il suffit d'ajouter
 un bit de signe. Mais cette représentation (appelée *signe-valeur absolue*) ne
 permet pas d'additionner directement deux nombres.
 
@@ -115,9 +118,11 @@ quel bit est le bits de poids fort.
 
 Le complément à 2 d'un entier positif $`N`$ sur $`p`$ bits est tel que la
 somme de $`N`$ et de son complément à 2 soit nulle sur $`p`$ bits.
-Il peut se calculer de deux manières :
-1. On prend le complément de la représentation binaire de $`N`$ et on lui ajoute 1
-2. $`2^p-N`$ qu'on représente en binaire sur $`p`$ bits.
+Il peut se calculer de deux méthodes :      
+
+
+**Première méthode** : On prend le complément de la représentation binaire de $`N`$ et on lui ajoute 1    
+**Deuxième méthode** :  $`2^p-N`$ qu'on représente en binaire sur $`p`$ bits.
 
 **Attention** *complément à 2* désigne à la fois l'opération mathématique de
 conversion et une méthode de représentation des entiers relatifs (qui
@@ -125,7 +130,7 @@ n'implique pas forcément de calculer un complément à 2 !)
 
 Avec la représentation en complément à 2 sur $`p`$ bits il est possible de
 représenter tous les entiers de $`-2^{p-1}`$ jusqu'à $`2^{p-1}-1`$
-(représentés respectivement par 10...0 et 01...1).
+(représentés respectivement par 10...0 et 01...1, la valeur -1 étant codée par une suite de 1).
 
 ### Exemples
 
@@ -151,7 +156,10 @@ Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.
 
 Si la représentation en complément à 2 est 01001, alors le nombre entier est
 positif (bit de poids fort à 0). Il suffit donc de convertir le nombre en
-déciaml pour connaître la valeur de l'entier, ici 9.
+décimal pour connaître la valeur de l'entier, ici 9.
+
+> Quels sont les entiers relatifs que l'on peut coder sur 4 bits ?    
+> Comment se code -10 sur 5 bits ?
 
 ### Représentation des entiers de taille arbitraire en Python
 
@@ -166,7 +174,7 @@ détournée, car les entiers peuvent être arbitrairement grand (l'unique limite
 Pour information les nombres entiers en Python sont représentés comme une
 suite de chiffres en base 2<sup>30</sup>. Plus [d'informations ici](https://rushter.com/blog/python-integer-implementation/).
 
-# Représentation approximative des nombres réels : notion de nombre flottant
+# Représentation approximative des nombres réels : notion de nombre flottant 
 
 > Attendu : Calculer sur quelques exemples la représentation de nombres
 > réels : 0.1, 0.25 ou 1/3.
@@ -176,10 +184,8 @@ suite de chiffres en base 2<sup>30</sup>. Plus [d'informations ici](https://rush
 > IEEE-754 n’est exigible.
 
 
-Un nombre flottant $`n`$ s'écrit sous la forme $`n = (-1)^s \times b^e \times
-m`$, où $`s`$ vaut soit 0 soit 1, $`b`$ vaut soit 2 soit 10 et $`m`$, appelée
-la mantisse, dont on peut considérer qu'il s'agit d'un nombre entier[^mantisse].
-[^mantisse]: Ce n'est pas tout à fait vrai dans la norme IEEE-754 mais, dans le cadre de cette norme, on peut néanmoins se ramener à ce cas-là.
+Un nombre flottant n de type `float` s'écrit sous la forme `n = (-1)^s × b^p × m`, où s vaut soit 0 soit 1 (le signe), b vaut soit 2 soit 10 (la base) et m, appelée la mantisse, dont on peut considérer qu'il s'agit d'un nombre entier.
+Ce n'est pas tout à fait vrai dans la norme IEEE-754 mais, dans le cadre de cette norme, on peut néanmoins se ramener à ce cas-là.
 
 L'intérêt d'une telle notation est qu'elle permet de représenter avec une même
 précision de très petits nombres que de très grand nombre.
@@ -210,8 +216,8 @@ Voici quelques valeurs pour les puissances de 2 négatives :
 | 10    | 0.0009765625 |
 
 Dans ce cas, on a :
-* $`0,1 = (-1)^0\times 2^{-4}\times 1,6`$. Or $`1,6 = 1 +
-  1/2+1/16+1/32+1/256+1/512+\cdots`$. De la même manière qu'on ne peut pas
+* $`0,1 = (-1)^0\times 2^{-4}\times 1,6`$. Or `1,6 = 1+1/2+1/16+1/32+1/256+1/512+....`.     
+  Ainsi, de la même manière qu'on ne peut pas
   représenter 1/3 de manière exacte avec $`b=10`$, on ne pourra pas
   représenter $`0,1`$ de manière exacte avec $`b=2`$
 * $`0,25 = (-1)^0\times 2^{-2}\times 1`$
@@ -248,6 +254,25 @@ False
 True
 ```
 
+```python
+>>> 0.2+0.1
+0.30000000000000004
+```
+
+La norme IEEE754 définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe, une mantisse et un exposant selon `n = (-1)^s × b^p × m` avec m=1,...      
+
+Sur 64 bits, la règle est la suivante :
+- un bit est réservé pour le signe, 0 pour le signe + et 1 pour le signe -
+- 11 bits pour l'exposant décalé e qui vaut p+1023 avec la condition -1022≤p≤1023, donc 1≤e≤2046 (les valeurs 0 et 2047 sont réservées pour coder par exemple -∞ ou +∞)
+- 52 bits pour la mantisse tronquée qui vaut m'=m-1 avec la condition 1≤m<2.
+Ces trois parties sont codées en binaire et concaténées pour former un nombre de 64 bits.
+
+Par exemple, codons le réel - 0,375.
+On note que 0,375=1,5×2<sup>-2</sup>
+On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0.
+Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
+
+
 # Valeurs, opérateurs et expressions booléennes
 
 > Attendu : Dresser la table d’une expression booléenne.
@@ -271,6 +296,7 @@ Exemple avec $`(a \vee b) \wedge c`$ ($`\vee`$ : OU ; $`\wedge`$ : ET)
 | 1 | 1 | 0 | 1             | 0                       |
 | 1 | 1 | 1 | 1             | 1                       |
 
+> L'expression not(a or b) a-t-elle la même valeur que l'expression (not a) or (not b) ou (not a) and (not b) ?
 
 ## Exemples d'application
 
@@ -282,15 +308,15 @@ bits d'une valeur.
 Un entier naturel pair $`n`$ a son bit de poids faible à 0. Il suffit donc de
 consulter ce bit pour connaître la parité du nombre.
 
-$`n \wedge 1`$ permet de ne conserver que le bit de poids faible (tous les autres bits sont mis à 0).
+`n ∧ 1` permet de ne conserver que le bit de poids faible (tous les autres bits sont mis à 0).
 Si le résultat est 1 alors le nombre est impair, sinon le nombre est pair.
 
 ### Signe d'un nombre représenté en complément à 2
 
 On a vu que dans la représentation en complément à 2, le bit de poids fort
 désigne le bit de signe.  Si on suppose un nombre entier $`n`$ représenté sur
-$`p`$ bits, on peut isoler le bit de poids fort avec un ET également : $`n
-\wedge (2^{p-1})`$. Si le résultat est 0, le nombre est positif sinon il est
+$`p`$ bits, on peut isoler le bit de poids fort avec un ET également :`n
+∧ (2^{p-1})`. Si le résultat est 0, le nombre est positif sinon il est
 négatif.
 
 ## Caractère séquentiel
@@ -382,11 +408,21 @@ Voici les caractères de la table ASCII (les 33 premiers, et le dernier, ne sont
 | `3` | `0`     | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`  | `:`   | `;`   | `<`  | `=`  | `>`  | `?`  |
 | `4` | `@`     | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   | `G`   | `H`   | `I`  | `J`   | `K`   | `L`  | `M`  | `N`  | `O`  |
 | `5` | `P`     | `Q`   | `R`   | `S`   | `T`   | `U`   | `V`   | `W`   | `X`   | `Y`  | `Z`   | `[`   | `\`  | `]`  | `^`  | `_`  |
-| `6` | `` ` `` | `a`   | `b`   | `c`   | `d`   | `e`   | `f`   | `g`   | `h`   | `i`  | `j`   | `k`   | `l`  | `m`  | `n`  | `o`  |
+| `6` | `accent grave ` | `a`   | `b`   | `c`   | `d`   | `e`   | `f`   | `g`   | `h`   | `i`  | `j`   | `k`   | `l`  | `m`  | `n`  | `o`  |
 | `7` | `p`     | `q`   | `r`   | `s`   | `t`   | `u`   | `v`   | `w`   | `x`   | `y`  | `z`   | `{`   | `|`  | `}`  | `~`  | `DEL`|
 
 128 caractères composent la table ASCII, ce qui permet de les représenter sur
 7 bits (en pratique plutôt 8 bits afin d'occuper un octet complet).
+
+Pour obtenir le code ASCII d'un caractère et inversement : 
+
+```python
+>>> ord("k")
+107
+>>> chr(52)
+'4'
+```
+
 
 ### ISO-8859-1
 
@@ -398,7 +434,7 @@ et, bien entendu, le symbole €.  L'encodage en ISO-8859-1 utilise 8 bits, les
 128 premières valeurs de l'ISO-8859-1 sont identiques à l'ASCII, ce qui assure
 une compatibilité avec cet encodage.
 
-Voici [la table des caractères ISO-8859-1](http://std.dkuug.dk/jtc1/sc2/wg3/docs/n411.pdf) :
+Voici la table des caractères ISO-8859-1 :
 
 ![](iso-8859-1.png)
 
@@ -439,4 +475,4 @@ et UTF-8 sont incompatibles entre eux pouvant conduire à ce genre de problèmes
 
 # Aller plus loin
 
-Plus d'informations sur ces différents aspects sont disponibles [dans chapitre 1 du polycopié du cours de Codage de l'information donné en L2 informatique](http://www.fil.univ-lille1.fr/~salson/codage/Poly/poly.pdf). Le polycopié contient également des exercices. La version corrigée (**à ne pas diffuser**, merci) [est accessible ici](https://nextcloud.univ-lille.fr/index.php/s/Szj4d9sJN9gDspG), attention le lien expire au 31 août.
+Plus d'informations sur ces différents aspects sont disponibles [dans chapitre 1 du polycopié du cours de Codage de l'information donné en L2 informatique](poly.pdf).
