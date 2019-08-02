@@ -10,7 +10,7 @@ Une instruction est une commande que doit exécuter la machine tandis qu'une exp
 
 ## Les attendus du programme
 
-![Programme officiel ](bo.png)
+![Programme officiel ](bo1.png)
 
 
 ## Variables ; affectation
@@ -47,127 +47,6 @@ En fait chaque variable possède un nom ou identificateur et possède une **adre
 4460309680
 >>> id(z)
 4460309776
-```
-
-## Types 
-
-Le type d'une variable est l'ensemble des valeurs qui peuvent être affectées à cette variable.
-
-On distingue :   
-- les **types simples** : `int` (les nombres entiers), `bool` (les valeurs booléennes True ou False), `float` (nombres réels), `str` (abréviation de string ou chaîne de caractères écrite entre des guillemets " " ou des apostrophes ' '), `None` qui n'a pas de valeur
-
-
-Opérations sur les types simples
-
-```Python
->>> 1+2#addition
-3
->>> 1-2#soustraction
--1
->>> 1*2#multiplication
-2
->>> 1/2#division
-0.5
->>> 1//2#division entière : renvoit le quotient entier de la division
-0
->>> 1%2#reste de la division
-1
-
-#existence de raccourcis d'écriture
->>> x=5
->>> x+=1
->>> x
-6
->>> x*=2
->>> x
-12
-
-#opérations sur les chaînes de caractères
->>> chaine="poisson"
->>> chaine[1]#une chaîne est indicée à partir de 0 de gauche à droite
-'o'
->>> chaine[-2]#on peut indicer de droite à gauche avec des indices négatifs
-'o'
->>> chaine[2:4]#on réalise une découpe la chaîne (slice) entre 2 inclus et 4 non inclus
-'is'
->>> chaine+" plat"#ajout de chaînes à la suite l'une de l'autre : concaténation à l'aide de l'opérateur +
-#l'opérateur - ne s'applique pas sur les chaînes de caractères
-'poisson plat'
->>> len(chaine)#longueur de la chaîne de caractères
-7
->>> chaine*2
-'poissonpoisson'
-```
-
-
-- les **types composés** : `tuple` : p-uplet, `list` : liste ou tableau et `dict` : dictionnaire. De nombreuses opérations peuvent être exécutées sur ces types composés. 
-
-
-Présentation rapide des types composés
-
-```Python
->>> p_uplet=(1,"a")# les tuples sont des éléments séparés par des virgules entre des parenthèses
->>> len(p_uplet)#pour obtenir la longueur du tuple
-2
->>> p_uplet[0]#les tuples sont indicés, le premier indice est 0
-1
->>> p_uplet[1]
-'a'
->>> p_uplet[1]='b'
-Traceback (most recent call last):
-  File "<pyshell>", line 1, in <module>
-TypeError: 'tuple' object does not support item assignment#les tuples sont immutables, on ne peut pas changer la valeur d'un élément
->>> p_uplet[2]='c'
-Traceback (most recent call last):
-  File "<pyshell>", line 1, in <module>
-TypeError: 'tuple' object does not support item assignment#les tuples sont immutables, on ne peut pas ajouter un élément
-____________________________________
-
->>> liste=[1,"a"]# les listes sont des éléments séparés par des virgules entre des crochets
->>> len(liste)#la longueur de la liste
-2
->>> liste[0]
-1
->>> liste[1]
-'a'
->>> liste[1]="b"
->>> liste
-[1, 'b']#les listes sont mutables
->>> liste[2]="c"
-Traceback (most recent call last):
-  File "<pyshell>", line 1, in <module>
-IndexError: list assignment index out of range#une erreur qui signifie qu'on ne peut pas accéder à un élément en dehors de la taille de la liste
->>> liste.append("c")#on utilise la méthode append pour ajouter un élément à la liste
->>> liste
-[1, 'b', 'c']
->>> nouvelle_liste=[liste,'d']#une liste peut contenir une liste
->>> nouvelle_liste
-[[1, 'b', 'c'], 'd']
->>> nouvelle_liste[0][1]#pour accéder à l'élément d'indice 1 de l'élément d'indice 0 de nouvelle_liste
-'b'
->>> nouvelle_liste.pop()#renvoie le dernier élément de la liste et le supprime 
-'d'
->>> nouvelle_liste
-[[1, 'b', 'c']]
->>> 'b' in nouvelle_liste#pour savoir si un élément est dans une liste
-False
->>> 'b' in nouvelle_liste[0]
-True
->>> nouvelle_liste[0].index('b')#renvoie l'indice de position d'un élément dans une liste
-1
->>> x=[i*2 for i in range(10)]
->>> x
-[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]#écriture d'une liste en compréhension
-____________________________________
-
->>> frequence={"do4":523.25,"la3":440}#dictionnaire clé-valeur : clé=nom de la note, valeur=fréquence en Hz à l'intérieur d'une accolade
->>> frequence["do4"]#on cherche la valeur associée à la clé
-523.25
->>> frequence["mi4"]=659.26#ajout d'un couple clé-valeur au dictionnaire
->>> frequence
-{'do4': 523.25, 'la3': 440, 'mi4': 659.26}
->>> len(frequence)#longueur du dictionnaire
-3
 ```
 
 ## Instructions conditionnelles
@@ -362,6 +241,48 @@ def test():
             return False
     return True
 ``` 
+
+### Remarques sur les fonctions : 
+
+1. Une fonction peut renvoyer plusieurs valeurs en même temps en renvoyant un tuple
+
+```python
+def division(a,b):
+    """
+    renvoie le quotient et le reste de la division euclidienne de a par b
+    : param a : (int)
+    : param b : (int)
+    : CU : b non nul
+    : Exemples :
+    >>> division(12,4)
+    (3, 0)
+    """
+    r=a
+    q=0
+    while r>=b:
+        r=r-b
+        q=q+1
+    return q,r
+
+>>> x,y=division(14,5)
+>>> x
+2
+>>> y
+4
+``` 
+
+2. Une fonction peut être utilisée pour construire une liste par compréhension
+
+```python
+def f(x):
+    return x**2-3*x+2
+
+liste1=list(range(-6,10))
+liste2=[f(u) for u in liste1]
+>>> liste2
+[56, 42, 30, 20, 12, 6, 2, 0, 0, 2, 6, 12, 20, 30, 42, 56]
+``` 
+
 
 ## Modules et bibliothèques
 
