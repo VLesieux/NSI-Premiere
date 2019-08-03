@@ -206,7 +206,11 @@ for i in range(3):
 
 ```Python
 >>> frequences={"do4":523.25,"la3":440}#dictionnaire clé-valeur : clé=nom de la note, valeur=fréquence en Hz à l'intérieur d'une accolade
->>> frequences["do4"]#on cherche la valeur associée à la clé
+>>> frequences=[["do4",523.25],["la3",440]]
+>>> dico=dict(frequences)
+>>> dico
+{'do4': 523.25, 'la3': 440}#un dictionnaire peut être créé à partir d'une liste
+>>> frequences["do4"]#on cherche la valeur associée à la clé "do4"
 523.25
 >>> frequences["mi4"]=659.26#ajout d'un nouveau couple clé-valeur au dictionnaire
 >>> frequences
@@ -214,9 +218,9 @@ for i in range(3):
 >>> frequences["mi5"]
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
-KeyError: 'mi5'#Erreur de clé car elle n'existe pas
+KeyError: 'mi5'#Erreur de clé KeyError car la clé 'mi5' demandée n'existe pas
 >>> frequences.get('mi5')
->>> #ne provoque pas de signalement d'erreur en l'absence de la clé
+>>> #pas de réponse mais ne provoque pas de signalement d'erreur KeyError en l'absence de la clé
 >>> len(frequences)#longueur du dictionnaire
 3
 >>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire
