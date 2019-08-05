@@ -77,7 +77,7 @@ KeyError: 'C'
 
 On suppose que l'on dispose d'un traducteur anglais-français et la question est de mesurer l'intérêt d'une représentation par un dictionnaire {"yes":"oui","no":"non",...} plutôt que par une liste de listes [["yes","oui"],["no","non"],...]. Nous allons donc compter le temps de recherche d'un élément. Pour traduire "yes", on doit trouver dans le dictionnaire la valeur correspondant à la clé "yes" et dans la liste de listes la valeur du deuxième élément d'une sous-liste dont le premier élément a pour valeur "yes".
 1. Écrire une fonction _recherche1_ qui prend en paramètres une liste de listes et une variable k et renvoie le deuxième élément de la sous-liste dont le premier élément a la valeur de k.
-2. Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k. Utiliser la méthode get de l'objet dictionnaire qui renvoie directement la valeur associée à la clé.
+2. Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k. Utiliser la méthode get de l'objet dictionnaire qui renvoie directement la valeur associée à la clé (cf.exercice précédent).
 3. Pour la recherche qui doit être effectuée sur un grand ensemble, nous simplifions nos objets. Construire une liste dont les éléments sont de la forme [i,i] pour i allant de 0 à 10<sup>6</sup>-1. Mélanger cette liste avec la fonction `shuffle` du module `random`. Créer alors le dictionnaire correspondant à l'aide de la fonction `dict`.
 
 ```Python

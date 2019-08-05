@@ -1,10 +1,5 @@
 # WA-TOR : Mise en place du projet
 
-## Attendus du programme
-
-![programmes ](programme1.png)   
-![programmes ](programme2.png)   
-
 ## Première partie : représentation et affichage de la grille 
 
 ### Introduction : choix de la structure de données

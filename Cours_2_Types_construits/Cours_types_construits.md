@@ -1,4 +1,4 @@
-![Programme officiel ](bo2.png)
+![Programme officiel ](assets/bo2.png)
 
 Le type d'une variable est l'ensemble des valeurs qui peuvent être affectées à cette variable.
 
