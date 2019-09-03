@@ -157,7 +157,7 @@ cf fichier [demo_syracuse.py](demo_syracuse.py)
 
 ## Docstring
 
-* partir de la fonction `help` dans le shell sur quelques fcts prédéfinies (`abs`, `len`, `print`)
+* partir de la fonction `help` dans le shell sur quelques fonctions prédéfinies (`abs`, `len`, `print`)
 * essayer `help` avec les fcts du script `syracuse` => pas grand chose
 * on ajoute une docstring dans `syracuse`
   ```python
