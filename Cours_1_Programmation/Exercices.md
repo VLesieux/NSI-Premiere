@@ -1,5 +1,5 @@
-# Exercices de programmation en Python
-
+# Exercices de programmation en Python :  
+[solutions](https://drive.google.com/file/d/1QlrAZ6qAi4vzPbRZWrSDk39cZzlooADs/view?usp=sharing).
 ## Exercice 1
 
 Soit le code suivant. Déterminer la valeur finale de x. Utiliser un papier et un stylo.
