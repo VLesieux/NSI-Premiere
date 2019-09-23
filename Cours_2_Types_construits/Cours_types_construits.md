@@ -17,10 +17,12 @@ Opérations sur les types simples
 2
 >>> 1/2#division
 0.5
->>> 1//2#division entière : renvoit le quotient entier de la division
+>>> 1//2#division entière : renvoie le quotient entier de la division
 0
->>> 1%2#reste de la division
-1
+>>> 5%2#renvoie le reste de la division
+1#c'est le cas des entiers impairs
+>>> 4%2
+0#c'est le cas des entiers pairs
 
 #existence de raccourcis d'écriture
 >>> x=5
@@ -59,7 +61,7 @@ Opérations sur les types simples
 
 ```Python
 >>> p_uplet=(1,"a") # les tuples sont des éléments séparés par des virgules entre des parenthèses
-ou >>> p_uplet=1,"a" # les parenthèses ne sont pas obligatoires
+ou >>> p_uplet=1,"a" # les parenthèses ne sont pas obligatoires mais elles sont préférées
 >>> len(p_uplet)#pour obtenir la longueur du tuple
 2
 >>> p_uplet[0]#les tuples sont indicés, le premier indice est 0
@@ -70,21 +72,31 @@ ou >>> p_uplet=1,"a" # les parenthèses ne sont pas obligatoires
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
 TypeError: 'tuple' object does not support item assignment   
-#les tuples ne sont pas mutables, on ne peut pas les modifier par affectation
+# !!!!!!!! les tuples ne sont pas des objets mutables, on ne peut pas les modifier par affectation
 >>> p_uplet[2]='c'
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
 TypeError: 'tuple' object does not support item assignment     
-#les tuples ne sont pas mutables, on ne peut pas leur ajouter un élément
-t=((1,2,3),('bonjour','auto'),4)#un tuple peut être constitué de tuples
+# !!!!!!!!! les tuples ne sont pas des objets mutables, on ne peut donc pas leur ajouter d'élément
+t=((1,2,3),('bonjour','auto'),4)#un tuple peut être constitué lui-même de tuples
 >>> t[1][0]
-'bonjour'
+'bonjour'# on va chercher l'élément d'indice 0 dans le tuple d'indice 1
 >>> 4 in t
-True #condition d'appartenance de 4 au tuple t
+True #condition d'appartenance de 4 au tuple t, 4 est effectivement présent à l'indice 2
 >>> (2,4)*3 
 (2, 4, 2, 4, 2, 4)#et non (6,12)
 Remarque : l'affectation multiple résulte de l'égalité des tuples
 x,y,z=3,4,x+y
+>>> t=((1,2,3),('bonjour','auto'),4)
+>>> for i in t:#on parcourt ainsi les éléments de la liste, i représente un élément constitutif de t
+    print(i)  
+(1, 2, 3)
+('bonjour', 'auto')
+4
+
+
+
+
 ```
 
 > On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
@@ -161,9 +173,13 @@ True
 ['1', 'a', '5']#une liste peut être créée à partir d'une chaîne de caractère en appliquant la méthode str.split()
 >>> tuple(['a', 'b', 5])
 ('a', 'b', 5)#une liste peut être transformée en tuple en utilisant la fonction tuple()
->>> x=[i*2 for i in range(10)]#construction d'une liste par compréhension
+>>> x=[i*2 for i in range(10)]####construction d'une liste par compréhension####
 >>> x
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+>>> verbes_premiere_personne=["mange","parle","marche"]
+>>> verbes_infinitif=[i+"r" for i in verbes_premiere_personne]
+>>> verbes_infinitif
+['manger', 'parler', 'marcher']
 >>> liste=[[x,y] for x in range(3) for y in range(3)]# méthode de création d'une matrice ou listes emboîtées
 >>> liste
 [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]
@@ -209,9 +225,13 @@ for i in range(3):
 >>> frequences=[["do4",523.25],["la3",440]]
 >>> dico=dict(frequences)
 >>> dico
-{'do4': 523.25, 'la3': 440}#un dictionnaire peut être créé à partir d'une liste
+{'do4': 523.25, 'la3': 440}#un dictionnaire peut être créé à partir d'une liste, ce qui est pratique.
 >>> frequences["do4"]#on cherche la valeur associée à la clé "do4"
 523.25
+>>> frequences["la3"]=660
+>>> frequences
+{'do4': 523.25, 'la3': 660}#un dictionnaire est mutable
+>>> frequences["la3"]=440
 >>> frequences["mi4"]=659.26#ajout d'un nouveau couple clé-valeur au dictionnaire
 >>> frequences
 {'do4': 523.25, 'la3': 440, 'mi4': 659.26}
@@ -225,10 +245,22 @@ KeyError: 'mi5'#Erreur de clé KeyError car la clé 'mi5' demandée n'existe pas
 3
 >>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire
 dict_keys(['do4', 'la3', 'mi4'])
+>>> for j in frequences.keys():
+    print("les notes sont",j)    
+les notes sont do4
+les notes sont la3
 >>> frequences.values()#la méthode values renvoie les valeurs des clés du dictionnaire
 dict_values([523.25, 440, 659.26])
+>>> for j in frequences.values():
+    print("les fréquences sont",j)    
+les fréquences sont 523.25
+les fréquences sont 440
 >>> frequences.items()
 dict_items([('do4', 523.25), ('la3', 440), ('mi4', 659.26)])
+>>> for j in frequences.items():
+    print("item",j)   
+item ('do4', 523.25)
+item ('la3', 440)
 >>> 'do4' in frequences
 True
 >>> for cle,val in frequences.items():
