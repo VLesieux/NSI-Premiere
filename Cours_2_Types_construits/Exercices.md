@@ -4,7 +4,7 @@
 
 Écrire une fonction _separe_ qui prend en argument un n-uplet _t_ composé d'entiers et renvoie deux listes : la première liste _pairs_ contient les nombres pairs et la seconde _impairs_ les nombres impairs.
 
-Indications : 
+__Indications__ : 
 1) revoir dans le cours sur les tuples le moyen de parcourir les éléments d'un tuple
 2) revoir le moyen de tester la parité d'un nombre
 3) revoir le moyen d'ajouter un élément à une liste
@@ -13,7 +13,7 @@ Indications :
 
 Écrire une fonction _produit_ qui prend en paramètres une liste de nombres appelée _nombres_ et un entier naturel appelé _n_ non nul et qui renvoie une liste obtenue en multipliant chaque élément de la liste _nombres_ par _n_. On proposera différentes écritures du programme.
 
-Indications: 
+__Indications__ : 
 1) Réaliser une première écriture en passant par la création d'une liste vierge _nouvelle_liste_ que l'on complète au fur et à mesure du parcours de la liste _nombres_
 2) Proposer une deuxième méthode beaucoup plus efficace en créant une liste par compréhension qui répond à la demande (revoir les exemples du cours), et la renvoyer directement sans avoir à créer de liste intermédiaire 
 
@@ -59,7 +59,7 @@ positions[(43.70000,7.250000)]="Nice"
 On suppose avoir reçu une photo prise sur un smartphone par une personne en vacances. On regarde dans les propriétés les coordonnées GPS au moment de la prise de vue. Écrire une fonction prenant en paramètres un couple de coordonnées GPS et le dictionnaire construit, et renvoyant le nom du lieu correspondant. On tolère une précision au dix-millième de degré.
 Par exemple si les coordonnées sont [(11.61135,43.14775)], la fonction doit nous renvoyer "Djibouti".
 
-Indications: 
+__Indications__ : 
 1) l'idée est de faire un parcours des clés du dictionnaire, comparer les coordonnées du site avec chacune des clés du dictionnaire en élargissant l'égalité avec un encadrement
 2) penser à comparer la valeur absolue (avec abs()) de la différence des coordonnées fois 10000
 
@@ -84,7 +84,7 @@ KeyError: 'C'
 #Pas d'ereur signalée
 ```
 
-Indication : parcourir les lettres du textes, créer le nouvel item (lettre:1) dans le dictionnaire statistiques s'il n'existe pas encore ou augmenter de 1 la valeur de l'item si celui-ci existe déjà.
+__Indications__ : parcourir les lettres du textes, créer le nouvel item (lettre:1) dans le dictionnaire statistiques s'il n'existe pas encore ou augmenter de 1 la valeur de l'item si celui-ci existe déjà.
 
 ## Exercice 7
 
