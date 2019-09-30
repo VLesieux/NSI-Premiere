@@ -222,7 +222,7 @@ for i in range(3):
 >>> dico=dict(frequences)
 >>> dico
 {'do4': 523.25, 'la3': 440}#un dictionnaire peut être créé à partir d'une liste, ce qui est pratique.
->>> frequences["do4"]#on cherche la valeur associée à la clé "do4"
+>>> frequences["do4"]#c'est ainsi que l'on obtient la valeur associée à une clé 
 523.25
 >>> frequences["la3"]=660
 >>> frequences
@@ -239,27 +239,27 @@ KeyError: 'mi5'#Erreur de clé KeyError car la clé 'mi5' demandée n'existe pas
 >>> #pas de réponse mais ne provoque pas de signalement d'erreur KeyError en l'absence de la clé
 >>> len(frequences)#longueur du dictionnaire
 3
->>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire
+>>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire, ne pas oublier () ; la méthode keys() est une fonction associée à l'objet fréquences d'où le point qui les connecte
 dict_keys(['do4', 'la3', 'mi4'])
->>> for j in frequences.keys():
+>>> for j in frequences.keys():#on peut parcourir les clés du dictionnaire
     print("les notes sont",j)    
 les notes sont do4
 les notes sont la3
 >>> frequences.values()#la méthode values renvoie les valeurs des clés du dictionnaire
 dict_values([523.25, 440, 659.26])
->>> for j in frequences.values():
+>>> for j in frequences.values():#on peut parcourir les valeurs du dictionnaire
     print("les fréquences sont",j)    
 les fréquences sont 523.25
 les fréquences sont 440
 >>> frequences.items()
 dict_items([('do4', 523.25), ('la3', 440), ('mi4', 659.26)])
->>> for j in frequences.items():
+>>> for j in frequences.items():#on peut parcourir les items qui constituent le dictionnaire
     print("item",j)   
 item ('do4', 523.25)
 item ('la3', 440)
->>> 'do4' in frequences
+>>> 'do4' in frequences#on interroge pour savoir si une clé est présente dans le dictionnaire : très utile
 True
->>> for cle,val in frequences.items():
+>>> for cle,val in frequences.items():#on peut parcourir les items en dissociant clé et valeur
     print(cle,val)    
 do4 523.25
 la3 440
@@ -271,30 +271,30 @@ mi4 659.26
 >>> frequences2["mi4"]=600
 >>> frequences2
 {'do4': 523.25, 'mi4': 600}
->>> frequences
+>>> frequences#le dictionnaire original a été modifié, ce qui peut être problématique
 {'do4': 523.25, 'mi4': 600}
 >>> from copy import deepcopy
 >>> frequences3=deepcopy(frequences)#frequences3 est une copie profonde de frequences2 distincte de celle-ci
 >>> frequences3["mi4"]=659.26
->>> frequences
+>>> frequences#le dictionnaire original demeure inchangé
 {'do4': 523.25, 'mi4': 600}
 >>> frequences3
 {'do4': 523.25, 'mi4': 659.26}
->>> d={x:x**2 for x in  range(1,5)}#construction d'un dictionnaire par compréhension
+>>> d={x:x**2 for x in  range(1,5)}#construction d'un dictionnaire par compréhension associant clé et valeur, comme les listes, intéressant !
 >>> d
 {1: 1, 2: 4, 3: 9, 4: 16}
 >>> pays={'France':{'capitale':'Paris','superficie':643800},'Portugal':{'capitale':'Lisbonne','superficie':92300}}#création de dictionnaire de dictionnaire
->>> pays["France"]["superficie"]
+>>> pays["France"]["superficie"]#recherche d'une valeur dans un dictionnaire de dictionnaire
 643800
 Remarques:
 >>> dictionnaire={"DK":1300}
 >>> dictionnaire[(2,6)]=23
 >>> dictionnaire
-{'DK': 1300, (2, 6): 23}#une clé de dictionnaire peut être un tuple
+{'DK': 1300, (2, 6): 23}#une clé de dictionnaire peut aussi être un tuple
 >>> dictionnaire[[3,6]]=12
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
-TypeError: unhashable type: 'list'#une clé de dictionnaire ne peut pas être une liste
+TypeError: unhashable type: 'list'#mais une clé de dictionnaire ne peut pas être une liste !
 ```
 > Qu'obtient-on avec le code ci-dessous ?
 
