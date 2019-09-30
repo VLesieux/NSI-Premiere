@@ -39,10 +39,10 @@ Le trouver avec un crayon avant de tester sur machine.
 
 ## Exercice 4
 
-L'instruction tuple(sorted((a,b,c))) renvoie un triplet contenant les valeurs des nombres a,b,c rangées dans l'ordre croissant. Compléter la fonction maxi qui renvoie le plus grand des trois nombres a,b,c.
+L'instruction tuple(sorted(t)) renvoie le tuple ordonné dans l'ordre croissant. Compléter la fonction maxi qui renvoie le maximum d'une suite de valeurs données dans un tuple.
 
 ```Python
-def maxi(a,b,c):
+def maxi(t):
     return ...
 ```
 
