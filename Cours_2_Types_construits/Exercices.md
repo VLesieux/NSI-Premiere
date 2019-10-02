@@ -96,4 +96,32 @@ print(time()-st)
 5. Pour gagner une ligne de code, on peut améliorer la fonction _recherche2_ en utilisant la méthode get associée au dictionnaire qui renvoie la valeur d'une clé et ne retourne pas d'erreur si la clé est introuvable. Créer la fonction _recherche3_ et comparer son efficacité avec les fonctions précédentes.
 
 
+## Exercice 8
+
+Au scrable, les valeurs des pièces sont les suivantes:  
+    1 point : E , A , I , N , O , R , S , T , U , L    
+    2 points : D , M , G    
+    3 points : B , C , P    
+    4 points : F , H , V    
+    8 points : J , Q    
+    10 points : K , W , X , Y, Z    
+Un joueur s'apprête à placer un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles.
+Écrire une fonction capable de renvoyer à partir d'un tuple de mots un dictionnaire associant une valeur en points à chacun des mots en rangeant ces mots dans l'ordre décroissant des points.   
+
+Par exemple:
+```Python
+>>> classement_mots(("CASSER","RESSAC","ECRASES"))
+{'RESSAC': 14, 'ECRASES': 11, 'CASSER': 10}
+```
+
+Écrire les doc_test des fonctions réalisées pour atteindre cet objectif.
+
+Indications :
+
+1) Créer une première fonction donnant la valeur en points d'un mot
+2) Utiliser les méthodes sort() et reverse() des listes dans la fonction classement_mots
+
+
+
+
 
