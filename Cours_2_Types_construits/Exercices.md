@@ -105,10 +105,10 @@ Au scrable, les valeurs des pièces sont les suivantes:
     4 points : F , H , V    
     8 points : J , Q    
     10 points : K , W , X , Y, Z    
-Un joueur s'apprête à placer un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles.
-Écrire une fonction capable de renvoyer à partir d'un tuple de mots un dictionnaire associant une valeur en points à chacun des mots en rangeant ces mots dans l'ordre décroissant des points.   
+Un joueur s'apprête à placer un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
+Écrire une fonction capable de renvoyer à partir d'un tuple de mots un dictionnaire associant une valeur en points à chacun des mots en plaçant les mots dans l'ordre décroissant des points.   
 
-Par exemple:
+Par exemple :
 ```Python
 >>> classement_mots(("CASSER","RESSAC","ECRASES"))
 {'RESSAC': 14, 'ECRASES': 11, 'CASSER': 10}
@@ -118,8 +118,8 @@ Par exemple:
 
 Indications :
 
-1) Créer une première fonction donnant la valeur en points d'un mot
-2) Utiliser les méthodes sort() et reverse() des listes dans la fonction classement_mots
+1) Créer une première fonction _points_ donnant la valeur en points d'un mot
+2) Utiliser les méthodes `sort()` et `reverse()` des listes dans la fonction _classement_mots_
 
 
 
