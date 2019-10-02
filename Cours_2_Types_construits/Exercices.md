@@ -121,7 +121,14 @@ Indications :
 1) Créer une première fonction _points_ donnant la valeur en points d'un mot
 2) Utiliser les méthodes `sort()` et `reverse()` des listes dans la fonction _classement_mots_
 
-
-
-
+Exemple :
+```Python
+>>> liste=[1,8,9,3]
+>>> liste.sort()
+>>> liste
+[1, 3, 8, 9]
+>>> liste.reverse()
+>>> liste
+[9, 8, 3, 1]
+```
 
