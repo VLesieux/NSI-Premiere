@@ -105,8 +105,8 @@ Au scrable, les valeurs des pièces sont les suivantes:
     4 points : F , H , V    
     8 points : J , Q    
     10 points : K , W , X , Y, Z    
-Un joueur s'apprête à placer un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
-Écrire une fonction capable de renvoyer à partir d'un tuple de mots un dictionnaire associant une valeur en points à chacun des mots en plaçant les mots dans l'ordre décroissant des points.   
+On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
+Écrire une fonction capable de renvoyer à partir d'un tuple de mots possibles un dictionnaire associant une valeur en points à chacun des mots en plaçant les mots dans l'ordre décroissant des points.   
 
 Par exemple :
 ```Python
@@ -118,8 +118,9 @@ Par exemple :
 
 Indications :
 
-1) Créer une première fonction _points_ donnant la valeur en points d'un mot
-2) Utiliser les méthodes `sort()` et `reverse()` des listes dans la fonction _classement_mots_
+1) Créer un dictionnaire associant une valeur à chaque lettre.
+2) Créer une première fonction appelée _points_ retournant la valeur en points d'un mot entré en paramètre
+3) Utiliser les méthodes `sort()` et `reverse()` des listes dans une nouvelle fonction _classement_mots_ ; il s'agira en effet de créer une liste contenant les valeurs des mots, puis d'ordonner et de renverser cette liste. On sera ensuite amené à créer un nouveau dictionnaire initialement vide que l'on remplira avec des mots (les clés) qui ont pour valeur celles de cette liste.
 
 Exemple :
 ```Python
@@ -132,3 +133,31 @@ Exemple :
 [9, 8, 3, 1]
 ```
 
+Rappel : deux façons de parcourir une chaîne de caractères :  
+- en la parcourant comme une liste d'éléments
+```Python
+>>> mot="poisson"
+>>> for i in mot:
+    print(i)
+p
+o
+i
+s
+s
+o
+n
+```
+- en la parcourant de l'indice 0 à l'indice len(mot)-1
+```Python
+>>> mot="poisson"
+>>> for i in range(len(mot)):
+    print(mot[i])
+
+p
+o
+i
+s
+s
+o
+n
+```
