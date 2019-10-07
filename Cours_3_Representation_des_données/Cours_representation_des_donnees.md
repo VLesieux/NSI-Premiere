@@ -2,11 +2,11 @@
 ## Un peu d'histoire
 
 Pour représenter l'information dans la machine, on utilise le code binaire formé des bits (binary digit) 0 et 1. Ces codes correspondent aux états ouvert ou fermé des interrupteurs utilisés dans les circuits électroniques. 
-Une variable qui a deux états 0 ou 1, ou, False ou True, est également appelée **booléenne** en hommage au britannique **George Boole** qui a créé au XIX<sup>e</sup> siècle l'algèbre , fondement de la logique booléenne utilisée en mathématique, philosophie et informatique.  
+Une variable qui a deux états 0 ou 1, ou, False ou True, est également appelée **booléenne** en hommage au britannique **George Boole** qui a créé au XIX<sup>e</sup> siècle l'algèbre, fondement de la logique booléenne utilisée en mathématique, philosophie et informatique.  
 <img width="150" src="assets/Boole.png" /><img width="150" src="assets/Atanasov.png" /><img width="150" src="assets/Atansov_Berry_computer.png" /><img width="250" src="assets/Eniac.png" />. 
 
-À la fin des années 1930, **Djon Atanasov**, physicien, mathématicien et ingénieur américain d'origine Bulgare, travaillait avec son étudiant Clifford Berry sur la construction d'un calculateur électronique (sans programme enregistré). Atanasov avait compris que la solution du fonctionnement était le binaire. L'**ABC** (Atanasov Berry Computer) entra en service à la fin **1939**. Il pouvait effectuer une opération toutes les 15 secondes et pesait plus de 300 kilos.   
-Pendant ce temps, la construction de l'**ENIAC** avait commencé; Eckert et Mauchly, concepteurs et constructeurs, vont breveté leur invention d'un ordinateur en **1945**. Un procès aura lieu dans les années 1970, Atanasov affirmant que l'ENIAC avait été construit sur la base de ses idées. Une Cour des États-Unis finira par invalider le brevet d'Eckert et Mauchly, tombé alors dans le domaine public, et attribuera ainsi l'invention du premier ordinateur électronique à Atanasov.
+À la fin des années 1930, **Djon Atanasov**, physicien, mathématicien et ingénieur américain d'origine Bulgare, travaillait avec son étudiant Clifford Berry sur la construction d'un calculateur électronique (sans programme enregistré). Atanasov avait compris que la solution du fonctionnement était le binaire. L'**ABC** (Atanasov Berry Computer) entra en service à la fin **1939**, il pouvait effectuer une opération toutes les 15 secondes et pesait plus de 300 kilos.   
+Pendant ce temps, la construction de l'**ENIAC** avait commencé ; Eckert et Mauchly, concepteurs et constructeurs, vont breveté leur invention d'un ordinateur en **1945**. Un procès aura lieu dans les années 1970, Atanasov affirmant que l'ENIAC avait été construit sur la base de ses idées. Une cour des États-Unis finira par invalider le brevet d'Eckert et Mauchly, tombé alors dans le domaine public, et attribuera ainsi l'invention du premier ordinateur électronique à Atanasov.
 
 ## Les attendus du programme
 
@@ -19,25 +19,26 @@ Pendant ce temps, la construction de l'**ENIAC** avait commencé; Eckert et Mauc
 > Commentaire : les bases 2, 10 et 16 sont privilégiées
 
 Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf,
-par usage et commodité, en base 10) : 1010<sub>2</sub> = 10 = A<sub>16</sub>
+par usage et commodité, en base 10) :   
+1010<sub>2</sub> = 10 = A<sub>16</sub>
 
 **Note** : la base par défaut dans du code Python est la base 10. Mais, avec certaines notations, il est
 possible d'utiliser d'autres bases.
 ```python
->>> 10 == 0b1010 == 0xA == 0o12
+>>> 10 == 0b1010 == 0xA
 True
 ```
 
-Toutes ces représentations correspondent au nombre dix. Peu importe la
-représentation donnée en entrée, en interne toutes les données sont en
+Toutes ces représentations correspondent au même nombre dix.   
+Mais peu importe la représentation donnée en entrée, en interne toutes les données sont en
 binaire.
 
 > Écrire en base cinq le nombre qui s'écrit 175 en base dix
 
 Algorithme de conversion d'un entier en base b≥2 :
 ```
-Entrée : b la base de numération, n un entier naturel.
-Sortie : x0 , x1 ,. . . xp−1 les chiffres de l’écriture de n en base b.
+Entrée : b la base de numération, n est un entier naturel.
+Sortie : x0 , x1 ,. . . xp−1 les différents chiffres de l’écriture de n en base b.
 
 m := n
 i := 0
@@ -54,12 +55,12 @@ renvoyer x0 , x1, . . . , xi.
 ### Passage de la base 2 à 16, et inversement
 
 La base 16 est fréquemment utilisée. Pourquoi ?
-16 a le bon goût d'être une puissance de 2 (2<sup>4</sup>) et deux chiffres hexadécimaux
-permettent de décrire un octet.
+16 a le bon goût d'être une puissance de 2 (2<sup>4</sup>) et <u>deux chiffres hexadécimaux
+permettent de décrire un octet</u>.
 
 On peut aborder le passage de la base 2 à la base 16 (et inversement).  Quatre
 bits correspondent à un chiffre hexadécimal. On peut donc convertir un nombre
-de la base 2 à la base 16, sans passer par la 10, par paquets de 4 bits. Si le
+de la base 2 à la base 16, sans passer par la 10, en procédant par paquets de 4 bits. Si le
 nombre de bits n'est pas un multiple de 4, on peut de toute façon « ajouter »
 des 0 non significatifs avant le bit de poids fort.
 
@@ -84,16 +85,16 @@ ki, Mi, Gi, Ti, etc.
 ## Taille d'un entier dans l'écriture en base 2
 
 Le fait que l'entier soit relatif ne change finalement pas grand chose. Il
-faut uniquement prendre en commpte un bit en plus afin de stocker le signe.
+faut uniquement prendre en compte un bit en plus afin de stocker le signe.
 
 En utilisant exactement $`n`$ bits (avec un nième bit non nul) on peut représenter les entiers naturels de
-$`2^{n-1}`$ à $`2^n-1`$.  Si on veut connaître le nombre de bits pour
+$`2^{n-1}`$ (1 suivie de 0) à $`2^n-1`$ (que des 1).  Si on veut connaître le nombre de bits pour
 représenter un entier donné, il faut utiliser la fonction inverse $`\log_2`$
 (mais qui n'est pas présentée en 1è).
 De ce fait un entier naturel $`n`$ s'écrit sur $`\lfloor \log_2 n\rfloor + 1`$ bits.
 
 D'un point de vue plus pratique les entiers naturels représentables sur 8, 16,
-32 ou 64 bits sont donc ceux inférieurs à 2<sup>8</sup>=256, 2<sup>16</sup> = 65 536, 2<sup>32</sup> =
+32 ou 64 bits sont donc ceux strictement inférieurs à 2<sup>8</sup>=256, 2<sup>16</sup> = 65 536, 2<sup>32</sup> =
 4 294 967 296, 2<sup>64</sup> = 18 446 744 073 709 551 616.
 
 ## Complément à 2
@@ -104,11 +105,11 @@ permet pas d'additionner directement deux nombres.
 
 Par exemple si le bit de poids fort est le bit de signe et qu'on représente
 les entiers relatifs sur 3 bits et qu'on fait 2 + (-1). Cela donne, en
-représentation signe-valeur absolue : 101 + 010 = 111. Or 111 en
+représentation signe-valeur absolue : 010 + 101 = 111. Or 111 en
 représentation signe-valeur absolue correspond à -3, ce qui est incorrect.
 
-À la place la représentation complément à 2 est généralement préférée.
-Soit $`n`$ l'entier relatif à représenter sur $`p`$ bits (avec $`|n| < 2^{n-1}`$):
+À la place la représentation en complément à 2 est généralement préférée.
+Soit $`n`$ l'entier relatif à représenter sur $`p`$ bits (avec $`|n| < 2^{p-1}`$):
 - si $`n \geq 0`$ : $`n`$ est représenté en binaire sur $`p`$ bits.
 - sinon : le complément à 2 de $`-n`$ est représenté sur $`p`$ bits.
 
@@ -118,11 +119,12 @@ quel bit est le bits de poids fort.
 
 Le complément à 2 d'un entier positif $`N`$ sur $`p`$ bits est tel que la
 somme de $`N`$ et de son complément à 2 soit nulle sur $`p`$ bits.
-Il peut se calculer de deux méthodes :      
+Il peut se calculer de deux méthodes :     
 
 
-**Première méthode** : On prend le complément de la représentation binaire de $`N`$ et on lui ajoute 1    
-**Deuxième méthode** :  $`2^p-N`$ qu'on représente en binaire sur $`p`$ bits.
+- **Première méthode** : On prend le complément de la représentation binaire de $`N`$ et on lui ajoute 1    
+
+- **Deuxième méthode** :  $`2^p-N`$ qu'on représente en binaire sur $`p`$ bits.
 
 **Attention** *complément à 2* désigne à la fois l'opération mathématique de
 conversion et une méthode de représentation des entiers relatifs (qui
@@ -136,23 +138,28 @@ représenter tous les entiers de $`-2^{p-1}`$ jusqu'à $`2^{p-1}-1`$
 
 On souhaite représenter 13 sur 5 bits dans la représentation en complément
 à 2.  On a 13 = 1101<sub>2</sub>. Donc dans la représentation en complément à 2 sur 5 bits
-13 s'écrit : 01101.
+13 s'écrit : 01101.      
 
-On souhaite représenter -13 sur 5 bits dans la représentation en complément
+
+On souhaite maintenant représenter -13 sur 5 bits dans la représentation en complément
 à 2.  On a toujours 13 = 1101<sub>2</sub>. Nous devons calculer le complément
-à 2. Voyons avec les deux méthodes
-1. Le complément de 01101<sub>2</sub> est 10010<sub>2</sub>, auquel on ajoute 1. On obtient donc
-   10011<sub>2</sub>. La représentation de -13 en complément à 2 est donc 10011.
-2. $`2^5 - 13 = 32 - 13 = 19`$. 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
+à 2. Voyons avec les deux méthodes     
+
+
+**Première méthode** : Le complément de 01101<sub>2</sub> est 10010<sub>2</sub>, auquel on ajoute 1. On obtient donc
+   10011<sub>2</sub>. La représentation de -13 en complément à 2 sur 5 bits est donc 10011.     
+
+ 
+**Deuxième méthode** : $`2^5 - 13 = 32 - 13 = 19`$ or 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
    complément à 2 est 10011.
 
-Quel est le nombre entier relatif qui correspond à la représentation en
-complément à 2 suivante 11001 ?
+Inversement, quel est le nombre entier relatif qui correspond à la représentation en
+complément à 2 sur 5 bits suivante 11001 ?
 
-Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.
-1. On prend le complément et on lui ajoute 1 : 00111<sub>2</sub>, ce qui correspond à
-   l'entier 7. L'entier représenté était donc -7
-2. En binaire 11001<sub>2</sub> = 25. $`2^5-25 = 7`$ Donc l'entier représenté était -7.
+Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.     
+**Première méthode** :  On prend le complément et on lui ajoute 1 : 00111<sub>2</sub>, ce qui correspond à
+   l'entier 7. L'entier représenté était donc -7    
+**Deuxième méthode** : En binaire 11001<sub>2</sub> = 25 puis $`2^5-25 = 7`$ donc l'entier représenté était -7.
 
 Si la représentation en complément à 2 est 01001, alors le nombre entier est
 positif (bit de poids fort à 0). Il suffit donc de convertir le nombre en
@@ -163,9 +170,9 @@ décimal pour connaître la valeur de l'entier, ici 9.
 
 ### Représentation des entiers de taille arbitraire en Python
 
-Dans un langage où les entiers sont de taille fixe (par exemple sur 32 bits),
-ajouter 1 à $`2^{31}-1`$ donnera un nombre négatif (et cela donnera
-$`-2^{31}`$ si les nombres sont représentés en complément à 2).
+Dans un langage où les entiers sont de taille fixe, par exemple sur 32 bits,
+ajouter 1 à $`2^{31}-1`$ donnera un nombre négatif, et cela donnera
+$`-2^{31}`$ si les nombres sont représentés en complément à 2 sur 32 bits.
 
 Il n'est pas possible d'illustrer cela sous Python, ou alors de manière très
 détournée, car les entiers peuvent être arbitrairement grand (l'unique limite
@@ -188,10 +195,10 @@ Un nombre flottant n de type `float` s'écrit sous la forme `n = (-1)^s × b^p �
 Ce n'est pas tout à fait vrai dans la norme IEEE-754 mais, dans le cadre de cette norme, on peut néanmoins se ramener à ce cas-là.
 
 L'intérêt d'une telle notation est qu'elle permet de représenter avec une même
-précision de très petits nombres que de très grand nombre.
+précision aussi bien des très petits nombres que de très grands nombres.
 Cependant on ne peut représenter que des nombres rationnels, mais pas tous.
 
-Par exemple, en prenant $`b=10`$ :
+Par exemple, en faisant le choix de la base 10,  $`b=10`$ :
 * $`0,1 = (-1)^0\times 10^{-1}\times 1`$
 * $`0,25 = (-1)^0\times 10^{-2}\times 25`$
 * $`1/3 = (-1)^0\times 10^{-beaucoup}\times 33333\ldots`$
@@ -217,17 +224,16 @@ Voici quelques valeurs pour les puissances de 2 négatives :
 
 Dans ce cas, on a :
 * $`0,1 = (-1)^0\times 2^{-4}\times 1,6`$. Or `1,6 = 1+1/2+1/16+1/32+1/256+1/512+....`.     
-  Ainsi, de la même manière qu'on ne peut pas
-  représenter 1/3 de manière exacte avec $`b=10`$, on ne pourra pas
+  Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de manière exacte avec $`b=10`$, on ne pourra pas
   représenter $`0,1`$ de manière exacte avec $`b=2`$
 * $`0,25 = (-1)^0\times 2^{-2}\times 1`$
 
-**Attention** Les calculs sur les nombres flottants ne sont donc pas
+**Attention :** Les calculs sur les nombres flottants ne sont donc pas
 exacts. Il est parfois nécessaire d'approximer la valeur à représenter.  Il ne
 faut **jamais** tester une égalité entre deux nombre flottants mais utiliser
 une marge d'erreur relative.
 
-**Attention** Il ne faut pas se fier à l'affichage de Python (ou d'un autre
+**Attention :** Il ne faut pas se fier à l'affichage de Python (ou d'un autre
 langage) qui n'affiche pas toutes les décimales stockées du nombre flottant.
 On peut cependant accéder à plus de décimales en utilisant par exemple les
 options de formattage de `format`. Attention aux yeux !
@@ -259,7 +265,7 @@ True
 0.30000000000000004
 ```
 
-La norme IEEE754 définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe, une mantisse et un exposant selon `n = (-1)^s × b^p × m` avec m=1,...      
+La norme IEEE754 (notion présentée mais non exigible) définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe s, une mantisse m et un exposant p dans la base b selon `n = (-1)^s × b^p × m` avec m=1,...      
 
 Sur 64 bits, la règle est la suivante :
 - un bit est réservé pour le signe, 0 pour le signe + et 1 pour le signe -
@@ -268,8 +274,7 @@ Sur 64 bits, la règle est la suivante :
 Ces trois parties sont codées en binaire et concaténées pour former un nombre de 64 bits.
 
 Par exemple, codons le réel - 0,375.
-On note que 0,375=1,5×2<sup>-2</sup>
-On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0.
+On note que 0,375=1,5×2<sup>-2</sup>. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0.
 Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
 
 
@@ -300,7 +305,7 @@ Exemple avec $`(a \vee b) \wedge c`$ ($`\vee`$ : OU ; $`\wedge`$ : ET)
 
 ## Exemples d'application
 
-L'opérateur ET permet de créer des masques afin de ne conserver que certains
+L'opérateur ET permet par exemple de créer des masques afin de ne conserver que certains
 bits d'une valeur.
 
 ### Parité d'un nombre
@@ -384,7 +389,7 @@ résultat est soit 0 soit 1.
 # Représentation d'un texte en machine
 
 > Attendu : Identifier l’intérêt des différents systèmes d’encodage.
-> Convertir un fichier texte dansdifférents formats d’encodage.
+> Convertir un fichier texte dans différents formats d’encodage.
 >
 > Commentaires : Aucune connaissance précise des normes d’encodage n’est
 > exigible.
