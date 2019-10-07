@@ -89,9 +89,9 @@ faut uniquement prendre en compte un bit en plus afin de stocker le signe.
 
 En utilisant exactement *`n`* bits (avec un nième bit non nul) on peut représenter les entiers naturels de
 *`2^{n-1}`* (1 suivie de 0) à *`2^n-1`* (que des 1).  Si on veut connaître le nombre de bits pour
-représenter un entier donné, il faut utiliser la fonction inverse *`\log_2`*
+représenter un entier donné, il faut utiliser la fonction inverse de 2^n soit *`log_2`*
 (mais qui n'est pas présentée en 1è).
-De ce fait un entier naturel *`n`* s'écrit sur *`\lfloor \log_2 n\rfloor + 1`* bits.
+De ce fait un entier naturel *`n`* s'écrit sur *`log_2(n)+ 1`* bits.
 
 D'un point de vue plus pratique les entiers naturels représentables sur 8, 16,
 32 ou 64 bits sont donc ceux strictement inférieurs à 2<sup>8</sup>=256, 2<sup>16</sup> = 65 536, 2<sup>32</sup> =
@@ -110,7 +110,7 @@ représentation signe-valeur absolue correspond à -3, ce qui est incorrect.
 
 À la place la représentation en complément à 2 est généralement préférée.
 Soit *`n`* l'entier relatif à représenter sur *`p`* bits (avec *`|n| < 2^{p-1}`*):
-- si *`n \geq 0`* : *`n`* est représenté en binaire sur *`p`* bits.
+- si *`n > 0`* : *`n`* est représenté en binaire sur *`p`* bits.
 - sinon : le complément à 2 de *`-n`* est représenté sur *`p`* bits.
 
 **Attention** C'est le bit de poids fort qui sert de bit de signe. Il est donc très
@@ -146,8 +146,7 @@ On souhaite maintenant représenter -13 sur 5 bits dans la représentation en co
 à 2. Voyons avec les deux méthodes     
 
 
-**Première méthode** : Le complément de 01101<sub>2</sub> est 10010<sub>2</sub>, auquel on ajoute 1. On obtient donc
-   10011<sub>2</sub>. La représentation de -13 en complément à 2 sur 5 bits est donc 10011.     
+**Première méthode** : Le complément de 01101<sub>2</sub> est 10010<sub>2</sub>, auquel on ajoute 1. On obtient donc 10011<sub>2</sub>. La représentation de -13 en complément à 2 sur 5 bits est donc 10011.     
 
  
 **Deuxième méthode** : *`2^5 - 13 = 32 - 13 = 19`* or 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
