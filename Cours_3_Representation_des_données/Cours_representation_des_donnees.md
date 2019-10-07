@@ -87,11 +87,11 @@ ki, Mi, Gi, Ti, etc.
 Le fait que l'entier soit relatif ne change finalement pas grand chose. Il
 faut uniquement prendre en compte un bit en plus afin de stocker le signe.
 
-En utilisant exactement $`n`$ bits (avec un nième bit non nul) on peut représenter les entiers naturels de
-$`2^{n-1}`$ (1 suivie de 0) à $`2^n-1`$ (que des 1).  Si on veut connaître le nombre de bits pour
-représenter un entier donné, il faut utiliser la fonction inverse $`\log_2`$
+En utilisant exactement *`n`* bits (avec un nième bit non nul) on peut représenter les entiers naturels de
+*`2^{n-1}`* (1 suivie de 0) à *`2^n-1`* (que des 1).  Si on veut connaître le nombre de bits pour
+représenter un entier donné, il faut utiliser la fonction inverse *`\log_2`*
 (mais qui n'est pas présentée en 1è).
-De ce fait un entier naturel $`n`$ s'écrit sur $`\lfloor \log_2 n\rfloor + 1`$ bits.
+De ce fait un entier naturel *`n`* s'écrit sur *`\lfloor \log_2 n\rfloor + 1`* bits.
 
 D'un point de vue plus pratique les entiers naturels représentables sur 8, 16,
 32 ou 64 bits sont donc ceux strictement inférieurs à 2<sup>8</sup>=256, 2<sup>16</sup> = 65 536, 2<sup>32</sup> =
@@ -109,29 +109,29 @@ représentation signe-valeur absolue : 010 + 101 = 111. Or 111 en
 représentation signe-valeur absolue correspond à -3, ce qui est incorrect.
 
 À la place la représentation en complément à 2 est généralement préférée.
-Soit $`n`$ l'entier relatif à représenter sur $`p`$ bits (avec $`|n| < 2^{p-1}`$):
-- si $`n \geq 0`$ : $`n`$ est représenté en binaire sur $`p`$ bits.
-- sinon : le complément à 2 de $`-n`$ est représenté sur $`p`$ bits.
+Soit *`n`* l'entier relatif à représenter sur *`p`* bits (avec *`|n| < 2^{p-1}`*):
+- si *`n \geq 0`* : *`n`* est représenté en binaire sur *`p`* bits.
+- sinon : le complément à 2 de *`-n`* est représenté sur *`p`* bits.
 
 **Attention** C'est le bit de poids fort qui sert de bit de signe. Il est donc très
 important de préciser le nombre de bits dans la représentation afin de savoir
 quel bit est le bits de poids fort.
 
-Le complément à 2 d'un entier positif $`N`$ sur $`p`$ bits est tel que la
-somme de $`N`$ et de son complément à 2 soit nulle sur $`p`$ bits.
+Le complément à 2 d'un entier positif *`N`* sur *`p`* bits est tel que la
+somme de *`N`* et de son complément à 2 soit nulle sur *`p`* bits.
 Il peut se calculer de deux méthodes :     
 
 
-- **Première méthode** : On prend le complément de la représentation binaire de $`N`$ et on lui ajoute 1    
+- **Première méthode** : On prend le complément de la représentation binaire de *`N`* et on lui ajoute 1    
 
-- **Deuxième méthode** :  $`2^p-N`$ qu'on représente en binaire sur $`p`$ bits.
+- **Deuxième méthode** :  *`2^p-N`* qu'on représente en binaire sur *`p`* bits.
 
 **Attention** *complément à 2* désigne à la fois l'opération mathématique de
 conversion et une méthode de représentation des entiers relatifs (qui
 n'implique pas forcément de calculer un complément à 2 !)
 
-Avec la représentation en complément à 2 sur $`p`$ bits il est possible de
-représenter tous les entiers de $`-2^{p-1}`$ jusqu'à $`2^{p-1}-1`$
+Avec la représentation en complément à 2 sur *`p`* bits il est possible de
+représenter tous les entiers de *`-2^{p-1}`* jusqu'à *`2^{p-1}-1`*
 (représentés respectivement par 10...0 et 01...1, la valeur -1 étant codée par une suite de 1).
 
 ### Exemples
@@ -150,7 +150,7 @@ On souhaite maintenant représenter -13 sur 5 bits dans la représentation en co
    10011<sub>2</sub>. La représentation de -13 en complément à 2 sur 5 bits est donc 10011.     
 
  
-**Deuxième méthode** : $`2^5 - 13 = 32 - 13 = 19`$ or 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
+**Deuxième méthode** : *`2^5 - 13 = 32 - 13 = 19`* or 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
    complément à 2 est 10011.
 
 Inversement, quel est le nombre entier relatif qui correspond à la représentation en
@@ -159,7 +159,7 @@ complément à 2 sur 5 bits suivante 11001 ?
 Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.     
 **Première méthode** :  On prend le complément et on lui ajoute 1 : 00111<sub>2</sub>, ce qui correspond à
    l'entier 7. L'entier représenté était donc -7    
-**Deuxième méthode** : En binaire 11001<sub>2</sub> = 25 puis $`2^5-25 = 7`$ donc l'entier représenté était -7.
+**Deuxième méthode** : En binaire 11001<sub>2</sub> = 25 puis *`2^5-25 = 7`* donc l'entier représenté était -7.
 
 Si la représentation en complément à 2 est 01001, alors le nombre entier est
 positif (bit de poids fort à 0). Il suffit donc de convertir le nombre en
@@ -171,8 +171,8 @@ décimal pour connaître la valeur de l'entier, ici 9.
 ### Représentation des entiers de taille arbitraire en Python
 
 Dans un langage où les entiers sont de taille fixe, par exemple sur 32 bits,
-ajouter 1 à $`2^{31}-1`$ donnera un nombre négatif, et cela donnera
-$`-2^{31}`$ si les nombres sont représentés en complément à 2 sur 32 bits.
+ajouter 1 à *`2^{31}-1`* donnera un nombre négatif, et cela donnera
+*`-2^{31}`* si les nombres sont représentés en complément à 2 sur 32 bits.
 
 Il n'est pas possible d'illustrer cela sous Python, ou alors de manière très
 détournée, car les entiers peuvent être arbitrairement grand (l'unique limite
@@ -198,18 +198,18 @@ L'intérêt d'une telle notation est qu'elle permet de représenter avec une mê
 précision aussi bien des très petits nombres que de très grands nombres.
 Cependant on ne peut représenter que des nombres rationnels, mais pas tous.
 
-Par exemple, en faisant le choix de la base 10,  $`b=10`$ :
-* $`0,1 = (-1)^0\times 10^{-1}\times 1`$
-* $`0,25 = (-1)^0\times 10^{-2}\times 25`$
-* $`1/3 = (-1)^0\times 10^{-beaucoup}\times 33333\ldots`$
-* $`0,0000421 = (-1)^0\times 10^{-7}\times 421`$
-* $`-421000 = (-1)^1\times 10^{3}\times 421`$
+Par exemple, en faisant le choix de la base 10,  *`b=10`* :
+* *`0,1 = (-1)^0× 10^{-1}× 1`*
+* *`0,25 = (-1)^0× 10^{-2}× 25`*
+* *`1/3 = (-1)^0× 10^{-beaucoup}× 33333\ldots`*
+* *`0,0000421 = (-1)^0× 10^{-7}× 421`*
+* *`-421000 = (-1)^1× 10^{3}× 421`*
 
-Mais lorsque la représentation se fait sur ordinateur, il est plus aisé d'avoir une base $`b=2`$.
-En base 2 le nombre 1,110001<sub>2</sub> est $`1+1/2+1/4+1/64`$.
+Mais lorsque la représentation se fait sur ordinateur, il est plus aisé d'avoir une base *`b=2`*.
+En base 2 le nombre 1,110001<sub>2</sub> est *`1+1/2+1/4+1/64`*.
 Voici quelques valeurs pour les puissances de 2 négatives :
 
-| $`x`$ | $`2^{-x}`$   |
+| *`x`* | *`2^{-x}`*   |
 |-------|--------------|
 | 1     | 0.5          |
 | 2     | 0.25         |
@@ -223,10 +223,10 @@ Voici quelques valeurs pour les puissances de 2 négatives :
 | 10    | 0.0009765625 |
 
 Dans ce cas, on a :
-* $`0,1 = (-1)^0\times 2^{-4}\times 1,6`$. Or `1,6 = 1+1/2+1/16+1/32+1/256+1/512+....`.     
-  Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de manière exacte avec $`b=10`$, on ne pourra pas
-  représenter $`0,1`$ de manière exacte avec $`b=2`$
-* $`0,25 = (-1)^0\times 2^{-2}\times 1`$
+* *`0,1 = (-1)^0× 2^{-4}× 1,6`*. Or `1,6 = 1+1/2+1/16+1/32+1/256+1/512+....`.     
+  Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de manière exacte avec *`b=10`*, on ne pourra pas
+  représenter *`0,1`* de manière exacte avec *`b=2`*
+* *`0,25 = (-1)^0× 2^{-2}× 1`*
 
 **Attention :** Les calculs sur les nombres flottants ne sont donc pas
 exacts. Il est parfois nécessaire d'approximer la valeur à représenter.  Il ne
@@ -286,11 +286,11 @@ Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
 > directes comme l’addition binaire sont présentées.  L’attention des élèves est
 > attirée sur le caractère séquentiel de certains opérateurs booléens.
 
-Table d'une expression booléenne avec $`n`$ variables : $`2^n`$ cas à évaluer.
+Table d'une expression booléenne avec *`n`* variables : *`2^n`* cas à évaluer.
 
-Exemple avec $`(a \vee b) \wedge c`$ ($`\vee`$ : OU ; $`\wedge`$ : ET)
+Exemple avec *`(a ∨ b) ∧ c`* (∨ : OU ; ∧ : ET)
 
-| a | b | c | $`(a\vee b)`$ | $`(a \vee b) \wedge c`$ |
+| a | b | c | *`(a ∨ b)`* | *`(a ∨ b) ∧ c`* |
 |---|---|---|---------------|-------------------------|
 | 0 | 0 | 0 | 0             | 0                       |
 | 0 | 0 | 1 | 0             | 0                       |
@@ -310,7 +310,7 @@ bits d'une valeur.
 
 ### Parité d'un nombre
 
-Un entier naturel pair $`n`$ a son bit de poids faible à 0. Il suffit donc de
+Un entier naturel pair *`n`* a son bit de poids faible à 0. Il suffit donc de
 consulter ce bit pour connaître la parité du nombre.
 
 `n ∧ 1` permet de ne conserver que le bit de poids faible (tous les autres bits sont mis à 0).
@@ -319,8 +319,8 @@ Si le résultat est 1 alors le nombre est impair, sinon le nombre est pair.
 ### Signe d'un nombre représenté en complément à 2
 
 On a vu que dans la représentation en complément à 2, le bit de poids fort
-désigne le bit de signe.  Si on suppose un nombre entier $`n`$ représenté sur
-$`p`$ bits, on peut isoler le bit de poids fort avec un ET également :`n
+désigne le bit de signe.  Si on suppose un nombre entier *`n`* représenté sur
+*`p`* bits, on peut isoler le bit de poids fort avec un ET également :`n
 ∧ (2^{p-1})`. Si le résultat est 0, le nombre est positif sinon il est
 négatif.
 
@@ -356,19 +356,19 @@ si exactement une des deux valeurs est vraie.
 Les opérateurs bit-à-bit incluent les opérateurs booléens déjà mentionnés mais
 également les décalages de bits.
 
-- *Décalage à droite*: le décalage à droite de $`k`$ positions d'un entier
-$`n`$, noté $`n\gg k`$, est l'entier dont l'écriture binaire est obtenue en
-supprimant les $`k`$ bits de poids faibles de l'écriture binaire de $`n`$.
-- *Décalage à gauche*: le décalage à gauche de $`k`$ positions d'un entier
-$`n`$, noté $`n\ll k`$, est l'entier dont l'écriture binaire est obtenue en
-ajoutant $`k`$ bits nuls à droite de l'écriture binaire de $`n`$.
+- *Décalage à droite*: le décalage à droite de *`k`* positions d'un entier
+*`n`*, noté *`n\gg k`*, est l'entier dont l'écriture binaire est obtenue en
+supprimant les *`k`* bits de poids faibles de l'écriture binaire de *`n`*.
+- *Décalage à gauche*: le décalage à gauche de *`k`* positions d'un entier
+*`n`*, noté *`n\ll k`*, est l'entier dont l'écriture binaire est obtenue en
+ajoutant *`k`* bits nuls à droite de l'écriture binaire de *`n`*.
 
 
 En Python, décaler un nombre entier positif d'un bit vers la gauche revient à
-le multiplier par 2 (et le décaler de $`k`$ bits, revient à le multiplier par
-$`2^k`$).  Si le nombre entier est représenté sur un nombre fixe de bits (ce
-qui n'est pas le cas de Python), décaler de $`k`$ bits vers la gauche va
-également faire perdre les $`k`$ bits qui étaient originellement de poids
+le multiplier par 2 (et le décaler de *`k`* bits, revient à le multiplier par
+*`2^k`*).  Si le nombre entier est représenté sur un nombre fixe de bits (ce
+qui n'est pas le cas de Python), décaler de *`k`* bits vers la gauche va
+également faire perdre les *`k`* bits qui étaient originellement de poids
 fort.
 
 En Python les décalages à gauche et à droite se font respectivement avec les
@@ -381,9 +381,9 @@ opérateurs `<<` et `>>`
 ```
 
 Le décalage de bit aurait été utile dans l'exemple d'application précédent de
-détermination du bit de signe. Nous avions fait : $`n \wedge (2^{p-1})`$ pour
-cela et dans ce cas soit le résultat était 0 soit $`2^{p-1}`$.  Avec le
-décalage à droite on peut également faire $`n \gg (p-1)`$ et dans ce cas le
+détermination du bit de signe. Nous avions fait : *`n \wedge (2^{p-1})`* pour
+cela et dans ce cas soit le résultat était 0 soit *`2^{p-1}`*.  Avec le
+décalage à droite on peut également faire *`n \gg (p-1)`* et dans ce cas le
 résultat est soit 0 soit 1.
 
 # Représentation d'un texte en machine
@@ -409,7 +409,7 @@ Voici les caractères de la table ASCII (les 33 premiers, et le dernier, ne sont
 |-----|---------|-------|-------|-------|-------|-------|-------|-------|-------|------|-------|-------|------|------|------|------|
 | `0` | `NUL`   | `SOH` | `STX` | `ETX` | `EOT` | `ENQ` | `ACK` | `BEL` | `BS`  | `HT` | `LF`  | `VT`  | `FF` | `CR` | `SO` | `SI` |
 | `1` | `DLE`   | `DC1` | `DC2` | `DC3` | `DC4` | `NAK` | `SYN` | `ETB` | `CAN` | `EM` | `SUB` | `ESC` | `FS` | `GS` | `RS` | `US` |
-| `2` | `ESP`   | `!`   | `"`   | `#`   | `$`   | `%`   | `&`   | `'`   | `(`   | `)`  | `*`   | `+`   | `,`  | `-`  | `.`  | `/`  |
+| `2` | `ESP`   | `!`   | `"`   | `#`   | `*`   | `%`   | `&`   | `'`   | `(`   | `)`  | `*`   | `+`   | `,`  | `-`  | `.`  | `/`  |
 | `3` | `0`     | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`  | `:`   | `;`   | `<`  | `=`  | `>`  | `?`  |
 | `4` | `@`     | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   | `G`   | `H`   | `I`  | `J`   | `K`   | `L`  | `M`  | `N`  | `O`  |
 | `5` | `P`     | `Q`   | `R`   | `S`   | `T`   | `U`   | `V`   | `W`   | `X`   | `Y`  | `Z`   | `[`   | `\`  | `]`  | `^`  | `_`  |
@@ -454,7 +454,7 @@ concentrons sur l'UTF-8
 Le codage UTF-8 est un codage de longueur variable. Certains caractères sont
 codés sur un seul octet, ce sont les 128 caractères du codage ASCII.  Les
 autres caractères peuvent être codés sur 2, 3 ou 4 octets.  Ainsi l'UTF-8
-permet en théorie de représenter $`2^{21} = 2\,097\,152`$ caractères
+permet en théorie de représenter *`2^{21} = 2\,097\,152`* caractères
 différents, en réalité un peu moins. Il y a actuellement environ une centaine
 de milliers de caractères Unicode (incluant les [caractères des langues
 vivantes ou
