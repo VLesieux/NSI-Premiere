@@ -1,4 +1,4 @@
-# Exercices : représentation des données
+# Exercices : représentation des données [solutions](https://drive.google.com/file/d/1UcjJnA53j3RJUM_rcXC51o1GoMP4tnLB/view?usp=sharing)
 
 ## Exercice 1
 
@@ -11,13 +11,13 @@ Les nombres sont écrits en binaire.
 
 1. Écrire en base cinq puis en base seize le nombre qui s'écrit 172 en base dix.
 2. Le nombre B3 est écrit en base seize. Écrire ce nombre en base deux puis en base cinq.
-3. Vérifier dans le Shell en utilisant l'instruction int(str, base) qui crée un nombre entier à partir de son écriture dans la base. La notation en base 16 est 0x....
+3. Vérifier dans le Shell en utilisant l'instruction int(str, base) qui crée un nombre entier à partir de son écriture sous forme de string dans la base. La notation en base 16 est aussi : 0x....
 
 ## Exercice 3
 
 Un nombre entier représenté par plusieurs octets est stocké en mémoire ou dans un fichier suivant un ordre qui s'appelle "l'endianness". Par exemple, le nombre qui s'écrit B35F en hexadécimal peut être stocké sous la forme B35F ou sous la forme 5FB3.
 Dans le premier cas on parle d'orientation _big-endian_ et dans le deuxième cas d'orientation _little-endian_. Avec l'orientation _big-endian_, 08 00 correspond à 8×16<sup>2</sup>=2048 en décimal alors qu'avec l'orientation _little-endian_ 08 00 correspond à 8 en décimal.
-Écrire une fonction qui prend en paramètres 2 octets écrits en hexadécimal, représentés par deux entiers compris entre 0 et 255, et une chaîne de caractères "BE" ou "LE" et renvoie la valeur décimale du nombre représenté suivant l'encodage _big-endian_ (pour "BE") ou _little-endian_ (pour "LE").
+Écrire une fonction qui prend en paramètres 2 octets écrits en hexadécimal (directement et non sous forme de string), représentés par deux entiers compris entre 0 et 255, et une chaîne de caractères "BE" ou "LE" et renvoie la valeur décimale du nombre représenté suivant l'encodage _big-endian_ (pour "BE") ou _little-endian_ (pour "LE").
 
 ## Exercice 4
 
@@ -28,14 +28,18 @@ On utilise 5 bits pour coder en binaire les entiers relatifs.
 3. Si on utilise 5 bits pour coder les entiers relatifs, combien de nombres peut-on coder et lesquels ?
 
 
-## Exercice 5 : codage d'un entier relatif sur n bits
+## Exercice 5 : codage d'un entier relatif en binaire sur p bits
 
-Écrire une fonction _conversion_relatif(a,n)_ qui prend en paramètres un entier relatif a exprimé en base dix et un entier naturel non nul n et renvoie le codage de a sur n bits. Le résultat renvoyé est de type str.   
-  Par exemple, sur 6 bits, la fonction doit renvoyer '010010' si n=18 et '101110' si n= - 18.
+Écrire une fonction _conversion_relatif(a,p)_ qui prend en paramètres un entier relatif a exprimé en base dix et un entier naturel non nul p et renvoie le codage de a sur p bits. Le résultat renvoyé est de type str.     
+Par exemple, sur p=6 bits, la fonction doit renvoyer '010010' si a=18 et '101110' si a= - 18.
+
+Indications :
+- Faire une fonction conversion_entier(a,p) puis une fonction conversion_entier_relatif(a,p)
+- Ajouter ensuite les conditions pour une écriture sur p bits
 
 ## Exercice 6
 
-Vérifier l'égalité : a xor b = (a and not(b)) or (not(a) and b).
+Vérifier, à l'aide d'une table de vérités, l'égalité : a xor b = (a and not(b)) or (not(a) and b).
 
 
 ## Exercice 7
