@@ -71,14 +71,21 @@ Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour
 
 ## Exercice 10 : codage d'un flottant suivant la norme IEEE 754
 
-Écrire une fonction qui détermine et renvoie le codage d'un flottant exprimé en base dix. L'entrée en paramètre est de type float et la sortie de type str. On utilise le codage sur 64 bits de la norme IEEE 754 (cf.cours).    
+Écrire une fonction _codage_ (accompagnée de sa docstring) qui détermine et renvoie le codage binaire d'un flottant exprimé en base dix. L'entrée en paramètre est de type float et la sortie de type str. On utilise le codage sur 64 bits de la norme IEEE 754.   
 Voici les différentes étapes :
 1. Le paramètre de la fonction, de typle float, représente un nombre x.
 2. Le signe de x est déterminé et stocké dans une variable s='0' ou s='1' puis x est changé en |x|
-3. Calcul de l'exposant et de la mantisse. Pour cela, si x≥2, effectuer des divisions par 2 successives, si x<1 effectuer des multiplications successives, en remplaçant à chaque fois la valeur de x par le résultat obtenu, et dans les deux cas jusqu'à obtenir un nombre x tel que 1≤x<2. L'exposant est alors, au signe près, le nombre de divisions ou de multiplications effectuées et la mantisse est le nombre x final.
+3. Calcul de l'exposant et de la mantisse. Pour cela, si x≥2, effectuer des divisions successives par 2, si x<1 effectuer des multiplications successives par 2, en remplaçant à chaque fois la valeur de x par le résultat obtenu, et dans les deux cas jusqu'à obtenir un nombre x tel que 1≤x<2. L'exposant est alors, au signe près, le nombre de divisions ou de multiplications effectuées et la mantisse est le nombre x final.
 4. Calcul de l'exposant décalé qui est codé en binaire sur 11 bits (voir l'exercice 5). Le résultat est stocké dans une chaîne e.
 5. Calcul de la mantisse tronquée x=x-1 qui doit être écrite en binaire sur 52 bits et stockée dans une chaîne m. Pour cela, multiplier x par 2 ; si x≥1, ajouter '1' à m et retrancher 1 à x, sinon ajouter '0' à m ; reproduire ce schéma 52 fois.
 6. La chaîne concaténée s+e+m est renvoyée.
+
+Par exemple, codons le réel - 0,375. On note que 0,375=1,5×2<sup>-2</sup>. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0. Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
+
+Exemples:   
+le codage de 1.025 est : 00111111100000110011001100110011    
+le codage de -11.0252 est : 11000001001100000110011100111000
+
 
 ## Exercice 11 
 
