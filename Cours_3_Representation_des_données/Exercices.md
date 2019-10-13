@@ -82,10 +82,13 @@ Voici les différentes étapes :
 
 Par exemple, codons le réel - 0,375. On note que 0,375=1,5×2<sup>-2</sup>. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0. Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
 
-Exemples:   
-le codage de 1.025 est : 00111111100000110011001100110011    
-le codage de -11.0252 est : 11000001001100000110011100111000
-
+Exemples:
+```  
+>>>codage(1.025)
+00111111100000110011001100110011
+>>>codage(-11.0252)
+11000001001100000110011100111000
+```  
 
 ## Exercice 11 
 
