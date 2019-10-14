@@ -28,21 +28,12 @@ On utilise 5 bits pour coder en binaire les entiers relatifs.
 3. Si on utilise 5 bits pour coder les entiers relatifs, combien de nombres peut-on coder et lesquels ?
 
 
-## Exercice 5 : codage d'un entier relatif en binaire sur p bits
-
-Écrire une fonction _conversion_relatif(a,p)_ qui prend en paramètres un entier relatif a exprimé en base dix et un entier naturel non nul p et renvoie le codage de a sur p bits. Le résultat renvoyé est de type str.     
-Par exemple, sur p=6 bits, la fonction doit renvoyer '010010' si a=18 et '101110' si a= - 18.
-
-Indications :
-- Faire une fonction conversion_entier(a,p) puis une fonction conversion_entier_relatif(a,p)
-- Ajouter ensuite les conditions pour une écriture sur p bits
-
-## Exercice 6
+## Exercice 5
 
 Vérifier, à l'aide d'une table de vérités, l'égalité : a xor b = (a and not(b)) or (not(a) and b).
 
 
-## Exercice 7
+## Exercice 6
 
 Comparer les résultats renvoyés par les trois fonctions suivantes, où x et y sont de type quelconque, sans les programmer en machine :
 ```python
@@ -59,38 +50,17 @@ def compare3(x,y):
     return not(not x or not y)
 ```
 
-## Exercice 8
+## Exercice 7
 
 Écrire le nombre 3,625 en binaire.
 
-## Exercice 9
+## Exercice 8
 
 Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour le signe, 11 bits pour l'exposant décalé et 52 bits pour la mantisse tronquée (cf.cours).
 1. Comment est codé le nombre - 4.5 ?
 2. Quel est le nombre réel codé par 1011 1111 1110 1000 0000 ... 0000 ?
 
-## Exercice 10 : codage d'un flottant suivant la norme IEEE 754
-
-Écrire une fonction _codage_ (accompagnée de sa docstring) qui détermine et renvoie le codage binaire d'un flottant exprimé en base dix. L'entrée en paramètre est de type float et la sortie de type str. On utilise le codage sur 64 bits de la norme IEEE 754.   
-Voici les différentes étapes :
-1. Le paramètre de la fonction, de typle float, représente un nombre x.
-2. Le signe de x est déterminé et stocké dans une variable s='0' ou s='1' puis x est changé en |x|
-3. Calcul de l'exposant et de la mantisse. Pour cela, si x≥2, effectuer des divisions successives par 2, si x<1 effectuer des multiplications successives par 2, en remplaçant à chaque fois la valeur de x par le résultat obtenu, et dans les deux cas jusqu'à obtenir un nombre x tel que 1≤x<2. L'exposant est alors, au signe près, le nombre de divisions ou de multiplications effectuées et la mantisse est le nombre x final.
-4. Calcul de l'exposant décalé qui est codé en binaire sur 11 bits (voir l'exercice 5). Le résultat est stocké dans une chaîne e.
-5. Calcul de la mantisse tronquée x=x-1 qui doit être écrite en binaire sur 52 bits et stockée dans une chaîne m. Pour cela, multiplier x par 2 ; si x≥1, ajouter '1' à m et retrancher 1 à x, sinon ajouter '0' à m ; reproduire ce schéma 52 fois.
-6. La chaîne concaténée s+e+m est renvoyée.
-
-Par exemple, codons le réel - 0,375. On note que 0,375=1,5×2<sup>-2</sup>. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0. Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
-
-Exemples:
-```  
->>>codage(1.025)
-00111111100000110011001100110011
->>>codage(-11.0252)
-11000001001100000110011100111000
-```  
-
-## Exercice 11 
+## Exercice 9 
 
 On considère le code python suivant qui permet de créer un fichier HTML pour obtenir une page contenant les caractères "ééé".
 
