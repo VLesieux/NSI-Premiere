@@ -1,5 +1,7 @@
 # DM n°1 Vacances de Toussaint
 
+On trouvera ici l'algorithme de conversion en base 2 que l'on adaptera à une autre base : [Algorithme de conversion](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
+
 
 ## Exercice 1 : codage d'un entier relatif en binaire sur p bits
 
@@ -35,3 +37,11 @@ Exemples:
 >>>codage(-11.0252)
 '11000001001100000110011100111000'
 ```  
+
+## Exercice 3 : conversion décimal-hexadécimal
+
+Écrire un programme de conversion décimal-hexadécimal (base 16) dans les deux sens utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F".
+
+Exemple de conversion en hexadécimal : 
+
+170<sub>10</sub>=1010 1010<sub>2</sub>=AA<sub>16</sub>
