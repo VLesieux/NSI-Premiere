@@ -41,6 +41,17 @@ Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour
 
 Vérifier, à l'aide d'une table de vérités, l'égalité : a xor b = (a and not(b)) or (not(a) and b).
 
+XOR is a binary operation, it stands for "exclusive or", that is to say the resulting bit evaluates to one if only exactly one of the bits is set.
+
+This is its function table:
+
+a | b | a ^ b
+--|---|------
+0 | 0 | 0
+0 | 1 | 1
+1 | 0 | 1
+1 | 1 | 0
+
 
 ## Exercice 8
 

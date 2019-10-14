@@ -198,17 +198,17 @@ précision aussi bien des très petits nombres que de très grands nombres.
 Cependant on ne peut représenter que des nombres rationnels, mais pas tous.
 
 Par exemple, en faisant le choix de la base 10,  *`b=10`* :
-* *`0,1 = (-1)^0× 10^{-1}× 1`*
-* *`0,25 = (-1)^0× 10^{-2}× 25`*
-* *`1/3 = (-1)^0× 10^{-beaucoup}× 33333\ldots`*
-* *`0,0000421 = (-1)^0× 10^{-7}× 421`*
-* *`-421000 = (-1)^1× 10^{3}× 421`*
+* *`0,1 = (-1)^0× 10^(-1)× 1`*
+* *`0,25 = (-1)^0× 10^(-2)× 25`*
+* *`1/3 = (-1)^0× 10^(-beaucoup)× 33333.....`*
+* *`0,0000421 = (-1)^0× 10^(-7)× 421`*
+* *`-421000 = (-1)^1× 10^(3)× 421`*
 
 Mais lorsque la représentation se fait sur ordinateur, il est plus aisé d'avoir une base *`b=2`*.
 En base 2 le nombre 1,110001<sub>2</sub> est *`1+1/2+1/4+1/64`*.
 Voici quelques valeurs pour les puissances de 2 négatives :
 
-| *`x`* | *`2^{-x}`*   |
+| *`x`* | *`2^(-x)`*   |
 |-------|--------------|
 | 1     | 0.5          |
 | 2     | 0.25         |
@@ -222,10 +222,13 @@ Voici quelques valeurs pour les puissances de 2 négatives :
 | 10    | 0.0009765625 |
 
 Dans ce cas, on a :
+
+* *`0,25 = (-1)^0× 2^{-2}× 1`*    
+
 * *`0,1 = (-1)^0× 2^{-4}× 1,6`*. Or `1,6 = 1+1/2+1/16+1/32+1/256+1/512+....`.     
   Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de manière exacte avec *`b=10`*, on ne pourra pas
   représenter *`0,1`* de manière exacte avec *`b=2`*
-* *`0,25 = (-1)^0× 2^{-2}× 1`*
+
 
 **Attention :** Les calculs sur les nombres flottants ne sont donc pas
 exacts. Il est parfois nécessaire d'approximer la valeur à représenter.  Il ne
@@ -264,17 +267,21 @@ True
 0.30000000000000004
 ```
 
-La norme IEEE754 (notion présentée mais non exigible) définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe s, une mantisse m et un exposant p dans la base b selon `n = (-1)^s × b^p × m` avec m=1,...      
+La **norme IEEE754** (notion présentée mais non exigible) définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe s, une mantisse m et un exposant p dans la base b selon `n = (-1)^s × b^p × m` avec m=1,...      
 
 Sur 64 bits, la règle est la suivante :
 - un bit est réservé pour le signe, 0 pour le signe + et 1 pour le signe -
-- 11 bits pour l'exposant décalé e qui vaut p+1023 avec la condition -1022≤p≤1023, donc 1≤e≤2046 (les valeurs 0 et 2047 sont réservées pour coder par exemple -∞ ou +∞)
+- 11 bits (2<sup>11</sup>=2048) pour l'exposant décalé e qui vaut p+1023 avec la condition -1022≤p≤1023, donc 1≤e≤2046 (les valeurs 0 et 2047 sont réservées pour coder par exemple -∞ ou +∞)
 - 52 bits pour la mantisse tronquée qui vaut m'=m-1 avec la condition 1≤m<2.
-Ces trois parties sont codées en binaire et concaténées pour former un nombre de 64 bits.
+Ces trois parties sont codées en binaire et concaténées pour former un nombre de 64 bits (1+11+52).
 
 Par exemple, codons le réel - 0,375.
-On note que 0,375=1,5×2<sup>-2</sup>. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101', la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec des 0.
+On note que 0,375=1,5×2<sup>-2</sup> ce qui permet d'avoir une mantisse comprise entre 1 et 2. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101' sur 11 bits (on le trouve en faisant `bin(1021)`), la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec cinquante et un 0.
 Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
+
+Codons maintenant le réel 20. Il nous faut une mantisse comprise entre 1 et 2 et une puissance de 2.   
+20=16×1,25=2<sup>4</sup>×1,25. On réalise donc la concaténantion de '0' pour le signe, du code de 4 + 1023 = 1027 soit '10000000011' sur 11 bits (on le trouve en faisant `bin(1027)`), la mantisse 1,25 s'écrit 1,01 en binaire et on ne garde que la partie décimale 01 et on complète avec cinquante 0.
+Au final, le codage de 20 est 0100000000110100.....0
 
 
 # Valeurs, opérateurs et expressions booléennes
