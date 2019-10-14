@@ -40,9 +40,9 @@ Exemples:
 
 ## Exercice 3 : conversion décimal-hexadécimal
 
-Écrire un programme de conversion décimal-hexadécimal (base 16) utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F".
-Le programme demande à l'utilisateur d'entrer un nombre décimal et il retourne son code hexadécimal.
+Écrire un programme de conversion décimal-hexadécimal (base 16) utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F".     
+Le programme demande à l'utilisateur d'entrer un nombre décimal et il lui renvoie le code hexadécimal de ce nombre.
 
 Exemple de conversion en hexadécimal : 
 
-170<sub>10</sub>=1=AA<sub>16</sub>
+170<sub>10</sub>=AA<sub>16</sub>
