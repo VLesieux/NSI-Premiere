@@ -107,7 +107,7 @@ Entrez un nombre binaire : 0b1011110011
 ## 2) Un algorithme pour obtenir la représentation binaire d'un nombre  
 
 Un _**algorithme**_ est une recette qui permet d'atteindre le résultat à condition de l'appliquer rigoureusement.
-Pour obtenir la représentation binaire d'un nombre, il s'agit de réaliser un processus répétitif de divisions successives par 2 que l'on arrête dès lors que le quotient de la division est nul, on note alors les restes des divisions de bas en haut. Plus précisément, on observe que dans le processus le quotient devient le nouveau dividende ou que le nouveau dividende prend la valeur du quotient précédent.
+Pour obtenir la représentation binaire d'un nombre, il s'agit de réaliser un processus répétitif de divisions successives par 2 que l'on arrête <u>dès que le quotient de la division est nul</u>, on note alors les restes des divisions de bas en haut. Plus précisément, on observe qu'au cours du processus le quotient devient le nouveau dividende ou que le nouveau dividende prend la valeur du quotient précédent.
 
 Observons cette image qui représente la démarche à suivre sur papier :    
 
@@ -149,7 +149,7 @@ On observera également l'_**indentation**_ qui a été réalisée pour écrire 
 
 On demande à l'utilisateur d'entrer une chaîne de caractère correspondant au mot binaire.
 On parcourt la chaîne de caractères en traitant les bits les uns après les autres pour obtenir la valeur décimale.
-On réalise cette fois une _**boucle bornée**_ ou _**boucle for**_ car on sait combien de tours devront être effectués, c'est la longueur de la chaîne de caractère.
+On réalise cette fois une _**boucle bornée**_ ou _**boucle for**_ car on sait combien de tours devront être effectués, puisque c'est la longueur de la chaîne de caractère.
 
 Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une _**chaîne de caractère**_ qui se comporte comme une _**liste**_.
 

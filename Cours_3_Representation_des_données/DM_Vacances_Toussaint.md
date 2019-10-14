@@ -37,3 +37,11 @@ Exemples:
 >>>codage(-11.0252)
 '11000001001100000110011100111000'
 ```  
+
+## Exercice 3 : conversion décimal-hexadécimal
+
+Écrire un programme de conversion décimal-hexadécimal (base 16) dans les deux sens utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F".
+
+Exemple de conversion en hexadécimal : 
+
+170<sub>10</sub>=1010 1010<sub>2</sub>=AA<sub>16</sub>
