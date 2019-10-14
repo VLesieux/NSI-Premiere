@@ -65,7 +65,7 @@ __Indications__ :
 
 ## Exercice 6
 
-Écrire une fonction _stat_ qui prend en paramètre un texte et renvoie un dictionnaire _statistiques_ dont les clés sont les différentes lettres du texte et les valeurs le nombre d'occurences de chaque lettre dans le texte. Le texte peut contenir des espaces ou des caractères de ponctuation qui ne devront pas être comptabilisés dans le dictionnaire fourni par la fonction.
+Écrire une fonction _stat_ qui prend en paramètre un texte et renvoie un dictionnaire _statistiques_ dont les clés sont les différentes lettres du texte et les valeurs le nombre d'occurrences de chaque lettre dans le texte. Le texte peut contenir des espaces ou des caractères de ponctuation qui ne devront pas être comptabilisés dans le dictionnaire fourni par la fonction.
 
 __Indications__ : parcourir les lettres du textes, créer s'il n'existe pas encore le nouvel item (lettre:1) dans le dictionnaire statistiques, ou augmenter de 1 sa valeur si l'item existe déjà.
 
