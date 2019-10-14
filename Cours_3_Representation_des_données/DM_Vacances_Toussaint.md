@@ -1,8 +1,6 @@
 # DM n°1 Vacances de Toussaint
 
-On trouvera ici l'algorithme de conversion en base 2 que l'on adaptera à une autre base.
-
-[Algorithme de conversion](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
+On trouvera ici l'algorithme de conversion en base 2 que l'on adaptera à une autre base : [Algorithme de conversion](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
 
 
 ## Exercice 1 : codage d'un entier relatif en binaire sur p bits
