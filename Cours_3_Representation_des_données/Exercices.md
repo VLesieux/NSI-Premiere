@@ -27,13 +27,22 @@ On utilise 5 bits pour coder en binaire les entiers relatifs.
 2. Comment code-t-on le nombre -10 ?
 3. Si on utilise 5 bits pour coder les entiers relatifs, combien de nombres peut-on coder et lesquels ?
 
-
 ## Exercice 5
+
+Écrire le nombre 3,625 en binaire.
+
+## Exercice 6
+
+Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour le signe, 11 bits pour l'exposant décalé et 52 bits pour la mantisse tronquée (cf.cours).
+1. Comment est codé le nombre - 4.5 ?
+2. Quel est le nombre réel codé par 1011 1111 1110 1000 0000 ... 0000 ?
+
+## Exercice 7
 
 Vérifier, à l'aide d'une table de vérités, l'égalité : a xor b = (a and not(b)) or (not(a) and b).
 
 
-## Exercice 6
+## Exercice 8
 
 Comparer les résultats renvoyés par les trois fonctions suivantes, où x et y sont de type quelconque, sans les programmer en machine :
 ```python
@@ -49,16 +58,6 @@ def compare2(x,y):
 def compare3(x,y):
     return not(not x or not y)
 ```
-
-## Exercice 7
-
-Écrire le nombre 3,625 en binaire.
-
-## Exercice 8
-
-Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour le signe, 11 bits pour l'exposant décalé et 52 bits pour la mantisse tronquée (cf.cours).
-1. Comment est codé le nombre - 4.5 ?
-2. Quel est le nombre réel codé par 1011 1111 1110 1000 0000 ... 0000 ?
 
 ## Exercice 9 
 
