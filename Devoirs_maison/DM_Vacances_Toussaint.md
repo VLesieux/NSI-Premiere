@@ -15,7 +15,7 @@ conversion_relatif(-17,5)='entier négatif trop faible'
 conversion_relatif(16,5)='entier positif trop grand'
 
 Indications :
-- Commencer par réaliser la fonction de conversion pour les entiers naturels puis adapter cette fonction pour qu'elle réalise également la conversion des entiers relatifs ; on rappelle qu'une méthode consiste à coder l'entier 2<sup>p</sup>-abs(n) ou 2<sup>p</sup>+ n si n est négatif
+- Commencer par réaliser la fonction de conversion pour les entiers naturels puis adapter cette fonction pour qu'elle réalise également la conversion des entiers relatifs ; on rappelle qu'une méthode pour coder un entier négatif consiste à coder l'entier 2<sup>p</sup>-abs(n) ou 2<sup>p</sup>+ n si n est négatif
 - Ajouter ensuite au début de votre fonction les conditions pour que l'écriture sur _p_ bits de l'entier entré en paramètre soit possible en retournant "entier positif trop grand" ou "entier négatif trop faible" dans le cas contraire ; on rappelle que sur _p_ bits (voir [le cours 3](https://github.com/VLesieux/NSI/blob/master/Cours_3_Representation_des_donn%C3%A9es/Cours_representation_des_donnees.md)) ne peuvent être codés que les entiers relatifs compris entre - 2<sup>p-1</sup> (10000...0) et 2<sup>p-1</sup>-1 (01000...0).
 
 
