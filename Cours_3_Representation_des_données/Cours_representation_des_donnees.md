@@ -130,9 +130,9 @@ Il peut se calculer de deux méthodes :
 conversion et une méthode de représentation des entiers relatifs (qui
 n'implique pas forcément de calculer un complément à 2 !)
 
-Avec la représentation en complément à 2 sur *`p`* bits il est possible de
-représenter tous les entiers de *`-2^{p-1}`* jusqu'à *`2^{p-1}-1`*
-(représentés respectivement par 10...0 et 01...1, la valeur -1 étant codée par une suite de 1).
+**Avec la représentation en complément à 2 sur *`p`* bits il est possible de
+représenter tous les entiers compris entre *`-2^{p-1}`* jusqu'à *`2^{p-1}-1`*
+(représentés respectivement par 10...0 et 01...1, la valeur -1 étant codée par une suite de 1).**
 
 ### Exemples
 

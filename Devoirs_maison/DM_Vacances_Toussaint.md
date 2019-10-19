@@ -1,20 +1,22 @@
 # DM n°1 Vacances de Toussaint
 
-On trouvera ici l'algorithme de conversion en base 2 que l'on adaptera à une autre base : [Algorithme de conversion](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
+Pour faire ce DM, on trouvera ici l'algorithme de conversion en base 2 que l'on pourra éventuellement adapter à une autre base : [Algorithme de conversion](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
 
 
-## Exercice 1 : codage d'un entier relatif en binaire sur p bits
+## Exercice 1 : codage d'un entier relatif en binaire sur _p_ bits
 
-Écrire une fonction _conversion_relatif(a,p)_ accompagnée de sa docstring qui prend en paramètres un entier relatif a exprimé en base dix et un entier naturel non nul p et renvoie le codage de l'entier a sur p bits. Le résultat renvoyé est de type str.     
+Écrire une fonction _conversion_relatif(a,p)_ accompagnée de sa docstring qui prend en paramètres un entier relatif _a_ exprimé en base dix et un entier naturel non nul p et renvoie le codage de l'entier relatif _a_ sur _p_ bits. Le résultat renvoyé est de type str.     
 
 Exemples:    
 
 conversion_relatif(18,6)='010010'         
 conversion_relatif(-18,6)='101110'
+conversion_relatif(-17,5)='entier négatif trop faible'
+conversion_relatif(16,5)='entier positif trop grand'
 
 Indications :
-- Commencer par faire une fonction de conversion pour un entier naturel puis adapter à cette fonction pour la conversion d'un entier relatif
-- Ajouter ensuite dans votre fonction les conditions pour que l'écriture sur p bits de l'entier entré en paramètre soit possible
+- Commencer par réaliser la fonction de conversion pour les entiers naturels puis adapter cette fonction pour qu'elle réalise également la conversion des entiers relatifs ; on rappelle qu'une méthode consiste à coder l'entier 2<sup>p</sup>-abs(n) ou 2<sup>p</sup>+ n si n est négatif
+- Ajouter ensuite au début de votre fonction les conditions pour que l'écriture sur _p_ bits de l'entier entré en paramètre soit possible en retournant "entier positif trop grand" ou "entier négatif trop faible" dans le cas contraire ; on rappelle que sur _p_ bits (voir [le cours 3](https://github.com/VLesieux/NSI/blob/master/Cours_3_Representation_des_donn%C3%A9es/Cours_representation_des_donnees.md)) ne peuvent être codés que les entiers relatifs compris entre - 2<sup>p-1</sup> (10000...0) et 2<sup>p-1</sup>-1 (01000...0).
 
 
 ## Exercice 2 : codage d'un flottant suivant la norme IEEE 754
