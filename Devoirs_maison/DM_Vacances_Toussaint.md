@@ -15,7 +15,7 @@ conversion_relatif(-17,5)='entier négatif trop faible'
 conversion_relatif(16,5)='entier positif trop grand'
 
 Indications :
-- Commencer par réaliser une fonction de conversion _conversion_naturel(a,p)_ pour coder en binaire sur _p_ bits les entiers naturels, puis créer une fonction qui appelle cette première fonction pour réaliser la conversion des entiers relatifs ; on rappelle qu'une méthode pour coder un entier négatif consiste à coder l'entier 2<sup>p</sup>-abs(n) ou 2<sup>p</sup>+ n    
+- Commencer par réaliser une fonction de conversion _conversion_naturel(a,p)_ pour coder en binaire sur _p_ bits les entiers naturels, puis créer une fonction conversion_relatif(a,p) qui appelle cette première fonction pour réaliser la conversion des entiers relatifs ; on rappelle qu'une méthode pour coder un entier négatif consiste à coder l'entier 2<sup>p</sup>-abs(n) ou 2<sup>p</sup>+ n    
 - Ajouter ensuite au début de votre fonction les conditions pour que l'écriture sur _p_ bits de l'entier entré en paramètre soit possible en retournant "entier positif trop grand" ou "entier négatif trop faible" dans le cas contraire ; on rappelle que sur _p_ bits (voir [le cours 3](https://github.com/VLesieux/NSI/blob/master/Cours_3_Representation_des_donn%C3%A9es/Cours_representation_des_donnees.md)) ne peuvent être codés que les entiers relatifs compris entre - 2<sup>p-1</sup> (10000...0) et 2<sup>p-1</sup>-1 (01000...0).
 
 
@@ -45,6 +45,8 @@ Exemples:
 Écrire un programme de conversion décimal-hexadécimal (base 16) utilisant les notations suivantes 10 = "A"; 11 = "B" ; 12 = "C" ; 13 = "D" ; 14 = "E" ; 15 = "F".     
 Le programme demande à l'utilisateur d'entrer un nombre décimal et il lui renvoie le code hexadécimal de ce nombre.
 
-Exemple de conversion en hexadécimal : 
-
-170<sub>10</sub>=AA<sub>16</sub>
+Exemples:
+``` 
+>>> conversion_dec_hexa(170)
+'AA'
+``` 
