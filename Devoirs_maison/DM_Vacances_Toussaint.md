@@ -21,12 +21,12 @@ Indications :
 
 ## Exercice 2 : codage d'un flottant suivant la norme IEEE 754
 
-Écrire une fonction _codage_ accompagnée de sa docstring qui détermine et renvoie le codage binaire d'un flottant exprimé en base dix. L'entrée en paramètre est de type float et la sortie de type str. On utilise le codage sur 64 bits de la norme IEEE 754 exposée dans le cours.   
+Écrire une fonction _codage_ accompagnée de sa docstring qui détermine et renvoie le codage binaire d'un flottant exprimé en base dix. L'entrée en paramètre est de type float et la sortie de type str. On utilise le codage sur 64 bits de la norme IEEE 754 (voir [le cours 3](https://github.com/VLesieux/NSI/blob/master/Cours_3_Representation_des_donn%C3%A9es/Cours_representation_des_donnees.md)).   
 Voici les différentes étapes :
 1. Le paramètre de la fonction, de typle float, représente un nombre réel x.
 2. Le signe de x est déterminé et stocké dans une variable s='0' ou s='1' puis x est changé en |x|
-3. Calcul de l'exposant et de la mantisse. Pour cela, si x≥2, effectuer des divisions successives par 2, si x<1 effectuer des multiplications successives par 2, en remplaçant à chaque fois la valeur de x par le résultat obtenu, et dans les deux cas jusqu'à obtenir un nombre x tel que 1≤x<2. L'exposant est alors, au signe près, le nombre de divisions ou de multiplications effectuées et la mantisse est le nombre x final.
-4. Calcul de l'exposant décalé (obtenu en ajoutant 1023 à la puissance) qui est codé en binaire sur 11 bits (utiliser la fonction _conversion_naturel(a,p)_ de l'exercice précédent). Le résultat est stocké dans une chaîne e.
+3. Calcul de l'exposant (ici puissance 2) et de la mantisse. Pour cela, si x≥2, effectuer des divisions successives par 2, si x<1 effectuer des multiplications successives par 2, en remplaçant à chaque fois la valeur de x par le résultat obtenu, et dans les deux cas jusqu'à obtenir un nombre x tel que 1≤x<2. L'exposant est alors, au signe près, le nombre de divisions ou de multiplications effectuées et la mantisse est le nombre x final.
+4. Calcul de l'exposant décalé (obtenu en ajoutant 1023 à l'exposant calculée précédemment) qui est codé en binaire sur 11 bits (utiliser la fonction _conversion_naturel(a,p)_ de l'exercice précédent). Le résultat est stocké dans une chaîne e.
 5. Calcul de la mantisse tronquée x=x-1 qui doit être écrite en binaire sur 52 bits et stockée dans une chaîne m. Pour cela, multiplier x par 2 ; si x≥1, ajouter '1' à m et retrancher 1 à x, sinon ajouter '0' à m ; reproduire ce schéma 52 fois.
 6. La chaîne concaténée s+e+m est renvoyée.
 
