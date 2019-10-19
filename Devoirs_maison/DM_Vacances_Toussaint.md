@@ -10,8 +10,8 @@ Pour faire ce DM, on trouvera ici l'algorithme de conversion en base 2 que l'on 
 Exemples:    
 
 conversion_relatif(18,6)='010010'         
-conversion_relatif(-18,6)='101110'
-conversion_relatif(-17,5)='entier négatif trop faible'    
+conversion_relatif(-18,6)='101110'         
+conversion_relatif(-17,5)='entier négatif trop faible'      
 conversion_relatif(16,5)='entier positif trop grand'
 
 Indications :
