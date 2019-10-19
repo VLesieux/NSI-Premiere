@@ -132,6 +132,16 @@ On utilise la notation _**//**_ pour obtenir le quotient entier d'une division e
 
 ```python
 def base2(n):
+    """
+    convertit un entier n en base 2
+    param : n: int
+    return : string
+    exemples:
+    >>> base2(3)
+    '11'
+    >>> base2(10)
+    '1010'
+    """
     if n==0:
         return "0"
     b=""
@@ -140,6 +150,11 @@ def base2(n):
         n=n//2
         b=str(r)+b#on ajoute le reste à la chaîne
     return b
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose = True) 
+
 ```
 
 Dans ce programme, on utilise une _**boucle non bornée**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into) pour voir son déroulement.
