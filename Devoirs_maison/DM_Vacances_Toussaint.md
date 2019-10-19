@@ -1,4 +1,4 @@
-# DM n°1 Vacances de Toussaint
+# DM n°1 Vacances de Toussaint  [Solution](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
 
 Pour faire ce DM, on trouvera ici l'algorithme de conversion en base 2 que l'on pourra éventuellement adapter à une autre base : [Algorithme de conversion](https://github.com/VLesieux/NSI/blob/master/Projet_1_Conversions_Bases/Conversions_Thonny.md)
 
@@ -50,5 +50,5 @@ Exemples:
 'AA'
 ``` 
 
-On peut faire en sorte que le programme renvoie le code hexadécimal de l'entier entré par l'utilisateur en écrivant : print(conversion_dec_hexa(int(input("Entrez un nombre à convertir")))).     
+On peut faire en sorte que le programme renvoie le code hexadécimal de l'entier entré par l'utilisateur en écrivant : print(conversion_dec_hexa(int(input("Entrez un nombre à convertir : ")))).     
 Il faut utiliser la fonction int() pour transformer input("Entrez un nombre à convertir") qui est un string, en entier.
