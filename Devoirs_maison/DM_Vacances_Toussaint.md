@@ -48,7 +48,10 @@ Exemples:
 ``` 
 >>> conversion_dec_hexa(170)
 'AA'
-``` 
+```
 
-On peut faire en sorte que le programme renvoie le code hexadécimal de l'entier entré par l'utilisateur en écrivant : print(conversion_dec_hexa(int(input("Entrez un nombre à convertir : ")))).     
+Indication : on peut envisager de créer un dictionnaire pour alléger le code
+dico={10:"A",11:"B",12:"C",13:"D",14:"E",15:"F"} 
+
+N.B: On peut faire en sorte que le programme renvoie le code hexadécimal d'un entier entré par l'utilisateur en écrivant : print(conversion_dec_hexa(int(input("Entrez un nombre à convertir : ")))).     
 Il faut utiliser la fonction int() pour transformer input("Entrez un nombre à convertir") qui est un string, en entier.
