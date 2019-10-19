@@ -267,7 +267,8 @@ True
 0.30000000000000004
 ```
 
-La **norme IEEE754** (notion présentée mais non exigible) définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe s, une mantisse m et un exposant p dans la base b selon `n = (-1)^s × b^p × m` avec m=1,...      
+La **norme IEEE754** (notion présentée mais non exigible) définit précisément le codage des "nombres en virgule flottante". On représente un nombre par un signe s, une mantisse m et un exposant p dans la base b selon : 
+`n = (-1)^s × b^p × m` avec m=1,... c'est-à-dire 1< m <=2.
 
 Sur 64 bits, la règle est la suivante :
 - un bit est réservé pour le signe, 0 pour le signe + et 1 pour le signe -
