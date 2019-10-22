@@ -72,10 +72,11 @@ def lettres_id_mot(mot):
     >>> lettres_id_mot("ma")
     False
     """
-    if mot[0]==mot[len(mot)-1]:
-        return True
-    else:
-        return False
+#    if mot[0]==mot[len(mot)-1]:
+#        return True
+#    else:
+#        return False
+    return mot[0]==mot[len(mot)-1]
 
 def lettres_id_mots(mot1,mot2):
     """
@@ -89,10 +90,11 @@ def lettres_id_mots(mot1,mot2):
     >>> lettres_id_mots("lampe","lune")
     True
     """
-    if (mot1[0]==mot2[0]) and (mot1[-1]==mot2[-1]):
-        return True
-    else:
-        return False
+#    if (mot1[0]==mot2[0]) and (mot1[-1]==mot2[-1]):
+#        return True
+#    else:
+#        return False
+    return (mot1[0]==mot2[0]) and (mot1[-1]==mot2[-1])
 
 
 if __name__ == "__main__":
