@@ -163,4 +163,4 @@ Deuxième méthode : on peut aussi calculer 2^5-10=22, ce qui se code (10110)<su
 3. Si on utilise 5 bits pour coder les entiers relatifs, combien de nombres peut-on coder et
 lesquels ?   (2 pts)
 
-Sur 5 bits, on peut coder 2^5=32 nombres, ce sont les entiers relatifs compris entre (10000) -16 et (01111) +15.      
+Sur 5 bits, on peut coder 2^5=32 nombres, ce sont les entiers relatifs compris entre (10000)<sub>2</sub> = -16 et (01111)<sub>2</sub> = +15.      
