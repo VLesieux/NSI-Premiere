@@ -157,7 +157,7 @@ On utilise 5 bits pour coder en binaire les entiers relatifs.
 >>> 0b01010
 10        
 ```
-On prend le complément de (10101)<sub>2</sub>=10 et on ajoute 1 pour obtenir 10110.      
+On prend le complément de (10101)<sub>2</sub>=10 et on ajoute 1 pour obtenir (10110)<sub>2</sub>= - 10.      
 On peut aussi calculer 2^5-10=22 qui se code 10110.
 
 3. Si on utilise 5 bits pour coder les entiers relatifs, combien de nombres peut-on coder et
