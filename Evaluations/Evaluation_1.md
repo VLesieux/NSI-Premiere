@@ -131,6 +131,7 @@ def stat(texte):
     for i in texte:
         if i not in ponctuations:
             if not dictionnaire.get(i):
+#si on fait if not dictionnaire[i]: on a une erreur lorsqu'il ne trouve pas i dans le dictionnaire
                 dictionnaire[i]=1
             else:
                 dictionnaire[i]+=1
