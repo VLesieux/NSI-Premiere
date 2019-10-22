@@ -119,21 +119,22 @@ Indications : parcourir les lettres du textes, créer s'il n'existe pas encore l
 ```python        
 def stat(texte):
     """
-    renvoie un dictionnaire donnant pour chaque lettre son nombre d'occurence
+    renvoie un dictionnaire donnant pour chaque lettre son nombre d'occurence sans tenir compte de la ponctuation
     param : texte : str
     return : dict
     exemples:
-    >>> stat("exemple")
+    >>> stat("exem;ple")
     {'e': 3, 'x': 1, 'm': 1, 'p': 1, 'l': 1}
     """
     dictionnaire={}
+    ponctuations=[',',':',';','!','?','.',' ']
     for i in texte:
-        if not dictionnaire.get(i):
-            dictionnaire[i]=1
-        else:
-            dictionnaire[i]+=1
+        if i not in ponctuations:
+            if not dictionnaire.get(i):
+                dictionnaire[i]=1
+            else:
+                dictionnaire[i]+=1
     return dictionnaire
-
 
 if __name__ == "__main__":
     import doctest
