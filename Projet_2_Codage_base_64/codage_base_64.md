@@ -6,7 +6,7 @@
 * le programmer
 * utiliser les dictionnaires
 
-**[À propos des dictionnaires](dictionnaire.py)**
+**[Rappels sur les dictionnaires](dictionnaire.py)**
 
 # Scénario de la séance
 
@@ -15,16 +15,23 @@
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou 
   autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes : **[Le consulter](texte_image)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière.
+* lire le contenu de ce fichier avec un simple éditeur de textes : **[Le consulter](texte_image)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, (le mail ne peut transporter
-  que des caractères ASCII, d'ailleurs peut-être remarquer l'encodage des caractères accentués
+  que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués
   du message)
 * seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions
   majuscules et minuscules, les 10 chiffres, le `+` et le `/`)
-* utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld`)
+* utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld`) : 
+
+Exemples   
+```shell
+base64 --decode texte_image.txt > image_originale.png
+base64 image_originale.png > texte_image2.txt
+```
+
 * présenter le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée 
   binaire à encoder
-  sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles
+  sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles (2<sup>6</sup>=64).
 * la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas multiple 
   de 3 ? on complète avec un ou 2 `=`.
 * on programme un codeur puis un décodeur base 64. Un module avec des opérations de lecture/écriture 
@@ -63,7 +70,7 @@ et 63, et donc peut-être codé sur 6 bits (sextet).
 
 La façon de procéder à ce codage est très simple : on découpe les 24 bits qui forment les trois
 octets en quatre paquets de six bits. Chaque paquet de six bits correspond à un symbole.
-Voici un exemple du codage en base 64 des triplet d'octets (18, 184, 156) :
+Voici un exemple du codage en base 64 du triplet d'octets (18, 184, 156) :
 
 	   18       184      156
 	 00010010 10111000 10011100
@@ -71,26 +78,27 @@ Voici un exemple du codage en base 64 des triplet d'octets (18, 184, 156) :
 	   E      r      i      c
 Ainsi le triplet d'octets (18, 184, 156) est encodé par les quatre symboles `Eric`.
 
-Coder un fichier binaire en base64 revient à coder chaque bloc de trois octets consécutifs par ce 
+Coder un fichier binaire en base64 consiste donc à coder chaque bloc de trois octets consécutifs par ce 
 procédé.
 
 ## Codage de blocs incomplets
-Que faire si la taille du fichier binaire n'est pas multiple de trois octets ? Le dernier bloc peut ne contenir qu'un ou deux octets.
+Que faire si la taille du fichier binaire n'est pas multiple de trois octets ?    
+Le dernier bloc ne peut contenir qu'un ou deux octets. Voyons les deux cas de figure.
 
-1. **Cas d'un bloc de deux octets :** il manque donc un octet et il n'y a que 16 bits de données qui n'est pas un multiple de 3. On rajoute 2 bits fictifs nuls : c'est le *bourrage* (*padding* en anglais). Cela permet d'avoir 3 sextets codés par trois symboles. Et on ajoute un symbole particulier, le symbole `=` pour signaler qu'il y a deux bits fictifs. Voici un exemple avec le couple d'octets (18, 184) :
+1. **Cas d'un bloc de deux octets :** on a 16 bits de données. On rajoute 2 bits fictifs nuls : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
 
 		  18       184
 	    00010010 10111000
-		000100 101011 100000
+		000100 101011 1000|00
 		  E      r      g
 		  
 	Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, le dernier symbole signalant qu'un bourrage de deux bits a été effectué.
 	
-1. **Cas d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour donner deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
+1. **Cas d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
 
 		  18
 		00010010
-		000100 100000
+		000100 10|0000
 		  E      g
 		  
 	  Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
@@ -170,7 +178,7 @@ Python dispose d'opérateurs logiques sur les entiers : les opérations booléen
 
 En plus de ces opérations logiques, Python propose deux opérateurs de décalage
 
-1. **Décalage à gauche :**
+1. **Décalage à gauche (multiplication par deux):**
 
 	```python
 	>>> 131 << 1
@@ -178,7 +186,7 @@ En plus de ces opérations logiques, Python propose deux opérateurs de décalag
 	>>> 131 << 2
 	524
 	```
-2. **Décalage à droite :**
+2. **Décalage à droite (division par deux) :**
 
 	```python
 	>>> 131 >> 1
@@ -189,7 +197,7 @@ En plus de ces opérations logiques, Python propose deux opérateurs de décalag
 
 ## Base 64 programmée en Python
 
-On se munit d'une table (tuple) définissant les 64 symboles de la base 64.
+On se munit d'une table définissant les 64 symboles de la base 64.
 
 ```python
 BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
@@ -202,19 +210,17 @@ BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
                   '4', '5', '6', '7', '8', '9', '+', '/']
 ```
 
-Armé de cette table et des opérations logiques, il est facile de programmer l'encodage d'un triplet 
-d'octets en une chaîne de quatre symboles de la base 64, ainsi que l'opération inverse de décodage.
+Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un triplet d'octets (donnés de façon décimale) en une chaîne de quatre symboles de la base 64, ainsi que l'opération inverse de décodage.
 
 ```python
-def to_base64(triplet):
+def to_base64(tuple):
     '''
 	convertit le triplet d'octets en une chaîne de quatre symboles
 	
-	:param triplet: (tuple ou list) une séquence d'octets
-	:return: (str) la chaîne de symboles de la base 64 représentant le triplet d'octets
+	:param triplet:  tuple : une séquence d'octets
+	:return: str : la chaîne de symboles de la base 64 représentant le triplet d'octets
 	:CU: 1 <= len(triplet) <= 3 et les entiers de triplet tous compris entre 0 et 255
-	:Exemple:
-	
+	:Exemples:
 	>>> to_base64((18, 184, 156))
 	'Eric'
 	>>> to_base64((18, 184))
@@ -228,9 +234,9 @@ def to_base64(triplet):
 ```python
 def from_base64(b64_string):
     '''
-	convertit une chaîne de quatre symboles en un tuple (le plus souvent triplet) d'octets
+	convertit une chaîne de quatre symboles en un tuple d'octets
 	
-	:param b64_string: (str) une chaîne de symboles de la base 64
+	:param : b64_string: (str) une chaîne de symboles de la base 64
 	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
 	:CU: len(b64_string) == 4 et les caractères de b64_string sont dans la table ou le symbole =
 	:Exemple:
@@ -246,7 +252,47 @@ def from_base64(b64_string):
 
 
 
-1. Réalisez ces deux fonctions dans un fichier nommé `codage64.py`.
+1. Réalisez ces deux fonctions dans un fichier nommé `codage64.py`.    
+
+Indications :
+
+a) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur valeur décimale.
+b) Créer une fonction _conversion_binaire_decimal(mot_binaire)_ qui retourne la valeur décimale d'un mot binaire.
+c) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de sa valeur décimale.
+d) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de sa valeur décimale.
+e) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple fait d'octets.
+Exemple : 
+```python
+>>> sequence_binaire((105,86,66))
+'011010010101011001000010'
+```
+f) Pour réaliser la fonction _to_base64(tuple)_, réaliser une découpe dans un chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractère. 
+Exemple : 
+```python
+>>> s="parapluie"
+>>> s[4:9]
+'pluie'
+```
+g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques.
+Exemple:      
+Admettons que le tupe soit (105,86,66) et la sequence_binaire '011010010101011001000010' soit '011010.010101.011001.000010' 
+On voudrait extraire ici la deuxième découpe de 6 bits en partant de la droite soit 011001.
+
+```python
+>>> 0b011010010101011001000010
+6903362
+>>> bin(63<<6)
+'0b111111000000'# permet de décaler de 6 bits vers la droite le mot binaire 111111  de valeur décimale 63
+>>> 0b111111
+63
+>>> bin(6903362 & (63<<6))# l'opération logique ET permet de ne garder que les 6 bits qui nous intéressent
+'0b11001000000'
+>>> bin((6903362 & (63<<6))>>6)
+'0b11001'# on est parvenu ainsi à extraire la partie recherchée 
+```
+
+Pour aller plus loin...
+
 2. Réalisez la fonction `base64_encode` qui encode en base64 le contenu du fichier dont le nom est 
    passé en paramètre. Pour cela vous pourrez utiliser le module [binary_IO](binary_IO.py) qui définit
    deux classes nommées `Reader` et `Writer` dont les objets permettent de lire et écrire des données
@@ -279,4 +325,4 @@ def from_base64(b64_string):
 	   :side effect: produce a new binary file
 	   '''
    ```
-4. Utilisez le script principal [base_64.py](base_64.py) pour coder/décoder les fichiers de votre choix.
+4. Utilisez votre script pour coder/décoder les fichiers de votre choix.
