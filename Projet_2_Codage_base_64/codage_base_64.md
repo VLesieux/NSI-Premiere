@@ -15,7 +15,7 @@
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou 
   autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes : **[Le consulter](texte_image)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](texte_image)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, (le mail ne peut transporter
   que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués
   du message)
@@ -83,7 +83,7 @@ procédé.
 
 ## Codage de blocs incomplets
 Que faire si la taille du fichier binaire n'est pas multiple de trois octets ?    
-Le dernier bloc ne peut contenir qu'un ou deux octets. Voyons les deux cas de figure.
+Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de figure.
 
 1. **Cas d'un bloc de deux octets :** on a 16 bits de données. On rajoute 2 bits fictifs nuls : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
 
@@ -108,7 +108,7 @@ Le dernier bloc ne peut contenir qu'un ou deux octets. Voyons les deux cas de fi
 1. Codez la séquence d'octets (12, 133, 4, 32, 178, 200, 44, 177).
 2. Décodez la chaîne de caractères `Hyk7Ag==`.
 3. Quels sont les symboles possibles précédent un simple symbole `=` ? Même question pour un double.
-4. Si on code une donnée constituée de $`n`$ octets, exprimez en fonction de $`n`$ la longueur de la chaîne de caractères obtenue en incluant les éventuels symboles `=`.
+4. Si on code une donnée constituée de `n` octets, exprimez en fonction de `n` la longueur de la chaîne de caractères obtenue en incluant les éventuels symboles `=`.
 
 # Programmation en Python
 
@@ -273,9 +273,10 @@ Exemple :
 >>> s[4:9]
 'pluie'
 ```
-g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques.
+g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques.    
+
 Exemple:      
-Admettons que le tupe soit (105,86,66) et la sequence_binaire '011010010101011001000010' soit '011010.010101.011001.000010' 
+Admettons que le tupe soit (105,86,66) et la sequence_binaire obtenue soit '011010010101011001000010' ou '011010.010101.011001.000010'.      
 On voudrait extraire ici la deuxième découpe de 6 bits en partant de la droite soit 011001.
 
 ```python
