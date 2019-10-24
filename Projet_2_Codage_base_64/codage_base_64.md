@@ -256,17 +256,17 @@ def from_base64(b64_string):
 
 Indications :
 
-a) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur valeur décimale.
-b) Créer une fonction _conversion_binaire_decimal(mot_binaire)_ qui retourne la valeur décimale d'un mot binaire.
-c) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de sa valeur décimale.
-d) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de sa valeur décimale.
-e) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple fait d'octets.
-Exemple : 
+a) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur valeur décimale.      
+b) Créer une fonction _conversion_binaire_decimal(mot_binaire)_ qui retourne la valeur décimale d'un mot binaire.      
+c) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de sa valeur décimale.    
+d) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de sa valeur décimale.      
+e) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple fait d'octets.      
+Exemple :      
 ```python
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-f) Pour réaliser la fonction _to_base64(tuple)_, réaliser une découpe dans un chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractère. 
+f) Pour réaliser la fonction _to_base64(tuple)_, réaliser une découpe dans un chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractère.    
 Exemple : 
 ```python
 >>> s="parapluie"
