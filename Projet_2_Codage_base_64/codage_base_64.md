@@ -283,12 +283,12 @@ On voudrait extraire ici la deuxième découpe de 6 bits en partant de la droite
 >>> 0b011010010101011001000010
 6903362
 >>> bin(63<<6)
-'0b111111000000'# permet de décaler de 6 bits vers la droite le mot binaire 111111  de valeur décimale 63
+'0b111111000000'# permet de décaler de 6 bits vers la gauche le mot binaire 111111  de valeur décimale 63
 >>> 0b111111
 63
 >>> bin(6903362 & (63<<6))# l'opération logique ET permet de ne garder que les 6 bits qui nous intéressent
 '0b11001000000'
->>> bin((6903362 & (63<<6))>>6)
+>>> bin((6903362 & (63<<6))>>6)# on décale maintenant de 6 bits vers la droite
 '0b11001'# on est parvenu ainsi à extraire la partie recherchée 
 ```
 
