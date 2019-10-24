@@ -276,7 +276,7 @@ Exemple :
 g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques.    
 
 Exemple:      
-Admettons que le tupe soit (105,86,66) et la sequence_binaire obtenue soit '011010010101011001000010' ou '011010.010101.011001.000010'.      
+Admettons que le tuple soit (105,86,66) et la sequence_binaire obtenue soit '011010010101011001000010' ou '011010.010101.011001.000010'.      
 On voudrait extraire ici la deuxième découpe de 6 bits en partant de la droite soit 011001.
 
 ```python
@@ -286,10 +286,10 @@ On voudrait extraire ici la deuxième découpe de 6 bits en partant de la droite
 '0b111111000000'# permet de décaler de 6 bits vers la gauche le mot binaire 111111  de valeur décimale 63
 >>> 0b111111
 63
->>> bin(6903362 & (63<<6))# l'opération logique ET permet de ne garder que les 6 bits qui nous intéressent
+>>> bin(6903362 & (63<<6))# l'opération logique ET permet de ne garder que les 6 bits qui nous intéressent, reste à éliminer les 0
 '0b11001000000'
 >>> bin((6903362 & (63<<6))>>6)# on décale maintenant de 6 bits vers la droite
-'0b11001'# on est parvenu ainsi à extraire la partie recherchée 
+'0b11001'# on est parvenu ainsi à extraire la découpe de 6 bits recherchée 
 ```
 
 Pour aller plus loin...
