@@ -210,7 +210,7 @@ BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
                   '4', '5', '6', '7', '8', '9', '+', '/']
 ```
 
-Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un triplet d'octets (donnés de façon décimale) en une chaîne de quatre symboles de la base 64, ainsi que l'opération inverse de décodage.
+Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un tuple d'octets (donnés chacun de façon décimale) en une chaîne de symboles de la base 64, ainsi que l'opération inverse de décodage.
 
 ```python
 def to_base64(tuple):
@@ -265,7 +265,7 @@ Exemple:
 >>> conversion_binaire_decimal("00101")
 5
 ``` 
-b) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de sa valeur décimale.   
+b) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci.
 
 Exemple: 
 ```python
@@ -273,7 +273,7 @@ Exemple:
 '000011'
 ``` 
 
-c) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de sa valeur décimale.
+c) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de sa valeur décimale de celui-ci.
 
 Exemple: 
 ```python
@@ -281,7 +281,7 @@ Exemple:
 '00000011'
 ``` 
 
-d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire sur 6 bits.  
+d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits.  
 
 Exemple: 
 ```python
@@ -294,17 +294,17 @@ Exemple :
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-f) Pour réaliser la fonction _to_base64(tuple)_, une première méthode consiste à réaliser une découpe dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractère.    
+f) Pour réaliser la fonction _to_base64(tuple)_, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
 Exemple : 
 ```python
 >>> s="parapluie"
 >>> s[4:9]
 'pluie'
 ```
-g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques.    
+g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques présentés plus haut.    
 
 Exemple:      
-Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010' ou '011010.010101.011001.000010'.      
+Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010' ou en faisant apparaître les sextuplets : '011010.010101.011001.000010'.      
 On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite soit 011001.
 
 ```python
@@ -313,11 +313,11 @@ On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite
 >>> 0b111111
 63
 >>> bin(63<<6)
-'0b111111000000'# permet de décaler de 6 bits vers la gauche le mot binaire 111111  de valeur décimale 63.       
->>> bin(6903362 & (63<<6))# l'opération logique ET permet de ne garder que les 6 bits qui nous intéressent
-'0b11001000000'# reste à éliminer les six 0 de droite
->>> bin((6903362 & (63<<6))>>6)# on décale maintenant de 6 bits vers la droite
-'0b11001'# on est parvenu ainsi à extraire la découpe de 6 bits recherchée 
+'0b111111000000'# cette opération permet de décaler de 6 bits vers la gauche le mot binaire 111111  de valeur décimale 63.       
+>>> bin(6903362 & (63<<6))# l'opération logique ET appliquée sur la sequence_binaire permet de ne garder que les 6 bits qui nous intéressent
+'0b11001000000'# il ne reste plus maintenant qu'à éliminer les six 0 de droite
+>>> bin((6903362 & (63<<6))>>6)# on décale pour cela de 6 bits vers la droite
+'0b11001'# on est parvenu ainsi à extraire notre découpe de 6 bits recherchée 
 ```
 
 Pour aller plus loin...
