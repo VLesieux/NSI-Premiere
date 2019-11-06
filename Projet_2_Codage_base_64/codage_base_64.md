@@ -15,19 +15,21 @@
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou 
   autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](texte_image)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, (le mail ne peut transporter
   que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués
   du message)
 * seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions
   majuscules et minuscules, les 10 chiffres, le `+` et le `/`)
-* utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld`) : 
+* utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld` sous Linux) : 
 
 Exemples   
 ```shell
 base64 --decode texte_image.txt > image_originale.png
 base64 image_originale.png > texte_image2.txt
 ```
+
+Sous Windows, accéder aux commandes avec Windows R cmd, puis dir au lieu de ls et écrire certutil -decode image.txt image.png
 
 * présenter le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée 
   binaire à encoder
