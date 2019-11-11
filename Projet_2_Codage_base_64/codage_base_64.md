@@ -217,7 +217,7 @@ Armé de cette table et des opérations logiques présentées ci-dessus, il est 
 ```python
 def to_base64(tuple):
     '''
-	convertit le tuple d'octets en une chaîne de quatre symboles
+	convertit le tuple d'octets en une chaîne de symboles
 	
 	:param triplet:  tuple : une séquence d'octets
 	:return: str : la chaîne de symboles de la base 64 représentant le triplet d'octets
@@ -236,7 +236,7 @@ def to_base64(tuple):
 ```python
 def from_base64(b64_string):
     '''
-	convertit une chaîne de quatre symboles en un tuple d'octets
+	convertit une chaîne de symboles en un tuple d'octets
 	
 	:param : b64_string: (str) une chaîne de symboles de la base 64
 	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
