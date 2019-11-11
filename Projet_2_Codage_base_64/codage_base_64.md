@@ -314,14 +314,14 @@ Exemple :
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-g) Pour réaliser la fonction _to_base64(n_uplet)_ dont la docstring est donnée plus haut, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
+g) Pour réaliser la fonction _to_base64(n_uplet)_ dont la docstring est donnée plus haut, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette fonction sera appelée : _to_base64_slice(n_uplet)_    
 Exemple : 
 ```python
 >>> s="parapluie"
 >>> s[4:9]
 'pluie'
 ```
-h) Proposer une autre méthode pour écrire la fonction _to_base64(n_uplet)_ en utilisant les opérateurs logiques présentés plus haut.    
+h) Proposer une autre méthode pour écrire la fonction _to_base64(n_uplet)_ en utilisant les opérateurs logiques présentés plus haut. Cette fonction sera appelée : _to_base64_binaire(n_uplet)_   
 
 Exemple:      
 Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', soit en faisant apparaître les sextets en insérant des points : '011010.010101.011001.000010'.      
@@ -340,7 +340,15 @@ On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite
 '0b11001'# on est parvenu ainsi à extraire notre découpe de 6 bits recherchée 
 ```
 
-2. Réalisez la fonction _from_base64(b64_string)_ dont la docstring est donnée plus haut.
+2. Réalisez la fonction _from_base64(b64_string)_ dont la docstring est donnée plus haut. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple. On reproduira la méthode des opérateurs logiques utilisée en 1.h)
+
+Exemple : 
+```python
+>>> liste=[3,4,5]
+>>> n_uplet=tuple(liste)
+>>> n_uplet
+(3, 4, 5)
+```
 
  Pour aller plus loin...
 
