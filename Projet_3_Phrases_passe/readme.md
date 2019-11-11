@@ -395,9 +395,7 @@ certaines lettres par des caractères particuliers. Par exemple le
 `i`par un `1` et le `o` par un `0` pour que la chaîne `timoleon`
 devienne `t1m0le0n`.
 
-**Attention :** Cette partie utilise des dictionnaires. Mais si vous ne
-  connaissez pas cette notion, cela n'est pas un problème. Nous
-  l'aborderons ultérieurement dans la formation. Nous ne ferons ici
+**Attention :** Cette partie utilise des dictionnaires. Nous ne ferons ici
   qu'utiliser un dictionnaire défini sans le modifier. Pour faire court, un
   dictionnaire permet d'associer une valeur à une clef. On parle
   aussi de *liste associative*. Voici le dictionnaire que nous
