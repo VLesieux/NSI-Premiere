@@ -215,11 +215,11 @@ BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
 Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un tuple d'octets (donnés chacun de façon décimale) en une chaîne de symboles de la base 64, ainsi que l'opération inverse de décodage.
 
 ```python
-def to_base64(tuple):
+def to_base64(n_uplet):
     '''
 	convertit le tuple d'octets en une chaîne de symboles
 	
-	:param triplet:  tuple : une séquence d'octets
+	:param n_uplet:  tuple : une séquence d'octets
 	:return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
 	:CU: les entiers du tuple tous compris entre 0 et 255
 	:Exemples:
@@ -254,12 +254,11 @@ def from_base64(b64_string):
 
 
 
-1. Réalisez la fonction _to_base64(tuple)_ dont la docstring est donnée plus haut
+1. Réalisez la fonction _to_base64(n_uplet)_ dont la docstring est donnée plus haut
 
 Indications :
 
  
-
 a) Créer une fonction _conversion_binaire_decimal(mot_binaire)_ qui retourne la valeur décimale d'un mot binaire.     
 
 Exemple:
@@ -293,7 +292,9 @@ Exemple:
 '00000011'
 ``` 
 
-d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. Pour gagner du temps, on pourra utiliser la liste lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"] et reprendre la fonction précédente _conversion_decimal_binaire_6bits(dec)_.
+d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. Pour gagner du temps, on pourra utiliser la liste   
+lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"] 
+et reprendre la fonction précédente _conversion_decimal_binaire_6bits(dec)_.
   
 Exemple: 
 ```python
@@ -306,23 +307,24 @@ Rappel:
 
 ```for cle,val in equivalence.items():#on peut parcourir ainsi les items du dictionnaire equivalence en dissociant clé et valeur```
 
-f) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres). Utiliser la fonction précédente _conversion_decimal_binaire_8bits(dec)_.     
+f) Créer une fonction _sequence_binaire(n_uplet)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres).   
+Utiliser la fonction précédente _conversion_decimal_binaire_8bits(dec)_.     
 Exemple :      
 ```python
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-g) Pour réaliser la fonction _to_base64(tuple)_ dont la docstring est donnée plus haut, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
+g) Pour réaliser la fonction _to_base64(n_uplet)_ dont la docstring est donnée plus haut, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
 Exemple : 
 ```python
 >>> s="parapluie"
 >>> s[4:9]
 'pluie'
 ```
-h) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques présentés plus haut.    
+h) Proposer une autre méthode pour écrire la fonction _to_base64(n_uplet)_ en utilisant les opérateurs logiques présentés plus haut.    
 
 Exemple:      
-Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010' ou en faisant apparaître les sextets : '011010.010101.011001.000010'.      
+Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', soit en faisant apparaître les sextets en insérant des points : '011010.010101.011001.000010'.      
 On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite soit 011001.
 
 ```python
