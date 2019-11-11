@@ -277,7 +277,7 @@ Pour cela on peut utiliser l'écriture [::-1].
 'elpmexe'
 ``` 
 
-b) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci.
+b) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager d'ajouter des 0 pour aller jusque 6 bits.
 
 Exemple: 
 ```python
@@ -293,19 +293,20 @@ Exemple:
 '00000011'
 ``` 
 
-d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits.  
-
+d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. Pour gagner du temps, on pourra utiliser la liste lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"] et reprendre la fonction précédente _conversion_decimal_binaire_6bits(dec)_.
+  
 Exemple: 
 ```python
 >>> equivalence['B']
 '000001'
 ```
 
-e) Créer la fonction _get_in_dictionary(sixtet)_ qui renvoie la clé du dictionnaire _equivalence_ à partir de la donnée du sixtet
+e) Créer la fonction _get_in_dictionary(sixtet)_ qui renvoie la clé du dictionnaire _equivalence_ à partir de la donnée du sixtet.  
+Rappel: 
 
 ```for cle,val in equivalence.items():#on peut parcourir ainsi les items du dictionnaire equivalence en dissociant clé et valeur```
 
-f) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets. Utiliser la fonction précédente _conversion_decimal_binaire_8bits(dec)_     
+f) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres). Utiliser la fonction précédente _conversion_decimal_binaire_8bits(dec)_.     
 Exemple :      
 ```python
 >>> sequence_binaire((105,86,66))
