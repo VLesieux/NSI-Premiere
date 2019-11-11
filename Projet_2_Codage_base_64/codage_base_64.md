@@ -337,19 +337,7 @@ On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite
 '0b11001'# on est parvenu ainsi à extraire notre découpe de 6 bits recherchée 
 ```
 
-2. Réalisez la fonction `base64_decode`.
-
-   ```python
-   def base64_decode(source, cible):
-       '''
-       Decode a source file encoded in base64 and output the result.
-
-	   :param source: (str) the filename of the base64 file to decode
-	   :param cible: (str) filename of the file to produce
-	   :return: None
-	   :side effect: produce a new binary file
-	   '''
-   ```
+2. Réalisez la fonction _from_base64(b64_string)_ dont la docstring est donnée plus haut.
 
  Pour aller plus loin...
 
