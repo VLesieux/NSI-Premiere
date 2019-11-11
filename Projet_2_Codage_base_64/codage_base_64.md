@@ -254,7 +254,7 @@ def from_base64(b64_string):
 
 
 
-1. Réalisez ces deux fonctions dans un fichier nommé `codage64.py`.    
+1. Réalisez la fonction _to_base64(tuple)_ dont la docstring est donnée plus haut
 
 Indications :
 
