@@ -340,7 +340,7 @@ On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite
 '0b11001'# on est parvenu ainsi à extraire notre découpe de 6 bits recherchée 
 ```
 
-2. Réalisez la fonction _from_base64(b64_string)_ dont la docstring est donnée plus haut. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple. On reproduira la méthode des opérateurs logiques utilisée en 1.h)
+2. Réalisez la fonction _from_base64(b64_string)_ dont la docstring est donnée plus haut. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple. On reproduira la méthode des opérateurs logiques utilisée à la question 1.h).
 
 Exemple : 
 ```python
