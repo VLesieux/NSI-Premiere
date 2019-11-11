@@ -311,7 +311,7 @@ Exemple :
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-g) Pour réaliser la fonction _to_base64(tuple)_, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
+g) Pour réaliser la fonction _to_base64(tuple)_ dont la docstring est donnée plus haut, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
 Exemple : 
 ```python
 >>> s="parapluie"
@@ -321,7 +321,7 @@ Exemple :
 h) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques présentés plus haut.    
 
 Exemple:      
-Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010' ou en faisant apparaître les sextuplets : '011010.010101.011001.000010'.      
+Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010' ou en faisant apparaître les sextets : '011010.010101.011001.000010'.      
 On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite soit 011001.
 
 ```python
@@ -337,9 +337,23 @@ On souhaite extraire ici la deuxième découpe de 6 bits en partant de la droite
 '0b11001'# on est parvenu ainsi à extraire notre découpe de 6 bits recherchée 
 ```
 
-Pour aller plus loin...
+2. Réalisez la fonction `base64_decode`.
 
-2. Réalisez la fonction `base64_encode` qui encode en base64 le contenu du fichier dont le nom est 
+   ```python
+   def base64_decode(source, cible):
+       '''
+       Decode a source file encoded in base64 and output the result.
+
+	   :param source: (str) the filename of the base64 file to decode
+	   :param cible: (str) filename of the file to produce
+	   :return: None
+	   :side effect: produce a new binary file
+	   '''
+   ```
+
+ Pour aller plus loin...
+
+3. Réalisez la fonction `base64_encode` qui encode en base64 le contenu du fichier dont le nom est 
    passé en paramètre. Pour cela vous pourrez utiliser le module [binary_IO](binary_IO.py) qui définit
    deux classes nommées `Reader` et `Writer` dont les objets permettent de lire et écrire des données
    binaires dans des fichiers.
@@ -358,17 +372,6 @@ Pour aller plus loin...
    
    Améliorez cette fonction de sorte que la sortie ne soit constituée que de lignes de longueur 76
    sauf éventuellement la dernière.
-3. Réalisez la fonction `base64_decode`.
 
-   ```python
-   def base64_decode(source, cible):
-       '''
-       Decode a source file encoded in base64 and output the result.
 
-	   :param source: (str) the filename of the base64 file to decode
-	   :param cible: (str) filename of the file to produce
-	   :return: None
-	   :side effect: produce a new binary file
-	   '''
-   ```
 4. Utilisez votre script pour coder/décoder les fichiers de votre choix.
