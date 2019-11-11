@@ -267,6 +267,16 @@ Exemple:
 >>> conversion_binaire_decimal("00101")
 5
 ``` 
+
+Remarque: Il peut être utile de renverser une chaîne de caractère.  
+Pour cela on peut utiliser l'écriture [::-1].
+
+```python
+>>> chaine="exemple"
+>>> chaine[::-1]
+'elpmexe'
+``` 
+
 b) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci.
 
 Exemple: 
