@@ -252,7 +252,12 @@ def from_base64(b64_string):
 	'''
 ```
 
-
+Code pour la vérification des docstring
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
 
 1. Réalisez la fonction _to_base64(n_uplet)_ dont la docstring est donnée plus haut
 
