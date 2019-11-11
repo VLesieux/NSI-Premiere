@@ -221,7 +221,7 @@ def to_base64(tuple):
 	
 	:param triplet:  tuple : une séquence d'octets
 	:return: str : la chaîne de symboles de la base 64 représentant le triplet d'octets
-	:CU: 1 <= len(triplet) <= 3 et les entiers de triplet tous compris entre 0 et 255
+	:CU: 1 <= len(triplet) <= 3 et les entiers du tuple tous compris entre 0 et 255
 	:Exemples:
 	>>> to_base64((18, 184, 156))
 	'Eric'
