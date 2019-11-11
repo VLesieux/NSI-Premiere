@@ -285,7 +285,7 @@ Exemple:
 '000011'
 ``` 
 
-c) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de sa valeur décimale de celui-ci.
+c) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci.
 
 Exemple: 
 ```python
@@ -299,21 +299,26 @@ Exemple:
 ```python
 >>> equivalence['B']
 '000001'
-```       
-e) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets.      
+```
+
+e) Créer la fonction _get_in_dictionary(sixtet)_ qui renvoie la clé du dictionnaire _equivalence_ à partir de la donnée du sixtet
+
+```for cle,val in equivalence.items():#on peut parcourir ainsi les items du dictionnaire equivalence en dissociant clé et valeur```
+
+f) Créer une fonction _sequence_binaire(tuple)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets. Utiliser la fonction précédente _conversion_decimal_binaire_8bits(dec)_     
 Exemple :      
 ```python
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-f) Pour réaliser la fonction _to_base64(tuple)_, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
+g) Pour réaliser la fonction _to_base64(tuple)_, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères.    
 Exemple : 
 ```python
 >>> s="parapluie"
 >>> s[4:9]
 'pluie'
 ```
-g) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques présentés plus haut.    
+h) Proposer une autre méthode pour écrire la fonction _to_base64(tuple)_ en utilisant les opérateurs logiques présentés plus haut.    
 
 Exemple:      
 Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010' ou en faisant apparaître les sextuplets : '011010.010101.011001.000010'.      
