@@ -220,8 +220,8 @@ def to_base64(tuple):
 	convertit le tuple d'octets en une chaîne de symboles
 	
 	:param triplet:  tuple : une séquence d'octets
-	:return: str : la chaîne de symboles de la base 64 représentant le triplet d'octets
-	:CU: 1 <= len(triplet) <= 3 et les entiers du tuple tous compris entre 0 et 255
+	:return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
+	:CU: les entiers du tuple tous compris entre 0 et 255
 	:Exemples:
 	>>> to_base64((18, 184, 156))
 	'Eric'
@@ -240,7 +240,7 @@ def from_base64(b64_string):
 	
 	:param : b64_string: (str) une chaîne de symboles de la base 64
 	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
-	:CU: len(b64_string) == 4 et les caractères de b64_string sont dans la table ou le symbole =
+	:CU: les caractères de b64_string sont dans la table ou le symbole =
 	:Exemple:
 	
 	>>> from_base64('Eric')
