@@ -6,16 +6,16 @@
 * le programmer
 * utiliser les dictionnaires
 
-**[Rappels sur les dictionnaires](/assets/dictionnaire.py)**
+**[Rappels sur les dictionnaires](assets/dictionnaire.py)**
 
 # Scénario de la séance
 
 * la veille envoyer un courrier électronique à tous les participants avec une pièce jointe 
-  (non textuelle), par exemple une image
+  (non textuelle), par exemple une **[image](assets/image_originale.png)**
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou 
   autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](/assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, (le mail ne peut transporter
   que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués
   du message)
@@ -199,7 +199,7 @@ En plus de ces opérations logiques, Python propose deux opérateurs de décalag
 
 ## Base 64 programmée en Python
 
-On se munit d'une table définissant les 64 symboles de la base 64.   
+On se munit d'une table définissant les 64 symboles de la base 64.
 
 ```python
 BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
@@ -358,7 +358,7 @@ Exemple :
  Pour aller plus loin...
 
 3. Réalisez la fonction `base64_encode` qui encode en base64 le contenu du fichier dont le nom est 
-   passé en paramètre. Pour cela vous pourrez utiliser le module [binary_IO](/assets/binary_IO.py) qui définit
+   passé en paramètre. Pour cela vous pourrez utiliser le module [binary_IO](assets/binary_IO.py) qui définit
    deux classes nommées `Reader` et `Writer` dont les objets permettent de lire et écrire des données
    binaires dans des fichiers.
    
