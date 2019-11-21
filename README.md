@@ -1,4 +1,4 @@
 # NSI 1ère
-Numérique et Sciences Informatiques
+*N*umérique et *S*ciences *I*nformatiques
 
 Lycée Angellier Dunkerque
