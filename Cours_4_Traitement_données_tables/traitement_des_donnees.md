@@ -1,16 +1,16 @@
-![Programme officiel ](bo2.png)
+![Programme officiel ](assets/bo2.png)
 
 ## Exemple
 
 ### Extraction des données
 
-On a créé un fichier Excel [à télécharger](Tableau_capitales.xlsx)		
+On a créé un fichier Excel [à télécharger](assets/Tableau_capitales.xlsx)		
 
-![](Image_Excel.png)	
+![](assets/Image_Excel.png)	
 
-On l'a enregistré également avec l'extension csv pour avoir un fichier au format texte [à télécharger](Tableau_capitales.csv)
+On l'a enregistré également avec l'extension csv pour avoir un fichier au format texte [à télécharger](assets/Tableau_capitales.csv)
 
-![](Image_csv.png)
+![](assets/Image_csv.png)
 
 L'objectif est d'extraire les données et de les enregistrer dans une liste composée de p-uplets.    
 Avec ce premier code, on obtient une liste de listes.
