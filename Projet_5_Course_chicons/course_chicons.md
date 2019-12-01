@@ -35,9 +35,9 @@ Préparation
 
 1.  **Archive**
 
-Récupérez l'[archive](mat_course_chicon.zip) et décompressez la.
+Récupérez le dossier assets.
 
- Cette archive contient trois dossiers :
+ Ce dossier contient trois dossiers :
 
  -   [`src/`](./src) contient le module  [src/Competitor.py](src/Competitor.py)
  - `docs/` contient la documentation du module `Competitor`, accessible depuis le fichier index.html
@@ -46,8 +46,6 @@ Récupérez l'[archive](mat_course_chicon.zip) et décompressez la.
  ([data/small\_inscrits.csv](data/small_inscrits.csv) et
  [data/small\_performances.csv](data/small_performances.csv)), et un gros jeu de données
  ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
-
-
 
 
 2.  **Documentation**
