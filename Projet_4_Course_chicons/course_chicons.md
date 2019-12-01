@@ -88,6 +88,53 @@ Créer un module `Time.py` qui définit :
  * une fonction `to_string` qui a pour résultat une représentation sous la forme d'une chaîne de caractères de son paramètre de type `Time`.
 
 
+```python
+from collections import namedtuple
+
+Time = namedtuple('Time', ['hours', 'minutes', 'seconds'])
+
+def create (hours, minutes, seconds):
+    """    
+    :param hours: value of time in hours
+    :type name: int
+    :param minutes: value of time in minutes
+    :type name: int
+    :param seconds: value of time in seconds
+    :type name: int
+    :return: a new time for a competitor
+    :rtype: Time
+    :UC: hours > 0 
+    """
+    return Time(hours,minutes,seconds)
+
+p=create(5,28,10)
+#p.hours=5
+#p[0]=5
+q=create(5,28,12)
+#q.seconds=12
+#q[2]=12
+
+
+def compare(time1,time2):
+    
+    if time1.hours==time2.hours:        
+        if time1.minutes==time2.minutes:            
+            return (time1.seconds>time2.seconds)-(time1.seconds<time2.seconds)        
+        else:            
+            return (time1.minutes>time2.minutes)-(time1.minutes<time2.minutes)        
+    else:
+        return (time1.hours>time2.hours)-(time1.hours<time2.hours)
+
+#compare(q,p)=1
+#compare(p,q)=-1
+    
+def to_string(time):
+    return ' {hours}h {minutes}mn {seconds}s'.format(hours=time.hours,minutes=time.minutes,seconds=time.seconds)
+
+#to_string(p)=' 5h 28mn 10s'
+        
+```
+
 
 
 Gestion des inscrits
@@ -126,7 +173,7 @@ compteur.
 Tous les compétiteurs seront rassemblés dans un dictionnaire dont les clés seront les numéros de dossard et les valeurs les compétiteurs associés.
 
 
-**À faire**
+**À faire n°1**
 
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
 fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire de
@@ -136,8 +183,6 @@ ces inscrits.
 Vous pouvez envisager de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
 
 *Indication* Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` peut également être utilisée pour supprimer les marqueurs de fin de ligne.
-
-**À faire**
 
 Testez la validité de votre fonction avec le fichier
 `data/small_inscrits.csv`. 
@@ -149,11 +194,11 @@ Manipulations du dictionnaire
 
 ### Affichage
 
-**À faire**
+**À faire n°2**
 
-Réalisez une fonction qui prend en paramètre une liste de données de type `Competitor` et affiche sur la sortie standard chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
+Réalisez une fonction _affichage_ qui prend en paramètre une liste de données de type `Competitor` et affiche sur la sortie standard chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
 
-Utilisez votre fonction pour afficher les compétiteurs contenus dans le dictionnaire produit par la fonction `read_competitors` (c'est le moment de penser à utiliser `values()`).
+Utilisez votre fonction pour afficher les compétiteurs contenus dans le dictionnaire produit par la fonction `read_competitors`.
 
 
 ### Sélections
@@ -161,14 +206,15 @@ Utilisez votre fonction pour afficher les compétiteurs contenus dans le diction
 Nous allons écrire quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
 Les fonctions ont pour résultat soit une donnée de type `Competitor`, soit une liste de telles données. Ce résultat correspond à la sélection selon le critère cherché.
 
-**À faire**
+**À faire n°3**   
+
 Écrivez une fonction `select_competitor_by_bib` qui a pour résultat le compétiteur dont le numéro de dossard est passé en paramètre.
 
 Comment proposez-vous de  gérer la situation où aucun compétiteur ne correspond au dossard fourni ? 
 
 *Suggestion* cela peut être l'occasion de tester la levée d'exception.
 
-**À faire**
+**À faire n°4**    
 
 Écrivez une fonction `select_competitor_by_birth_year` dont le résultat est la liste des compétiteurs dont l'année de naissance correspond à une valeur passée en paramètre.
 
@@ -178,7 +224,7 @@ Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie 
 
 *NB* Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
 
-**À faire**
+**À faire n°5**
 
 Écrivez une fonction `select_competitor_by_name` dont le résultat est la liste des compétiteurs dont le nom (*last name*) contient la chaîne de caractères passée en paramètre.
 
@@ -219,15 +265,11 @@ construire un dictionnaire des performances qui associe à un numéro de
 dossard un objet de type `Time` du module que vous avez défini.
 
 
-**À faire**
+**À faire n°6**
 
 Réalisez une fonction nommée `read_performances` paramétrée par le nom
 du fichier CSV contenant les données des performances, qui renvoie le dictionnaire
 des performances contenues dans ce fichier.
-
-
-
-**À faire**
 
 Testez la validité de votre fonction avec le fichier
 `data/small_performances.csv`.
@@ -243,13 +285,11 @@ clefs, votre travail consiste à reporter les performances dans les
 fiches de ces compétiteurs.
 
 
-**À faire**
+**À faire n°7**
 
 Réalisez une fonction nommée `set_performances` paramétrée par les deux
 dictionnaires qui modifie les fiches des compétiteurs en reportant leur
 performance. Cette fonction ne renvoie pas de valeur.
-
-**À faire**
 
 Testez la validité de votre fonction avec les listes produites par le
 petit jeu de données.
@@ -257,15 +297,92 @@ petit jeu de données.
 # Tris
 (manipulation du dictionnaire - suite)
 
-Vous allez avoir l'occasion de réutiliser l'un des tris que vous avez
-réalisés dans le cadre des activités du bloc 2. 
+Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ ; vous pourrez ainsi importer cette fonction dans votre fichier.
 
-Récupérez le fichier contenant les fonctions de tris étudiées,
-faites votre choix d'une fonction parmi les tris étudiés et importez
-cette fonction.
+```python
+
+def compare_entier_croissant(a, b):
+    """
+    :param a: (int) un entier
+    :param b: (int) un entier
+    :return: (int)  
+             * >0  si a est supérieur à b
+             * 0 si a est égal à b
+             * <0 si a est inférieur à b
+    :CU: aucune
+    :Exemples:
+
+    >>> compare_entier_croissant(1, 3) < 0
+    True
+    """
+    return a-b
 
 
-**À faire**
+def compare_chaine_lexicographique(a, b):
+    return (a>b)-(a<b)
+
+    
+def compare_entier_decroissant(a, b):
+    """
+    :param a: (int) un entier
+    :param b: (int) un entier
+    :return: (int) 
+             * >0 si a est inférieur à b
+             * 0 si a est égal à b
+             * <0 si a est supérieur à b
+    :CU: aucune
+    :Exemples:
+
+    >>> compare_entier_décroissant(1, 3) > 0
+    True
+    """
+    return b-a
+
+
+def tri_selection(l,comp):
+    """
+        paramètre l : liste
+        paramètre comp : mode de comparaison
+        valeur renvoyée : liste triée
+
+    CU : liste non vide
+
+    Exemples :
+
+    >>> tri_selection([1,8,3,10,5],compare_entier_croissant)
+    [1, 3, 5, 8, 10]
+    
+    """
+    for i in range(len(l)):
+        j=selection_min(l,i,comp)
+        l[i],l[j]=l[j],l[i]
+    return l
+        
+def selection_min(l,i,comp):
+    """
+        paramètre l : liste
+        paramètre i : int
+        comp : mode de comparaison
+        valeur renvoyée : l'indice du minimum à partir de l'indice i
+
+    CU : liste non vide
+
+    Exemples :
+
+    >>> selection_min([1,8,3,10,5,2,6],2,compare_entier_croissant)
+    5
+    
+    """
+    i_min=i
+    for j in range(i+1,len(l)):
+        if comp(l[j],l[i_min])<0:
+            i_min=j
+    return i_min
+
+```
+
+
+**À faire n°8**
 
 Sur le modèle des fonctions de comparaison que vous avez déjà
 rencontrées, complétez le module `Competitor` pour lui ajouter une
@@ -275,20 +392,18 @@ sur les compétiteurs selon l'ordre alphabétique de leurs noms.
 Utilisez cette fonction pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat la liste des compétiteurs triée par ordre alphabétique  de leurs noms.
 
 
-**À faire**
+**À faire n°9**
 
 De manière similaire, faites le travail nécessaire pour définir une
 fonction `sort_competitors_by_performance` qui produit la liste des
 compétiteurs triée par ordre croissant des performances réalisées. Les
 compétiteurs sans résultat sont placés en fin de liste par ordre
-alphabétique.
+alphabétique. On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
 
-
-**Remarque**  En fin de sujet, la section **Compléments** propose d'aller un peu plus loin dans le travail sur ces tris.
-
-
-
-
+```python
+>>> conversion_en_seconde(' 1h 21mn 23s')
+4883
+```
 
 Publication et sauvegarde des résultats
 ---------------------------------------
@@ -298,7 +413,7 @@ Publication et sauvegarde des résultats
 Il est temps de procéder à la publication des résultats.
 
 
-**À faire**
+**À faire n°10**
 
 Réalisez une fonction nommée `print_results` paramétrée par un dictionnaire de
 compétiteurs qui imprime sur la sortie standard cette liste en précisant
@@ -321,8 +436,6 @@ ordre de performance, on pourrait obtenir un affichage de la forme :
 [2]: Paien Gilbert (M - 26/11/1953)      => 
 ```
 
-**À faire**
-
 Produisez l'affichage des résultats par ordre alphabétique, et par
 ordre des performances.
 
@@ -333,7 +446,7 @@ Enfin pour la pérennité de ces résultats, il est important de les
 sauvegarder dans un fichier.
 
 
-**À faire**
+**À faire n°11**
 
 Réalisez une fonction nommée `save_results` paramétrée par un dictionnaire de
 compétiteurs et un nom de fichier de sauvegarde, qui crée un fichier au
@@ -352,8 +465,6 @@ format CSV contenant
     8;Cheney;Chassé; 0h48mn10s
     ...
     ```
-
-**À faire**
 
 Testez votre fonction avec le petit jeu de données puis sauvegardez les résultats complets de la course.
 
@@ -379,28 +490,26 @@ compétiteur doit être sélectionné (on dit qu'il vérifie le prédicat)
 et `False` dans le cas contraire.
 
 
-**À faire**
-Lors de l'étude des tris vous avez vu, avec les fonctions de comparaison passées en paramètre des fonctions de tri, qu'une fonction pouvait être paramètre d'une fonction.
+**À faire n°12**    
+
+On a vu que les fonctions de comparaison pouvaient être passées en paramètre des fonctions de tri.
 En reprenant ce principe, définissez une fonction `select_competitor` dont le premier paramètre est un dictionnaire de compétiteurs et le second est une fonction prédicat.
 Le résultat de `select_competitor` est la liste des compétiteurs qui vérifient le prédicat.
 
-**À faire**
+**À faire n°13**  
+
 Après avoir défini les prédicats qui conviennent proposez une seconde version des fonctions  `select_competitor_by_birth_year` et `select_competitor_by_name`.
 
 Définissez une prédicat qui vérifie si son paramètre de type `Competitor` est de sexe féminin, puis sans définir de nouvelle fonction produisez la liste des compétiteurs de sexe féminin.	
 
 **Encore un peu plus loin ?** (seulement si vous en avez envie)
 
-Python permet de définir des *fonctions anonymes* (comme en javascript si vous avez déjà réalisé cela). On parle de **lambda** ou *lambda expression* ou *lambda fonction*.
+Python permet de définir des *fonctions anonymes* (comme en javascript). On parle de **lambda** ou *lambda expression* ou *lambda fonction*.
 Il s'agit, en Python, de fonction dont le corps est constitué d'une seule expression et pour lesquels le `return` est implicite.
 
 Voici un exemple de lambda qui calcule le carré de son paramètre
 ```python
->>> lambda x : x*x
-<function <lambda> at 0x000002B1CA9D9730>
-```
-On peut s'en servir pour définir une fonction
-```python
+
 >>> carre = lambda x: x*x
 >>> carre(4)
 16
