@@ -13,7 +13,7 @@ La course du chicon
 
 On s'intéresse donc ici en particulier à cette partie du programme de NSI de 1ère :
 
-<img src="./extrait-programme.png" width="500"/>
+<img src="assets/extrait-programme.png" width="500"/>
 
 
 Introduction
