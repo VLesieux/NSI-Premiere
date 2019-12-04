@@ -40,9 +40,7 @@ Il s'agit maintenant de distinguer la première ligne qui contient la liste des 
 
 ```python
 f=open("Tableau_capitales.csv","r")
-champs=f.readline()#lecture de la première ligne
-#'Nom;Continent;Superficie;Population;Capitale\n'
-champs=f.readline().rstrip().split(";")#transformation en liste
+champs=f.readline().rstrip().split(";")#lecture et transformation en liste de la première ligne
 #['Nom', 'Continent', 'Superficie', 'Population', 'Capitale']
 lignes=f.readlines()
 table=[]

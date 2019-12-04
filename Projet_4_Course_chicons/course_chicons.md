@@ -53,7 +53,7 @@ Récupérez le [dossier](https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/bl
 Consultez la documentation du module fourni.
 
 
-Le module `Competitor.py` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
+Le module `Competitor.py` que l'on importera `import Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
 
 Vous pouvez bien sûr examiner le code (accessible depuis la
@@ -68,6 +68,7 @@ On dispose ainsi d'un **constructeur**  (`create`) et les différentes informati
 
 3. **Création du module `Time`**
 
+Nous allons créer un module `Time.py` que l'on importera `import Time`.  
 Les performances des compétiteurs vont être représentées par leur temps de course exprimé en heures, minutes et secondes.
 
 On décide de représenter ces données par un tuple nommé. Ces données étant non mutables, utiliser les *named tuples* de Python pour les représenter semble être un choix  pertinent.
@@ -114,8 +115,19 @@ q=create(5,28,12)
 #q.seconds=12
 #q[2]=12
 
+#>>> p
+#Time(hours=5, minutes=28, seconds=10)
+#>>> q
+#Time(hours=5, minutes=28, seconds=12)
+
+# On dispose ainsi de différentes manières d'appeler l'une des trois caractéristiques d'un Time une fois créé par la fonction create   
 
 def compare(time1,time2):
+    """
+    Renvoie 1 si time1>time 2
+    0 si time1=time2
+    -1 si time1<time2
+    """
     
     if time1.hours==time2.hours:        
         if time1.minutes==time2.minutes:            
@@ -127,11 +139,23 @@ def compare(time1,time2):
 
 #compare(q,p)=1
 #compare(p,q)=-1
+
+# cette fonction repose sur les observations suivantes réalisées dans le shell
+
+#>>> True - False
+#1
+#>>> False - True
+#-1
     
 def to_string(time):
     return ' {hours}h {minutes}mn {seconds}s'.format(hours=time.hours,minutes=time.minutes,seconds=time.seconds)
 
 #to_string(p)=' 5h 28mn 10s'
+
+#On utilise la méthode format qui s'applique à un string
+#>>> valeur=18
+#>>> print("Il a {} ans".format(valeur))
+#Il a 18 ans
         
 ```
 
@@ -152,7 +176,7 @@ Les données concernant ces compétiteurs se trouvent dans le fichier
 `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui
 est un fichier au format
 [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values),
-c'est-à-dire un fichier texte contenant des données tabulées.
+c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes tel que Sublime Text).
 
 La première ligne de ce fichier est constituée des libellés des données
 qui suivent :
@@ -170,24 +194,46 @@ fonction `Competitor.create`. Il vous faudra attribuer à chacun de ces
 compétiteurs un numéro de dossard, obtenu par simple incrémentation d'un
 compteur. 
 
-Tous les compétiteurs seront rassemblés dans un dictionnaire dont les clés seront les numéros de dossard et les valeurs les compétiteurs associés.
+Tous les compétiteurs seront rassemblés dans un **dictionnaire dont les clés seront les numéros de dossard et les valeurs le tuble contenant les quatre informations associées au compétiteur**.
 
 
 **À faire n°1**
 
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
 fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire de
-ces inscrits.
+ces inscrits. À cet effet, on relira avantageusement le **cours 4** pour suivre une démarche similaire.
 
+*Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` peut également être utilisée pour supprimer les marqueurs de fin de ligne.  
+
+Testez la validité de votre fonction avec le fichier `data/small_inscrits.csv`. 
+Vérifiez par exemple la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments.
 
 Vous pouvez envisager de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
 
-*Indication* Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` peut également être utilisée pour supprimer les marqueurs de fin de ligne.
+Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError`
 
-Testez la validité de votre fonction avec le fichier
-`data/small_inscrits.csv`. 
-Vérifiez par exemple la taille du dictionnaire obtenu, ainsi que le
-contenu de quelques éléments.
+```python
+def renvoie_valeur_indice3_liste(liste):
+    return liste[2]
+
+>>> renvoie_valeur_indice3_liste([1,5])
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "/Users/vincentlesieux/Library/Mobile Documents/com~apple~CloudDocs/DIU-EIL/course_chicon_new.py", line 30, in renvoie_valeur_indice3_liste
+    return liste[2]
+IndexError: list index out of range
+
+def renvoie_valeur_indice3_liste(liste):
+    try :
+        return liste[2]
+    except IndexError:
+        print("votre liste ne comporte pas d'élément d'indice 3")
+
+>>> renvoie_valeur_indice3_liste([1,2])
+votre liste ne comporte pas d'élément d'indice 3
+
+```
+
 
 Manipulations du dictionnaire
 -----------------------------
@@ -201,9 +247,19 @@ Réalisez une fonction _affichage_ qui prend en paramètre une liste de données
 Utilisez votre fonction pour afficher les compétiteurs contenus dans le dictionnaire produit par la fonction `read_competitors`.
 
 
+Rappel:
+```python
+>>> frequences={'do4': 523.25, 'la3': 440, 'mi4': 659.26}
+for i in frequences:
+    print(frequences[i])
+523.25
+440
+659.26
+```
+
 ### Sélections
 
-Nous allons écrire quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
+Nous allons écrire maintenant quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
 Les fonctions ont pour résultat soit une donnée de type `Competitor`, soit une liste de telles données. Ce résultat correspond à la sélection selon le critère cherché.
 
 **À faire n°3**   
@@ -212,26 +268,23 @@ Les fonctions ont pour résultat soit une donnée de type `Competitor`, soit une
 
 Comment proposez-vous de  gérer la situation où aucun compétiteur ne correspond au dossard fourni ? 
 
-*Suggestion* cela peut être l'occasion de tester la levée d'exception.
+*Suggestion* : cela peut être l'occasion de tester une levée d'exception.
 
 **À faire n°4**    
 
-Écrivez une fonction `select_competitor_by_birth_year` dont le résultat est la liste des compétiteurs dont l'année de naissance correspond à une valeur passée en paramètre.
+Écrivez une fonction `select_competitor_by_birth_year` dont le résultat est la **liste** des compétiteurs dont l'année de naissance correspond à une valeur passée en paramètre.
 
-*Suggestion* Étudiez la documentation de la fonction `endswith` des chaînes de caractères.
+*Suggestion* : Étudiez la documentation de la fonction `endswith` des chaînes de caractères.
 
 Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie ?
 
-*NB* Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
+*NB* : Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
 
 **À faire n°5**
 
-Écrivez une fonction `select_competitor_by_name` dont le résultat est la liste des compétiteurs dont le nom (*last name*) contient la chaîne de caractères passée en paramètre.
+Écrivez une fonction `select_competitor_by_name` dont le résultat est la **liste** des compétiteurs dont le nom (*last name*) contient la chaîne de caractères passée en paramètre.
 
-*Suggestion* Pensez à utiliser `in` pour les chaînes de caractères.
-
-
-**Remarque**  En fin de sujet, la section **Compléments** propose d'aller un peu plus loin dans le travail sur ces sélections.
+*Suggestion* : Pensez à utiliser `in` pour les chaînes de caractères.
 
 
 Report des performances
@@ -282,14 +335,14 @@ contenu de quelques éléments.
 Maintenant que vous disposez des données sur les compétiteurs et leurs
 performances sous forme de dictionnaires qui partagent les mêmes
 clefs, votre travail consiste à reporter les performances dans les
-fiches de ces compétiteurs.
+fiches de ces compétiteurs. On réalise ainsi une fusion de tables.
 
 
 **À faire n°7**
 
 Réalisez une fonction nommée `set_performances` paramétrée par les deux
 dictionnaires qui modifie les fiches des compétiteurs en reportant leur
-performance. Cette fonction ne renvoie pas de valeur.
+performance dans celles-ci. Cette fonction ne renvoie pas de valeur.
 
 Testez la validité de votre fonction avec les listes produites par le
 petit jeu de données.
@@ -384,8 +437,7 @@ def selection_min(l,i,comp):
 
 **À faire n°8**
 
-Sur le modèle des fonctions de comparaison que vous avez déjà
-rencontrées, complétez le module `Competitor` pour lui ajouter une
+Sur le modèle des fonctions de comparaison proposées, complétez le module `Competitor` pour lui ajouter une
 fonction nommée `compare_lastname` qui définit une relation d'ordre
 sur les compétiteurs selon l'ordre alphabétique de leurs noms.
 
