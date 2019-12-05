@@ -26,10 +26,8 @@ def read_competitors(text):
 #print(read_competitors("mat_course_chicon/data/small_inscrits.csv"))
 
 def affichage(competiteurs):
-    texte=""
     for i in competiteurs:
         print(Competitor.to_string(competiteurs[i]))
-    return texte
 
 #print(affichage(read_competitors("data/small_inscrits.csv")))
 
