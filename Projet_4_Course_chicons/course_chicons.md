@@ -256,6 +256,12 @@ for i in frequences:
 440
 659.26
 ```
+Vous devriez obtenir ceci: 
+
+<img src="assets/Capture1.png" width="500"/>     
+
+
+
 
 ### Sélections
 
@@ -285,6 +291,8 @@ Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie 
 Écrivez une fonction `select_competitor_by_name` dont le résultat est la **liste** des compétiteurs dont le nom (*last name*) contient la chaîne de caractères passée en paramètre.
 
 *Suggestion* : Pensez à utiliser `in` pour les chaînes de caractères.
+
+*NB* : Dans le petit jeu de données, deux compétiteurs ont leur nom de famille qui commence par "Ri".
 
 
 Report des performances
@@ -322,12 +330,18 @@ dossard un objet de type `Time` du module que vous avez défini.
 
 Réalisez une fonction nommée `read_performances` paramétrée par le nom
 du fichier CSV contenant les données des performances, qui renvoie le dictionnaire
-des performances contenues dans ce fichier.
+des performances contenues dans ce fichier.   
+La clé du dictionnaire est le numéro de brassard déjà inclu dans le fichier csv.
+On n'oubliera pas de transformer les données en chaîne en entier à l'aide de int().
 
 Testez la validité de votre fonction avec le fichier
 `data/small_performances.csv`.
 Vérifiez en particulier la taille du dictionnaire obtenu, ainsi que le
 contenu de quelques éléments.
+
+Vous devriez obtenir ceci: 
+
+<img src="assets/Capture2.png" width="1000"/>   
 
 
 ### Report
@@ -340,12 +354,15 @@ fiches de ces compétiteurs. On réalise ainsi une fusion de tables.
 
 **À faire n°7**
 
-Réalisez une fonction nommée `set_performances` paramétrée par les deux
-dictionnaires qui modifie les fiches des compétiteurs en reportant leur
-performance dans celles-ci. Cette fonction ne renvoie pas de valeur.
+Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs et qui renvoie le dictionnaire des compétiteures augmenté de leurs performances sous la forme d'un Time.
 
 Testez la validité de votre fonction avec les listes produites par le
 petit jeu de données.
+
+Vous devriez obtenir ceci: 
+
+<img src="assets/Capture3.png" width="1000"/>
+
 
 # Tris
 (manipulation du dictionnaire - suite)
@@ -437,12 +454,12 @@ def selection_min(l,i,comp):
 
 **À faire n°8**
 
-Sur le modèle des fonctions de comparaison proposées, complétez le module `Competitor` pour lui ajouter une
-fonction nommée `compare_lastname` qui définit une relation d'ordre
-sur les compétiteurs selon l'ordre alphabétique de leurs noms.
+Utilisez la fonction `tri.compare_chaine_lexicographique` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
 
-Utilisez cette fonction pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat la liste des compétiteurs triée par ordre alphabétique  de leurs noms.
 
+Vous devriez obtenir ceci: 
+
+<img src="assets/Capture5.png" width="1000"/>
 
 **À faire n°9**
 
