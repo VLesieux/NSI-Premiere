@@ -29,6 +29,6 @@ def affichage(competiteurs):
     for i in competiteurs:
         print(Competitor.to_string(competiteurs[i]))
 
-#print(affichage(read_competitors("data/small_inscrits.csv")))
+#affichage(read_competitors("data/small_inscrits.csv"))
 
 ```
