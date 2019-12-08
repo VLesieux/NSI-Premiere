@@ -1,22 +1,22 @@
 # WA-TOR : Mise en place du projet
 
-Règle du jeu : **[la consulter](assets/Wator_regles_du_jeu.md)**
+Règle du jeu : **[à consulter](assets/Wator_regles_du_jeu.md)**
 
 ## Première partie : représentation et affichage de la grille 
 
 ### Introduction : choix de la structure de données
 
-La grille du jeu sera représentée par une _**liste de listes**_ contenant une structure de données liée à la nature de la case : mer, thon ou requin.
+La grille du jeu sera représentée par une _**liste de listes**_, chaque liste contenant elle-même une structure de données liée à la nature de la case : mer, thon ou requin.
 
 La représentation choisie pour une case sera un _**tuple**_ de forme _(n,g,e)_ où 
 - **n** désigne la nature de la case : 0 pour la mer, 1 pour un thon, 2 pour un requin
 - **g** désigne le temps de gestation de l'espèce : 0 si n vaut 0
 - **e** désigne l'énergie de l'espèce : 0 si n vaut 0    
 
-Les tuples représentant les cases seront placés dans un tableau à deux dimensions ou liste de listes.    
+Les tuples représentant les cases seront ainsi placés dans un tableau à deux dimensions ou liste de listes.    
 Par exemple, la grille de jeu suivante :   ```[[(0,0,0),(0,0,0),(0,0,0)],[(1,2,0),(2,5,3),(1,2,0)]]  ``` est constituée de deux lignes (deux cases en hauteur) et de trois colonnes (trois cases en largeur) : la première ligne est vide et ne contient que la mer, la deuxième contient dans l'ordre un thon de temps de gestation 2, d'énergie 0 ; un requin de temps de gestation 5 et d'énergie 3 ; un thon de temps de gestation 2 et d'énergie 0.
 
-On rappelle que les tuples (type _tuple_) et les listes (type _list_) sont des structures toutes les deux _**indicées**_ et **_itérables_**. Les opérations que l'on peut effectuer sur eux sont similaires si ce n'est que les tuples ne sont pas modifiables : on dit de les premiers sont **_mutables_** tandis que les seconds sont _**non mutables**_.
+On rappelle que les tuples (type _tuple_) et les listes (type _list_) sont des structures toutes les deux _**indicées**_ et **_itérables_**. Les opérations que l'on peut effectuer sur ces deux types sont similaires si ce n'est que les tuples ne sont pas modifiables : on dit que les listes sont **_mutables_** tandis que les tuples sont _**non mutables**_.
 
 ```python
 >>> tuple=("a",3,8)
@@ -25,7 +25,7 @@ On rappelle que les tuples (type _tuple_) et les listes (type _list_) sont des s
 >>> tuple[1]=4# tentative d'affectaction de la valeur 4 à l'élément d'indice 1
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
-TypeError: 'tuple' object does not support item assignment#on a une erreur
+TypeError: 'tuple' object does not support item assignment#on obtient une erreur
 >>> liste=["a",3,8]
 >>> liste[1]
 3
@@ -34,7 +34,7 @@ TypeError: 'tuple' object does not support item assignment#on a une erreur
 ['a', 4, 8]
 ```  
 
-Les tuples et listes sont des _**itérables**_, c'est-à-dire qu'on peut parcourir leur composition à l'aide d'une boucle ```for```.
+Les tuples et listes sont des _**itérables**_, c'est-à-dire que l'on peut parcourir les éléments qui les composent à l'aide d'une boucle ```for```.
 
 ```python
 >>> tuple=("a",3,8)
@@ -65,7 +65,7 @@ a
 8
 ``` 
 
-Ici la liste l étant à deux dimensions ou liste de liste, on utilise la _**notation ```l[i][j] ```**_ pour accéder à l'élément placé dans la case repérée par la ième ligne et la jième colonne.
+Ici la liste l étant à deux dimensions ou liste de liste, on utilise la _**notation ```l[i][j] ```**_ pour accéder à l'élément ou case repérée par sa position dans la ième ligne et la jième colonne de la grille.
 
 Exemple :
 
@@ -154,7 +154,7 @@ Exemple :
 ['aa', 'aa']
 ``` 
 
-Ici, on peut créer de la même manière notre grille de façon rapide et efficace (une seule ligne de code !) grâce à une liste obtenue par compréhension.   
+Ici, nous allons créer de la même manière notre grille de façon rapide et efficace (une seule ligne de code !) grâce à une liste obtenue par compréhension.   
 Par exemple, pour créer une grille de largeur 2 et de hauteur 3, on peut écrire:
 
 ```python
