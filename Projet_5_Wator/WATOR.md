@@ -711,6 +711,8 @@ import time
 time.sleep(0.1) # pause de 0,1 seconde
 ```
 
+> **À vous de jouer n°17** : écrire la fonction ```simulation``` avec sa docstring
+
 ### Construction de la courbe
 
 On ajoute à la simulation des listes qui comptabilisent à chaque pas les nombres de requins et de thons. Utilisez pour cela la fonction ```denombre_espece```.   
@@ -728,6 +730,7 @@ pylab.xlabel('Axe des abscisses')
 pylab.ylabel('Axe des ordonnées')
 pylab.grid()
 ```
+
 <img width="500" src="assets/vue1.png"/><img width="500" src="assets/vue2.png"/>   
 <img width="800" src="assets/resultat_simulation.png"/>
 
