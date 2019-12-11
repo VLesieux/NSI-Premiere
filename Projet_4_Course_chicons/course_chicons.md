@@ -19,7 +19,7 @@ On s'intéresse donc ici en particulier à cette partie du programme de NSI de 1
 Introduction
 ------------
 
-Le dimanche 27 octobre 2019 aura lieu à Baisieux, commune du Nord
+Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord
 frontalière de la Belgique, la [course du chicon](http://courirabaisieux.fr/la-course-du-chicon/).
 
 Cette course se décline sur plusieurs distances de 15km à 0.5km. Nous ne nous intéresserons dans ce TP qu'à la
