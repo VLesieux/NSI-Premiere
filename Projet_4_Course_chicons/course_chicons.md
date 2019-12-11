@@ -47,6 +47,7 @@ Récupérez le [dossier](https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/bl
  [data/small\_performances.csv](data/small_performances.csv)), et un gros jeu de données
  ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
 
+<img src="assets/small_inscrits.png" width="300"/><img src="assets/small_performances.png" width="300"/>
 
 2.  **Documentation**
 
@@ -235,6 +236,12 @@ votre liste ne comporte pas d'élément d'indice 3
 
 ```
 
+Vous devriez obtenir ceci: 
+
+```python
+>>> read_competitors("data/small_inscrits.csv")
+{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}   
+```
 
 Manipulations du dictionnaire
 -----------------------------
@@ -260,11 +267,18 @@ for i in frequences:
 Vous devriez obtenir ceci: 
 
 ```python
->>> read_competitors("data/small_inscrits.csv")
-{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}   
+>>> affichage(read_competitors("data/small_inscrits.csv"))
+[1]: Sidney Robert (M - 21/7/1970) 
+[2]: Paien Gilbert (M - 26/11/1953) 
+[3]: Vincent Riquier (M - 16/9/1980) 
+[4]: Saville Marier (M - 19/11/1969) 
+[5]: Namo Lereau (M - 26/3/1980) 
+[6]: Romaine Hughes (F - 17/10/1943) 
+[7]: Archard Rivard (M - 10/6/1950) 
+[8]: Cheney Chassé (M - 21/3/1949) 
+[9]: Avelaine CinqMars (F - 14/2/1983) 
+[10]: Sidney Charest (M - 5/3/1981) 
 ```
-
-
 
 ### Sélections
 
@@ -390,9 +404,8 @@ Vous devriez obtenir ceci:
 ```
 
 # Tris
-(manipulation du dictionnaire - suite)
 
-Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ ; vous pourrez ainsi importer cette fonction dans votre fichier.
+Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard. Vous créez le module Tri.py dans le dossier src que vous importez dans votre fichier : `import src.Tri as Tri`.
 
 ```python
 
@@ -481,10 +494,12 @@ def selection_min(l,i,comp):
 
 Utilisez la fonction `tri.compare_chaine_lexicographique` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
 
+```python
+Vous devriez obtenir ceci : 
 
-Vous devriez obtenir ceci: 
-
-<img src="assets/Capture5.png" width="1000"/>
+>>> sort_competitors_by_lastname(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
+{10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}}
+```
 
 **À faire n°9**
 
@@ -492,11 +507,34 @@ De manière similaire, faites le travail nécessaire pour définir une
 fonction `sort_competitors_by_performance` qui produit la liste des
 compétiteurs triée par ordre croissant des performances réalisées. Les
 compétiteurs sans résultat sont placés en fin de liste par ordre
-alphabétique. On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
+alphabétique. 
+
+Première méthode :
+
+On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
 
 ```python
 >>> conversion_en_seconde(' 1h 21mn 23s')
 4883
+```
+
+Vous devriez obtenir ceci :
+
+```python
+>>> sort_competitors_by_performance_methode1(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
+
+{7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
+```
+
+Deuxième méthode : 
+
+On utilise la fonction de comparaison du module Time, ce qui est mieux.
+
+Vous devriez obtenir ceci (la même chose que précédemment) :
+
+```python
+>>> sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances("data/small_performances.csv"))
+{7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
 ```
 
 Publication et sauvegarde des résultats
@@ -515,7 +553,7 @@ leur prénom, nom, sexe, numéro de dossard et performance.
 
 Par exemple, avec le petit jeu de données, et en supposant que le report
 des performances a été effectué et la liste de compétiteurs triée par
-ordre de performance, on pourrait obtenir un affichage de la forme :
+ordre de performance, on otient l'affichage :
 
 ``` {.sourceCode .bash}
 [7]: Archard Rivard (M - 10/6/1950)      =>  0h46mn31s
@@ -590,47 +628,33 @@ On a vu que les fonctions de comparaison pouvaient être passées en paramètre 
 En reprenant ce principe, définissez une fonction `select_competitor` dont le premier paramètre est un dictionnaire de compétiteurs et le second est une fonction prédicat.
 Le résultat de `select_competitor` est la liste des compétiteurs qui vérifient le prédicat.
 
+Définissez une prédicat qui vérifie si son paramètre de type `Competitor` est de sexe féminin, puis sans définir de nouvelle fonction produisez la liste des compétiteurs de sexe féminin. 
+
+Vous devriez obtenir ceci :
+
+```python
+>>> select_competitor(read_competitors('data/small_inscrits.csv'),is_sexe_feminin)
+[{'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}]
+```
+
 **À faire n°13**  
 
-Après avoir défini les prédicats qui conviennent proposez une seconde version des fonctions  `select_competitor_by_birth_year` et `select_competitor_by_name`.
+Après avoir défini le prédicat qui convient, proposez une seconde version de la fonction  `select_competitor_by_birth_year`.
 
-Définissez une prédicat qui vérifie si son paramètre de type `Competitor` est de sexe féminin, puis sans définir de nouvelle fonction produisez la liste des compétiteurs de sexe féminin.	
+Vous devriez obtenir ceci :
 
-**Encore un peu plus loin ?** (seulement si vous en avez envie)
-
-Python permet de définir des *fonctions anonymes* (comme en javascript). On parle de **lambda** ou *lambda expression* ou *lambda fonction*.
-Il s'agit, en Python, de fonction dont le corps est constitué d'une seule expression et pour lesquels le `return` est implicite.
-
-Voici un exemple de lambda qui calcule le carré de son paramètre
 ```python
-
->>> carre = lambda x: x*x
->>> carre(4)
-16
+new_select_competitor_by_birth_year(read_competitors('data/small_inscrits.csv'),is_plus_age)
+{1: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 3: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 4: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 5: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 6: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}
 ```
 
-Il est possible d'avoir plusieurs paramètres :
+**À faire n°14**  
+
+Après avoir défini le prédicat qui convient, proposez une seconde version de la fonction  `select_competitor_by_name`.
+
+Vous devriez obtenir ceci :
+
 ```python
->>> add = lambda x,y: x+y
->>> add(3,6)
-9
+>>> new_select_competitor_by_birth_year(read_competitors('data/small_inscrits.csv'),is_plus_avance_ordre_alpha)
+{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 8: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 9: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}
 ```
-
-Fondamentalement, les lambdas n'apportent rien de particulier par rapport aux fonctions définies par `def`. Leur intérêt réside principalement dans les situations où l'on souhaite passer une fonction comme paramètre sans avoir à définir une fonction nommée.
-
-Vous pouvez lire [cette page](https://book.pythontips.com/en/latest/map_filter.html) et en déduire comment vous pouvez utiliser les lambdas et la fonction `filter` pour écrire une troisième version des fonctions de sélection précédentes qui utilise `filter` 
-qui est de fait une fonction prédéfinie qui réalise le travail demandé.
-
-## Pour les tris
-
-
-**Allons un peu plus loin** (une nouvelle fois)
-
-Selon le même principe que pour la sélection on peut constater des similitudes dans les deux fonctions de tris (`sort_competitors_by_lastname` et `sort_competitors_by_performance`) étudiées dans le sujet.
-Déduisez en la définition d'une fonction qui prend en paramètre le dictionnaire et la fonction de comparaison pour produire la liste de compétiteurs triée selon la relation d'ordre.
-
-**Et toujours pour aller un peu plus loin**
-
-Il est possible d'utiliser la fonction prédéfinie `list.sort` (cf. [doc python](https://docs.python.org/fr/3.7/library/stdtypes.html#list.sort)).
-Il est alors certainement intéressant de consulter au préalable le [Guide pour le tri](https://docs.python.org/fr/3.7/howto/sorting.html).
-C'est l'occasion de  rencontrer à nouveau une situation où les lambdas peuvent être utilisées.
