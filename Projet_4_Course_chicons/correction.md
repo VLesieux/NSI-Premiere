@@ -159,6 +159,7 @@ def sort_competitors_by_performance_methode1(dic):
 
 #sort_competitors_by_performance_methode1(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
 
+######Méthode n°2################################
 
 def sort_competitors_by_performance_methode2(dic1,dic2):
     new={}
