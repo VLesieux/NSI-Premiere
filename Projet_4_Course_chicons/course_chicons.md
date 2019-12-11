@@ -168,7 +168,7 @@ Gestion des inscrits
 
 Les fonctions suivantes sont à définir maintenant dans le module `course_chicon` que vous allez créer qui regroupera les fonctions utiles à la gestion de la course.
 
-Il sera bien sûr nécessaire d'importer les modules `Competitor` et `Time`.
+Il sera bien sûr nécessaire d'importer les modules `Competitor` et `Time` placés dans le dossier src.
 
 
 Votre première tâche est de construire la liste des compétiteurs inscrits à
