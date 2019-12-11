@@ -53,7 +53,7 @@ Récupérez le [dossier](https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/bl
 Consultez la documentation du module fourni.
 
 
-Le module `Competitor.py` que l'on importera `import Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
+Le module `Competitor.py` que l'on importera en écrivant `import Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
 
 Vous pouvez bien sûr examiner le code (accessible depuis la
@@ -71,9 +71,9 @@ On dispose ainsi d'un **constructeur**  (`create`) et les différentes informati
 Nous allons créer un module `Time.py` que l'on importera `import Time`.  
 Les performances des compétiteurs vont être représentées par leur temps de course exprimé en heures, minutes et secondes.
 
-On décide de représenter ces données par un tuple nommé. Ces données étant non mutables, utiliser les *named tuples* de Python pour les représenter semble être un choix  pertinent.
+On décide de représenter ces données par un tuple nommé. Ces données étant **non mutables**, utiliser les *named tuples* de Python pour les représenter semble être un choix  pertinent.
 
-Pour rappel, cette notion est définie dans le module `collections` de Python. Il convient donc d'importer
+Pour rappel, cette notion est définie dans le module `collections` de Python. Il convient donc de l'importer en premier lieu :
 
 ```python
 from collections import namedtuple
@@ -109,6 +109,7 @@ def create (hours, minutes, seconds):
     return Time(hours,minutes,seconds)
 
 p=create(5,28,10)
+#on dispose de deux modes d'accès possibles aux informations du tuple nommé
 #p.hours=5
 #p[0]=5
 q=create(5,28,12)
@@ -120,7 +121,6 @@ q=create(5,28,12)
 #>>> q
 #Time(hours=5, minutes=28, seconds=12)
 
-# On dispose ainsi de différentes manières d'appeler l'une des trois caractéristiques d'un Time une fois créé par la fonction create   
 
 def compare(time1,time2):
     """
@@ -140,7 +140,7 @@ def compare(time1,time2):
 #compare(q,p)=1
 #compare(p,q)=-1
 
-# cette fonction repose sur les observations suivantes réalisées dans le shell
+# cette fonction repose sur les observations suivantes réalisables rapidement dans le shell
 
 #>>> True - False
 #1
@@ -152,7 +152,8 @@ def to_string(time):
 
 #to_string(p)=' 5h 28mn 10s'
 
-#On utilise la méthode format qui s'applique à un string
+#On utilise la méthode appelée format qui s'applique aux objets de type string
+#c'est équivalent à une concaténation mais plus simple
 #>>> valeur=18
 #>>> print("Il a {} ans".format(valeur))
 #Il a 18 ans
@@ -164,7 +165,7 @@ def to_string(time):
 Gestion des inscrits
 --------------------
 
-Les fonctions suivantes sont a priori à définir dans le module `course_chicon` qui regroupera les fonctions utiles à la gestion de la course.
+Les fonctions suivantes sont à définir maintenant dans le module `course_chicon` que vous allez créer qui regroupera les fonctions utiles à la gestion de la course.
 
 Il sera bien sûr nécessaire d'importer les modules `Competitor` et `Time`.
 
@@ -194,23 +195,23 @@ fonction `Competitor.create`. Il vous faudra attribuer à chacun de ces
 compétiteurs un numéro de dossard, obtenu par simple incrémentation d'un
 compteur. 
 
-Tous les compétiteurs seront rassemblés dans un **dictionnaire dont les clés seront les numéros de dossard et les valeurs le tuble contenant les quatre informations associées au compétiteur**.
+Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **clés** seront les numéros de dossard et les **valeurs** le tuple contenant les quatre informations associées au compétiteur**.
 
 
 **À faire n°1**
 
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
 fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire de
-ces inscrits. À cet effet, on relira avantageusement le **cours 4** pour suivre une démarche similaire.
+ces inscrits. À cet effet, on relira avantageusement le **cours n°4** pour suivre une démarche similaire.
 
-*Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` peut également être utilisée pour supprimer les marqueurs de fin de ligne.  
+*Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne.  
 
 Testez la validité de votre fonction avec le fichier `data/small_inscrits.csv`. 
 Vérifiez par exemple la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments.
 
 Vous pouvez envisager de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
 
-Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError`
+Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError` rencontrée pour les listes :
 
 ```python
 def renvoie_valeur_indice3_liste(liste):
@@ -238,7 +239,7 @@ votre liste ne comporte pas d'élément d'indice 3
 Manipulations du dictionnaire
 -----------------------------
 
-### Affichage
+### Affichage des informations
 
 **À faire n°2**
 
@@ -247,7 +248,7 @@ Réalisez une fonction _affichage_ qui prend en paramètre une liste de données
 Utilisez votre fonction pour afficher les compétiteurs contenus dans le dictionnaire produit par la fonction `read_competitors`.
 
 
-Rappel:
+Rappel sur le parcours des éléments d'un dictionnaire :
 ```python
 >>> frequences={'do4': 523.25, 'la3': 440, 'mi4': 659.26}
 for i in frequences:
@@ -258,14 +259,16 @@ for i in frequences:
 ```
 Vous devriez obtenir ceci: 
 
-<img src="assets/Capture1.png" width="500"/>     
-
+```python
+>>> read_competitors("data/small_inscrits.csv")
+{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}   
+```
 
 
 
 ### Sélections
 
-Nous allons écrire maintenant quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
+Nous allons écrire maintenant quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section, les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
 Les fonctions ont pour résultat soit une donnée de type `Competitor`, soit une liste de telles données. Ce résultat correspond à la sélection selon le critère cherché.
 
 **À faire n°3**   
@@ -274,7 +277,14 @@ Les fonctions ont pour résultat soit une donnée de type `Competitor`, soit une
 
 Comment proposez-vous de  gérer la situation où aucun compétiteur ne correspond au dossard fourni ? 
 
-*Suggestion* : cela peut être l'occasion de tester une levée d'exception.
+*Suggestion* : cela peut être l'occasion de tester à nouveau une levée d'exception.
+
+Exemple :
+
+```python
+>>> select_competitor_by_bib(read_competitors("data/small_inscrits.csv"),8)
+{'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}
+```
 
 **À faire n°4**    
 
@@ -284,7 +294,12 @@ Comment proposez-vous de  gérer la situation où aucun compétiteur ne correspo
 
 Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie ?
 
-*NB* : Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
+Exemple : Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
+
+```python
+>>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1980)
+[{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
+```
 
 **À faire n°5**
 
@@ -292,7 +307,12 @@ Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie 
 
 *Suggestion* : Pensez à utiliser `in` pour les chaînes de caractères.
 
-*NB* : Dans le petit jeu de données, deux compétiteurs ont leur nom de famille qui commence par "Ri".
+Exemple : Dans le petit jeu de données, deux compétiteurs ont leur nom de famille qui commence par "Ri".
+
+```python
+>>> select_competitor_by_name(read_competitors("data/small_inscrits.csv"),"Ri")
+[{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}]
+```
 
 
 Report des performances
@@ -332,7 +352,8 @@ Réalisez une fonction nommée `read_performances` paramétrée par le nom
 du fichier CSV contenant les données des performances, qui renvoie le dictionnaire
 des performances contenues dans ce fichier.   
 La clé du dictionnaire est le numéro de brassard déjà inclu dans le fichier csv.
-On n'oubliera pas de transformer les données en chaîne en entier à l'aide de int().
+On n'oubliera pas de transformer les données fournies en chaînes de caractères en entier à l'aide de la fonction `int()`.  
+Cette fonction est très similaire à la fonction _read_competitor_.
 
 Testez la validité de votre fonction avec le fichier
 `data/small_performances.csv`.
@@ -341,28 +362,32 @@ contenu de quelques éléments.
 
 Vous devriez obtenir ceci: 
 
-<img src="assets/Capture2.png" width="1000"/>   
-
+```python
+>>> read_performances("data/small_performances.csv")
+{1: Time(hours=1, minutes=8, seconds=55), 3: Time(hours=1, minutes=21, seconds=23), 4: Time(hours=0, minutes=56, seconds=29), 5: Time(hours=1, minutes=6, seconds=20), 6: Time(hours=1, minutes=17, seconds=8), 7: Time(hours=0, minutes=46, seconds=31), 8: Time(hours=0, minutes=48, seconds=10), 10: Time(hours=1, minutes=6, seconds=38)}
+```
 
 ### Report
 
 Maintenant que vous disposez des données sur les compétiteurs et leurs
 performances sous forme de dictionnaires qui partagent les mêmes
 clefs, votre travail consiste à reporter les performances dans les
-fiches de ces compétiteurs. On réalise ainsi une fusion de tables.
+fiches de ces compétiteurs. On réalise ainsi une fusion des deux tables.
 
 
 **À faire n°7**
 
-Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs et qui renvoie le dictionnaire des compétiteures augmenté de leurs performances sous la forme d'un Time.
+Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs qui renvoie le dictionnaire des compétiteurs augmenté de leurs performances sous la forme d'un Time. Il faut gérer la situation où un compétiteur n'a pas de performance s'il s'est inscrit à la course mais n'a pas concouru, c'est-à-dire la cas où la clé du dictionnaire des compétiteurs est absente du dictionnaire des performances. Il faudra gérer l'exception de clé manquante `KeyError`.
 
 Testez la validité de votre fonction avec les listes produites par le
 petit jeu de données.
 
 Vous devriez obtenir ceci: 
 
-<img src="assets/Capture3.png" width="1000"/>
-
+```python
+>>> set_performances(read_performances('data/small_performances.csv'),read_competitors("data/small_inscrits.csv"))
+{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}}
+```
 
 # Tris
 (manipulation du dictionnaire - suite)
