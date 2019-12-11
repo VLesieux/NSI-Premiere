@@ -608,7 +608,7 @@ chaleureusement pour votre contribution à son bon déroulement.**
 
 ## Pour les fonctions de sélection
 
-**Allons un peu plus loin** *(optionnel)*
+**Allons un peu plus loin**
 
 On peut constater que les deux fonctions de sélection réalisées sont
 assez similaires et on pourrait imaginer d'autres fonctions de
