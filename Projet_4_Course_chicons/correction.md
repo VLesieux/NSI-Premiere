@@ -127,7 +127,7 @@ def sort_competitors_by_lastname(dic):
                 new[j]=dic[j]
     return new
         
-#sort_competitors_by_lastname(set_performances(read_performances('mat_course_chicon/data/small_performances.csv'),read_competitors('mat_course_chicon/data/small_inscrits.csv')))
+#sort_competitors_by_lastname(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
 
 ###################################Faire n°9#######################################
 
@@ -184,7 +184,7 @@ def sort_competitors_by_performance_methode2(dic1,dic2):
                 new[j]=dic1[j]  
     return new
             
-#sort_competitors_by_performance(set_performances(read_performances('data/small_performances.csv'),read_performances("data/small_performances.csv")))
+#sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances('data/small_performances.csv'))
 
 ###################################Faire n°10#######################################
 
