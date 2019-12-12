@@ -91,6 +91,9 @@ Créer un module `Time.py` qui définit :
 
 
 ```python
+####################
+#  MODULE Time.py  #
+####################
 from collections import namedtuple
 
 Time = namedtuple('Time', ['hours', 'minutes', 'seconds'])
@@ -408,7 +411,9 @@ Vous devriez obtenir ceci:
 Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard. Vous créez le module Tri.py dans le dossier src que vous importez dans votre fichier : `import src.Tri as Tri`.
 
 ```python
-
+####################
+#  MODULE Tri.py  #
+####################
 def compare_entier_croissant(a, b):
     """
     :param a: (int) un entier
