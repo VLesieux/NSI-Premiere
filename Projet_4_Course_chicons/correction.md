@@ -2,9 +2,9 @@
 
 import src.Competitor as Competitor
 import src.Time as Time
-
-#Les deux modules Competitor et Time sont supposés être placés dans le dossier src
-#On trouve les deux modules dans le sujet
+import src.Tri as Tri
+#Les trois modules Competitor et Time sont supposés être placés dans le dossier src
+#On trouve les trois modules dans le sujet
 ###################################Faire n°1#######################################
 
 def read_competitors(text):
