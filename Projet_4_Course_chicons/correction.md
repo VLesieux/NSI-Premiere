@@ -4,7 +4,7 @@ import src.Competitor as Competitor
 import src.Time as Time
 import src.Tri as Tri
 #Les trois modules Competitor, Time et Tri doivent être placés dans le même dossier src
-#On trouvera les modules Time et Tri dans le sujet (faire des copier-coller et créer Comptetitor.py, Time.py et Tri.py)
+#On trouvera les modules Time et Tri dans le sujet (copier-coller pour créer les fichiers Time.py et Tri.py), Competitor est déjà dans le dossier
 ###################################Faire n°1#######################################
 
 def read_competitors(text):
