@@ -46,6 +46,9 @@ def affichage(competiteurs):
 ###################################Faire n°3#######################################
 
 def select_competitor_by_bib(competiteurs,numero):
+    """
+    sélectionne un compétiteur en fonction de son numéro de brassard
+    """
     try:
         return competiteurs[numero]
     except KeyError:
@@ -58,6 +61,9 @@ def select_competitor_by_bib(competiteurs,numero):
 ###################################Faire n°4#######################################
 
 def select_competitor_by_birth_year(competiteurs,age):
+    """
+    sélectionne un compétiteur en fonction de son âge
+    """
     liste=[]
     for i in competiteurs:
         if competiteurs[i]['birth_date'].endswith(str(age)):
@@ -68,10 +74,13 @@ def select_competitor_by_birth_year(competiteurs,age):
 
 ###################################Faire n°5#######################################
 
-def select_competitor_by_name(competiteurs,nom):
+def select_competitor_by_name(competiteurs,chaine):
+    """
+    sélectionne un compétiteur si la chaine est contenu dans son nom de famille
+    """
     liste=[]
     for i in competiteurs:
-        if nom in competiteurs[i]['last_name']:
+        if chaine in competiteurs[i]['last_name']:
             liste.append(competiteurs[i])
     return liste
 
@@ -103,6 +112,9 @@ def read_performances(text):
 ###################################Faire n°7#######################################
 
 def set_performances(dic1,dic2):
+    """
+    fusionne les dictionnaires en utilisant la clé commune = numéro de brassard
+    """
     for i in dic2:
         try :
             dic2[i]['performance']=Time.to_string(dic1[i])
@@ -116,6 +128,10 @@ def set_performances(dic1,dic2):
 ###################################Faire n°8#######################################
 
 def sort_competitors_by_lastname(dic):
+    """
+    renvoie un dictionnaire trié dans l'ordre alphabétique décroissant
+    utilise la fonction de tri présente dans le module Tri
+    """
     new=dict([])
     liste=[]
     for i in dic:
@@ -129,12 +145,28 @@ def sort_competitors_by_lastname(dic):
         
 #sort_competitors_by_lastname(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
 
+
 ###################################Faire n°9#######################################
 
 
 ######Méthode n°1################################
 
+def conversion_en_seconde(text):
+    try:
+        heure=int(text.split(" ")[1].rstrip('h'))
+        minute=int(text.split(" ")[2].rstrip('mn'))
+        seconde=int(text.split(" ")[3].rstrip('s'))
+        temps=3600*heure+60*minute+seconde
+        return temps
+    except AttributeError:
+        return None
+
+
 def sort_competitors_by_performance_methode1(dic):
+    """
+    renvoie un dictionnaire des compétiteurs trié par performance
+    utilise la méthode compare_entier_croissant du module Tri
+    """
     new=dict([])
     liste=[]
     for i in dic:
@@ -159,9 +191,14 @@ def sort_competitors_by_performance_methode1(dic):
 
 #sort_competitors_by_performance_methode1(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
 
+
 ######Méthode n°2################################
 
 def sort_competitors_by_performance_methode2(dic1,dic2):
+    """
+    renvoie un dictionnaire des compétiteurs trié par performance
+    utilise la méthode compare du module Time    
+    """
     new={}
     liste=[]
     for i in dic1:
@@ -185,6 +222,7 @@ def sort_competitors_by_performance_methode2(dic1,dic2):
     return new
             
 #sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances('data/small_performances.csv'))
+
 
 ###################################Faire n°10#######################################
 
@@ -258,4 +296,6 @@ def new_select_competitor_by_name(dic,comp):
     return dic
 
 #new_select_competitor_by_birth_year(read_competitors('data/small_inscrits.csv'),is_plus_avance_ordre_alpha)
+
+
 ```
