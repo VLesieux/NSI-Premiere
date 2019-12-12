@@ -69,7 +69,8 @@ On dispose ainsi d'un **constructeur**  (`create`) et les différentes informati
 
 3. **Création du module `Time`**
 
-Nous allons créer un module `Time.py` que l'on importera `import Time`.  
+Nous allons créer un module `Time.py` placé dans le dossier src que l'on importera en écrivant `import src.Time as Time`.  
+
 Les performances des compétiteurs vont être représentées par leur temps de course exprimé en heures, minutes et secondes.
 
 On décide de représenter ces données par un tuple nommé. Ces données étant **non mutables**, utiliser les *named tuples* de Python pour les représenter semble être un choix  pertinent.
@@ -82,7 +83,7 @@ from collections import namedtuple
 
 **À faire**
 
-Créer un module `Time.py` qui définit :
+Créer le module `Time.py` qui définit :
 
  * le type `Time` qui correspond à un tuple nommé possédant trois champs `hours`, `minutes` et `seconds` ;
  * une fonction `create` à trois arguments, permettant de créer une donnée de ce type, dont le résultat est la donnée `Time` créée (on peut envisager un contrôle de validité des valeurs des paramètres pour ce constructeur) ;
@@ -408,7 +409,7 @@ Vous devriez obtenir ceci:
 
 # Tris
 
-Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard. Vous créez le module Tri.py dans le dossier src que vous importez dans votre fichier : `import src.Tri as Tri`.
+Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard. Vous créez le module Tri.py placé dans le dossier src que vous importez dans votre fichier : `import src.Tri as Tri`.
 
 ```python
 ####################
