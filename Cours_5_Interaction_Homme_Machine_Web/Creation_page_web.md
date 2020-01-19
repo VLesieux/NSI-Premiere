@@ -1,9 +1,20 @@
-# Réaliser son site web en HTML5
+<img src="assets/programme.png" width="800" height="800" />
+
+# Réaliser son site Web en HTML5, le Web côté client et le Web côté serveur
 
 ## I.	Comment fonctionne un site web et de quoi a-t-on besoin ?
 
-Lorsqu’on entre dans un navigateur l’_**adresse**_ ou _**url**_ d’un _**site web**_, on produit une _**requête**_ auprès du _**serveur**_ qui héberge les fichiers du site web afin qu’il nous envoie grâce au _**protocole HTTP (Hypertext Transfer Protocol)**_ le ou les fichiers nécessaires pour créer la page sur notre ordinateur _**client**_. Ces fichiers sont alors décodés par le _**navigateur**_ de notre ordinateur (Firefox, Chrome..) pour donner naissance à la page web.   
+Lorsqu’on entre dans un navigateur l’_**adresse**_ ou _**url**_ (Uniform Resource Locateur) d’un _**site web**_, on produit une _**requête**_ auprès du _**serveur**_ qui héberge les fichiers du site web afin qu’il nous envoie grâce au _**protocole HTTP (Hypertext Transfer Protocol)**_  ou grâce au _**protocole HTTPS (Hypertext Transfer Protocol Secure)**_ le ou les fichiers nécessaires pour créer la page sur notre ordinateur _**client**_. Ces fichiers sont alors décodés par le _**navigateur**_ de notre ordinateur (Firefox, Chrome..) pour donner naissance à la page web.   
 En fait deux autres types de fichiers peuvent accompagner le fichier possédant l'extension _**.html**_ : un fichier javascript possédant l'extension _**.js**_ et un fichier possédant l'extension _**.css**_. Le rôle du fichier _**HTML**_ (_**HyperText Markup Language**_) dont la dernière version actuelle est _**HTML5**_ et dont la première version date de 1991 est d’organiser le fond c’est-à-dire le contenu brut de la page, le rôle du fichier _**JavaScript**_ est d’assurer le fonctionnement d’un programme éventuellement placé sur la page permettant une interaction avec l'utilisateur, le rôle du fichier _**CSS (Cascading Style Sheets)**_ dont la dernière version est CSS3 et la première date de 1996, est de gérer la mise en forme c’est-à-dire l’apparence de la page web.
+
+Par exemple : https://fr.wikipedia.org
+
+Dans la zone de recherche, on recherche informatique, on est dirigé vers 
+https://fr.wikipedia.org/wiki/Informatique 
+
+On peut aussi écrire : https://fr.wikipedia.org/wiki/Index.php?search=informatique
+; on transmet ainsi un paramètre par le biais d'une adresse.
+
 
 Pour créer votre site internet, vous n’avez besoin que d’un éditeur de texte (Notepad ++, Sublime Text ...), il vous suffira d’ajouter l’extension appropriée .html, .js ou .css lors de l’enregistrement, d’un hébergeur et d’un logiciel client FTP (File Transfer Protocol) tel que FileZilla pour déposer vos fichiers sur le serveur de l’hébergeur.  
 Il existe également des programmes tels que Adobe Dreamweaver (WYSIWYG : What You See Is What You Get) qui facilitent grandement la création des pages html mais un bon créateur de site web doit absolument connaître les règles de base des langages HTML et CSS.
@@ -79,8 +90,149 @@ La taille de l’image ne doit pas être trop importante évidemment pour évite
 L’insertion de l’image se fait avec la balise orpheline ```<img />```  et l’attribut source src :
 ```<img src=“monimage.jpg“ />```
 
+- _**Insérer des boutons : événement côté client**_
 
-## III.	Utilisation du CSS
+ ```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+</head>
+<body>
+
+Nom :<input style="font-size: 14px;text-align:center;width:140px" id="nom" value=""></input>
+
+<button id="executer" class="go" type="button">Appuyer</button>
+<p id="demo"></p>
+
+
+<script>
+document.getElementById("executer").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
+</script>
+</body>
+ ```
+
+- _**Insérer un tableau**_
+ ```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<table style='border:3px solid #6495ed;'>	
+<tr >
+<td style='border:2px solid #ff0000;'>Cellule 1
+</td>
+<td>Cellule 2
+</td>
+<td>Cellule 3
+</td>
+</tr>
+<tr>
+<td>Cellule 4
+</td>
+<td>Cellule 5
+</td>
+<td>Cellule 6
+</td>
+</tr>
+</table>
+</body>
+</html>
+ ```
+- _**Création d'un formulaire : événement côté serveur**_
+
+On observera dans la console la différence entre les deux méthodes GET et POST.
+
+(méthode GET) http://isnangellier.alwaysdata.net/php/formulaire1.html
+
+formulaire1.html
+
+ ```html
+<html>
+<body>
+<head>
+<title>Formulaire1</title>
+<meta charset="UTF-8">
+</head>
+
+<form method="get" action="exploitation1.php">
+Nom : <input type="text" name="nom" size="12">
+<br>
+Prénom : <input type="text" name="prenom" size="12">
+<input type="submit" value="OK">
+</form>
+</body>
+</html>
+ ```
+
+exploitation1.php
+
+ ```html
+<html>
+<head>
+<title>Réception</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<?php
+$prenom = $_GET['prenom'];
+$nom = $_GET['nom'];
+?> 
+Bonjour <?php echo($prenom.' '.$nom);?> 
+</body>
+</html>
+ ```
+
+(méthode POST) http://isnangellier.alwaysdata.net/php/formulaire2.html
+
+
+formulaire2.html
+
+ ```html
+<html>
+<body>
+<head>
+<title>Formulaire2</title>
+<meta charset="UTF-8">
+</head>
+
+<form method="get" action="exploitation2.php">
+Nom : <input type="text" name="nom" size="12">
+<br>
+Prénom : <input type="text" name="prenom" size="12">
+<input type="submit" value="OK">
+</form>
+</body>
+</html>
+ ```
+
+exploitation2.php
+
+ ```html
+<html>
+<head>
+<title>Réception</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<?php
+$prenom = $_GET['prenom'];
+$nom = $_GET['nom'];
+?> 
+Bonjour <?php echo($prenom.' '.$nom);?> 
+</body>
+</html>
+ ```
+
+# Utilisation du CSS
 
 Comment place-t-on le code CSS ?
 
@@ -255,7 +407,7 @@ on peut préciser ```padding -top``` ; ```padding -bottom``` ; ```padding -left`
 -	marge extérieure entre la bordure et le texte à l’extérieur : ```margin``` en px
 on peut préciser ```margin-top``` ; ```margin-bottom``` ; ```margin-left``` ; ```margin-right```  
 
-![Représentation binaire de 755 ](marges.png#center)   
+![Représentation binaire de 755 ](assets/marges.png#center)   
 Pour centrer un bloc après lui avoir donné une largeur, utiliser : ```margin : auto```.  
 Si le texte contenu dans le bloc dépasse ses limites, le navigateur peut ajouter des barres de défilement : ```overflow : auto```  
 Le positionnement ```inline-block``` permet de transformer, grâce à la propriété ```display```, en inline-block deux éléments que l’on veut placer côte à côte, par exemple un menu de navigation et une section du centre de la page.
