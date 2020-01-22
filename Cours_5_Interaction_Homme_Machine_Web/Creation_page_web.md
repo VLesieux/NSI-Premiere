@@ -204,7 +204,7 @@ formulaire2.html
 <meta charset="UTF-8">
 </head>
 
-<form method="get" action="exploitation2.php">
+<form method="post" action="exploitation2.php">
 Nom : <input type="text" name="nom" size="12">
 <br>
 Prénom : <input type="text" name="prenom" size="12">
@@ -224,8 +224,8 @@ exploitation2.php
 </head>
 <body>
 <?php
-$prenom = $_GET['prenom'];
-$nom = $_GET['nom'];
+$prenom = $_POST['prenom'];
+$nom = $_POST['nom'];
 ?> 
 Bonjour <?php echo($prenom.' '.$nom);?> 
 </body>
