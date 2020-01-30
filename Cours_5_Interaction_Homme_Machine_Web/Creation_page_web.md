@@ -40,7 +40,7 @@ _**Structure de base d’une page HTML**_ : observez comment les balises s'ouvre
 <html><!--  la balise principale qui englobe tout le contenu de la page   -->
 <head><!--  la section head donne des informations générales sur la page   -->
 <meta charset="UTF-8"><!--  l’encodage utilisé par le fichier html, UTF8 permet d’afficher pratiquement tous les symboles de toutes les langues  -->
-<title>SNT Lycée Angellier Dunkerque</title><!--  le titre qui s’affiche dans l’onglet du navigateur, il apparaît également dans les résultats de recherche des moteurs tels que Google   -->
+<title>NSI Lycée Angellier Dunkerque</title><!--  le titre qui s’affiche dans l’onglet du navigateur, il apparaît également dans les résultats de recherche des moteurs tels que Google   -->
 <link rel="stylesheet" href="style_snt.css" /><!--  le lien vers le fichier css de mise en forme   -->
 </head>
 <body><!--  c’est le corps de la page qui va contenir tout le texte   -->
