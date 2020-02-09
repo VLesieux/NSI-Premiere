@@ -24,7 +24,7 @@ rangée de boutons, et deux panneaux correspondant à
 * l'éditeur (onglet nommé `<untitled>`)
 * l'interpréteur (onglet nommé `Shell`)
 
-![vue sur Thonny](thonny.png)
+![vue sur Thonny](assets/thonny.png)
 
 ## Le shell
 Le *shell* est la zone dans laquelle l'utilisateur intéragit/dialogue avec l'interpréteur Python.
@@ -49,7 +49,7 @@ une seule ligne sauf si
 * dans le shell ajouter une définition d'une nouvelle variable, puis modifier sa valeur. observer 
   dans la vue sur les variables
 
-![Thonny : utilisation du Shell](thonny_shell.png)
+![Thonny : utilisation du Shell](assets/thonny_shell.png)
 
 ### Facilités de dialogue 
 
@@ -98,7 +98,7 @@ ne se traduit que par la mention `%Run nom_script.py` dans le shell et rien d'au
   laisseront des traces dans le shell (éviter leur abus en phase de développement de fcts)
 
 ### Illustration de ces points avec suite Syracuse
-cf fichier [demo_syracuse.py](demo_syracuse.py)
+cf fichier [demo_syracuse.py](assets/demo_syracuse.py)
 
 * commencer par écrire la première fonction `syracuse` sans docstring. Profiter de 
   l'ouverture de la parenthèse des paramètres pour souligner la coloration syntaxique (en gris).
@@ -133,7 +133,7 @@ cf fichier [demo_syracuse.py](demo_syracuse.py)
   - le second interrompt l'exécution de la commande en cours, et laisse intact l'environnement tel
     qu'il était au moment de l'interruption.
 
-![Thonny : une session avec des fonctions définies dans l'éditeur](thonny_editeur_et_shell.png)
+![Thonny : une session avec des fonctions définies dans l'éditeur](assets/thonny_editeur_et_shell.png)
 
 ## Naviguer d'une fonction à l'autre
 
@@ -153,7 +153,7 @@ cf fichier [demo_syracuse.py](demo_syracuse.py)
 * et dans la vue sur les variables, on visualise les variables locales et globales au moment du 
   déclenchement de l'exception.
 
-![Thonny suivi d'un lien après déclenchement d'exception](thonny_exception.png)
+![Thonny suivi d'un lien après déclenchement d'exception](assets/thonny_exception.png)
 
 ## Docstring
 
@@ -192,4 +192,4 @@ cf fichier [demo_syracuse.py](demo_syracuse.py)
   ```
 * faire de même pour les deux autres fonctions
 
-![Docstring et fonction help](thonny_docstring.png)
+![Docstring et fonction help](assets/thonny_docstring.png)
