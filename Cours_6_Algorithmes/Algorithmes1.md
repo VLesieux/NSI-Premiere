@@ -84,8 +84,8 @@ print(var1,var2)
 
 La permutation est-elle effectuée ? Pourquoi ? Sinon comment procéder ?
 
-On peut passer par une variable temporaire chargée de stocker la valeur d'une variable. Écrire cette méthode.    
-Une autre méthode immédiate, basée sur l'identité des tuples (en l'occurence des couples), consiste à écrire :  
+On peut passer par une variable temporaire, généralement notée temp, chargée de stocker la valeur d'une variable. Écrire cette méthode.    
+Une autre méthode immédiate, souvent utilisée dans Python, basée sur l'identité des tuples (en l'occurence des couples), consiste à écrire :  
 
 ```python
 var1=17

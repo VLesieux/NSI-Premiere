@@ -92,7 +92,7 @@ Si dans le pire des cas où les éléments de la liste sont rangés dans l'ordre
 
 ## 2. Tri en Python
 
-Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
+Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée <u>sans modification de la liste initiale</u>. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
 
 ```python
 liste=[4,1,3,2]
@@ -105,7 +105,156 @@ print(liste)
 
 L'algorithme de tri utilisé par la méthode `sort` et la fonction `sorted` s'appelle `timsort`, du nom de son inventeur Tim Peters en 2002. C'est un tri performant, dérivé d'un tri fusion, qui utilise l'algorithme du tri par insertion sur des parties presque triées.
 
-# II. L'algorithme des plus proches voisins
+Remarque : `sorted(liste)` peut s'accompagner des paramètres key (pour préciser le critère de classement) et reverse (pour préciser si le classement se fait dans l'ordre croissant ou décroissant). 
+
+```python
+def square(x):
+    return x**2
+
+liste1=[-3,-1,2,4]
+liste2=sorted(liste1,key=square,reverse=True)
+print(liste2)
+print(liste1)
+
+>>> %Run algorithmes.py
+[4, -3, 2, -1]
+[-3, -1, 2, 4]
+```
+
+# II. L'algorithme des k plus proches voisins
+
+<u>Principe</u> : Étant donné n nombres x0, x1, .... xn-1 décrivant un ensemble X, l'algorithme des k plus proches voisins consiste à trouver les k valeurs de X les plus proches d'un nombre x donné. Le mot 'proche' sous-entend une notion de distance. Cela peut être une distance euclidienne entre des points sur une droite, un plan ou dans l'espace. Cela peut être aussi une distance sur les couleurs, par exemple sur la quantité de rouge dans le système RGB ou sur le niveau de gris. Dans la reconnaissance de caractères, cela peut être une distance sur les formes ; ainsi des caractères d'imprimerie comme les lettres b et h peuvent être considérés comme proches.  
+
+La première idée qui vient à l'esprit est d'effectuer un parcours séquentiel de l'ensemble. Le coût en fonction de n est alors linéaire si k est "très petit " devant n.
+
+Voici un exemple d'algorithme où on construit une liste appelés `voisins` qui contient les k plus proches voisins d'un point x parmi les éléments d'un ensemble E représenté par une liste :
+
+1) Pour i allant de 0 à k-1, placer les points E[i] dans la liste `voisins`.  
+2) Pour i allant de k à n-1, si la distance entre E[i] et x est inférieure à la distance entre x et un point de la liste `voisins`, supprimer de la liste `voisins` ce point et le remplacer par la point E[i].
+
+Voici la concrétisation de l'algorithme en Python où d désigne dans le cas présent une fonction chargée de déterminer la distance euclidienne entre deux points.
+
+```python
+def proches_voisins(E,x,k,d):
+    voisins=[]
+    for i in range(k):
+        voisins.append(E[i])# on crée la liste des k voisins
+    for i in range(k,len(E)):# on parcourt le reste de l'ensemble E
+        distance=d(x,E[i])
+        u=i
+        for j in range(k):# on parcourt les valeurs de la liste voisins
+            if distance<d(voisins[j],x):
+                distance=d(voisins[j],x)
+                u=j
+        if u!=i:
+            voisins[u]=E[i]
+    return voisins
+
+def d(x,y):
+    return abs(x-y)
+
+#Application
+E=list(range(1000))
+>>> proches_voisins(E,15.2,1,d)
+[15]
+>>> proches_voisins(E,15.2,4,d)
+[16, 17, 14, 15]
+
+```
 
 # III. Les algorithmes gloutons
+
+Exemple : problème du sac à dos : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets prendre ?  
+
+L'algorithme glouton porte bien son nom ; il consiste dans un premier temps à prendre l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis de recommencer parmi les objets de poids P-P<sub>1</sub>, et ainsi de suite.
+
+Prenons un exemple : le sac à dos peut supporter au maximum 15 kg.   
+Soit le tableau ci-dessous donnant pour différents objets leur valeur en euro et leur poids en kg.
+
+<table>
+<tr>
+<td>Objet</td>
+<td>Valeur</td>
+<td>Poids</td>
+</tr>
+<tr>
+<td>Objet 1</td>
+<td>126</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Objet 2</td>
+<td>32</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Objet 3</td>
+<td>20</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Objet 4</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Objet 5</td>
+<td>18</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Objet 6</td>
+<td>80</td>
+<td>8</td>
+</tr>
+</table>
+
+Chaque objet sera représenté par une liste, par exemple : ['Objet 1',126,14].  
+
+Nous définissons dans un premier temps 3 fonctions chargées de retourner respectivement : la valeur de l'objet, l'inverse du poids de l'objet et le rapport valeur/poids de l'objet.
+
+```python
+def valeur(objet):
+    return objet[1]
+
+def poids(objet):
+    return 1/objet[2]
+                
+def rapport(objet):
+    return objet[1]/objet[2]
+```
+
+Nous définissons ensuite une fonction `glouton` qui prend en paramètres une liste d'objets, un poids maximal (celui que peut supporter le sac à dos) et le type de choix utilisé (par valeur, par poids ou par rapport valeur/poids). La première chose à faire est de trier la liste par ordre décroissant. Nous utilisons pour cela la fonction sorted avec ses paramètres de critère de classement et d'ordre choisi. Puis nous parcourons la liste triée et ajoutons dans la liste de sortie les noms des objets un par un tant que le poids total ne dépasse pas le poids maximaml du sac. La valeur totale et le poids du sac sont stockés dans deux variables `valeur` et `poids`.
+
+```python
+def glouton(liste, poids_max, choix):
+    copie=sorted(liste,key=choix,reverse=True)#on trie les objets par critère dans l'ordre décroissant
+    reponse=[]
+    valeur=0
+    poids=0
+    i=0
+    while i<len(liste) and poids<=poids_max:
+        nom, val, pds = copie[i]
+        if poids+pds <= poids_max:
+            reponse.append(nom)
+            poids += pds
+            valeur += val
+        i +=1
+    return reponse,valeur
+
+print(glouton(objets,15,valeur))
+>>>
+(['Objet 1', 'Objet 4'], 131)
+
+print(glouton(objets,15,poids))        
+>>>
+(['Objet 4', 'Objet 2', 'Objet 3', 'Objet 5'], 75)
+
+print(glouton(objets,15,rapport))
+>>>
+(['Objet 2', 'Objet 6', 'Objet 4'], 117)
+```
+
+On obtient ainsi la valeur du butin emporté par le voleur en fonction du critère retenu.
+
 
