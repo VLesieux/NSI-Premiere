@@ -174,8 +174,8 @@ Soit le tableau ci-dessous donnant pour différents objets leur valeur en euro e
 <table>
 <tr>
 <td>Objet</td>
-<td>Valeur</td>
-<td>Poids</td>
+<td>Valeur en €</td>
+<td>Poids en kg</td>
 </tr>
 <tr>
 <td>Objet 1</td>
@@ -255,6 +255,7 @@ print(glouton(objets,15,rapport))
 (['Objet 2', 'Objet 6', 'Objet 4'], 117)
 ```
 
-On obtient ainsi la valeur du butin emporté par le voleur en fonction du critère retenu.
+On obtient ainsi la valeur du butin emporté par le voleur en fonction du critère retenu.  
+Le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €. Cependant, cette solution n'est pas optimale et une étude exhaustive montrerait que le choix (['Objet 2', 'Objet 3', 'Objet 6'], 132) est le choix optimal. Le choix glouton est donc un choix localement optimal.
 
 
