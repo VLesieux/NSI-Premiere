@@ -138,10 +138,10 @@ for i in range(4):
 # III. Les propriétés des algorithmes
 
 
-## 1. Validité d'un algorithme
+## 1. Validité ou correction d'un algorithme
 
 
-Lorsqu'on écrit un algorithme, il est impératif de vérifier que cet algorithme va produire un résultat en un temps fini et que ce résultat sera correct dans le sens où il sera conforme à une spécification précise. Nous dirons alors que l'algorithme est **valide**.
+Lorsqu'on écrit un algorithme, il est impératif de vérifier que cet algorithme va produire un résultat en un temps fini et que ce résultat sera correct dans le sens où il sera conforme à une spécification précise. Nous dirons alors que l'algorithme est **valide** ou **correct**.
 
 Un algorithme itératif est construit avec des boucles. Pour prouver qu'il est **correct**, nous disposons de la notion d'**invariant** de boucle.  
 Un invariant d'une boucle est une propriété qui est vérifiée avant l'entrée dans une boucle, à chaque passage dans cette boucle et à la sortie de cette boucle. On peut faire le lien avec les suites définies par récurrence du programme de mathématiques.
@@ -244,7 +244,7 @@ Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n 
 On recherche l'extremum, minimum ou maximum, d'une liste de nombres.    
 Recherche du maximum : l'idée est la suivante : on suppose que le premier élément est le maximum, puis on parcourt la liste et chaque fois que l'on rencontre un élément plus grand que le maximum provisoire, on dit que c'est le nouveau maximum provisoire.
 
-Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)`.
+Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)` de deux manières différentes : parcours des éléments de la liste ou parcours des indices de la liste.
 
 ```python
 >>> maximum([12,2,38,14])
@@ -256,7 +256,7 @@ Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)`.
 ## 2. Recherche dichotomique
 
 La recherche dichotomique s'effectue sur une tableau préalablement trié.  
-Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. Nous disposons également de la méthode list() qui trie la liste à laquelle elle s'applique.
+Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
 
 ```python
 liste=[4,1,3,2]
