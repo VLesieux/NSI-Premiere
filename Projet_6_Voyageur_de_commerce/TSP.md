@@ -9,16 +9,16 @@ Le problème du TSP sous sa forme la plus classique est le suivant : « Un voyag
 
 Les domaines d’application sont nombreux : problèmes de logistique, de transport aussi bien de marchandises que de personnes, et plus largement toutes sortes de problèmes d’ordonnancement. Certains problèmes rencontrés dans l’industrie se modélisent sous la forme d’un problème de voyageur de commerce, comme l’optimisation de trajectoires de machines outils : comment percer plusieurs points sur une carte électronique le plus vite possible ?
 
-Pour un ensemble de $`n`$ points, il existe au total $`n!`$ chemins
+Pour un ensemble de `n` points, il existe au total `n!` chemins
 possibles. Le point de départ ne changeant pas la longueur du chemin,
-on peut choisir celui-ci de façon arbitraire, on a ainsi $`(n-1)!`$
+on peut choisir celui-ci de façon arbitraire, on a ainsi `(n-1)!`
 chemins différents. Enfin, chaque chemin pouvant être parcouru dans
 deux sens et les deux possibilités ayant la même longueur, on peut
-diviser ce nombre par deux. Par exemple, si on nomme les points, $`a,b, c, d`$, les chemins $`abcd, bcda, cdab, dabc, adcb, dcba, cbad, badc`$ ont tous la même longueur, seul le point de départ et le sens
-de parcours change. On a donc $`\frac{1}{2}(n-1)`$ chemins candidats
+diviser ce nombre par deux. Par exemple, si on nomme les points, `a,b, c, d`, les chemins `abcd, bcda, cdab, dabc, adcb, dcba, cbad, badc` ont tous la même longueur, seul le point de départ et le sens
+de parcours change. On a donc `\frac{1}{2}(n-1)` chemins candidats
 à considérer. \
-Par exemple, pour $`71`$ villes, le nombre de chemins candidats est
-supérieur à $`5 × 10^{80}`$ qui est environ le nombre d'atomes dans l'univers
+Par exemple, pour `71` villes, le nombre de chemins candidats est
+supérieur à `5 × 10^{80}` qui est environ le nombre d'atomes dans l'univers
 connu. \
 ([Page wikipedia _Problème du voyageur de commerce_](https://fr.wikipedia.org/wiki/Problème_du_voyageur_de_commerce)).
 
