@@ -5,7 +5,11 @@ $b=$_GET["b"];
 $rgb="rgb(".$r.",".$g.",".$b.")";
 ?>
 <!DOCTYPE html>
+
 <html lang="fr">
+<!--
+http://isnangellier.alwaysdata.net/php/exemple.php?
+--> 
 <head>
 <meta charset="utf-8"/>
 <style>
@@ -21,11 +25,15 @@ border:1 px solid black;
 <form>
 	R: <input type="text" name="r" id="r"></input><br/>
 	G: <input type="text" name="g" id="g"></input><br/>
-	R: <input type="text" name="b" id="b"></input><br/>
+	B: <input type="text" name="b" id="b"></input><br/>
 <button id="bouton">Afficher</button>
 </form>
-<div id="couleur">
-<?php echo "style='background:".$rgb."'"; ?>
+<div id="couleur" 
+
+<?php 
+
+echo "style='background:".$rgb."'"; ?>
+>
 </div>
 </body>
 </html>
