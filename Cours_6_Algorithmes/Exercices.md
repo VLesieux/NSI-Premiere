@@ -107,7 +107,7 @@ def monnaie(s):
 
 	c. On suppose avoir n activités numérotées de 0 à n-1, et deux tableaux début et fin de taille n tels que debut_horaire[i] et fin_horaire[i] contiennent respectivement l'heure de début et l'heure de fin de l'activité numéro i. Écrire une fonction prochaine(h) qui sélectionne l'activité dont l'heure de début n'est pas antérieure à h et qui s'arrête le plus tôt. On demandera à la fonction de renvoyer None s'il n'y a aucun créneau compatible.
 
-	d. En déduire une fonction selection(debut,fin) qui, en supposant que toutes les heures sont positives, sélectionne autant d'activités que possible en suivant la stratégie gloutonne. On demandera à la fonction d'afficher les numéros des activités sélectionnées.
+	d. En déduire une fonction selection(debut,fin) qui sélectionne autant d'activités que possible en suivant la stratégie gloutonne. On demandera à la fonction d'afficher la suite de ces activités sélectionnées.
 
 ```python
 >>> prochaine(7)
