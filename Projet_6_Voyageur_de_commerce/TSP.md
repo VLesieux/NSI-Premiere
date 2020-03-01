@@ -9,8 +9,7 @@ Le problème du TSP sous sa forme la plus classique est le suivant : « Un voyag
 
 Les domaines d’application sont nombreux : problèmes de logistique, de transport aussi bien de marchandises que de personnes, et plus largement toutes sortes de problèmes d’ordonnancement. Certains problèmes rencontrés dans l’industrie se modélisent sous la forme d’un problème de voyageur de commerce, comme l’optimisation de trajectoires de machines outils : comment percer plusieurs points sur une carte électronique le plus vite possible ?
 
-Pour un ensemble de `n` points, il existe au total `n!` chemins
-possibles. Le point de départ ne changeant pas la longueur du chemin,
+Pour un ensemble de `n` points, il existe au total `n!` chemins c'est-à-dire : `1×2×3....×(n-1)×n` chemins possibles. Le point de départ ne changeant pas la longueur du chemin,
 on peut choisir celui-ci de façon arbitraire, on a ainsi `(n-1)!`
 chemins différents. Enfin, chaque chemin pouvant être parcouru dans
 deux sens et les deux possibilités ayant la même longueur, on peut
@@ -40,13 +39,13 @@ Pour cela vous avez à votre disposition :
     Bastia	9,434300423	42,66175842
   ```
 
-- un fichier [TSP_biblio.py](assets/TSP_biblio.py) que l'on importera `import TSP_biblio` contenant un ensemble de fonctions permettant la lecture des données et la visualisation d'un tour réalisé par le voyageur (ici pour le moment dans l'ordre d'apparition). Voici les principales fonctions et ce qu'elles donnent en sortie.
+- un fichier [TSP_biblio.py](assets/TSP_biblio.py) que l'on importera en écrivant `import TSP_biblio` contenant un ensemble de fonctions permettant la lecture des données et la visualisation d'un tour réalisé par le voyageur (ici pour le moment dans l'ordre d'apparition). Voici les principales fonctions et ce qu'elles donnent en sortie.
 
     ```python
     def get_tour_fichier(f):
         """
         Lit le fichier de villes format ville, latitude, longitude
-        Renvoie un tour contenant les villes dans l ordre du fichier
+        Renvoie un tour contenant les villes dans l'ordre du fichier
         : param f: nom de fichier
         : return : (list)
         """
@@ -73,7 +72,7 @@ Pour cela vous avez à votre disposition :
     ```python
     def longueur_tour (tour) :
         """
-        Longueur totale d une tournée de la ville de départ et retourne à la ville de départ
+        Longueur totale d pour une tournée de la ville de départ avec retour à la ville de départ
         : param tour: tournee de ville n villes = n segments
         : return: float distance totale
         """
@@ -84,7 +83,7 @@ Pour cela vous avez à votre disposition :
     ```python
     def trace (tour) :
         """
-        Trace la tournée realisée
+        Trace la tournée réalisée
         : param tour: liste de ville
         """
     ```
@@ -92,16 +91,20 @@ Pour cela vous avez à votre disposition :
 
 ![Tournée Annecy (plus proche voisin)](assets/tournee_Annecy_ppv.png)
 
-Afin de créer l'algorithme glouton pour résoudre le problème du TSP, nous allons réaliser certaines étapes.
+Afin de créer l'algorithme glouton et résoudre le problème du TSP, nous allons réaliser certaines étapes.
 
-1. Définir l'heuristique de choix de la solution optimale locale. En théorie de la complexité des algorithmes, une heuristique est une méthode de calcul qui fournit rapidement une solution réalisable, mais pas nécessairement optimale, pour un problème d'optimisation ; c'est le cas de l'heuristique gloutonne.
-2. Réaliser un programme Python utilisant les fonctions définies pour la lecture et l'affichage permettant de mettre en œuvre cette heuristique. Pour cela vous pouvez :
+###### 1. Préalable
+Définir l'heuristique choisie pour la solution optimale locale. En théorie de la complexité des algorithmes, une heuristique est une méthode de calcul qui fournit rapidement une solution réalisable, mais qui n'est pas nécessairement optimale, pour un problème d'optimisation ; on utilise ici l'heuristique gloutonne.
+###### 2. Indications
+
+Réaliser un programme Python utilisant les fonctions définies plus haut pour la lecture et l'affichage permettant de mettre en œuvre cette heuristique.
+
    1. réaliser une fonction `matrice_distances(fichier)` qui génère, à partir du fichier txt, une matrice (ou liste de liste) qui stocke les distances 2 à 2 entre toutes les villes afin de ne faire le calcul des distances qu'une seule fois ; on affectera : distances[i][i] = 99999 pour qu'une ville ne soit pas la plus proche d'elle-même.
    2. réaliser une fonction `liste_ville(fichier)` qui retourne la liste des indices des villes
-   3. réaliser une fonction `indice_plus_proche(ville, liste_ville, matrice)` qui retourne l'indice de la ville la plus proche étant donnée l'indice d'une ville, une liste de ville sous forme d'indice et une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
+   3. réaliser une fonction `indice_plus_proche(ville, liste_ville, mat_dist)` qui retourne l'indice de la ville la plus proche étant donnée l'indice d'une ville, une liste de ville sous forme d'indice et une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
    4. réaliser la fonction `glouton(ind_ville,liste_ville,mat_dist)` qui répond à l'heuristique gloutonne donnant le tour parcouru par le voyageur de commerce à partir de l'indice d'une ville donné en paramètre, la liste des villes et la matrice des distances ville à ville. On utilisera la méthode remove des listes qui permet de supprimer une valeur d'une liste en écrivant : `liste.remove(valeur)`.
    5. réaliser une fonction `indice_ville(ville,fichier)` qui renvoie l'indice de la ville dans le fichier.
-   6. réaliser la fonction `tournee(ville,fichier)` qui trace la tournée complète du voyageur de commerce à partir de la donnée de la ville de départ.
+   6. réaliser la fonction `tournee(ville,fichier)` qui trace la tournée complète du voyageur de commerce à partir de la donnée du nom de la ville de départ.
 
 **Indications** :
 
