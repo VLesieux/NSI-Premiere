@@ -153,13 +153,13 @@ def monnaie(s):
 
 Supposons avoir une liste d'activités, chacune associée à un créneau horaire défini par une heure de début et une heure de fin. Deux activités sont compatibles si leurs créneaux horaires ne se recouvrent pas. On souhaite sélectionner un nombre maximal d'activités toutes compatibles entre elles. 
 
-	1. On se donne des activités avec les créneaux suivants : 8h-13h, 12h-17h, 9h-11h, 14h-16h, 11h-12h. Combien de ces activités peuvent-elles être conciliées sur une seule journée ?
+1. On se donne des activités avec les créneaux suivants : 8h-13h, 12h-17h, 9h-11h, 14h-16h, 11h-12h. Combien de ces activités peuvent-elles être conciliées sur une seule journée ?
 	
-	2. On propose une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée : choisir l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie à la situation précédente.
+2. On propose une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée : choisir l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie à la situation précédente.
 
-	3. On suppose avoir n activités numérotées de 0 à n-1, et deux tableaux début et fin de taille n tels que debut_horaire[i] et fin_horaire[i] contiennent respectivement l'heure de début et l'heure de fin de l'activité numéro i. Écrire une fonction prochaine(h) qui sélectionne l'activité dont l'heure de début n'est pas antérieure à h et qui s'arrête le plus tôt. On demandera à la fonction de renvoyer None s'il n'y a aucun créneau compatible.
+3. On suppose avoir n activités numérotées de 0 à n-1, et deux tableaux début et fin de taille n tels que debut_horaire[i] et fin_horaire[i] contiennent respectivement l'heure de début et l'heure de fin de l'activité numéro i. Écrire une fonction prochaine(h) qui sélectionne l'activité dont l'heure de début n'est pas antérieure à h et qui s'arrête le plus tôt. On demandera à la fonction de renvoyer None s'il n'y a aucun créneau compatible.
 
-	4. En déduire une fonction selection(debut,fin) qui sélectionne autant d'activités que possible en suivant la stratégie gloutonne. On demandera à la fonction d'afficher la suite de ces activités sélectionnées.
+4. En déduire une fonction selection(debut,fin) qui sélectionne autant d'activités que possible en suivant la stratégie gloutonne. On demandera à la fonction d'afficher la suite de ces activités sélectionnées.
 
 ```python
 >>> prochaine(7)
