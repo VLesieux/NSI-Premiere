@@ -124,7 +124,7 @@ Soit U le nouveau fruit de largeur L = 1, et de hauteur H = 4.
 3. Plutôt que le vote majoritaire, on voudrait considérer le vote des voisins pondérés par la distance. Chaque voisin vote selon un poids w inversement proportionnel au carré de sa distance  : w = 1/d<sup>2</sup>. On prend  3 voisins, quelle est la couleur de U ? Comparez vos résultats à ceux de la question 2.
 
 
-## V. Algorithme glouton
+## V. Algorithme glouton (cf. Voyageur de commerce)
 
 ###### 1. Cours:
 Rappeler le principe d'un algorithme glouton.
@@ -157,13 +157,28 @@ Supposons avoir une liste d'activités, chacune associée à un créneau horaire
 	
 2. On propose une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée : choisir l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie à la situation précédente.
 
-3. On suppose avoir n activités numérotées de 0 à n-1, et deux tableaux début et fin de taille n tels que debut_horaire[i] et fin_horaire[i] contiennent respectivement l'heure de début et l'heure de fin de l'activité numéro i. Écrire une fonction prochaine(h) qui sélectionne l'activité dont l'heure de début n'est pas antérieure à h et qui s'arrête le plus tôt. On demandera à la fonction de renvoyer None s'il n'y a aucun créneau compatible.
+3. On suppose avoir n activités numérotées de 0 à n-1, et deux tableaux début et fin de taille n tels que debut_horaire[i] et fin_horaire[i] contiennent respectivement l'heure de début et l'heure de fin de l'activité numéro i. Écrire une fonction prochaine(h) qui sélectionne l'activité sous la forme d'un tuple de deux valeurs ou doublet dont l'heure de début n'est pas antérieure à h et qui s'arrête le plus tôt. On demandera à la fonction de renvoyer None s'il n'y a aucun créneau compatible.   
+<u>Remarque</u> : On ne se permettra pas d'utiliser la fonction min associée à une liste qui renvoie la valeur minimale de celle-ci mais on s'efforcera d'écrire une fonction `minimale` qui renvoie cette valeur minimale.
 
-4. En déduire une fonction selection(debut,fin) qui sélectionne autant d'activités que possible en suivant la stratégie gloutonne. On demandera à la fonction d'afficher la suite de ces activités sélectionnées.
+<u>Indication</u>  : on pourra utiliser la méthode index(valeur) associée à une liste qui renvoie l'indice de la position de la valeur dans la liste.
+
+```python
+>>> liste=["A","B","C"]
+>>> print(liste.index("B"))
+1
+```
+Exemple :
 
 ```python
 >>> prochaine(7)
 (11, 12)
+```
+
+4. En déduire une fonction selection(debut,fin) qui sélectionne autant d'activités que possible en suivant la stratégie gloutonne. On demandera à la fonction d'afficher la suite de ces activités sélectionnées.
+
+Exemple : 
+
+```python
 >>> selection(10,16)
 [(11, 12), (14, 16)]
 ```
