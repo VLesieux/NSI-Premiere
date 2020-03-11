@@ -160,13 +160,24 @@ Supposons avoir une liste d'activités, chacune associée à un créneau horaire
 3. On suppose avoir n activités numérotées de 0 à n-1, et deux tableaux début et fin de taille n tels que debut_horaire[i] et fin_horaire[i] contiennent respectivement l'heure de début et l'heure de fin de l'activité numéro i. Écrire une fonction prochaine(h) qui sélectionne l'activité sous la forme d'un tuple de deux valeurs ou doublet dont l'heure de début n'est pas antérieure à h et qui s'arrête le plus tôt. On demandera à la fonction de renvoyer None s'il n'y a aucun créneau compatible.   
 <u>Remarque</u> : On ne se permettra pas d'utiliser la fonction min associée à une liste qui renvoie la valeur minimale de celle-ci mais on s'efforcera d'écrire une fonction `minimale` qui renvoie cette valeur minimale.
 
-<u>Indication</u>  : on pourra utiliser la méthode index(valeur) associée à une liste qui renvoie l'indice de la position de la valeur dans la liste.
+<u>Indication 1</u>  : on pourra utiliser la méthode index(valeur) associée à une liste qui renvoie l'indice de la position de la valeur dans la liste.
 
 ```python
 >>> liste=["A","B","C"]
 >>> print(liste.index("B"))
 1
 ```
+
+<u>Indication 2</u>  : On peut utiliser une version ordonnée d'une liste sans pour autant modifier la liste de départ.
+
+```python
+>>> liste=[12,5,19,2]
+>>> print(sorted(liste))
+[2, 5, 12, 19]
+>>> liste
+[12, 5, 19, 2]
+```
+
 Exemple :
 
 ```python
