@@ -10,6 +10,8 @@ Table des matières
 3.  [Pour aller plus loin](#pour-aller-plus-loin)
 
 ------------------------------
+![img ](assets/carte.jpg)
+
 
 Les pokemons sont des animaux imaginaires inventés par Nintendo. Ils possèdent tous
 des caractéristiques différentes :
@@ -103,7 +105,7 @@ des $`k`$ plus proches voisins (`knn`).
     fournis dans la variable `POKE_PROP_USED_FOR_DISTANCE`. 
 -   Renommer le fichier `knn_pokemon_squel.py` fourni en `knn_pokemon.py`, puis compléter les fonctions :
 -   `nearest_neighbors` : renvoie la liste des $`k`$ plus proches pokemons.   
-	Vous pourrez par exemple construire la liste des couples $(distance, voisin)$, puis la trier selon la première clé.
+	Vous pourrez par exemple construire la liste des couples (distance, voisin), puis la trier selon la première clé.
 -   `knn` : effectue la prédiction de l'attribut en déterminant l'attribut majoritaire dans le voisinage.
 -   Utiliser les fonctions précédentes pour compléter le tableau suivant :
     
