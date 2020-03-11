@@ -13,8 +13,8 @@ Table des matières
 ![img ](Assets/carte.jpg)
 
 
-Les pokemons sont des animaux imaginaires inventés par Nintendo. Ils possèdent tous
-des caractéristiques différentes :
+Les pokemons sont des animaux imaginaires inventés par Nintendo.   
+Ils possèdent tous des caractéristiques différentes :
 
 -   Un nom (`name`)
 -   Un nombre de points d'attaque (`attack`)
@@ -29,7 +29,8 @@ des caractéristiques différentes :
 -   Un entier indiquant la génération du pokemon (`generation`)
 -   Un booléen indiquant si le pokemon est légendaire ou non (`is_legendary`)
 
-Ces données proviennent du jeu Pokemon Go. Les pokemons sont consignés dans des fichiers `csv`. 
+Ces données proviennent du jeu Pokemon Go. Les pokemons sont consignés dans des fichiers `csv`.  
+
 Ces fichiers contiennent les données sous forme de table :
 
 
@@ -58,7 +59,7 @@ Ces fichiers contiennent les données sous forme de table :
 
 
 
-Dans ce TP, on cherche à répondre à cette question :
+Dans ce projet, on cherche à répondre à la question suivante :
 
 Étant données les caractéristiques d'un pokemon dont on ne sait s'il est légendaire ou non, 
 peut-on prédire si ce pokemon est légendaire ou non ?
@@ -95,7 +96,7 @@ Le fichier [`pokemon_squel.py`](pokemon_squel.py) contient :
 
 Le fichier [`knn_pokemon_squel.py`](knn_pokemon_squel.py) contient les
 en-têtes des fonctions nécessaires à l'implémentation de l'algorithme
-des $`k`$ plus proches voisins (`knn`).
+des `k` plus proches voisins (`knn`).
 
 
 # Travail à réaliser
@@ -104,9 +105,9 @@ des $`k`$ plus proches voisins (`knn`).
     distance `pokemon_euclidian_distance`. Les attributs utilisés pour calculer la distance sont
     fournis dans la variable `POKE_PROP_USED_FOR_DISTANCE`. 
 -   Renommer le fichier `knn_pokemon_squel.py` fourni en `knn_pokemon.py`, puis compléter les fonctions :
--   `nearest_neighbors` : renvoie la liste des $`k`$ plus proches pokemons.   
+1)   `nearest_neighbors` : renvoie la liste des $`k`$ plus proches pokemons.   
 	Vous pourrez par exemple construire la liste des couples (distance, voisin), puis la trier selon la première clé.
--   `knn` : effectue la prédiction de l'attribut en déterminant l'attribut majoritaire dans le voisinage.
+2)  `knn` : effectue la prédiction de l'attribut en déterminant l'attribut majoritaire dans le voisinage.   
 -   Utiliser les fonctions précédentes pour compléter le tableau suivant :
     
 | Fichier                | Meilleur $`k`$ pour la distance euclidienne | Meilleur $`k`$ pour la distance de Manhattan |
@@ -126,7 +127,7 @@ suspect1 = read_pokemon_csv('pokemon_suspect1.csv')
 suspect2 = read_pokemon_csv('pokemon_suspect2.csv')
 ````
 	
-- Première ligne du tableau : utiliser la fonction `knn_data` avec `train` et `test` pour estimer les meilleurs $`k`$. : 
+- Première ligne du tableau : utiliser la fonction `knn_data` avec `train` et `test` pour estimer les meilleurs `k`. : 
 
     ```python
     [ knn_data(test, train, k , ...) for k in range(5, 20) ]
