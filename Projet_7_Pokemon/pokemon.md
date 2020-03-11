@@ -10,7 +10,7 @@ Table des matières
 3.  [Pour aller plus loin](#pour-aller-plus-loin)
 
 ------------------------------
-![img ](assets/carte.jpg)
+![img ](Assets/carte.jpg)
 
 
 Les pokemons sont des animaux imaginaires inventés par Nintendo. Ils possèdent tous
