@@ -168,6 +168,8 @@ E=list(range(1000))
 
 # III. Les algorithmes gloutons
 
+On retiendra que la stratégie gloutonne procède par une suite de choix en sélectionnant à chaque étape la solution qui paraît être la meilleure localement.
+
 Exemple : problème du sac à dos : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets prendre ?  
 
 L'algorithme glouton porte bien son nom ; il consiste dans un premier temps à prendre l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis de recommencer parmi les objets de poids P-P<sub>1</sub>, et ainsi de suite.

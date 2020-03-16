@@ -97,7 +97,8 @@ Rappeler le principe de cet algorithme
 
 ###### 2. Exemple: Couleur d'un fruit
 
-On cherche à prédire la couleur d’un fruit en fonction de sa largeur L et de sa hauteur H. \
+On cherche à prédire la couleur d’un fruit en fonction de sa largeur L et de sa hauteur H.
+
 On dispose des données d’apprentissage suivantes :
 
 | largeur | hauteur | couleur |
