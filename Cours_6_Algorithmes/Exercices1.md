@@ -90,42 +90,7 @@ Modifier le programme pour afficher le nombre total de tours de boucle effectué
 Combien de valeurs sont examinés lors de l'appel à recherche_dichotomique([0,1,1,2,3,5,8,13,21],7) ? On fera apparaître les valeurs de g, d et m.
 
 
-## IV. Algorithme des k plus proches voisins
-
-###### 1. Cours:
-Rappeler le principe de cet algorithme
-
-###### 2. Exemple: Couleur d'un fruit
-
-On cherche à prédire la couleur d’un fruit en fonction de sa largeur L et de sa hauteur H.
-
-On dispose des données d’apprentissage suivantes :
-
-| largeur | hauteur | couleur |
-| ------- | ------- | ------- |
-| 2       | 6       | red     |
-| 5       | 6       | yellow  |
-| 2       | 5       | orange  |
-| 6       | 5       | purple  |
-| 1       | 2       | red     |
-| 4       | 2       | blue    |
-| 2       | 1       | violet  |
-| 6       | 1       | green   |
-
-Ces données sont placées dans un repère L en abscisse, H en ordonnée), indiquez pour chaque point sa couleur.
-
-![](assets/fruit-color.png)
-
-L’objectif ici est d’étudier l’influence des voisins sur la propriété de couleur d’un fruit. 
-
-Soit U le nouveau fruit de largeur L = 1, et de hauteur H = 4. 
-
-1. Quelle est sa couleur si l'on considère 1 voisin ?
-2. Quelle est sa couleur si l'on considère 3 voisins ?
-3. Plutôt que le vote majoritaire, on voudrait considérer le vote des voisins pondérés par la distance. Chaque voisin vote selon un poids w inversement proportionnel au carré de sa distance  : w = 1/d<sup>2</sup>. On prend  3 voisins, quelle est la couleur de U ? Comparez vos résultats à ceux de la question 2.
-
-
-## V. Algorithme glouton (cf. Voyageur de commerce)
+## IV. Algorithme glouton (cf. Projet 6 : Voyageur de commerce)
 
 ###### 1. Cours:
 Rappeler le principe d'un algorithme glouton.
@@ -194,3 +159,37 @@ Exemple :
 >>> selection(10,16)
 [(11, 12), (14, 16)]
 ```
+
+## V. Algorithme des k plus proches voisins (cf. Projet 7 : Les iris)
+
+###### 1. Cours:
+Rappeler le principe de cet algorithme
+
+###### 2. Exemple: Couleur d'un fruit
+
+On cherche à prédire la couleur d’un fruit en fonction de sa largeur L et de sa hauteur H.
+
+On dispose des données d’apprentissage suivantes :
+
+| largeur | hauteur | couleur |
+| ------- | ------- | ------- |
+| 2       | 6       | red     |
+| 5       | 6       | yellow  |
+| 2       | 5       | orange  |
+| 6       | 5       | purple  |
+| 1       | 2       | red     |
+| 4       | 2       | blue    |
+| 2       | 1       | violet  |
+| 6       | 1       | green   |
+
+Ces données sont placées dans un repère L en abscisse, H en ordonnée), indiquez pour chaque point sa couleur.
+
+![](assets/fruit-color.png)
+
+L’objectif ici est d’étudier l’influence des voisins sur la propriété de couleur d’un fruit. 
+
+Soit U le nouveau fruit de largeur L = 1, et de hauteur H = 4. 
+
+1. Quelle est sa couleur si l'on considère 1 voisin ?
+2. Quelle est sa couleur si l'on considère 3 voisins ?
+3. Plutôt que le vote majoritaire, on voudrait considérer le vote des voisins pondérés par la distance. Chaque voisin vote selon un poids w inversement proportionnel au carré de sa distance  : w = 1/d<sup>2</sup>. On prend  3 voisins, quelle est la couleur de U ? Comparez vos résultats à ceux de la question 2.
