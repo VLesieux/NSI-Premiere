@@ -12,14 +12,16 @@ L’algorithme de k plus proches voisins ne nécessite pas de phase d’apprenti
 Soit une donnée u qui n’appartient pas à E et qui ne possède pas de label (u est uniquement caractérisée par un vecteur x de dimension p). Soit d une fonction qui renvoie la distance entre la donnée i et une donnée quelconque appartenant à E.
 Soit k un entier inférieur ou égal à n. 
 
-<b>
 Voici le principe de l’algorithme de k plus proches voisins :  
 
-1) On calcule les distances entre la donnée u et chaque donnée appartenant à E à l’aide de la fonction d de calcul de distance.   
+1. On calcule les distances entre la donnée u et chaque donnée appartenant à E à l’aide de la fonction d de calcul de distance.   
 
-2) On retient les k données du jeu de données E les plus proches de u.   
+2. On retient les k données du jeu de données E les plus proches de u.   
  
-3) On attribue à u la classe qui est la plus fréquente parmi les k données les plus proches.  </b>
+3. On attribue à u la classe qui est la plus fréquente parmi les k données les plus proches.  
+
+
+
 
 ## 3. Étude d'un exemple en botanique : les iris
 
