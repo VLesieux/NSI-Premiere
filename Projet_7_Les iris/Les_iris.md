@@ -198,7 +198,7 @@ def proches_voisins(k,p):
     """
     Renvoie la liste des k plus proches voisins
     :param p : le doublet des coordonnées du point considéré
-    :param k : le nombre de voisins considérés
+    :param k : le nombre de voisins à considérer
     :return: liste 
     :Exemple:
     >>> proches_voisins(3,(0,0))
