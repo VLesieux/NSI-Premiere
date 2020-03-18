@@ -66,7 +66,9 @@ Une fois téléchargée la bibliothèque [matplotlib](https://matplotlib.org/use
 
 ### 3.3. Code à compléter
 
-Les fonctions à compléter sont : `create` ; `distance` ; `caractere_le_plus_commun` ; `proches_voisins`.
+Les fonctions à compléter sont : `create` ; `distance` ; `caractere_le_plus_commun` ; `proches_voisins` ; `space` ; `amount`.
+
+<u>On lira avec soin les docstring de toutes les fonctions qui sont là pour vous aider et vous permettre de tester votre code par vous-mêmes.</u>
 
 N.B : la lecture d'un tableau csv a déjà été vue ici : [traitement de données en table](https://github.com/VLesieux/NSI/blob/master/Cours_4_Traitement_donn%C3%A9es_tables/traitement_des_donnees.md)
 
@@ -160,7 +162,7 @@ def space(x):
     >>> sorted([(2.2, 3.4),(1.2, 4.5)],key=space,reverse=True)
     [(2.2, 3.4), (1.2, 4.5)]
     """
-    return x[0]
+    pass
 
 def amount(x):
     """
@@ -176,7 +178,7 @@ def amount(x):
     >>> sorted([(2.2, 3.4),(1.2, 4.5)],key=amount,reverse=True)
     [(1.2, 4.5), (2.2, 3.4)]
     """    
-    return x[1]
+    pass
 
 def caractere_le_plus_commun(liste):
     """
