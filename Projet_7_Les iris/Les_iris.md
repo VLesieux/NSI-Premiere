@@ -182,10 +182,9 @@ def amount(x):
 
 def caractere_le_plus_commun(liste):
     """
-    Renvoie le caractère le plus commun d'une liste
-    :param p : tuple du point demandé
-    :param q : dictionnaire contenant toutes les données {'x': , 'y': , 's': }
-    :return: tuple 
+    Renvoie l'espèce la plus commune dans une liste de doublets (distance,espèce)
+    :param liste : list
+    :return: str 
     :Exemple:
     >>> caractere_le_plus_commun([(2,'0'),(1,'0'),(3,'1')])
     '0'
