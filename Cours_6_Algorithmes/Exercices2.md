@@ -32,7 +32,7 @@ def tri_selection(t):
         echange(t,i,m)
     return t
 ```
-On écrira les docstrings suivantes ; la fonction doctest est rappelée ensuite.
+On écrira les docstrings suivantes des fonctions à compléter ; la fonction doctest est rappelée ensuite pour vous permettre de vous auto-contrôler.
 
 ```python
 def ordre_alphabet(c1,c2):
