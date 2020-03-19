@@ -75,3 +75,145 @@ def tri_insertion(t):
 
 ## Application 1 : Ordre lexicographique
 
+```python
+def echange(t,i,j):
+    temp=t[i]
+    t[i]=t[j]
+    t[j]=temp
+    
+def insere(t,i,v):
+    j=i
+    while j>0 and compare(t[j-1],v)==1:
+        t[j]=t[j-1]
+        j=j-1
+    t[j]=v
+    
+alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+def ordre_alphabet(c1,c2):
+    """
+    Renvoie -1 si c1 est avant c2
+    Renvoie 1 si c1 est après c2
+    Renvoie 0 si c1 est égal à c2
+    :param : (str)
+    :return: (int) 
+    :Exemple:
+    >>> ordre_alphabet('a','m')
+    -1
+    >>> ordre_alphabet('p','m')
+    1
+    >>> ordre_alphabet('m','m')
+    0
+    """
+    if alphabet.index(c1)<alphabet.index(c2):
+        return -1
+    elif alphabet.index(c1)>alphabet.index(c2):
+        return 1
+    else:
+        return 0
+
+def ordre_lexicographique(m1,m2):
+    """
+    Renvoie -1 si m1 est avant m2
+    Renvoie 1 si m1 est après m2
+    Renvoie 0 si m1 est égal à m2
+    :param : (str)
+    :return: (int) 
+    :Exemple:
+    >>> ordre_lexicographique('mari','matin')
+    -1
+    >>> ordre_lexicographique('mari','malin')
+    1
+    >>> ordre_lexicographique('mari','mari')
+    0
+    """
+    n=min(len(m1),len(m2))
+    i=0
+    while i<n:
+        if ordre_alphabet(m1[i],m2[i])==1:
+            return 1
+        elif ordre_alphabet(m1[i],m2[i])==-1:
+            return -1
+        else:
+            i=i+1
+    return 0
+
+def tri_lexicographique(liste):
+    """
+    Renvoie une liste de mots triée dans l'ordre lexicographique
+    :param : (list)
+    :return: (list) 
+    :Exemple:
+    >>> tri_lexicographique(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
+    ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
+    """
+    for i in range(len(liste)-1):
+        m=i#on suppose que jusque i la liste est triée
+        for j in range(i+1,len(liste)):#recherche du minimum entre i+1 et n
+            if ordre_lexicographique(liste[j],liste[m])==-1:#si on trouve en j un élément plus petit qu'en i
+                m=j
+        echange(liste,i,m)
+    return liste 
+    
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+
+```
+
+## Application 2 : Trier des points
+
+```python
+def distance(x,y):
+    """
+    Renvoie la distance OM où M est le point de coordonnées [x,y]
+    :param : (list)
+    :return: (int)
+    :Exemple:
+    >>> distance(0,2)
+    2.0
+    >>> distance(4,3)
+    5.0
+    """
+    return (x**2+y**2)**0.5
+
+def compare(p1,p2):
+    """
+    Renvoie -1 si p1 est plus proche de O que p2
+    Renvoie 1 si p1 est plus loin de O que p2
+    Renvoie 0 si p1 et p2 sont à la même distance de O
+    :param : (list)
+    :return: (int)
+    :Exemple:
+    >>> compare((0,2),(1,0))
+    1
+    >>> compare((1,0),(0,2))
+    -1
+    >>> compare((1,0),(1,0))
+    0
+    """
+    if distance(p1[0],p1[1])<distance(p2[0],p2[1]):
+        return -1
+    elif distance(p1[0],p1[1])>distance(p2[0],p2[1]):
+        return 1
+    else:
+        return 0
+
+def tri_points(liste):
+    """
+    tri la liste des points par distance croissante à l'origine
+    :param : (list)
+    :return: (int)
+    :Exemple:
+    >>> tri_points([(2,0), (1,0), (0,3)])
+    [(1, 0), (2, 0), (0, 3)]
+    """
+    for i in range(1,len(liste)):
+        insere(liste,i,liste[i])
+    return liste    
+        
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+
+```
