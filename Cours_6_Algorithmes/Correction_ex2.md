@@ -138,7 +138,7 @@ def ordre_lexicographique(m1,m2):
             i=i+1
     return 0
 
-def tri_lexicographique(liste):
+def tri_lexicographique(liste):#adaptation de l'algorithme de tri par sélection
     """
     Renvoie une liste de mots triée dans l'ordre lexicographique
     :param : (list)
@@ -199,7 +199,7 @@ def compare(p1,p2):
     else:
         return 0
 
-def tri_points(liste):
+def tri_points(liste):#adaptation de l'algorithme de tri par insertion
     """
     tri la liste des points par distance croissante à l'origine
     :param : (list)
