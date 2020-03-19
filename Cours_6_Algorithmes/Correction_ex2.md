@@ -73,7 +73,7 @@ def tri_insertion(t):
 [1, 3, 7, 9, 12]
 ```
 
-## Application 1 : Ordre lexicographique
+## Application 1 : Trier des mots dans l'ordre lexicographique : tri par sélection.
 
 ```python
 def echange(t,i,j):
@@ -161,7 +161,7 @@ if __name__ == '__main__':
 
 ```
 
-## Application 2 : Trier des points
+## Application 2 : Trier des points par ordre de distance : tri par insertion.
 
 ```python
 def distance(x,y):
