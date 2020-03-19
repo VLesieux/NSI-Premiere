@@ -50,6 +50,7 @@ def ordre_alphabet(c1,c2):
     >>> ordre_alphabet('m','m')
     0
     """
+    pass
 ```
 ```python
 def ordre_lexicographique(m1,m2):
@@ -67,6 +68,7 @@ def ordre_lexicographique(m1,m2):
     >>> ordre_lexicographique('mari','mari')
     0
     """
+    pass
 ```
 ```python
 def tri_lexicographique(liste):
@@ -78,6 +80,7 @@ def tri_lexicographique(liste):
     >>> tri_lexicographique(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
     ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
     """
+    pass
 ```
 ```python
 if __name__ == '__main__':
@@ -129,6 +132,7 @@ def distance(x,y):
     >>> distance(4,3)
     5.0
     """
+    pass
 ```
 ```python
 def compare(p1,p2):
@@ -146,6 +150,7 @@ def compare(p1,p2):
     >>> compare((1,0),(1,0))
     0
     """
+    pass
 ```
 ```python
 def tri_points(liste):
@@ -157,6 +162,7 @@ def tri_points(liste):
     >>> tri_points([(2,0), (1,0), (0,3)])
     [(1, 0), (2, 0), (0, 3)]
     """
+    pass
 ```
 
 
