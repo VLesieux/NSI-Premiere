@@ -24,9 +24,7 @@ D'où l'algorithme complet :
 
 ```python
 def echange(t,i,j):
-    temp=t[i]
-    t[i]=t[j]
-    t[j]=temp
+    t[i],t[j]=t[j],t[i]
 
 def tri_selection(t):
     for i in range(len(t)-1):
