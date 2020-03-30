@@ -4,7 +4,7 @@
 
 # 1. Quelques éléments d'histoire de l'informatique
 
-> À voir</u> : [Le modèle Turing](https://interstices.info/le-modele-turing/)   
+> À voir</u> : [Le modèle de la machine de Turing](https://interstices.info/le-modele-turing/)   
 
          
 > À étudier</u> : [Comment fonctionne une machine de Turing ?](https://interstices.info/comment-fonctionne-une-machine-de-turing/)   
