@@ -18,7 +18,7 @@ Le premier **compilateur** est conçu en 1951 par **Grace Hooper**, informaticie
 L’invention du **circuit intégré** est un nouveau tournant dans les années 1960. On parle de puce en français, de chip en anglais. Ces circuits beaucoup plus petits contiennent des millions de transistors gravés dans du silicium. Des ordinateurs peuvent être embarqués dans les missions Apollo de la NASA. L’AGC (Apollo Guidance Computer), qui pèse une trentaine de kilos, avec clavier, écran et interface utilisateur, gère la navigation et le pilotage de la fusée et du module lunaire. Son **processeur** contient plus de 5000 **portes logiques** NOR.
 En 1971, un ensemble de circuits intégrés constituent le processeur, le cœur de l’ordinateur. En 1972, c’est la naissance du **langage C**, langage de haut niveau. La démocratisation va commencer et les premiers ordinateurs pour le grand public apparaissent vers la fin des années 1970. C’est aussi à cette période qu’apparaissent les premiers appareils photographiques numériques (APN). Mais il faut attendre 2007 pour voir arriver les premiers smartphones fonctionnant avec un **système d’exploitation** et des applications. Ils permettent de prendre des photos numériques de qualité à partir des années 2010. Grâce à des **algorithmes** de plus en plus performants, l’image reçue par les capteurs formés de photosites est transformée en une image formée de pixels, avec une résolution de l’ordre des mégapixels, enregistrée sur une carte mémoire.
 
-#2. Le modèle d'architecture matérielle : le modèle dit « de von Neumann »
+# 2. Le modèle d'architecture matérielle : le modèle dit « de von Neumann »
 
 <u>À lire</u> : [Le modèle d'architecture séquentielle de von Neumann](https://interstices.info/le-modele-darchitecture-de-von-neumann/)
 
@@ -186,7 +186,7 @@ Ce qu'on lit est en fait une liste de codes d'instructions :
 'RETURN_VALUE'
 ```
 
-#5. Système d'exploitation
+# 5. Système d'exploitation
 
 Un **système d'exploitation**, OS pour Operating System, est un programme exécuté au démarrage d'une machine. Il permet de gérer les fichiers, les répertoires, les processus, les périphériques, en proposant des outils pour cela. Ces outils sont des gestionnaires de fichiers, d'applications, de périphériques. Les OS les plus répandus sont Windows, MacOs, GNU/Linux avec différentes distributions comme Ubuntu, Debian, Fedora, pour ordinateurs et Android, iOsS pour mobile.   
 Un fichier avec sa gestion est un concept abstrait. Pour le mettre en œuvre physiquement, chaque OS utilise un format d’enregistrement avec un système d’adresses, comme NTFS pour Windows qui met à la disposition de l’utilisateur l’outil « Explorateur de fichiers » pour copier, déplacer, supprimer un fichier ou un répertoire.
@@ -202,6 +202,6 @@ En général, nous agissons sur un ordinateur à l'aide de menus dans lesquels n
 <u>Activité à faire sous Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
 
 
-#6. Transmission des données dans un réseau
+# 6. Transmission des données dans un réseau
 
 <u>À lire</u> : [Transmission des données dans un réseau ](reseau.pdf)
