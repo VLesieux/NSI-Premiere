@@ -4,9 +4,12 @@
 
 # 1. Quelques éléments d'histoire de l'informatique
 
-<u>À voir</u> : [Le modèle Turing](https://interstices.info/le-modele-turing/)            
+> À voir</u> : [Le modèle Turing](https://interstices.info/le-modele-turing/)   
 
-<u>À étudier</u> : **faire fonctionner la simulation sur les exemples donnés**: [Comment fonctionne une machine de Turing ?](https://interstices.info/comment-fonctionne-une-machine-de-turing/)
+         
+> À étudier</u> : [Comment fonctionne une machine de Turing ?](https://interstices.info/comment-fonctionne-une-machine-de-turing/)   
+**on fera fonctionner la simulation sur les exemples donnés pour comprendre le fonctionnement de la machine de Turing**
+
 
 Les travaux du mathématicien britannique **Alan Turing** à la fin des années 1930 sur le modèle de machine universelle, précédés par ceux du mathématicien **Alonzo Church**, ont été fondateurs de l'informatique.
 Alan Turing est connu pour son rôle pendant la Seconde Guerre Mondiale au sein d'un groupe dont faisait partie la cryptologue **Joan Murray Clarke**, travaillant à déchiffrer les messages de la machine Enigma de l’armée allemande. Il travailla en particulier sur les concepts de programmation et d’intelligence artificielle. Ces travaux vont inspirer **John Von Neumann**, mathématicien et physicien américain d’origine hongroise. Avec des collaborateurs comme John Presper Eckert et John William Mauchly, il énonce en 1945 les principes d’architecture d’un ordinateur. Parallèlement, **Djon Atanasov** construit son calculateur ABC avec Clifford Berry.        
@@ -20,7 +23,7 @@ En 1971, un ensemble de circuits intégrés constituent le processeur, le cœur 
 
 # 2. Le modèle d'architecture matérielle : le modèle dit « de von Neumann »
 
-<u>À lire</u> : [Le modèle d'architecture séquentielle de von Neumann](https://interstices.info/le-modele-darchitecture-de-von-neumann/)
+> À lire</u> : [Le modèle d'architecture séquentielle de von Neumann](https://interstices.info/le-modele-darchitecture-de-von-neumann/)
 
 L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann** qui travaillait comme consultant dans le projet ENIAC. L’architecture qui a gardé son nom est basée sur l’idée de programme enregistré. La mémoire de l’ordinateur, dans laquelle étaient stockées des données, devait également servir à stocker les programmes.  
 
@@ -53,15 +56,15 @@ Le temps d’exécution est crucial, et la vitesse de calcul des machines n’a 
 
 Il s'agit de faire le lien entre circuits, le calcul logique et le calcul binaire.
 
-<u>À lire</u> : [Du transistor aux fonctions logiques ](Du_transistor_aux_fonctions_logiques.pdf)
+> À lire et à faire avec le logiciel Logisim</u> : [Du transistor aux fonctions logiques ](Du_transistor_aux_fonctions_logiques.pdf)
 
-Le logiciel Logisim est un logiciel gratuit permettant de comprendre les circuits combinatoires permettant de mettre en oeuvre des fonctions booléennes.
+N.B : Le logiciel Logisim est un logiciel gratuit permettant de comprendre les circuits combinatoires permettant de mettre en oeuvre des fonctions booléennes.
 
 # 4. Notion de langage machine
 
 Les instructions d'un programme écrit dans un langage de haut niveau sont traduites pour être comprises par la machine. Avec le module `dis`, nous pouvons avoir une idée des instructions passées à la machine lorsque nous écrivons du code en Python.
 
-<u>À faire dans le Shell de Thonny</u>
+> À faire dans le Shell de Thonny</u>
 
 ```python
 import dis
@@ -199,9 +202,9 @@ Le premier secteur d'un disque dur est le secteur de démarrage appelé MBR (Mas
 **Fonctions d'un système d'exploitation** : Un système d'exploitation propose un environnement graphique convivial afin que l'utilisateur puisse sélectionner les actions qu'il souhaite faire accomplir par la machine. Les fonctions d'un système d'exploitation sont nombreuses. Elles sont accessibles à l'aide d'outils comme le panneau de configuration, le gestionnaire de périphériques, le gestionnaire de tâches, pour Windows. Elles permettent de gérer le fonctionnement de tous les éléments constituant le système informatique.
 En général, nous agissons sur un ordinateur à l'aide de menus dans lesquels nous pouvons choisir nos demandes. Auparavant la seule manière était d'écrire des instructions avec un clavier et la machine répondait en affichant du texte à l'écran. Cette possibilité existe encore avec l'**invite de commandes sous Windows** ou avec un **terminal sous Linux**.
 
-<u>Activité à faire sous Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
+>> Activité à faire sous Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
 
 
 # 6. Transmission des données dans un réseau
 
-<u>À lire</u> : [Transmission des données dans un réseau ](reseau.pdf)
+>> À lire : [Transmission des données dans un réseau ](reseau.pdf)
