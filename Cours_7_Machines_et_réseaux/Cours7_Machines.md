@@ -30,9 +30,9 @@ L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann*
 Une machine doit s’organiser avec :    
 
 -	Une **mémoire**. 
--	Une **unité de calcul**.  
+-	Une **unité de calcul arithmétique et logique**.  
 -	Une **unité de contrôle**.    
--	Des **systèmes entrées/sorties**.  
+-	Des **périphériques entrées/sorties**.  
 -	Une **horloge** pour synchroniser le fonctionnement.    
 
 
