@@ -25,7 +25,7 @@ En 1971, un ensemble de circuits intégrés constituent le processeur, le cœur 
 
 > À lire</u> : [Le modèle d'architecture séquentielle de von Neumann](https://interstices.info/le-modele-darchitecture-de-von-neumann/)
 
-L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann** qui travaillait comme consultant dans le projet ENIAC. L’architecture qui a gardé son nom est basée sur l’idée de programme enregistré. La mémoire de l’ordinateur, dans laquelle étaient stockées des données, devait également servir à stocker les programmes.  
+L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann** qui travaillait  en 1945 comme consultant dans le projet ENIAC. L’architecture qui a gardé son nom est basée sur l’idée de **programme enregistré**, idée selon laquelle la mémoire de l’ordinateur, dans laquelle sont stockées les données, doit également servir à stocker les programmes.  
 
 Une machine doit s’organiser avec :    
 
@@ -54,7 +54,7 @@ Le temps d’exécution est crucial, et la vitesse de calcul des machines n’a 
 
 # 3. Fonctionnement logique : circuits combinatoires
 
-Il s'agit de faire le lien entre circuits, le calcul logique et le calcul binaire.
+Il s'agit de faire le lien entre circuits électroniques, calcul logique et calcul binaire.
 
 > À lire et à faire avec le logiciel Logisim</u> : [Du transistor aux fonctions logiques ](Du_transistor_aux_fonctions_logiques.pdf)
 
