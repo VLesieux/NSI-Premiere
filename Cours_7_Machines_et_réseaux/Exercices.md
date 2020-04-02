@@ -1,2 +1,0 @@
-# Exercices : Machines et réseaux
-

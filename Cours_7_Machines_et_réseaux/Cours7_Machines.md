@@ -21,36 +21,57 @@ Le premier **compilateur** est conçu en 1951 par **Grace Hooper**, informaticie
 L’invention du **circuit intégré** est un nouveau tournant dans les années 1960. On parle de puce en français, de chip en anglais. Ces circuits beaucoup plus petits contiennent des millions de transistors gravés dans du silicium. Des ordinateurs peuvent être embarqués dans les missions Apollo de la NASA. L’AGC (Apollo Guidance Computer), qui pèse une trentaine de kilos, avec clavier, écran et interface utilisateur, gère la navigation et le pilotage de la fusée et du module lunaire. Son **processeur** contient plus de 5000 **portes logiques** NOR.
 En 1971, un ensemble de circuits intégrés constituent le processeur, le cœur de l’ordinateur. En 1972, c’est la naissance du **langage C**, langage de haut niveau. La démocratisation va commencer et les premiers ordinateurs pour le grand public apparaissent vers la fin des années 1970. C’est aussi à cette période qu’apparaissent les premiers appareils photographiques numériques (APN). Mais il faut attendre 2007 pour voir arriver les premiers smartphones fonctionnant avec un **système d’exploitation** et des applications. Ils permettent de prendre des photos numériques de qualité à partir des années 2010. Grâce à des **algorithmes** de plus en plus performants, l’image reçue par les capteurs formés de photosites est transformée en une image formée de pixels, avec une résolution de l’ordre des mégapixels, enregistrée sur une carte mémoire.
 
+### Ce qu'il faut retenir :
+* Le transistor est le composant électronique, inventé vers le milieu du 20<sup>e</sup> siècle, qui a permis le développement des ordinateurs actuels.
+
 # 2. Le modèle d'architecture matérielle : le modèle dit « de von Neumann »
 
 > À lire</u> : [Le modèle d'architecture séquentielle de von Neumann](https://interstices.info/le-modele-darchitecture-de-von-neumann/)
 
 L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann** qui travaillait  en 1945 comme consultant dans le projet ENIAC. L’architecture qui a gardé son nom est basée sur l’idée de **programme enregistré**, idée selon laquelle la mémoire de l’ordinateur, dans laquelle sont stockées les données, doit également servir à stocker les programmes.  
 
-Une machine doit s’organiser avec :    
+Une machine fonctionnant selon l'architecture de Von Neumann doit s’organiser en quatre parties différentes avec :    
 
 -	Une **mémoire**. 
--	Une **unité de calcul arithmétique et logique**.  
--	Une **unité de contrôle**.    
+-	Une **unité arithmétique et logique** située dans le processeur et chargée d'effectuer les calculs et les opérations de base.  
+-	Une **unité de contrôle** chargée du « séquençage » des opérations grâce à une **horloge** pour synchroniser le fonctionnement.     
 -	Des **périphériques entrées/sorties**.  
--	Une **horloge** pour synchroniser le fonctionnement.    
+
 
 
 Les différents éléments échangent des éléments à l’aide de **bus**.   
 
 Physiquement, un système informatique est constitué de plusieurs éléments :  
 
--	Une machine, c’est-à-dire un boîtier contenant une **carte mère** avec un **microprocesseur**, des barrettes de mémoire, une carte graphique, une carte réseau, des ports de communication en contact direct, et des périphériques éloignés comme un disque dur
--	Des **périphériques externes** comme un moniteur, un clavier, une souris, des enceintes ou des écouteurs, une imprimante, qui se connectent par des ports ou par des systèmes sans fil comme le wifi ou le Bluetooth   
+Un boîtier contenant une **carte mère** avec un **microprocesseur**, des **barrettes de mémoire**, une **carte graphique**, une **carte réseau**, des **ports de communication** en contact direct, et des **périphériques** éloignés comme un disque dur, des **périphériques externes** parmi lesquels on distinguera les **périphériques d'entrée** comme un clavier, une souris, un scanneur et des **périphériques de sortie** comme un moniteur, des enceintes ou des écouteurs, une imprimante, qui se connectent par des ports ou par des systèmes sans fil comme le wifi ou le Bluetooth   
 
 La carte mère est un circuit imprimé, l’élément central d’un ordinateur, PC ou portable, d’une tablette ou d’un smartphone. Le chipset gère le flux des données entre le processeur, la mémoire et les périphériques. Il détermine la vitesse des bus de communication permettant d’échanger des informations.
-On parle de mémoires au pluriel car elles sont plusieurs et de différents types.
+On parle de mémoires au pluriel car elles sont plusieurs et de différents types.  
 Les **« mémoires de masse »** sont des mémoires de grandes capacités, comme un disque dur ou une clé USB. Les données y sont conservées de manière persistante. L’accès à ces données en lecture et écriture n’est pas très rapide.  
-La **RAM** pour Random Access Memory ou « mémoire vive » est une mémoire volatile. Ceci signifie que son contenu est perdu dès que l’alimentation est coupée. Elle est accessible en lecture et en écriture. Elle stocke des données et les programmes exécutés par le processeur. On peut l’imaginer comme un ensemble de cellules où chaque cellule a sa propre adresse et la capacité de stocker un octet.   
-La **ROM** ou mémoire morte n’est accessible qu’en lecture. Elle contient juste le nécessaire permettant de faire démarrer l’ordinateur. C’est une mémoire non volatile.  
-On trouve également des **registres** qui sont situés au niveau du processeur (CPU pour Central Processing Unit, c’est là que sont gérés les calculs et les instructions). Ce sont les éléments de mémoire les plus rapides et ils servent au stockage de nombres et de résultats intermédiaires. Proche du processeur se trouve la mémoire cache. De faible capacité mais rapide, elle permet de stocker les données les plus souvent utilisées.
-En résumé, pour les éléments de mémoire, plus on s’éloigne du processeur et plus leur capacité grandit et leur temps d’accès s’allonge.
+La **RAM** pour Random Access Memory ou « mémoire vive » est une mémoire dite **volatile** : cela signifie que **son contenu est perdu dès que l’alimentation est coupée.** Cette mémoire est accessible **en lecture et en écriture**. Elle sert à **stocker les données et les programmes lorsqu'ils sont exécutés par le processeur**. On peut l’imaginer comme un ensemble de cellules où chaque cellule a sa propre adresse et la capacité de stocker un octet.   
+La **ROM** ou mémoire morte n’est accessible qu’**en lecture**. Elle contient juste le nécessaire permettant de faire démarrer l’ordinateur. C’est une mémoire **non volatile**.  
+On trouve également des **registres** qui sont situés au niveau du processeur (CPU pour Central Processing Unit, c’est là que sont gérés les calculs et les instructions). Ce sont les éléments de mémoire les plus rapides car ils servent au stockage de nombres et de résultats intermédiaires. Proche du processeur se trouve la **mémoire cache**. De faible capacité mais rapide, elle permet de stocker les données les plus souvent utilisées.
+En résumé, pour les éléments de mémoire, **plus on s’éloigne du processeur, plus leur capacité grandit mais plus leur temps d’accès s’allonge**.
 Le temps d’exécution est crucial, et la vitesse de calcul des machines n’a cessé d’augmenter. Pour cela, le principal levier était la **fréquence d’horloge**. Mais il fallait en même temps refroidir le processeur dont la température augmente avec la vitesse de calcul. Depuis une quinzaine d’années, le choix a été fait par les constructeurs d’augmenter le nombre d’unités de calcul et de contrôle, et le nombre de registres. Autrement dit, on augmente le nombre de processeurs, ou de cœurs. On parle actuellement de **processeurs multi-cœurs** (ou multi-core en anglais) qui équipent la plupart des nouveaux ordinateurs et smartphones. Évidemment, cela ne résout pas toutes les questions de rapidité. En effet les différents cœurs doivent se partager les mémoires cache et la RAM. Il faut de plus que les programmes soient écrits pour ce type d’architecture.
+
+### Ce qu'il faut retenir :
+
+* Savoir distinguer la mémoire vive ou **RAM** (random access memory, littéralement « mémoire à accès direct ») accessible en lecture et en écriture, de la mémoire morte ou **ROM** (read only memory, littéralement « mémoire à accès uniquement en lecture ») accessible uniquement en lecture.
+* Retenir que plus les élements de mémoire ont une capacité grande, plus les temps d'accès sont longs.  
+
+Exemple : supposons qu'un ordinateur possède les caractéristiques matérielles suivantes: 
+
+	- mémoire DDR SDRAM : 8 Go
+	- antémémoire ou mémoire cache : 1 Mo 
+	- disque dur SSD : 1 To. 
+L'accès mémoire du plus rapide au moins rapide sera : Antémémoire (1 Mo = 10^6 o) puis DDR SRDRAM (1 Go = 10^9 o) puis SSD (1 To = 10^12 o). 
+
+* Dans un processeur, le **compteur ordinal** ou pointeur d'instruction (en anglais : instruction pointer ou program counter) est le **registre** (souvent nommé PC) qui contient l'**adresse mémoire** de l'instruction en cours d'exécution ou de la prochaine instruction à exécuter.
+
+* Un **capteur** est un dispositif transformant l'état d'une grandeur physique observée en une grandeur utilisable, telle qu'une tension électrique, une hauteur de mercure, une intensité ou la déviation d'une aiguille.
+
+Exemple : Parmi les dispositifs suivants : diode, écran tactile, thermomètre, moteur pas à pas, seul le thermomètre constitue un capteur puisqu'il transforme une grandeur physique, la température, en hauteur de liquide ou en valeur numérique.
+
 
 # 3. Fonctionnement logique : circuits combinatoires
 
@@ -60,7 +81,7 @@ Il s'agit de faire le lien entre circuits électroniques, calcul logique et calc
 
 N.B : Le logiciel Logisim est un logiciel gratuit permettant de comprendre les circuits combinatoires permettant de mettre en oeuvre des fonctions booléennes.
 
-# 4. Notion de langage machine
+# 4. Notions de langage machine
 
 Les instructions d'un programme écrit dans un langage de haut niveau sont traduites pour être comprises par la machine. Avec le module `dis`, nous pouvons avoir une idée des instructions passées à la machine lorsque nous écrivons du code en Python.
 
@@ -193,8 +214,8 @@ Ce qu'on lit est en fait une liste de codes d'instructions :
 
 Un **système d'exploitation**, OS pour Operating System, est un programme exécuté au démarrage d'une machine. Il permet de gérer les fichiers, les répertoires, les processus, les périphériques, en proposant des outils pour cela. Ces outils sont des gestionnaires de fichiers, d'applications, de périphériques. Les OS les plus répandus sont Windows, MacOs, GNU/Linux avec différentes distributions comme Ubuntu, Debian, Fedora, pour ordinateurs et Android, iOsS pour mobile.   
 Un fichier avec sa gestion est un concept abstrait. Pour le mettre en œuvre physiquement, chaque OS utilise un format d’enregistrement avec un système d’adresses, comme NTFS pour Windows qui met à la disposition de l’utilisateur l’outil « Explorateur de fichiers » pour copier, déplacer, supprimer un fichier ou un répertoire.
-Le système d’exploitation permet aussi de gérer l’authentification de chaque utilisateur ainsi que les différents droits d’accès sur les fichiers (lecture, écriture et suppression). On distingue en particulier des comptes administrateurs et différents types de comptes utilisateurs.
-Les OS sont des systèmes libres ou propriétaires. Les différences sont notables : outre la gratuité, un système libre comme GNU/Linux favorise la possibilité d’installer ou de réinstaller le système avec différentes partitions et plus généralement de gérer la machine comme on l’entend. Il facilite aussi l’installation de plusieurs OS distincts sur une même machine. On parle de « dual boot ». Mais la plupart des appareils vendus sur le marché sont équipés d’un système d’exploitation propriétaire qui nous est vendu avec.
+Le système d’exploitation permet aussi de gérer l’**authentification** de chaque utilisateur ainsi que les différents droits d’accès sur les fichiers (lecture, écriture et suppression). On distingue en particulier des comptes administrateurs et différents types de comptes utilisateurs.
+Les OS sont des systèmes libres ou propriétaires. Les différences sont notables : outre la gratuité, un système libre comme GNU/Linux favorise la possibilité d’installer ou de réinstaller le système avec différentes partitions et plus généralement de gérer la machine comme on l’entend. Il facilite aussi l’installation de plusieurs OS distincts sur une même machine. On parle de « dual boot ». Mais la plupart des appareils vendus sur le marché sont équipés d’un système d’exploitation propriétaire qui nous est vendu avec. 
 
 **Organisation du disque dur** : À la sortie d'usine, le disque dur est formaté. Il s'agit d'un formatage de bas niveau qui organise le disque en différentes parties appelées pistes, cylindres, secteurs. Ces parties vont permettre de localiser les informations inscrites sur le disque. Ensuite, lorsqu'un système d'exploitation est installé sur le disque, un partitionnement de celui-ci peut être effectué afin par exemple d'installer d'autres systèmes d'exploitations ou plus simplement de séparer les programmes et les données. Un formatage de haut niveau est effectué qui consiste à regrouper les secteurs du disque en blocs appelés clusters. Le résultat est un système de fichiers particulier au système d'exploitation. La liste des clusters est inscrite dans une table, la FAT (File Allocation Table). On ne peut pas avoir deux fichiers enregistrés sur le même cluster.
 Le premier secteur d'un disque dur est le secteur de démarrage appelé MBR (Master Boot Record). C'est là qu'est inscrit le code qui fait démarrer le système ainsi que des informations relatives au disque dur comme le fabricant, le numéro de série, les tailles et nombres des différentes parties (secteurs, clusters, pistes, cylindres).
@@ -202,9 +223,99 @@ Le premier secteur d'un disque dur est le secteur de démarrage appelé MBR (Mas
 **Fonctions d'un système d'exploitation** : Un système d'exploitation propose un environnement graphique convivial afin que l'utilisateur puisse sélectionner les actions qu'il souhaite faire accomplir par la machine. Les fonctions d'un système d'exploitation sont nombreuses. Elles sont accessibles à l'aide d'outils comme le panneau de configuration, le gestionnaire de périphériques, le gestionnaire de tâches, pour Windows. Elles permettent de gérer le fonctionnement de tous les éléments constituant le système informatique.
 En général, nous agissons sur un ordinateur à l'aide de menus dans lesquels nous pouvons choisir nos demandes. Auparavant la seule manière était d'écrire des instructions avec un clavier et la machine répondait en affichant du texte à l'écran. Cette possibilité existe encore avec l'**invite de commandes sous Windows** ou avec un **terminal sous Linux**.
 
->> Activité à faire sous Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
+À faire sous un système d'exploitation Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
 
+### Ce qu'il faut retenir :
+
+* La commande `pwd`(Print Working Directory) affiche le chemin du dossier courant et permet donc de connaître le répertoire courant.
+* La commande `man` (Manual) permet obtenir le manuel d'une commande. Par exemple `man pwd` permet d'obtenir la documentation sur la commande `pwd` et on retrouve en anglais ce que l'on a dit précédemment.
+* La commande shell `cd` (Change Directory), accompagnée du nom du répertoire, permet de se placer dans un répertoire donné, par exemple :
+`cd NSI` permet de se placer dans le répertoire `NSI` s'il se trouve lui-même dans le répertoire courant. `cd ~` permet de se placer à la racine.
+* La commande shell `cd ..`, seule, permet de se positionner du répertoire courant vers le répertoire supérieur qui le contient.
+* La commande shell `ls` (LiSt), seule, permet d'explorer le contenu du répertoire courant en listant son contenu. La commande avec option `ls -l` permet en plus d'avoir les droits d'accès au fichier : neuf caractères indiquent les attributs des droits d'accès au fichier ou au répertoire correspondant. Ces neuf caractères sont formés de trois groupes de trois caractères, indiquant respectivement les attributs des droits d'accès du propriétaire puis du groupe du propriétaire et enfin des autres (ni le propriétaire, ni les membres de son groupe). Par ailleurs on peut lister plus spécifiquement un type de fichier par exemple  `ls -l *.jpg` permet de lister les fichiers du répertoire courant dont l'extension est jpg.
+* La commande shell `cat` (conCATenate) suivie du nom du fichier permet simplement d'afficher ou de lire un fichier dans la console. 
+* La commande shell `mkdir` (Make Ddirectory) suivie d'un nom de répertoire, permet de créer un nouveau répertoire portant ce nom dans le répertoire courant. On peut créer plusieurs dossiers simultanément dans le même répertoire en séparant les dossiers par des virgules, par exemple : `mkdir JAVA, PYTHON, PHP` crée les trois dossiers dans le répertoire courant.
+* La commande shell `mv` (Move) permet de déplacer des fichiers vers un dossier ; elle permet également de renommer un fichier.
+* La commande shell `cp` (Copy) permet de copier un fichier pour en créer un autre. Si on reste dans le même répertoire et que l'on fait par exemple la duplication du fichier `NSI1.txt` situé dans le répertoire courant en un fichier `NSI2.txt`, on écrira simplement : `cp NSI.txt NSI2.txt`.
+* La commande shell `rm`(ReMove) supprime un/des fichier(s) ou des répertoires (avec l'option -r). 
+* La commande shell `chmod` (Change Mode) permet de changer les **autorisations ou permissions d'accès** d'un fichier ou d'un répertoire. Un utilisateur a le droit de faire un `chmod` sur un fichier s'il est root ou s'il est le propriétaire du fichier en question.  
+Pour un fichier : `chmod [u g o a] [+ - =] [r w x] nom du fichier`. Les modes sont : `u` propriétaire (user), `g` groupe (group), `o` les autres (others), `a` tous (all).  
+Les permissions sont : `r` : autorisation de lecture (read), `w` : autorisation d'écriture
+(write), autorisation d'exécution `x` (execute).  
+Pour un dossier, il faut ajouter -R, par exemple : `chmod -R a+rx mon_dossier` donne à tous les utilisateurs les droits en écriture et en exécution à tout ce que contient le dossier `mon_dossier`.
+ 
+<u>Exemple 1</u> : considérons la suite de commandes :  
+
+```python
+lsentier.py flottant.py readme.mdmkdir foomv *.py foo
+```
+On commence par explorer le contenu du répertoire courant avec la commande `ls` et on trouve trois fichiers donc deux fichiers python à l'extension py et un fichier markdown à l'extension md ; on crée ensuite un dossier foo avec la commande `mkdir` et on place dans ce dossier tous les fichiers pythons de sorte que le dossier foo contient maintenant deux fichiers d'extension .py
+
+<u>Exemple 2</u> : supposons que le dossier courant soit `~/Doc/QCM` et que l'on cherche à rejoindre le dossier `~/.Hack/Reponses`, la bonne commande est :
+
+```python
+cd ../../.Hack/Reponses
+```
+Cette écriture séparée de deux caractères / est en fait la suite de commandes :  `cd ..` qui permet de passer dans un premier temps dans le dossier père Doc puis `cd ..` à nouveau qui permet de remonter à nouveau au répertoire racine `~` puis `cd .Hack` qui permet d'entrer dans le dossier `.Hack` puis `cd Reponses` qui permet de se rendre enfin dans le dossier `Reponses`.
+
+<u>Exemple 3</u> : supposons que l'on dispose dans le répertoire racine noté `~` ou `./` deux répertoires `documents` et `sauvegardes`. On se trouve dans le répertoire `documents` où figure un fichier `NSI.txt`, les commandes ci-dessous vont nous permettre de créer une copie nommée `NSI2.txt` de ce fichier dans le répertoire `sauvegardes`.
+
+```python
+cp NSI.txt ../sauvegardes/NSI2.txt
+```
+L'analyse de la commande permet de voir que l'on commence par copier le fichier `NSI.txt` puis, comme on se trouve dans le dossier `documents`, on doit remonter au répertoire racine grâce à `../` puis on va faire la copie dans le dossier `sauvegardes`. 
+Si maintenant on suppose que l'on ait dans le répertoire `sauvegardes`, on écrit la commande `cp NSI2.txt NSI3.txt`, il y a maintenant deux fichiers présents dans ce dossier, le fichier `NSI2.txt` a en effet été copié sous le nom `NSI3.txt` et non renommé sous le nom `NSI3.txt`. Enfin, si toujours placé dans le répertoire `sauvegardes`, on écrit  la commande `ls NSI*`, on obtient `NSI2.txt`	`NSI3.txt` car la commande nous permet de lister tous les fichiers qui commencent par `NSI`.
+
+<u>Exemple 4</u> : considérons la suite de commandes :
+
+```python
+cdlsDocuments Images Videos help.txt tutorial.txt script.pymv *.txt Documents
+```
+
+La dernière commande permet de déplacer tous les fichiers possédant l'extension txt, c'est-à-dire les fichiers help.txt et tutorial.txt, dans le dossier Documents.
+
+<u>Exemple 5</u> : considérons la suite de commandes :
+
+```python
+cd ~cd seances/tpmv exercice.txt ./../../exercice.txt
+```
+
+Le fichier `exercice.txt` se retrouve finalement dans le répertoire racine `~`.
+
+
+<u>Exemple 6</u> : Supposons que l'on ait dans un dossier `sauvegardes` un fichier  `NSI3.txt` que l'on veuille renommer en `NSI4.txt` la commande à utiliser une fois dans le dossier `sauvegardes` est : `mv NSI3.txt NSI4.txt`.
+
+<u>Exemple 7</u> : supposons que l'on veuille supprimer tous les fichiers contenus dans le répertoire courant où l'on se trouve, on écrira : `rm *`. Le `*` signifie que l'on prend tout.
+
+<u>Exemple 8</u> : supposons que l'on veuille donner à tout le monde le droit d'écriture sur un fichier `information.py`, la commande à écrire dans un terminal sous Linux est : 
+`chmod a+w information.py`.  
+Supposons maintenant que l'on veuille permettre au propriétaire (user) du fichier `a.txt` de modifier (en lecture et  écriture) le contenu de ce fichier, on écrira : `chmod u+rw a.txt`.  
+Supposons enfin que l'on veuille permettre à n'importe quel utilisateur d'exécuter un fichier appelé jeu, on écrira : `chmod a+x jeu`.
+
+<u>Exemple 9</u> : Après avoir utilisé la commande `ls -l`, on suppose qu'on lit pour un fichier les droits d'accès suivants : `-rwxr-xr--` ; le premier groupe de caractères indique les droits en lecture, en écriture et en exécution pour l'utilisateur mais l'absence du caractère `w` dans le deuxième groupe de caractères montre qu'il n'y a pas droit d'écriture (write) donc de modification pour les membres du groupe.
+
+
+* On retiendra qu'un **système d'exploitation libre** est un système d'exploitation composé de logiciels libres ; un logiciel libre est, selon la définition de la Free Software Foundation, un programme qui accorde 4 libertés essentielles à l'utilisateur : liberté d'exécuter le programme pour n'importe quel usage, liberté de le modifier pour y contribuer, liberté de redistribuer des copies du programme et liberté de distribuer des versions modifiées. Le contraire d'un système d'exploitation libre est un système sous **licence propriétaire** ; ainsi Windows est sous licence propriétaire à la différence de Linux, Ubuntu ou Android (pour mobiles).
 
 # 6. Transmission des données dans un réseau
 
->> À lire : [Transmission des données dans un réseau ](reseau.pdf)
+À lire : [Transmission des données dans un réseau ](reseau.pdf).    
+  
+
+### Ce qu'il faut retenir :
+
+* Dans un réseau informatique, la transmission des données se fait par **paquets** ou **trames** ce qui assure une utilisation efficace des liens de connexion.
+
+* Une commande importante dans un réseau informatique est la **commande `ping`** qui permet de tester si la connexion peut être établie avec une machine distante à travers un réseau IP ; dans le Terminal essayer par exemple `ping www.google.fr`.
+* Une autre commande importante dans un réseau informatique est la **commande `traceroute`** ; dans le Terminal essayer `traceroute www.google.fr` pour afficher le chemin suivi par des paquets à travers le protocole IP. 
+* Un **serveur DNS** permet d'associer une adresse IP à une adresse URL ; par exemple, avec un `ping` on trouvera que l'adresse IP associée au **serveur** du site www.education.gouv.fr est 152.199.21.182 ; c'est au serveur DNS qu'il revient donc de faire cette association.
+* Un **routeur** est un équipement réseau informatique assurant le routage des paquets. Son rôle est de faire transiter des paquets d'une interface réseau vers une autre, au mieux, selon un ensemble de règles, **dans le but d'interconnecter des réseaux**.
+* Dans le but d'interconnecter des ordinateurs entre eux, on utilisera un **interconnecteur** qu'est un câble Ethernet.
+* Le **commutateur ou switch** établit et met à jour une table; dans le cas du commutateur pour un réseau Ethernet il s'agit de la table d'adresses MAC, qui lui indique sur quels ports diriger les trames destinées à une adresse MAC donnée, en fonction des adresses MAC source des trames reçues sur chaque port. Le commutateur construit donc dynamiquement une table qui associe numéro de port et adresses MAC. 
+* Les **protocoles** sont l'ensemble des règles qui régissent les échanges sur Internet. Ainsi dans le **protocole de communication IP**, les données sont envoyées en plusieurs parties qui suivent des itinéraires différents au sein du réseau et qui arrivent à destination en respectant l'ordre de leur envoi.
+* Une **adresse IP** permet d'identifier un périphérique connecté au réseau. Chaque appareil connecté au réseau dispose d'une adresse IP. L'ordinateur ou le smartphone que vous utilisez dispose d'une adresse IP unique. La version 4 est actuellement la plus utilisée : elle est généralement représentée en notation décimale avec quatre nombres compris **entre 0 et 255**, séparés par des points, ce qui donne par exemple « 172.16.254.1 ».
+* Une **adresse Ethernet ou adresse MAC (Media Access Control)** identifie de manière unique le matériel informatique comme étant connecté au réseau. Ce type d’adresse est attribué définitivement au périphérique lors de sa fabrication, par le constructeur lui-même. La différence avec une adresse IP est que cette dernière est attribuée de façon unique à un équipement connecté à un réseau spécifique. Mais, elle est attribuée par l’administrateur réseau (ou par le serveur DHCP). L'adresse Ethernet est constituée de 48bits (soient 6 octets) et est généralement représentée sous la forme hexadécimale, en séparant les octets par le caractère `:`.  
+
+
+
+
