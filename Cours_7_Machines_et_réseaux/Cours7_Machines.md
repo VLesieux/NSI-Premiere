@@ -230,7 +230,9 @@ En général, nous agissons sur un ordinateur à l'aide de menus dans lesquels n
 
 À faire sous un système d'exploitation Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
 
-### Ce qu'il faut retenir :
+### Ce qu'il faut retenir : 
+
+Toutes les commandes données ci-dessous sont à connaître mais pour les mémoriser on se servira astucieusement de leur connexion avec les mots de la langue anglaise dont ils sont souvent des acronymes.
 
 * La commande **`pwd`(Print Working Directory)** affiche le chemin du dossier courant et permet donc de connaître le répertoire courant.
 * La commande **`man` (Manual)** permet obtenir le manuel d'une commande. Par exemple `man pwd` permet d'obtenir la documentation sur la commande `pwd` et on retrouve en anglais ce que l'on a dit précédemment.
