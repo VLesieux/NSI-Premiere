@@ -1,4 +1,5 @@
-# Représentation des données : types et valeurs de base
+# Thème A : types de base
+
 ## Un peu d'histoire
 
 Pour représenter l'information dans la machine, on utilise le code binaire formé des bits (binary digit) 0 et 1. Ces codes correspondent aux états ouvert ou fermé des interrupteurs utilisés dans les circuits électroniques. 
@@ -24,8 +25,9 @@ par usage et commodité, en base 10) :
 
 **Note** : la base par défaut dans du code Python est la base 10. Mais, avec certaines notations, il est
 possible d'utiliser d'autres bases.
-```python
->>> 10 == 0b1010 == 0xA
+
+```python 	
+>>> 10 == 0b1010 == 0xA 
 True
 ```
 
@@ -36,7 +38,8 @@ binaire.
 > Écrire en base cinq le nombre qui s'écrit 175 en base dix
 
 Algorithme de conversion d'un entier en base b≥2 :
-```
+
+```python
 Entrée : b la base de numération, n est un entier naturel.
 Sortie : x0 , x1 ,. . . xp−1 les différents chiffres de l’écriture de n en base b.
 
@@ -50,19 +53,76 @@ tant que m ≥ b faire
 fin tant que
 xi := chiffre correspondant à m
 renvoyer x0 , x1, . . . , xi.
+
 ```
 
-### Passage de la base 2 à 16, et inversement
+> Exemple : Comment parmi quatre propositions de code binaire 11 1100 1101 ; 11 1110 0101 ; 10 0111 1001; 10 1111 1001 retenir celle qui correspond à 761 ?
 
-La base 16 est fréquemment utilisée. Pourquoi ?
-16 a le bon goût d'être une puissance de 2 (2<sup>4</sup>) et <u>deux chiffres hexadécimaux
-permettent de décrire un octet</u>.
+On voit que le bit de poids le plus fort est commun aux quatre propositions : 1 qui représente la puissance de 9 car 2<sup>9</sup>=2x2<sup>8</sup>==2x256=512.
+Ainsi 761=512+249. Puis 249=1x128+121=1x2<sup>7</sup>+1x2<sup>6</sup>+..
+On attend donc le début 1011... seule la dermière proposition est donc cohérente et peut être retenue sans avoir à poursuivre le travail de décomposition.
 
-On peut aborder le passage de la base 2 à la base 16 (et inversement).  Quatre
-bits correspondent à un chiffre hexadécimal. On peut donc convertir un nombre
-de la base 2 à la base 16, sans passer par la 10, en procédant par paquets de 4 bits. Si le
-nombre de bits n'est pas un multiple de 4, on peut de toute façon « ajouter »
-des 0 non significatifs avant le bit de poids fort.
+```python
+>>> bin(761)
+'0b1011111001'
+```
+
+
+### Passage du binaire (base 2) à l'hexadécimacal (base 16), et inversement
+
+La base 16 est fréquemment utilisée. Pourquoi ?   
+16 a le bon goût d'être une puissance de 2 (2<sup>4</sup>) et ainsi **deux chiffres hexadécimaux suffisent pour décrire un octet de 8 bits**.   
+
+Abordons le passage de la base 2 à la base 16 (et inversement).  
+Quatre bits (2<sup>4</sup>=16 possibilités) correspondent à un chiffre hexadécimal (0 à 9 puis A à F soit 16 possibilités). 
+On peut donc convertir un nombre de la base 2 à la base 16, sans passer par l'écriture décimale, en procédant par la formation de paquets de 4 bits. Si le nombre de bits n'est pas un multiple de 4, on peut toujours « ajouter » des 0 non significatifs avant le bit de poids fort.
+
+> Exemple 1 : Recherchons l'écriture hexadécimale du nombre entier 157.
+
+Une première méthode peut consister à réaliser la décomposition de l'entier en base 16.
+Sachant que 16<sup>2</sup>=2<sup>8</sup>=256, et que 10x16=160, on cherche une décomposition en 9x16=144 ; ainsi 157=9x16<sup>1</sup>+13 et l'écriture hexadécimale de 157 est : 9D.
+
+Une autre méthode peut consister à donner l'écriture binaire de 157 en réalisant des divisions successives par 2 aussi longtemps que le quotient est non nul et en remontant de bas en haut pour obtenir : 10011101 puis on fait des regroupements de 4 : 1001 qui correspond à 9 et 1101 qui correspond à 13 soit D.
+
+```python
+>>> hex(157)
+'0x9d'
+```
+
+Application à voir : [le codage des couleurs](http://isnangellier.alwaysdata.net/php/colours.html) ; les couleurs sont codées en code RGB (Red Green Blue) avec chaque niveau de couleur codé sur 1 octet : soit 256 niveaux de 0 à 255 pour chaque couleur et un total de 256x256x256 couleurs soit 2<sup>24</sup>=16 777 216 couleurs possibles sur un écran.
+
+> Exemple 2 : La couleur "vert impérial" est codée en écriture décimale par (0,86,27). Recherchons son codage hexadécimal.
+
+86=5x16+6 est codé 56 en hexadécimal et 
+27=1x16+11 est codé 1B en hexadécimal. 
+Le codage hexadécimal de cette couleur est donc : (0,56,1B).
+
+```python
+>>> hex(0),hex(86),hex(27)
+('0x0', '0x56', '0x1b')
+```
+
+> Exemple 3 : Exprimons la différence CBD-BAC en base 16.
+  
+On sait que la valeur décimale de A est 10, que la valeur décimale de B est 11, que la valeur décimale de C est 12 et que la valeur décimale de D est 13 ; ainsi la valeur décimale de CBD est 12×16<sup>2</sup>+11×16<sup>1</sup>+13×16<sup>0</sup> tandis que la valeur décimale de BAC est 11×16<sup>2</sup>+10×16<sup>1</sup>+12×16<sup>0</sup> ; la différence recherchée est donc égale à 1×16<sup>2</sup>+1×16<sup>1</sup>+1×16<sup>0</sup>, ce qui s'écrit 111 en base 16.  
+La vérification en Python peut se faire ainsi : 
+ 
+```python
+>>> hex(0xCBD-0xBAC)
+'0x111'
+```
+
+> Exemple 4 : Exprimons en base 16 la valeur de la somme des deux entiers positifs A7 et 84 écrits en base 16.
+
+La valeur décimale de A7 est 10×16<sup>1</sup>+7×16<sup>0</sup> tandis que celle de 84 est 8×16<sup>1</sup>+4×16<sup>0</sup> ainsi la valeur décimale de la somme est 18×16<sup>1</sup>+11×16<sup>0</sup> or 18=1×16+2 donc la valeur décimale de la somme s'écrit 1×16<sup>2</sup>+2×16<sup>1</sup>+11×16<sup>0</sup> soit 12B en hexadécimal.  
+La vérification en Python peut se faire ainsi : 
+ 
+```python
+>>> hex(0xA7+0x84)
+'0x12b'
+```
+
+
 
 ### Taille des données
 
@@ -72,7 +132,7 @@ giga, téra, etc.). Il existe cependant les préfixes kibi (2<sup>10</sup>=1024)
 (2<sup>20</sup>), gibi (2<sup>30</sup>), tébi (2<sup>40</sup>), etc. qui sont respectivement abbréviés en
 ki, Mi, Gi, Ti, etc.
 
-# Représentation binaire d'un entier relatif
+# Représentation binaire (en base 2) d'un entier relatif
 
 > Attendu : Évaluer le nombre de bits nécessaires à l’écriture en base 2 d’un
 > entier, de la somme ou du produit de deux nombres entiers.  Utiliser le
@@ -97,7 +157,42 @@ D'un point de vue plus pratique les entiers naturels représentables sur 8, 16,
 32 ou 64 bits sont donc ceux strictement inférieurs à 2<sup>8</sup>=256, 2<sup>16</sup> = 65 536, 2<sup>32</sup> =
 4 294 967 296, 2<sup>64</sup> = 18 446 744 073 709 551 616.
 
-## Complément à 2
+> Exemple 1 : Recherchons le plus grand entier positif (non signé) représentable en binaire sur 2 octets (c'est-à-dire sur 16 bits).  
+
+Écrit sur 16 bits, le plus grand entier s'écrit comme une succession du bit 1, sa valeur correspond au nombre de combinaisons possibles soit 2<sup>16</sup> auquel on retire le cas de 0 soit 2<sup>16</sup>-1. Une autre façon de procéder, que l'on donne pour son intérêt mathématique, est de calculer la somme des termes d'une suite géométrique de raison 2.  
+S=1+2<sup>1</sup>+2<sup>2</sup>+...+2<sup>15</sup>.   
+2×S=2+2<sup>2</sup>+2<sup>3</sup>+...+2<sup>16</sup>.  
+En retranchant membre à membre la deuxième équation à la première, on obtient :  S=2<sup>16</sup>-1.
+
+> Exemple 2 : Recherchons le nombre maximal de bits du produit de deux entiers positifs codés sur 8 bits. 
+
+Pour répondre à cette question, commençons par le cas simple de la multiplication entre eux de deux entiers de deux bits 11×11 qui s'effectue comme à l'accoutumée (avec le même système de retenue) et on obtient : 1001 c'est à dire un nombre entier de 4 bits. On prédit ainsi que le nombre maximal de bits du produit de deux entiers positifs codés sur 8 bits est 2×8=16.
+
+```python
+>>> bin(255*255)
+'0b1111111000000001'
+```
+
+
+> Exemple 3 : On ajoute trois chiffres 0 à droite de l'écriture binaire d'un entier N strictement positif ; montrons que cela revient à donner l'écriture binaire de 8×N.
+
+En effet, pour un entier N qui s'écrit sur n bits :
+
+N=a<sub>0</sub>×2<sup>0</sup>+.........+a<sub>n-1</sub>×2<sup>n-1</sup>.   
+2×N=0×2<sup>0</sup>+a<sub>0</sub>×2<sup>1</sup>+.........+a<sub>n-1</sub>×2<sup>n</sup>. 
+
+La multiplication par 2 a pour effet de placer un 0 à droite et de décaler tous les bits vers la gauche. Ajouter 3 chiffres 0 à droite consiste à faire 3 fois la multiplication par 2, c'est-à-dire la multiplication par 8. 
+Par exemple : 
+
+```python
+>>> 0b1010
+10
+>>> 0b1010000
+80
+```
+
+
+## Écriture en complément à 2 d'un entier négatif
 
 Pour représenter un **nombre signé** on pense intuitivement qu'il suffit d'ajouter
 un bit de signe. Mais cette représentation (appelée *signe-valeur absolue*) ne
@@ -136,8 +231,10 @@ représenter tous les entiers compris entre *`-2^{p-1}`* jusqu'à *`2^{p-1}-1`*
 
 ### Exemples
 
-On souhaite représenter 13 sur 5 bits dans la représentation en complément
-à 2.  On a 13 = 1101<sub>2</sub>. Donc dans la représentation en complément à 2 sur 5 bits
+> Exemple 1 : On souhaite représenter 13 sur 5 bits dans la représentation en complément
+à 2. 
+
+On a 13 = 1101<sub>2</sub>. Donc dans la représentation en complément à 2 sur 5 bits
 13 s'écrit : 01101.      
 
 
@@ -152,7 +249,7 @@ On souhaite maintenant représenter -13 sur 5 bits dans la représentation en co
 **Deuxième méthode** : *`2^5 - 13 = 32 - 13 = 19`* or 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
    complément à 2 est 10011.
 
-Inversement, quel est le nombre entier relatif qui correspond à la représentation en
+> Exemple 2 : Quel est le nombre entier relatif qui correspond à la représentation en
 complément à 2 sur 5 bits suivante 11001 ?
 
 Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.     
@@ -160,12 +257,13 @@ Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.
    l'entier 7. L'entier représenté était donc -7    
 **Deuxième méthode** : En binaire 11001<sub>2</sub> = 25 puis *`2^5-25 = 7`* donc l'entier représenté était -7.
 
-Si la représentation en complément à 2 est 01001, alors le nombre entier est
-positif (bit de poids fort à 0). Il suffit donc de convertir le nombre en
+Remarque : Si la représentation en complément à 2 est par exemple 01001, alors le nombre entier est
+positif car le bit de poids fort est 0. Il suffit alors de convertir le nombre en
 décimal pour connaître la valeur de l'entier, ici 9.
 
-> Quels sont les entiers relatifs que l'on peut coder sur 4 bits ?    
-> Comment se code -10 sur 5 bits ?
+> Exemple 3 : Recherchons l'écriture binaire, en complément à deux sur 8 bits, de l'entier négatif -7.
+
+La représentation binaire de 7 sur 8 bits est 00000111 ; le complément est 11111000 puis on ajoute 1 ainsi 11111001 est l'écriture en complément à deux sur 8 bits de l'entier négatif -7. On peut aussi, mais c'est plus long, calculer 2<sup>8</sup>-7 soit 256-7=249 puis écrire son écriture binaire et on retrouve 11111001.
 
 ### Représentation des entiers de taille arbitraire en Python
 
@@ -293,9 +391,43 @@ Au final, le codage de 20 est 0100000000110100.....0
 > directes comme l’addition binaire sont présentées.  L’attention des élèves est
 > attirée sur le caractère séquentiel de certains opérateurs booléens.
 
+
+Table de vérité de ET (AND)
+
+```python
+>>> True and True
+True
+>>> True and False
+False
+>>> False and False
+False
+```
+
+Table de vérité de OU (OR)
+
+```python
+>>> True or True
+True
+>>> True or False
+True
+>>> False or False
+False
+```
+
+
+
+> Exemple 1 : 
+
+```python
+>>> True or (True and False)
+True
+```
+
+
 Table d'une expression booléenne avec *`n`* variables : *`2^n`* cas à évaluer.
 
-Exemple avec *`(a ∨ b) ∧ c`* (∨ : OU ; ∧ : ET)
+> Exemple 2 : recherchons la table de vérité de  *`(a ∨ b) ∧ c`* (∨ : OU ; ∧ : ET)
+
 
 | a | b | c | *`(a ∨ b)`* | *`(a ∨ b) ∧ c`* |
 |---|---|---|---------------|-------------------------|
@@ -308,14 +440,15 @@ Exemple avec *`(a ∨ b) ∧ c`* (∨ : OU ; ∧ : ET)
 | 1 | 1 | 0 | 1             | 0                       |
 | 1 | 1 | 1 | 1             | 1                       |
 
-> L'expression not(a or b) a-t-elle la même valeur que l'expression (not a) or (not b) ou (not a) and (not b) ?
+ 
 
-## Exemples d'application
+### Exemples d'application
 
-L'opérateur ET permet par exemple de créer des masques afin de ne conserver que certains
+#### 1) L'opérateur ET 
+Il permet par exemple de créer des masques afin de ne conserver que certains
 bits d'une valeur.
 
-### Parité d'un nombre
+#### 2) Parité d'un nombre
 
 Un entier naturel pair *`n`* a son bit de poids faible à 0. Il suffit donc de
 consulter ce bit pour connaître la parité du nombre.
@@ -323,7 +456,7 @@ consulter ce bit pour connaître la parité du nombre.
 `n ∧ 1` permet de ne conserver que le bit de poids faible (tous les autres bits sont mis à 0).
 Si le résultat est 1 alors le nombre est impair, sinon le nombre est pair.
 
-### Signe d'un nombre représenté en complément à 2
+### 3) Signe d'un nombre représenté en complément à 2
 
 On a vu que dans la représentation en complément à 2, le bit de poids fort
 désigne le bit de signe.  Si on suppose un nombre entier *`n`* représenté sur
@@ -331,9 +464,9 @@ désigne le bit de signe.  Si on suppose un nombre entier *`n`* représenté sur
 ∧ (2^{p-1})`. Si le résultat est 0, le nombre est positif sinon il est
 négatif.
 
-## Caractère séquentiel
+### 4) Caractère séquentiel des expressions booléennes
 
-Pas sûr que cela corresponde vraiment à cela… Les expressions booléennes sont évaluées de manière paresseuses : dès que le résultat est connu l'évaluation est stoppée.
+Les expressions booléennes sont évaluées de manière paresseuses : dès que le résultat est connu l'évaluation est stoppée.
 
 Par exemple avec `a ET b ET c`. Si `a` est faux, `b` et `c` ne sont même pas
 évaluées puisque le résultat sera nécessairement faux.
@@ -351,47 +484,57 @@ Mais on **ne doit pas** faire (une exception sera levée dès que la clé n'exis
 if d['cle'] == 2 and 'cle' in d:
 ```
 
-## XOR
+### 5) XOR
 
 Le ou-exclusif ne pose généralement pas de problème car son interprétation
 correspond à l'interprétation intuitive du OU en français « *resto chinois ou
 italien* ? ».  Le résultat d'un ou-exclusif entre deux valeurs n'est vrai que
 si exactement une des deux valeurs est vraie.
 
-## Et les opérateurs bit-à-bit ?
+### 6) Et les opérateurs bit-à-bit ?
 
 Les opérateurs bit-à-bit incluent les opérateurs booléens déjà mentionnés mais
 également les décalages de bits.
 
-- *Décalage à droite*: le décalage à droite de *`k`* positions d'un entier
-*`n`*, noté *`n\gg k`*, est l'entier dont l'écriture binaire est obtenue en
+- *Décalage à droite* : le décalage à droite de *`k`* positions d'un entier
+*`n`*, noté *`n >> k`*, est l'entier dont l'écriture binaire est obtenue en
 supprimant les *`k`* bits de poids faibles de l'écriture binaire de *`n`*.
-- *Décalage à gauche*: le décalage à gauche de *`k`* positions d'un entier
+
+Exemple :
+
+```python
+>>> 11 >> 2
+2
+```
+En effet, 11 s'écrit en binaire 1011, le décalage vers la droite deux fois de suite donne 10 dont la valeur décimale vaut 2.
+
+- *Décalage à gauche* : le décalage à gauche de *`k`* positions d'un entier
 *`n`*, noté *`n\ll k`*, est l'entier dont l'écriture binaire est obtenue en
 ajoutant *`k`* bits nuls à droite de l'écriture binaire de *`n`*.
 
+Exemple :
+
+```python
+>>> 1<<2
+4
+```
+En effet, 1 s'écrit en binaire 1, le décalage vers la gauche deux fois de suite donne 100 dont la valeur décimale vaut 4 ; la valeur décimale de départ a été multipliée par 2<sup>2</sup>.
+
 
 En Python, décaler un nombre entier positif d'un bit vers la gauche revient à
-le multiplier par 2 (et le décaler de *`k`* bits, revient à le multiplier par
-*`2^k`*).  Si le nombre entier est représenté sur un nombre fixe de bits (ce
+le multiplier par 2, et ainsi le décaler de *`k`* bits, revient à le multiplier par
+*`2^k`*.  
+Si le nombre entier est représenté sur un nombre fixe de bits (ce
 qui n'est pas le cas de Python), décaler de *`k`* bits vers la gauche va
 également faire perdre les *`k`* bits qui étaient originellement de poids
 fort.
 
-En Python les décalages à gauche et à droite se font respectivement avec les
-opérateurs `<<` et `>>`
-```python
->>> 1 << 2
-4
->>> 5 >> 1
-2
-```
 
-Le décalage de bit aurait été utile dans l'exemple d'application précédent de
-détermination du bit de signe. Nous avions fait : *`n \wedge (2^{p-1})`* pour
-cela et dans ce cas soit le résultat était 0 soit *`2^{p-1}`*.  Avec le
-décalage à droite on peut également faire *`n \gg (p-1)`* et dans ce cas le
-résultat est soit 0 soit 1.
+
+Le décalage de bit aurait été utile dans l'exemple 3 de
+détermination du bit de signe pour un entier n qui s'écrit sur p bits. Avec le
+décalage à droite on peut faire *`n >> (p-1)`* et dans ce cas le
+résultat est soit 0 soit 1 pour nous indiquer le signe.
 
 # Représentation d'un texte en machine
 
@@ -404,11 +547,11 @@ résultat est soit 0 soit 1.
 ## Pourquoi différents encodages de caractères ?
 
 ### ASCII
-ASCII (*American Standard Code for Information Interchange*) est la première
+Le code ASCII (*American Standard Code for Information Interchange*) est la première
 norme largement utilisée pour encoder des caractères.  Comme son nom l'indique
-cette norme est américaine et elle n'inclut donc que les lettres latines non
-accentuées (en plus des chiffres, opérateurs mathématiques, caractères de
-ponctuation ou de délimitation et certains caractères spéciaux).
+cette norme est américaine et elle sert pour l'échange d'information dans cette langue ;  elle n'**inclue donc pas les lettres  
+accentuées** mais comme le tableau ci-dessous l'indique, des chiffres, opérateurs mathématiques, caractères de
+ponctuation ou de délimitation et certains caractères spéciaux.
 
 Voici les caractères de la table ASCII (les 33 premiers, et le dernier, ne sont pas imprimables) :
 
@@ -424,7 +567,7 @@ Voici les caractères de la table ASCII (les 33 premiers, et le dernier, ne sont
 | `7` | `p`     | `q`   | `r`   | `s`   | `t`   | `u`   | `v`   | `w`   | `x`   | `y`  | `z`   | `{`   | `|`  | `}`  | `~`  | `DEL`|
 
 128 caractères composent la table ASCII, ce qui permet de les représenter sur
-7 bits (en pratique plutôt 8 bits afin d'occuper un octet complet).
+7 bits (en pratique ils sont donnés sur 8 bits afin d'occuper un octet complet).
 
 Pour obtenir le code ASCII d'un caractère et inversement : 
 

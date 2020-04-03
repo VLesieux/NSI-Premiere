@@ -5,7 +5,7 @@
 Les nombres sont écrits en binaire.
 1. Calculer la somme 100110 + 001101 en posant l'addition.
 2. Traduire le calcul en décimal.
-3. Véfier dans le Shell en utilisant la notation en base 2 : 0b......
+3. Vérifier dans le Shell en utilisant la notation en base 2 : 0b......
 
 ## Exercice 2
 
