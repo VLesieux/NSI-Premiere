@@ -391,6 +391,14 @@ Au final, le codage de 20 est 0100000000110100.....0
 > directes comme l’addition binaire sont présentées.  L’attention des élèves est
 > attirée sur le caractère séquentiel de certains opérateurs booléens.
 
+Table de vérité de NON (NOT)
+
+```python
+>>> not True
+False
+>>> not False
+True
+```
 
 Table de vérité de ET (AND)
 
