@@ -32,6 +32,9 @@ Opérations sur les types simples
 >>> x*=2
 >>> x
 12
+>>> x**=2
+>>> x
+144
 
 #opérations sur les chaînes de caractères
 >>> chaine="poisson"

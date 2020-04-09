@@ -324,7 +324,9 @@ Une autre méthode consiste à calculer 2<sup>8</sup>-255 car 255 est la valeur 
 
 > Exemple 5 : Recherchons la représentation binaire en complément à deux de l'opposé du nombre dont le code binaire sur 8 bits est 0110 1110.
 
-On prend le complément puis on lui ajoute 1 : 
+On prend le complément : 1001 0001 puis on lui ajoute 1 : 1001 0010
+
+
 
 ### Représentation des entiers de taille arbitraire en Python
 
@@ -624,6 +626,8 @@ résultat est soit 0 soit 1 pour nous indiquer le signe.
 
 ## Pourquoi différents encodages de caractères ?
 
+Remarque : distinguer ce que l'on entend par **encodage de caractère** (ASCII, UTF-16..) et **polices de caractères** (Arial, Times New Roman..).
+
 ### CODAGE ASCII
 Le code ASCII (*American Standard Code for Information Interchange*) est la première
 norme largement utilisée pour encoder des caractères.  Comme son nom l'indique
@@ -692,6 +696,7 @@ concentrons sur l'UTF-8.
 
 UTF-8 (abréviation de l’anglais Universal Character Set Transformation Format1 - 8 bits) est un codage de caractères informatiques conçu pour **coder l’ensemble des caractères** du « répertoire universel de caractères codés », initialement développé par l’ISO dans la norme internationale ISO/CEI 10646, aujourd’hui totalement compatible avec le standard Unicode, en restant compatible avec la norme ASCII limitée à l’anglais de base, mais très largement répandue depuis des décennies. 
 
+L'encodage le plus pratique pour échanger des textes constitués de **caractères Unicode** est UTF-8. Il associe à tout numéro Unicode une suite d'un ou plusieurs octets (jusqu'à quatre octets pour un seul caractère). Cet encodage est décrit dans la RFC 2279. Une des propriétés importantes de cet encodage est que les caractères dont les numéros sont compris entre 32 et 126 possèdent la même représentation en UTF-8 et dans l'encodage ASCII. L'encodage UTF-8 est donc compatible avec ASCII, dans la mesure où il n'y a rien à faire pour convertir un fichier encodé en ASCII vers UTF-8. Réciproquement, si un octet représentant un nombre compris entre 32 et 126 apparaît dans un fichier encodé en UTF-8, alors c'est forcément pour encoder le caractère ASCII du même numéro.  
 
 
 Le codage UTF-8 est un **codage de longueur variable qui se fait sur 1 à 4 octets.**  Certains caractères sont
