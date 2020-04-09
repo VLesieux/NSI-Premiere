@@ -520,6 +520,15 @@ a AND b vaut False et donc NOT(a AND b)=True
 True
 ```
 
+> Exemple 4 : Recherchons l'affectation equivalente à la suite d'instructions suivantes où a et b sont des valeurs entières et c une valeur booléenne.
+
+
+```python
+if a==b:	c = Trueelif a > b+10:	c = Trueelse:	c = False
+```
+
+c = (a==b) or (a > b+10)
+
 
 
 ### Exemples d'application
@@ -570,6 +579,17 @@ Le ou-exclusif ne pose généralement pas de problème car son interprétation
 correspond à l'interprétation intuitive du OU en français « *resto chinois ou
 italien* ? ».  Le résultat d'un ou-exclusif entre deux valeurs n'est vrai que
 si exactement une des deux valeurs est vraie.
+
+> Exemple 5 : Quand on ajoute deux bits a et b, on obtient un bit de somme s et un bit de retenue r. On peut chercher à exprimer r et s à l'aide de formules logiques.
+
+On peut envisager les différentes cas :
+
+a=0 b=0 s=0 r=0.  
+a=1 b=0 s=1 r=0.   
+a=0 b=1 s=1 r=0.  
+a=1 b=1 s=0 r=1.  
+
+On voit que s apparaît comme 𝑎 𝑂𝑈 𝐸𝑋𝐶𝐿𝑈𝑆𝐼𝐹 𝑏  tandis que r apparaît comme 𝑟=𝑎 𝐸𝑇 𝑏.
 
 ### 6) Et les opérateurs bit-à-bit ?
 
