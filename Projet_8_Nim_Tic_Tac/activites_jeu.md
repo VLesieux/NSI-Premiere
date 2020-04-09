@@ -138,8 +138,6 @@ def test_validite_choix(valeur_joueur,lechoix,tas):
 
 def action_joueur(valeur_joueur,param_jeu):
     """
-    :author:aff_evolution_jeu(9)
-    :date: 2019
     : permet de connaitre le nombre d'allumettes à enlevées
     : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
     : return : int(choix) choix du joueur

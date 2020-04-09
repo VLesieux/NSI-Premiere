@@ -13,7 +13,7 @@ Pendant ce temps, la construction de l'**ENIAC** avait commencé ; Eckert et Mau
 
 ![Programme officiel ](assets/bo1.png)
 
-## Écriture d'un entier positif en base b≥2
+## 1] Écriture d'un entier positif en base b≥2
 
 > Attendu : passer d'une base à une autre
 >
@@ -55,8 +55,17 @@ xi := chiffre correspondant à m
 renvoyer x0 , x1, . . . , xi.
 
 ```
+> Exemple 1 : Donnons la représentation binaire de 64.
 
-> Exemple : Comment parmi quatre propositions de code binaire 11 1100 1101 ; 11 1110 0101 ; 10 0111 1001; 10 1111 1001 retenir celle qui correspond à 761 ?
+64=4x16=2^6
+donc il s'agit de 0100 0000.
+
+```python 
+>>> 0b01000000
+64
+```
+
+> Exemple 2 : Comment parmi les quatre propositions suivantes de code binaire 11 1100 1101 ; 11 1110 0101 ; 10 0111 1001; 10 1111 1001 retenir rapidement celle qui correspond à 761 ?
 
 On voit que le bit de poids le plus fort est commun aux quatre propositions : 1 qui représente la puissance de 9 car 2<sup>9</sup>=2x2<sup>8</sup>==2x256=512.
 Ainsi 761=512+249. Puis 249=1x128+121=1x2<sup>7</sup>+1x2<sup>6</sup>+..
@@ -66,6 +75,20 @@ On attend donc le début 1011... seule la dermière proposition est donc cohére
 >>> bin(761)
 '0b1011111001'
 ```
+
+> Exemple 3 : Calculons le résultat de la soustraction en binaire 101001 - 101.
+
+
+L'addition se faisant simplement avec des retenues comme en base 10, on peut chercher ce qu'il faut ajouter à 101 pour obtenir 101001.
+
+```python
+>>> bin(0b101001-0b101)
+'0b100100'
+```
+
+
+
+
 
 
 ### Passage du binaire (base 2) à l'hexadécimacal (base 16), et inversement
@@ -89,9 +112,27 @@ Une autre méthode peut consister à donner l'écriture binaire de 157 en réali
 '0x9d'
 ```
 
+> Exemple 2 : Recherchons la valeur décimale de l'entier positif dont l'écriture hexadécimale est 3F.
+
+Il s'agit de 3x16+15=63.
+
+```python
+>>> 0x3F
+63
+```
+
+> Exemple 3 : Recherchons l'écriture hexadécimale de l'entier dont la représentation en binaire non signé est 1100 0011.
+
+On réalise des regroupements de 4 bits : 1100 a pour valeur décimale 12 soit C en hexadécimal, et 0011 a pour valeur décimale 3 ; ainsi le code hexadecimal est C3.
+
+```python
+>>> hex(0b11000011)
+'0xc3'
+```
+
 Application à voir : [le codage des couleurs](http://isnangellier.alwaysdata.net/php/colours.html) ; les couleurs sont codées en code RGB (Red Green Blue) avec chaque niveau de couleur codé sur 1 octet : soit 256 niveaux de 0 à 255 pour chaque couleur et un total de 256x256x256 couleurs soit 2<sup>24</sup>=16 777 216 couleurs possibles sur un écran.
 
-> Exemple 2 : La couleur "vert impérial" est codée en écriture décimale par (0,86,27). Recherchons son codage hexadécimal.
+> Exemple 4 : La couleur "vert impérial" est codée en écriture décimale par (0,86,27). Recherchons son codage hexadécimal.
 
 86=5x16+6 est codé 56 en hexadécimal et 
 27=1x16+11 est codé 1B en hexadécimal. 
@@ -102,7 +143,7 @@ Le codage hexadécimal de cette couleur est donc : (0,56,1B).
 ('0x0', '0x56', '0x1b')
 ```
 
-> Exemple 3 : Exprimons la différence CBD-BAC en base 16.
+> Exemple 5 : Exprimons la différence CBD-BAC en base 16.
   
 On sait que la valeur décimale de A est 10, que la valeur décimale de B est 11, que la valeur décimale de C est 12 et que la valeur décimale de D est 13 ; ainsi la valeur décimale de CBD est 12×16<sup>2</sup>+11×16<sup>1</sup>+13×16<sup>0</sup> tandis que la valeur décimale de BAC est 11×16<sup>2</sup>+10×16<sup>1</sup>+12×16<sup>0</sup> ; la différence recherchée est donc égale à 1×16<sup>2</sup>+1×16<sup>1</sup>+1×16<sup>0</sup>, ce qui s'écrit 111 en base 16.  
 La vérification en Python peut se faire ainsi : 
@@ -112,7 +153,7 @@ La vérification en Python peut se faire ainsi :
 '0x111'
 ```
 
-> Exemple 4 : Exprimons en base 16 la valeur de la somme des deux entiers positifs A7 et 84 écrits en base 16.
+> Exemple 6 : Exprimons en base 16 la valeur de la somme des deux entiers positifs A7 et 84 écrits en base 16.
 
 La valeur décimale de A7 est 10×16<sup>1</sup>+7×16<sup>0</sup> tandis que celle de 84 est 8×16<sup>1</sup>+4×16<sup>0</sup> ainsi la valeur décimale de la somme est 18×16<sup>1</sup>+11×16<sup>0</sup> or 18=1×16+2 donc la valeur décimale de la somme s'écrit 1×16<sup>2</sup>+2×16<sup>1</sup>+11×16<sup>0</sup> soit 12B en hexadécimal.  
 La vérification en Python peut se faire ainsi : 
@@ -122,6 +163,17 @@ La vérification en Python peut se faire ainsi :
 '0x12b'
 ```
 
+> Exemple 7 : Calculons la valeur décimale de la somme de deux entiers écrits en hexadécimal : 2A + 2.
+
+
+2A correspond à 2x16+10=42
+donc 2A + 2 vaut 44.
+
+
+```python
+>>> 0x2A + 0x2
+44
+```
 
 
 ### Taille des données
@@ -132,7 +184,7 @@ giga, téra, etc.). Il existe cependant les préfixes kibi (2<sup>10</sup>=1024)
 (2<sup>20</sup>), gibi (2<sup>30</sup>), tébi (2<sup>40</sup>), etc. qui sont respectivement abbréviés en
 ki, Mi, Gi, Ti, etc.
 
-# Représentation binaire (en base 2) d'un entier relatif
+# 2] Représentation binaire (en base 2) d'un entier relatif
 
 > Attendu : Évaluer le nombre de bits nécessaires à l’écriture en base 2 d’un
 > entier, de la somme ou du produit de deux nombres entiers.  Utiliser le
@@ -265,6 +317,15 @@ décimal pour connaître la valeur de l'entier, ici 9.
 
 La représentation binaire de 7 sur 8 bits est 00000111 ; le complément est 11111000 puis on ajoute 1 ainsi 11111001 est l'écriture en complément à deux sur 8 bits de l'entier négatif -7. On peut aussi, mais c'est plus long, calculer 2<sup>8</sup>-7 soit 256-7=249 puis écrire son écriture binaire et on retrouve 11111001.
 
+> Exemple 4 : Recherchons l'entier relatif codé en complément à 2 sur un octet par 1111 1111. 
+
+Il s'agit d'un entier négatif puisque le premier bit est 1. Prenons le complément du code binaire puis ajoutons 1. On obtient : 0000 0001. L'entier relatif en question est -1.
+Une autre méthode consiste à calculer 2<sup>8</sup>-255 car 255 est la valeur decimale de 1111 1111, pour en prendre ensuite l'opposé.
+
+> Exemple 5 : Recherchons la représentation binaire en complément à deux de l'opposé du nombre dont le code binaire sur 8 bits est 0110 1110.
+
+On prend le complément puis on lui ajoute 1 : 
+
 ### Représentation des entiers de taille arbitraire en Python
 
 Dans un langage où les entiers sont de taille fixe, par exemple sur 32 bits,
@@ -278,7 +339,7 @@ détournée, car les entiers peuvent être arbitrairement grand (l'unique limite
 Pour information les nombres entiers en Python sont représentés comme une
 suite de chiffres en base 2<sup>30</sup>. Plus [d'informations ici](https://rushter.com/blog/python-integer-implementation/).
 
-# Représentation approximative des nombres réels : notion de nombre flottant 
+# 3] Représentation approximative des nombres réels : notion de nombre flottant 
 
 > Attendu : Calculer sur quelques exemples la représentation de nombres
 > réels : 0.1, 0.25 ou 1/3.
@@ -383,7 +444,7 @@ Codons maintenant le réel 20. Il nous faut une mantisse comprise entre 1 et 2 e
 Au final, le codage de 20 est 0100000000110100.....0
 
 
-# Valeurs, opérateurs et expressions booléennes
+# 4] Valeurs, opérateurs et expressions booléennes
 
 > Attendu : Dresser la table d’une expression booléenne.
 >
@@ -448,7 +509,16 @@ Table d'une expression booléenne avec *`n`* variables : *`2^n`* cas à évaluer
 | 1 | 1 | 0 | 1             | 0                       |
 | 1 | 1 | 1 | 1             | 1                       |
 
- 
+> Exemple 3 : Si a vaut False et b vaut True, calculons ce que vaut l'expression booléenne NOT(a AND b).
+
+a AND b vaut False et donc NOT(a AND b)=True
+
+```python
+>>> not(False and True)
+True
+```
+
+
 
 ### Exemples d'application
 
@@ -544,7 +614,7 @@ détermination du bit de signe pour un entier n qui s'écrit sur p bits. Avec le
 décalage à droite on peut faire *`n >> (p-1)`* et dans ce cas le
 résultat est soit 0 soit 1 pour nous indiquer le signe.
 
-# Représentation d'un texte en machine
+# 6] Représentation d'un texte en machine
 
 > Attendu : Identifier l’intérêt des différents systèmes d’encodage.
 > Convertir un fichier texte dans différents formats d’encodage.
@@ -554,7 +624,7 @@ résultat est soit 0 soit 1 pour nous indiquer le signe.
 
 ## Pourquoi différents encodages de caractères ?
 
-### ASCII
+### CODAGE ASCII
 Le code ASCII (*American Standard Code for Information Interchange*) est la première
 norme largement utilisée pour encoder des caractères.  Comme son nom l'indique
 cette norme est américaine et elle sert pour l'échange d'information dans cette langue ;  elle n'**inclue donc pas les lettres  
@@ -586,8 +656,18 @@ Pour obtenir le code ASCII d'un caractère et inversement :
 '4'
 ```
 
+> Exemple : Le code ASCII de la lettre A est 0x41, celui de la lettre B est 0x42, celui de la lettre C est 0x43, etc.Quel est le code ASCII, en hexadécimal, de la lettre X, qui est la 24e lettre de l'alphabet usuel ?
 
-### ISO-8859-1
+Voyons l'écriture du code ASCII en hexadécimal pour les lettres qui suivent : on aura donc  0x43 pour 3e lettre .. puis  0x49 pour 9e lettre, 0x4A pour la 10e lettre..0x4F pour la 15e lettre, puis  0x50 pour la 16e lettre et donc  0x58 pour la 24e lettre.
+
+```python
+>>> hex(ord("A"))
+'0x41'
+>>> hex(ord("X"))
+'0x58'
+```
+
+### CODAGE ISO-8859-1
 
 Par la suite d'autres encodages ont vu le jour afin de pallier les limites de
 l'ASCII.  L'ISO-8859-1 (aussi appelé *Latin-1*), pour l'Europe occidentale, a
@@ -601,18 +681,23 @@ Voici la table des caractères ISO-8859-1 :
 
 ![](assets/iso-8859-1.png)
 
-### UTF-8
+### CODAGE UTF-8
 
 À nouveau le codage ISO-8859-1 (et les autres codages de la famille ISO-8859)
 présentent des limites.  Dans les années 1990, le projet Unicode de codage
 unifié de tous les alphabets est né. Différents codages sont utilisés pour
 représenter des caractères Unicode (UTF-8, UTF-16, UTF-32\dots). Ici nous nous
-concentrons sur l'UTF-8
+concentrons sur l'UTF-8.
 
-Le codage UTF-8 est un codage de longueur variable. Certains caractères sont
+
+UTF-8 (abréviation de l’anglais Universal Character Set Transformation Format1 - 8 bits) est un codage de caractères informatiques conçu pour **coder l’ensemble des caractères** du « répertoire universel de caractères codés », initialement développé par l’ISO dans la norme internationale ISO/CEI 10646, aujourd’hui totalement compatible avec le standard Unicode, en restant compatible avec la norme ASCII limitée à l’anglais de base, mais très largement répandue depuis des décennies. 
+
+
+
+Le codage UTF-8 est un **codage de longueur variable qui se fait sur 1 à 4 octets.**  Certains caractères sont
 codés sur un seul octet, ce sont les 128 caractères du codage ASCII.  Les
 autres caractères peuvent être codés sur 2, 3 ou 4 octets.  Ainsi l'UTF-8
-permet en théorie de représenter *`2^{21} = 2\,097\,152`* caractères
+permet en théorie de représenter *`2^21 = 2 097 152`* caractères
 différents, en réalité un peu moins. Il y a actuellement environ une centaine
 de milliers de caractères Unicode (incluant les [caractères des langues
 vivantes ou
@@ -622,7 +707,7 @@ indispensables](https://unicode.org/emoji/charts-12.0/full-emoji-list.html)
 😇)
 
 Les caractères en UTF-8 doivent avoir une forme particulière décrite dans la
-table ci-dessous :
+table ci-dessous, il faut en effet être capable de distinguer dans un texte les caractères qui se codent sur 1, 2, 3 ou 4 octets :
 
 | Nbre octets codant | Format de la représentation binaire   |
 |--------------------|---------------------------------------|
