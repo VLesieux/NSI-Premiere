@@ -76,7 +76,16 @@ On attend donc le début 1011... seule la dermière proposition est donc cohére
 '0b1011111001'
 ```
 
-> Exemple 3 : Calculons le résultat de la soustraction en binaire 101001 - 101.
+> Exemple 3 : Calculons le résultat de l'addition en écriture binaire 1101 1001 + 11 0110.
+
+Le résultat s'obtient en additionnant bit à bit avec les retenues comme avec les nombres décimaux.
+
+```python
+>>> bin(0b11011001 + 0b110110)
+0b100001111
+```
+
+> Exemple 4 : Calculons le résultat de la soustraction en binaire 101001 - 101.
 
 
 L'addition se faisant simplement avec des retenues comme en base 10, on peut chercher ce qu'il faut ajouter à 101 pour obtenir 101001.
@@ -86,6 +95,18 @@ L'addition se faisant simplement avec des retenues comme en base 10, on peut che
 '0b100100'
 ```
 
+> Exemple 5 : Soit n l'entier positif dont l'écriture binaire est 10001. Recherchons l'écriture binaire de l'entier 2n.
+
+Multiplier par 2 un nombre binaire résulte en un décalage vers la gauche de tous les bits. Il s'agit donc de : 100010.
+
+
+
+
+> Exemple 6 : Cherchons le nombre de bits minimum nécessaire pour coder le nombre décimal 4085.
+
+On cherche la puissance de 2 la plus proche, dans le cas présent ce n'est pas évident, mais on connait évidemment 2<sup>8</sup>=256 et à partir de là 2<sup>9</sup>=512 ; 2<sup>10</sup>=1024; 2<sup>11</sup>=2048 et 2<sup>12</sup>=4096; ainsi 4085 possédera 2<sup>11</sup> dans sa décomposition et par conséquent nécessite un minimum de 12 bits puisque le bit de plus petit poids correspond à 2<sup>0</sup>=1.   
+(Une autre méthode hors-programme utilise l'outil mathématique logarithme, logx, fonction réciproque de 10<sup>x</sup>. Ainsi log(10<sup>x</sup>)=x. Sachant que 10<sup>a+b</sup>=10<sup>a</sup>x10<sup>b</sup>, on observe que log(10<sup>a+b</sup>)=log(10<sup>a</sup>x10<sup>b</sup>)=a+b=log(10<sup>a</sup>)+log(10<sup>b</sup>). Ainsi la fonction log(x) possède la propriété intéressante de transformer une somme en produit : log(axb)=log(a)+log(b) et à partir de là on déduit également log(a<sup>n</sup>)=log(axa...xa)=nxlog(a).  
+Nous cherchons ici la puissance de 2 telle que 2<sup>n</sup>=4085. En prenant le logarithme de chaque membre de cette équation, on obtient : log(2<sup>n</sup>)=nxlog(2)=log(4085) d'où n=log(4085)/log(2)=11.996.. avec la calculatrice. C'est plus rapide mais la fonction log s'étudie en terminale).
 
 
 
@@ -121,9 +142,21 @@ Il s'agit de 3x16+15=63.
 63
 ```
 
-> Exemple 3 : Recherchons l'écriture hexadécimale de l'entier dont la représentation en binaire non signé est 1100 0011.
+> Exemple 3 : Recherchons la représentation en base 2 du nombre représenté dans la base 16 par A6B.
 
-On réalise des regroupements de 4 bits : 1100 a pour valeur décimale 12 soit C en hexadécimal, et 0011 a pour valeur décimale 3 ; ainsi le code hexadecimal est C3.
+On place à la suite les uns des autres les représentations binaires sur 4 bits de chacun des codes hexadécimaux  :
+A : 1010 ; 6 : 0110 ; B : 1011. 
+Soit 101001101011
+
+```python
+>>> bin(0xA6B)
+'0b101001101011'
+```
+
+
+> Exemple 4 : Recherchons l'écriture hexadécimale de l'entier dont la représentation en binaire non signé est 1100 0011.
+
+Il faut penser à réaliser des regroupements de 4 bits : 1100 a pour valeur décimale 12 soit C en hexadécimal, et 0011 a pour valeur décimale 3 ; ainsi le code hexadecimal est C3.
 
 ```python
 >>> hex(0b11000011)
@@ -132,7 +165,7 @@ On réalise des regroupements de 4 bits : 1100 a pour valeur décimale 12 soit C
 
 Application à voir : [le codage des couleurs](http://isnangellier.alwaysdata.net/php/colours.html) ; les couleurs sont codées en code RGB (Red Green Blue) avec chaque niveau de couleur codé sur 1 octet : soit 256 niveaux de 0 à 255 pour chaque couleur et un total de 256x256x256 couleurs soit 2<sup>24</sup>=16 777 216 couleurs possibles sur un écran.
 
-> Exemple 4 : La couleur "vert impérial" est codée en écriture décimale par (0,86,27). Recherchons son codage hexadécimal.
+> Exemple 5 : La couleur "vert impérial" est codée en écriture décimale par (0,86,27). Recherchons son codage hexadécimal.
 
 86=5x16+6 est codé 56 en hexadécimal et 
 27=1x16+11 est codé 1B en hexadécimal. 
@@ -143,7 +176,7 @@ Le codage hexadécimal de cette couleur est donc : (0,56,1B).
 ('0x0', '0x56', '0x1b')
 ```
 
-> Exemple 5 : Exprimons la différence CBD-BAC en base 16.
+> Exemple 6 : Exprimons la différence CBD-BAC en base 16.
   
 On sait que la valeur décimale de A est 10, que la valeur décimale de B est 11, que la valeur décimale de C est 12 et que la valeur décimale de D est 13 ; ainsi la valeur décimale de CBD est 12×16<sup>2</sup>+11×16<sup>1</sup>+13×16<sup>0</sup> tandis que la valeur décimale de BAC est 11×16<sup>2</sup>+10×16<sup>1</sup>+12×16<sup>0</sup> ; la différence recherchée est donc égale à 1×16<sup>2</sup>+1×16<sup>1</sup>+1×16<sup>0</sup>, ce qui s'écrit 111 en base 16.  
 La vérification en Python peut se faire ainsi : 
@@ -153,7 +186,7 @@ La vérification en Python peut se faire ainsi :
 '0x111'
 ```
 
-> Exemple 6 : Exprimons en base 16 la valeur de la somme des deux entiers positifs A7 et 84 écrits en base 16.
+> Exemple 7 : Exprimons en base 16 la valeur de la somme des deux entiers positifs A7 et 84 écrits en base 16.
 
 La valeur décimale de A7 est 10×16<sup>1</sup>+7×16<sup>0</sup> tandis que celle de 84 est 8×16<sup>1</sup>+4×16<sup>0</sup> ainsi la valeur décimale de la somme est 18×16<sup>1</sup>+11×16<sup>0</sup> or 18=1×16+2 donc la valeur décimale de la somme s'écrit 1×16<sup>2</sup>+2×16<sup>1</sup>+11×16<sup>0</sup> soit 12B en hexadécimal.  
 La vérification en Python peut se faire ainsi : 
@@ -163,7 +196,7 @@ La vérification en Python peut se faire ainsi :
 '0x12b'
 ```
 
-> Exemple 7 : Calculons la valeur décimale de la somme de deux entiers écrits en hexadécimal : 2A + 2.
+> Exemple 8 : Calculons la valeur décimale de la somme de deux entiers écrits en hexadécimal : 2A + 2.
 
 
 2A correspond à 2x16+10=42
@@ -317,12 +350,19 @@ décimal pour connaître la valeur de l'entier, ici 9.
 
 La représentation binaire de 7 sur 8 bits est 00000111 ; le complément est 11111000 puis on ajoute 1 ainsi 11111001 est l'écriture en complément à deux sur 8 bits de l'entier négatif -7. On peut aussi, mais c'est plus long, calculer 2<sup>8</sup>-7 soit 256-7=249 puis écrire son écriture binaire et on retrouve 11111001.
 
-> Exemple 4 : Recherchons l'entier relatif codé en complément à 2 sur un octet par 1111 1111. 
+
+> Exemple 4 : Recherchons l'écriture binaire, en complément à deux sur 8 bits, de l'entier négatif -108.
+
+On calcule 2<sup>8</sup>-108=256-108=148.
+Avec 148=128+20=128+16+4=2<sup>7</sup>+2<sup>4</sup>+2<sup>2</sup> donc la représentation binaire de cet entier négatif sur 8 bits est : 10010100.
+
+
+> Exemple 5 : Recherchons l'entier relatif codé en complément à 2 sur un octet par 1111 1111. 
 
 Il s'agit d'un entier négatif puisque le premier bit est 1. Prenons le complément du code binaire puis ajoutons 1. On obtient : 0000 0001. L'entier relatif en question est -1.
 Une autre méthode consiste à calculer 2<sup>8</sup>-255 car 255 est la valeur decimale de 1111 1111, pour en prendre ensuite l'opposé.
 
-> Exemple 5 : Recherchons la représentation binaire en complément à deux de l'opposé du nombre dont le code binaire sur 8 bits est 0110 1110.
+> Exemple 6 : Recherchons la représentation binaire en complément à deux de l'opposé du nombre dont le code binaire sur 8 bits est 0110 1110.
 
 On prend le complément : 1001 0001 puis on lui ajoute 1 : 1001 0010
 
@@ -387,8 +427,8 @@ Dans ce cas, on a :
 * *`0,25 = (-1)^0× 2^{-2}× 1`*    
 
 * *`0,1 = (-1)^0× 2^{-4}× 1,6`*. Or `1,6 = 1+1/2+1/16+1/32+1/256+1/512+....`.     
-  Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de manière exacte avec *`b=10`*, on ne pourra pas
-  représenter *`0,1`* de manière exacte avec *`b=2`*
+  Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de manière exacte avec `b=10`, **on ne peut pas
+  représenter `0,1` de manière exacte avec `b=2`**
 
 
 **Attention :** Les calculs sur les nombres flottants ne sont donc pas
@@ -444,6 +484,11 @@ Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
 Codons maintenant le réel 20. Il nous faut une mantisse comprise entre 1 et 2 et une puissance de 2.   
 20=16×1,25=2<sup>4</sup>×1,25. On réalise donc la concaténantion de '0' pour le signe, du code de 4 + 1023 = 1027 soit '10000000011' sur 11 bits (on le trouve en faisant `bin(1027)`), la mantisse 1,25 s'écrit 1,01 en binaire et on ne garde que la partie décimale 01 et on complète avec cinquante 0.
 Au final, le codage de 20 est 0100000000110100.....0
+
+> Exemple 1 : Recherchons l'écriture décimale du nombre qui s'écrit 11,0101 en binaire.
+
+Les bits après la virgule sont représentatifs des puissances négatives de 2 dans la décomposition en base 2. Nous avons donc le nombre décimal :  
+2<sup>1</sup>+2<sup>0</sup>+2<sup>-2</sup>+2<sup>-4</sup>=2+1+0,25+0,0625=3,3125.
 
 
 # 4] Valeurs, opérateurs et expressions booléennes
@@ -526,6 +571,15 @@ True
 ```python
 if a==b:	c = Trueelif a > b+10:	c = Trueelse:	c = False
 ```
+Ceci est équivalent à la table de vérité:
+
+| (a==b) | a > b+10 | c |
+|---|---|---|----------|
+|True | True | True |
+| True | False | True |
+| False |True | True |
+| False | False | False |
+
 
 c = (a==b) or (a > b+10)
 
@@ -747,3 +801,5 @@ et UTF-8 sont incompatibles entre eux pouvant conduire à ce genre de problèmes
 ![](assets/martine.jpg)
 
 Aller plus loin : Plus d'informations sur ces différents aspects sont disponibles [dans chapitre 1 du polycopié du cours de Codage de l'information donné en L2 informatique](assets/poly.pdf).
+
+Application : dans le bloc `<head>` d'un fichier HTML (c'est-à-dire entre les balises `<head>` et `</head>`), on insère la ligne `<meta http-equiv="Content -Type" content="text/html; charset=UTF-8">` pour permettre un affichage correct des caractères spéciaux sur tout système d'exploitation.
