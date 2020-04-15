@@ -128,6 +128,7 @@ function action() {
 </body>
 ```
 
+Remarque : on voit que le Nom entré par l'utilisateur est contenu dans l'élément dont l'attribut `id` est 'nom'.
 
 2. Deuxième méthode
 
@@ -192,9 +193,8 @@ On retiendra que lors de la consultation d'une page web, le langage HTML est ex�
 
 On observera dans la console la différence entre les deux méthodes GET et POST.
 
-Première méthode :  `**GET** ` 
-
-[Formulaire GET à expérimenter](http://isnangellier.alwaysdata.net/php/formulaire1.html)
+Première méthode :  `**GET** ` : 
+[formulaire GET à expérimenter](http://isnangellier.alwaysdata.net/php/formulaire1.html)
 
 formulaire1.html
 
@@ -234,8 +234,8 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 </html>
  ```
 
-Deuxième méthode :  `**POST** ` 
-[Formulaire POST à expérimenter ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
+Deuxième méthode :  `**POST** `  : 
+[formulaire POST à expérimenter ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
 
 
 
@@ -280,8 +280,7 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 À retenir :
 
 - **On observe ainsi qu'un formulaire en HTML commence par la balise `<form>`.**
-- La méthode 
-
+- La méthode POST est plus appropriée que la méthode GET quand il s'agit d'envoyer dans le formulaire d'une page web des paramètres sensibles tels que des mots de passe car ces paramètres apparaissent dans l'adresse avec la méthode GET.
 
 
 
