@@ -101,9 +101,9 @@ L’insertion de l’image se fait avec la balise orpheline ```<img />```  et l�
 - _**Insérer des boutons : événement côté client**_
 
 
-	- Première méthode
+1. Première méthode
 
-On utilise **<button id="executer" onclick="action()" type="button">Appuyer</button>**
+On utilise `<button id="executer" onclick="action()" type="button">Appuyer</button>`
 
 ```python
 <!DOCTYPE html>
@@ -129,7 +129,7 @@ function action() {
 ```
 
 
-	- Deuxième méthode
+2. Deuxième méthode
 
 
 ```python
@@ -194,8 +194,7 @@ On observera dans la console la différence entre les deux méthodes GET et POST
 
 Première méthode :  `**GET** ` 
 
-[Formulaire GET ](http://
-http://isnangellier.alwaysdata.net/php/formulaire1.html)
+[Formulaire GET à expérimenter](http://isnangellier.alwaysdata.net/php/formulaire1.html)
 
 formulaire1.html
 
@@ -235,8 +234,8 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 </html>
  ```
 
-Deuxième méthode :  `**POST** `
-[Formulaire POST ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
+Deuxième méthode :  `**POST** ` 
+[Formulaire POST à expérimenter ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
 
 
 
