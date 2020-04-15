@@ -1,3 +1,6 @@
+
+# Thème D : interactions entre l'homme et la machine sur le Web
+
 <img src="assets/programme.png" width="800" height="800" />
 
 # Réaliser son site Web en HTML5, le Web côté client et le Web côté serveur
@@ -23,8 +26,11 @@ Il existe également des programmes tels que Adobe Dreamweaver (WYSIWYG : What Y
 
 Comme son nom l’indique, un fichier html est constitué de _**balises**_ (markups) qui permettent au navigateur de savoir comment afficher le contenu.
 
-On peut distinguer deux types de balises :
--	les balises en paires : une ouvrante, une fermante. Par exemple, celles qui permettent de donner un titre à une page : ```<title> Le titre de ma page web </title>```
+On peut distinguer deux types de balises :  
+
+-	les balises en paires : une ouvrante, une fermante. Par exemple, celles qui permettent de donner un titre à une page : ```<title> Le titre de ma page web </title>``` ou encore celles qui délimitent le corps de la page : ```<body></body>```
+
+
 -	les balises orphelines :``` <img />```
 
 Les balises possèdent généralement des options appelées _**attributs**_.  
@@ -84,6 +90,8 @@ Pour créer  une _**liste ordonnée**_, il suffit de remplacer  ```<ul> ``` et  
 	 ```<p id=“monparagraphe“> Mon paragraphe</p>``` puis ```<a href=“#monparagraphe“>Lien vers mon paragraphe</a>```
 
 	Remarque :  on peut forcer l’ouverture du lien dans une nouvelle fenêtre en ajoutant dans la balise l’attribut ```target=“_blank“``` ; pour faire un lien pour télécharger un fichier, on fait un lien en indiquant simplement le nom du fichier à télécharger :``` <a href=“monfichierimage.jpg“>Fichier à télécharger< /a> ``` 
+	
+	
 - _**Insérer des images**_
 
 La taille de l’image ne doit pas être trop importante évidemment pour éviter un temps de chargement trop long aussi utilise-t-on en général le format JEPG à l’extension .jpg ou .jpeg qui est le format le plus compressé pour les photos. Pour les graphiques, on utilise le format PNG 8bits : 2^8=256 couleurs ou PNG 24 bits : 224=16 millions de couleurs.
@@ -92,7 +100,12 @@ L’insertion de l’image se fait avec la balise orpheline ```<img />```  et l�
 
 - _**Insérer des boutons : événement côté client**_
 
- ```html
+
+	- Première méthode
+
+On utilise **<button id="executer" onclick="action()" type="button">Appuyer</button>**
+
+```python
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,21 +116,47 @@ L’insertion de l’image se fait avec la balise orpheline ```<img />```  et l�
 
 Nom :<input style="font-size: 14px;text-align:center;width:140px" id="nom" value=""></input>
 
-<button id="executer" class="go" type="button">Appuyer</button>
+<button id="executer" onclick="action()" type="button">Appuyer</button>
 <p id="demo"></p>
-
-
 <script>
-document.getElementById("executer").addEventListener("click", myFunction);
+document.getElementById("executer").addEventListener("click", action);
 
-function myFunction() {
-  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+function action() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME and YOU WROTE "+document.getElementById("nom").value;
 }
 </script>
 </body>
- ```
+```
+
+
+	- Deuxième méthode
+
+
+```python
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+</head>
+<body>
+
+Nom :<input style="font-size: 14px;text-align:center;width:140px" id="nom" value=""></input>
+
+<button id="executer" type="button">Appuyer</button>
+<p id="demo"></p>
+<script>
+document.getElementById("executer").addEventListener("click", action);
+
+function action() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME and YOU WROTE "+document.getElementById("nom").value;
+}
+</script>
+</body>
+```
 
 - _**Insérer un tableau**_
+
  ```html
 <!DOCTYPE html>
 <html>
@@ -149,9 +188,14 @@ function myFunction() {
  ```
 - _**Création d'un formulaire : événement côté serveur**_
 
+On retiendra que lors de la consultation d'une page web, le langage HTML est exécuté côté client tandis que le **langage PHP est exécuté côté serveur**.
+
 On observera dans la console la différence entre les deux méthodes GET et POST.
 
-(méthode GET) http://isnangellier.alwaysdata.net/php/formulaire1.html
+Première méthode :  `**GET** ` 
+
+[Formulaire GET ](http://
+http://isnangellier.alwaysdata.net/php/formulaire1.html)
 
 formulaire1.html
 
@@ -191,7 +235,9 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 </html>
  ```
 
-(méthode POST) http://isnangellier.alwaysdata.net/php/formulaire2.html
+Deuxième méthode :  `**POST** `
+[Formulaire POST ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
+
 
 
 formulaire2.html
@@ -231,6 +277,15 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 </body>
 </html>
  ```
+
+À retenir :
+
+- **On observe ainsi qu'un formulaire en HTML commence par la balise `<form>`.**
+- La méthode 
+
+
+
+
 
 # Utilisation du CSS
 
