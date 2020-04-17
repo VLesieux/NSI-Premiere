@@ -352,7 +352,8 @@ while i < len(liste):
 print(i,resultat)
 10 11.9
 ```
-Le corps de la boucle a été exécuté 
+
+Le corps de la boucle a été exécuté 10 fois et le résultat correspond à la moyenne de la liste.
 
 
 
