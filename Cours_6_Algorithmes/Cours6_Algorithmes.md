@@ -33,35 +33,6 @@ def pgcd(m,n):
 
 Un **compteur** est une valeur généralement initialisée à 0 qui est incrémentée d'une unité à chaque passage dans une boucle, éventuellement suite à un test.
 
-1) Écrire une fonction `taille_binaire(n)` qui renvoie le nombre de chiffres dans l'écriture binaire de l'entier n (c'est-à-dire le nombre de divisions euclidiennes successives de n par 2 jusqu'à arriver à un quotient nul).
-
-```python
->>> taille_binaire(9)
-4
-```
-
-2) Écrire une fonction `nombre_de_1(n)` qui renvoie le nombre de 1 dans l'écriture binaire du nombre.
-
-```python
->>> nombre_de_1(9)
-2
-```
-
-3) Écrire une fonction `diviseurs(n)` qui renvoie le nombre de diviseurs de n.
-
-```python
->>> diviseurs(15)
-4
-```
-
-Un **accumulateur** est semblable à un compteur mais il est en général incrémenté d'une valeur différente de 1 ; il peut aussi être décrémenté.
-
-4) Écrire une fonction `somme(liste)` qui renvoie la somme des termes d'une liste de nombres.
-
-```python
->>> somme([1,4,6])
-11
-```
 
 > Exemple : Soit le script suivant, on cherche à compter combien de fois le mot NSI est affiché.
 
@@ -86,9 +57,9 @@ NSI
 NSI
 10
 ```
-A chaque fois que i varie de 0 à n-1, on affiche le mot i fois.
+À chaque fois que i varie de 0 à n-1, on affiche le mot 'NSI' i fois.
 Au total le nombre de fois où le mot est affiché est donc : 0+1+2+...(n-1).  
-Cette somme est la somme des termes d'une suite arithmétique de raison 1.  
+Cette somme se rencontre souvent ; il s'agit de la somme des termes d'une suite arithmétique de raison 1.  
 S=1+2+...(n-1).   
 S=(n-1)+(n-2)+.....+1.   
 2S=nx(n-1) donc S=nx(n-1)/2 ; pour n=5 : S=10.
@@ -96,8 +67,61 @@ S=(n-1)+(n-2)+.....+1.
 
 
 
+<u>Exercice 1)</u>  
+Écrire une fonction `taille_binaire(n)` qui renvoie le nombre de chiffres dans l'écriture binaire de l'entier n (c'est-à-dire le nombre de divisions euclidiennes successives de n par 2 jusqu'à arriver à un quotient nul).
 
-5) Écrire une fonction `somme_paire(liste)` qui renvoie la somme des termes paires d'une liste de nombres.
+```python
+>>> taille_binaire(9)
+4
+```
+
+<u>Exercice 2)</u>   
+Écrire une fonction `nombre_de_1(n)` qui renvoie le nombre de 1 dans l'écriture binaire du nombre.
+
+```python
+>>> nombre_de_1(9)
+2
+```
+
+<u>Exercice 3)</u>   
+Écrire une fonction `diviseurs(n)` qui renvoie le nombre de diviseurs de n.
+
+```python
+>>> diviseurs(15)
+4
+```
+
+Un **accumulateur** est semblable à un compteur mais il est en général incrémenté d'une valeur différente de 1 ; il peut aussi être décrémenté.
+
+
+
+> Exemple : Cherchons à écrire une fonction chargée de calculer le produit de tous les éléments d'une liste passée en paramètre.
+
+```python
+def produit(tab):
+    p=1
+    for elt in tab:
+        p=p*elt
+    return p
+>>> produit([3,5,2])
+30
+```
+Ici p joue le rôle d'accumulateur qui est initialisé à 1.
+
+
+<u>Exercice 4)</u>   
+Écrire une fonction `somme(liste)` qui renvoie la somme des termes d'une liste de nombres.
+
+```python
+>>> somme([1,4,6])
+11
+```
+
+
+
+
+<u>Exercice 5)</u>     
+Écrire une fonction `somme_paire(liste)` qui renvoie la somme des termes paires d'une liste de nombres.
 
 ```python
 >>> somme_pairs([1,4,6])
@@ -108,7 +132,8 @@ S=(n-1)+(n-2)+.....+1.
 
 La permutation des valeurs nécessite de prendre soin à la manière de procéder.  
 
-Exemple :
+Exemple :  
+
 ```python
 var1=17
 var2=23
@@ -135,7 +160,8 @@ print(var1,var2)
 On fera attention à bien distinguer if de elif.   
 Expliquer la différence de résultat obtenu avec ces deux codes.
 
-Code 1 :
+Code 1 :   
+
 ```python
 x=5
 if x>0:
@@ -147,7 +173,8 @@ else:
 print(x)
 ```
 
-Code 2 :
+Code 2 :  
+
 ```python
 x=5
 if x>0:
@@ -312,6 +339,23 @@ Un parcours séquentiel signifie que la liste ou le tuple sont parcourus éléme
 Proposer l'écriture de la fonction `moyenne(liste)` qui renvoie la moyenne d'une liste de nombre.
 Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n de la liste.
 
+> Exemple : Soit le code ci-dessous :
+
+```python
+>>> liste = [17, 12, 5, 18, 2, 7, 9, 15, 14, 20]
+somme = 0
+i = 0
+while i < len(liste):
+    somme = somme + liste[i]
+    i = i + 1
+    resultat = somme / len(liste)
+print(i,resultat)
+10 11.9
+```
+Le corps de la boucle a été exécuté 
+
+
+
 ### b. Recherche d'une occurence
 
 On recherche de manière séquentielle la présence d'une valeur dans un tableau ; ce tableau peut être une liste, un p-uplet ou une chaîne de caractères.
@@ -326,7 +370,7 @@ On utilisera une boucle conditionnelle puis une boucle inconditionnelle.
 
 Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n de la liste.
 
-> Exemple : On se propose de déterminer le résultat de l'appel trouverLettre("Vive l’informatique","e") pour la fonction définie ci-dessous :
+> Exemple 1 : On se propose de déterminer le résultat de l'appel trouverLettre("Vive l’informatique","e") pour la fonction définie ci-dessous :
 
 ```python
 def trouverLettre(phrase,lettre):
@@ -355,12 +399,40 @@ def trouverLettre(phrase,lettre):
 Dans ce cas, dès que la lette e est rencontrée, la fonction renvoie `indexResultat` correspondant à 3 et on sort de la boucle.
 
 
+> Exemple 2 : Soir le code suivant de recherche d'une valeur dans une liste.
+
+```python
+def search(x, y):
+    # x est la valeur à chercher
+    # y est une liste de valeurs
+    for i in range(len(y)):
+        if x == y[i]:
+            return i
+    return None
+```
+Le coût de cet algorithme est linéaire car pour une liste de taille n, il effectue n comparaisons.
+
 ### c. Recherche d'un extremum
 
 On recherche l'extremum, minimum ou maximum, d'une liste de nombres.    
 Recherche du maximum : l'idée est la suivante : on suppose que le premier élément est le maximum, puis on parcourt la liste et chaque fois que l'on rencontre un élément plus grand que le maximum provisoire, on dit que c'est le nouveau maximum provisoire.
 
 Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)` de deux manières différentes : parcours des éléments de la liste ou parcours des indices de la liste.
+
+> Exemple : On considère la fonction suivante : 
+
+```python
+def f(T,i):
+    indice = i
+    m = T[i]
+    for k in range(i+1, len(T)):
+        if T[k] < m:
+            indice = k
+            m = T[k]
+    return indice
+>>> f([ 7, 3, 1, 8, 19, 9, 3, 5 ], 0)
+2
+```
 
 ## 2. Recherche dichotomique
 
