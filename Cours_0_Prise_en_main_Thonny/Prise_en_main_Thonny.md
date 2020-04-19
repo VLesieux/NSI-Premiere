@@ -13,7 +13,7 @@ Sites officiels :
 * [Thonny](https://thonny.org)
 * Wiki [Wiki](https://github.com/thonny/thonny/wiki)
 
-**Remarque** distinguer Python qui est un langage et Thonny qui est un environnement intégré de 
+**Remarque** : distinguer Python qui est un langage et Thonny qui est un environnement intégré de 
 programmation en Python.
 
 

@@ -1,5 +1,5 @@
 
-# Architectures matérielles et systèmes d'exploitation
+# Thème E : Architectures matérielles et systèmes d'exploitation
 ![Programme officiel ](assets/bo1.png)
 
 ![Programme officiel ](assets/bo2.png)

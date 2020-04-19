@@ -1,4 +1,4 @@
-# Thème G : algorithmique 
+# Thème G : Algorithmique 
 
 ![Programme officiel ](assets/bo.png)
 

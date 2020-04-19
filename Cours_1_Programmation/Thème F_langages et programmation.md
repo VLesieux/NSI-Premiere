@@ -1,4 +1,4 @@
-# Programmation en Python : généralités
+# Thème F : langages et programmation
 
 ## Introduction
 
@@ -7,13 +7,15 @@ Quelques éléments d'histoire : le langage Python a été créé en 1989 par le
 Un programme est composé de **séquences** : des **instructions** exécutées les unes après les autres dans l'ordre où elles sont écrites, de définitions de **variables** et de **fonctions**, d'**instructions conditionnelles**, de **bloucles conditionnelles**  ou **non conditionnelles**, utilisant des **expressions**, en particulier des **appels de fonctions**.   
 Une instruction est une commande que doit exécuter la machine tandis qu'une expression est un valeur renvoyée généralement par une fonction suite à une combinaison d'opérations.
 
+HTML, CSS ne sont pas des langages de programmation mais de description à la différence de C++.
+
 
 ## Les attendus du programme
 
 ![Programme officiel ](assets/bo1.png)
 
 
-## Variables ; affectation
+## I. Variables ; affectation
 
 Les **données** utilisées par les programmes sont stockées dans des **variables**, ce qui se fait en réalisant une **affectation** en utilisant l'**opérateur d'affectation** `=` . 
 
@@ -49,7 +51,23 @@ En fait chaque variable possède un nom ou identificateur et possède une **adre
 4460309776
 ```
 
-## Instructions conditionnelles
+> Exemple : Soit le script suivant :
+
+```Python
+>>> def f(x,y):
+    x = x + y
+    y = x - y
+    x = x - y
+    return (x,y)
+f(2019,2020)
+
+(2020, 2019)
+```
+
+On suit l'évolution des variables. Initialement les variables passées dans les paramètres de la fonction ont pour valeur : x=2019 et y=2020. Après chaque affectation, les variables prennent de nouvelles valeurs. On affecte à x la valeur (2019+2020) puis à y la valeur (2019+2020)-2020 soit 2019 puis à x la valeur (2019+2020)-2019 soit 2020. Au final le tuple (x,y) qui est renvoyé par la fonction est (2020,2019).
+
+
+## II. Instructions conditionnelles
 
 On prendra soin de respecter l'**indentation**, élément important de la **syntaxe** de Python, qui est un décalage vers la droite qui permet d'identifier un **bloc** d'instructions. On utilise l'instruction conditionnelle `if`.
 
@@ -75,9 +93,9 @@ else:#else est toujours suivi immédiatement de deux points
     print("personne agée")
 ```
 
-## Boucles conditionnelles et boucles non conditionnelles
+## III. Boucles conditionnelles et boucles non conditionnelles
 
-Exemple de bloucle conditionnelle avec `while`, boucle non bornée:
+1) Une **bloucle conditionnelle** et **non bornée** se fait avec l'instruction `while`:
 
 ```Python
 i=0
@@ -90,7 +108,57 @@ valeur de i : 1
 valeur de i : 2
 ```
 
-Exemple de bloucle non conditionnelle avec `for i in range(n)` qui produit **n** tours de boucle, boucle bornée :
+> Exemple : Soit le script suivant :
+
+```Python
+>>> n = 6
+s = 0
+while n >= 0:
+    s = s + n
+    n = n -1
+>>> s
+21
+```
+À chaque tour de boucle, la valeur de s augmente de la valeur de n tandis que n décroît d'une unité, et cela aussi longtemps que n reste supérieur ou égal à 0.
+On suit l'évolution des variables s et n en réalisant un tableau : 
+
+<table>
+<tr>
+<td>s</td>
+<td>n</td>
+</tr>
+<tr>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>11</td>
+<td>4</td>
+</tr>
+<tr>
+<td>15</td>
+<td>3</td>
+</tr>
+<tr>
+<td>18</td>
+<td>2</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>21</td>
+<td>0</td>
+</tr>
+</table>
+
+
+2) Une  **bloucle non conditionnelle**  mais **bornée** se fait avec `for i in range(n)` qui produit **n** tours de boucle,  :
 
 ```Python
 for i in range(3):#i prend 3 valeurs entières successives à partir de 0 jusque 2, 3 étant exclu
@@ -112,9 +180,9 @@ valeur de i : 12
 valeur de i : 14
 ```
 
-## Fonctions 
+## IV. Fonctions 
 
-### Écriture d'une fonction : 
+### 1) Écriture d'une fonction : 
 
 ```Python
 def tranche_age(age):
@@ -140,7 +208,7 @@ def tranche_age(age):
         qualificatif='personne agée'
     return qualificatif
 ```
-La partie entre les triples guillements est la **documentation** de la fonction ; elle permet d'avoir des informations sur une fonction que l'on peut retrouver dans le shell avec la fonction help. On y placera la **spécification** de la fonction, en précisant la nature des paramètres, ce que retourne la fonction, les conditions d'utilisation, on fournira également un ou plusieurs exemples.
+La partie entre les triples guillements est la **documentation** de la fonction ; elle permet d'avoir des informations sur une fonction que l'on peut retrouver dans le shell avec la fonction help. On y placera la **spécification** de la fonction, c'est-à-dire le contrat entre celui qui implémente la fonction et celui qui l'utilise, en précisant la nature des paramètres, ce que retourne la fonction, les conditions d'utilisation, on fournira également un ou plusieurs exemples.
 
 ```Python
 >>> help(tranche_age)
@@ -158,7 +226,7 @@ tranche_age(age)
     'adulte'
 ```
 
-### Utilisation d'une _**docstring**_ et tester une fonction avec _**doctest**_ : 
+### 2) Utilisation d'une _**docstring**_ et tester une fonction avec _**doctest**_ : 
 
 [Pour en savoir plus, consultez la documentation en ligne de Python](https://docs.python.org/3/library/doctest.html) ou [cette page de l'université de Lille](http://www.fil.univ-lille1.fr/~L1S2API/CoursTP/tp_doctest.html)
 
@@ -217,7 +285,7 @@ Test passed.
 ``` 
 La fonction testmod du _**module**_ doctest est allée chercher dans la docstring de la fonction l'exemple (reconnaissable à la présence des triples chevrons >>>), et a vérifié que la fonction documentée satisfaisait bien cet exemple. Il n’y a eu aucun échec (failed=0).
 
-### Réaliser un jeu de tests sur une fonction
+### 3) Réaliser un jeu de tests sur une fonction
 
 Pour s'assurer qu'une fonction réalise bien ce qu'elle doit faire, on peut lui appliquer un **jeu de tests** . Par exemple, on veut tester la fonction choice du module random dont la documentation est la suivante :
 
@@ -242,7 +310,7 @@ def test():
     return True
 ``` 
 
-### Remarques sur les fonctions : 
+### 4) Remarques sur les fonctions
 
 1. Une fonction peut renvoyer plusieurs valeurs en même temps en renvoyant un tuple
 
@@ -283,8 +351,47 @@ liste2=[f(u) for u in liste1]
 [56, 42, 30, 20, 12, 6, 2, 0, 0, 2, 6, 12, 20, 30, 42, 56]
 ``` 
 
+### 5) Gestion des erreurs
 
-## Modules et bibliothèques
+Un mécanisme d'**assertion** proposé par Python permet de vérifier les préconditions d'une fonction.  
+Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien, sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
+
+```python
+>>> def percentage(score, total):
+    assert total > 0, 'total doit être strictement positif'
+    assert score>=0, 'score doit être positif'
+    assert score <= total, 'score doit être inférieur à total'
+    return score / total * 100
+
+print(percentage(15, 20), '%')
+print(percentage(22, 20), '%')
+
+75.0 %
+Traceback (most recent call last):
+  File "<pyshell>", line 8, in <module>
+  File "<pyshell>", line 4, in percentage
+AssertionError: score doit être inférieur à total
+``` 
+
+> Exemple : Soit le script suivant:
+
+```python
+>>> def f(a,b):
+    assert b!=0,'le deuxième argument est nul'
+    result = a/b
+    return result
+r = f(4,0)
+
+Traceback (most recent call last):
+  File "<pyshell>", line 5, in <module>
+  File "<pyshell>", line 2, in f
+AssertionError: le deuxième argument est nul
+
+``` 
+
+On observe une erreur AssertionError: le deuxième argument est nul et l'arrêt de l'exécution.
+
+### 6) Modules et bibliothèques
 
 Exemple : On réalise un programme appelé max_deux_nombres.py dans lequel on a défini une fonction maximum_deux_nombres.
 
@@ -371,7 +478,20 @@ plt.grid()
 plt.show()
 ```
 
-# Analogies avec la programmation en JavaScript
+> Exemple : La documentation de la bibliothèque random de Python précise que random.randint(a,b) renvoie un entier aléatoire N tel que a ≤ N ≤ b. On souhaite obtenir un entier choisi aléatoirement dans l'ensemble {-4 ; -2 ; 0 ; 2 ; 4}.
+
+Il nous faut 4 entiers choisis au hasard ; random.randint(0,4) donne  {0 ; 1 ; 2 ; 3 ; 4} ; la multiplication par 2 donne {0 ; 2 ; 4 ; 6 ; 8} ; il faut maintenant retrancher 4 à ces valeurs pour obtenir l'ensemble souhaité.
+
+```Python
+>>> import random
+>>> random.randint(0,4)*2-4
+2
+# ce qui peut aussi s'écrire :
+>>> (random.randint(0,4)-2)*2
+-2
+```
+
+# V. Analogies avec la programmation en JavaScript
 
 Consultez : [Une première approche de la programmation en JavaScript](http://isnangellier.alwaysdata.net/php/Prerequis.html)
 

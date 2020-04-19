@@ -13,11 +13,10 @@ Pendant ce temps, la construction de l'**ENIAC** avait commencé ; Eckert et Mau
 
 ![Programme officiel ](assets/bo1.png)
 
-## 1] Écriture d'un entier positif en base b≥2
+## 1] Écriture d'un entier positif en base b≥2 (binaire b=2, décimal b=10, hexadécimal b=16)
 
-> Attendu : passer d'une base à une autre
->
-> Commentaire : les bases 2, 10 et 16 sont privilégiées
+
+> Attendu : passer d'une base à une autre; les bases 2, 10 et 16 sont privilégiées.
 
 Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf,
 par usage et commodité, en base 10) :   
