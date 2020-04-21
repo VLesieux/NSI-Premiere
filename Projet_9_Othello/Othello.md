@@ -2,9 +2,9 @@
 
 ## Les jeux à deux joueurs
 
-Jeux bien connus, [Othello](https://fr.wikipedia.org/wiki/Othello_%28jeu%29), les échecs, les dames,  [Tic-tac-toe](https://fr.wikipedia.org/wiki/Tic-tac-toe), le [puissance 4](https://fr.wikipedia.org/wiki/Puissance_4),  [le jeu de Nim](https://fr.wikipedia.org/wiki/Jeux_de_Nim) et  bien d'autres, ont pour point commun d'être des "*jeux à deux joueurs au tour par tour*". Ils ont aussi en commun d'être des jeux  *à connaissance parfaite*, car, à tout moment, les deux joueurs possèdent exactement la même connaissance de l'état du jeu. De plus ils ne font pas intervenir le hasard. Ce sont ces jeux que nous allons étudier.
+Jeux bien connus, Othello, les échecs, les dames, Tic-tac-toe , le puissance 4,  le jeu de Nim et  bien d'autres, ont pour point commun d'être des "**jeux à deux joueurs au tour par tour**". Ils ont aussi en commun d'être des jeux  *à connaissance parfaite*, car, à tout moment, les deux joueurs possèdent exactement la même connaissance de l'état du jeu. De plus ils ne font pas intervenir le hasard. Ce sont ces jeux que nous allons étudier.
 
-Ces jeux ont des points communs. Ainsi pour chacun, une partie est à tout moment caractérisée par le  *joueur courant*(le prochain qui doit jouer) et par un état du jeu, que nous appellerons  *situation courante*. Il s'agit par exemple
+Ces jeux ont des points communs. Ainsi pour chacun, une partie est à tout moment caractérisée par le  *joueur courant* (le prochain qui doit jouer) et par un état du jeu, que nous appellerons  *situation courante*. Il s'agit par exemple
 
 - de la configuration des pièces sur l'échiquier aux échecs,
 - du nombre de cailloux restant à prendre dans le jeu de Nim
@@ -18,21 +18,19 @@ De plus, ces jeux partagent un mécanisme de déroulement des parties communes. 
 2. déterminer le premier  *joueur courant*
 3. si le jeu n'est pas fini
    - si le  *joueur courant* peut jouer dans la  *situation courante*
-     - le  *joueur courant* joue  
+     - le  *joueur courant* joue, c'est-à-dire qu'il choisit un coup possible parmi les coups autorisés dans la  *situation courante* du jeu. Chaque coup de jeu amène le jeu dans une nouvelle situation. Donc choisir un coup de jeu (= jouer) revient à choisir la prochaine  *situation courante* parmi toutes celles qui sont possibles.  
        
-       c'est-à-dire qu'il choisit un coup possible parmi les coups autorisés dans la  *situation courante* du jeu. Chaque coup de jeu amène le jeu dans une nouvelle situation. Donc choisir un coup de jeu (= jouer) revient à choisir la prochaine  *situation courante* parmi toutes celles possibles.  
-    	 - mettre à jour la  *situation courante*suite au choix du joueur
+      	 - mettre à jour la  *situation courante* suite au choix du joueur
    - sinon
-     - ne rien faire (la  *situation courante*ne change pas)
+     - ne rien faire (la  *situation courante* ne change pas)
    - l'autre joueur devient le  *joueur courant*
    - recommencer en 3.
-4. sinon le jeu est fini  
+4. sinon le jeu est fini  :  afficher le résultat (le joueur vainqueur ou partie nulle)
    
-   afficher le résultat (le joueur vainqueur ou partie nulle)
 
 Ce mécanisme de jeu nous fournit un algorithme permettant de jouer aux jeux à deux joueurs qui nous concernent. Cet algorithme est le même pour tous ces jeux. Les variations sont dues uniquement aux règles du jeu. Une analyse de cet algorithme doit permettre d'identifier les fonctions qu'il est nécessaire de définir pour n'importe quel jeu à deux joueurs afin de pouvoir y jouer grâce à cet algorithme.
 
-Une des premières tâches que vous devez réaliser est donc cette analyse afin de produire  **l'interface** des jeux à deux joueurs.
+Une des premières tâches que vous devez réaliser est donc cette analyse afin de produire  **l'interface** commune à tous les jeux à deux joueurs.
 
 **Programme `main.py` des jeux à deux joueurs**:
 
@@ -59,11 +57,11 @@ if __name__ == "__main__":
 
 Par binôme il faut mettre en œuvre un module qui permette:
 
-* de jouer aux jeux à deux joueurs avec le jeu de l'Othello en utilisant un import dans le programme`main.py.`
+* de jouer aux jeux à deux joueurs avec le jeu de l'Othello en utilisant un import dans le programme `main.py.`
 
 * Il faudra définir dans le module la mise en œuvre du jeu Othello en utilisant la ressouce ci-dessous.
 
-* À l'issue de cette phase on doit pouvoir jouer au jeu dans une version  *humain contre humain*par des saisies au clavier du coup joué.
+* À l'issue de cette phase on doit pouvoir jouer au jeu dans une version  *humain contre humain* par des saisies au clavier du coup joué.
 
 * On peut aussi envisager de faire des parties  *humain contre aléatoire*, le deuxième joueur étant géré par le programme qui joue aléatoirement.
 
@@ -71,11 +69,9 @@ Par binôme il faut mettre en œuvre un module qui permette:
 
 #### Objectif:
 
-Othello se joue à 2, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la position de départ est indiquée ci-contre. Les noirs commencent.
+Othello se joue à 2, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la ***situation de départ*** est indiquée ci-dessous et les noirs commencent.  :
 
 ![jeu](imgs/othello1.png)
-
-***situation de départ***==>
 
 #### Règles:
 
