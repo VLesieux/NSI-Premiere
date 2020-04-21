@@ -1,57 +1,6 @@
-**Sujet abordé**
+**Projet 8 :  Réalisation d&#39;une IHM (Interface Homme Machine) commune à un ensemble de jeux.**
 
 
-
-Mini Projet : Réalisation d&#39;une IHM (Interface Homme Machine) commune à un ensemble de jeux et un des jeux.
-
-**Objectifs**
-
-
-
-**Thèmes:**  Représentation des données ;
-
-   Architectures matérielles et systèmes d&#39;exploitation ;
-
-   Langages et programmation.
-
-- Tableau indexé : Lire et modifier les éléments d&#39;un tableau, utiliser des tableaux de tableaux.
-
-- Interface Homme Machine (IHM) :Réaliser par programmation une IHM répondant à un cahier des charges.
-
-- Spécification : Prototyper une fonction
-
-
-
-**Pré-requis**
-
-Constructions élémentaires (séquences, affectation, conditionnelles, boucles, appels de fonctions)
-
-Les listes.
-
-**Préparation**
-
-_Deux ordinateurs avec python et un éditeur de code par groupe de deux élèves._
-
-
-
-**Séance pratique**
-
-La partie 1 et 2 est un travail en binôme.
-
-La partie 3  est répartie entre les deux élèves.
-
-
-        Q3.1 à Q3.8 : En binôme;
-
-        B1.1 à B1.4: binôme 1;
-
-        B2.1 à B2.4: binôme 2;
-
-        Q3.9 – Q4: En binôme.
-
-
-
-**Séance pratique**
 
 **1. Introduction.**
 
@@ -59,29 +8,31 @@ Les jeux comme Othello, les échecs, les dames, Tic-tac-toe, le puissance 4, le 
 
 Ces jeux partagent un mécanisme de déroulement des parties qui est commun. Ce sont uniquement les _règles du jeu_ qui différent.
 
+
+
 **Déroulement des jeux à deux joueurs :**
 
 1. Installer le jeu, c&#39;est-à-dire créer la _situation courante_ initiale.
 2. Déterminer le premier _joueur courant_.
 3. Si le jeu n&#39;est pas fini
   - si le _joueur courant_ peut jouer dans la _situation courante_, 
-    	- le _joueur courant_ joue
-c&#39;est-à-dire qu&#39;il choisit un coup possible parmi les coups autorisés dans la _situation courante_ du jeu. Chaque coup de jeu amène le jeu dans une nouvelle situation. Donc choisir un coup de jeu (= jouer) revient à choisir la prochaine _situation courante_ parmi toutes celles possibles.
-    	- mettre à jour la _situation courante_ suite au choix du joueur
+     - le _joueur courant_ joue, c&#39;est-à-dire qu&#39;il choisit un coup possible parmi les coups autorisés dans la _situation courante_ du jeu. Chaque coup de jeu amène le jeu dans une nouvelle situation. Donc choisir un coup de jeu (= jouer) revient à choisir la prochaine _situation courante_ parmi toutes celles possibles.
+     - mettre à jour la _situation courante_ suite au choix du joueur
   - sinon
-    	- ne rien faire (la _situation courante_ ne change pas)
-  		- l&#39;autre joueur devient le _joueur courant_
+     - ne rien faire (la _situation courante_ ne change pas)
+     - l&#39;autre joueur devient le _joueur courant_
   - recommencer en 3.
-4. Sinon le jeu est fini, 
-afficher le résultat (le joueur vainqueur ou partie nulle).
+4. Sinon le jeu est fini, afficher le résultat (le joueur vainqueur ou partie nulle).
+
+  
 
 **2. Exemple du jeu de Nim**. ([wikipédia](https://fr.wikipedia.org/wiki/Jeux_de_Nim))
 
 Les règles du jeu sont simples :
 
 - On dispose un tas d&#39;allumettes au milieu de la table.
-- Les (deux) joueurs ramassent tour à tour 2 ou 3 allumettes. Celui qui prend la dernière a gagné.
-- S&#39;il reste une seule allumette le jeu est nul.
+- Les (deux) joueurs ramassent tour à tour 2 ou 3 allumettes. Celui qui prend les 2 ou 3 dernières a gagné.
+- S&#39;il ne reste qu'une seule allumette le jeu est nul.
 
 Commençons par analyser le programme fourni : **jeu\_nim.py**
 
@@ -124,7 +75,7 @@ def test_validite_choix(valeur_joueur,lechoix,tas):
     : test de la validité du choix 2 ou 3
     : param lechoix: (int) valeur allumettes à supprimer
     : param tas: (int) le nombre d'allumettes presentes
-    : return : int(choix) choix du joueuraff_evolution_jeu(9)
+    : return : int(choix) choix du joueur
     """
     correct=False
     if (((lechoix==2) &(tas>=2))|((lechoix==3) &(tas>=3))):
@@ -160,7 +111,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
 
 def aff_evolution_jeu(param_jeu):
     """
-    : permet d'afficher le nombre d'allumettes restants
+    : permet d'afficher le nombre d'allumettes restantes
     : param : int(param_jeu) nombres d'allumettes
     : return : None
     Exemple:
@@ -202,14 +153,14 @@ if __name__ == '__main__':
 2.3 D&#39;après l&#39;analyse précédente, peut-on utiliser le jeu ? Si non expliquer pourquoi.
 
 
-On décide de rendre le jeu Nim opérationnel, pour cela il faut respecter l&#39;ordre de déroulement des jeux à deux joueurs.
+On décide de rendre le code opérationnel, pour cela il faut respecter l&#39;ordre de déroulement des jeux à deux joueurs.
 
 2.4 Compléter le programme **principal\_jeu.py** donné ci-dessous pour rendre le jeu opérationnel, tester le bon fonctionnement de votre solution.
 
 ```python
 # coding: UTF-8
 
-import jeu_nim  #importation des fonctions du jeu Nim
+import jeu_nim  #importation des fonctions du jeu Nim 
 
 def aff_mess_vainqueur(valeur_joueur,per_gag):
     """
@@ -245,11 +196,12 @@ valeur_joueur=False #Détermination du premier joueur courant
 jeu_nim.aff_evolution_jeu(param_jeu)    #Affichage
 
 fini=False  #Initialisation de la situation du jeu
+
 while not fini: # Début de la partie 3 (si le jeu n'est pas fini) du déroulement des jeux à deux joueurs
 
-A compléter
+############################## Cette partie est à compléter : 5 lignes de code #################
 
-aff_mess_vainqueur(vainqueur,per_gag)   #Partie 4 jeu fini et affichage du résultat.
+aff_mess_vainqueur(vainqueur,per_gag)   # jeu fini et affichage du résultat.
 
 
 
@@ -260,11 +212,11 @@ aff_mess_vainqueur(vainqueur,per_gag)   #Partie 4 jeu fini et affichage du résu
 
 **Contraintes:**
 
-- le programme principale doit être le même, que celui définit pour le jeu Nim, où la chaine de caractères &quot;jeu\_nim&quot; est remplacée par &quot;jeu\_tic\_tac&quot;.
+- le programme principale doit être le même que celui définit pour le jeu Nim, où la chaîne de caractères &quot;jeu\_nim&quot; est remplacée par &quot;jeu\_tic\_tac&quot;.
 
 - les fonctions du jeu &quot;jeu\_tic\_tac&quot;  devront être implémentées dans le fichier &quot;jeu\_tic\_tac.py&quot; fourni.
 
-- Quatre fonctions doivent permettre de tester l&#39;alignement de** trois symboles identiques, horizontalement, verticalement ou en diagonale .
+- Quatre fonctions doivent permettre de tester l&#39;alignement de trois symboles identiques, horizontalement, verticalement ou en diagonale .
 
 **3. Le jeu Tic-tac-toe****. (**[wikipédia](https://fr.wikipedia.org/wiki/Tic-tac-toe)**)**
 
@@ -276,15 +228,13 @@ A partir de votre lecture sur wikipédia :
 
 3.3 Quel est le but de ce jeu ?
 
-3.4  Par convention, quel est le symbole utilisé par le joueur n°1 ? Par le joueur n°2 ?
+3.4  Par convention, quel est le symbole utilisé par le joueur n°1, par le joueur n°2 ?
 
 3.5 Comment en python peut-on représenter l&#39;élément support de ce jeu ?
 
 3.6 Écrire en python, le code qui permet de créer le plateau de jeu vide (le vide sera représenté par le caractère « - ») et le tester.
 
-3.7  A quelle situation du jeu, ce plateau vide correspond-t-il ?
-
-   Quelle était la fonction correspondant du jeu de Nim ?
+3.7  A quelle situation du jeu, ce plateau vide correspond-t-il ?   Quelle était la fonction correspondant du jeu de Nim ?
 
 3.8 Implémenter cette fonction pour le jeu Tic-Tac-Toe.
 
@@ -294,27 +244,27 @@ Tester son bon fonctionnement avec le doctest.
 
 **Travail du binôme 1:**
 
-B1.1 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (rempli pas rempli) dont le plateau de jeu est passé en paramètre.
+B1.1 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
 
-Prévoir le test de cette fonction commun pour les joueurs 1 et 2.
+Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
 
-B1.2 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (rempli pas rempli) dont le plateau de jeu est passé en paramètre.
+B1.2 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
-Prévoir le test de cette fonction commun pour les joueurs 1 et 2.
+Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
 
 **Travail du binôme 2:**
 
-B2.1 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (rempli pas rempli) dont le plateau de jeu est passé en paramètre.
+B2.1 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
 
-B2.2 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (rempli pas rempli) dont le plateau de jeu est passé en paramètre.
+B2.2 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
@@ -324,15 +274,13 @@ Tester son bon fonctionnement avec le doctest.
 
 **Travail du binôme 1:**
 
-B1.3 Écrire la fonction &quot;test\_plateau\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli pas rempli) dont le plateau de jeu est passé en paramètre.
+B1.3 Écrire la fonction &quot;test\_plateau\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
 
 Tester son bon fonctionnement avec le doctest.
 
 B1.4 Écrire la fonction &quot;action\_joueur&quot; qui a pour résultat le choix de jeu du joueur ; pour cette fonction, le joueur et  le paramètre du jeu sont passés en paramètres.
 
 Pas de test de fonctionnement de test_validite_choix avec le doctest.
-
-
 
 **Travail du binôme 2:**
 
@@ -357,9 +305,7 @@ Faire valider votre travail
 
 Maintenant que nos deux jeux fonctionnent, il serait intéressant de concevoir un programme permettant le choix de l&#39;un ou l&#39;autre à l&#39;aide d&#39;une interface commune.
 
-_Rappel introduction:_
-
-_Ces jeux partagent un_ **mécanisme de déroulement** _des parties_  qui est **commun**. Ce sont uniquement les règles du jeu qui différent.
+Rappel introduction:  ces jeux partagent un_ **mécanisme de déroulement** _des parties_  qui est **commun**. Ce sont uniquement les règles du jeu qui différent.
 
 En vous aidant de l&#39;exemple suivant, modifier le programme principal de votre mini projet afin que celui-ci propose, au lancement, un menu donnant le choix entre le jeu Nim ou le jeu Tic-tac-toe.
 
