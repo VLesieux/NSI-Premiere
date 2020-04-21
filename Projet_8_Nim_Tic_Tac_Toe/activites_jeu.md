@@ -1,4 +1,4 @@
-**Projet 8 :  Réalisation d&#39;une IHM (Interface Homme Machine) commune à un ensemble de jeux.**
+#Réalisation d&#39;une IHM (Interface Homme Machine) commune à un ensemble de jeux.
 
 
 
