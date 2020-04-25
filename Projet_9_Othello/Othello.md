@@ -332,6 +332,19 @@ Ce test montre le nouveau pion noir en (3,4) ainsi que le retournement du pion i
 8 · · · · · · · · 
 ```
 Ce test montre le nouveau pion blanc en (3,3) ainsi que le retournement du pion initialement noir en (4,4).
+```python
+    >>> afficher_config(incrementer_config(s1,(6,3),JOUEUR_BLANC))
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · □ · · · · · 
+4 · · ■ □ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · · · · · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+```
+Ce test montre que placer un pion blanc en (6,3) ne permet pas de modifier la configuration.
 
 
 #### 4) Test du jeu dans le module main.py
