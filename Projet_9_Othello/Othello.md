@@ -401,10 +401,10 @@ Nous allons à présent modifier notre module `othello` afin de pourvoir jouer c
 
 a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`.
 
-b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui a évalué les coups pour choisir le meilleur selon des critères d'évaluation ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
+b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui va être capable d'évaluer les coups pour choisir le meilleur selon des critères d'évaluation ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
+
 
 ```python
-
 def min_max(config, profondeur, joueur):
     '''
     Renvoie la valeur de la configuration passée en paramètre
@@ -422,6 +422,123 @@ def min_max(config, profondeur, joueur):
         else:
             liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR2)
             return max([min_max(suivante, profondeur-1, JOUEUR1) for suivante in liste_configs_suivantes])
-
 ```
+
+Cette fonction sera placée dans main.py car elle est utilisable pour n'importe quel jeu à deux joueurs, elle sera importée dans Othello.py.
+
+Elle fait appel à trois fonctions  :
+
+- `creer_liste_configs_suivantes(config, joueur)` 
+
+- `evaluation(config,joueur)` .
+- coef_joueur(joueur)
+
+Il nous faut d'abord créer une fonction creer_liste_coups_possibles qui prend en paramètres la configuration et le joueur, et qui renvoie la liste des coups possibles suivants.
+
+```python
+    >>> s = creer_config_init()
+    >>> afficher_config(s)
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · · · · 
+    4 · · · □ ■ · · · 
+    5 · · · ■ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    >>> creer_liste_coups_possibles(s, JOUEUR_NOIR)
+    [(4, 3), (3, 4), (6, 5), (5, 6)]
+```
+
+Nous allons maintenant créer la fonction `creer_liste_configs_suivantes(config, joueur)` qui renvoie une liste de configurations à partir de la liste des coups possibles obtenus par la fonction précédente.
+
+Pour éviter la modification de la configuration courante, il nous faudra faire une copie de la configuration. Pour cela, on importe le module copy : `import copy`.
+
+```python
+>>> s = creer_config_init()
+>>> afficher_config(s)
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · · · · · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+>>> for i in creer_liste_configs_suivantes(s, JOUEUR_NOIR):
+    afficher_config(i)
+    
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · ■ · · · · 
+4 · · · ■ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · · · · · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · ■ ■ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · · · · · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ ■ ■ · · 
+6 · · · · · · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ ■ · · · 
+6 · · · · ■ · · · 
+7 · · · · · · · · 
+8 · · · · · · · · ```
+```
+
+Pour la fonction d'évaluation, on attribuera + 300 points aux cases situées sur la première et dernière ligne, ainsi que celles sur la première et dernière colonne.
+
+On attribuera -500 points aux cases situées dans les coins : par exemple pour le coin haut gauche : les cases (1,2) ; (2,2); (2,1).
+
+On attribuera +1000 points aux cases situées aux extrémités : (1,1) ; (1,8) ; (8,1) et (8,8)
+
+```python
+>>> config = [[1, 1, 2, 1, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0, 0], [0, 0, 2, 2, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 2, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
+>>> afficher_config(config)
+  1 2 3 4 5 6 7 8
+1 ■ ■ □ ■ · · · · 
+2 · · □ · · · · · 
+3 · · □ □ · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · □ · · ■ · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+>>> evaluation(config,JOUEUR_NOIR)
+800
+```
+
+Il faut également la fonction coef_joueur :
+
+```python
+def coef_joueur(joueur):
+    '''
+    fonction INTERNE
+    '''
+    return 1 if joueur == NOIR else -1
+```
+
+Il reste à changer la fonction coup_joueur.
 
