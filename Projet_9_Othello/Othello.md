@@ -537,7 +537,7 @@ def coef_joueur(joueur):
     '''
     fonction INTERNE
     '''
-    return 1 if joueur == NOIR else -1
+    return 1 if joueur == JOUEUR_NOIR else -1
 ```
 
 Il reste à changer la fonction coup_joueur.
