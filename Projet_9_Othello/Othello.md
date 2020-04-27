@@ -401,7 +401,7 @@ Nous allons à présent modifier notre module `othello` afin de pourvoir jouer c
 
 a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`.
 
-b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui a évalué les coups pour choisir le meilleur selon des critères d'évaluation ; son principe est explicité ici :  [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm)
+b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui a évalué les coups pour choisir le meilleur selon des critères d'évaluation ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
 
 ```python
 
