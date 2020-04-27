@@ -395,8 +395,33 @@ Le gagnant est JOUEUR_NOIR
 ====================
 ```
 
-#### 5) Amélioration du jeu
+#### 5) Amélioration du jeu : l'algorithme du min-max
 
-Nous allons a présent modifier notre module `othello` afin de pourvoir jouer contre l'ordinateur.
+Nous allons à présent modifier notre module `othello` afin de pourvoir jouer contre l'ordinateur.
 
-Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`.
+a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`.
+
+b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui a évalué les coups pour choisir le meilleur selon des critères d'évaluation ; son principe est explicité ici :  [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm)
+
+```python
+
+def min_max(config, profondeur, joueur):
+    '''
+    Renvoie la valeur de la configuration passée en paramètre
+    :param config: configuration du jeu
+    :param profondeur: (int) profondeur restante pour l'évaluation de la configuration
+    :param joueur: (int) numero du joueur courant
+    
+    '''
+    if jeu.est_jeu_fini(config) or profondeur == 0:
+        return jeu.evaluation(config,joueur)*jeu.coef_joueur(joueur)
+    else:
+        if joueur == JOUEUR1:
+            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR1)
+            return min([min_max(suivante, profondeur-1, JOUEUR2) for suivante in liste_configs_suivantes])
+        else:
+            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR2)
+            return max([min_max(suivante, profondeur-1, JOUEUR1) for suivante in liste_configs_suivantes])
+
+```
+
