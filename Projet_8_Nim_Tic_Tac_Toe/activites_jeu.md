@@ -8,8 +8,6 @@ Les jeux comme Othello, les échecs, les dames, Tic-tac-toe, le puissance 4, le 
 
 Ces jeux partagent un mécanisme de déroulement des parties qui est commun. Ce sont uniquement les _règles du jeu_ qui différent.
 
-
-
 **Déroulement des jeux à deux joueurs :**
 
 1. Installer le jeu, c&#39;est-à-dire créer la _situation courante_ initiale.
@@ -31,8 +29,8 @@ Ces jeux partagent un mécanisme de déroulement des parties qui est commun. Ce 
 Les règles du jeu sont simples :
 
 - On dispose un tas d&#39;allumettes au milieu de la table.
-- Les (deux) joueurs ramassent tour à tour 2 ou 3 allumettes. Celui qui prend les 2 ou 3 dernières a gagné.
-- S&#39;il ne reste qu'une seule allumette le jeu est nul.
+- Les (deux) joueurs ramassent tour à tour 2 ou 3 allumettes. Celui qui prend les 2 ou 3 dernières allumettes a gagné.
+- S&#39;il ne reste qu'une seule allumette, le jeu est nul.
 
 Commençons par analyser le programme fourni : **jeu\_nim.py**
 
@@ -52,7 +50,8 @@ def situation_init():
 
 def choix_joueur(valeur_joueur,param_jeu):
     """
-    : Demande au joueur d'effectuer choix d'allumettes à enlever (2 ou 3)
+    : Demande au joueur d'effectuer un choix d'allumettes à enlever (2 ou 3)
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
     : param : int(param_jeu) nombres d'allumettes
     : return : int(choix) choix du joueur
     Remarque: Ne pas faire de doctest sur des fonctions d'entrées /sorties
@@ -63,7 +62,7 @@ def choix_joueur(valeur_joueur,param_jeu):
         joueur='II'
     #init choix jeu
     nb_enlev=0
-    #si pas 1 ou 2 attente choix correct
+    #Les joueurs doivent ramasser tour à tour 2 ou 3 allumettes
     while (nb_enlev!=2 and nb_enlev!=3):
         nb_enlev= int(input('JOUEUR {} : Choisir le nombre d\'allumettes à enlever : '.format(joueur)))
 
@@ -72,10 +71,11 @@ def choix_joueur(valeur_joueur,param_jeu):
 
 def test_validite_choix(valeur_joueur,lechoix,tas):
     """
-    : test de la validité du choix 2 ou 3
+    : test de la validité du choix 2 ou 3 allumettes
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
     : param lechoix: (int) valeur allumettes à supprimer
     : param tas: (int) le nombre d'allumettes presentes
-    : return : int(choix) choix du joueur
+    : return : int(choix) le choix validé ou non du joueur
     """
     correct=False
     if (((lechoix==2) &(tas>=2))|((lechoix==3) &(tas>=3))):
@@ -89,7 +89,7 @@ def test_validite_choix(valeur_joueur,lechoix,tas):
 
 def action_joueur(valeur_joueur,param_jeu):
     """
-    : permet de connaitre le nombre d'allumettes à enlevées
+    : permet de connaitre le nombre d'allumettes à enlever
     : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
     : return : int(choix) choix du joueur
     """
@@ -131,6 +131,8 @@ def etat_final(param_jeu):
     (True, False)
     """
     per_gag=False
+    #per_gag=True désigne le cas d'égalité
+    #fini désigne l'état de la partie qui est finie ou non
     if ((param_jeu==0)|(param_jeu==1)):
         fini=True
         if param_jeu==1:
@@ -146,9 +148,9 @@ if __name__ == '__main__':
 
 ```
 
-2.1 De combien de fonctions composent le jeu Nim ? Donner, par écrit, leurs noms et leurs rôles, indiquer les paramètres retournés ainsi que leur type.
+2.1 Combien de fonctions composent le jeu de Nim ? Donner, par écrit, leurs noms et leurs rôles, indiquer les paramètres retournés ainsi que leur type.
 
-2.2 Faire l&#39;analogie entre les fonctions du jeu Nim et le déroulement des jeux à deux joueurs si cela est possible.
+2.2 Faire l&#39;analogie entre les fonctions du jeu de Nim et le déroulement des jeux à deux joueurs si cela est possible.
 
 2.3 D&#39;après l&#39;analyse précédente, peut-on utiliser le jeu ? Si non expliquer pourquoi.
 
@@ -193,28 +195,47 @@ param_jeu = jeu_nim.situation_init()    #création de la situation courante init
 
 valeur_joueur=False #Détermination du premier joueur courant
 
-jeu_nim.aff_evolution_jeu(param_jeu)    #Affichage
+jeu_nim.aff_evolution_jeu(param_jeu)    #Affichage de l'état du jeu
 
 fini=False  #Initialisation de la situation du jeu
 
 while not fini: # Début de la partie 3 (si le jeu n'est pas fini) du déroulement des jeux à deux joueurs
 
-############################## Cette partie est à compléter : 5 lignes de code #################
+##############################
+
+Cette partie est à compléter : 
+
+5 à 7 lignes de code utilisant les fonctions définies dans nim.py
+
+#################
 
 aff_mess_vainqueur(vainqueur,per_gag)   # jeu fini et affichage du résultat.
-
+# cette ligne de code sera réalisée lorsque la partie sera finie
 
 
 ```
-**Appeler l&#39;enseignant afin de faire valider votre solution.**
+Exemple de partie :
 
-**Votre solution ayant été validée**, on vous demande de concevoir un nouveau jeu (tic tac toe) en vous inspirant du jeu Nim.
+```python
+Il reste 11 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 2
+Il reste 9 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 3
+Il reste 6 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 3
+Il reste 3 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 3
+Il reste 0 allumettes sur la table
+Le joueur I a gagné
+```
+
+**Votre solution ayant été validée**, on vous demande de concevoir maintenant un nouveau jeu (tic tac toe) en vous inspirant du jeu Nim.
 
 **Contraintes:**
 
 - le programme principale doit être le même que celui définit pour le jeu Nim, où la chaîne de caractères &quot;jeu\_nim&quot; est remplacée par &quot;jeu\_tic\_tac&quot;.
 
-- les fonctions du jeu &quot;jeu\_tic\_tac&quot;  devront être implémentées dans le fichier &quot;jeu\_tic\_tac.py&quot; fourni.
+- les fonctions du jeu &quot;jeu\_tic\_tac&quot;  devront être implémentées dans le fichier &quot;jeu\_tic\_tac.py&quot; fourni dans le dossier du projet.
 
 - Quatre fonctions doivent permettre de tester l&#39;alignement de trois symboles identiques, horizontalement, verticalement ou en diagonale .
 
@@ -240,7 +261,12 @@ A partir de votre lecture sur wikipédia :
 
 Tester son bon fonctionnement avec le doctest.
 
-**_Remarque:_**  _Pour chacune des fonctions demandées, définir les paramètres en entrée et en sortie._
+```python
+>>> situation_init()
+[['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
+```
+
+**_Remarque:_**  _Pour chacune des fonctions demandées, définir les paramètres en entrée et en sortie et réaliser la doctest_
 
 **Travail du binôme 1:**
 
@@ -250,11 +276,25 @@ Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
 
+```python
+>>> test_ligne([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
+True
+>>> test_ligne([['-', 'X', '-'], ['0', 'X', 'X'], ['0', '-', '0']])
+False
+```
+
 B1.2 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
+
+```python
+>>> test_diagonale1([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
+False
+>>> test_diagonale1([['-', 'X', '0'], ['0', '0', 'X'], ['0', '-', '0']])
+True
+```
 
 **Travail du binôme 2:**
 
@@ -264,17 +304,38 @@ Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
 
+```python
+>>> test_colonne([['0', 'X', '-'], ['0', 'X', 'X'], ['0', '-', '0']])
+True
+>>> test_colonne([['-', 'X', '-'], ['0', 'X', 'X'], ['0', '-', '0']])
+False
+```
+
 B2.2 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
 Tester son bon fonctionnement avec le doctest.
 
+```python
+>>> test_diagonale2([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
+False
+>>> test_diagonale2([['0', 'X', '0'], ['0', '0', 'X'], ['0', '-', '0']])
+True
+```
+
 **Faire valider votre travail**
 
 **Travail du binôme 1:**
 
 B1.3 Écrire la fonction &quot;test\_plateau\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
+
+```python
+>>> test_jeu_rempli([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
+False
+>>> test_jeu_rempli([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
+True
+```
 
 Tester son bon fonctionnement avec le doctest.
 
@@ -286,9 +347,22 @@ Pas de test de fonctionnement de test_validite_choix avec le doctest.
 
 B2.3 Écrire la fonction &quot; evolution\_jeu &quot; qui a pour résultat le paramètre du jeu ,  le paramètre du jeu et le choix du joueur sont passés en paramètres. Tester son bon fonctionnement.
 
+```python
+>>> evolution_jeu(True,[['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']],'1,1')
+[['0', '0', 'X'], ['0', 'X', 'X'], ['0', 'X', '0']]
+True
+```
+
 Tester son bon fonctionnement avec le doctest.
 
 B2.4 Écrire la fonction &quot; aff\_evolution\_jeu&quot; qui affiche le plateau de jeu dont le plateau de jeu est passé en paramètre.
+
+```python
+>>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
+['0', '0', 'X']
+['0', '0', 'X']
+['0', 'X', '0']
+```
 
 Tester son bon fonctionnement avec le doctest.
 
@@ -296,18 +370,28 @@ Tester son bon fonctionnement avec le doctest.
 
 Q3.9 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
 
-Tester bon fonctionnement.
+```python
+>>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
+>>> etat_final([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
+(True, False)
+>>> etat_final([['X', 'X', '0'], ['X', '0', 'X'], ['0', 'X', '0']])
+(True, False)
+```
 
-Faire valider votre travail
+Tester le bon fonctionnement de l'ensemble en important le module jeu_tic_tac dans principal_jeu.
+
+Pour cela,  on remplacera jeu_nim par jeu dans tout le code et à la place de import jeu_nim, on écrira import jeu_tic_tac as jeu.
+
+**Faire valider votre travail**
 
 
 **4. Amélioration facilitant le choix de l&#39;un ou l&#39;autre des jeux**
 
-Maintenant que nos deux jeux fonctionnent, il serait intéressant de concevoir un programme permettant le choix de l&#39;un ou l&#39;autre à l&#39;aide d&#39;une interface commune.
+Maintenant que nos deux jeux fonctionnent, il serait intéressant de concevoir un programme permettant le choix de l&#39;un ou de l&#39;autre à l&#39;aide d&#39;une interface commune.
 
 Rappel introduction:  ces jeux partagent un_ **mécanisme de déroulement** _des parties_  qui est **commun**. Ce sont uniquement les règles du jeu qui différent.
 
-En vous aidant de l&#39;exemple suivant, modifier le programme principal de votre mini projet afin que celui-ci propose, au lancement, un menu donnant le choix entre le jeu Nim ou le jeu Tic-tac-toe.
+En vous aidant de l&#39;exemple simple suivant, modifier le programme principal du projet 8 afin que celui-ci propose, au lancement, un menu donnant le choix entre le jeu Nim ou le jeu Tic-tac-toe.
 
 ```python
 #pasvoyelle.py
@@ -425,9 +509,23 @@ print(categorie(chaine))
 
 ```
 
-**Faire valider votre travail**
+**Faire valider votre travail qui devrait ressembler à ceci : **
 
+```python
 
-
-
-
+Choisir le jeu : 1.jeu_nim  ou  2. jeu_tic_tac : 1
+Il reste 11 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 2
+Il reste 9 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 
+========================= RESTART =========================
+Choisir le jeu : 1.jeu_nim  ou  2. jeu_tic_tac : 2
+['-', '-', '-']
+['-', '-', '-']
+['-', '-', '-']
+JOUEUR II :Choisir la position de votre pion par exemple 1,1 : 0,2
+['-', '-', '0']
+['-', '-', '-']
+['-', '-', '-']
+JOUEUR I :Choisir la position de votre pion par exemple 1,1 : 
+```
