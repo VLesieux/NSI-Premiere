@@ -205,7 +205,7 @@ while not fini: # Début de la partie 3 (si le jeu n'est pas fini) du dérouleme
 
 Cette partie est à compléter : 
 
-5 à 7 lignes de code utilisant les fonctions définies dans nim.py
+5 à 7 lignes de code utilisant les fonctions définies dans jeu_nim.py
 
 #################
 
