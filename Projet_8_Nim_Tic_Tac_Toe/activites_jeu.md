@@ -509,7 +509,7 @@ print(categorie(chaine))
 
 ```
 
-**Faire valider votre travail qui devrait ressembler à ceci : **
+**Faire valider votre travail qui devrait ressembler à ceci :**
 
 ```python
 
