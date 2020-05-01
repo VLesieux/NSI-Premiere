@@ -10,7 +10,7 @@ Ces jeux ont des points communs. Ainsi pour chacun, une partie est à tout momen
 - du nombre de cailloux restant à prendre dans le jeu de Nim
 - etc ...
 
-De plus, ces jeux partagent un mécanisme de déroulement des parties communes. Ce sont uniquement les  *règles du jeu* différentes d'un jeu à l'autre qui font la différence, pas la mécanique du jeu. Celle-ci se base principalement sur le fait que les joueurs jouent alternativement des "coups de jeu" en fonction de ce qui est autorisé par les règles du jeu. Ces différents coups font évoluer le jeu de situation en situation, jusqu'à ce que l'on atteigne une situation de fin de partie. Le déroulement d'une partie peut donc être décrit ainsi :
+De plus, ces jeux partagent un mécanisme commun de déroulement des parties. Ce sont uniquement les  *règles du jeu* qui différent d'un jeu à l'autre, pas le mécanisme du jeu. Celui-ci se base principalement sur le fait que les joueurs jouent alternativement des "coups de jeu" en fonction de ce qui est autorisé par les règles du jeu. Ces différents coups font évoluer le jeu de situation en situation, jusqu'à ce que l'on atteigne une situation de fin de partie. Le déroulement d'une partie peut donc être décrit de la façon suivante :
 
 **Déroulement des jeux à deux joueurs**
 
@@ -25,7 +25,7 @@ De plus, ces jeux partagent un mécanisme de déroulement des parties communes. 
      - ne rien faire (la  *situation courante* ne change pas)
    - l'autre joueur devient le  *joueur courant*
    - recommencer en 3.
-4. sinon le jeu est fini  :  afficher le résultat (le joueur vainqueur ou partie nulle)
+4. sinon le jeu est fini  :  afficher le résultat : le joueur vainqueur ou partie nulle.
    
 
 Ce mécanisme de jeu nous fournit un algorithme permettant de jouer aux jeux à deux joueurs qui nous concernent. Cet algorithme est le même pour tous ces jeux. Les variations sont dues uniquement aux règles du jeu. Une analyse de cet algorithme doit permettre d'identifier les fonctions qu'il est nécessaire de définir pour n'importe quel jeu à deux joueurs afin de pouvoir y jouer grâce à cet algorithme.
@@ -59,7 +59,7 @@ Par binôme il faut mettre en œuvre un module qui permette:
 
 * de jouer aux jeux à deux joueurs avec le jeu de l'Othello en utilisant un import dans le programme `main.py.`
 
-* Il faudra définir dans le module la mise en œuvre du jeu Othello en utilisant la ressouce ci-dessous.
+* Il faudra définir dans le module la mise en œuvre du jeu Othello en utilisant la ressource ci-dessous.
 
 * À l'issue de cette phase on doit pouvoir jouer au jeu dans une version  *humain contre humain* par des saisies au clavier du coup joué.
 
@@ -69,7 +69,7 @@ Par binôme il faut mettre en œuvre un module qui permette:
 
 #### Objectif:
 
-Othello se joue à 2, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la ***situation de départ*** est indiquée ci-dessous et les noirs commencent.  :
+Othello se joue à 2 joueurs, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la ***situation de départ*** est indiquée ci-dessous et les noirs commencent.  :
 
 ![jeu](imgs/othello1.png)
 
