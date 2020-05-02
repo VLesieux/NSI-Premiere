@@ -526,7 +526,7 @@ def coef_joueur(joueur):
 
 Il reste à changer la fonction coup_joueur.
 
-Le principe est de créer la liste des coups possiles pour le joueur 2 qui est l'ordinateur. Pour chacun de ces coups possibles, on va incrémenter la configuration du jeu résultant du coup joué et évaluer la situation du jeu à une profondeur donné. On retient le coup qui donne une évaluation maximale selon les critères d'évaluation choisies.
+Le principe est de créer la liste des coups possiles pour le joueur 2 qui est l'ordinateur. Pour chacun de ces coups possibles, on va incrémenter la configuration du jeu résultant du coup joué et évaluer la situation du jeu à une profondeur donné. On retient le coup qui donne une évaluation maximale selon les critères d'évaluation choisis.
 
 Remarque : on observe que la fonction min_max présente la particularité de s'appeller elle-même ; une telle fonction est dite **récursive** et elle a une portée généralement puissante.
 
