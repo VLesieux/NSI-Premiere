@@ -155,7 +155,7 @@ def distance(p,q):
 
 def space(x):
     """
-    permet de renvoyer la première valeur d'un doubet
+    permet de renvoyer la première valeur d'un doublet
     cette fonction sera utilisée pour ordonner une liste de doublet dans l'ordre croissant ou décroissant de la première valeur
     :param x : un doublet
     :return: float 
@@ -171,7 +171,7 @@ def space(x):
 
 def amount(x):
     """
-    permet de renvoyer la deuxième valeur d'un doubet
+    permet de renvoyer la deuxième valeur d'un doublet
     cette fonction sera utilisée pour ordonner une liste de doublet dans l'ordre croissant ou décroissant de la deuxième valeur
     :param x : un doublet
     :return: float 
