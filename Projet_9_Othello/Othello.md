@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
 Par binôme il faut mettre en œuvre un module qui permette:
 
-* de jouer aux jeux à deux joueurs avec le jeu de l'Othello en utilisant un import dans le programme `main.py.`
+* de jouer aux jeux à deux joueurs avec le jeu d'Othello en utilisant un import dans le programme `main.py.`
 
 * Il faudra définir dans le module la mise en œuvre du jeu Othello en utilisant la ressource ci-dessous.
 
@@ -122,9 +122,15 @@ Cette liste représente le plateau de début de partie avec uniquement deux pion
 
 * Réaliser une fonction `creer_config_init` qui ne prend pas de paramètres et qui renvoie une liste de liste correspondant à la configuration de départ du jeu.
 
+```python
+>>> creer_config_init()
+[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
+```
+
 * Réaliser une fonction `afficher_config` qui prend en paramètre la liste de liste représentant la configuration courante du jeu.  Cette fonction affiche le plateau dans le shell:
 
 ```python
+>>> afficher_config(creer_config_init())
   1 2 3 4 5 6 7 8
 1 · · · · · · · · 
 2 · · · · · · · · 
@@ -151,7 +157,7 @@ JOUEUR_NOIR=1
 JOUEUR_BLANC=2
 ```
 
-* Réaliser une fonction `choisir_premier_joueur` qui retourne le nom du joueur qui débute ; on choisira JOUEUR_NOIR.
+* Réaliser une fonction `choisir_premier_joueur` qui retourne simplement le nom du joueur qui débute ; on choisira JOUEUR_NOIR.
 * Réaliser une fonction `incrementer_joueur` qui prend en paramètre une variable joueur qui représente le joureur courant. La fonction retourne cette même variable joueur après avoir switcher:
 
 ```python
@@ -174,50 +180,29 @@ Pour pouvoir jouer il faut savoir, dans un premier temps, si le joueur courant p
 * Réaliser une fonction `test_dir_valide` qui prend en paramètre la configuration du jeu, les coordonnées de la "case à tester", une liste de directions possibles et le joueur courant. Cette fonction renvoie `True` si le joueur courant peut jouer sur la "case à tester"  et `False` dans le cas contraire:
 
 ```python
->>> config = creer_config_init()
->>> test_dir_valide(config,(3,3),Direction(0,-1),JOUEUR_BLANC)
-False
-
->>> config = creer_config_init()
->>> test_dir_valide(config,(3,4),Direction(1,0),JOUEUR_NOIR)
-True
-```
-
-Le premier test ne **valide** pas la possibilité de placer un **pion blanc**  sur la case de coordonnées **(3,3) **capable de provoquer le retournement d'un ou de plusieurs pions noirs dans la direction verticale des **y <0** (vers le haut du plateau).
-
-Le deuxième test **valide ** la possibilité de placer un **pion noir**  sur la case **(3,4)** capable de retourner un ou des pions blancs dans la direction horizontale des  **x>0** (vers la droite du plateau).
-
-_Indication_ : on peut chercher dans la direction donnée la liste des cases occupées par des pions de la couleur adverse, la liste devant se terminer par un pion de même couleur.
-
-_*Remarque*_ : le pion noir que l'on voit affiché en position (5,4) sur notre grille a 5 comme numéro de colonne et 4 comme numéro de ligne ; il se retrouve avec `creer_config_init()[3][4]`
-
-
-```python
->>> creer_config_init()
-[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
->>> creer_config_init()[3][4]
-1
->>> config = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 2, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
->>> afficher_config(config)
-  1 2 3 4 5 6 7 8
-1 · · · · · · · · 
-2 · · · · · · · · 
-3 · · · · · · · · 
-4 · · · □ ■ · · · 
-5 · · · ■ □ · · · 
-6 · · □ · · ■ · · 
-7 · · · · · · · · 
-8 · · · · · · · · 
->>> test_dir_valide(config,(2,2),(1,1),JOUEUR_BLANC)
-False
->>> test_dir_valide(config,(2,2),(1,1),JOUEUR_NOIR)
-True
->>> test_dir_valide(config,(5,2),(-1,1),JOUEUR_BLANC)
-True
->>> test_dir_valide(config,(5,3),(-1,0),JOUEUR_BLANC)
-True
->>> test_dir_valide(config,(7,7),(0,1),JOUEUR_BLANC)
-False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 2, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config)
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · · · · 
+    4 · · · □ ■ · · · 
+    5 · · · ■ □ · · · 
+    6 · · □ · · ■ · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    >>> test_dir_valide(config,(3,4),(1,0),JOUEUR_NOIR)
+    True
+    >>> test_dir_valide(config,(3,3),(1,1),JOUEUR_BLANC)
+    False
+    >>> test_dir_valide(config,(3,3),(1,1),JOUEUR_NOIR)
+    True
+    >>> test_dir_valide(config,(6,3),(-1,1),JOUEUR_BLANC)
+    True
+    >>> test_dir_valide(config,(6,4),(-1,0),JOUEUR_BLANC)
+    True
+    >>> test_dir_valide(config,(8,8),(0,1),JOUEUR_BLANC)
+    False
 ```
 ---
 
@@ -244,8 +229,7 @@ Afin de pouvoir stopper le jeu, il nous faut savoir si les joueurs peuvent encor
 >>> config = creer_config_init()
 >>> est_jeu_fini(config)
 False
-
->>> config = [[NOIR for _ in range(10)] for _ in range(10)]
+>>> config = [[1 for _ in range(8)] for _ in range(8)]
 >>> est_jeu_fini(config)
 True
 ```
