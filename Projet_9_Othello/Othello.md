@@ -530,7 +530,7 @@ Le principe est de créer la liste des coups possiles pour le joueur 2 qui est l
 
 Remarque : on observe que la fonction min_max présente la particularité de s'appeller elle-même ; une telle fonction est dite **récursive** et elle a une portée généralement puissante.
 
-Voici deux exemples classiques de fonctions récurcives.
+Voici deux exemples classiques de fonctions récurcives ; elles seront étudiées en spécialité Terminale.
 
 
 ```python
