@@ -91,6 +91,8 @@ Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reve
 
 ## Programmation du jeu
 
+> Bien valider les doctests de chaque fonction, étapes après étapes, pour pouvoir aller jusqu'au bout du projet.
+
 #### 1) Représentation du plateau de jeu
 
 Le plateau sera représenté par une grille qui sera techniquement une liste de liste de nombres entiers. Les nombres entiers réprésentent:
@@ -177,7 +179,7 @@ Pour pouvoir jouer il faut savoir, dans un premier temps, si le joueur courant p
 
 ***Travail à faire***
 
-* Réaliser une fonction `test_dir_valide` qui prend en paramètre la configuration du jeu, les coordonnées de la "case à tester", une liste de directions possibles et le joueur courant. Cette fonction renvoie `True` si le joueur courant peut jouer sur la "case à tester"  et `False` dans le cas contraire:
+* Réaliser une fonction `test_dir_valide` qui prend en paramètre la configuration du jeu, les coordonnées de la "case à tester", une  direction possible sous la forme d'un tuple, et le joueur courant. Cette fonction renvoie `True` si le joueur courant peut effectivement jouer sur la "case à tester"  et `False` dans le cas contraire:
 
 ```python
     >>> config = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 2, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
@@ -256,7 +258,7 @@ False
 
 Le premier test donne True car il est possible de placer un pion noir sur le plateau de départ à la case (3,4) ==> le pion blanc en (4,4) sera retourné.
 
-Le deuxime test donne False car il n'est pas possible de placer un pion blanc en (3,4) car il n'y a pas de possibilité de retournement.
+Le deuxième test donne False car il n'est pas possible de placer un pion blanc en (3,4) car il n'y a pas de possibilité de retournement.
 
 * Réaliser une fonction `coup_joueur` qui prend en paramètre la configuration du jeu et le joueur courant. Elle renvoie une variable `coup ` qui contient les coordonnées de la case où le joueur désire placer son pion. Une vérification de la validité du coup sera faite, si le coup n'est pas valable le joueur est invité a saisir de nouvelles valeurs au clavier:
 
