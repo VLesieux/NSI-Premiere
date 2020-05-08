@@ -91,7 +91,7 @@ Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reve
 
 ## Programmation du jeu
 
-> Bien valider les doctests de chaque fonction, étapes après étapes, pour pouvoir aller jusqu'au bout du projet.
+> Bien valider les doctests donnés pour chaque fonction, étapes après étapes, pour pouvoir aller jusqu'au bout du projet.
 
 #### 1) Représentation du plateau de jeu
 
