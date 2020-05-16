@@ -42,7 +42,7 @@ Le jeu se finit lorsque :
 
 1) Modélisation du jeu
 
-a) Créez une classe `grid` permettant de modéliser le plateau du jeu.
+a) Dans un fichier grid.py, créez une classe `grid` permettant de modéliser le plateau du jeu.
 
 Voici les fonctionnalités de cette classe : 
 
@@ -71,10 +71,10 @@ Voici les fonctionnalités de cette classe :
 
 -   Implémenter la méthode `__str__`, qui permettra d'afficher le plateau du jeu.
 
-b) On définit maintenant une classe `case` pour modéliser les cases du plateau. 
+b) Dans un fichier grid_square.py, on définit maintenant une classe `case` pour modéliser les cases du plateau. 
 Une case peut posséder ou non des murs dans différentes directions, contenir ou non un joueur et être ou non la case finale.
 
-c) On définit maintenant la classe `IceWalker` permettant de modéliser le jeu. Un jeu est paramétré par un plateau de jeu.
+c) Dans un fichier main.py, on définit maintenant la classe `IceWalker` permettant de modéliser le jeu. Un jeu est paramétré par un plateau de jeu.
 Les fonctionalités principales de cette classe sont :
 
 -	Permettre de jouer au jeu de manière interactive.
@@ -532,11 +532,13 @@ Sur le lac gelé certaines cases ont dégelé : dès qu'on marche dessus on a pe
 
 ## V. Indications
 
-On crée un fichier grid.py pour définir la classe  `grid`  dans lequel on importe le module grid_square qui définit la classe `case`  que 
+On crée un fichier grid.py pour définir la classe  `grid`  dans lequel on importe le module grid_square qui définit la classe `case`  que l'on définira dans un deuxième temps.
 
-La grille possédera les attributs width ; height ; grid qui est la grille elle-même formée des cases définies dans le module grid_square ; nb_players ; all_players qui est un dictionnaire dont les clés sont les numéros de joueurs et les valeurs les coordonnées de ceux-ci.
+La classe grid possédera les attributs width ; height ; grid qui est la grille elle-même formée des cases définies dans le module grid_square ; nb_players ; all_players qui est un dictionnaire dont les clés sont les numéros de joueurs et les valeurs, les coordonnées de ceux-ci.
 
 On se donne également une série de méthodes à compléter.
+
+**grid.py**
 
 ```python
 #importation des modules
@@ -547,11 +549,9 @@ from grid_square import case
 class grid:#nouvelle class pour la grille de jeu
     
     def __init__(self, width, height):
-        self.__width = width
-        self.__height = height
-        self.__grid = [ [ case() for _ in range(height+1)] for _ in range(width+1) ]
-        self.__nb_players = 0
-        self.__all_players = {}
+        """
+        constructeur de la classe
+        """
             
     def get_case(self, x, y):
         """
@@ -700,6 +700,34 @@ print(str(G))
 """
 
 ```
+
+
+
+Étape 1 : créer et afficher la grille
+
+Une grille est caractérisée par sa largeur width et sa hauteur height. 
+
+Ce seront deux attributs d'instance donnés en paramètre.
+
+On se donne également comme attributs de la classe Grid 
+
+- la grille elle-même : grid, une liste définie par compréhension.
+- le nombre de joueurs : nb_players, un entier
+- tous les joueurs sous la forme d'une bibliothèque : all_players
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
