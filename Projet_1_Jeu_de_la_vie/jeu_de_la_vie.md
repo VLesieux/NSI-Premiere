@@ -102,7 +102,7 @@ Indication : on pourra utiliser la fonction suivante :
 ```
 from random import *
 #importation de toutes les fonctions du module random
-#en particulier la fonction random renvoie un réel dans [0,1[
+#en particulier la fonction random() renvoie un réel dans [0,1[
 def aleatoire(probabilite):
     valeur=0
     if random()<probabilite:
