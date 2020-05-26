@@ -15,12 +15,22 @@ Les voisines prises en compte sont toutes les cases situées immédiatement à
 gauche, à droite, en haut, en bas ou sur les quatre diagonales, si elles existent.
 Une case a donc au plus 8 voisines, moins si elle se situe sur un bord de la grille.
 
+On utilisera les docstrings fournies en plaçant le code ci-dessous pour réaliser les doctests:
+
+```
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+```
+
+
 ## Représentation d'une grille
 
 Du point de vue technique une grille du jeu de la vie sera représentée par une
 liste de listes de nombre entiers. Chaque nombre entier représente le nombre
 de cellules vivantes dans une case de la grille (0 ou 1).
 Par exemple la liste :
+
 ```
 [ [0, 1, 0], [1, 0, 0] ]
 ```
@@ -37,8 +47,12 @@ correspondant à une grille du jeu de la vie aux dimensions souhaitées, ne
 contenant aucune cellule.
 
 ```
->>> creer_grille(3, 2)
-[[0, 0, 0], [0, 0, 0]]
+def creer_grille(nb_colonnes,nb_lignes):
+    """
+    renvoie une grille vide comportant nb_lignes et nb_colonnes colonnes
+    >>> creer_grille(3, 2)
+    [[0, 0, 0], [0, 0, 0]]
+    """
 ```
 
 ### Dimensions d'une grille
@@ -47,15 +61,24 @@ Réalisez une fonction `hauteur_grille` qui prend en paramètre une grille de
 jeu de la vie et qui renvoie le nombre de cases verticalement.
 
 ```
->>> hauteur_grille(creer_grille(3, 2))
-2
+def hauteur_grille(grille):
+    """
+    renvoie le nombre de lignes d'une grille
+    >>> hauteur_grille(creer_grille(3, 2))
+    2
+    """  
 ```
 
 Réalisez une fonction `largeur_grille` qui prend en paramètre une grille de
 jeu de la vie et qui renvoie le nombre de cases horizontalement.
+
 ``` 
->>> largeur_grille(creer_grille(3, 2))
-3
+def largeur_grille(grille):
+    """
+    renvoie le nombre de colonnes d'une grille
+    >>> largeur_grille(creer_grille(3, 2))
+    3
+    """
 ```
 
 ### Initialisation d'une grille
@@ -74,32 +97,80 @@ est la probabilité pour une case de la grille d'avoir une cellule.
 [[1, 0, 1], [0, 0, 1]]
 ```
 
+Indication : on pourra utiliser la fonction suivante :
+
+```
+from random import *
+#importation de toutes les fonctions du module random
+#en particulier la fonction random renvoie un réel dans [0,1[
+def aleatoire(probabilite):
+    valeur=0
+    if random()<probabilite:
+        valeur=1
+    return valeur
+```
+
+
 ### Voisins d'une case
 
 Réalisez une fonction `voisins_case` qui prend en paramètre une grille de jeu
 de la vie ainsi que les coordonnées en abscisse et en ordonnée de la case (la
 coordonnée 0,0 étant la case en haut à gauche).  La fonction renvoie une liste
 contenant la valeur des cases voisines de la case donnée en paramètre.
-Le nombre de valeurs retournées dans la liste correspond au nombre de voisines de la case (au plus huit, 
-moins quand elle se trouve sur un bord de la grille).
-L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant
-dans l'exemple ci-dessous les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche
-à droite.
+Le nombre de valeurs retournées dans la liste correspond au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille).
+L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant dans l'exemple ci-dessous les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
 
-Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons
-définie une variable grille :
+Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable grille :
 ```
 grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
 ```
 
 ```
->>> voisins_case(grille, 1, 1)
-[0, 1, 0, 1, 0, 1, 1, 1]
->>> voisins_case(grille, 2, 2)
-[0, 0, 1]
->>> voisins_case(grille, 0, 2)
-[1, 0, 1]
+def voisins_case(grille,abscisse,ordonnee):
+    """
+    renvoie la liste des voisins d'une case
+    >>> voisins_case(grille, 1, 1)
+    [0, 1, 0, 1, 0, 1, 1, 1]
+    >>> voisins_case(grille, 2, 2)
+    [0, 0, 1]
+    >>> voisins_case(grille, 0, 2)
+    [1, 0, 1]
+    """
+```
 
+Indications : 
+
+- on peut utiliser l'instruction try_except qui permet de passer au-dessus des éventuelles erreurs de dépassement d'index :
+
+```
+liste=[1,2,3,4]
+print(liste[4])
+>>> IndexError: list index out of range
+
+try:
+    print(liste[4])
+except IndexError:
+        pass
+#passe sur l'erreur de dépassement d'index
+```
+
+- on peut utiliser deux boucles :
+
+```
+>>> for j in range(-1,2):
+    print(j)
+    
+-1
+0
+1
+```
+
+- écarter la possibilité d'avoir des indices négatifs en effet on aurait des résultats inattendus 
+
+```
+>>> liste=[1,2,3,4]
+>>> liste[-2]
+3
 ```
 
 ### Nombre de cellules dans le voisinage
@@ -109,10 +180,14 @@ ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules dans
 les cases voisines de la case passée en paramètre.
 
 ```
->>> nb_cellules_voisins(grille, 1, 1)
-5
->>> nb_cellules_voisins(grille, 2, 2)
-1
+def nb_cellules_voisins(grille,abscisse,ordonnee):
+    """
+    renvoie le nombre de cases voisines de la case passée en paramètre
+    >>> nb_cellules_voisins(grille, 1, 1)
+    5
+    >>> nb_cellules_voisins(grille, 2, 2)
+    1
+    """
 ```
 
 ## Afficher une grille
@@ -128,15 +203,21 @@ sera affichée sur une ligne distincte.
 C'est la **seule** fonction ou procédure qui pourra utiliser un `print`.
 
 ```
->>> afficher_grille(grille)
-_ O _
-O _ _
-O O O
->>> afficher_grille(creer_grille(3, 2))
-_ _ _
-_ _ _
+def afficher_grille(grille):
+    """
+    affiche la grille
+    >>> afficher_grille(grille)
+    _ O _ 
+    O _ _ 
+    O O O 
+    >>> afficher_grille(creer_grille(3, 2))
+    _ _ _ 
+    _ _ _ 
+    
+    """
 ```
 
+On peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`.
 
 ## Évolution d'un jeu de la vie
 ### Génération suivante
@@ -148,12 +229,23 @@ des cellules indiqués au début de l'énoncé.
 Dans le jeu de la vie, on considère que la nouvelle génération apparaît spontanément dans toutes les cellules au même moment.
 
 ```
->>> generation_suivante(grille)
-[[0, 0, 0], [1, 0, 1], [1, 1, 0]]
->>> generation_suivante([[0, 0, 0], [1, 0, 1], [1, 1, 0]])
-[[0, 0, 0], [1, 0, 0], [1, 1, 0]]
->>> generation_suivante([[0, 0, 0], [1, 0, 0], [1, 1, 0]])
-[[0, 0, 0], [1, 1, 0], [1, 1, 0]]
+def generation_suivante(grille):
+    """
+    Calcule la grille après la génération suivante
+    >>> generation_suivante(grille)
+    [[0, 0, 0], [1, 0, 1], [1, 1, 0]]
+    >>> generation_suivante([[0, 0, 0], [1, 0, 1], [1, 1, 0]])
+    [[0, 0, 0], [1, 0, 0], [1, 1, 0]]
+    >>> generation_suivante([[0, 0, 0], [1, 0, 0], [1, 1, 0]])
+    [[0, 0, 0], [1, 1, 0], [1, 1, 0]]
+    """
+```
+
+Pour que les évolutions aient lieu spontanément dans toutes les cellules au même moment, on fera une copie profonde de la grille dans la fonction, on effectuera les modifications sur la copie et on renverra cette copie.
+
+```
+import copy
+copie = copy.deepcopy(grille)
 ```
 
 ### Évolution au fil de n générations
@@ -162,11 +254,12 @@ Nous allons réaliser une procédure `evolution_n_generations` qui prend en
 paramètre une grille et un entier naturel `n` et qui va afficher l'évolution
 de la grille au fil de `n` générations.  Afin de mieux visualiser l'évolution
 nous ferons une pause d'une seconde entre chaque génération.  La fonction
-`sleep` du module `time` vous permettra de faire une telle pause (allez voir
-la documentation de cette fonction pour savoir comment l'utiliser).
+`sleep` du module `time` vous permettra de faire une telle pause.
 
-<!-- Ajouter la contrainte que la grille ne doit pas être vide ? -->
-
+```
+import time
+time.sleep(1.0)
+```
 ### Motifs récurrents
 
 Quelques motifs récurrents peuvent être obtenus à partir de grilles
@@ -181,6 +274,7 @@ Le planeur est un motif qui se déplace jusqu'à disparaître de la grille. Voic
 une grille permettant d'obtenir un planeur qui se répète toutes les quatre
 générations en s'étant déplacé d'une case vers le bas et d'une case vers 
 la droite à chaque génération :
+
 ```
 [[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 ```
