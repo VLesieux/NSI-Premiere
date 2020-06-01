@@ -265,18 +265,89 @@ time.sleep(1.0)
 Quelques motifs récurrents peuvent être obtenus à partir de grilles
 particulières.
 
-Par exemple, un oscillateur à deux états peut être obtenu avec cette grille :
+Par exemple, un oscillateur à deux états peut être obtenu avec cette grille [[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]] :
+
 ```
-[[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]]
+>>> evolution_n_generations([[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]],4)
+
+_ _ _ _ 
+_ O O O 
+O O O _ 
+_ _ _ _ 
+
+_ _ O _ 
+O _ _ O 
+O _ _ O 
+_ O _ _ 
+
+_ _ _ _ 
+_ O O O 
+O O O _ 
+_ _ _ _ 
+
+_ _ O _ 
+O _ _ O 
+O _ _ O 
+_ O _ _ 
+
 ```
 
 Le planeur est un motif qui se déplace jusqu'à disparaître de la grille. Voici
-une grille permettant d'obtenir un planeur qui se répète toutes les quatre
+une grille [[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] permettant d'obtenir un planeur qui se répète toutes les quatre
 générations en s'étant déplacé d'une case vers le bas et d'une case vers 
-la droite à chaque génération :
+la droite :
 
 ```
-[[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+>>> evolution_n_generations([[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],8)
+
+_ _ _ _ _ 
+O _ O _ _ 
+_ O O _ _ 
+_ O _ _ _ 
+_ _ _ _ _ 
+
+_ _ _ _ _ 
+_ _ O _ _ 
+O _ O _ _ 
+_ O O _ _ 
+_ _ _ _ _ 
+
+_ _ _ _ _ 
+_ O _ _ _ 
+_ _ O O _ 
+_ O O _ _ 
+_ _ _ _ _ 
+
+_ _ _ _ _ 
+_ _ O _ _ 
+_ _ _ O _ 
+_ O O O _ 
+_ _ _ _ _ 
+
+_ _ _ _ _ 
+_ _ _ _ _ 
+_ O _ O _ 
+_ _ O O _ 
+_ _ O _ _ 
+
+_ _ _ _ _ 
+_ _ _ _ _ 
+_ _ _ O _ 
+_ O _ O _ 
+_ _ O O _ 
+
+_ _ _ _ _ 
+_ _ _ _ _ 
+_ _ O _ _ 
+_ _ _ O O 
+_ _ O O _ 
+
+_ _ _ _ _ 
+_ _ _ _ _ 
+_ _ _ O _ 
+_ _ _ _ O 
+_ _ 
+
 ```
 
 # Ressources additionnelles
