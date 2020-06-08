@@ -4,7 +4,7 @@ Le jeu de la vie est une modélisation simpliste de la vie de cellules dans
 l'espace. Dans le cadre de cet exercice l'espace sera une grille rectangulaire
 dont chaque case peut contenir au plus une cellule. Chaque case contiendra
 donc soit 0 soit 1 cellule. Les cellules peuvent émerger ou mourir selon des
-critères précis à réévaluer à chaque nouvelle génération :
+critères précis qui sont réévalués à chaque nouvelle génération :
 1. Une cellule émergera dans une case qui possède exactement trois voisines
    avec une cellule.
 2. Une cellule disparaît de sa case si elle est entourée par strictement moins
