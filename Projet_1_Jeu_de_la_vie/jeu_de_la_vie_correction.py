@@ -131,7 +131,8 @@ def evolution_n_generations(grille,n):
         grille=generation_suivante(grille)
         afficher_grille(grille)
     
-
+#evolution_n_generations([[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]],20)
+#evolution_n_generations([[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]],4)
 
 if __name__ == '__main__':
     import doctest
