@@ -42,7 +42,7 @@ tandis que sur la deuxième ligne, seule la première case en possède une.
 ### Construction d'une grille vide
 
 Réalisez une fonction `creer_grille` qui prend en paramètre le nombre de cases
-horizontalement, puis verticalement et qui renvoie une liste de listes
+horizontalement ou nombre de colonnes, puis verticalement ou nombre de lignes, et qui renvoie une liste de listes
 correspondant à une grille du jeu de la vie aux dimensions souhaitées, ne
 contenant aucune cellule.
 
