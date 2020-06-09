@@ -3,7 +3,7 @@
 Le jeu de la vie est une modélisation simpliste de la vie de cellules dans
 l'espace. Dans le cadre de cet exercice l'espace sera une grille rectangulaire
 dont chaque case peut contenir au plus une cellule. Chaque case contiendra
-donc soit 0 soit 1 cellule. Les cellules peuvent émerger ou mourir selon des
+donc soit 0 soit 1 cellule. Les cellules peuvent émerger ou mourir selon trois
 critères précis qui sont réévalués à chaque nouvelle génération :
 1. Une cellule émergera dans une case qui possède exactement trois voisines
    avec une cellule.
@@ -15,7 +15,7 @@ Les voisines prises en compte sont toutes les cases situées immédiatement à
 gauche, à droite, en haut, en bas ou sur les quatre diagonales, si elles existent.
 Une case a donc au plus 8 voisines, moins si elle se situe sur un bord de la grille.
 
-On utilisera les docstrings fournies en plaçant le code ci-dessous pour réaliser les doctests:
+On utilisera les **docstrings** fournies en plaçant le code ci-dessous pour réaliser les doctests:
 
 ```
 if __name__ == '__main__':
