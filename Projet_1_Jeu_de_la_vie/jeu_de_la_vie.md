@@ -55,6 +55,8 @@ def creer_grille(nb_colonnes,nb_lignes):
     """
 ```
 
+Indication : on réalisera une liste de liste par compréhension.
+
 ### Dimensions d'une grille
 
 Réalisez une fonction `hauteur_grille` qui prend en paramètre une grille de
@@ -86,7 +88,7 @@ def largeur_grille(grille):
 La grille créée par la fonction `creer_grille` ne contient aucune cellule.
 Réalisez une fonction `creer_grille_aleatoire` qui prend en paramètre les
 dimensions horizontales et verticales de la grille et une probabilité *p*, qui
-est la probabilité pour une case de la grille d'avoir une cellule.
+est la probabilité pour une case de la grille d'avoir une cellule. On ne proposera pas de docstring dans le cas présent puisque la fonction renvoie un résultat aléatoire néanmoins voici quelques exemples de résultat que l'on peut obtenir.
 
 ```
 >>> creer_grille_aleatoire(3, 2, 1)
@@ -97,12 +99,12 @@ est la probabilité pour une case de la grille d'avoir une cellule.
 [[1, 0, 1], [0, 0, 1]]
 ```
 
-Indication : on pourra utiliser la fonction suivante :
+Indication 1 : on pourra utiliser la fonction suivante qui utilise la fonction random() du module random qui renvoie un réel aléatoire dans [0,1[
 
 ```
 from random import *
 #importation de toutes les fonctions du module random
-#en particulier la fonction random() renvoie un réel dans [0,1[
+#en particulier la fonction random() 
 def aleatoire(probabilite):
     valeur=0
     if random()<probabilite:
@@ -110,6 +112,7 @@ def aleatoire(probabilite):
     return valeur
 ```
 
+Indication 2 : on utilisera le même principe que pour la fonction creer_grille, c'est-à-dire une liste de liste par compréhension.
 
 ### Voisins d'une case
 
@@ -120,7 +123,7 @@ contenant la valeur des cases voisines de la case donnée en paramètre.
 Le nombre de valeurs retournées dans la liste correspond au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille).
 L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant dans l'exemple ci-dessous les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
 
-Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable grille :
+Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale grille, ce qui nous permettra de réaliser des docstrings fonctionnelles :
 ```
 grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
 ```
@@ -140,13 +143,12 @@ def voisins_case(grille,abscisse,ordonnee):
 
 Indications : 
 
-- on peut utiliser l'instruction try_except qui permet de passer au-dessus des éventuelles erreurs de dépassement d'index :
+- on peut utiliser l'instruction try_except qui permet de passer au-dessus d'éventuelles erreurs de dépassement d'index :
 
 ```
 liste=[1,2,3,4]
 print(liste[4])
 >>> IndexError: list index out of range
-
 try:
     print(liste[4])
 except IndexError:
@@ -154,18 +156,17 @@ except IndexError:
 #passe sur l'erreur de dépassement d'index
 ```
 
-- on peut utiliser deux boucles :
+- on peut utiliser deux boucles dont l'une vous est donnée ci-dessous:
 
 ```
 >>> for j in range(-1,2):
-    print(j)
-    
+    print(j) 
 -1
 0
 1
 ```
 
-- écarter la possibilité d'avoir des indices négatifs en effet on aurait des résultats inattendus 
+- il faut penser à écarter la possibilité d'avoir des indices négatifs en effet on aurait des résultats inattendus 
 
 ```
 >>> liste=[1,2,3,4]
@@ -173,11 +174,19 @@ except IndexError:
 3
 ```
 
+- Dans une boucle, pour passer le cas d'une situation problématique, on peut insérer par exemple :
+
+  ```
+              if i==0 and j==0:
+                  continue
+  ```
+
+  ​
+
 ### Nombre de cellules dans le voisinage
 
 Réalisez une fonction `nb_cellules_voisins` qui prend en paramètre une grille
-ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules dans
-les cases voisines de la case passée en paramètre.
+ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes dans les cases voisines de la case passée en paramètre.
 
 ```
 def nb_cellules_voisins(grille,abscisse,ordonnee):
@@ -217,7 +226,7 @@ def afficher_grille(grille):
     """
 ```
 
-On peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`.
+Indication : on peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`. L'ajout d'un espace " " se fait entre deux caractères d'une même ligne mais ni au début ni à la fin d'une ligne ; le passage à la ligne ne se fait pas à la dernière ligne.
 
 ## Évolution d'un jeu de la vie
 ### Génération suivante
@@ -241,12 +250,14 @@ def generation_suivante(grille):
     """
 ```
 
-Pour que les évolutions aient lieu spontanément dans toutes les cellules au même moment, on fera une copie profonde de la grille dans la fonction, on effectuera les modifications sur la copie et on renverra cette copie.
+Pour que les évolutions aient lieu spontanément dans toutes les cellules au même moment, on fera une copie profonde de la grille dans la fonction, on effectuera les modifications sur cette copie et on retournera celle-ci.
 
 ```
 import copy
 copie = copy.deepcopy(grille)
 ```
+
+Indication : on utilisera la fonction  précédente :`nb_cellules_voisins(grille,abscisse,ordonnee)`
 
 ### Évolution au fil de n générations
 
@@ -265,7 +276,9 @@ time.sleep(1.0)
 Quelques motifs récurrents peuvent être obtenus à partir de grilles
 particulières.
 
-Par exemple, un oscillateur à deux états peut être obtenu avec cette grille [[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]] :
+Par exemple, un oscillateur à deux états peut être obtenu avec la grille :
+
+ [[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]] :
 
 ```
 >>> evolution_n_generations([[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]],4)
@@ -292,10 +305,13 @@ _ O _ _
 
 ```
 
-Le planeur est un motif qui se déplace jusqu'à disparaître de la grille. Voici
-une grille [[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] permettant d'obtenir un planeur qui se répète toutes les quatre
-générations en s'étant déplacé d'une case vers le bas et d'une case vers 
-la droite :
+Le planeur est un motif qui se déplace jusqu'à disparaître de la grille. 
+
+Voici une grille : 
+
+[[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] 
+
+permettant d'obtenir un planeur qui se répète toutes les quatre générations en s'étant déplacé d'une case vers le bas et d'une case vers la droite :
 
 ```
 >>> evolution_n_generations([[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],8)
