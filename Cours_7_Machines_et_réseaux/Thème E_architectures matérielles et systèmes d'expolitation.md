@@ -338,5 +338,8 @@ Le **protocole DHCP (Dynamic Host Configuration Protocol)** est un protocole ré
 
 * L'**encapsulation**, pour les réseaux informatiques, est un procédé consistant **à inclure les données d'un protocole dans un autre protocole**. Ainsi un fragment de donnée est encapsulé dans un datagramme UDP qui lui-même est encapsulé dans un paquet IP, ce dernier étant alors envoyé via un protocole de la couche de liaison (par exemple Ethernet). La couche de liaison est responsable de la transmission physique des données ; IP ajoute l'adressage des ordinateurs individuels ; UDP ajoute « l'adressage des applications » (c'est-à-dire le port spécifiant le service comme un service web ou un serveur TFTP). Le modèle OSI et la suite des protocoles Internet utilisent l'encapsulation.
 
+-> Pour simuler un réseau, utilisez le logiciel [Filius](https://pixees.fr/informatiquelycee/n_site/nsi_prem_simReseau1.html).
+
+
 
 
