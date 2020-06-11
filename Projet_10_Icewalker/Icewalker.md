@@ -532,9 +532,15 @@ Sur le lac gelé certaines cases ont dégelé : dès qu'on marche dessus on a pe
 
 ## V. Indications
 
-On crée un fichier grid.py pour définir la classe  `grid`  dans lequel on importe le module grid_square qui définit la classe `case`  que l'on définira dans un deuxième temps.
+On crée un fichier `grid.py` pour définir la classe  `grid`  dans lequel on importe le module `grid_square` qui définit la classe `case`  que l'on définira dans un deuxième temps.
 
-La classe grid possédera les attributs width ; height ; grid qui est la grille elle-même formée des cases définies dans le module grid_square ; nb_players ; all_players qui est un dictionnaire dont les clés sont les numéros de joueurs et les valeurs, les coordonnées de ceux-ci.
+La classe grid possédera les attributs suivants :
+
+- width : la largeur de la grille ;
+- height : la hauteur de la grille ;
+- grid : la grille formée des instances case() définies dans le module grid_square ; 
+- nb_players qui représente le nombre de joueurs
+- all_players qui est un dictionnaire dont les clés seront les numéros de joueurs et les valeurs, les coordonnées de ceux-ci.
 
 On se donne également une série de méthodes à compléter.
 
@@ -555,7 +561,7 @@ class grid:#nouvelle class pour la grille de jeu
             
     def get_case(self, x, y):
         """
-        retourne le contenu de la case de coordonnées x y
+        retourne le contenu de la case de coordonnées x y dans la grille
         """
         pass
     
@@ -578,6 +584,7 @@ class grid:#nouvelle class pour la grille de jeu
         pass
     
     # players management
+    
     def get_nb_players(self):
         """
         retourne le nombre de joueurs présents sur la grille
@@ -588,7 +595,7 @@ class grid:#nouvelle class pour la grille de jeu
         """
         incrémente (augmente de 1) le nombre de joueurs présents sur la grille
         """
-        #ajouter un joueur        
+        pass        
      
     def get_all_players(self):
         """
@@ -701,8 +708,6 @@ print(str(G))
 
 ```
 
-
-
 Étape 1 : créer et afficher la grille
 
 Une grille est caractérisée par sa largeur width et sa hauteur height. 
@@ -712,24 +717,12 @@ Ce seront deux attributs d'instance donnés en paramètre.
 On se donne également comme attributs de la classe Grid 
 
 - la grille elle-même : grid, une liste définie par compréhension.
+
 - le nombre de joueurs : nb_players, un entier
+
 - tous les joueurs sous la forme d'une bibliothèque : all_players
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  **grid_square.py**
 
 ```python
 
@@ -818,7 +811,7 @@ class case:#nouvelle classe pour une case de la grille
 
 ```
 
-
+**main.py**
 
 ```python
 #importation
