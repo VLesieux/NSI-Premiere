@@ -111,12 +111,15 @@ def test_dir_valide(configuration,coordonnees,direction,joueur):
     y=coordonnees[1]-1
     direction_x=direction[0]
     direction_y=direction[1]
-    while y+direction_y>=0 and y+direction_y<len(configuration) and x+direction_x>=0 and x+direction_x<len(configuration[0]) and configuration[y+direction_y][x+direction_x]==3-joueur:
-        liste.append((y+direction_y,x+direction_x))
-        x,y=x+direction_x,y+direction_y
-    if len(liste)>0 and liste[-1][0]+direction_y>=0 and liste[-1][0]+direction_y<len(configuration) and liste[-1][1]+direction_x>=0 and liste[-1][1]+direction_x<len(configuration) and configuration[liste[-1][0]+direction_y][liste[-1][1]+direction_x]==joueur:
-        return True
-    return False
+    try:
+        while configuration[y+direction_y][x+direction_x]==3-joueur:
+            liste.append((y+direction_y,x+direction_x))
+            x,y=x+direction_x,y+direction_y
+        if configuration[liste[-1][0]+direction_y][liste[-1][1]+direction_x]==joueur:
+            return True
+        return False
+    except IndexError:
+        return False
 
 def est_coup_possible(configuration,joueur):
     """
@@ -131,7 +134,6 @@ def est_coup_possible(configuration,joueur):
     >>> est_coup_possible(config,JOUEUR_BLANC)
     False
     """    
-    coups_possibles=[]
     directions=[(0,1),(0,-1),(1,0),(-1,0),(-1,-1),(1,-1),(1,1),(-1,1)]
     for i in range(1,9):
         for j in range(1,9):
@@ -145,7 +147,7 @@ def est_coup_possible(configuration,joueur):
 def est_jeu_fini(configuration):
     """
     : renvoie si le jeu est fini ou non
-    : param : configuration (list) 
+    : param : configuration : list
     : return : bool
     >>> config = creer_config_init()
     >>> est_jeu_fini(config)
@@ -186,6 +188,7 @@ def coup_joueur(configuration,joueur,choix):
     : param : configuration (list)
     : param : joueur (str) 
     : return : tuple
+    
     """  
     if choix=="1":
         poursuite=False
@@ -287,8 +290,7 @@ def incrementer_config(configuration,case,joueur):
     6 · · · · · · · · 
     7 · · · · · · · · 
     8 · · · · · · · · 
-    """    
-  
+    """     
     x=case[0]-1
     y=case[1]-1
     directions=[(0,1),(0,-1),(1,0),(-1,0),(-1,-1),(1,-1),(1,1),(-1,1)]
@@ -356,16 +358,6 @@ def creer_liste_configs_suivantes(config, joueur):
     6 · · · · · · · · 
     7 · · · · · · · · 
     8 · · · · · · · · 
-    >>> afficher_config(creer_liste_configs_suivantes(s, JOUEUR_NOIR)[0])      
-      1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · ■ · · · · 
-    4 · · · ■ ■ · · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
     '''
     liste_configs_suivantes = []
     liste = creer_liste_coups_possibles(config, joueur)
@@ -382,7 +374,7 @@ def creer_liste_configs_suivantes(config, joueur):
 
 def evaluation(config,joueur):
     '''
-    Fonction INTERNE qui prend en paramètre la configutaion du
+    Fonction INTERNE qui prend en paramètre la configuration du
     jeu et le joueur courant. Elle retourne une valeur image
     de la qualité du coup proposé.
     -   paramètres: config (liste) configuration du jeu
@@ -449,6 +441,9 @@ def compte_pions(config, joueur):
     -   paramètres: config (liste) configuration du jeu
                     joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
     -   return: nb_pion (int) nombre du pions du joueur.
+    >>> s = creer_config_init()
+    >>> compte_pions(s, JOUEUR_NOIR)
+    2
     '''
     nb_pion = 0
     for y in range(8):
@@ -464,6 +459,16 @@ def afficher_fin(config, joueur):
     -   paramètres: config (liste) configuration du jeu
                     joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
     -   return: rien
+    >>> s = creer_config_init()
+    >>> afficher_fin(s,JOUEUR_NOIR)
+    ====================
+      Egalité 
+    ====================
+    >>> s1=incrementer_config(s,(3,4),JOUEUR_NOIR)
+    >>> afficher_fin(s1,JOUEUR_NOIR)
+    ====================
+    Le gagnant est JOUEUR_NOIR
+    ====================
     '''
     print("====================")
     nb_pion_joueur = compte_pions(config, joueur)
