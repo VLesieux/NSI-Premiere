@@ -300,13 +300,16 @@ def incrementer_config(configuration,case,joueur):
         liste=[]
         x=case[0]-1
         y=case[1]-1
-        while y+direction_y>=0 and y+direction_y<len(configuration) and x+direction_x>=0 and x+direction_x<len(configuration[0]) and configuration[y+direction_y][x+direction_x]==3-joueur:
-            x,y=x+direction_x,y+direction_y
-            liste.append((y,x))
-        if len(liste)>0 and liste[-1][0]+direction_y>=0 and liste[-1][0]+direction_y<len(configuration) and liste[-1][1]+direction_x>=0 and liste[-1][1]+direction_x<len(configuration) and configuration[liste[-1][0]+direction_y][liste[-1][1]+direction_x]==joueur:            
-            configuration[case[1]-1][case[0]-1]=joueur
-            for element in liste:
-                configuration[element[0]][element[1]]=joueur
+        try:
+            while configuration[y+direction_y][x+direction_x]==3-joueur:
+                x,y=x+direction_x,y+direction_y
+                liste.append((y,x))
+            if configuration[liste[-1][0]+direction_y][liste[-1][1]+direction_x]==joueur:            
+                configuration[case[1]-1][case[0]-1]=joueur
+                for element in liste:
+                    configuration[element[0]][element[1]]=joueur
+        except IndexError:
+            pass
     return configuration
 
 
