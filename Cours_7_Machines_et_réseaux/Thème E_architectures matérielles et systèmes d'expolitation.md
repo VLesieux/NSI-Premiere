@@ -9,7 +9,7 @@
 
 > À voir</u> : [Le modèle de la machine de Turing](https://interstices.info/le-modele-turing/)   
 
-         
+
 > À étudier</u> : [Comment fonctionne une machine de Turing ?](https://interstices.info/comment-fonctionne-une-machine-de-turing/)   
 **on fera fonctionner la simulation sur les exemples donnés pour comprendre le fonctionnement de la machine de Turing**
 
@@ -250,11 +250,14 @@ Pour un fichier : `chmod [u g o a] [+ - =] [r w x] nom du fichier`. Les modes so
 Les permissions sont : `r` : autorisation de lecture (read), `w` : autorisation d'écriture
 (write), autorisation d'exécution `x` (execute).  
 Pour un dossier, il faut ajouter -R, par exemple : `chmod -R a+rx mon_dossier` donne à tous les utilisateurs les droits en écriture et en exécution à tout ce que contient le dossier `mon_dossier`.
- 
+
 <u>Exemple 1</u> : considérons la suite de commandes :  
 
 ```python
-lsentier.py flottant.py readme.mdmkdir foomv *.py foo
+ls
+entier.py flottant.py readme.md
+mkdir foo
+mv *.py foo
 ```
 On commence par explorer le contenu du répertoire courant avec la commande `ls` et on trouve trois fichiers donc deux fichiers python à l'extension py et un fichier markdown à l'extension md ; on crée ensuite un dossier foo avec la commande `mkdir` et on place dans ce dossier tous les fichiers pythons de sorte que le dossier foo contient maintenant deux fichiers d'extension .py
 
@@ -277,7 +280,10 @@ Si maintenant on suppose que l'on ait dans le répertoire `sauvegardes`, on écr
 <u>Exemple 4</u> : considérons la suite de commandes :
 
 ```python
-cdlsDocuments Images Videos help.txt tutorial.txt script.pymv *.txt Documents
+cd
+ls
+Documents Images Videos help.txt tutorial.txt script.py
+mv *.txt Documents
 ```
 
 La dernière commande permet de déplacer tous les fichiers possédant l'extension txt, c'est-à-dire les fichiers help.txt et tutorial.txt, dans le dossier Documents.
@@ -285,7 +291,9 @@ La dernière commande permet de déplacer tous les fichiers possédant l'extensi
 <u>Exemple 5</u> : considérons la suite de commandes :
 
 ```python
-cd ~cd seances/tpmv exercice.txt ./../../exercice.txt
+cd ~
+cd seances/tp
+mv exercice.txt ./../../exercice.txt
 ```
 
 Le fichier `exercice.txt` se retrouve finalement dans le répertoire racine `~`.
@@ -309,7 +317,7 @@ Si à la suite on lit une autre ligne par exemple `drwxrwxrwx` la présence du `
 # 6. Transmission des données dans un réseau
 
 À lire : [Transmission des données dans un réseau ](reseau.pdf).    
-  
+
 
 ### Ce qu'il faut retenir :
 
@@ -338,7 +346,18 @@ Le **protocole DHCP (Dynamic Host Configuration Protocol)** est un protocole ré
 
 * L'**encapsulation**, pour les réseaux informatiques, est un procédé consistant **à inclure les données d'un protocole dans un autre protocole**. Ainsi un fragment de donnée est encapsulé dans un datagramme UDP qui lui-même est encapsulé dans un paquet IP, ce dernier étant alors envoyé via un protocole de la couche de liaison (par exemple Ethernet). La couche de liaison est responsable de la transmission physique des données ; IP ajoute l'adressage des ordinateurs individuels ; UDP ajoute « l'adressage des applications » (c'est-à-dire le port spécifiant le service comme un service web ou un serveur TFTP). Le modèle OSI et la suite des protocoles Internet utilisent l'encapsulation.
 
--> Pour simuler un réseau, utilisez le logiciel [Filius](https://pixees.fr/informatiquelycee/n_site/nsi_prem_simReseau1.html).
+-> Pour simuler un réseau, utilisez le logiciel Filius
+
+1) Réalisez l'architecture d'un réseau en plaçant deux ordinateurs Notebook ; donnez-leur des noms simples M1 et M2 et des adresses IP simples : 192.168.0.1 et  192.168.0.2 ; les relier par un câble Ethernet puis passer en mode simulation (triangle vert). En cliquant sur une machine, on ouvre une fenêtre qui permet d'utiliser un logiciel sur un ordinateur ; on utilise la console Command Line pour écrire des lignes de commande : ipconfig pour vérifier l'IP de la machine, puis on envoie un ping sur la  machine M2 en renseignant son adresse IP. Les échanges de packets sont visibles par le changement de couleur du câble réseau. Supprimons maintenant le câble et plaçons un troisième ordinateur d'IP 192.168.0.3 ; relions les trois ordinateurs à l'aide d'un switch ; faire maintenant un ping depuis M1 vers M3.
+
+2) Réaliser deux réseaux comportant chacun trois machines (M1,M2,M3) et (M4,M5,M6) et deux Switch R1 et R2 ; l'adresse réseau de R1 est 192.168.1.0 et celle de R2 est 192.168.2.0. Relier les deux réseaux grâce à un Routeur. En cliquant sur le Routeur, renseigner l'adresse IP 192.168.1.254 pour le réseau R1 et 192.168.2.254  pour le réseau R2. Sélectionner 'automatic rooting' pour que le routeur gère automatiquement les tables de routage ; puis pour chaque machine du réseau R1 et pour chaque machine du réseau R2, renseigner le Gateway correspondant à l'adresse IP du routeur. Testons l'architecture en faisant un ipconfig sur une machine pour voir l'IP du routeur puis en réalisant un ping entre deux machines n'appartenant pas au même réseau; utiliser la commande Traceroute pour suivre le chemin suivi par un paquet de données.
+
+3) Ajouter maintenant un ordinateur Computeur que l'on nomme "Serveur DNS" en le câblant au routeur ; renseigner l'IP 192.168.3.1 et le Gateway 192.168.3.254 ; puis en cliquant sur le Router après connexion ajouter l'adresse IP 192.168.3.254. Puis en cliquant sur la machine M1 changer Domain Name Serveur en lui donnant l'adresse IP 192.168.3.1. Cliquer sur l'ordinateur Serveur DNS et installer le logiciel DNS server ; donner le nom de domaine M4 et l'adresse IP 192.168.2.1, add puis start. À partir de M1 maintenant, écrire directement ' ping M4 '.
+
+4) Ajouter maintenant un ordinateur Computeur que l'on nomme "Serveur Web" à un réseau constitué de deux ordinateurs M1 et M2 en connectant ces trois machines à l'aide d'un Switch ; cliquer sur la machine Serveur Web pour installer les logiciels File explorer, Texteditor et Webserveur ; créer une page web simple avec l'éditeur ; à partir de la machine M1 , installer un Webbrowser et visualiser la page en écrivant l'url correspondant à l'IP du Serveur Web.
+
+
+
 
 
 
