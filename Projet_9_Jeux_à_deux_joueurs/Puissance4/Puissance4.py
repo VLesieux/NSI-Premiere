@@ -2,7 +2,6 @@ JOUEUR_NOIR=1
 JOUEUR_BLANC=2
 PROFONDEUR = 3
 
-import random
 import main
 import copy
 
@@ -121,6 +120,23 @@ def incrementer_config(jeu,colonne,joueur):
       ■ □ · · · · · 
       ■ □ · · · · · 
       ■ □ · · · · · 
+    >>> config2 = [[1, 0, 0, 0, 0, 0, 0], [2, 2, 0, 2, 0, 0, 0], [1, 1, 2, 1, 0, 0, 0], [1, 2, 2, 2, 0, 0, 0], [2, 2, 1, 1, 0, 0, 0], [1, 1, 2, 1, 1, 0, 1]]
+    >>> afficher_config(config2)
+      1 2 3 4 5 6 7
+      ■ · · · · · · 
+      □ □ · □ · · · 
+      ■ ■ □ ■ · · · 
+      ■ □ □ □ · · · 
+      □ □ ■ ■ · · · 
+      ■ ■ □ ■ ■ · ■ 
+    >>> afficher_config(incrementer_config(config2,6,JOUEUR_NOIR))
+      1 2 3 4 5 6 7
+      ■ · · · · · · 
+      □ □ · □ · · · 
+      ■ ■ □ ■ · · · 
+      ■ □ □ □ · · · 
+      □ □ ■ ■ · · · 
+      ■ ■ □ ■ ■ ■ ■ 
     """
     if test_valide(jeu,colonne,joueur):
         ligne=6
@@ -217,7 +233,7 @@ def est_jeu_gagnant(configuration,joueur):
       ■ ■ □ ■ ■ · ■ 
     >>> est_jeu_gagnant(config5,JOUEUR_NOIR)
     True
-        >>> config6 = [[2, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 1, 2, 1, 0, 0, 0], [1, 2, 2, 2, 0, 0, 0], [2, 1, 1, 1, 0, 0, 0], [1, 1, 2, 1, 1, 0, 1]]
+    >>> config6 = [[2, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0], [1, 1, 2, 1, 0, 0, 0], [1, 2, 2, 2, 0, 0, 0], [2, 1, 1, 1, 0, 0, 0], [1, 1, 2, 1, 1, 0, 1]]
     >>> afficher_config(config6)
       1 2 3 4 5 6 7
       □ · · · · · · 
@@ -243,8 +259,7 @@ def est_jeu_gagnant(configuration,joueur):
     True
     >>> est_jeu_gagnant(incrementer_config(config3,5,JOUEUR_BLANC),JOUEUR_BLANC)
     True
-    """ 
-    #test vertical
+    """
     try:
         for ligne in range(6):
             for colonne in range(7):
@@ -406,15 +421,18 @@ def evaluation(config,joueur):
       □ □ ■ ■ · · · 
       ■ ■ □ ■ ■ · ■ 
     >>> evaluation(config2,JOUEUR_NOIR)
-    -4600
+    2000
     '''
     val = 0
-    for ligne in range(2,6):
-        for colonne in range(2,7):
-            if config[ligne-1][colonne-1] == joueur:
-                val += 100
+#   A REVOIR
+#    for ligne in range(2,6):
+#        for colonne in range(2,7):
+#            if config[ligne-1][colonne-1] == joueur:
+#                val += 100
     for colonne in range(1,8):
         if test_valide(config,colonne,joueur) and est_jeu_gagnant(incrementer_config(config,colonne,joueur),joueur):
+                val += 1000
+        if test_valide(config,colonne,incrementer_joueur(joueur)) and est_jeu_gagnant(incrementer_config(config,colonne,incrementer_joueur(joueur)),incrementer_joueur(joueur)):
                 val -= 1000
     return val
 
