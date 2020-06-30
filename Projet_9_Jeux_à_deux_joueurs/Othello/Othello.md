@@ -57,25 +57,23 @@ if __name__ == "__main__":
 
 Il faut mettre en œuvre un module Othello.py qui permette:
 
-* de jouer aux jeux à deux joueurs avec le jeu d'Othello en utilisant un import du programme `main.py.`
-
-* Il faudra définir dans le module la mise en œuvre du jeu Othello en utilisant les ressources fournies ci-dessous.
-
+* de jouer aux jeux à deux joueurs avec le jeu d'Othello en utilisant un import du programme `main.py`
+* Il faudra réaliser dans le module `Othello.py` la mise en œuvre du jeu Othello en utilisant les ressources fournies ci-dessous.
 * À l'issue de cette phase on doit pouvoir jouer au jeu dans une version  *humain contre humain* par des saisies au clavier du coup joué.
-
 * On peut aussi envisager de faire des parties  *humain contre aléatoire*, le deuxième joueur étant géré par le programme qui joue aléatoirement.
+* On peut enfin utiliser un algorithme appelé `min-max` permettant à l'ordinateur de jouer le meilleur coup selon des critères imposés.
 
 ## Présentation du jeu
 
 #### Objectif:
 
-Othello se joue à 2 joueurs, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la ***situation de départ*** est indiquée ci-dessous et les noirs commencent.  :
+Othello se joue à 2 joueurs, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la ***situation de départ*** est indiquée ci-dessous et les noirs commencent  :
 
 ![jeu](imgs/othello1.png)
 
 #### Règles:
 
-Chacun son tour, les joueurs vont poser un pion de leur couleur sur une case vide, adjacente à un pion adverse. Chaque pion posé doit obligatoirement encadrer un ou plusieurs pions adverses avec un autre pion de sa couleur, déjà placé.  Il retourne alors le ou les pions adverse(s) qu'il vient d'encadrer. Les pions ne sont ni retirés de l'othellier, ni déplacés d'une case à l'autre.  
+Chacun son tour, les joueurs vont poser un pion de leur couleur sur une case vide adjacente à un pion adverse. Chaque pion posé doit obligatoirement encadrer un ou plusieurs pions adverses avec un autre pion de sa couleur déjà placé.  Il retourne alors le ou les pions adverse(s) qu'il vient d'encadrer. Les pions ne sont ni retirés de l'othellier, ni déplacés d'une case à l'autre.  
 
 On peut encadrer des pions adverses dans les huit directions et plusieurs pions peuvent être encadrés dans chaque direction.
 
@@ -128,7 +126,7 @@ Cette liste de 8 sur 8 représente le plateau de début de partie avec uniquemen
 
 ***Travail à faire***
 
-* Réaliser une fonction `creer_config_init` qui ne prend pas de paramètres et qui renvoie une liste de liste correspondant à la configuration de départ du jeu.
+* Réaliser une fonction `creer_config_init` qui ne prend pas de paramètres et qui renvoie une liste de liste correspondant à la configuration initiale du jeu.
 
 ```python
 def creer_config_init():
@@ -144,7 +142,7 @@ def creer_config_init():
 * Réaliser une fonction `afficher_config` qui prend en paramètre la liste de liste représentant la configuration courante du jeu.  Cette fonction affiche le plateau dans le shell:
 
 ```python
-def afficher_config(jeu):
+def afficher_config(configuration):
     """
     : Affiche la situation courante du jeu
     : param : list
