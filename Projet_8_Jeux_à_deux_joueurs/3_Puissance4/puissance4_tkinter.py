@@ -26,7 +26,6 @@ limites=[(i,(40*i+30,40*i+50)) for i in range(1,8)]
 
 
 def detec_clic(event):
-    global choix_colonne
     x , y = event.x, event.y
     if y>=20 and y<=40:
         for valeurs in range(len(limites)):
