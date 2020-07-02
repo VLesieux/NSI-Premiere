@@ -1,4 +1,4 @@
-import Puissance4 as jeu
+import puissance4_tkinter as jeu
 
 JOUEUR1 = 1
 JOUEUR2 = 2
