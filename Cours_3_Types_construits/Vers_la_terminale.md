@@ -113,7 +113,8 @@ for i in range(0,8,2):
 On considère une ensemble E de 9 éléments : E={e<sub>1</sub>,e<sub>2</sub>,e<sub>3</sub>,...,e<sub>8</sub>,e<sub>9</sub>}.
 On définit une application σ qui transforme E en l'ensemble : 
 E<sub>1</sub>={e<sub>5</sub>,e<sub>9</sub>,e<sub>3</sub>,e<sub>6</sub>,e<sub>1</sub>,e<sub>4</sub>e<sub>2</sub>,e<sub>7</sub>,e<sub>8</sub>}.
-σ est une permutation et on peut noter E<sub>1</sub>=σ(E).
+σ est une permutation et on peut noter E<sub>1</sub>=σ(E).  
+
 Une notation matricielle de σ est alors : 
 
 <img width="200" height="200" src="assets/matrice_exercice_cour3_vers_terminale.png">. 
