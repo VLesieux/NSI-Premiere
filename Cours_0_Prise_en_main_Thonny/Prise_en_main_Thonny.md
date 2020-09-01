@@ -6,7 +6,7 @@ Thonny est un *environnement de développement intégré* (EDI ou IDE en anglais
 débutant en Python.
 
 
-La dernière version disponible à ce jour (avril 2019) est la 3.1.2.
+La dernière version disponible à ce jour (septembre 2020) est la 3.7.
 
 Sites officiels :
 
