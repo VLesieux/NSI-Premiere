@@ -2,8 +2,7 @@
 
 
 Thonny est un *environnement de développement intégré* (EDI ou IDE en anglais pour 
-*Integrated Development Environment*) qui a été particulièrement bien conçu pour les programmeurs 
-débutant en Python.
+*Integrated Development Environment*) qui a été particulièrement bien conçu pour les programmeurs débutant en Python.
 
 
 La dernière version disponible à ce jour (septembre 2020) est la 3.7.
@@ -19,7 +18,7 @@ Sites officiels :
 ## Utilisation de base
 Lorsqu'on lance Thonny la première fois, on découvre une fenêtre avec sa barre de menus usuels, une rangée de boutons, et deux panneaux correspondant à
 
-* l'éditeur (onglet nommé `<untitled>`)
+* l'éditeur (onglet nommé initialement `<untitled>`)
 * l'interpréteur (onglet nommé `Shell`)
 
 ![vue sur Thonny](assets/thonny.png)
@@ -30,8 +29,8 @@ Le *shell* est la zone dans laquelle l'utilisateur intéragit/dialogue avec l'in
 ### Dialogue avec l'interpréteur
 
 L'*invite de commande* (ou prompt) `>>>` attend une instruction. Une instuction doit être écrite sur une seule ligne sauf si 
-* elle est parenthésée (liste, tuples, dictionnaires, chaînes de caractères avec triple délimiteur)
-* elle est composée : instructions conditionnelles, itérations
+* elle est parenthésée (liste : [], tuples : (), dictionnaires : {}, chaînes de caractères avec triple délimiteur : ''' ''')
+* elle est composée : instructions conditionnelles (if ...) , itérations (for ...)
 
 ### L'explorateur de variables
 
@@ -43,8 +42,8 @@ L'*invite de commande* (ou prompt) `>>>` attend une instruction. Une instuction 
 
 ### Facilités de dialogue 
 
-* utilisation historique via la flèche haut 
-* complétion automatique via la touche TAB (sera revue avec l'éditeur)
+* utilisation historique via la flèche haut du clavier
+* complétion automatique via la touche TAB du clavier (sera revue avec l'éditeur)
 * possibilité de «nettoyer» le shell via clik droit option `clear`
 
 ## L'éditeur
@@ -53,13 +52,13 @@ L'éditeur permet la rédaction de *scripts* (fichiers contenant du code Python)
 ### Avantages de l'éditeur
 
 * effectue une sauvegarde à chaque exécution (demande un nom de fichier si 1ère exécution) => toute modification est sauvegardée
-* coloration syntaxique :
+* coloration syntaxique permettant de visualiser des erreurs :
   * des mots clés du langage (`def`, `if`, `for`, `while`, `True`, `False` ...)
   * des constantes litérales (couleurs distinctes pour nombres et chaînes de caractères)
   * coloration des régions marqués par un délimiteur ouvert mais non fermé (chaines de caractères, listes, tuples, dictionnaires, ...)
 * indentation automatique lorsque nécessaire
 * complétion automatique avec la touche TAB => favorise l'utilisation de noms longs pour les paresseux
-* visualisation portée des variables
+* visualisation de la portée des variables
 
 ### Exécution d'un script, plusieurs possibilités
 
@@ -81,27 +80,32 @@ Si le script vient d'être créé (onglet nommé `<untitled>`), boîte de dialog
 ### Illustration de ces points avec suite Syracuse
 cf fichier [demo_syracuse.py](demo_syracuse.py)
 
-Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir qu'il s'agit d'une suite de valeurs construite à partir d'une valeur initiale ; pour obtenir la valeur suivante on divise la valeur initiale par 2 si celle-ci est paire, et on la multiplie par 3 en lui ajoutant 1 si la valeur initiale est impaire ; il s'avère qu'au bout d'un certain moment la suite atteint toujours la valeur 1 et finit par se répèter indéfiniment (1,4,2,1,4,2…).
+Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir qu'il s'agit d'une suite de valeurs construite à partir d'une valeur initiale ; pour obtenir la valeur suivante on divise la valeur initiale par 2 si celle-ci est paire, et on la multiplie par 3 en lui ajoutant 1 si la valeur initiale est impaire ; il s'avère qu'au bout d'un certain temps la suite atteint toujours la valeur 1 puis finit par se répèter indéfiniment (1,4,2,1,4,2…).
 
 * commencer par écrire la première fonction `syracuse` sans docstring. Profiter de 
   l'ouverture de la parenthèse des paramètres pour souligner la coloration syntaxique (en gris).
+  
 * exécuter => il faut donner un nom au script (qui change l'intitulé de l'onglet) => il ne se passe rien dans le shell. 
   
-  ATTENTION pour la suite (docstring) il ne faut pas nommer le script du même nom qu'une des fonctions.
+  ATTENTION pour la suite (docstring) il ne faut jamais nommer le script du même nom qu'une des fonctions.
   
   Noter que dans la vue sur les variables, les variables précédemment définies ont disparues, et un seul  nom est défini : `syracuse` de valeur `<function syracuse at ...>`
   
   => on travaille toujours dans un environnement de variables «propre» : celui des définitions du script plus éventuellement quelques variables définies dans la session en cours  
-* dans le shell utiliser la fonction `syracuse`  en faisant par exemple syracuse(3)
-* dans l'éditeur écrire le deuxième fonction `terme_syracuse` sans docstring. Profiter de la complétion pour écrire l'appel à `syracuse`. 
-* observer le surlignement des identificateurs identiques en plaçant le curseur sur l'un d'eux (par exemple syracuse, u, res) => portée des variables
-* exécuter (pas besoin de redonner un nom au script) => il ne se passe rien 
-*  Observer la vue sur les variables
-* dans le shell utiliser la foncton `terme_syracuse` ; contruire une liste de valeurs pour n=10 et a compris entre 1 et 10
+  
+* dans le Shell utiliser la fonction `syracuse`  en faisant par exemple syracuse(3) 
+
+* dans le Shell utiliser la complétion automatique pour appeler la fonction `terme_syracuse` ; contruire la liste des valeurs partant de 9 en écrivant dans le Shell :
+
+  `[terme_syracuse(9,i) for i in range(1,30)]`
+
 * écrire la troisième fonction `atterrissage_syracuse` sans docstring.
-* exécuter une nouvelle fois
-* essayer quelques appels à cette dernière fonction avec des termes initiaux strictement positifs
-* essayer avec 0 => calcul infini => nécessité d'interrompre le calcul => deux solutions 
+
+* exécuter dans le Shell `atterrissage_syracuse(9)` 
+
+* exécuter dans le Shell  [atterrissage_syracuse(a) for a in range(1,10)]. À quoi cela correspond ?
+
+* essayer avec 0 => calcul infini : pourquoi ? => nécessité d'interrompre le calcul => deux solutions 
   - usage du bouton panneau  stop (en haut en rouge)
   - usage de la combinaison Ctrl+C au clavier
   les issues ne sont pas identiques : 
@@ -118,7 +122,7 @@ Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir 
 
 ## Localiser une erreur 
 
-* dans le shell taper la commande `syracuse('3')` => cela se passe mal : plusieurs lignes rouges sont écrites ! Elles se lisent de bas en haut.
+* dans le shell taper la commande `syracuse('3')` => cela se passe mal, pourquoi ? : plusieurs lignes rouges sont écrites ! Elles se lisent de bas en haut.
 * dernière ligne : une exception est déclenchée portant le nom de `TypeError`
 * ligne du dessus la ligne de code ayant déclenché l'exception
 * ligne du dessus lien vers le fichier et la ligne de ce fichier contenant ce code
@@ -241,5 +245,5 @@ ok
 2 passed and 1 failed.
 ***Test Failed*** 1 failures.
   ```
-  
+
 Le module  `doctest  ` permet donc de révéler des erreurs dans notre code par rapport à nos attentes et s'avère un outil indispensable pour le programmeur.
