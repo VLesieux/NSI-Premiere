@@ -103,7 +103,11 @@ Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir 
 
 * exécuter dans le Shell `atterrissage_syracuse(9)` 
 
-* exécuter dans le Shell  [atterrissage_syracuse(a) for a in range(1,10)]. À quoi cela correspond ?
+* exécuter dans le Shell  :
+
+  `[atterrissage_syracuse(a) for a in range(1,10)]`
+
+   À quoi cela correspond ?
 
 * essayer avec 0 => calcul infini : pourquoi ? => nécessité d'interrompre le calcul => deux solutions 
   - usage du bouton panneau  stop (en haut en rouge)
