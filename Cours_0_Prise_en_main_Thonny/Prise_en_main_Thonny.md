@@ -155,8 +155,8 @@ Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir 
       renvoie le terme suivant u d'une suite de Syracuse
     
       :param u: (int) entier quelconque
-	    :return: (int)
-	    :CU: aucune
+      :return: (int)
+      :CU: aucune
     
       >>> syracuse(0)
       0
