@@ -83,7 +83,7 @@ False
 
 ## Exercice 6
 
-Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random (à importer) après avoir recherché sa documentation.
+Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random (voir deux manières d'importer la fonction) après avoir recherché sa documentation.
 
 ## Exercice 7
 
