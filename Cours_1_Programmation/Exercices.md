@@ -1,4 +1,4 @@
-# Exercices de programmation en Python : [solutions](https://drive.google.com/file/d/1Pc9iHY-0_OENd-HemMCoXgSdWJLPSGRQ/view?usp=sharing)
+# Exercices de programmation en Python
 
 Il est demandé d'écrire les docstring pour toutes les fonctions en utilisant les résultats escomptés en sortie lorsque ceux-ci sont donnés.
 
