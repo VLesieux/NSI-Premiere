@@ -121,6 +121,7 @@ On utilise le module Turtle que l'on importera dans sa totalité, on utilise les
 1. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Les carrés sont inclus les uns dans les autres et ont un sommet commun. On définira une fonction _carre_ admettant le paramètre _n_ chargée de représenter un carré de côté _n_.
 2. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Chaque carré est incliné de 18 degrés par rapport au précédent et les carrés ont un sommet commun.
 
+<img width="400" height="400" src="assets/turtle.png">
 
 ## Exercice 10
 
