@@ -1,4 +1,13 @@
 # Exercices de programmation en Python : [solutions](https://drive.google.com/file/d/1Pc9iHY-0_OENd-HemMCoXgSdWJLPSGRQ/view?usp=sharing)
+
+Il est demandé d'écrire les docstring pour toutes les fonctions en utilisant les résultats escomptés en sortie lorsque ceux-ci sont donnés.
+
+```Python
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+```
+
 ## Exercice 1
 
 Soit le code suivant. Déterminer la valeur finale de x. Utiliser un papier et un stylo.
@@ -27,34 +36,83 @@ Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas.
 
 ## Exercice 3
 
-Écrire une fonction qui prend en paramètre un entier strictement positif k et renvoie la somme des k premiers carrés non nuls.
+Écrire une fonction `somme_premiers_carre` qui prend en paramètre un entier strictement positif k et renvoie la somme des k premiers carrés non nuls : `1+2**2+3**3+.....k*k`.
 
+```Python
+>>> print(somme_premiers_carre(3))
+14
+```
 
 ## Exercice 4
 
-1. Écrire une fonction _somme_diviseur_ qui prend en paramètre un entier naturel non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple.
+1. Écrire une fonction _somme_diviseur_ qui prend en paramètre un entier naturel non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
+
+```Python
+>>> print(somme_diviseurs(9))
+13
+```
+
 2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à 2n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel non nul et renvoie True s'il est parfait et False sinon.
-3. Déterminer les nombres parfaits inférieurs à 100 puis les trois premiers nombres parfaits.
+
+```Python
+>>> est_parfait(6)
+True
+```
+
+3. Déterminer (sans écrire de fonction spécifique) les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
 
 
 ## Exercice 5
 
-1. Écrire une fonction _est_premier_ qui prend en paramètre un nombre entier et renvoie True si ce nombre est premier et False sinon. Un nombre premier est un nombre qui ne peut être divisé que par 1 et par lui-même.
-2. Écrire une fonction _premiers_ qui prend en parmètre un nombre entier et renvoie la liste de tous les nombres premiers inférieurs strictement à ce nombre.
+1. Écrire une fonction _est_premier_ qui prend en paramètre un nombre entier et renvoie True si ce nombre est premier et False sinon. Un nombre premier est un nombre qui ne peut être divisé que par 1 et par lui-même. 
+
+```Python
+>>> est_premier(13)
+True
+>>> est_premier(6)
+False
+```
+
+2. Écrire une fonction _premiers_ qui prend en paramètre un nombre entier et renvoie la liste de tous les nombres premiers inférieurs strictement à ce nombre. 1 n'est pas considéré comme premier.
+
+```Python
+>>> premiers(10)
+[2, 3, 5, 7]
+```
+
 
 ## Exercice 6
 
-Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random après avoir recherché sa documentation.
+Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random (à importer) après avoir recherché sa documentation.
 
 ## Exercice 7
 
-Écrire une fonction _double_ qui prend en argument un mot et renvoie le mot obtenu en doublant chaque lettre du mot. Par exemple double("bon") donne "bboonn".
+Écrire une fonction _double_ qui prend en argument un mot et renvoie le mot obtenu en doublant les unes après les autres chaque lettre du mot. 
+
+```Python
+>>> double('bon')
+'bboonn'
+```
+
+On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot.
 
 ## Exercice 8
 
 1. Écrire une fonction qui prend en argument un mot et renvoie True si le mot commence ou se termine par la même lettre et False sinon.
-2. Écrire une fonction qui prend en argument deux mots et renvoie True si les deux mots commencent par la même lettre et se terminent par la même lettre et False sinon.
 
+```Python
+>>> a_meme_debut_et_fin("tout")
+True
+```
+
+2. Écrire une fonction qui prend en argument deux mots et renvoie True si les deux mots commencent par la même lettre et se terminent également par la même lettre et False sinon.
+
+```Python
+>>> meme_debut_et_fin("tomba","tonna")
+True
+>>> meme_debut_et_fin("tombai","tonna")
+False
+```
 
 ## Exercice 9
 
