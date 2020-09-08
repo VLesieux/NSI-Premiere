@@ -119,13 +119,21 @@ False
 
 On utilise le module Turtle que l'on importera dans sa totalité, on utilise les fonctions forward, left après avoir lu leur documentation.
 1. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Les carrés sont inclus les uns dans les autres et ont un sommet commun. On définira une fonction _carre_ admettant le paramètre _n_ chargée de représenter un carré de côté _n_.
+
+<img width="400" height="400" src="assets/turtle1.png">
+
 2. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Chaque carré est incliné de 18 degrés par rapport au précédent et les carrés ont un sommet commun.
 
-<img width="400" height="400" src="assets/turtle.png">
+<img width="400" height="400" src="assets/turtle2.png">
 
 ## Exercice 10
 
 Écrire une fonction qui trace, à l'aide de la bibliothèque Matplotlib, la courbe représentative de la fonction f sur un intervalle [a;b] en utilisant n points. On importe au préalable le module pyplot de Matplotlib. Écrire une fonction _trace_ qui prend en arguments deux nombres a et b, une fonction f et un entier n. L'appel _trace(a,b,f,n)_ permet d'obtenir le tracé de la courbe.
 
+```Python
+def g(x):
+    return x**2 
+trace(-5,5,g,100)
+```
 
-
+<img width="400" height="400" src="assets/graphe.png">
