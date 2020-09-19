@@ -13,9 +13,9 @@ while n >= 0:
     n = n -1
 ```
 
-a. [ ] 0  
-b. [ ] 6   
-c. [ ] 15 
+a. [ ] 0     
+b. [ ] 6     
+c. [ ] 15   
 d. [ ] 21   
 
 
@@ -24,9 +24,9 @@ d. [ ] 21
 La documentation de la bibliothèque random de Python précise que `random.randint(a,b)` renvoie un entier aléatoire N tel que a ≤ N ≤ b.
 Afin d’obtenir un entier choisi aléatoirement dans l’ensemble {-4 ; -2 ; 0 ; 2 ; 4}, après avoir importé la librairie random de Python, on peut utiliser l’instruction :
 
-a. [ ] random.randint(0,8)/2  
-b. [ ] random.randint(0,8)/2 - 4   
-c. [ ] random.randint(0,4)*2 - 2 
+a. [ ] random.randint(0,8)/2.      
+b. [ ] random.randint(0,8)/2 - 4.    
+c. [ ] random.randint(0,4)*2 - 2.  
 d. [ ] (random.randint(0,4) - 2) * 2 
 
 
@@ -43,10 +43,10 @@ def f(x,y):
 ```
 Quel est la valeur renvoyée par l'appel f(2019,2020) ?
 
-a. [ ] (2019,2019) 
-b. [ ] (2019,2020)  
-c. [ ] (2020,2019)
-d. [ ] (2020,2020)
+a. [ ] 2019,2019.     
+b. [ ] 2019,2020.     
+c. [ ] 2020,2019.  
+d. [ ] 2020,2020.  
 
 ### Question 4 ###
 
@@ -61,9 +61,9 @@ def mystere(T):
     return s
 ```
 
-a. [ ] la somme des valeurs du tableau T
-b. [ ] la somme des valeurs positives du tableau T  
-c. [ ] la somme des valeurs impaires du tableau
+a. [ ] la somme des valeurs du tableau T.  
+b. [ ] la somme des valeurs positives du tableau T.       
+c. [ ] la somme des valeurs impaires du tableau.  
 d. [ ] la somme des valeurs paires du tableau T
 
 
@@ -83,9 +83,9 @@ calcul(a,b)
 
 À la fin de cette exécution :
 
-a. [ ] a vaut 3, b vaut 5 et c vaut 15
-b. [ ] a vaut 3, b vaut 5 et c n'est pas défini  
-c. [ ] a vaut 5, b vaut 10 et c vaut 15
+a. [ ] a vaut 3, b vaut 5 et c vaut 15.  
+b. [ ] a vaut 3, b vaut 5 et c n'est pas défini    
+c. [ ] a vaut 5, b vaut 10 et c vaut 15.    
 d. [ ] a vaut 5, b vaut 10 et c n'est pas défini
 
 ### Question 6 ###
@@ -101,10 +101,10 @@ def ranger(a, b, c):
     return a, b, c
 ```
 
-a. [ ] ranger(1,2,3)
-b. [ ] ranger(3,4,1) 
-c. [ ] ranger(1,3,2)
-d. [ ] ranger(4,2,3)
+a. [ ] ranger(1,2,3).  
+b. [ ] ranger(3,4,1).             
+c. [ ] ranger(1,3,2).  
+d. [ ] ranger(4,2,3). 
 
 ### Question 7 ###
 
@@ -119,9 +119,9 @@ else:
 
 Quelle construction élémentaire peut-on identifier ?
 
-a. [ ] une boucle non bornée
-b. [ ] une structure conditionnelle
-c. [ ] une boucle bornée
+a. [ ] une boucle non bornée.  
+b. [ ] une structure conditionnelle.   
+c. [ ] une boucle bornée.   
 d. [ ] un appel de fonction
 
 ### Question 8 ###
@@ -137,9 +137,9 @@ print(comparaison(3,7))
 ```
 Quel est le type de la valeur renvoyée par l'appel comparaison(6,5) ?
 
-a. [ ] un booléen (vrai/faux)
-b. [ ] un nombre entier
-c. [ ] un nombre flottant
+a. [ ] un booléen (vrai/faux).   
+b. [ ] un nombre entier.    
+c. [ ] un nombre flottant.  
 d. [ ] une chaîne de caractères
 
 ### Question 9 ###
@@ -156,10 +156,10 @@ def ajoute(n,p):
 ```
 Quelle est la bonne écriture de la ligne marquée à modifier ?
 
-a. [ ] for i in range(n,1,p):
-b. [ ] for i in range(n,p):
-c. [ ] for i in range(n,p+1):
-d. [ ] for i in range(n-1,p):
+a. [ ] for i in range(n,1,p):    
+b. [ ] for i in range(n,p):   
+c. [ ] for i in range(n,p+1):   
+d. [ ] for i in range(n-1,p):   
 
 ### Question 10 ###
 
@@ -173,7 +173,7 @@ for j in range(len(L)):
         m = L[j]
 ```
 
-a. [ ] la moyenne de la liste L
-b. [ ] le minimum de la liste L
-c. [ ] le maximum de la liste L
-d. [ ] la longueur de la liste L
+a. [ ] la moyenne de la liste L.   
+b. [ ] le minimum de la liste L.   
+c. [ ] le maximum de la liste L.   
+d. [ ] la longueur de la liste L. 
