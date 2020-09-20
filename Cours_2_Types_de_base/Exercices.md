@@ -1,4 +1,4 @@
-# Exercices : représentation des données ; [solutions](https://drive.google.com/file/d/1COIunuivag_zynodW33Eq5amiWpHdFCc/view?usp=sharing)
+# Exercices : représentation des données 
 
 ## Exercice 1
 
