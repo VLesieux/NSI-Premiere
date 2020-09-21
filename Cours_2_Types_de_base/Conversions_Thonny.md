@@ -112,7 +112,7 @@ Pour obtenir la représentation binaire d'un nombre, il s'agit de réaliser un p
 Observons cette image qui représente la démarche à suivre sur papier :    
 
 
-![Représentation binaire de 755 ](divisions.png)
+![Représentation binaire de 755 ](assets/divisions.png)
 
 ## 3) Programmation de la conversion décimal-binaire en utilisant l'algorithme
 
