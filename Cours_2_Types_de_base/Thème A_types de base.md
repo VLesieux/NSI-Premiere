@@ -127,7 +127,7 @@ On peut donc convertir un nombre de la base 2 à la base 16, sans passer par l'�
 Une première méthode peut consister à réaliser la décomposition de l'entier en base 16.
 Sachant que 16<sup>2</sup>=2<sup>8</sup>=256, et que 10x16=160, on cherche une décomposition en 9x16=144 ; ainsi 157=9x16<sup>1</sup>+13 et l'écriture hexadécimale de 157 est : 9D.
 
-Une autre méthode peut consister à donner l'écriture binaire de 157 en réalisant des divisions successives par 2 jusqu'à ce que le quotient soit non nul et en remontant de bas en haut pour obtenir : 10011101 puis on fait des regroupements de 4 : 1001 qui correspond à 9 et 1101 qui correspond à 13 soit D.
+Une autre méthode peut consister à donner l'écriture binaire de 157 en réalisant des divisions successives par 2 jusqu'à ce que le quotient soit nul et en remontant de bas en haut pour obtenir : 10011101 puis on fait des regroupements de 4 : 1001 qui correspond à 9 et 1101 qui correspond à 13 soit D.
 
 ```python
 >>> hex(157)
