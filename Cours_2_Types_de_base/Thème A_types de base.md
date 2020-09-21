@@ -315,7 +315,7 @@ représenter tous les entiers compris entre *`-2^{p-1}`* jusqu'à *`2^{p-1}-1`*
 
 ### Exemples
 
-> Exemple 1 : On souhaite représenter 13 sur 5 bits dans la représentation en complément
+> Exemple 1 : On souhaite représenter -13 sur 5 bits dans la représentation en complément
 à 2. 
 
 On a 13 = 1101<sub>2</sub>. Donc dans la représentation en complément à 2 sur 5 bits
@@ -323,18 +323,18 @@ On a 13 = 1101<sub>2</sub>. Donc dans la représentation en complément à 2 sur
 
 
 On souhaite maintenant représenter -13 sur 5 bits dans la représentation en complément
-à 2.  On a toujours 13 = 1101<sub>2</sub>. Nous devons calculer le complément
-à 2. Voyons avec les deux méthodes     
+à 2.  On a tout d'abord 13 = 1101<sub>2</sub>. Nous devons calculer le complément
+à 2. Voyons avec les deux méthodes données précédemment :    
 
 
-**Première méthode** : Le complément de 01101<sub>2</sub> est 10010<sub>2</sub>, auquel on ajoute 1. On obtient donc 10011<sub>2</sub>. La représentation de -13 en complément à 2 sur 5 bits est donc 10011.     
+**Première méthode** : Le complément de 01101<sub>2</sub> est 10010<sub>2</sub>, auquel on ajoute 1. On obtient donc 10011<sub>2</sub>. La représentation en complément à 2 sur 5 bits de -13 est donc 10011.     
 
  
 **Deuxième méthode** : *`2^5 - 13 = 32 - 13 = 19`* or 19 = 10011<sub>2</sub>. Donc la représentation de -13 en
    complément à 2 est 10011.
 
 > Exemple 2 : Quel est le nombre entier relatif qui correspond à la représentation en
-complément à 2 sur 5 bits suivante 11001 ?
+complément à 2 sur 5 bits suivante : 11001 ?
 
 Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.     
 **Première méthode** :  On prend le complément et on lui ajoute 1 : 00111<sub>2</sub>, ce qui correspond à
@@ -342,7 +342,7 @@ Il s'agit d'un nombre négatif puisque le bit de poids fort est à 1.
 **Deuxième méthode** : En binaire 11001<sub>2</sub> = 25 puis *`2^5-25 = 7`* donc l'entier représenté était -7.
 
 Remarque : Si la représentation en complément à 2 est par exemple 01001, alors le nombre entier est
-positif car le bit de poids fort est 0. Il suffit alors de convertir le nombre en
+positif car le bit de poids fort est 0. Il suffit dans ce cas de convertir le nombre en
 décimal pour connaître la valeur de l'entier, ici 9.
 
 > Exemple 3 : Recherchons l'écriture binaire, en complément à deux sur 8 bits, de l'entier négatif -7.
