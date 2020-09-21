@@ -54,7 +54,7 @@ xi := chiffre correspondant à m
 renvoyer x0 , x1, . . . , xi.
 
 ```
-[Algorithmes de conversions]([assets/Conversions_Thonny.md])
+[Voir les algorithmes de conversions](assets/Conversions_Thonny.md])
 
 > Exemple 1 : Donnons la représentation binaire de 64.
 
