@@ -56,6 +56,9 @@ renvoyer x0 , x1, . . . , xi.
 ```
 [Voir les algorithmes de conversions](assets/Conversions_Thonny.md)
 
+
+[Conversion binaire-décimal en JavaScript](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
+
 > Exemple 1 : Donnons la représentation binaire de 64.
 
 64=4x16=2^6
@@ -114,6 +117,8 @@ Nous cherchons ici la puissance de 2 telle que 2<sup>n</sup>=4085. En prenant le
 
 
 ### Passage du binaire (base 2) à l'hexadécimacal (base 16), et inversement
+
+[Voir conversion hexadecimal-décimal en JavaScript](http://isnangellier.alwaysdata.net/php/hexa_dec.html)
 
 La base 16 est fréquemment utilisée. Pourquoi ?   
 16 a le bon goût d'être une puissance de 2 (2<sup>4</sup>) et ainsi **deux chiffres hexadécimaux suffisent pour décrire un octet de 8 bits**.   
