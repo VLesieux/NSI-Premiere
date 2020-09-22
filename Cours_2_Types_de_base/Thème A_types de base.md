@@ -54,10 +54,10 @@ xi := chiffre correspondant à m
 renvoyer x0 , x1, . . . , xi.
 
 ```
-[Voir les algorithmes de conversions](assets/Conversions_Thonny.md)
+[Voir les algorithmes de conversions en Python](assets/Conversions_Thonny.md)
 
 
-[Conversion binaire-décimal en JavaScript](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
+[Voir la conversion binaire-décimal en JavaScript](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
 
 > Exemple 1 : Donnons la représentation binaire de 64.
 
