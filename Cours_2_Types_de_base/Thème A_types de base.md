@@ -569,7 +569,6 @@ else:
 Ceci est équivalent à la table de vérité:
 
 | (a==b) | a > b+10 | c       |.  
-|------|-------|----|
 |  True    |    True     | True |.  
 |  True    |    False    | True |. 
 | False    |    True     | True |.  
