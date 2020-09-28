@@ -568,16 +568,15 @@ else:
 ```
 Ceci est équivalent à la table de vérité:
 
-| (a==b) | a > b+10 | c |
-|---|---|---|----------|
-|True | True | True |
-| True | False | True |
-| False |True | True |
-| False | False | False |
+| (a==b) | a > b+10 | c       |.  
+|------|-------|----|
+|  True    |    True     | True |.  
+|  True    |    False    | True |. 
+| False    |    True     | True |.  
+| False    |    False    | False|. 
 
 
 c = (a==b) or (a > b+10)
-
 
 
 ### Exemples d'application

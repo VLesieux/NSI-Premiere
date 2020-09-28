@@ -12,6 +12,12 @@ Les nombres sont écrits en binaire.
 1. Écrire en base cinq puis en base seize le nombre qui s'écrit 172 en base dix.
 2. Le nombre B3 est écrit en base seize. Écrire ce nombre en base deux puis en base cinq.
 3. Vérifier dans le Shell en utilisant l'instruction int(str, base) qui crée un nombre entier à partir de son écriture sous forme de string dans la base. La notation en base 16 est aussi : 0x....
+Par exemple : 
+
+```python 	
+>>> int("A2",16)
+162
+```
 
 ## Exercice 3
 
