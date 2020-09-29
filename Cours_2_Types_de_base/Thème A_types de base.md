@@ -572,15 +572,19 @@ else:
 ```
 Ceci est équivalent à la table de vérité:
 
-| (a==b) | a > b+10 | c       |.  
-|  True    |    True     | True |.  
-|  True    |    False    | True |.   
-| False    |    True     | True |.  
-| False    |    False    | False|. 
+| (a==b) | a > b+10 | c |
+|---|---|---|---------------|
+|  True |  True |  True | 
+|  True | False |  True | 
+| False |  True |  True | 
+| False | False | False | 
 
 
+Comme on retrouve la table de vérité de OR, on peut synthétiser les six lignes de code précédentes en une seule ligne :
+
+```python
 c = (a==b) or (a > b+10)
-
+```
 
 ### Exemples d'application
 
@@ -596,13 +600,29 @@ consulter ce bit pour connaître la parité du nombre.
 `n ∧ 1` permet de ne conserver que le bit de poids faible (tous les autres bits sont mis à 0).
 Si le résultat est 1 alors le nombre est impair, sinon le nombre est pair.
 
+Dans Python, le `ET logique` s'écrit avec & (caractère Esperluette).
+Exemple :
+```python
+>>> 0b10000011 & 0b00000001
+1
+>>> 0b10000010 & 0b00000001
+0
+```
+
+
 ### 3) Signe d'un nombre représenté en complément à 2
 
-On a vu que dans la représentation en complément à 2, le bit de poids fort
-désigne le bit de signe.  Si on suppose un nombre entier *`n`* représenté sur
-*`p`* bits, on peut isoler le bit de poids fort avec un ET également :`n
-∧ (2^{p-1})`. Si le résultat est 0, le nombre est positif sinon il est
-négatif.
+On a vu que dans la représentation en complément à 2, le bit de poids fort désigne le bit de signe.  Si on suppose un nombre entier *`n`* représenté sur *`p`* bits, on peut isoler le bit de poids fort avec un ET également :`n ∧ (2^{p-1})`. 
+Si le résultat est 0, le nombre est positif (son bit de poids le plus fort est 0) sinon si le résultat est non nul, c'est qu'il est négatif (son bit de poids le plus fort est 1).
+
+Exemple :
+```python
+>>> 0b00000011 & 0b10000000
+0
+>>> 0b10000011 & 0b10000000
+128
+
+```
 
 ### 4) Caractère séquentiel des expressions booléennes
 
@@ -657,10 +677,10 @@ Exemple :
 >>> 11 >> 2
 2
 ```
-En effet, 11 s'écrit en binaire 1011, le décalage vers la droite deux fois de suite donne 10 dont la valeur décimale vaut 2.
+En effet, le nombre décimal 11 s'écrit en binaire 1011, le décalage vers la droite deux fois de suite donne 10 dont la valeur décimale vaut 2.
 
 - *Décalage à gauche* : le décalage à gauche de *`k`* positions d'un entier
-*`n`*, noté *`n\ll k`*, est l'entier dont l'écriture binaire est obtenue en
+*`n`*, noté *`n << k`*, est l'entier dont l'écriture binaire est obtenue en
 ajoutant *`k`* bits nuls à droite de l'écriture binaire de *`n`*.
 
 Exemple :
@@ -669,22 +689,13 @@ Exemple :
 >>> 1<<2
 4
 ```
-En effet, 1 s'écrit en binaire 1, le décalage vers la gauche deux fois de suite donne 100 dont la valeur décimale vaut 4 ; la valeur décimale de départ a été multipliée par 2<sup>2</sup>.
+En effet, le nombre décimal 1 s'écrit en binaire 1, le décalage vers la gauche deux fois de suite donne 100 dont la valeur décimale vaut 4 ; la valeur décimale de départ a été multipliée par 2<sup>2</sup>.
 
 
-En Python, décaler un nombre entier positif d'un bit vers la gauche revient à
-le multiplier par 2, et ainsi le décaler de *`k`* bits, revient à le multiplier par
-*`2^k`*.  
-Si le nombre entier est représenté sur un nombre fixe de bits (ce
-qui n'est pas le cas de Python), décaler de *`k`* bits vers la gauche va
-également faire perdre les *`k`* bits qui étaient originellement de poids
-fort.
+En Python, décaler un nombre entier positif d'un bit vers la gauche revient à le multiplier par 2, et ainsi le décaler de *`k`* bits, revient à le multiplier par *`2^k`*.  
+Si le nombre entier est représenté sur un nombre fixe de bits (ce qui n'est pas le cas de Python), décaler de *`k`* bits vers la gauche va également faire perdre les *`k`* bits qui étaient originellement de poids fort.
 
-
-
-Le décalage de bit aurait été utile dans l'exemple 3 de
-détermination du bit de signe pour un entier n qui s'écrit sur p bits. Avec le
-décalage à droite on peut faire *`n >> (p-1)`* et dans ce cas le
+Le décalage de bit est utile pour la détermination du bit de signe pour un entier n qui s'écrit sur p bits. Avec le décalage à droite, on peut faire *`n >> (p-1)`* et dans ce cas le
 résultat est soit 0 soit 1 pour nous indiquer le signe.
 
 # 6] Représentation d'un texte en machine
