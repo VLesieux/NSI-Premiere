@@ -36,6 +36,9 @@ On utilise 5 bits pour coder en binaire les entiers relatifs.
 ## Exercice 5
 
 Écrire le nombre 3,625 en binaire.
+Proposer deux méthodes :
+- une méthode utilisant la décomposition en puissances négatives de 2
+- une méthode utilisant le décalage à gauche suite à la multiplication par 2
 
 ## Exercice 6
 
@@ -43,15 +46,18 @@ Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour
 1. Comment est codé le nombre - 4.5 ?
 2. Quel est le nombre réel codé par 1011 1111 1110 1000 0000 ... 0000 ?
 
+Pour vérifier, utiliser le [convertisseur](https://www.binaryconvert.com/result_double.html?decimal=050048)
 ## Exercice 7
 
-Vérifier, à l'aide d'une table de vérités, l'égalité : a xor b = (a and not(b)) or (not(a) and b).
+Vérifier, à l'aide d'une table de vérités, l'égalité suivante entre expressions booléennes : 
 
-XOR is a binary operation, it stands for "exclusive or", that is to say the resulting bit evaluates to one if only exactly one of the bits is set.
+`a xor b = (a and not(b)) or (not(a) and b)`.
+
+Rappel : XOR is a binary operation, it stands for "exclusive or", that is to say the resulting bit evaluates to one if **only exactly one** of the bits is set.
 
 This is its function table:
 
-a | b | a ^ b
+a | b | a xor b
 --|---|------
 0 | 0 | 0
 0 | 1 | 1

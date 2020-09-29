@@ -312,10 +312,10 @@ Il peut se calculer de deux méthodes :
 conversion et une méthode de représentation des entiers relatifs (qui
 n'implique pas forcément de calculer un complément à 2 !)
 
-Avec la représentation en complément à 2 sur *`p`* bits il est possible de représenter tous les entiers compris entre : 
--  -2^(p-1) représenté par `10...0`
-- jusqu'à 2^(p-1)-1 représenté `01...1`,
-- la valeur -1 étant codée par la suite de p bits 1.
+> Avec la représentation en complément à 2 sur *`p`* bits, il est possible de représenter tous les entiers compris entre : 
+> -  -2^(p-1) représenté par le mot binaire : `10...0`
+> - jusqu'à 2^(p-1)-1 représenté par le mot binaire :  `01...1`,
+> - cas particulier : la valeur -1 est codée par la suite de p bits de valeur 1.
 
 ### Exemples
 
@@ -469,13 +469,15 @@ Ces trois parties sont codées en binaire et concaténées pour former un nombre
 
 Par exemple, codons le réel - 0,375.
 On note que 0,375=1,5×2<sup>-2</sup> ce qui permet d'avoir une mantisse comprise entre 1 et 2. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101' sur 11 bits (on le trouve en faisant `bin(1021)`), la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec cinquante et un 0.
-Au final, le codage de - 0,375 est 1 011 1111 1101 1000.......0
+Au final, le codage de - 0,375 en norme IEEE754 64 bits(8 octets) est :
+10111111 11011000 00000000 00000000 00000000 00000000 00000000 00000000
 
 Codons maintenant le réel 20. Il nous faut une mantisse comprise entre 1 et 2 et une puissance de 2.   
 20=16×1,25=2<sup>4</sup>×1,25. On réalise donc la concaténantion de '0' pour le signe, du code de 4 + 1023 = 1027 soit '10000000011' sur 11 bits (on le trouve en faisant `bin(1027)`), la mantisse 1,25 s'écrit 1,01 en binaire et on ne garde que la partie décimale 01 et on complète avec cinquante 0.
-Au final, le codage de 20 est 0100000000110100.....0
+Au final, le codage de 20 en norme IEEE754 64 bits (8 octets) est :
+01000000 00110100 00000000 00000000 00000000 00000000 00000000 00000000
 
-> Exemple 1 : Recherchons l'écriture décimale du nombre qui s'écrit 11,0101 en binaire.
+> Exemple 1 : Recherchons l'écriture décimale du nombre qui s'écrit 11.0101 en binaire.
 
 Les bits après la virgule sont représentatifs des puissances négatives de 2 dans la décomposition en base 2. Nous avons donc le nombre décimal :  
 2<sup>1</sup>+2<sup>0</sup>+2<sup>-2</sup>+2<sup>-4</sup>=2+1+0,25+0,0625=3,3125.
