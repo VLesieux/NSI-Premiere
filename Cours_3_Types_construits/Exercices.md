@@ -1,4 +1,4 @@
-# Exercices types construits : tuples, listes et dictionnaires: [solutions](https://drive.google.com/file/d/1aWLW5zS34utkTZlalqH_sMUEzSXX7Sq4/view?usp=sharing)
+# Exercices types construits : tuples, listes et dictionnaires
 
 ## Exercice 1
 
