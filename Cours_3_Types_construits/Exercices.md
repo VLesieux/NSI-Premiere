@@ -116,6 +116,13 @@ Par exemple :
 
 Écrire les doc_test des fonctions réalisées pour atteindre cet objectif.
 
+
+```Python
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+```
+
 Indications :
 
 1) Créer un dictionnaire associant une valeur à chaque lettre.
@@ -137,7 +144,7 @@ Rappel : deux façons de parcourir une chaîne de caractères :
 - en la parcourant comme une liste d'éléments
 ```Python
 >>> mot="poisson"
->>> for i in mot:
+>>> for caractere in mot:
     print(i)
 p
 o
