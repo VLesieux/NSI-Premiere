@@ -123,7 +123,7 @@ car e<sub>1</sub> est transformé en e<sub>5</sub>, e<sub>2</sub> en e<sub>9</su
 
 Pour tout entier naturel n, on note E<sub>n</sub> l'ensemble E<sub>n</sub>=σ<sup>n</sup>(E)=σ(σ(...σ(E)...)) où σ a été appliquée n fois.
 
-1. Écrire une fonction `sigma(E,n)` retournant la liste des éléments de E<sub>n</sub>.
+1. Après avoir écrit une fonction `permutation(E)`, écrire une fonction `sigma(E,n)` retournant la liste des éléments de E<sub>n</sub>.
 ```Python
 >>> sigma([1,2,3,4,5,6,7,8,9],0)
 [1, 2, 3, 4, 5, 6, 7, 8, 9]
