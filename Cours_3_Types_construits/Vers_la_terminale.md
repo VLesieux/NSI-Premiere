@@ -121,7 +121,7 @@ Une notation matricielle de σ est alors :
 
 car e<sub>1</sub> est transformé en e<sub>5</sub>, e<sub>2</sub> en e<sub>9</sub>, etc.  
 
-Pour tout entier naturel n, on note E<sub>n</sub> l'ensemble E<sub>n</sub>=σ<sup>n</sup>=σ(σ(...σ(E)...)) où σ a été appliquée n fois.
+Pour tout entier naturel n, on note E<sub>n</sub> l'ensemble E<sub>n</sub>=σ<sup>n</sup>(E)=σ(σ(...σ(E)...)) où σ a été appliquée n fois.
 
 1. Écrire une fonction `sigma(E,n)` retournant la liste des éléments de E<sub>n</sub>.
 ```Python
