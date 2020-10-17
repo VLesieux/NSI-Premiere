@@ -14,7 +14,7 @@ A : (-2,4) ; B : (1,-2) ; C : (3,7) ; D : (5,-3)
 Un fabricant décide de créer des tee-shirts dont la taille peut être : XS, S, M, L, XL, XXL.
 À chaque taille son prix : il adopte le principe suivant : 8 € pour la taille XS et il ajoute 2 € en passant à la taille supérieure, jusqu'au XXL.
 
-1. Implémenter en Python ces informations dans la structure de données la mieux adaptée.
+1. Implémenter en Python ces informations dans la structure de données la mieux adaptée. Proposer une écriture en compréhension.
 2. Ce même fabricant décide de changer sa façon de fixer les prix de vente des tee-shirts. Ceux dont la taille est XS sont toujours à 8 €, mais cette fois-ci, pour passer d'une taille à la suivante, il ajoute au prix de la taille inférieure la moitié de sa racine carrée.
 Par exemple, pour obtenir le prix des tailles S, il fait : 8 + 0.5*8**0.5 = 9.41.
 Proposer un programme Python qui automatise ces calculs et les enregistre dans une structure de données adaptée.
