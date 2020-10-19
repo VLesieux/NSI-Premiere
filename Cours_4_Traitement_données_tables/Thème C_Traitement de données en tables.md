@@ -42,7 +42,8 @@ ou plus simplement :
 
 - La table de données peut se présenter sous la forme d'un dictionnaire.
 
-> Exemple 4 : On définit le dictionnaire de contacts suivants :  contacts = {'Toto': 'toto@nsi.fr', 'Chloé': 'chloe@nsi.com','Paul': 'paul@nsi.net', 'Clémence': 'clemence@nsi.org' }. 
+> Exemple 4 : On définit le dictionnaire de contacts suivants : 
+contacts = {'Toto': 'toto@nsi.fr', 'Chloé': 'chloe@nsi.com','Paul': 'paul@nsi.net', 'Clémence': 'clemence@nsi.org' }. 
 
 On rappelle que 'Chloé' constitue une **clé** du dictionnaire et que 'chloe@nsi.com' représente la **valeur** associée à cette clé.
 
@@ -64,20 +65,49 @@ On l'a enregistré également avec l'extension csv pour avoir un fichier au form
 ![](assets/Image_csv.png)
 
 L'objectif est d'extraire les données et de les enregistrer dans une liste composée de p-uplets.    
-Avec ce premier code, on obtient une liste de listes.
+Avec ce premier code ci-dessous, on obtient une liste de listes.
+
+On utilise deux **méthodes** associées aux chaînes de caractères ou strings :
+
+- str.rstrip() qui supprime le caractère `espace` en fin de ligne, on peut aussi supprimer tout autre caractère si on le précise
+
+Par exemple : 
+
+```python
+>>> """ceci est un texte présentant quatre   en fin de ligne    """.rstrip()
+'ceci est un texte présentant quatre   en fin de ligne'
+>>> """ceci est un texte présentant quatre * en fin de ligne****""".rstrip("*")
+'ceci est un texte présentant quatre * en fin de ligne'
+```
+
+- str.split(';') qui renvoie une liste en utilisant ';' comme séparateur
+
+Par exemple : 
+
+```python
+>>> "Autriche;Europe;83871.0;8754400;Vienne".split(";")
+['Autriche', 'Europe', '83871.0', '8754400', 'Vienne']
+```
+
+En utilisant un `.` pour les séparer, les deux méthodes peuvent s'appliquer à la suite sur chaque ligne qui compose le document.
 
 ```python
 f=open("Tableau_capitales.csv","r")#la fonction open renvoie une valeur affectée à la variable f
 table=[ligne.rstrip().split(';') for ligne in f]#construction d'une liste par compréhension
-#str.rstrip() supprime les espaces
-#str.split(';') renvoie une liste en utilisant ';' comme séparateur
 f.close()
 print(table)
 >>>
 [['Nom', 'Continent', 'Superficie', 'Population', 'Capitale'], ['Afghanistan', 'Asie', '652864.0', '34124800', 'Kaboul'], ['Angola', 'Afrique', '1246700.0', '30355900', 'Luanda'], ['Albanie', 'Europe', '28748.0', '2048000', 'Tirana'], ['Andorre', 'Europe', '468.0', '85600', 'Andorre-la-Vieille'], ['Argentine', 'Amerique du Sud', '2791800.0', '44293300', 'Buenos Aires'], ['Armenie', 'Asie', '29800.0', '3045200', 'Erevan'], ['Australie', 'Oceanie', '7692060.0', '23470100', 'Canberra'], ['Autriche', 'Europe', '83871.0', '8754400', 'Vienne']]
 ```
 
-Avec ce code, on obtient un liste de tuples
+Avec le code ci-dessous, on obtient un liste de tuples ; on utilise pour cela la fonction tuple(liste) capable de transformer une liste en tuple.
+
+Par exemple : 
+
+```python
+>>> tuple(['Autriche', 'Europe', '83871.0', '8754400', 'Vienne'])
+('Autriche', 'Europe', '83871.0', '8754400', 'Vienne')
+```
 
 ```python
 f=open("Tableau_capitales.csv","r")
@@ -87,13 +117,24 @@ print(table)
 >>>
 [('Nom', 'Continent', 'Superficie', 'Population', 'Capitale'), ('Afghanistan', 'Asie', '652864.0', '34124800', 'Kaboul'), ('Angola', 'Afrique', '1246700.0', '30355900', 'Luanda'), ('Albanie', 'Europe', '28748.0', '2048000', 'Tirana'), ('Andorre', 'Europe', '468.0', '85600', 'Andorre-la-Vieille'), ('Argentine', 'Amerique du Sud', '2791800.0', '44293300', 'Buenos Aires'), ('Armenie', 'Asie', '29800.0', '3045200', 'Erevan'), ('Australie', 'Oceanie', '7692060.0', '23470100', 'Canberra'), ('Autriche', 'Europe', '83871.0', '8754400', 'Vienne')]
 ```
-Il s'agit maintenant de distinguer la première ligne qui contient **les descripteurs des champs de la table de données**. De plus, il s'agit de convertir les données sur la superficie de type string en float et les données sur la population de type string en int.
+Il s'agit maintenant de distinguer la première ligne qui contient **les descripteurs des champs** de la table de données.
+De plus, il s'agit de convertir les données décimales sur la superficie de type string en float et les données entières sur la population de type string en int.
+
+Par exemple :
+
+```python
+>>> float("12.34")
+12.34
+>>> int("128")
+128
+```
 
 ```python
 f=open("Tableau_capitales.csv","r")
-champs=f.readline().rstrip().split(";")#lecture et transformation en liste de la première ligne
+champs=f.readline().rstrip().split(";")
+#lecture et transformation en liste de la première ligne ; on observe l'utilisation du singulier line
 #['Nom', 'Continent', 'Superficie', 'Population', 'Capitale']
-lignes=f.readlines()
+lignes=f.readlines()#on observe l'utilisation du pluriel lines
 table=[]
 for ligne in lignes:
     liste=ligne.rstrip().split(';')
@@ -106,7 +147,7 @@ print(table)
 [('Afghanistan', 'Asie', 652864.0, 34124800, 'Kaboul'), ('Angola', 'Afrique', 1246700.0, 30355900, 'Luanda'), ('Albanie', 'Europe', 28748.0, 2048000, 'Tirana'), ('Andorre', 'Europe', 468.0, 85600, 'Andorre-la-Vieille'), ('Argentine', 'Amerique du Sud', 2791800.0, 44293300, 'Buenos Aires'), ('Armenie', 'Asie', 29800.0, 3045200, 'Erevan'), ('Australie', 'Oceanie', 7692060.0, 23470100, 'Canberra'), ('Autriche', 'Europe', 83871.0, 8754400, 'Vienne')]
 ```
 
-> Exemple : Supposons que l'on dispose du fichier « info.csv » reprenté ci-dessous. On se demande ce que l'on obtient suite au traitement ci-dessous.
+> Exemple : Supposons que l'on dispose du fichier « info.csv » reprenté ci-dessous. On se demande ce que l'on obtient suite au traitement précédent.
 
 ![Programme officiel ](assets/info.png)
 
@@ -134,7 +175,11 @@ On voit qu'il est nécessaire avec la méthode rstrip() de supprimer les passage
 
 Poursuivons le code précédent pour rechercher dans notre tableau les pays d'Europe contenant plus de 5 millions d'habitants.   
 La recherche fait intervenir les paramètres Continent, Population et doit nous retourner un Nom. 
-On commence par créer une liste appelée indices contenant les indices de position des champs : Nom, Continent, Population. On utilise pour cela la méthode index associée au liste pour obtenir l'indice de position d'un élément de la liste. Cela ne paraît pas nécessaire ici mais on peut imaginer que les données possèdent un très grande nombre de paramètres auquel cas il est utile de repérer ceux qui sont vraiment utiles pour notre recherche. 
+
+On commence par créer une liste appelée indices contenant les indices de position des champs : Nom, Continent, Population. 
+
+On utilise pour cela la méthode index associée au liste pour obtenir l'indice de position d'un élément de la liste. Cela ne paraît pas nécessaire dans le cas de notre exemple simple, mais on peut imaginer que les données possèdent un très grande nombre de paramètres auquel cas il est utile de repérer ceux qui sont vraiment utiles pour notre recherche. 
+
 La méthode consiste à créer une liste initialement vide appelée rep et d'ajouter au fur et à mesure du parcours des lignes du tableau les éléments qui satisfont les conditions de la recherche.
 
 ```python
@@ -148,8 +193,9 @@ print(rep)
 >>>
 ['Autriche']
 ```
-
-> Exemple : On se donne la liste de p-uplets suivantes : Table = [('Grace','Hopper','F',1906),('Tim', 'Berners-Lee', 'H', 1955), ('Ada', 'Lovelace', 'F', 1815), ('Alan', 'Turing', 'H', 1912) ] ; pour chaque p-uplet on trouve le prénom, le nom, le sexe, l'année de naissance d'un informaticien ou informaticienne célèbre. On souhaite écrire une fonction capable de renvoyer sous forme de liste uniquement les noms des informaticiennes célèbres.
+> Autre exemple : 
+> On se donne la liste de p-uplets suivantes : 
+> Table = [('Grace','Hopper','F',1906),('Tim', 'Berners-Lee', 'H', 1955), ('Ada', 'Lovelace', 'F', 1815), ('Alan', 'Turing', 'H', 1912) ] ; pour chaque p-uplet on trouve le prénom, le nom, le sexe, l'année de naissance d'un informaticien ou informaticienne célèbre. On souhaite écrire une fonction capable de renvoyer sous forme de liste uniquement les noms des informaticiennes célèbres.
 
 ```python
 >>> def recherche(table):
@@ -200,22 +246,80 @@ def sans_doublons(table,indice):
 
 On peut s'interroger sur le coût d'un tel algorithme et se demander s'il ne vaudrait pas mieux trier la table dans un premier temps pour lui appliquer ensuite la première version qui est plus simple.
 
+
+Exemple :
+
+```python
+
+table=[('Afghanistan', 'Asie', 652864.0, 34124800, 'Kaboul'), ('Angola', 'Afrique', 1246700.0, 30355900, 'Luanda'),('Angola', 'Afrique', 1246700.0, 30355900, 'Luanda')]
+
+def sans_doublons(table,indice):
+    rep=[table[0]]
+    for i in range(1,len(table)):
+        test=True
+        ligne=table[i]
+        valeur=ligne[indice]
+        for j in range(len(rep)):
+            if rep[j][indice]==valeur:
+                test=False
+                break
+        if test:
+            rep.append(ligne)
+    return rep
+
+>>> sans_doublons(table,0)
+[('Afghanistan', 'Asie', 652864.0, 34124800, 'Kaboul'), ('Angola', 'Afrique', 1246700.0, 30355900, 'Luanda')]
+```
+
 ### 5) Tri d'une table de données
 
-On se propose de trier la table par ordre de population décroissante.    
+On sait déjà trier une liste :
 
-On peut faire un tri sur des objets complexes en utilisant les indices des objets en tant que clef.
-Par exemple :
+```python
+>>> sorted([16,1,8,20])
+[1, 8, 16, 20]
+```
+
+On peut faire un tri sur des objets complexes en utilisant les indices des objets en tant que **clef** ou **key**. On utilise pour cela une fonction **`lambda` dite fonction anonyme** limitée à une seule expression et dont le résultat est la valeur renvoyée.
+
+Exemple :
+
+```python
+>>> sorted(["-1","-5","2","3"])
+['-1', '-5', '2', '3']#Le tri ne fonctionne pas
+>>> sorted(["-1","-5","2","3"], key=lambda element:int(element))
+['-5', '-1', '2', '3']#Le tri a fonctionné sur les entiers relatifs 
+>>> sorted(["-1","-5","2","3"], key=lambda element:int(element),reverse=True)
+['3', '2', '-1', '-5']#On peut décider d'un tri dans l'ordre décroissant
+```
+
+Par exemple, on trie des fiches, données sous forme de tuples, par âge croissant, qui représente la valeur en position 2 du tuple :
 
 ```python
 >>> student_tuples = [('john', 'A', 15),('jane', 'B', 12),('dave', 'B', 10)]
->>> sorted(student_tuples, key=lambda student: student[2])
+>>> sorted(student_tuples, key=lambda fiche: fiche[2])
 [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
+
+En l'appliquant à notre table des pays, on se propose de trier la table par ordre de population décroissante.    
+
 ```python
+f=open("Tableau_capitales.csv","r")
+champs=f.readline().rstrip().split(";")#lecture et transformation en liste de la première ligne
+#['Nom', 'Continent', 'Superficie', 'Population', 'Capitale']
+lignes=f.readlines()
+table=[]
+for ligne in lignes:
+    liste=ligne.rstrip().split(';')
+    liste[2]=float(liste[2])
+    liste[3]=int(liste[3])
+    table.append(tuple(liste))
+f.close()
+
 indices=[champs.index('Nom'),champs.index('Population')]         
 tri=sorted(table,key=lambda ligne:ligne[indices[1]], reverse=True)
 print(tri)
+
 >>>
 [('Argentine', 'Amerique du Sud', 2791800.0, 44293300, 'Buenos Aires'), ('Afghanistan', 'Asie', 652864.0, 34124800, 'Kaboul'), ('Angola', 'Afrique', 1246700.0, 30355900, 'Luanda'), ('Australie', 'Oceanie', 7692060.0, 23470100, 'Canberra'), ('Autriche', 'Europe', 83871.0, 8754400, 'Vienne'), ('Armenie', 'Asie', 29800.0, 3045200, 'Erevan'), ('Albanie', 'Europe', 28748.0, 2048000, 'Tirana'), ('Andorre', 'Europe', 468.0, 85600, 'Andorre-la-Vieille')]
 ```
