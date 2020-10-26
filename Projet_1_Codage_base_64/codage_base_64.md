@@ -103,12 +103,10 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
   * en binaire (base 2) en préfixant par les littéraux par `0b`
   
     ```python
-	  
-	  ```
 	>>> 0b10100
 	20
 	>>> -0b11 * 0b10100
--60
+	-60
   ```
   
   * en octal (base 8) en préfixant par les littéraux par `0o`
@@ -123,14 +121,10 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
   * en hexadécimal (base 16) en préfixant par les littéraux par `0x`
 	
 	  ```python
-	  
-	  ```
 	>>> 0x14
 	20
 	>>> -0x3 * 0x14
 	-60
-	```
-	
 	```
 
 ### Opérations logiques sur les entiers
@@ -153,7 +147,6 @@ Python dispose d'opérateurs logiques sur les entiers : les opérations booléen
 	>>> 0b10000011 | 0b10011
 	147
 	```
-
 
 3. **Ou exclusif :**
 
