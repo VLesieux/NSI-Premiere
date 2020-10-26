@@ -107,16 +107,16 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
 	20
 	>>> -0b11 * 0b10100
 	-60
-  ```
+  	```
   
   * en octal (base 8) en préfixant par les littéraux par `0o`
 	
-	  ```python
+	```python
 	>>> 0o24
 	20
 	>>> -0o3 * 0o24
 	-60
-  ```
+  	```
   
   * en hexadécimal (base 16) en préfixant par les littéraux par `0x`
 	
