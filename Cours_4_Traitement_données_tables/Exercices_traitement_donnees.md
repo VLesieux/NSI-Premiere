@@ -48,16 +48,16 @@ Remarque : Pour transformer `,` en `.` utiliser :
 ### Exercice 2
 
 
-1) Reprendre l'exercice précédent et réaliser une fonction `verifie_quantites` qui analyse le bon de commande et renvoie True si pour chaque produit commandé la quantité est bien positive.
+1) Reprendre l'exercice précédent et réaliser une fonction `verifie_quantites(table)` qui analyse le bon de commande et renvoie True si pour chaque produit commandé la quantité est bien positive.
 
-2) Réaliser une fonction `nombre_produit` qui renvoie le nombre total de produits demandés dans un bon de commande donné en argument.
+2) Réaliser une fonction `nombre_produit(table)` qui renvoie le nombre total de produits demandés dans un bon de commande donné en argument.
 
-3) Écrire une fonction `prix` qui renvoie le prix total d'un bon de commande.
+3) Écrire une fonction `prix(table)` qui renvoie le prix total d'un bon de commande.
 
 
 ### Exercice 3
 
-Écrire une fonction `trie` qui renvoie un dictionnaire dont les clés sont les désignations des produits et les valeurs leurs prix, classés par ordre de prix décroissant.
+Écrire une fonction `tri(table)` qui renvoie un dictionnaire dont les clés sont les désignations des produits et les valeurs leurs prix, classés par ordre de prix décroissant.
 
 ```python
 >>> tri(table)
@@ -119,3 +119,8 @@ Réaliser la fusion des deux tables pour obtenir la nouvelle table.
 <td>CLOSEFONTAINE</td>
 </tr>
 </table>
+
+```python
+>>> fusion(table1,table2)
+[['18635', 'lot crayons HB', 2.3, 1, 'BUC'], ['15223', 'stylo rouge', 1.5, 3, 'PALOT'], ['20112', 'cahier petites carreaux', 3.5, 2]]
+```
