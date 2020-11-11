@@ -22,8 +22,7 @@ Introduction
 Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord
 frontalière de la Belgique, la [course du chicon](http://courirabaisieux.fr/la-course-du-chicon/).
 
-Cette course se décline sur plusieurs distances de 15km à 0.5km. Nous ne nous intéresserons dans ce TP qu'à la
-version 15km.
+Cette course se décline sur plusieurs distances de 15km à 0.5km. Nous ne nous intéresserons dans ce TP qu'à la version 15km.
 
 Vous avez la responsabilité du traitement informatique des données :
 gestion des inscriptions, récolte des performances des concurrents,
@@ -75,7 +74,7 @@ Les performances des compétiteurs vont être représentées par leur temps de c
 
 On décide de représenter ces données par un tuple nommé. Ces données étant **non mutables**, utiliser les *named tuples* de Python pour les représenter semble être un choix  pertinent.
 
-Pour rappel, cette notion est définie dans le module `collections` de Python. Il convient donc de l'importer en premier lieu :
+Cette notion est définie dans le module `collections` de Python. Il convient donc de l'importer en premier lieu :
 
 ```python
 from collections import namedtuple
@@ -83,7 +82,7 @@ from collections import namedtuple
 
 **À faire**
 
-Créer le module `Time.py` qui définit :
+Créer le module `Time.py` à partir du code donné ci-dessous qui définit :
 
  * le type `Time` qui correspond à un tuple nommé possédant trois champs `hours`, `minutes` et `seconds` ;
  * une fonction `create` à trois arguments, permettant de créer une donnée de ce type, dont le résultat est la donnée `Time` créée (on peut envisager un contrôle de validité des valeurs des paramètres pour ce constructeur) ;
@@ -207,7 +206,7 @@ Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **cl
 
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
 fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire de
-ces inscrits. À cet effet, on relira avantageusement le **cours n°4** pour suivre une démarche similaire.
+ces inscrits.
 
 *Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne.  
 
