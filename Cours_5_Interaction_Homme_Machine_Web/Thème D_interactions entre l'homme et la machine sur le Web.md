@@ -157,7 +157,7 @@ function action() {
 </html>
 ```
 
-2. Troisième méthode
+3. Troisième méthode
 
 On sépare le fichier javaScript du fichier html, le lien se fait avec 
 `<script language="javascript" type="text/javascript" src="script.js"> </script>`
