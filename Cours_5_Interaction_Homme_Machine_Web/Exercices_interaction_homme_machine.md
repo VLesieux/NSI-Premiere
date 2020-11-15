@@ -4,7 +4,7 @@
 
 Écrire un programme dans une page HTML qui demande successivement de saisir un montant en euro puis le taux de change d'une monnaie ; le résultat de la conversion est affiché après avoir cliqué sur un bouton.
 
-<img width="200px" height="200px" src="assets/programme1.png"> 
+<img src="assets/programme1.png"> 
 
 
 ## Exercice 2
