@@ -9,7 +9,9 @@
 
 ## Exercice 2
 
-Écrire un programme dans une page HTML qui consiste à trouver un nombre choisi au hasard entre 1 et 100 par exemple. À chaque proposition du joueur, le programme répond " trop petit " ou " trop grand " ou " gagné ". Le nombre de coup est limité à 10.
+Écrire un programme dans une page HTML qui consiste à trouver un nombre mystère choisi au hasard entre 1 et 100.   
+À chaque proposition du joueur, le programme répond " trop petit ! " ou " trop grand ! " ou " Bravo, vous avez trouvé en ... coups ".   
+Le nombre de coup est limité à 10.
 
 <img src="assets/programme2_tropbas.png"> 
 <img src="assets/programme2_tropgrand.png"> 
@@ -18,20 +20,20 @@
 
 Indication : 
 
-On obtient un nombre au hasard entre 0 compris et 1 non compris en utilisant Math.random().
+On obtient un nombre au hasard entre 0 compris et 1 exclu en utilisant Math.random().
 
 ```js
 Math.random()
 0.40961663444922125
 ```
-Pour prendre la partie entière d'un nombre, utiliser Math.floor()
+Pour prendre la partie entière d'un nombre, utiliser Math.floor().
 
 ```js
 Math.floor(0.40961663444922125)
 0
 ```
 
-Pour avoir un nombre compris entre 1 et 100 compris, on peut utiliser : Math.floor(Math.random()*100+1ex) 
+Pour avoir un nombre compris entre 1 et 100 compris, on peut utiliser : Math.floor(Math.random()*100+1) 
 
 ## Exercice 3
 
@@ -48,5 +50,5 @@ eval("3*8+7")
 
 ## Exercice 4
 
-S'approprier le code expliqué de ce [quiz anglais](http://isnangellier.alwaysdata.net/php/Creation_quizz.html) et réaliser un quiz sur le thème de votre choix.
+S'approprier le code expliqué de ce [quiz anglais](http://isnangellier.alwaysdata.net/php/Creation_quizz.html) et réalisez vous-même un quiz sur le thème de votre choix.
 
