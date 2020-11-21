@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Competitor &mdash; Module Complex 0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Module Complex 0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Module Complex 0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for Competitor</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:mod:`Competitor` module</span>
+
+<span class="sd">:author: `FIL - Département Informatique - Université de Lille &lt;http://portail.fil.univ-lille1.fr&gt;`_</span>
+
+<span class="sd">:date: Juin, 2019</span>
+
+<span class="sd">Module for competitor representation.</span>
+<span class="sd">A competitor</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<div class="viewcode-block" id="create"><a class="viewcode-back" href="../index.html#Competitor.create">[docs]</a><span class="k">def</span> <span class="nf">create</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">birth_date</span><span class="p">,</span> <span class="n">bib_num</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    :param first_name: first name of a competitor</span>
+<span class="sd">    :type name: string</span>
+<span class="sd">    :param last_name: last name of a competitor</span>
+<span class="sd">    :type name: string</span>
+<span class="sd">    :param sex: sex of a competitor &#39;M&#39; or &#39;F&#39;</span>
+<span class="sd">    :type name: string</span>
+<span class="sd">    :param birth_date: birth date of the competitor, format is &quot;DD/MM/YYY&quot;</span>
+<span class="sd">    :type birth_date: string</span>
+<span class="sd">    :param bib_num: bib number of the competitor</span>
+<span class="sd">    :type bib_num: int    </span>
+<span class="sd">    :return: a new record for this competitor</span>
+<span class="sd">    :rtype: Competitor</span>
+<span class="sd">    :UC: bib_num &gt; 0 and sex in &#39;MF&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">bib_num</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">sex</span> <span class="ow">in</span> <span class="s1">&#39;MF&#39;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;bib_num&#39;</span> <span class="p">:</span> <span class="n">bib_num</span><span class="p">,</span>
+        <span class="s1">&#39;first_name&#39;</span> <span class="p">:</span> <span class="n">first_name</span><span class="p">,</span>
+        <span class="s1">&#39;last_name&#39;</span> <span class="p">:</span> <span class="n">last_name</span><span class="p">,</span>
+        <span class="s1">&#39;sex&#39;</span> <span class="p">:</span> <span class="n">sex</span><span class="p">,</span>
+        <span class="s1">&#39;birth_date&#39;</span> <span class="p">:</span> <span class="n">birth_date</span><span class="p">,</span>
+        <span class="s1">&#39;performance&#39;</span> <span class="p">:</span> <span class="kc">None</span>
+    <span class="p">}</span></div>
+
+<div class="viewcode-block" id="get_firstname"><a class="viewcode-back" href="../index.html#Competitor.get_firstname">[docs]</a><span class="k">def</span> <span class="nf">get_firstname</span> <span class="p">(</span><span class="n">comp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    :param comp:</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: first name of competitor comp</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :UC: none</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="get_lastname"><a class="viewcode-back" href="../index.html#Competitor.get_lastname">[docs]</a><span class="k">def</span> <span class="nf">get_lastname</span> <span class="p">(</span><span class="n">comp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    :param comp:</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: last name of competitor comp</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :UC: none</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;last_name&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="get_birthdate"><a class="viewcode-back" href="../index.html#Competitor.get_birthdate">[docs]</a><span class="k">def</span> <span class="nf">get_birthdate</span> <span class="p">(</span><span class="n">comp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param comp:</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: birthdate of competitor comp</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :UC: none</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;birthdate&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="get_bib_num"><a class="viewcode-back" href="../index.html#Competitor.get_bib_num">[docs]</a><span class="k">def</span> <span class="nf">get_bib_num</span> <span class="p">(</span><span class="n">comp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param comp:</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: bib number of competitor comp</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    :UC: none</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;bib_num&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="get_performance"><a class="viewcode-back" href="../index.html#Competitor.get_performance">[docs]</a><span class="k">def</span> <span class="nf">get_performance</span> <span class="p">(</span><span class="n">comp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param comp:</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: performance of competitor comp</span>
+<span class="sd">    :rtype: time</span>
+<span class="sd">    :UC: none</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="get_sex"><a class="viewcode-back" href="../index.html#Competitor.get_sex">[docs]</a><span class="k">def</span> <span class="nf">get_sex</span> <span class="p">(</span><span class="n">comp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param comp:</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: sex of competitor comp</span>
+<span class="sd">    :rtype: time</span>
+<span class="sd">    :UC: none</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="set_performance"><a class="viewcode-back" href="../index.html#Competitor.set_performance">[docs]</a><span class="k">def</span> <span class="nf">set_performance</span> <span class="p">(</span><span class="n">comp</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param comp: competitor to be modified</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :param d: performance of competitor comp</span>
+<span class="sd">    :type d: time</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    :Side effect: performance of competitor comp is modified with value d</span>
+<span class="sd">    :UC: none</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">comp</span><span class="p">[</span><span class="s1">&#39;performance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span></div>
+
+<div class="viewcode-block" id="to_string"><a class="viewcode-back" href="../index.html#Competitor.to_string">[docs]</a><span class="k">def</span> <span class="nf">to_string</span><span class="p">(</span><span class="n">competitor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :param competitor: a competitor</span>
+<span class="sd">    :type comp: Competitor</span>
+<span class="sd">    :return: a string representation for given competitor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;[</span><span class="si">{bib_num}</span><span class="s2">]: </span><span class="si">{first_name}</span><span class="s2"> </span><span class="si">{last_name}</span><span class="s2"> (</span><span class="si">{sex}</span><span class="s2"> - </span><span class="si">{birth_date}</span><span class="s2">) &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">competitor</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="compare_lastname"><a class="viewcode-back" href="../index.html#Competitor.compare_lastname">[docs]</a><span class="k">def</span> <span class="nf">compare_lastname</span> <span class="p">(</span><span class="n">comp1</span><span class="p">,</span> <span class="n">comp2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    define an order on competitor considering their last name</span>
+<span class="sd">    classical &lt;0 &gt;0 ==0 convention is used    </span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    <span class="n">name1</span> <span class="o">=</span> <span class="n">get_lastname</span><span class="p">(</span><span class="n">comp1</span><span class="p">)</span>
+    <span class="n">name2</span> <span class="o">=</span> <span class="n">get_lastname</span><span class="p">(</span><span class="n">comp2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">name1</span> <span class="o">&gt;</span> <span class="n">name2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">name1</span> <span class="o">&lt;</span> <span class="n">name2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="compare_performance"><a class="viewcode-back" href="../index.html#Competitor.compare_performance">[docs]</a><span class="k">def</span> <span class="nf">compare_performance</span> <span class="p">(</span><span class="n">comp1</span><span class="p">,</span> <span class="n">comp2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    define an order on competitor considering their performance</span>
+<span class="sd">    classical &lt;0 &gt;0 ==0 convention is used</span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    <span class="n">perf1</span> <span class="o">=</span> <span class="n">get_performance</span><span class="p">(</span><span class="n">comp1</span><span class="p">)</span>
+    <span class="n">perf2</span> <span class="o">=</span> <span class="n">get_performance</span><span class="p">(</span><span class="n">comp2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">perf1</span> <span class="o">&gt;</span> <span class="n">perf2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">perf1</span> <span class="o">&lt;</span> <span class="n">perf2</span><span class="p">)</span></div>
+
+
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">pass</span>    
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo_FIL.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Module Complex 0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>. <a href="http://www.fil.univ-lille1.fr">2017, JC Routier, Univ. Lille1</a>.
+      Last updated on 08/06/2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

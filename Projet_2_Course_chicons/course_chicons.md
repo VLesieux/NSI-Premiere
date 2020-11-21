@@ -56,17 +56,11 @@ Consultez la documentation du module fourni.
 Le module `Competitor.py` que l'on importera en écrivant `import Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
 
-Vous pouvez bien sûr examiner le code (accessible depuis la
-documentation), mais **se limiter à la lecture de la documentation est
-un bon exercice**, car il implique de se limiter à manipuler les
-données de type `Competitor` via l'interface fournie, sans se
-préoccuper de l'implémentation qui en a été réalisée (c'est ce qui se
-passe de fait, par exemple, dans les langages objets pour lesquels la
-notion d'attribut *privé* à un sens).
+Vous pouvez bien sûr examiner le code (accessible depuis la documentation), mais **se limiter à la lecture de la documentation est un bon exercice**, car il implique de se limiter à manipuler les données de type `Competitor` via l'interface fournie, sans se préoccuper de l'implémentation qui en a été réalisée (c'est ce qui se passe de fait, par exemple, dans les langages objets pour lesquels la notion d'attribut *privé* à un sens).
 
 On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`). On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
 
-Exemple : création d'un compétiteur avec `Competitor.create` avec puis affichage de celui-ci avec `Competitor.to_string`
+Exemple : création d'un compétiteur avec `Competitor.create` puis affichage de celui-ci avec `Competitor.to_string`
 
 ```python
 >>> Competitor.create("Laurie","Anderson",'F','5/6/1947',5)
@@ -87,6 +81,13 @@ Cette notion est définie dans le module `collections` de Python. Il convient do
 
 ```python
 from collections import namedtuple
+```
+
+Exemple de tuple nommé :
+```python
+>>> album1={"auteur":"Bob Dylan","album":"New Morning","date":1970}
+>>> album1["date"]
+1970
 ```
 
 **À faire**
@@ -182,14 +183,9 @@ Les fonctions suivantes sont à définir maintenant dans le module `course_chico
 Il sera bien sûr nécessaire d'importer les modules `Competitor` et `Time` placés dans le dossier src.
 
 
-Votre première tâche est de construire la liste des compétiteurs inscrits à
-la compétition.
+Votre première tâche est de construire la liste des compétiteurs inscrits à la compétition.
 
-Les données concernant ces compétiteurs se trouvent dans le fichier
-`data/inscrits.csv` (ou `data/small_inscrits.csv`) qui
-est un fichier au format
-[CSV](https://fr.wikipedia.org/wiki/Comma-separated_values),
-c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes tel que Sublime Text).
+Les données concernant ces compétiteurs se trouvent dans le fichier `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui est un fichier au format [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values), c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes tel que Sublime Text).
 
 La première ligne de ce fichier est constituée des libellés des données
 qui suivent :
@@ -251,7 +247,7 @@ votre liste ne comporte pas d'élément d'indice 2
 
 ```
 
-Vous devriez obtenir ceci (vous pouvez dérouler vers la droite): 
+Vous devriez obtenir ceci (vous pouvez dérouler vers la droite): on observe qu'il s'agit d'un dictionnaire dont les clés sont les numéros de brassard et les valeurs des tuples nommés contenant les données sur les compétiteurs.
 
 ```python
 >>> read_competitors("data/small_inscrits.csv")
@@ -260,6 +256,14 @@ Vous devriez obtenir ceci (vous pouvez dérouler vers la droite):
 
 Manipulations du dictionnaire
 -----------------------------
+
+Indication pour la suite : comme on a affaire à un dictionnaire de tuples nommés, on accédera de la manière suivante aux données.
+
+```python
+>>> ma_bib_musicale={"Disc1":{"auteur":"Bob Dylan","album":"New Morning","date":1970},"Disc2":{"auteur":"David Bowie","album":"Loving the Alien","date":1984}}
+>>> ma_bib_musicale["Disc2"]["date"]
+1984
+```
 
 ### Affichage des informations
 
@@ -273,7 +277,7 @@ Utilisez votre fonction pour afficher les compétiteurs contenus dans le diction
 Rappel sur le parcours des éléments d'un dictionnaire :
 ```python
 >>> frequences={'do4': 523.25, 'la3': 440, 'mi4': 659.26}
-for i in frequences:
+for i in frequences:#attention i est une clé du dictionnaire, pas un indice !
     print(frequences[i])
 523.25
 440
