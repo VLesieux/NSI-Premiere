@@ -1,5 +1,7 @@
 # Jeu de la vie
 
+On commencera par regarder cette [vidéo didactique](https://www.youtube.com/watch?v=S-W0NX97DB0) de David Louapre qui présente le jeu de la vie et ses structures complexes.
+
 Le jeu de la vie est une modélisation simpliste de la vie de cellules dans
 l'espace. Dans le cadre de cet exercice l'espace sera une grille rectangulaire
 dont chaque case peut contenir au plus une cellule. Chaque case contiendra
@@ -372,4 +374,4 @@ Vous trouverez des motifs plus complexes sur la [page Wikipedia du jeu de la
 vie](https://fr.wikipedia.org/wiki/Jeu_de_la_vie#Structures), en particulier
 dans sa [version
 anglophone](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns).
-Cette [vidéo didactique](https://www.youtube.com/watch?v=S-W0NX97DB0) de David Louapre présente le jeu de la vie et des structures complexes.
+
