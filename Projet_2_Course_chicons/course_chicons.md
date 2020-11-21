@@ -66,6 +66,15 @@ notion d'attribut *privé* à un sens).
 
 On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`). On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
 
+Exemple : création d'un compétiteur avec `Competitor.create` avec puis affichage de celui-ci avec `Competitor.to_string`
+
+```python
+>>> Competitor.create("Laurie","Anderson",'F','5/6/1947',5)
+{'bib_num': 5, 'first_name': 'Laurie', 'last_name': 'Anderson', 'sex': 'F', 'birth_date': '5/6/1947', 'performance': None}
+>>> Competitor.to_string({'bib_num': 5, 'first_name': 'Laurie', 'last_name': 'Anderson', 'sex': 'F', 'birth_date': '5/6/1947', 'performance': None})
+'[5]: Laurie Anderson (F - 5/6/1947) '
+```
+
 3. **Création du module `Time`**
 
 Nous allons créer un module `Time.py` placé dans le dossier src que l'on importera en écrivant `import src.Time as Time`.  
@@ -165,7 +174,6 @@ def to_string(time):
 ```
 
 
-
 Gestion des inscrits
 --------------------
 
@@ -243,7 +251,7 @@ votre liste ne comporte pas d'élément d'indice 2
 
 ```
 
-Vous devriez obtenir ceci: 
+Vous devriez obtenir ceci (vous pouvez dérouler vers la droite): 
 
 ```python
 >>> read_competitors("data/small_inscrits.csv")
@@ -289,7 +297,7 @@ Vous devriez obtenir ceci:
 
 ### Sélections
 
-Nous allons écrire maintenant quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section, les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
+Nous allons maintenant écrire  quelques fonctions de recherche dans un dictionnaire de valeurs qui satisfont un critère. Dans cette section, les compétiteurs sont passés en paramètre de chacune des fonctions sous la forme d'un dictionnaire tel que celui construit par la fonction `read_competitors`. Les fonctions à écrire disposent d'un autre paramètre qui correspond, d'une manière ou d'une autre, au critère de sélection des compétiteurs dans le dictionnaire.
 Les fonctions ont pour résultat soit une donnée de type `Competitor`, soit une liste de telles données. Ce résultat correspond à la sélection selon le critère cherché.
 
 **À faire n°3**   
@@ -339,15 +347,12 @@ Exemple : Dans le petit jeu de données, deux compétiteurs ont leur nom de fami
 Report des performances
 -----------------------
 
-La course achevée, votre tâche consiste à reporter les
-performances des compétiteurs dans les fiches de la liste de ces compétiteurs.
+La course achevée, votre tâche consiste à reporter les performances des compétiteurs dans les fiches de la liste de ces compétiteurs.
 
 ### Lecture des performances
 
 Les données concernant les performances se trouvent dans le fichier
-`data/performances.csv` (ou
-`data/small_performances.csv`) qui est un fichier au format
-CSV.
+`data/performances.csv` (ou `data/small_performances.csv`) qui est un fichier au format CSV.
 
 La première ligne de ce fichier est constituée des libellés des données
 qui suivent :
@@ -356,30 +361,20 @@ qui suivent :
 bib_num;hours;minutes;seconds
 ```
 
-Elle précise donc que chacune des lignes qui suivent contient dans cet
-ordre le numéro de dossard, le nombre d'heures, de minutes et de
-secondes du temps de parcours d'un compétiteur, ces informations étant
-séparées par un point-virgule.
+Elle précise donc que chacune des lignes qui suivent contient dans cet ordre le numéro de dossard, le nombre d'heures, de minutes et de secondes du temps de parcours d'un compétiteur, ces informations étant séparées par un point-virgule.
 
-Seuls les compétiteurs ayant effectivement participé et achevé la
-course figurent dans ce fichier.  Avec ces données vous allez
-construire un dictionnaire des performances qui associe à un numéro de
-dossard un objet de type `Time` du module que vous avez défini.
+Seuls les compétiteurs ayant effectivement participé et achevé la course figurent dans ce fichier.  Avec ces données vous allez construire un dictionnaire des performances qui associe à un numéro de dossard un objet de type `Time` du module que vous avez défini.
 
 
 **À faire n°6**
 
-Réalisez une fonction nommée `read_performances` paramétrée par le nom
-du fichier CSV contenant les données des performances, qui renvoie le dictionnaire
-des performances contenues dans ce fichier.   
+Réalisez une fonction nommée `read_performances` paramétrée par le nom du fichier CSV contenant les données des performances, qui renvoie le dictionnaire des performances contenues dans ce fichier.   
 La clé du dictionnaire est le numéro de brassard déjà inclu dans le fichier csv.
 On n'oubliera pas de transformer les données fournies en chaînes de caractères en entier à l'aide de la fonction `int()`.  
 Cette fonction est très similaire à la fonction _read_competitor_.
 
-Testez la validité de votre fonction avec le fichier
-`data/small_performances.csv`.
-Vérifiez en particulier la taille du dictionnaire obtenu, ainsi que le
-contenu de quelques éléments.
+Testez la validité de votre fonction avec le fichier `data/small_performances.csv`.
+Vérifiez en particulier la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments.
 
 Vous devriez obtenir ceci: 
 
@@ -390,18 +385,14 @@ Vous devriez obtenir ceci:
 
 ### Report
 
-Maintenant que vous disposez des données sur les compétiteurs et leurs
-performances sous forme de dictionnaires qui partagent les mêmes
-clefs, votre travail consiste à reporter les performances dans les
-fiches de ces compétiteurs. On réalise ainsi une fusion des deux tables.
+Maintenant que vous disposez des données sur les compétiteurs et leurs performances sous forme de dictionnaires qui partagent les mêmes clefs, votre travail consiste à reporter les performances dans les fiches de ces compétiteurs. On réalise ainsi une fusion des deux tables.
 
 
 **À faire n°7**
 
 Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs qui renvoie le dictionnaire des compétiteurs augmenté de leurs performances sous la forme d'un Time. Il faut gérer la situation où un compétiteur n'a pas de performance s'il s'est inscrit à la course mais n'a pas concouru, c'est-à-dire la cas où la clé du dictionnaire des compétiteurs est absente du dictionnaire des performances. Il faudra gérer l'exception de clé manquante `KeyError`.
 
-Testez la validité de votre fonction avec les listes produites par le
-petit jeu de données.
+Testez la validité de votre fonction avec les listes produites par le petit jeu de données.
 
 Vous devriez obtenir ceci: 
 
@@ -512,11 +503,7 @@ Vous devriez obtenir ceci :
 
 **À faire n°9**
 
-De manière similaire, faites le travail nécessaire pour définir une
-fonction `sort_competitors_by_performance` qui produit la liste des
-compétiteurs triée par ordre croissant des performances réalisées. Les
-compétiteurs sans résultat sont placés en fin de liste par ordre
-alphabétique. 
+De manière similaire, faites le travail nécessaire pour définir une fonction `sort_competitors_by_performance` qui produit la liste des compétiteurs triée par ordre croissant des performances réalisées. Les compétiteurs sans résultat sont placés en fin de liste par ordre alphabétique. 
 
 Première méthode :
 
@@ -560,9 +547,7 @@ Réalisez une fonction nommée `print_results` paramétrée par un dictionnaire 
 compétiteurs qui imprime sur la sortie standard cette liste en précisant
 leur prénom, nom, sexe, numéro de dossard et performance.
 
-Par exemple, avec le petit jeu de données, et en supposant que le report
-des performances a été effectué et la liste de compétiteurs triée par
-ordre de performance, on otient l'affichage :
+Par exemple, avec le petit jeu de données, et en supposant que le report des performances a été effectué et la liste de compétiteurs triée par ordre de performance, on otient l'affichage :
 
 ``` {.sourceCode .bash}
 [7]: Archard Rivard (M - 10/6/1950)      =>  0h46mn31s
@@ -577,21 +562,17 @@ ordre de performance, on otient l'affichage :
 [2]: Paien Gilbert (M - 26/11/1953)      => 
 ```
 
-Produisez l'affichage des résultats par ordre alphabétique, et par
-ordre des performances.
+Produisez l'affichage des résultats par ordre alphabétique, et par ordre des performances.
 
 
 ### Sauvegarde des résultats
 
-Enfin pour la pérennité de ces résultats, il est important de les
-sauvegarder dans un fichier.
+Enfin pour la pérennité de ces résultats, il est important de les sauvegarder dans un fichier.
 
 
 **À faire n°11**
 
-Réalisez une fonction nommée `save_results` paramétrée par un dictionnaire de
-compétiteurs et un nom de fichier de sauvegarde, qui crée un fichier au
-format CSV contenant
+Réalisez une fonction nommée `save_results` paramétrée par un dictionnaire de compétiteurs et un nom de fichier de sauvegarde, qui crée un fichier au format CSV contenant
 
 -   les libellés en première ligne
 
@@ -609,8 +590,7 @@ format CSV contenant
 
 Testez votre fonction avec le petit jeu de données puis sauvegardez les résultats complets de la course.
 
-**L'équipe organisatrice de la course du chicon vous remercie
-chaleureusement pour votre contribution à son bon déroulement.**
+**L'équipe organisatrice de la course du chicon vous remercie chaleureusement pour votre contribution à son bon déroulement.**
 
 
 # Compléments
@@ -619,16 +599,8 @@ chaleureusement pour votre contribution à son bon déroulement.**
 
 **Allons un peu plus loin**
 
-On peut constater que les deux fonctions de sélection réalisées sont
-assez similaires et on pourrait imaginer d'autres fonctions de
-sélection (par sexe, par tranche d'âge, etc.) qui le
-seraient tout autant.  À chaque fois, il s'agit de filtrer parmi les
-valeurs du dictionnaire, celles qui satisfont un critère de
-sélection. Ce critère pourrait être défini par un **prédicat**, c'est-à-dire
-une fonction dont le résultat est un booléen, dont le paramètre serait
-un compétiteur. Le résultat de cette fonction est `True` si le
-compétiteur doit être sélectionné (on dit qu'il vérifie le prédicat)
-et `False` dans le cas contraire.
+On peut constater que les deux fonctions de sélection réalisées sont assez similaires et on pourrait imaginer d'autres fonctions de sélection (par sexe, par tranche d'âge, etc.) qui le
+seraient tout autant.  À chaque fois, il s'agit de filtrer parmi les valeurs du dictionnaire, celles qui satisfont un critère de sélection. Ce critère pourrait être défini par un **prédicat**, c'est-à-dire une fonction dont le résultat est un booléen, dont le paramètre serait un compétiteur. Le résultat de cette fonction est `True` si le compétiteur doit être sélectionné (on dit qu'il vérifie le prédicat) et `False` dans le cas contraire.
 
 
 **À faire n°12**    
