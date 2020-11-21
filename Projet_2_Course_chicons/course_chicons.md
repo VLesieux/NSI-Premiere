@@ -218,15 +218,19 @@ Vous pouvez envisager de gérer la situation où aucun fichier ne correspond au 
 Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError` rencontrée pour les listes :
 
 ```python
-def renvoie_valeur_indice3_liste(liste):
+### sans levée d'exception : message d'erreur
+
+def renvoie_valeur_indice2_liste(liste):
     return liste[2]
 
->>> renvoie_valeur_indice3_liste([1,5])
+>>> renvoie_valeur_indice2_liste([1,5])
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
   File "/Users/vincentlesieux/Library/Mobile Documents/com~apple~CloudDocs/DIU-EIL/course_chicon_new.py", line 30, in renvoie_valeur_indice3_liste
     return liste[2]
 IndexError: list index out of range
+
+### avec levée d'exception
 
 def renvoie_valeur_indice3_liste(liste):
     try :
