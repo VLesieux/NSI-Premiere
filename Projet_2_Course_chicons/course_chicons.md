@@ -226,20 +226,20 @@ def renvoie_valeur_indice2_liste(liste):
 >>> renvoie_valeur_indice2_liste([1,5])
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
-  File "/Users/vincentlesieux/Library/Mobile Documents/com~apple~CloudDocs/DIU-EIL/course_chicon_new.py", line 30, in renvoie_valeur_indice3_liste
+  File "/Users/vincentlesieux/Library/Mobile Documents/com~apple~CloudDocs/DIU-EIL/course_chicon_new.py", line 30, in renvoie_valeur_indice2_liste
     return liste[2]
 IndexError: list index out of range
 
 ### avec levée d'exception
 
-def renvoie_valeur_indice3_liste(liste):
+def renvoie_valeur_indice2_liste(liste):
     try :
         return liste[2]
     except IndexError:
-        print("votre liste ne comporte pas d'élément d'indice 3")
+        print("votre liste ne comporte pas d'élément d'indice 2")
 
->>> renvoie_valeur_indice3_liste([1,2])
-votre liste ne comporte pas d'élément d'indice 3
+>>> renvoie_valeur_indice2_liste([1,2])
+votre liste ne comporte pas d'élément d'indice 2
 
 ```
 
