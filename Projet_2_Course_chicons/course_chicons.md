@@ -53,7 +53,7 @@ Récupérez le [dossier](https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/bl
 Consultez la documentation du module fourni.
 
 
-Le module `Competitor.py` que l'on importera en écrivant `import Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
+Le module `Competitor.py`  placé dans le dossier src  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
 
 Vous pouvez bien sûr examiner le code (accessible depuis la documentation), mais **se limiter à la lecture de la documentation est un bon exercice**, car il implique de se limiter à manipuler les données de type `Competitor` via l'interface fournie, sans se préoccuper de l'implémentation qui en a été réalisée (c'est ce qui se passe de fait, par exemple, dans les langages objets pour lesquels la notion d'attribut *privé* à un sens).
