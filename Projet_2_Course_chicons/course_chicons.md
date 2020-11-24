@@ -83,12 +83,7 @@ Cette notion est définie dans le module `collections` de Python. Il convient do
 from collections import namedtuple
 ```
 
-Exemple de tuple nommé :
-```python
->>> album1={"auteur":"Bob Dylan","album":"New Morning","date":1970}
->>> album1["date"]
-1970
-```
+Remarque : un tuple nommé est une séquence et ses éléments sont donc ordonnés, ce qui n'est pas le cas d'un dictionnaire qui est un ensemble de paires ; .. les attributs d'un tuple nommé doivent être des chaines de caractères alors que les clés d'un dictionnaire peuvent être n'importe quelle donnée non modifiable.
 
 **À faire**
 
@@ -173,7 +168,11 @@ def to_string(time):
 #Il a 18 ans
         
 ```
-
+```python
+Exemple
+>>> Time.create(2,30,20)
+Time(hours=2, minutes=30, seconds=20)
+```
 
 Gestion des inscrits
 --------------------
@@ -203,7 +202,7 @@ fonction `Competitor.create`. Il vous faudra attribuer à chacun de ces
 compétiteurs un numéro de dossard, obtenu par simple incrémentation d'un
 compteur. 
 
-Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **clés** seront les numéros de dossard et les **valeurs** le tuple contenant les quatre informations associées au compétiteur**.
+Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **clés** seront les numéros de dossard et les **valeurs** le tuple contenant les quatre informations associées au compétiteur.
 
 
 **À faire n°1**
@@ -378,7 +377,9 @@ On n'oubliera pas de transformer les données fournies en chaînes de caractère
 Cette fonction est très similaire à la fonction _read_competitor_.
 
 Testez la validité de votre fonction avec le fichier `data/small_performances.csv`.
-Vérifiez en particulier la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments.
+Vérifiez en particulier la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments. 
+
+Vérifiez que vos données sont bien du type int.
 
 Vous devriez obtenir ceci: 
 
@@ -490,13 +491,19 @@ def selection_min(l,i,comp):
         if comp(l[j],l[i_min])<0:
             i_min=j
     return i_min
-
 ```
 
+exemple : 
+
+```python
+>>> liste=["Joe","Pierre","Alfred","Victor"]
+>>> Tri.tri_selection(liste,Tri.compare_chaine_lexicographique)
+['Alfred', 'Joe', 'Pierre', 'Victor']
+```
 
 **À faire n°8**
 
-Utilisez la fonction `tri.compare_chaine_lexicographique` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
+Utilisez la fonction `tri.compare_chaine_lexicographique` et `tri_selection(l,comp)` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
 
 Vous devriez obtenir ceci : 
 
