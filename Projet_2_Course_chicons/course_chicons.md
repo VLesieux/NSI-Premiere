@@ -493,12 +493,17 @@ def selection_min(l,i,comp):
     return i_min
 ```
 
-exemple : 
+exemples : 
 
 ```python
 >>> liste=["Joe","Pierre","Alfred","Victor"]
 >>> Tri.tri_selection(liste,Tri.compare_chaine_lexicographique)
 ['Alfred', 'Joe', 'Pierre', 'Victor']
+
+>>> valeurs=[8,0,10,4]
+>>> Tri.tri_selection(valeurs,Tri.compare_entier_croissant)
+[0, 4, 8, 10]
+
 ```
 
 **À faire n°8**
