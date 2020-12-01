@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculatrice</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="calculatrice.css" />
+<script language="javascript" type="text/javascript" src="calculatrice.js"></script>	
+</head>
+<body>
+
+
+<br>
+<br>
+<div id="calcu">
+<p id="ecriture" class="sortie"></p>
+<br>
+<br>
+<div id="boutons">
+<input id="7" value="7" class="bouton" type="button" onclick="action(0)"></input>
+<input id="8" value="8" class="bouton" type="button" onclick="action(1)"></input>
+<input id="9" value="9" class="bouton" type="button" onclick="action(2)"></input>
+<input id="DEL" value="DEL" class="bouton" type="button" onclick="supprime()"></input>
+<input id="AC" value="AC" class="bouton" type="button" onclick="efface()"></input>
+<br><br>
+<input id="4" value="4" class="bouton" type="button" onclick="action(5)"></input>
+<input id="5" value="5" class="bouton" type="button" onclick="action(6)"></input>
+<input id="6" value="6" class="bouton" type="button" onclick="action(7)"></input>
+<input id="×" value="×" class="bouton" type="button" onclick="action(8)"></input>
+<input id="÷" value="÷" class="bouton" type="button" onclick="action(9)"></input>
+<br><br>
+<input id="1" value="1" class="bouton" type="button" onclick="action(10)"></input>
+<input id="2" value="2" class="bouton" type="button" onclick="action(11)"></input>
+<input id="3" value="3" class="bouton" type="button" onclick="action(12)"></input>
+<input id="+" value="+" class="bouton" type="button" onclick="action(13)"></input>
+<input id="-" value="-" class="bouton" type="button" onclick="action(14)"></input>
+<br><br>
+<input id="0" value="0" class="bouton" type="button" onclick="action(15)"></input>
+<input id="." value="." class="bouton" type="button" onclick="action(16)"></input>
+<input id="^" value="^" class="bouton" type="button" onclick="action(17)"></input>
+<input id="(-)" value="(-)" class="bouton" type="button" onclick="inverse()"></input>
+<input id="EXE" value="EXE" class="bouton" type="button" onclick="resultat()"></input>
+<br><br>
+<input id="(" value="(" class="bouton" type="button" onclick="action(20)"></input>
+<input id=")" value=")" class="bouton" type="button" onclick="action(21)"></input>
+</div>
+<br>
+<br>
+<br>
+</div>
+</body>
+</html>
