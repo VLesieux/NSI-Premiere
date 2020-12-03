@@ -37,7 +37,7 @@ def affichage(competiteurs):
     for i in competiteurs:
         print(Competitor.to_string(competiteurs[i]))
 
-affichage(read_competitors("data/small_inscrits.csv"))
+#affichage(read_competitors("data/small_inscrits.csv"))
         
         
 ##################### A faire n°3 ##########################           
@@ -152,14 +152,15 @@ def set_performances(dic1,dic2):
             resultat=None
     return dic2
 
-#print(set_performances(read_performances('data/small_performances.csv'),read_competitors("data/small_inscrits.csv")))
+#print(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
 
 def set_performances(dict_competiteurs,dict_performances):
-    for brassard in dict_competiteurs:
+    for brassard in dict_performances:
         if dict_performances.get(brassard):
             dict_competiteurs[brassard]["performance"]=Time.to_string(dict_performances[brassard])
     return dict_competiteurs
 
+#print(set_performances(read_competitors('data/small_inscrits.csv'),read_performances('data/small_performances.csv')))
 
 ##################### A faire n°8 ##########################
 
@@ -191,7 +192,7 @@ def sort_competitors_by_lastname(dictionnaire):
                 new[cle]=dictionnaire[cle]
     return new
         
-#print(sort_competitors_by_lastname(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv'))))
+#print(sort_competitors_by_lastname(set_performances(read_competitors('data/small_inscrits.csv'),read_performances('data/small_performances.csv'))))
 
 ##################### A faire n°9 ##########################
 
@@ -232,7 +233,7 @@ def sort_competitors_by_performance_methode1(dic):
                 new[j]=dic[j]                
     return new
 
-#print(sort_competitors_by_performance_methode1(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv'))))
+#print(sort_competitors_by_performance_methode1(set_performances(read_competitors('data/small_inscrits.csv'),read_performances('data/small_performances.csv'))))
 
 
 def sort_competitors_by_performance_methode2(dic1,dic2):
@@ -262,7 +263,8 @@ def sort_competitors_by_performance_methode2(dic1,dic2):
                 new[j]=dic1[j]  
     return new
             
-#print(sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances('data/small_performances.csv')))
+#print(sort_competitors_by_performance_methode2(read_competitors('data/small_inscrits.csv'),read_performances('data/small_performances.csv')))
+
 
 ##################### A faire n°10 ##########################
 
@@ -270,7 +272,7 @@ def print_results(dic):
     for i in dic:
         print("[{bib_num}]: {first_name} {last_name} ({sex} - {birth_date})    => {performance}".format(**dic[i]))
 
-#print_results(sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances("data/small_performances.csv")))
+#print_results(sort_competitors_by_performance_methode1(set_performances(read_competitors('data/small_inscrits.csv'),read_performances('data/small_performances.csv'))))
         
 ##################### A faire n°11 ##########################
         
@@ -282,7 +284,7 @@ def save_results(dic,text):
             sortie.writelines(str(dic[i]['bib_num'])+";"+dic[i]['first_name']+";"+dic[i]['last_name']+";"+dic[i]['performance']+"\n")
     sortie.close()
 
-#save_results(sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances("data/small_performances.csv")),"record")
+#save_results(sort_competitors_by_performance_methode1(set_performances(read_competitors('data/small_inscrits.csv'),read_performances('data/small_performances.csv'))),"record")
 
 ##################### A faire n°12 ##########################
     
