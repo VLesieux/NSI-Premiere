@@ -64,8 +64,13 @@ S=1+2+...(n-1).
 S=(n-1)+(n-2)+.....+1.   
 2S=nx(n-1) donc S=nx(n-1)/2 ; pour n=5 : S=10.
 
+Pour les exercices, réaliser les docstrings :
 
-
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+```
 
 <u>Exercice 1)</u>  
 Écrire une fonction `taille_binaire(n)` qui renvoie le nombre de chiffres dans l'écriture binaire de l'entier n (c'est-à-dire le nombre de divisions euclidiennes successives de n par 2 jusqu'à arriver à un quotient nul).
@@ -339,23 +344,6 @@ Un parcours séquentiel signifie que la liste ou le tuple sont parcourus éléme
 Proposer l'écriture de la fonction `moyenne(liste)` qui renvoie la moyenne d'une liste de nombre.
 Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n de la liste.
 
-> Exemple : Soit le code ci-dessous :
-
-```python
->>> liste = [17, 12, 5, 18, 2, 7, 9, 15, 14, 20]
-somme = 0
-i = 0
-while i < len(liste):
-    somme = somme + liste[i]
-    i = i + 1
-    resultat = somme / len(liste)
-print(i,resultat)
-10 11.9
-```
-
-Le corps de la boucle a été exécuté 10 fois et le résultat correspond à la moyenne de la liste.
-
-
 
 ### b. Recherche d'une occurence
 
@@ -371,47 +359,6 @@ On utilisera une boucle conditionnelle puis une boucle inconditionnelle.
 
 Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n de la liste.
 
-> Exemple 1 : On se propose de déterminer le résultat de l'appel trouverLettre("Vive l’informatique","e") pour la fonction définie ci-dessous :
-
-```python
-def trouverLettre(phrase,lettre):
-    indexResultat = 0
-    for i in range(len(phrase)):
-        if phrase[i]== lettre:
-            indexResultat=i
-    return indexResultat
->>> trouverLettre("Vive l’informatique","e")
-18
-```
-Il faut faire attention à la façon dont l'instruction `return indexResultat` est indentée. Ici l'instruction est effectuée une fois la boucle terminée.
-
-Le résultat ne serait pas le même si l'indentation avait été la suivante: 
-
-```python
-def trouverLettre(phrase,lettre):
-    indexResultat = 0
-    for i in range(len(phrase)):
-        if phrase[i]== lettre:
-            indexResultat=i
-            return indexResultat
->>> trouverLettre("Vive l’informatique","e")
-3
-```
-Dans ce cas, dès que la lette e est rencontrée, la fonction renvoie `indexResultat` correspondant à 3 et on sort de la boucle.
-
-
-> Exemple 2 : Soir le code suivant de recherche d'une valeur dans une liste.
-
-```python
-def search(x, y):
-    # x est la valeur à chercher
-    # y est une liste de valeurs
-    for i in range(len(y)):
-        if x == y[i]:
-            return i
-    return None
-```
-Le coût de cet algorithme est linéaire car pour une liste de taille n, il effectue n comparaisons.
 
 ### c. Recherche d'un extremum
 
@@ -420,20 +367,6 @@ Recherche du maximum : l'idée est la suivante : on suppose que le premier élé
 
 Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)` de deux manières différentes : parcours des éléments de la liste ou parcours des indices de la liste.
 
-> Exemple : On considère la fonction suivante : 
-
-```python
-def f(T,i):
-    indice = i
-    m = T[i]
-    for k in range(i+1, len(T)):
-        if T[k] < m:
-            indice = k
-            m = T[k]
-    return indice
->>> f([ 7, 3, 1, 8, 19, 9, 3, 5 ], 0)
-2
-```
 
 ## 2. Recherche dichotomique
 
