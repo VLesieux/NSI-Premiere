@@ -211,7 +211,7 @@ for i in range(4):
 
 Lorsqu'on écrit un algorithme, il est impératif de vérifier que cet algorithme va produire un résultat en un temps fini et que ce résultat sera correct dans le sens où il sera conforme à une spécification précise. Nous dirons alors que l'algorithme est **valide** ou **correct**.
 
-Un algorithme itératif est construit avec des boucles. Pour prouver qu'il est **correct**, nous disposons de la notion d'**invariant** de boucle.  
+Un algorithme itératif est construit avec des boucles. Pour prouver que l'algorithme est **correct**, (on dit aussi que l'on prouve la correction de l'algorithme), nous disposons de la notion d'**invariant** de boucle.  
 Un invariant d'une boucle est une propriété qui est vérifiée avant l'entrée dans une boucle, à chaque passage dans cette boucle et à la sortie de cette boucle. On peut faire le lien avec les suites définies par récurrence du programme de mathématiques.
 Pour vérifier qu'une propriété est un invariant d'une boucle, on commence donc par vérifier que la propriété est vraie avant la boucle : cette étape s'appelle l'**initialisation**, on prouve ensuite que si la propriété est vraie avant un passage dans la boucle, elle reste vraie après ce passage. Cette étape s'appelle l'**hérédité**. On peut alors conclure que la propriété reste vraie à la sortie de la boucle. 
 
@@ -231,7 +231,7 @@ def multiplie(a,b):
 ```
 Cet algorithme simple a pour but de renvoyer le produit a×b.  
 
-On se propose de montrer que la propriété "p=m×b" est un invariant de boucle.
+On se propose de montrer que la propriété "p=m×b" est un invariant de boucle ; c'est-à-dire qu'en tout point de la boucle, on a bien "p=m×b".
 
 La propriété est vraie à la phase d'initialisation.  
 Supposons la propriété vraie à l'entrée de la boucle, vérifions qu'elle reste vraie à la sortie de la boucle, lorsque m et p prennent les nouvelles valeurs m' et p'.  
@@ -239,7 +239,7 @@ On a bien : p'=p+b=m×b+b=(m+1)×b=m'×b.
 Enfin, puisqu'à la sortie de la boucle, on a m=a, on peut bien affirmer que la fonction renvoie le produit a×b.
 
 Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On parle ici de boucles conditionnelles (utilisant while) car dans les boucles inconditionnelles (utilisant for) le nombre d'étapes est déterminé.
-On choisit un variant, c'est-à-dire une expression, la plus simple étant une variable, <u>telle que la suite formée par les valeurs de cette expression au cours des itérations converge en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt</u>. Dans notre exemple, si nous choisissons m comme variant, celui-ci prend les valeurs 0,1,...a et donc il y a exactement a passages dans la boucle, ce qui prouve sa terminaison.
+On choisit un **variant**, c'est-à-dire une expression, la plus simple étant une variable, <u>telle que la suite formée par les valeurs de cette expression au cours des itérations converge en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt</u>. Dans notre exemple, si nous choisissons m comme variant, celui-ci prend les valeurs 0,1,...a et donc il y a exactement a passages dans la boucle, ce qui prouve sa terminaison.
 
 ## 2. Coût d'un algorithme
 
@@ -399,16 +399,20 @@ def dichotomie(x,liste):
         return g
     else:
         return False
+```
 
+Exemple d'application à observer avec le debugger :
+
+```python
 >>> dichotomie(16,[5,16,35,78])
 1
 ```
 
-Faisons la preuve de la **terminaison** de l'algorithme avec le **variant** de la boucle d-g. Si la taille du tableau est inférieur à 2<sup>n</sup>, après k itérations, d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, après n étapes : d-g≤1, donc la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui statisfait la condition d'arrêt.   
+Faisons la preuve de la **terminaison** de l'algorithme avec le **variant** de la boucle : (`d-g`). Si la taille du tableau est inférieur à 2<sup>n</sup>, après k itérations, d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, après n étapes : d-g≤1, donc la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui statisfait la condition d'arrêt.   
 Par exemple, il faut sept étapes pour une taille de tableau égale à 100 (2<sup>7</sup>=128) et 10 étapes pour une taille de tableau égale à 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc nettement inférieur au nombre d'étapes d'une recherche linéaire.
 
 Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.
-Il faut que cela soit vrai avant l'entrée dans la boucle, d'où la possibilité d'ajouter une assertion dans le programme avant de commencer la recherche et ainsi ne pas effectuer la boucle pour rien. Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction assert teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien et sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
+Il faut que cela soit vrai avant l'entrée dans la boucle, d'où la possibilité, afin d'améliorer le programme, d'ajouter une assertion dans le programme avant de commencer la recherche et ainsi ne pas effectuer la boucle pour rien. Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction assert teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien et sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
 
 
 ```python
@@ -442,8 +446,6 @@ Si `x<liste[k]`, on obtient `liste[g]≤x<liste[k]`, dans ce cas la nouvelle val
 Sinon si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nouvelle valeur de g est k, et donc la propriété `liste[g]≤x<liste[d]` est encore vraie en sortant de la boucle.
 
 
-
-
 ## 3. Les algorithmes de tri
 
 
@@ -458,12 +460,14 @@ def tri (tab):
                 tab[j],tab[j+1] = tab[j+1], tab[j]
                 compteur+=1
     return tab,compteur
-    
+```
+Exemple d'application :
+ ```python   
 >>> tri([10,9,8,7,6,5,4,3,2,1])
 ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 45)
 ```
 
-En utilisant le `debugger`,  on observe les différentes étapes du tri:  
+En utilisant le `debugger` dans le cas de notre exemple,  on observe les différentes étapes du tri:  
 
 [10,9,8,7,6,5,4,3,2,1].   
 [9,10,8,7,6,5,4,3,2,1].   
@@ -479,7 +483,8 @@ Soit   9 permutations pour la remontée du 10.
 Soit 8 permutations pour la remontée du 9.  
 ...  
 
-On voit que par cet algorithme les valeurs les plus grandes remontent les uns après les autres à la manière d'une bulle.  
+On voit que par cet algorithme les valeurs les plus grandes remontent les uns après les autres à la manière d'une bulle ; d'où le nom de cet algorithme de tri.
+
 On trouvera ici une illustration avec une animation :
 [Animation Tri Bulle](https://www.youtube.com/watch?v=MtcrEhrt_K0&feature=youtu.be) 
 
@@ -570,6 +575,12 @@ def tri_insertion(liste):
             liste[k]=liste[k-1]#décalage d'une place vers la droite
             k=k-1#on remonte dans la liste 
         liste[k]=cle
+```
+
+Exemple d'application à observer avec le débugger.
+
+```python
+tri_insertion([10,9,8,7,6,5,4,3,2,1])
 ```
 
 <u>Terminaison</u> : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
