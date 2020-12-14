@@ -1,6 +1,6 @@
 ## Exercices sur les algorithmes de recherche
 
-L'instruction `random.randrange(n)` du module random effectue un tirage aléatoire d'un entier compris entre 0 inclu et n exclu.
+L'instruction `random.randrange(n)` du module random effectue un tirage aléatoire d'un entier compris entre 0 inclus et n exclu.
 
 1. Construire une liste par compréhension de 10**6 éléments en effectuant autant de tirages aléatoires. Visualiser la liste en affichant les variables dans Thonny.
 2. Écrire une fonction qui recherche la présence d'un entier quelconque dans la liste, elle renvoie True s'il est présent, False sinon.
