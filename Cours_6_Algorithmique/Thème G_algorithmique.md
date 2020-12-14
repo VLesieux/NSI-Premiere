@@ -211,7 +211,7 @@ for i in range(4):
 
 Lorsqu'on écrit un algorithme, il est impératif de vérifier que cet algorithme va produire un résultat en un temps fini et que ce résultat sera correct dans le sens où il sera conforme à une spécification précise. Nous dirons alors que l'algorithme est **valide** ou **correct**.
 
-Un algorithme itératif est construit avec des boucles. Pour prouver que l'algorithme est **correct**, (on dit aussi que l'on prouve la correction de l'algorithme), nous disposons de la notion d'**invariant** de boucle.  
+Un algorithme itératif est construit avec des boucles. Pour prouver que l'algorithme est **correct** (on dit aussi que l'on prouve la correction de l'algorithme), nous disposons de la notion d'**invariant de boucle**.  
 Un invariant d'une boucle est une propriété qui est vérifiée avant l'entrée dans une boucle, à chaque passage dans cette boucle et à la sortie de cette boucle. On peut faire le lien avec les suites définies par récurrence du programme de mathématiques.
 Pour vérifier qu'une propriété est un invariant d'une boucle, on commence donc par vérifier que la propriété est vraie avant la boucle : cette étape s'appelle l'**initialisation**, on prouve ensuite que si la propriété est vraie avant un passage dans la boucle, elle reste vraie après ce passage. Cette étape s'appelle l'**hérédité**. On peut alors conclure que la propriété reste vraie à la sortie de la boucle. 
 
@@ -238,8 +238,8 @@ Supposons la propriété vraie à l'entrée de la boucle, vérifions qu'elle res
 On a bien : p'=p+b=m×b+b=(m+1)×b=m'×b.
 Enfin, puisqu'à la sortie de la boucle, on a m=a, on peut bien affirmer que la fonction renvoie le produit a×b.
 
-Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On parle ici de boucles conditionnelles (utilisant while) car dans les boucles inconditionnelles (utilisant for) le nombre d'étapes est déterminé.
-On choisit un **variant**, c'est-à-dire une expression, la plus simple étant une variable, <u>telle que la suite formée par les valeurs de cette expression au cours des itérations converge en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt</u>. Dans notre exemple, si nous choisissons m comme variant, celui-ci prend les valeurs 0,1,...a et donc il y a exactement a passages dans la boucle, ce qui prouve sa terminaison.
+Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On parle ici de boucles conditionnelles (utilisant while) car dans les boucles inconditionnelles (utilisant for) le nombre d'étapes est nécessairement déterminé.
+On choisit un **variant**, c'est-à-dire une expression, la plus simple étant une variable, <u>telle que la suite formée par les valeurs de cette expression au cours des itérations converge en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt</u>. Dans notre exemple, si nous choisissons m comme variant, celui-ci prend les valeurs 0,1,... jusque a, et donc il y a exactement a passages dans la boucle, ce qui prouve sa terminaison.
 
 ## 2. Coût d'un algorithme
 
@@ -259,11 +259,11 @@ def multiplie(a,b):
 >>> multiplie(4,3)
 12
 ```
-les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4a opérations. Nous dirons que le coût est proportionnel à a ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β.  
+les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4×a opérations. Nous dirons que le coût est proportionnel à a ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β.  
  
 On dit que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ.
 
-Dans le cas de deux boucles imbriquées, on peut avoir selon les cas soit une complexité linéaire soit une complexité quadratique.
+Dans le cas de deux boucles imbriquées, on peut avoir, selon les cas, soit une complexité linéaire soit une complexité quadratique.
 
 <u>Premier cas</u> :
 
@@ -274,7 +274,7 @@ for i in range(n):
         ... (on suppose r opérations effectuées ici) 
 ```
 
-Nous avons n passages dans la boucle externe et à chaque passage, nous avons le nombre fixe de q opérations puis k passages dans la boucle interne où nous avons le nombre fixe de r opérations. Soit au total un nombre d'opérations : n×(q+k×r) soit α×n et le coût est linéaire.
+Nous avons n passages dans la boucle externe et à chaque passage, on suppose que l'on a le nombre fixe de q opérations, puis k passages dans la boucle interne où nous avons le nombre fixe de r opérations. Soit au total un nombre d'opérations : n×(q+k×r), soit un coût en α×n, c'est-à-dire un coût linéaire.
 
 <u>Deuxième cas</u> :
 
@@ -284,7 +284,7 @@ for i in range(n):
     for j in range(n):
         ... (on suppose r opérations effectuées ici) 
 ```
-Nous avons n passages dans la boucle externe et à chaque passage, nous avons le nombre fixe de q opérations puis n passages dans la boucle interne où nous avons le nombre fixe de r opérations. Soit au total : n×(q+n×r)=r×n<sup>2</sup>+q×n soit α×n<sup>2</sup>+β×n+γ et le coût est ici quadratique.
+Nous avons n passages dans la boucle externe et à chaque passage, nous avons le nombre fixe de q opérations, puis n passages dans la boucle interne où nous avons le nombre fixe de r opérations. Soit au total : n×(q+n×r)=r×n<sup>2</sup>+q×n soit α×n<sup>2</sup>+β×n+γ et le coût est ici quadratique.
 
 
 <u>Troisième cas</u> :
@@ -374,15 +374,18 @@ La recherche dichotomique dans une liste doit s'effectuer **sur une liste préal
 Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
 
 ```python
-liste=[4,1,3,2]
-liste2=sorted(liste)
-print(liste2)
-print(liste)
-liste.sort()
-print(liste)
+>>> liste=[4,1,3,2]
+>>> liste2=sorted(liste)
+>>> print(liste2)
+[1, 2, 3, 4]
+>>> print(liste)
+[4, 1, 3, 2]
+>>> liste.sort()
+>>> print(liste)
+[1, 2, 3, 4]
 ```
 
-Le principe de la dichotomie (binary search en anglais) repose sur le principe <i>diviser pour mieux régner</i> (en anglais divide-and-conquer) : à chaque étape, on coupe le tableau en deux et on effectue un test pour savoir dans quelle partie se trouve l'élément cherché.
+Le principe de la dichotomie (binary search en anglais) repose sur le principe <i>diviser pour mieux régner</i> (en anglais divide-and-conquer) : à chaque étape, on coupe le tableau en deux et on effectue un test pour savoir dans quelle partie se trouve l'élément recherché.
 
 
 ```python
@@ -408,11 +411,11 @@ Exemple d'application à observer avec le debugger :
 1
 ```
 
-Faisons la preuve de la **terminaison** de l'algorithme avec le **variant** de la boucle : (`d-g`). Si la taille du tableau est inférieur à 2<sup>n</sup>, après k itérations, d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, après n étapes : d-g≤1, donc la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui statisfait la condition d'arrêt.   
-Par exemple, il faut sept étapes pour une taille de tableau égale à 100 (2<sup>7</sup>=128) et 10 étapes pour une taille de tableau égale à 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc nettement inférieur au nombre d'étapes d'une recherche linéaire.
+Faisons la preuve de la **terminaison** de l'algorithme avec le **variant** de la boucle : (`d-g`). Si la taille du tableau est inférieur à 2<sup>n</sup>, après k itérations, d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.   
+Par exemple, il faut sept étapes pour une tableau dont la taille est de l'ordre de 100 (2<sup>7</sup>=128) et 10 étapes pour un tableau dont la taille est de l'ordre de 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc nettement inférieur au nombre d'étapes d'une recherche linéaire !
 
 Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.
-Il faut que cela soit vrai avant l'entrée dans la boucle, d'où la possibilité, afin d'améliorer le programme, d'ajouter une assertion dans le programme avant de commencer la recherche et ainsi ne pas effectuer la boucle pour rien. Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction assert teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien et sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
+Il faut évidemment que cela soit vrai avant l'entrée dans la boucle, d'où la possibilité, afin d'améliorer le programme, d'ajouter une assertion dans le programme avant de commencer la recherche et ainsi ne pas effectuer la boucle pour rien. Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien et sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
 
 
 ```python
@@ -440,8 +443,7 @@ AssertionError: la valeur dépasse les bornes de la liste
 ```
 
 Si l'assertion est vérifiée, alors la propriété est vraie avant l'entrée dans la boucle.    
-Supposons la propriété vraie avant le passage dans la boucle : `liste[g]≤x<liste[d]`.   
-D'après le choix de k, k=(g+d)//2 ,liste[g]≤liste[k]≤liste[d] puisque la liste est triée.  
+Supposons la propriété vraie avant le passage dans la boucle : `liste[g]≤x<liste[d]`.    D'après le choix de k, k=(g+d)//2 ,liste[g]≤liste[k]≤liste[d] puisque la liste est triée.  
 Si `x<liste[k]`, on obtient `liste[g]≤x<liste[k]`, dans ce cas la nouvelle valeur de d est k, et donc la propriété `liste[g]≤x<liste[d]` est vraie en sortant de la boucle.   
 Sinon si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nouvelle valeur de g est k, et donc la propriété `liste[g]≤x<liste[d]` est encore vraie en sortant de la boucle.
 
@@ -492,18 +494,18 @@ En choisissant la liste de 10 éléments [10,9,8,7,6,5,4,3,2,1], on s'est placé
 
 Le nombre de permutation pour une liste de n éléments la plus désordonnée telle que précédemment est donnée par :  
 S = (n-1) + (n-2) + ... + 1.   
-La valeur de cette somme s'obtient en retournant son écriture :  
+La valeur de cette somme est classique et s'obtient en retournant son écriture :  
 S = 1 + 2 + ......+ (n-1)   puis en additionnant membre à membre les deux équations :  
 2xS=nx(n-1) soit S=nx(n-1)/2.  
-Pour 10 éléments, S=10x9/2=45.
+Pour 10 éléments, on a ainsi : S=10x9/2=45 opérations.
 
 
 ### 2. Tri par sélection
 
 <u>Principe</u> : On dispose de n données. On cherche la plus petite donnée et on la place en première position, puis on cherche la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.  
-Si les données sont les éléments d'une liste `liste`, l'algorithme consiste donc à faire varier un indice i de 0 à n-2.   
+Si les données sont les éléments d'une liste appelée `liste`, l'algorithme consiste donc à faire varier un indice i de 0 à n-2.   
 Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit élément et on l'échange avec `liste[i]`.  
-On connaît déjà l'algorithme de recherche du minimum.  
+On connaît déjà l'algorithme de recherche du minimum vu précédemment.  
 
 ```python
 def minimum(liste):
@@ -514,17 +516,17 @@ def minimum(liste):
     return minimum
 ```
 
-Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec minimum.
+Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec le minimum.
 
 <u>Exemple</u> : 
 
-Soit la liste [7,4,3,2,9,5] de longueur 6.   
+Soit le tableau : liste=[7,4,3,2,9,5] de longueur n=6.   
 
-Pour i égal 0, [2,4,3,7,9,5] ; permutation de 2 avec 7    
-Pour i égal 1, [2,3,4,7,9,5] ; permutation de 4 avec 3   
+Pour i égal 0, [2,4,3,7,9,5] ; permutation de 7=liste[0] avec 2 minimum de liste[0:n]   
+Pour i égal 1, [2,3,4,7,9,5] ; permutation de 4=liste[1] avec 3 minimum de liste[1:n]   
 Pour i égal 2, [2,3,4,7,9,5] ; pas de permutation   
-Pour i égal 3, [2,3,4,5,9,7] ; permutation de 5 avec 7   
-Pour i égal 4=6-2, [2,3,4,5,7,9] ; permutation de 9 avec 7   
+Pour i égal 3, [2,3,4,5,9,7] ; permutation de 7=liste[3] avec 5 minimum de liste[3:n]   
+Pour i égal 4=6-2, [2,3,4,5,7,9] ; permutation de 9=liste[4] avec 7 minimum de liste[4:n]   
 
 Montrer que l'écriture de la fonction `tri_selection(liste)` répond à cet objectif.
 
@@ -541,9 +543,9 @@ def tri_selection(liste):
     return liste
 ```
 
-<u>Terminaison</u> : dans la mesure où les boucles utilisées sont deux boucles inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
+<u>Terminaison de l'algorithme</u> : dans la mesure où les boucles utilisées sont deux boucles inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
 
-<u>Correction</u>  : L'invariant est le suivant : "pour chaque i, la liste est une permutation de la liste initiale, la liste `liste[0:i+1]` est triée et tous les éléments de la liste `liste[i+1:n]` sont supérieurs à tous les éléments de la liste `liste[0:i+1]`."
+<u>Correction de l'algorithme</u>  : L'invariant est le suivant : "pour chaque i, la liste est une permutation de la liste initiale, la liste `liste[0:i+1]` est triée et tous les éléments de la liste `liste[i+1:n]` sont supérieurs à tous les éléments de la liste `liste[0:i+1]`."
 
 Après le premier passage dans la boucle, pour i égal à 0, la liste `liste[0:1]` ne contient qu'un élément qui est le minimum de la liste, inférieur à tous les éléments de la liste. La propriété est donc vraie pour i=0.
 
@@ -551,14 +553,15 @@ Supposons la propriété vraie pour i=k,  on a donc la liste `liste[0:k+1]` tri�
 
 La propriété est vraie au dernier passage pour i égal à n-2. À ce moment-là, la liste `liste[0:n-1]` est triée et l'élément n-1, dernier de la liste, est supérieur à tous les éléments de la liste `liste[0:n-1]` donc la liste `liste[0:n]` est triée.
 
-<u>Coût</u> : Nous sommes dans le cas de deux boucles imbriquées. 
+<u>Coût de l'algorithme</u> : Nous sommes dans le cas de deux boucles imbriquées. 
 ```python
     for i in range(n-1):
             .....................
         for j in range(i+1,n):
                 ....................
 ```
-Pour chaque valeur de i, j prend des valeurs de i+1 à n-1 soit n-i-1 valeurs. Et pour chaque valeur de j, une unique comparaison est effectuée. Donc pour chaque valeur de i, nous avons n-i-1 comparaisons. Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc un <u>coût quadratique</u> de l'ordre de n<sup>2</sup> comparaisons quelque soit la liste de longueur n, même si celle-ci est triée ! Le tri par sélection a l'avantage d'être facile à programmer mais il n'est pas recommandé si la liste contient plus de 10000 éléments.
+Pour chaque valeur de i, j prend des valeurs de i+1 à n-1 soit n-i-1 valeurs. Et pour chaque valeur de j, une unique comparaison est effectuée. Donc pour chaque valeur de i, nous avons n-i-1 comparaisons.
+Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc un <u>coût quadratique</u> de l'ordre de n<sup>2</sup> comparaisons, quelque soit la liste de longueur n, même si celle-ci est triée ! Le tri par sélection a l'avantage d'être facile à programmer mais il n'est pas recommandé si la liste contient plus de 10000 éléments.
 
 ### 3. Tri par insertion
 
@@ -594,16 +597,7 @@ Si dans le pire des cas où les éléments de la liste sont rangés dans l'ordre
 
 ### 4. Tri en Python
 
-Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée <u>sans modification de la liste initiale</u>. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
-
-```python
-liste=[4,1,3,2]
-liste2=sorted(liste)
-print(liste2)
-print(liste)
-liste.sort()
-print(liste)
-```
+Avec Python, comme nous l'avons déjà vu, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée <u>sans modification de la liste initiale</u>. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
 
 L'algorithme de tri utilisé par la méthode `sort` et la fonction `sorted` s'appelle `timsort`, du nom de son inventeur Tim Peters en 2002. C'est un tri performant, dérivé d'un tri fusion, qui utilise l'algorithme du tri par insertion sur des parties presque triées.
 
@@ -619,8 +613,8 @@ print(liste2)
 print(liste1)
 
 >>> %Run algorithmes.py
-[4, -3, 2, -1]
-[-3, -1, 2, 4]
+[4, -3, 2, -1]##les valeurs sont classées dans l'ordre décroissant de leur carré.
+[-3, -1, 2, 4]##liste1 n'est pas modifiée pour autant
 ```
 
 ## 4. L'algorithme des k plus proches voisins
