@@ -502,6 +502,8 @@ Pour 10 éléments, on a ainsi : S=10x9/2=45 opérations.
 
 ### 2. Tri par sélection
 
+[Vidéo](https://www.youtube.com/watch?v=8u3Yq-5DTN8) 
+
 <u>Principe</u> : On dispose de n données. On cherche la plus petite donnée et on la place en première position, puis on cherche la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.  
 Si les données sont les éléments d'une liste appelée `liste`, l'algorithme consiste donc à faire varier un indice i de 0 à n-2.   
 Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit élément et on l'échange avec `liste[i]`.  
@@ -564,6 +566,8 @@ Pour chaque valeur de i, j prend des valeurs de i+1 à n-1 soit n-i-1 valeurs. E
 Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc un <u>coût quadratique</u> de l'ordre de n<sup>2</sup> comparaisons, quelque soit la liste de longueur n, même si celle-ci est triée ! Le tri par sélection a l'avantage d'être facile à programmer mais il n'est pas recommandé si la liste contient plus de 10000 éléments.
 
 ### 3. Tri par insertion
+
+[Vidéo](https://www.youtube.com/watch?v=bRPHvWgc6YM) 
 
 <u>Principe</u> : On dispose de n données et on procède par étapes. À chaque étape, on suppose que les k premières données sont triées, et on insère une donnée supplémentaires à la bonne place parmi ces k données déjà triées.   
 Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle clé. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé après chaque comparaison.
