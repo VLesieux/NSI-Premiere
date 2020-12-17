@@ -451,25 +451,20 @@ Sinon si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nouv
 ## 3. Les algorithmes de tri
 
 
-### 1.Tri bulle
+### 1.Tri bulle 
+[Vidéo](https://www.youtube.com/watch?v=MtcrEhrt_K0&feature=youtu.be) 
 
 ```python
-def tri (tab):
-    compteur=0
-    for i in range (1, len(tab)):
-        for j in range (len(tab) - i):
-            if tab[j]>tab[j+1]:
-                tab[j],tab[j+1] = tab[j+1], tab[j]
-                compteur+=1
-    return tab,compteur
+def tri_bulle(liste):
+    """
+    renvoie une liste triée
+    param : liste : list
+    return : list
+    >>> tri_selection([2, 25, 10, 24])
+    [2, 10, 24, 25]
+    """
 ```
-Exemple d'application :
- ```python   
->>> tri([10,9,8,7,6,5,4,3,2,1])
-([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 45)
-```
-
-En utilisant le `debugger` dans le cas de notre exemple,  on observe les différentes étapes du tri:  
+Exemple d'application : en utilisant le `debugger`,  on peut observer les différentes étapes du tri:  
 
 [10,9,8,7,6,5,4,3,2,1].   
 [9,10,8,7,6,5,4,3,2,1].   
@@ -486,9 +481,6 @@ Soit 8 permutations pour la remontée du 9.
 ...  
 
 On voit que par cet algorithme les valeurs les plus grandes remontent les uns après les autres à la manière d'une bulle ; d'où le nom de cet algorithme de tri.
-
-On trouvera ici une illustration avec une animation :
-[Animation Tri Bulle](https://www.youtube.com/watch?v=MtcrEhrt_K0&feature=youtu.be) 
 
 En choisissant la liste de 10 éléments [10,9,8,7,6,5,4,3,2,1], on s'est placé dans le cas de la liste la plus désordonnée, c'est-à-dire "le pire des cas". 
 
@@ -507,18 +499,34 @@ Pour 10 éléments, on a ainsi : S=10x9/2=45 opérations.
 <u>Principe</u> : On dispose de n données. On cherche la plus petite donnée et on la place en première position, puis on cherche la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.  
 Si les données sont les éléments d'une liste appelée `liste`, l'algorithme consiste donc à faire varier un indice i de 0 à n-2.   
 Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit élément et on l'échange avec `liste[i]`.  
-On connaît déjà l'algorithme de recherche du minimum vu précédemment.  
+On connaît déjà l'algorithme de recherche du minimum vu précédemment ; on réalise une fonction qui donne le minimum à partir d'un certain indice.
 
 ```python
-def minimum(liste):
-    minimum=liste[0]
-    for i in liste:
-        if i<minimum:
-            minimum=i
-    return minimum
+def minimum(liste,i):
+    """
+    renvoie le minimum de la liste à partir de l'indice i
+    param : liste : list
+    return : int
+    >>> minimum([2, 25, 3, 10, 24],2)
+    2
+    >>> minimum([2, 25, 3, 10, 24],4)
+    4
+    """    
 ```
 
 Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec le minimum.
+
+```python
+def tri_selection(liste):
+    """
+    renvoie une liste triée
+    param : liste : list
+    return : list
+    >>> tri_selection([30, 25, 10, 24])
+    [10, 24, 25, 30]
+    """    
+```
+
 
 <u>Exemple</u> : 
 
@@ -529,21 +537,6 @@ Pour i égal 1, [2,3,4,7,9,5] ; permutation de 4=liste[1] avec 3 minimum de list
 Pour i égal 2, [2,3,4,7,9,5] ; pas de permutation   
 Pour i égal 3, [2,3,4,5,9,7] ; permutation de 7=liste[3] avec 5 minimum de liste[3:n]   
 Pour i égal 4=6-2, [2,3,4,5,7,9] ; permutation de 9=liste[4] avec 7 minimum de liste[4:n]   
-
-Montrer que l'écriture de la fonction `tri_selection(liste)` répond à cet objectif.
-
-```python
-def tri_selection(liste):
-    n=len(liste)
-    for i in range(n-1):
-        minimum=liste[i]
-        for j in range(i+1,n):
-            if liste[j]<minimum:
-                minimum=liste[j]
-                i_minimum=j#on repère l'indice j pour la permutation
-        liste[i],liste[i_minimum]=minimum,liste[i]
-    return liste
-```
 
 <u>Terminaison de l'algorithme</u> : dans la mesure où les boucles utilisées sont deux boucles inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
 
@@ -574,20 +567,26 @@ Si les données sont les éléments d'une liste, l'algorithme consiste donc à f
 
 
 ```python
-def tri_insertion(liste):
-    for i in range(len(liste)-1):
-        k=i+1#l'indice de la clé
-        cle=liste[k]
-        while k>0 and cle<liste[k-1]:
-            liste[k]=liste[k-1]#décalage d'une place vers la droite
-            k=k-1#on remonte dans la liste 
-        liste[k]=cle
+def placement(valeur,liste):
+    """
+    place la valeur dans la liste ordonnée en décalant les autres
+    param : liste : list
+    return : list
+    >>> placement(5,[2, 10, 5, 14])
+    [2, 5, 10, 14]
+    """
 ```
 
-Exemple d'application à observer avec le débugger.
 
 ```python
-tri_insertion([10,9,8,7,6,5,4,3,2,1])
+def tri_insertion(liste):
+    """
+    renvoie une liste triée
+    param : liste : list
+    return : list
+    >>> tri_insertion([2, 13, 32, 25, 10, 24])
+    [2, 10, 13, 24, 25, 32]
+    """
 ```
 
 <u>Terminaison</u> : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
