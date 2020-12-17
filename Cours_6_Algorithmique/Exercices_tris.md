@@ -1,35 +1,50 @@
 ## Exercices sur les algorithmes de tri
 ### Rappels :
 
+Pour les doctests :
+
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+
+```
+
 <u>Algorithme du tri par sélection à adapter</u>
 
 ```python
-def echange(t,i,j):
-    t[i],t[j]=t[j],t[i]
-
 def tri_selection(t):
+	"""
+	param : t : list
+	return : list
+	>>> tri_selection([43,12,18,31,10])
+	[10, 12, 18, 31, 43]
+	"""
     for i in range(len(t)-1):
         m=i
         for j in range(i+1,len(t)):
             if t[j]<t[m]:
                 m=j
-        echange(t,i,m)
+        t[i],t[j]=t[j],t[i]
     return t
 ```
 
 <u>Algorithme du tri par insertion à adapter</u>
 
-```python
-def insere(t,i,v):
-    j=i
-    while j>0 and t[j-1]>v:
-        t[j]=t[j-1]
-        j=j-1
-    t[j]=v
-    
+```python    
 def tri_insertion(t):
+	"""
+	param : t : list
+	return : list
+	>>> tri_insertion([43,12,18,31,10])
+	[10, 12, 18, 31, 43]
+	"""
     for i in range(1,len(t)):
-        insere(t,i,t[i])
+		j=i
+    	while j>0 and t[j-1]>v:
+	        t[j]=t[j-1]
+	        j=j-1
+    	t[j]=v
     return t
 ```
 
@@ -100,12 +115,6 @@ def tri_lexicographique(liste):
     ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
     """
     pass
-```
-```python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-
 ```
 
 ### 2) Application du tri par insertion : trier des points
