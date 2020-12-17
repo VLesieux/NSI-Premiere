@@ -389,26 +389,17 @@ Le principe de la dichotomie (binary search en anglais) repose sur le principe <
 
 
 ```python
-def dichotomie(x,liste):
-    g=0
-    d=len(liste)
-    while d-g>1:
-        k=(g+d)//2
-        if x<liste[k]:
-            d=k
-        else:
-            g=k
-    if x==liste[g]:
-        return g
-    else:
-        return False
-```
-
-Exemple d'application à observer avec le debugger :
-
-```python
->>> dichotomie(16,[5,16,35,78])
-1
+def recherche_dichotomie(valeur, liste):
+    """
+    renvoie True si valeur est dans la liste triée, False sinon
+    param : valeur : int
+    param : liste : list
+    return : bool
+    >>> recherche_dichotomie(5, [2, 5, 9, 24])
+    True
+    >>> recherche_dichotomie(8, [2, 5, 9, 24])
+    False
+    """
 ```
 
 Faisons la preuve de la **terminaison** de l'algorithme avec le **variant** de la boucle : (`d-g`). Si la taille du tableau est inférieur à 2<sup>n</sup>, après k itérations, d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.   
