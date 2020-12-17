@@ -431,7 +431,7 @@ def tri_bulle(liste):
     renvoie une liste triée
     param : liste : list
     return : list
-    >>> tri_selection([2, 25, 10, 24])
+    >>> tri_bulle([2, 25, 10, 24])
     [2, 10, 24, 25]
     """
 ```
@@ -475,7 +475,7 @@ On connaît déjà l'algorithme de recherche du minimum vu précédemment ; on r
 ```python
 def minimum(liste,i):
     """
-    renvoie le minimum de la liste à partir de l'indice i
+    renvoie l'indice du minimum de la liste à partir de l'indice i
     param : liste : list
     return : int
     >>> minimum([2, 25, 3, 10, 24],2)
