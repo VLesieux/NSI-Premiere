@@ -410,27 +410,7 @@ Il faut évidemment que cela soit vrai avant l'entrée dans la boucle, d'où la 
 
 
 ```python
-def dichotomie(x,liste):
-    g=0
-    d=len(liste)
     assert liste[g]<= x and x < liste[d],"la valeur dépasse les bornes de la liste"
-    while d-g>1:
-        k=(g+d)//2
-        if x<liste[k]:
-            d=k
-        else:
-            g=k
-    if x==liste[g]:
-        return g
-    else:
-        return False
-
->>> dichotomie(190,[5,16,35,78])
-Traceback (most recent call last):
-  File "<pyshell>", line 1, in <module>
-  File "/Users/vincentlesieux/Library/Mobile Documents/com~apple~CloudDocs/DIU-EIL/algorithmes.py", line 128, in dichotomie
-    assert liste[g]<= x and x <= liste[d-1],"la valeur dépasse les bornes de la liste"
-AssertionError: la valeur dépasse les bornes de la liste
 ```
 
 Si l'assertion est vérifiée, alors la propriété est vraie avant l'entrée dans la boucle.    
