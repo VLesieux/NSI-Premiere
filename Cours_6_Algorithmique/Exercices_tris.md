@@ -66,8 +66,6 @@ On pourra utiliser la méthode index qui renvoie l'indice d'un élément dans un
 3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant le tri par sélection.
 
 
-On écrira les docstrings suivantes des fonctions à compléter ; la fonction doctest est rappelée ensuite pour vous permettre de vous auto-contrôler.
-
 ```python
 def ordre_alphabet(c1,c2):
     """
@@ -128,7 +126,6 @@ Indications:
 - écrire une fonction `compare` qui prend en paramètre deux listes p1 et p2 représentant deux points P1 et P2 et qui renvoie -1 si P1 est plus proche de O que P2, 1 si P2 est plus proche de O que P1, et 0 si les deux points sont équidistants
 - écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant le tri par insertion.
 
-On écrira les docstrings suivantes.
 
 ```python
 def distance(x,y):
