@@ -117,8 +117,9 @@ On définira également une fonction `interet_glouton` pour calculer le gain rem
 
 ```python
 def interet_glouton(lvaleurs, lpoids,P) :
-    interet=0
-    for indice in ks_glouton(lvaleurs,lpoids,P):
-        interet+=lvaleurs[indice]
-    return interet
+    """
+    renvoie l'interet obtenu par application de l'algorithme glouton
+    >>> interet_glouton(lvaleurs, lpoids,15)
+    57
+    """
 ```
