@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
 On se propose d'écrire un algorithme pour un espace à une seule dimension.
 
-<img src="Assets/plus_proche_voisins.png">
+<img src="assets/plus_proche_voisins.png">
 
 On dispose d'une liste des positions des éléments ainsi qu'une liste des classes des éléments ('T' pour triangle, 'C' pour carré), le rond vert étant exclus des listes.
 
@@ -68,7 +68,7 @@ def Kvoisins(liste,k,x):
 2. Attribution de la classe
 
 On attribue à l'élément la classe qui est la plus rencontrée parmi les k plus proches voisins.
-<img src="Assets/plus_proche_voisins_classe.png">
+<img src="assets/plus_proche_voisins_classe.png">
 
 Dans le cas où k=3, la classe attribuée est le carré car les plus proches voisins sont deux carrés et un triangle,  tandis que dans le cas où k=5, la classe attribuée est le triangle car les plus proches voisins sont deux carrés et trois triangles.
 
