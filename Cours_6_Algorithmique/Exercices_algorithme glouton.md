@@ -30,17 +30,17 @@ def rendu_monnaie_glouton(somme,pieces):
     [100, 50, 10, 10, 5, 2]
     """
 ```
-Indication : créer une liste vide `rendu` puis réaliser une liste `difference` contenant les valeurs `somme-valeur` pour toutes les `valeur` dans `pièces` et prendre la valeur minimale parmi les valeurs positives ou nulles. Prendre l'opposé de cette valeur minimale ajouté de somme pour récupérer la valeur de la pièce choisie et l'ajouter cette valeur à la liste `rendu`. Retrancher à somme la valeur de cette pièce et poursuivre le processus aussi longtemps que somme>0.
+Indication : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs `somme-valeur` pour toutes les `valeur` dans `pièces` et prendre la valeur minimale parmi les valeurs positives ou nulles. Prendre l'opposé de cette valeur minimale ajouté de la valeur de `somme`, pour récupérer la valeur de la pièce choisie et ajouter cette valeur à la liste `rendu`. Retrancher à somme la valeur de cette pièce et poursuivre le processus aussi longtemps que somme>0.
 
 L'algorithme glouton propose une solution mais attention, celle-ci n'est pas toujours optimale !
-Pour s'en rendre compte, travaillons avec le système impérial qui est l'ancien système monétaire britannique : [30,24,12,6,3,1]
+Pour s'en rendre compte, travailler avec le système impérial qui est l'ancien système monétaire britannique : [30,24,12,6,3,1] et observer ce que donne l'algorithme :
 
 ```python
 >>> rendu_monnaie_glouton(48,[30,24,12,6,3,1])
 [30, 12, 6]
 ```
 
-L'algorithme glouton propose un rendu de 3 pièces alors que la solution optimale est bien évidemment le rendu de 2 pièces : [24,24].
+L'algorithme glouton propose un rendu de 3 pièces alors que la solution optimale serait bien évidemment le rendu de 2 pièces : [24,24].
 
 
 2. Le problème du sac à dos
@@ -66,7 +66,7 @@ lpoids=[1,2,5,6,7]
 lvaleurs=[1,6,22,18,28]
 ```
 
-Rappel de l'algorithme glouton : cet algorithme ne donne pas forcèment le résultat optimal mais il a le mérite de proposer une solution ; il consiste à placer d'abord l'objet de plus grande valeur de poids P1 inférieur à P puis à prendre parmi les objets restants celui de plus grande valeur dont le poids est inférieur à P-P1, etc....
+Rappel de l'algorithme glouton : cet algorithme ne donne pas forcèment le résultat optimal mais il a le mérite de proposer une solution ; il consiste à placer d'abord l'objet de plus grande valeur de poids P1 inférieur à P, puis à prendre parmi les objets restants celui de plus grande valeur dont le poids est inférieur à P-P1, etc....
 
 On peut donc réaliser une fonction `ks_glouton(lvaleurs, lpoids,P)` capable de nous donner la liste des indices des objets en suivant l'algortithme glouton.
 
@@ -92,7 +92,7 @@ def choix_glouton(lpoids,lvaleurs,P):
     """ 
 ```
 
-On crée maintenant une copie de la liste des poids, on réalise autant que possible des  `choix_glouton` ; pour ne pas reprendre le même poids, on met à l'infini la valeur du poids qui a été sélectionné en lui donnant la valeur `math.inf`.
+On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton` ; pour ne pas reprendre le même poids, on donne la valeur d'infini au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.
 
 
 ```python            
@@ -113,7 +113,7 @@ def ks_glouton(lvaleurs, lpoids,P) :
     """ 
 ```
 
-On définira également une fonction `interet_glouton` pour calculer le gain remporté lorqu'on utilise cet algorithme glouton.
+On définira également une fonction `interet_glouton` pour calculer le gain remporté dans le sac lorqu'on utilise cet algorithme glouton.
 
 ```python
 def interet_glouton(lvaleurs, lpoids,P) :
