@@ -92,7 +92,7 @@ def choix_glouton(lpoids,lvaleurs,P):
     """ 
 ```
 
-On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton` ; pour ne pas reprendre le même poids, on donne la valeur d'infini au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.
+On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton` ; pour ne pas reprendre le même poids, on donne la valeur infinie au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.
 
 
 ```python            
