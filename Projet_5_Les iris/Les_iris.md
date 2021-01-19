@@ -18,12 +18,10 @@ Voici le principe de l’algorithme de k plus proches voisins :
 
 2. On retient les k données du jeu de données E les plus proches de u.   
  
-3. On attribue à u la classe qui est la plus fréquente parmi les k données les plus proches.  
+3. On attribue à u la classe qui est la plus fréquente, c'est-à-dire la classe prépondérante, parmi les k données les plus proches.  
 
 
-
-
-## 3. Étude d'un exemple en botanique : les iris
+## 3. Application en botanique : les iris
 
 ### 3.1. Les données
 
@@ -64,7 +62,7 @@ longueur;largeur;espece
 1.5;0.2;0
 1.6;0.2;0
 ```
-La totalité du fichier csv se trouve dans le dossier assets, faire enregistrer sous pour le télécharger.
+La totalité du fichier csv se trouve dans le dossier assets du projet : ouvrir et recopier les valeurs pour constituer le fichier.
  
 ### 3.2. Utilisation de la bibliothèque matplotlib
 
