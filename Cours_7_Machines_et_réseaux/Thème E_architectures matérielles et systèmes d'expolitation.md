@@ -228,7 +228,9 @@ Le premier secteur d'un disque dur est le secteur de démarrage appelé MBR (Mas
 **Fonctions d'un système d'exploitation** : Un système d'exploitation propose un environnement graphique convivial afin que l'utilisateur puisse sélectionner les actions qu'il souhaite faire accomplir par la machine. Les fonctions d'un système d'exploitation sont nombreuses. Elles sont accessibles à l'aide d'outils comme le panneau de configuration, le gestionnaire de périphériques, le gestionnaire de tâches, pour Windows. Elles permettent de gérer le fonctionnement de tous les éléments constituant le système informatique.
 En général, nous agissons sur un ordinateur à l'aide de menus dans lesquels nous pouvons choisir nos demandes. Auparavant la seule manière était d'écrire des instructions avec un clavier et la machine répondait en affichant du texte à l'écran. Cette possibilité existe encore avec l'**invite de commandes sous Windows** ou avec un **terminal sous Linux** : [Linux - commandes fondamentales ](https://juliend.github.io/linux-cheatsheet/)
 
-À faire sous un système d'exploitation Linux</u> : [Initiation au Shell et gestion des droits de permission ](initiation_shell.md)
+À faire sous un système d'exploitation Linux</u> : [Initiation au Shell et gestion des droits de permission ](assets/initiation_shell.md)
+
+Utilisation de Raspberry Pi : [Transmission des données dans un réseau ](assets/Raspberry Pi & Python.pdf).  
 
 ### Ce qu'il faut retenir : 
 
@@ -316,7 +318,7 @@ Si à la suite on lit une autre ligne par exemple `drwxrwxrwx` la présence du `
 
 # 6. Transmission des données dans un réseau
 
-À lire : [Transmission des données dans un réseau ](reseau.pdf).    
+À lire : [Transmission des données dans un réseau ](assets/reseau.pdf).    
 
 
 ### Ce qu'il faut retenir :
