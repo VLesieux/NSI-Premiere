@@ -230,7 +230,7 @@ En général, nous agissons sur un ordinateur à l'aide de menus dans lesquels n
 
 À faire sous un système d'exploitation Linux</u> : [Initiation au Shell et gestion des droits de permission ](assets/initiation_shell.md)
 
-Utilisation de Raspberry Pi : [Transmission des données dans un réseau ](assets/Raspberry Pi & Python.pdf).  
+Utilisation de Raspberry Pi : [Transmission des données dans un réseau ](assets/RaspberryPi.pdf)
 
 ### Ce qu'il faut retenir : 
 
