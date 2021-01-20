@@ -82,7 +82,7 @@ Exemple : Parmi les dispositifs suivants : diode, écran tactile, thermomètre, 
 
 Il s'agit de faire le lien entre circuits électroniques, calcul logique et calcul binaire.
 
-> À lire et à faire avec le logiciel Logisim</u> : [Du transistor aux fonctions logiques ](Du_transistor_aux_fonctions_logiques.pdf)
+> À lire et à faire avec le logiciel Logisim</u> : [Du transistor aux fonctions logiques ](assets/Du_transistor_aux_fonctions_logiques.pdf)
 
 N.B : Le logiciel Logisim est un logiciel gratuit permettant de comprendre les circuits combinatoires permettant de mettre en oeuvre des fonctions booléennes.
 
