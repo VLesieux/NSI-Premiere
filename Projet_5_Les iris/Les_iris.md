@@ -113,8 +113,7 @@ donnees=lecture_tableau('iris.csv')
 
 def extraction(dic,grandeur,espece):
     """
-    Renvoie une liste de dictionnaires correspondant à la grandeur (longueur ou largeur)
-    et à l'espèce entrée en paramètre
+    Renvoie une liste de données correspondant à la grandeur, longueur ou largeur, pour une espèce
     :param dic : dict
     :param grandeur : str
     :param espece : int 0, 1, 2 en fonction de l'espèce de l'iris
@@ -199,19 +198,19 @@ def caractere_le_plus_commun(liste):
     pass
         
         
-def proches_voisins(k,p):
+def proches_voisins(k,p,liste):
     """
     Renvoie la liste des k plus proches voisins
     :param p : le doublet des coordonnées du point considéré
-    :param k : le nombre de voisins à considérer
+    :param k : le nombre de voisins considérés
     :return: liste 
     :Exemple:
-    >>> proches_voisins(3,(0,0))
+    >>> proches_voisins(3,(0,0),donnees)
     [(1.019803902718557, '0'), (1.104536101718726, '0'), (1.2165525060596438, '0')]
     """
     pass
 
-prediction=caractere_le_plus_commun(proches_voisins(k,(longueur,largeur)))
+prediction=caractere_le_plus_commun(proches_voisins(k,(longueur,largeur),donnees))
 
 plt.scatter(longueur, largeur,color='k')
 plt.legend()
