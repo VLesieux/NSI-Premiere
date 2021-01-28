@@ -31,12 +31,30 @@ Pour cela vous avez à votre disposition :
   forme `nom_de_la_ville latitude longitude`, vous pouvez bien sur
   l'étendre ou en générer un nouveau avec vos propres villes. 
 
-  Par exemple
-
   ```
-    Annecy	6,082499981	45,8782196
-    Auxerre	3,537309885	 47,76720047
-    Bastia	9,434300423	42,66175842
+Annecy	6,082499981	45,8782196
+Auxerre	3,537309885	 47,76720047
+Bastia	9,434300423	42,66175842
+Bordeaux	-0,643329978	44,80820084
+Boulogne	1,579570055	50,70875168
+Brest	-4,552110195	48,36014938
+Caen	-0,418989986	49,14748001
+Grenoble	5,684440136	45,13940048
+Le Havre	0,037500001	49,45898819
+Lens	2,786649942	50,40549088
+Lille	2,957109928	50,57350159
+Lyon	4,768929958	45,70447922
+Paris	2,086790085	48,65829086
+Marseille	5,290060043	43,1927681
+Metz	6,11729002	49,0734787
+Nantes	-1,650889993	47,16867065
+Nancy	6,134119987	48,66695023
+Nice	7,19904995	43,6578598
+Rennes	-1,759150028	48,05683136
+Strasbourg	7,687339783	48,49562836
+Saint-Etienne	4,355700016	45,39992905
+Sedan	4,896070004	49,68407059
+Toulouse	1,356109977	43,5388298
   ```
 
 - un fichier [TSP_biblio.py](assets/TSP_biblio.py) que l'on importera en écrivant `import TSP_biblio` contenant un ensemble de fonctions permettant la lecture des données et la visualisation d'un tour réalisé par le voyageur (ici pour le moment dans l'ordre d'apparition). Voici les principales fonctions et ce qu'elles donnent en sortie.
@@ -123,11 +141,11 @@ if __name__ == '__main__':
 >>> liste_ville("exemple.txt")
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
 
->>> indice_plus_proche(2,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
-17
+>>> >>> indice_plus_proche(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
+9
 
->>> glouton(2,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
-[2, 17, 13, 7, 0, 11, 20, 1, 12, 9, 10, 4, 8, 6, 18, 15, 3, 22, 16, 14, 21, 19, 5, 2]
+>>> glouton(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
+[10, 9, 4, 8, 6, 18, 15, 3, 22, 20, 11, 7, 0, 17, 13, 2, 19, 16, 14, 21, 1, 12, 5, 10]
 
 >>> indice_ville('Lille',"exemple.txt")
 10
