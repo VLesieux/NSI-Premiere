@@ -86,8 +86,6 @@ Bastia	9,434300423	42,66175842
         : param tour: liste de ville
         """
     ```
-
-
 ![Tournée Annecy (plus proche voisin)](assets/tournee_Lille.png)
 
 Afin de créer l'algorithme glouton et résoudre le problème du TSP, nous allons réaliser certaines étapes.
