@@ -32,29 +32,29 @@ Pour cela vous avez à votre disposition :
   l'étendre ou en générer un nouveau avec vos propres villes. 
 
   ```
-Annecy	6,082499981	45,8782196
-Auxerre	3,537309885	 47,76720047
-Bastia	9,434300423	42,66175842
-Bordeaux	-0,643329978	44,80820084
-Boulogne	1,579570055	50,70875168
-Brest	-4,552110195	48,36014938
-Caen	-0,418989986	49,14748001
-Grenoble	5,684440136	45,13940048
-Le Havre	0,037500001	49,45898819
-Lens	2,786649942	50,40549088
-Lille	2,957109928	50,57350159
-Lyon	4,768929958	45,70447922
-Paris	2,086790085	48,65829086
-Marseille	5,290060043	43,1927681
-Metz	6,11729002	49,0734787
-Nantes	-1,650889993	47,16867065
-Nancy	6,134119987	48,66695023
-Nice	7,19904995	43,6578598
-Rennes	-1,759150028	48,05683136
-Strasbourg	7,687339783	48,49562836
-Saint-Etienne	4,355700016	45,39992905
-Sedan	4,896070004	49,68407059
-Toulouse	1,356109977	43,5388298
+Annecy	6,082499981	45,8782196. 
+Auxerre	3,537309885	 47,76720047. 
+Bastia	9,434300423	42,66175842. 
+Bordeaux	-0,643329978	44,80820084. 
+Boulogne	1,579570055	50,70875168. 
+Brest	-4,552110195	48,36014938. 
+Caen	-0,418989986	49,14748001. 
+Grenoble	5,684440136	45,13940048.  
+Le Havre	0,037500001	49,45898819.  
+Lens	2,786649942	50,40549088.   
+Lille	2,957109928	50,57350159.  
+Lyon	4,768929958	45,70447922.  
+Paris	2,086790085	48,65829086.  
+Marseille	5,290060043	43,1927681.  
+Metz	6,11729002	49,0734787.  
+Nantes	-1,650889993	47,16867065.  
+Nancy	6,134119987	48,66695023.  
+Nice	7,19904995	43,6578598.   
+Rennes	-1,759150028	48,05683136.  
+Strasbourg	7,687339783	48,49562836. 
+Saint-Etienne	4,355700016	45,39992905. 
+Sedan	4,896070004	49,68407059. 
+Toulouse	1,356109977	43,5388298. 
   ```
 
 - un fichier [TSP_biblio.py](assets/TSP_biblio.py) que l'on importera en écrivant `import TSP_biblio` contenant un ensemble de fonctions permettant la lecture des données et la visualisation d'un tour réalisé par le voyageur (ici pour le moment dans l'ordre d'apparition). Voici les principales fonctions et ce qu'elles donnent en sortie.
