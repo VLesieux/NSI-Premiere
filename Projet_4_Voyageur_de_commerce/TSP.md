@@ -31,7 +31,7 @@ Pour cela vous avez à votre disposition :
   forme `nom_de_la_ville latitude longitude`, vous pouvez bien sur
   l'étendre ou en générer un nouveau avec vos propres villes. 
 
-```python
+```txt
 Annecy	6,082499981	45,8782196
 Auxerre	3,537309885	 47,76720047
 Bastia	9,434300423	42,66175842
