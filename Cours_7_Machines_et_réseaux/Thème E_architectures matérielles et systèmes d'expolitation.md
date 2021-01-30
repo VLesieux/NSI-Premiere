@@ -36,11 +36,9 @@ L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann*
 Une machine fonctionnant selon l'architecture de Von Neumann doit s’organiser en quatre parties différentes avec :    
 
 -	Une **mémoire**. 
-		Une **unité arithmétique et logique** située dans le processeur et chargée d'effectuer les calculs et les opérations de base.  
-		Une **unité de contrôle** chargée du « séquençage » des opérations grâce à une **horloge** pour synchroniser le fonctionnement.     
-		Des **périphériques entrées/sorties**.  
-
-
+-  Une **unité arithmétique et logique** située dans le processeur et chargée d'effectuer les calculs et les opérations de base.  
+-  Une **unité de contrôle** chargée du « séquençage » des opérations grâce à une **horloge** pour synchroniser le fonctionnement.     
+-  Des **périphériques entrées/sorties**.  
 
 Les différents éléments échangent des éléments à l’aide de **bus**.   
 
