@@ -51,29 +51,27 @@ On parle de mémoires au pluriel car elles sont plusieurs et de différents type
 Les **« mémoires de masse »** sont des mémoires de grandes capacités, comme un disque dur ou une clé USB. Les données y sont conservées de manière persistante. L’accès à ces données en lecture et écriture n’est pas très rapide.  
 La **RAM** pour Random Access Memory ou « mémoire vive » est une mémoire dite **volatile** : cela signifie que **son contenu est perdu dès que l’alimentation est coupée.** Cette mémoire est accessible **en lecture et en écriture**. Elle sert à **stocker, de façon temporaire, les données et les programmes lorsqu'ils sont exécutés par le processeur**. On peut l’imaginer comme un ensemble de cellules où chaque cellule a sa propre adresse et la capacité de stocker un octet. Ainsi, dès qu'un utilisateur lance une application, le système d'exploitation va l'ouvrir dans un espace disponible de la RAM.   
 La **ROM** ou mémoire morte n’est accessible qu’**en lecture**. Elle contient juste le nécessaire permettant de faire démarrer l’ordinateur. C’est une mémoire **non volatile**.  
-On trouve également des **registres** qui sont situés au niveau du processeur (CPU pour Central Processing Unit, c’est là que sont gérés les calculs et les instructions). Ce sont les éléments de mémoire les plus rapides car ils servent au stockage de nombres et de résultats intermédiaires. Proche du processeur se trouve la **mémoire cache**. De faible capacité mais rapide, elle permet de stocker les données les plus souvent utilisées.
+On trouve également des **registres** qui sont situés au niveau du processeur (CPU pour Central Processing Unit, c’est là que sont gérés les calculs et les instructions). Ce sont les éléments de mémoire les plus rapides car ils servent au stockage des nombres et des résultats intermédiaires. Proche du processeur se trouve la **mémoire cache**. De faible capacité mais rapide, elle permet de stocker les données les plus souvent utilisées.
 En résumé, pour les éléments de mémoire, **plus on s’éloigne du processeur, plus leur capacité grandit mais plus leur temps d’accès s’allonge**.
 Le temps d’exécution est crucial, et la vitesse de calcul des machines n’a cessé d’augmenter. Pour cela, le principal levier était la **fréquence d’horloge**. Mais il fallait en même temps refroidir le processeur dont la température augmente avec la vitesse de calcul. Depuis une quinzaine d’années, le choix a été fait par les constructeurs d’augmenter le nombre d’unités de calcul et de contrôle, et le nombre de registres. Autrement dit, on augmente le nombre de processeurs, ou de cœurs. On parle actuellement de **processeurs multi-cœurs** (ou multi-core en anglais) qui équipent la plupart des nouveaux ordinateurs et smartphones. Évidemment, cela ne résout pas toutes les questions de rapidité. En effet les différents cœurs doivent se partager les mémoires cache et la RAM. Il faut de plus que les programmes soient écrits pour ce type d’architecture.
 
 ### Ce qu'il faut retenir :
 
-* Savoir distinguer la mémoire vive ou **RAM** (random access memory, littéralement « mémoire à accès direct ») accessible en lecture et en écriture, de la mémoire morte ou **ROM** (read only memory, littéralement « mémoire à accès uniquement en lecture ») accessible uniquement en lecture.
-* Retenir que plus les élements de mémoire ont une capacité grande, plus les temps d'accès sont longs.  
+* Savoir distinguer la mémoire vive appelée **RAM** (random access memory, littéralement « mémoire à accès direct »), accessible en lecture et en écriture, de la mémoire dite morte appelée **ROM** (read only memory, littéralement « mémoire à accès uniquement en lecture ») accessible uniquement en lecture.
+* Retenir que plus les élements de mémoire ont une capacité grande, plus ils sont éloignés du processeur, plus les temps d'accès sont longs.  
 
 Exemple : supposons qu'un ordinateur possède les caractéristiques matérielles suivantes: 
 
 	- mémoire DDR SDRAM : 8 Go
 	- antémémoire ou mémoire cache : 1 Mo 
 	- disque dur SSD : 1 To. 
-L'accès mémoire du plus rapide au moins rapide sera : Antémémoire (1 Mo = 10^6 o) puis DDR SRDRAM (1 Go = 10^9 o) puis SSD (1 To = 10^12 o). 
+L'accès mémoire du plus rapide au moins rapide sera : 1) Antémémoire (1 Mo = 10^6 o) ; 2) DDR SRDRAM (1 Go = 10^9 o) ; 3) SSD (1 To = 10^12 o). 
 
 * Sur un ordinateur, le système d'exploitation ou OS (Operating System) est stocké sur le disque dur ou sur le disque SSD.
 
 * Dans un processeur, le **compteur ordinal** ou pointeur d'instruction (en anglais : instruction pointer ou program counter) est le **registre** (souvent nommé PC) qui contient l'**adresse mémoire** de l'instruction en cours d'exécution ou de la prochaine instruction à exécuter.
 
-* Un **capteur** est un dispositif transformant l'état d'une grandeur physique observée en une grandeur utilisable, telle qu'une tension électrique, une hauteur de mercure, une intensité ou la déviation d'une aiguille.
-
-Exemple : Parmi les dispositifs suivants : diode, écran tactile, thermomètre, moteur pas à pas, seul le thermomètre constitue un capteur puisqu'il transforme une grandeur physique, la température, en hauteur de liquide ou en valeur numérique.
+* Un **capteur** est un dispositif transformant l'état d'une grandeur physique observée en une grandeur utilisable, telle qu'une tension électrique, une hauteur de mercure, une intensité ou la déviation d'une aiguille. Exemple : Parmi les dispositifs suivants : diode, écran tactile, thermomètre, moteur pas à pas, seul le thermomètre constitue un capteur puisqu'il transforme une grandeur physique, la température, en hauteur de liquide ou en valeur numérique.
 
 
 # 3. Fonctionnement logique : circuits combinatoires
