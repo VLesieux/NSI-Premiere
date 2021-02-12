@@ -1,4 +1,4 @@
-Exercice 1 :
+**Exercice 1** :
 
 On définit la fonction mux qui prend en paramètres trois paramètres a, b, c de valeurs 0 ou 1. Si a vaut 0 alors mux(a,b,c) vaut b et si a vaut 1 alors mux(a,b,c) vaut c.
 
@@ -7,7 +7,7 @@ On définit la fonction mux qui prend en paramètres trois paramètres a, b, c d
 3. Vérifier à l'aide du logiciel Logisim en mettant en œuvre les portes logiques.
 
 
-Exercice 2 : 
+**Exercice 2** : 
 
 On dispose d'un capteur de température qui peut mesurer des températures allant de - 20°C à + 50°C. Ces températures sont converties en une tension électrique allant de 0 à 5 V.
 
@@ -18,7 +18,7 @@ Indication : on étalira que pour un convertisseur analogique-numérique de N bi
 
 2. On utilise un convertisseur analogique-numérique à 10 bits, pour des températures définies avec une précision de 0.1 degré, à quelle température correspond le nombre 512 ?
 
-Exercice 3 :
+**Exercice 3** :
 
 On dispose d'un réseau d'adresse 192.168.1.0 avec le masque 255.255.255.0. Des sous-réseaux ont été constitués mais on souhaite avoir le nombre maximum de sous-réseaux et que chaque sous-réseau accueille une trentaine de postes.
 
