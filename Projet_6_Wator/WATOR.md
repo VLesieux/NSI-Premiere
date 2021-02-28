@@ -1,6 +1,6 @@
 # WA-TOR : Mise en place du projet
 
-Règle du jeu : **[à consulter](assets/Wator_regles_du_jeu.md)**
+Règle du jeu : **[à consulter ici](assets/Wator_regles_du_jeu.md)**
 
 ## Première partie : représentation et affichage de la grille 
 
