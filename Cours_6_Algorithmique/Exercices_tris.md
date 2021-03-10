@@ -48,7 +48,7 @@ def tri_insertion(t):
     return t
 ```
 
-### 1) Application du tri par sélection : ordre lexicographique
+#### Exercice 1 : Application du tri par sélection : ordre lexicographique
 
 L'objectif est d'écrire un programme qui trie une liste de mots et les range suivant l'ordre lexicographique (ordre des dictionnaires).
 
@@ -115,7 +115,7 @@ def tri_lexicographique(liste):
     pass
 ```
 
-### 2) Application du tri par insertion : trier des points
+#### Exercice 2 : Application du tri par insertion : trier des points
 
 On dispose de points dans un plan muni d'un repère orthonormé d'origine O. Ces points possèdent un couple de coordonnées représenté par la liste [x,y].  
 On se propose de trier ces points en fonction de leur distance à O, de la plus petite à la plus grande.
@@ -172,4 +172,6 @@ def tri_points(liste):
     pass
 ```
 
+#### Exercice 3 : Un algorithme de tri
 
+[Sujet Bac Terminale exercice 2](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_02/21-NSI-02.pdf)

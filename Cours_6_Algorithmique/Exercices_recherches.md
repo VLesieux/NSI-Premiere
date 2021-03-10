@@ -1,5 +1,19 @@
 ## Exercices sur les algorithmes de recherche
 
+#### Exercice 1 : Recherche de l'indice d'une valeur dans un tableau
+
+[Sujet Bac Terminale exercice 1](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_01/21-NSI-01.pdf)
+
+#### Exercice 2 : Recherche d'un minimum pour une fonction donnée
+
+[Sujet Bac Terminale exercice 2](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_01/21-NSI-01.pdf)
+
+#### Exercice 3 : Recherche d'une moyenne
+
+[Sujet Bac Terminale exercice 1](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_02/21-NSI-02.pdf)
+
+#### Exercice 4 : Recherche par dichotomie
+
 L'instruction `random.randrange(n)` du module random effectue un tirage aléatoire d'un entier compris entre 0 inclus et n exclu.
 
 1. Construire une liste par compréhension de 10**6 éléments en effectuant autant de tirages aléatoires. Visualiser la liste en affichant les variables dans Thonny.
