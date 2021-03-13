@@ -543,7 +543,7 @@ def placement(valeur,liste):
     param : liste : list
     param : valeur : int
     return : list
-    >>> placement(5,[2, 10, 14 , 5])
+    >>> placement(5,[2, 10, 14, 5])
     [2, 5, 10, 14]
     """
 ```
