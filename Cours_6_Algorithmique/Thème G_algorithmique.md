@@ -539,7 +539,7 @@ Pour simplifier, on peut décomposer l'algorithme en créant une fonction interm
 ```python
 def placement(valeur,liste):
     """
-    place valeur dans liste supposée ordonnée en décalant les autres valeurs à droite
+    place la dernière valeur de liste supposée ordonnée auparavant en décalant les autres valeurs à droite
     param : liste : list
     param : valeur : int
     return : list
