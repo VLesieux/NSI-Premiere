@@ -542,7 +542,7 @@ def placement(valeur,liste):
     place la valeur dans la liste ordonnée en décalant les autres
     param : liste : list
     return : list
-    >>> placement(5,[2, 10, 5, 14])
+    >>> placement(5,[2, 10, 14])
     [2, 5, 10, 14]
     """
 ```
