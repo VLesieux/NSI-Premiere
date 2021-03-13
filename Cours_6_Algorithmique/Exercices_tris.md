@@ -1,5 +1,4 @@
 ## Exercices sur les algorithmes de tri
-### Rappels :
 
 Pour les doctests :
 
@@ -9,46 +8,17 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 
 ```
+#### Exercice 1 : Un algorithme de tri
 
-<u>Algorithme du tri par sélection à adapter</u>
+Traiter l'[exercice 2 du sujet n°2](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_02/21-NSI-02.pdf) de la banque des sujets de Terminale NSI.
 
-```python
-def tri_selection(t):
-    """
-    param : t : list
-    return : list
-    >>> tri_selection([43,12,18,31,10])
-    [10, 12, 18, 31, 43]
-    """
-    for i in range(len(t)-1):
-        minimum=i
-        for j in range(i+1,len(t)):
-            if t[j]<t[minimum]:
-                minimum=j
-        t[i],t[minimum]=t[minimum],t[i]
-    return t
-```
 
-<u>Algorithme du tri par insertion à adapter</u>
+#### Exercice 2 : tri par insertion : compléter le code
 
-```python    
-def tri_insertion(t):
-    """
-    param : t : list
-    return : list
-    >>> tri_insertion([43,12,18,31,10])
-    [10, 12, 18, 31, 43]
-    """
-    for i in range(1,len(t)):
-        valeur=t[i]
-        while valeur<t[i-1] and i>0:
-            t[i]=t[i-1]
-            i-=1
-        t[i]=valeur
-    return t
-```
+Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_05/21_NSI_05.pdf) de la banque des sujets de Terminale NSI.
 
-#### Exercice 1 : Application du tri par sélection : ordre lexicographique
+
+#### Exercice 3 : Application du tri par sélection : ordre lexicographique
 
 L'objectif est d'écrire un programme qui trie une liste de mots et les range suivant l'ordre lexicographique (ordre des dictionnaires).
 
@@ -115,7 +85,7 @@ def tri_lexicographique(liste):
     pass
 ```
 
-#### Exercice 2 : Application du tri par insertion : trier des points
+#### Exercice 4 : Application du tri par insertion : trier des points
 
 On dispose de points dans un plan muni d'un repère orthonormé d'origine O. Ces points possèdent un couple de coordonnées représenté par la liste [x,y].  
 On se propose de trier ces points en fonction de leur distance à O, de la plus petite à la plus grande.
@@ -172,6 +142,4 @@ def tri_points(liste):
     pass
 ```
 
-#### Exercice 3 : Un algorithme de tri
 
-[Sujet Bac Terminale exercice 2](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_02/21-NSI-02.pdf)

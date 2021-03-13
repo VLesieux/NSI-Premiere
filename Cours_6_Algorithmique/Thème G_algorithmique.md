@@ -497,6 +497,24 @@ def tri_selection(liste):
     """    
 ```
 
+On obtient l'	algorithme de tri par sélection : 
+
+```python
+def tri_selection(t):
+    """
+    param : t : list
+    return : list
+    >>> tri_selection([43,12,18,31,10])
+    [10, 12, 18, 31, 43]
+    """
+    for i in range(len(t)-1):
+        minimum=i
+        for j in range(i+1,len(t)):
+            if t[j]<t[minimum]:
+                minimum=j
+        t[i],t[minimum]=t[minimum],t[i]
+    return t
+```
 
 <u>Exemple</u> : 
 
@@ -534,7 +552,7 @@ Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc u
 
 <u>Principe</u> : On dispose de n données et on procède par étapes. À chaque étape, on suppose que les k premières données sont triées, et on insère une donnée supplémentaire à la bonne place parmi ces k données déjà triées.   
 Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle clé. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé après chaque comparaison.  
-Pour simplifier, on peut décomposer l'algorithme en créant une fonction intermédaire appelée `placement` qui sera réutilisée dans la fonction `tri_insertion`.
+Pour commencer, on peut décomposer l'algorithme en créant une fonction intermédaire appelée `placement` qui sera réutilisée dans la fonction `tri_insertion`.
 
 ```python
 def placement(valeur,liste):
@@ -547,7 +565,6 @@ def placement(valeur,liste):
     """
 ```
 
-
 ```python
 def tri_insertion(liste):
     """
@@ -557,6 +574,25 @@ def tri_insertion(liste):
     >>> tri_insertion([2, 13, 32, 25, 10, 24])
     [2, 10, 13, 24, 25, 32]
     """
+```
+
+On obtient l'algorithme du tri par insertion :
+
+```python    
+def tri_insertion(t):
+    """
+    param : t : list
+    return : list
+    >>> tri_insertion([43,12,18,31,10])
+    [10, 12, 18, 31, 43]
+    """
+    for i in range(1,len(t)):
+        valeur=t[i]
+        while valeur<t[i-1] and i>0:
+            t[i]=t[i-1]
+            i-=1
+        t[i]=valeur
+    return t
 ```
 
 <u>Terminaison</u> : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
