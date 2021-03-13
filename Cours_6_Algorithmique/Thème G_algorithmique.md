@@ -539,11 +539,10 @@ Pour simplifier, on peut décomposer l'algorithme en créant une fonction interm
 ```python
 def placement(valeur,liste):
     """
-    place la dernière valeur de liste supposée ordonnée auparavant en décalant les autres valeurs à droite
+    range la valeur mal placée dans la liste ordonnée en décalant les autres vers la droite
     param : liste : list
-    param : valeur : int
     return : list
-    >>> placement(5,[2, 10, 14, 5])
+    >>> placement(5,[2, 10, 5, 14])
     [2, 5, 10, 14]
     """
 ```
