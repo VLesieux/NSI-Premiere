@@ -539,8 +539,9 @@ Pour simplifier, on peut décomposer l'algorithme en créant une fonction interm
 ```python
 def placement(valeur,liste):
     """
-    place la valeur dans la liste ordonnée en décalant les autres
+    place valeur dans liste supposée ordonnée en décalant les autres valeurs à droite
     param : liste : list
+    param : valeur : int
     return : list
     >>> placement(5,[2, 10, 14])
     [2, 5, 10, 14]
