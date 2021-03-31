@@ -5,10 +5,16 @@ $(function() {
 
 var plateau={"a1":57,"b1":58,"c1":59,"d1":60,"e1":61,"f1":62,"g1":63,"h1":64,"a2":49,"b2":50,"c2":51,"d2":52,"e2":53,"f2":54,"g2":55,"h2":56,"a3":41,"b3":42,"c3":43,"d3":44,"e3":45,"f3":46,"g3":47,"h3":48,"a4":33,"b4":34,"c4":35,"d4":36,"e4":37,"f4":38,"g4":39,"h4":40,"a5":25,"b5":26,"c5":27,"d5":28,"e5":29,"f5":40,"g5":31,"h5":32,"a6":17,"b6":18,"c6":19,"d6":20,"e6":21,"f6":22,"g6":23,"h6":24,"a7":9,"b7":10,"c7":11,"d7":12,"e7":13,"f7":11,"g7":15,"h7":11,"a8":1,"b8":2,"c8":3,"d8":4,"e8":5,"f8":6,"g8":7,"h8":8}
 
-
+prise=0;
 tour=0;
+
 coup="";
 numero_case=0;
+
+prises_noires=0;
+prises_blanches=0;
+
+piece_a_retirer=null;
 
 var historique=[];
 
@@ -80,9 +86,13 @@ console.log(historique)
 
 function Cavalier_blanc_g() {
 
-this.positions="";
 this.case=58;
+this.positions=[this.case-17,this.case-10,this.case+6,this.case+15,this.case+17,this.case+10,this.case-6,this.case-15];
 this.nom="cavalier_blanc_g";
+this.modification=function(new_position) {
+this.case=new_position;
+this.positions=[new_position-17,new_position-10,new_position+6,new_position+15,new_position+17,new_position+10,new_position-6,new_position-15];
+}
 
 }
 
@@ -94,9 +104,13 @@ $(cavalier_blanc_g_piece).draggable({ disabled: false });
 
 function Cavalier_blanc_d() {
 
-this.positions="";
 this.case=63;
+this.positions=[this.case-17,this.case-10,this.case+6,this.case+15,this.case+17,this.case+10,this.case-6,this.case-15];
 this.nom="cavalier_blanc_d";
+this.modification=function(new_position) {
+this.case=new_position;
+this.positions=[new_position-17,new_position-10,new_position+6,new_position+15,new_position+17,new_position+10,new_position-6,new_position-15];
+}
 
 }
 
@@ -111,6 +125,9 @@ function Fou_noir_g() {
 this.positions="";
 this.case=59;
 this.nom="fou_noir_g";
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -125,6 +142,9 @@ function Fou_noir_d() {
 this.positions="";
 this.case=62;
 this.nom="fou_noir_d";
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -139,6 +159,9 @@ function Fou_blanc_g() {
 this.positions="";
 this.case=59;
 this.nom="fou_blanc_g";
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -153,6 +176,9 @@ function Fou_blanc_d() {
 this.positions="";
 this.case=62;
 this.nom="fou_blanc_d";
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -166,6 +192,9 @@ function Roi_blanc() {
 this.nom="roi_blanc";
 this.positions="";
 this.case=61;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -181,6 +210,13 @@ this.nom="pion_blanc_53";
 this.positions=[45,37];
 this.case=53;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 
 }
 
@@ -196,6 +232,13 @@ this.nom="pion_blanc_49";
 this.positions=[41,33];
 this.case=49;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 
 }
 
@@ -211,6 +254,13 @@ this.nom="pion_blanc_50";
 this.positions=[42,34];
 this.case=50;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_50=new Pion_blanc_50();
@@ -225,6 +275,13 @@ this.nom="pion_blanc_51";
 this.positions=[43,35];
 this.case=51;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_51=new Pion_blanc_51();
@@ -239,6 +296,13 @@ this.nom="pion_blanc_52";
 this.positions=[44,36];
 this.case=52;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_52=new Pion_blanc_52();
@@ -253,6 +317,13 @@ this.nom="pion_blanc_53";
 this.positions=[45,37];
 this.case=53;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_53=new Pion_blanc_53();
@@ -267,6 +338,13 @@ this.nom="pion_blanc_54";
 this.positions=[46,38];
 this.case=54;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_54=new Pion_blanc_54();
@@ -281,6 +359,13 @@ this.nom="pion_blanc_55";
 this.positions=[47,39];
 this.case=55;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_55=new Pion_blanc_55();
@@ -294,6 +379,13 @@ this.nom="pion_blanc_56";
 this.positions=[48,40];
 this.case=56;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_blanc_56=new Pion_blanc_56();
@@ -304,8 +396,12 @@ $(pion_blanc_56_piece).draggable({ disabled: false });
 function Cavalier_noir_g() {
 
 this.nom="cavalier_noir_g";
-this.positions="";
-this.case=63;
+this.case=2;
+this.positions=[this.case-17,this.case-10,this.case+6,this.case+15,this.case+17,this.case+10,this.case-6,this.case-15];
+this.modification=function(new_position) {
+this.case=new_position;
+this.positions=[new_position-17,new_position-10,new_position+6,new_position+15,new_position+17,new_position+10,new_position-6,new_position-15];
+}
 
 }
 
@@ -318,21 +414,33 @@ $(cavalier_noir_g_piece).draggable({ disabled: false });
 function Cavalier_noir_d() {
 
 this.nom="cavalier_noir_d";
-this.positions="";
-this.case=58;
+this.case=7;
+this.positions=[this.case-17,this.case-10,this.case+6,this.case+15,this.case+17,this.case+10,this.case-6,this.case-15];
+this.modification=function(new_position) {
+this.case=new_position;
+this.positions=[new_position-17,new_position-10,new_position+6,new_position+15,new_position+17,new_position+10,new_position-6,new_position-15];
+}
 
 }
 
 cavalier_noir_d=new Cavalier_noir_d();
 
 $(cavalier_noir_d_piece).draggable({ disabled: false });
+
 //****************pion noir 9
 
 function Pion_noir_9() {
 
 this.nom="pion_noir_9";
-this.positions="";
 this.case=9;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 
 }
 
@@ -345,9 +453,15 @@ $(pion_noir_9_piece).draggable({ disabled: false });
 function Pion_noir_10() {
 
 this.nom="pion_noir_10";
-this.positions="";
 this.case=10;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_noir_10=new Pion_noir_10();
@@ -358,9 +472,15 @@ $(pion_noir_10_piece).draggable({ disabled: false });
 function Pion_noir_11() {
 
 this.nom="pion_noir_11";
-this.positions="";
 this.case=11;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_noir_11=new Pion_noir_11();
@@ -372,9 +492,15 @@ $(pion_noir_11_piece).draggable({ disabled: false });
 function Pion_noir_12() {
 
 this.nom="pion_noir_12";
-this.positions="";
 this.case=12;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_noir_12=new Pion_noir_12();
@@ -385,9 +511,15 @@ $(pion_noir_12_piece).draggable({ disabled: false });
 function Pion_noir_13() {
 
 this.nom="pion_noir_13";
-this.positions="";
 this.case=13;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_noir_13=new Pion_noir_13();
@@ -398,9 +530,15 @@ $(pion_noir_13_piece).draggable({ disabled: false });
 function Pion_noir_14() {
 
 this.nom="pion_noir_14";
-this.positions="";
 this.case=14;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 
 }
 
@@ -413,9 +551,15 @@ $(pion_noir_14_piece).draggable({ disabled: false });
 function Pion_noir_15() {
 
 this.nom="pion_noir_15";
-this.positions="";
 this.case=15;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_noir_15=new Pion_noir_15();
@@ -427,9 +571,15 @@ $(pion_noir_15_piece).draggable({ disabled: false });
 function Pion_noir_16() {
 
 this.nom="pion_noir_16";
-this.positions="";
 this.case=16;
 this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+//************* méthode ******
+this.modification=function(new_position) {
+this.case=new_position;
+this.colonne=this.case%8;
+this.ligne=Math.floor(this.case/8)+1;
+}
 }
 
 pion_noir_16=new Pion_noir_16();
@@ -440,8 +590,10 @@ $(pion_noir_16_piece).draggable({ disabled: false });
 function Roi_noir() {
 
 this.nom="roi_noir";
-this.positions="";
 this.case=60;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -456,6 +608,9 @@ function Dame_noir() {
 this.nom="dame_noir";
 this.positions="";
 this.case=61;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -470,6 +625,9 @@ function Dame_blanc() {
 this.nom="dame_blanc";
 this.positions="";
 this.case=60;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 }
 
 dame_blanc=new Dame_blanc();
@@ -483,6 +641,9 @@ function Tour_blanc_d() {
 this.nom="tour_blanc_d";
 this.positions="";
 this.case=64;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -497,6 +658,9 @@ function Tour_blanc_g() {
 this.nom="tour_blanc_g";
 this.positions="";
 this.case=57;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -511,6 +675,9 @@ function Tour_noir_g() {
 this.nom="tour_noir_g";
 this.positions="";
 this.case=64;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -525,6 +692,9 @@ function Tour_noir_d() {
 this.nom="tour_noir_d";
 this.positions="";
 this.case=57;
+this.modification=function(new_position) {
+this.case=new_position;
+}
 
 }
 
@@ -532,15 +702,26 @@ tour_noir_d=new Tour_noir_d();
 
 $(tour_noir_d_piece).draggable({ disabled: false });
 
-//********************************************************************************************
+//*******************************Liste des pièces *************************************************************
+
+//********** pieces blanches ***************
 
 pions_blancs=[pion_blanc_49,pion_blanc_50,pion_blanc_51,pion_blanc_52,pion_blanc_53,
-pion_blanc_54,pion_blanc_55,pion_blanc_56]
+pion_blanc_54,pion_blanc_55,pion_blanc_56];
 
+cavaliers_blancs=[cavalier_blanc_d,cavalier_blanc_g];
+
+pieces_blanches=pions_blancs.concat(cavaliers_blancs);
+
+
+//********** pieces noires ***************
 
 pions_noirs=[pion_noir_9,pion_noir_10,pion_noir_11,pion_noir_12,pion_noir_13,
 pion_noir_14,pion_noir_15,pion_noir_16]
 
+cavaliers_noirs=[cavalier_noir_d,cavalier_noir_g]
+
+pieces_noires=pions_noirs.concat(cavaliers_noirs);
 
 //********************************************************************************************
 
@@ -592,11 +773,13 @@ search(coup);
 
 tour+=1;
 
+
 }
 
 function gauche() {
 
 tour-=1;
+numero=tour-1;
 
 coup=historique[tour];
 
@@ -614,7 +797,7 @@ function search(coup) {
 
 if (tour%2==0) {
 
-//################coup des pions blancs sans prise
+//################coup des pions blancs sans prise#########################################
 
 if (coup.length==2) {
 
@@ -635,11 +818,87 @@ piece_position_depart=pions_blancs[i]
 
 }	
 
+
+//################coup des pions blancs avec prise d'une pièce noire
+
+if (coup.length==4) {
+
+prises_noires+=1;
+
+prise=1
+
+colonnes=["a","b","c","d","e","f","g","h"];
+
+depart=coup[0];
+
+coup=coup.substring(2,4);
+
+numero_case=plateau[coup];
+
+ligne=Math.floor(numero_case/8)+1;
+
+colonne=colonnes.indexOf(depart)+1;
+
+for (i=0;i<pions_blancs.length;i++) {
+
+if (pions_blancs[i].colonne == colonne && pions_blancs[i].ligne==ligne+1) {
+
+piece_position_depart=pions_blancs[i]
+}
+ 
+}
+
+for (i=0;i<pieces_noires.length;i++) {
+
+if (pieces_noires[i].case == numero_case) {
+
+piece_a_retirer=pieces_noires[i];
+
+}
+ 
+}
+
+console.log("piece_noire_à_retirer",piece_a_retirer);
+} 
+
+
+// #########################################################################################
+
+//##################################################coup des cavaliers blancs#########################################
+
+
+//##############coup des cavaliers blancs sans prise###################
+
+if (coup[0]=="N" && coup.length==3) {
+
+coup=coup.substring(1,3);
+
+numero_case=plateau[coup];
+
+console.log(numero_case);
+
+for (i=0;i<cavaliers_blancs.length;i++) {
+
+console.log(cavaliers_blancs[i].positions);
+
+if (cavaliers_blancs[i].positions.indexOf(numero_case) != -1) {
+
+piece_position_depart=cavaliers_blancs[i];
+
+
+}
+  
+}
+
+}
+
+// ##############################################fin du tour des blancs ###########################################
+
 }
 
 
 
-//######################################################tour des noirs
+//################################################################################tour des noirs
 
 
 if (tour%2==1) {
@@ -656,7 +915,7 @@ colonne=numero_case%8;
 
 for (i=0;i<pions_noirs.length;i++) {
 
-if (pions_noirs[i].colonne ===colonne) {
+if (pions_noirs[i].colonne == colonne) {
 
 piece_position_depart=pions_noirs[i]
 }
@@ -667,20 +926,139 @@ piece_position_depart=pions_noirs[i]
 
 } 
 
+//################coup des pions noirs avec prise d'une pièce blanche
+
+if (coup.length==4) {
+
+prises_blanches+=1;
+
+prise=1
+
+colonnes=["a","b","c","d","e","f","g","h"];
+
+depart=coup[0];
+
+coup=coup.substring(2,4);
+
+numero_case=plateau[coup];
+
+ligne=Math.floor(numero_case/8)+1;
+
+colonne=colonnes.indexOf(depart)+1;
+
+for (i=0;i<pions_noirs.length;i++) {
+
+if (pions_noirs[i].colonne == colonne && pions_noirs[i].ligne==ligne-1) {
+
+piece_position_depart=pions_noirs[i]
+}
+ 
 }
 
-//deplacement de la pièce
+for (i=0;i<pieces_blanches.length;i++) {
 
-console.log("#"+piece_position_depart.nom+"_piece");
+if (pieces_blanches[i].case == numero_case) {
+
+piece_a_retirer=pieces_blanches[i];
+
+}
+ 
+}
+
+console.log("piece_blanche_à_retirer",piece_a_retirer);
+} 
+
+
+//#######################################coup des cavaliers noirs#########################################
+
+
+
+// ###############################coup des cavaliers noirs sans prise###################
+
+if (coup[0]=="N" && coup.length==3) {
+
+coup=coup.substring(1,3);
+
+numero_case=plateau[coup];
+
+console.log(numero_case);
+
+for (i=0;i<cavaliers_noirs.length;i++) {
+
+console.log(cavaliers_noirs[i].positions);
+
+if (cavaliers_noirs[i].positions.indexOf(numero_case) != -1) {
+
+piece_position_depart=cavaliers_noirs[i];
+
+
+}
+  
+}
+
+}
+
+
+
+
+
+
+// ###################################fin du tour des noirs ######################################################
+
+
+}
+
+
+
+// ################################deplacement de la pièce ############################
+
 
 var gauche=$('#div'+numero_case).offset().left+11-$("#"+piece_position_depart.nom+"_piece").offset().left;
 var haut=$('#div'+numero_case).offset().top+11-$("#"+piece_position_depart.nom+"_piece").offset().top;
 
 $("#"+piece_position_depart.nom+"_piece").animate({top:"+="+haut,left:"+="+gauche},600);
 
-//mise à jour de la position
+// ###################  mise à jour de la position de la pièce déplacée
 
-$(piece_position_depart.nom).case=numero_case;
+piece_position_depart.modification(numero_case);
+
+console.log("piece_position_depart",piece_position_depart);
+
+console.log("case d'arrivée",numero_case);
+
+
+// ################### déplacement et mise à jour de la pièce retirée ###################
+
+
+if (piece_a_retirer !== null && prise==1) {
+
+
+if (tour%2==1) {
+
+x=99+prises_blanches;
+
+}
+
+if (tour%2==0) {
+
+x=-34-prises_noires;
+
+
+}
+
+chaine='#div'+x.toString();
+
+$("#"+piece_a_retirer.nom+"_piece").offset({top:$(chaine).offset().top+11,left: $(chaine).offset().left+11 });
+
+piece_a_retirer.case=x;
+
+prise=0;
+
+}
+
+
+
+// ###############################################################
 
 }
 
