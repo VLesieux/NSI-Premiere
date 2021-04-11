@@ -13,12 +13,22 @@ if __name__ == '__main__':
 Traiter l'[exercice 2 du sujet n°2](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_02/21-NSI-02.pdf) de la banque des sujets de Terminale NSI.
 
 
-#### Exercice 2 : tri par insertion : compléter le code
+#### Exercice 2 : tri bulles
+
+Traiter l'[exercice 2 du sujet n°11](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_11/21_NSI_11.pdf) de la banque des sujets de Terminale NSI.
+
+
+#### Exercice 3: tri par insertion
 
 Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_05/21_NSI_05.pdf) de la banque des sujets de Terminale NSI.
 
 
-#### Exercice 3 : Application du tri par sélection : ordre lexicographique
+#### Exercice 4 : tri par sélection
+
+Traiter l'[exercice1 du sujet n°13](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_13/21_NSI_13.pdf) de la banque des sujets de Terminale NSI.
+
+
+#### Exercice 5 : Application du tri par sélection : ordre lexicographique
 
 L'objectif est d'écrire un programme qui trie une liste de mots et les range suivant l'ordre lexicographique (ordre des dictionnaires).
 
@@ -85,7 +95,7 @@ def tri_lexicographique(liste):
     pass
 ```
 
-#### Exercice 4 : Application du tri par insertion : trier des points
+#### Exercice 6 : Application du tri par insertion : trier des points
 
 On dispose de points dans un plan muni d'un repère orthonormé d'origine O. Ces points possèdent un couple de coordonnées représenté par la liste [x,y].  
 On se propose de trier ces points en fonction de leur distance à O, de la plus petite à la plus grande.
