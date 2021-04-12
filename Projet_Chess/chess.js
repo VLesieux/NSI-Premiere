@@ -79,7 +79,30 @@ console.log(historique)
   reader.readAsText(file);
 };
 
+// ***************************************************
+function possibles_fou(position) {
 
+var valeurs = [ 0,1,2,3,4,5,6,7,8]
+function vers_le_haut_droit(x) {
+  return position - x * 7
+}
+function vers_le_haut_bas(x) {
+  return position + x * 7
+}
+function vers_le_bas_haut(x) {
+  return position - x * 9
+}
+function vers_le_bas_bas(x) {
+  return position + x * 9
+}
+diagonale_ascendante_vers_haut=valeurs.map(vers_le_haut_droit);
+diagonale_ascendante_vers_bas=valeurs.map(vers_le_haut_bas);
+diagonale_descendante_vers_haut=valeurs.map(vers_le_bas_haut);
+diagonale_descendante_vers_bas=valeurs.map(vers_le_bas_bas);
+positions=diagonale_ascendante_vers_bas.concat(diagonale_ascendante_vers_haut).concat(diagonale_descendante_vers_bas).concat(diagonale_descendante_vers_haut);
+
+return positions
+}
 
 
 //****************cavalier blanc_g
@@ -122,12 +145,25 @@ $(cavalier_blanc_d_piece).draggable({ disabled: false });
 
 function Fou_noir_g() {
 
-this.positions="";
 this.case=59;
 this.nom="fou_noir_g";
+
+var valeurs = [ 0,1,2,3,4,5,6,7,8]
+function vers_le_haut(x) {
+  return this.case - x * 7
+}
+function vers_le_bas(x) {
+  return this.case + x * 7
+}
+diagonale_ascendante=valeurs.map(vers_le_haut);
+diagonale_descendante=valeurs.map(vers_le_bas);
+this.positions=diagonale_ascendante.concat(diagonale_descendante);
+
 this.modification=function(new_position) {
 this.case=new_position;
-}
+diagonale_ascendante=valeurs.map(vers_le_haut);
+diagonale_descendante=valeurs.map(vers_le_bas);
+this.positions=diagonale_ascendante.concat(diagonale_descendante);}
 
 }
 
@@ -138,13 +174,25 @@ $(fou_noir_g_piece).draggable({ disabled: false });
 //****************fou noir_d
 
 function Fou_noir_d() {
-
-this.positions="";
 this.case=62;
 this.nom="fou_noir_d";
+
+var valeurs = [ 0,1,2,3,4,5,6,7,8]
+function vers_le_haut(x) {
+  return this.case - x * 7
+}
+function vers_le_bas(x) {
+  return this.case + x * 7
+}
+diagonale_ascendante=valeurs.map(vers_le_haut);
+diagonale_descendante=valeurs.map(vers_le_bas);
+this.positions=diagonale_ascendante.concat(diagonale_descendante);
+
 this.modification=function(new_position) {
 this.case=new_position;
-}
+diagonale_ascendante=valeurs.map(vers_le_haut);
+diagonale_descendante=valeurs.map(vers_le_bas);
+this.positions=diagonale_ascendante.concat(diagonale_descendante);}
 
 }
 
@@ -155,12 +203,14 @@ $(fou_noir_d_piece).draggable({ disabled: false });
 //****************fou blanc_g
 
 function Fou_blanc_g() {
-
-this.positions="";
 this.case=59;
 this.nom="fou_blanc_g";
+
+this.positions=possibles_fou(this.case);
+
 this.modification=function(new_position) {
 this.case=new_position;
+this.positions=possibles_fou(new_position);
 }
 
 }
@@ -169,15 +219,18 @@ fou_blanc_g=new Fou_blanc_g();
 
 $(fou_blanc_g_piece).draggable({ disabled: false });
 
+
 //****************fou blanc_d
 
 function Fou_blanc_d() {
 
-this.positions="";
 this.case=62;
 this.nom="fou_blanc_d";
+this.positions=possibles_fou(this.case);
+
 this.modification=function(new_position) {
 this.case=new_position;
+this.positions=possibles_fou(new_position);
 }
 
 }
@@ -711,7 +764,9 @@ pion_blanc_54,pion_blanc_55,pion_blanc_56];
 
 cavaliers_blancs=[cavalier_blanc_d,cavalier_blanc_g];
 
-pieces_blanches=pions_blancs.concat(cavaliers_blancs);
+fous_blancs=[fou_blanc_d,fou_blanc_g];
+
+pieces_blanches=pions_blancs.concat(cavaliers_blancs).concat(fous_blancs);
 
 
 //********** pieces noires ***************
@@ -721,7 +776,9 @@ pion_noir_14,pion_noir_15,pion_noir_16]
 
 cavaliers_noirs=[cavalier_noir_d,cavalier_noir_g]
 
-pieces_noires=pions_noirs.concat(cavaliers_noirs);
+fous_noirs=[fou_noir_d,fou_noir_g];
+
+pieces_noires=pions_noirs.concat(cavaliers_noirs).concat(fous_noirs);
 
 //********************************************************************************************
 
@@ -891,6 +948,39 @@ piece_position_depart=cavaliers_blancs[i];
 }
 
 }
+
+//##################################################coup des fous blancs#########################################
+
+
+//##############coup des fous blancs sans prise###################
+
+if (coup[0]=="B" && coup.length==3) {
+
+coup=coup.substring(1,3);
+
+numero_case=plateau[coup];
+
+console.log(numero_case);
+
+for (i=0;i<fous_blancs.length;i++) {
+
+console.log(fous_blancs[i].positions);
+
+if (fous_blancs[i].positions.indexOf(numero_case) != -1) {
+
+piece_position_depart=fous_blancs[i];
+
+
+}
+  
+}
+
+}
+
+
+
+
+
 
 // ##############################################fin du tour des blancs ###########################################
 
