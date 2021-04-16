@@ -83,7 +83,7 @@ Par exemple, sur l'image ci-dessous, le joueur Noir joue et place un pion noir e
 
 Si un joueur ne possède aucun coup permettant le retournement de pions adverses, celui-ci passe son tour et c'est à l'adversaire de jouer.
 
-<img width="650" height="500" src="imgs/othello3.png">
+<img width="600" height="600" src="imgs/othello3.png">
 
 Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm) pour plus d'informations sur les règles du jeu
 
