@@ -1,7 +1,5 @@
 ## Réalisation d&#39;une IHM (Interface Homme Machine) commune à un ensemble de jeux.
 
-
-
 **1. Introduction.**
 
 Les jeux comme Othello, les échecs, les dames, Tic-tac-toe, le puissance 4, le jeu de Nim ont pour point commun d&#39;être des &quot; _jeux à deux joueurs au tour par tour_ &quot;.
@@ -199,7 +197,7 @@ jeu_nim.aff_evolution_jeu(param_jeu)    #Affichage de l'état du jeu
 
 fini=False  #Initialisation de la situation du jeu
 
-while not fini: # Début de la partie 3 (si le jeu n'est pas fini) du déroulement des jeux à deux joueurs
+while not fini: # Début de la partie 3 de l'introduction (si le jeu n'est pas fini) du déroulement des jeux à deux joueurs
 
 ##############################
 
@@ -239,9 +237,9 @@ Le joueur I a gagné
 
 - Quatre fonctions doivent permettre de tester l&#39;alignement de trois symboles identiques, horizontalement, verticalement ou en diagonale .
 
-**3. Le jeu Tic-tac-toe****. (**[wikipédia](https://fr.wikipedia.org/wiki/Tic-tac-toe)**)**
+**3. Le jeu du Tic-tac-toe**. (**[wikipédia](https://fr.wikipedia.org/wiki/Tic-tac-toe)**)**
 
-A partir de votre lecture sur wikipédia :
+À partir de votre lecture sur wikipédia :
 
 3.1 Donner l&#39;autre nom du jeu ?
 
@@ -255,7 +253,7 @@ A partir de votre lecture sur wikipédia :
 
 3.6 Écrire en python, le code qui permet de créer le plateau de jeu vide (le vide sera représenté par le caractère « - ») et le tester.
 
-3.7  A quelle situation du jeu, ce plateau vide correspond-t-il ?   Quelle était la fonction correspondant du jeu de Nim ?
+3.7 À quelle situation du jeu, ce plateau vide correspond-t-il ?   Quelle était la fonction correspondant du jeu de Nim ?
 
 3.8 Implémenter cette fonction pour le jeu Tic-Tac-Toe.
 
@@ -328,7 +326,7 @@ True
 
 **Travail du binôme 1:**
 
-B1.3 Écrire la fonction &quot;test\_plateau\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
+B1.3 Écrire la fonction &quot;test\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
 
 ```python
 >>> test_jeu_rempli([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])

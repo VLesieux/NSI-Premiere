@@ -79,11 +79,11 @@ On peut encadrer des pions adverses dans les huit directions et plusieurs pions 
 
 ![img](imgs/othello2.png)
 
-Par exemple, le joueur Noir a joué en c6. Il retourne alors les pions b6, b5, d7, c5 et c4. Il n'y a pas de réaction en chaîne : les pions retournés ne peuvent pas servir à en retourner d'autres lors du même tour de jeu. 
+Par exemple, sur l'image ci-dessous, le joueur Noir joue et place un pion noir en c6. Il retourne alors les pions b6, b5, d7, c5 et c4. Il n'y a pas de réaction en chaîne : les pions retournés ne peuvent pas servir à en retourner d'autres lors du même tour de jeu. 
 
 Si un joueur ne possède aucun coup permettant le retournement de pions adverses, celui-ci passe son tour et c'est à l'adversaire de jouer.
 
-![img](imgs/othello3.png)
+<img width="650" height="500" src="imgs/othello3.png">
 
 Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm) pour plus d'informations sur les règles du jeu
 
