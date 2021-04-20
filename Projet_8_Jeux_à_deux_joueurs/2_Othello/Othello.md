@@ -83,7 +83,7 @@ Par exemple, sur l'image ci-dessous, le joueur Noir joue et place un pion noir e
 
 Si un joueur ne possède aucun coup permettant le retournement de pions adverses, celui-ci passe son tour et c'est à l'adversaire de jouer.
 
-<center><img width="600" height="600" src="imgs/othello3.png"></center>
+<img width="600" height="600" src="imgs/othello3.png">
 
 Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm) pour plus d'informations sur les règles du jeu
 
@@ -122,7 +122,7 @@ Exemple de liste :
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 ```
 
-Cette liste de 8 sur 8 représente le plateau de début de partie avec uniquement deux pions blancs et deux pions noirs en diagonal au centre (situation de départ).
+Cette liste de 8 sur 8 représente le plateau de début de partie avec uniquement deux pions blancs et deux pions noirs placés en diagonal au centre (situation de départ).
 
 ***Travail à faire***
 
@@ -133,7 +133,7 @@ def creer_config_init():
     """
     : créer la configuration initiale du jeu
     : param : rien
-    : return : list
+    : return : None
     >>> creer_config_init()
     [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
     """
@@ -168,7 +168,7 @@ Pour afficher un caractère sans passer à la ligne, utiliser par exemple : prin
 
 #### 2) Gestion des joueurs
 
-* On déclare au début du programme des variables globales
+* On déclare au début du programme des variables globales (valables dans tout le programme y compris dans les fonctions)
 
 ```python
 JOUEUR_NOIR=1
@@ -267,10 +267,10 @@ Pour éviter les erreurs d'index, on peut utiliser :
 ```python
 def est_coup_possible(configuration,joueur):
     """
-    : renvoie si le joueur dispose d'un coup possible
-    : param : configuration (list)
-    : param : joueur (int)    
-    : return : bool
+   	 renvoie si le joueur dispose d'un coup possible
+    param : configuration (list)
+    param : joueur (int)    
+    return : bool
     >>> config = creer_config_init()
     >>> est_coup_possible(config,JOUEUR_NOIR)
     True
@@ -293,9 +293,9 @@ Afin de pouvoir stopper le jeu, il nous faut savoir si les joueurs peuvent encor
 ```python
 def est_jeu_fini(configuration):
     """
-    : renvoie si le jeu est fini ou non
-    : param : configuration : list
-    : return : bool
+    renvoie si le jeu est fini ou non
+    param : configuration : list
+    return : bool
     >>> config = creer_config_init()
     >>> est_jeu_fini(config)
     False
@@ -316,9 +316,9 @@ Le format choisi est une saisie de coordonnées x,y sous la forme `2,3` pour ` x
 ```python
 def verif_coup_valide(configuration,case,joueur):
     """
-    : renvoie True si le coup est valide et False dans le cas contraire
-    : param : configuration (list) 
-    : return : bool
+    renvoie True si le coup est valide et False dans le cas contraire
+    param : configuration (list) 
+    return : bool
     >>> s = creer_config_init()
     >>> verif_coup_valide(s,(3,4),JOUEUR_NOIR)
     True
@@ -332,7 +332,9 @@ Le premier test donne True car il est possible de placer un pion noir sur le pla
 
 Le deuxième test donne False car il n'est pas possible de placer un pion blanc en (3,4) car il n'y a pas de possibilité de retournement.
 
-* Réaliser une fonction `coup_joueur` qui prend en paramètre la configuration du jeu et le joueur courant. Elle renvoie une variable `coup ` qui contient les coordonnées de la case où le joueur désire placer son pion. Une vérification de la validité du coup sera faite, si le coup n'est pas valable le joueur est invité a saisir de nouvelles valeurs au clavier:
+Indication : on sera évidemment amené à utiliser la fonction `test_dir_valide(jeu,case,direction,joueur)` réalisée précédemment.
+
+* Réaliser une fonction `coup_joueur` qui prend en paramètre la configuration du jeu et le joueur courant. Elle renvoie une variable `coup ` qui contient les coordonnées de la case où le joueur désire placer son pion. Une vérification de la validité du coup sera faite, si le coup n'est pas valable, le joueur est invité a saisir de nouvelles valeurs au clavier:
 
 ```python
 >>> config = creer_config_init()
@@ -346,6 +348,15 @@ Au JOUEUR_BLANC de jouer, donner la case choisie au format x,y : 6,4
 ```
 
 La fonction attend la saisie des valeurs au clavier.
+
+Indications : quelques difficultés techniques peuvent apparaître ; on rappelle que le résultat d'un input est du type str ; on peut transformer en liste une chaîne de caractères avec deux éléments séparés par une virgule à l'aide de la fonction split, puis on peut transformer un string en valeur numérique avec la fonction int() ; les éléments suivants devraient vous aider.
+
+```python
+>>> choix="6,4"
+>>> case=(int(choix.split(",")[0]),int(choix.split(",")[1]))
+>>> case
+(6, 4)
+```
 
 Il faut pour terminer actualiser la configuration du jeu suite au coup du joueur courant.
 
@@ -400,13 +411,48 @@ def incrementer_config(configuration,case,joueur):
     6 · · · · · · · · 
     7 · · · · · · · · 
     8 · · · · · · · · 
-    """  
+    >>> afficher_config(incrementer_config(s1,(3,5),JOUEUR_BLANC))
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · □ · · · · · 
+    4 · · □ □ ■ · · · 
+    5 · · □ □ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    >>> config_new = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 0, 0], [0, 0, 1, 1, 1, 1, 0, 0], [0, 0, 1, 2, 1, 1, 0, 0], [2, 1, 2, 2, 1, 1, 1, 0], [1, 0, 1, 2, 1, 1, 1, 1], [0, 0, 2, 2, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config_new)
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · ■ · · ■ · · · 
+    3 · · ■ ■ ■ ■ · · 
+    4 · · ■ □ ■ ■ · · 
+    5 □ ■ □ □ ■ ■ ■ · 
+    6 ■ · ■ □ ■ ■ ■ ■ 
+    7 · · □ □ · · ■ · 
+    8 · · · · · · · · 
+    >>> afficher_config(incrementer_config(config_new,(2,6),JOUEUR_BLANC))
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · ■ · · ■ · · · 
+    3 · · ■ ■ ■ ■ · · 
+    4 · · ■ □ ■ ■ · · 
+    5 □ ■ □ □ ■ ■ ■ · 
+    6 ■ □ □ □ ■ ■ ■ ■ 
+    7 · · □ □ · · ■ · 
+    8 · · · · · · · · 
+    """
 ```
 Le premier test montre le nouveau pion noir en (3,4) ainsi que le retournement du pion initialement blanc en (4,4).
 
 Le deuxième test montre le nouveau pion blanc en (3,3) ainsi que le retournement du pion initialement noir en (4,4).
 
 Le troisième test montre que placer un pion blanc en (6,3) ne permet pas de modifier la configuration.
+
+Le quatrième test permet au pion blanc placé en (3,5) de retourner deux pions noirs, l'un verticalement, l'autre horizontalement.
+
+Un cinquième test peut s'avérer nécessaire.
 
 
 #### 4) Test du jeu dans le module main.py
@@ -420,8 +466,8 @@ Afin de tester le bon fonctionnement de votre jeu d'Othello, il faut au préalab
 
 import Othello as jeu
 
-JOUEUR1 = 1
-JOUEUR2 = 2
+JOUEUR_NOIR=1
+JOUEUR_BLANC=2
 
 def jouer():
     config = jeu.creer_config_init()
@@ -452,10 +498,10 @@ def compte_pions(config, joueur):
     '''
     Fonction INTERNE qui prend en paramètre la configuration du jeu et
     le joueur courant. Elle retourne le nombre de pion du joueur
-    -   paramètres: config (liste) configuration du jeu
-                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
-    -   return: nb_pion (int) nombre du pions du joueur.
-    >>> s = creer_config_init()
+    param : config (liste) configuration du jeu
+    param : joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    return: nb_pion (int) nombre du pions du joueur.
+    >>> s = jeu.creer_config_init()
     >>> compte_pions(s, JOUEUR_NOIR)
     2
     '''
@@ -466,15 +512,15 @@ def afficher_fin(config, joueur):
     '''
     Fonction qui prend en paramètre la configuration du jeu et
     le joueur courant et qui affiche les résultats du jeu.
-    -   paramètres: config (liste) configuration du jeu
-                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
-    -   return: rien
-    >>> s = creer_config_init()
+    param : config (liste) configuration du jeu
+    param : joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    return: rien
+    >>> s = jeu.creer_config_init()
     >>> afficher_fin(s,JOUEUR_NOIR)
     ====================
       Egalité 
     ====================
-    >>> s1=incrementer_config(s,(3,4),JOUEUR_NOIR)
+    >>> s1=jeu.incrementer_config(s,(3,4),JOUEUR_NOIR)
     >>> afficher_fin(s1,JOUEUR_NOIR)
     ====================
     Le gagnant est JOUEUR_NOIR
@@ -486,9 +532,45 @@ def afficher_fin(config, joueur):
 
 Nous allons à présent modifier notre module `othello` afin de pourvoir jouer contre l'ordinateur.
 
-a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`.
+a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`. L'ordinateur devient JOUEUR_NOIR et joue un aléatoirement un coup parmi les coups possibles.
+On rappelle que `random.randint(a,b)` tire aléatoirement un nombre entier entre a compris et b compris.
 
-b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui va être capable d'évaluer les coups pour choisir le meilleur selon des critères d'évaluation ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
+Exemple de partie jouée contre l'ordinateur :
+
+```python
+Au JOUEUR_NOIR de jouer, donner la case choisie au format x,y : 2,1
+  1 2 3 4 5 6 7 8
+1 ■ ■ □ □ ■ □ · □ 
+2 □ ■ □ □ □ ■ □ · 
+3 □ ■ □ □ ■ □ ■ · 
+4 □ □ ■ □ □ ■ □ □ 
+5 □ □ □ □ □ □ □ □ 
+6 · □ · ■ ■ □ · · 
+7 · ■ □ □ □ □ · · 
+8 · ■ ■ ■ ■ ■ ■ ■ 
+Coup choisi par l'ordinateur :  (3, 6)
+  1 2 3 4 5 6 7 8
+1 ■ ■ □ □ ■ □ · □ 
+2 □ ■ □ □ □ ■ □ · 
+3 □ ■ □ □ ■ □ ■ · 
+4 □ □ ■ □ □ ■ □ □ 
+5 □ □ □ □ □ □ □ □ 
+6 · □ □ □ □ □ · · 
+7 · ■ □ □ □ □ · · 
+8 · ■ ■ ■ ■ ■ ■ ■ 
+Au JOUEUR_NOIR de jouer, donner la case choisie au format x,y : 1,6
+  1 2 3 4 5 6 7 8
+1 ■ ■ □ □ ■ □ · □ 
+2 □ ■ □ □ □ ■ □ · 
+3 □ ■ □ □ ■ □ ■ · 
+4 □ □ ■ □ □ ■ □ □ 
+5 □ ■ □ □ □ □ □ □ 
+6 ■ □ □ □ □ □ · · 
+7 · ■ □ □ □ □ · · 
+8 · ■ ■ ■ ■ ■ ■ ■ 
+```
+
+b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui va être capable d'évaluer les coups pour choisir le meilleur coup à jouer selon des critères d'évaluation que l'on va spécifier ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
 
 
 ```python
@@ -503,33 +585,32 @@ def min_max(config, profondeur, joueur):
     if jeu.est_jeu_fini(config) or profondeur == 0:
         return jeu.evaluation(config,joueur)*jeu.coef_joueur(joueur)
     else:
-        if joueur == JOUEUR1:
-            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR1)
-            return min([min_max(suivante, profondeur-1, JOUEUR2) for suivante in liste_configs_suivantes])
+        if joueur == JOUEUR_NOIR:
+            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR_NOIR)
+            return min([min_max(suivante, profondeur-1, JOUEUR_BLANC) for suivante in liste_configs_suivantes])
         else:
-            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR2)
-            return max([min_max(suivante, profondeur-1, JOUEUR1) for suivante in liste_configs_suivantes])
+            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR_BLANC)
 ```
 
-Cette fonction sera placée dans main.py car elle est utilisable pour n'importe quel jeu à deux joueurs, elle sera importée dans Othello.py.
+Cette fonction sera placée dans main.py car elle est utilisable pour n'importe quel jeu à deux joueurs, elle utilise trois fonctions qui seront elles importées de Othello.py.
 
-Elle fait appel à trois fonctions  :
+Les trois fonctions sont  :
 
 - `creer_liste_configs_suivantes(config, joueur)` 
 
-- `evaluation(config,joueur)` .
-- coef_joueur(joueur)
+- `evaluation(config,joueur)`
+- `coef_joueur(joueur)`
 
-Il nous faut d'abord créer une fonction creer_liste_coups_possibles qui prend en paramètres la configuration et le joueur, et qui renvoie la liste des coups possibles suivants.
+Il nous faut au préalable créer une fonction `creer_liste_coups_possibles` qui prend en paramètres la configuration et le joueur, et qui renvoie la liste des coups possibles pour ce joueur dans la configuration présente.
 
 ```python
 def creer_liste_coups_possibles(config, joueur):
     '''
     Fonction INTERNE qui prend en paramètre la configuration du jeu et
     le joueur courant. Elle retourne une liste de coups possibles.
-    -   paramètres: config (liste) configuration du jeu
-                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
-    -   return: liste_coups_suivantes (liste) liste de coups possibles.
+    param : config (liste) configuration du jeu
+    param : joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    return: liste_coups_suivantes (liste) liste de coups possibles.
     >>> s = creer_config_init()
     >>> afficher_config(s)
       1 2 3 4 5 6 7 8
@@ -548,27 +629,15 @@ def creer_liste_coups_possibles(config, joueur):
 
 Nous allons maintenant créer la fonction `creer_liste_configs_suivantes(config, joueur)` qui renvoie une liste de configurations à partir de la liste des coups possibles obtenus par la fonction précédente.
 
-Pour éviter la modification de la configuration courante, il nous faudra faire une copie de la configuration. Pour cela, on importe le module copy : `import copy`.
-
+**Attention** : Pour éviter la modification de la configuration courante, il nous faudra faire au préalable une copie de la configuration. Pour cela, on importe le module copy : `import copy`. En écrivant `copie=copy.deepcopy(config)`, on réalise une copie profonde de `config`.
 ```python
 def creer_liste_configs_suivantes(config, joueur):
     '''
     Fonction INTERNE qui prend en paramètre la configuration du jeu et
-    le joueur courant. Elle retourne des configurations représenttant les coups futur.
-    -   paramètres: config (liste) configuration du jeu
-                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
-    -   return: liste_configs_suivantes (liste) liste de configurations futur
-    >>> s = creer_config_init()
-    >>> afficher_config(s)
-      1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · · · · · · 
-    4 · · · □ ■ · · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
+    le joueur courant. Elle retourne des configurations représentant les 		 coups futur.
+    param : config (liste) configuration du jeu
+    param : joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    return: liste_configs_suivantes (liste) liste de configurations futures
     '''
 ```
 
@@ -620,11 +689,13 @@ On peut expérimenter cette fonction :
 
 ```
 
-Pour la fonction d'évaluation, on attribuera + 300 points aux cases situées sur la première et dernière ligne, ainsi que celles sur la première et dernière colonne.
+Pour la fonction d'évaluation ci-dessous, on attribuera + 300 points aux cases situées sur la première et dernière ligne, ainsi que celles sur la première et dernière colonne. En effet ces positions se révèlent stratégiques car un pion placé dans ces positions ne peut être retourné.
 
-On attribuera -500 points aux cases situées dans les coins : par exemple pour le coin haut gauche : les cases (1,2) ; (2,2); (2,1).
+On attribuera -500 points aux cases situées dans les coins : par exemple pour le coin haut gauche : les cases (1,2) ; (2,2); (2,1). En effet, les pions dans ces positions peuvent être aisément retournés.
 
-On attribuera +1000 points aux cases situées aux extrémités : (1,1) ; (1,8) ; (8,1) et (8,8)
+On attribuera +1000 points aux cases situées aux extrémités : (1,1) ; (1,8) ; (8,1) et (8,8) ; positions qu'il est utile d'acquérir.
+
+**Attention** : les gains ne sont pas cumulatifs.
 
 ```python
 def evaluation(config,joueur):
@@ -632,9 +703,9 @@ def evaluation(config,joueur):
     Fonction INTERNE qui prend en paramètre la configuration du
     jeu et le joueur courant. Elle retourne une valeur image
     de la qualité du coup proposé.
-    -   paramètres: config (liste) configuration du jeu
-                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
-    -   return: Val (int) representatif de la qualité du coup proposé
+    param : config (liste) configuration du jeu
+    param: joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    return: Val (int) representatif de la qualité du coup proposé
     >>> config = [[1, 1, 2, 1, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0, 0], [0, 0, 2, 2, 0, 0, 0, 0], [0, 0, 0, 2, 1, 0, 0, 0], [0, 0, 0, 1, 2, 0, 0, 0], [0, 0, 2, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
     >>> afficher_config(config)
       1 2 3 4 5 6 7 8
@@ -651,7 +722,7 @@ def evaluation(config,joueur):
     '''
 ```
 
-Il faut également la fonction coef_joueur :
+Il faut ajouter également la fonction coef_joueur :
 
 ```python
 def coef_joueur(joueur):
