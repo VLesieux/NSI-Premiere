@@ -69,7 +69,7 @@ On suit l'évolution des variables. Initialement les variables passées dans les
 
 ## II. Instructions conditionnelles
 
-On prendra soin de respecter l'**indentation**, élément important de la **syntaxe** de Python, qui est un décalage vers la droite qui permet d'identifier un **bloc** d'instructions. On utilise l'instruction conditionnelle `if`.
+On prendra soin de respecter l'**indentation**, élément important de la **syntaxe** de Python, qui consiste en un décalage vers la droite dans le but d'identifier des **blocs** d'instructions. On utilise l'instruction conditionnelle `if`.
 
 Exemples :
 
@@ -239,7 +239,7 @@ Réaliser une telle chaîne de documentation permet:
 		- le nombre et la nature de ses paramètres ;    
 		- la relation entre la valeur renvoyée et celle du ou des paramètres ;    
 		- ses idées avec quelques exemples.   
- 
+
  (Tout cela bien entendu à condition que cette documentation soit rédigée avant la réalisation du programme et non le contraire)
 
 ```python
@@ -265,7 +265,7 @@ if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose = True)  
 
-``` 
+```
 
 Remarque : pour que les tests soient validés, séparer dans vos exemples de résultat attendu, les items d'un tableau ou d'un tuple par une virgule suivie d'une espace. Par exemple écrire (1, 2, 0) au lieu de (1,2,0).
 
@@ -282,7 +282,7 @@ ok
 1 tests in 2 items.
 1 passed and 0 failed.
 Test passed.
-``` 
+```
 La fonction testmod du _**module**_ doctest est allée chercher dans la docstring de la fonction l'exemple (reconnaissable à la présence des triples chevrons >>>), et a vérifié que la fonction documentée satisfaisait bien cet exemple. Il n’y a eu aucun échec (failed=0).
 
 ### 3) Réaliser un jeu de tests sur une fonction
@@ -295,7 +295,7 @@ Help on method choice in module random:
 
 choice(seq) method of random.Random instance
     Choose a random element from a non-empty sequence.
-``` 
+```
 
 Pour cela, on réalise une liste de 4 éléments ; on fait tirer au sort 100 fois de suite un élément de la liste et on s'assure qu'à chaque fois, l'élément tiré au sort est bien dans un élément de la liste.   
 Remarque : `return` fait sortir de la boucle dès qu'il y a une erreur.
@@ -308,7 +308,7 @@ def test():
         if choix not in liste:
             return False
     return True
-``` 
+```
 
 ### 4) Remarques sur les fonctions
 
@@ -337,7 +337,7 @@ def division(a,b):
 2
 >>> y
 4
-``` 
+```
 
 2. Une fonction peut être utilisée pour construire une liste par compréhension
 
@@ -349,7 +349,7 @@ liste1=list(range(-6,10))
 liste2=[f(u) for u in liste1]
 >>> liste2
 [56, 42, 30, 20, 12, 6, 2, 0, 0, 2, 6, 12, 20, 30, 42, 56]
-``` 
+```
 
 ### 5) Gestion des erreurs
 
@@ -371,7 +371,7 @@ Traceback (most recent call last):
   File "<pyshell>", line 8, in <module>
   File "<pyshell>", line 4, in percentage
 AssertionError: score doit être inférieur à total
-``` 
+```
 
 > Exemple : Soit le script suivant:
 
@@ -387,7 +387,7 @@ Traceback (most recent call last):
   File "<pyshell>", line 2, in f
 AssertionError: le deuxième argument est nul
 
-``` 
+```
 
 On observe une erreur AssertionError: le deuxième argument est nul et l'arrêt de l'exécution.
 
