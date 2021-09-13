@@ -45,7 +45,7 @@ Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas.
 
 ## Exercice 4
 
-1. Écrire une fonction _somme_diviseur_ qui prend en paramètre un entier naturel non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
+1. Écrire une fonction _somme_diviseurs_ qui prend en paramètre un entier naturel non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
 
 ```Python
 >>> print(somme_diviseurs(9))
