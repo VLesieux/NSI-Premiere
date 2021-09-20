@@ -481,7 +481,7 @@ Au final, le codage de 20 en norme IEEE754 64 bits (8 octets) est :
 
 [À vérifier ici](https://www.binaryconvert.com/result_double.html?decimal=050048)
 
-> Exemple 1 : Recherchons l'écriture décimale du nombre qui s'écrit 11.0101 en binaire.
+> Exemple : Recherchons l'écriture décimale du nombre qui s'écrit 11.0101 en binaire.
 
 Première méthode : Les bits après la virgule sont représentatifs des puissances négatives de 2 dans la décomposition en base 2. Nous avons donc le nombre décimal :  
 2<sup>1</sup>+2<sup>0</sup>+2<sup>-2</sup>+2<sup>-4</sup>=2+1+0,25+0,0625=3,3125.     
