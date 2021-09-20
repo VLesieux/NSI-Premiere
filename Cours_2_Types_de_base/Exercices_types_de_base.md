@@ -25,6 +25,27 @@ Un nombre entier représenté par plusieurs octets est stocké en mémoire ou da
 Dans le premier cas on parle d'orientation _big-endian_ et dans le deuxième cas d'orientation _little-endian_. Avec l'orientation _big-endian_, 08 00 correspond à 8×16<sup>2</sup>=2048 en décimal alors qu'avec l'orientation _little-endian_ 08 00 correspond à 8 en décimal.
 Écrire une fonction qui prend en paramètres 2 octets écrits en hexadécimal (directement et non sous forme de string), représentés par deux entiers compris entre 0 et 255, et une chaîne de caractères "BE" ou "LE" et renvoie la valeur décimale du nombre représenté suivant l'encodage _big-endian_ (pour "BE") ou _little-endian_ (pour "LE").
 
+```Python
+def valeur(valeur_dec_octet1,valeur_dec_octet2,choix):
+    """
+    Renvoie la valeur décimale en fonction du choix de la représentation
+    param : valeur_dec_octet 1 : int
+    param : valeur_dec_octet 2 : int
+    param : choix : str
+    >>> valeur(8,0,"BE")
+    2048
+    >>> valeur(8,0,"LE")
+    8
+    """
+
+    
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+  
+```
+
+
 ## Exercice 4
 
 On utilise 5 bits pour coder en binaire les entiers relatifs.
