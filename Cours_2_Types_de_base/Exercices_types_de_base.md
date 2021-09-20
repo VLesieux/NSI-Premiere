@@ -32,6 +32,7 @@ def valeur(valeur_dec_octet1,valeur_dec_octet2,choix):
     param : valeur_dec_octet 1 : int
     param : valeur_dec_octet 2 : int
     param : choix : str
+    return : int
     >>> valeur(8,0,"BE")
     2048
     >>> valeur(8,0,"LE")
