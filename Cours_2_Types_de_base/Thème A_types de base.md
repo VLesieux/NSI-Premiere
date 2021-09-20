@@ -472,10 +472,14 @@ On note que 0,375=1,5×2<sup>-2</sup> ce qui permet d'avoir une mantisse compris
 Au final, le codage de - 0,375 en norme IEEE754 64 bits(8 octets) est :
 10111111 11011000 00000000 00000000 00000000 00000000 00000000 00000000
 
+[À vérifier ici](https://www.binaryconvert.com/result_double.html?decimal=045048046051055053)
+
 Codons maintenant le réel 20. Il nous faut une mantisse comprise entre 1 et 2 et une puissance de 2.   
 20=16×1,25=2<sup>4</sup>×1,25. On réalise donc la concaténantion de '0' pour le signe, du code de 4 + 1023 = 1027 soit '10000000011' sur 11 bits (on le trouve en faisant `bin(1027)`), la mantisse 1,25 s'écrit 1,01 en binaire et on ne garde que la partie décimale 01 et on complète avec cinquante 0.
 Au final, le codage de 20 en norme IEEE754 64 bits (8 octets) est :
 01000000 00110100 00000000 00000000 00000000 00000000 00000000 00000000
+
+[À vérifier ici](https://www.binaryconvert.com/result_double.html?decimal=050048)
 
 > Exemple 1 : Recherchons l'écriture décimale du nombre qui s'écrit 11.0101 en binaire.
 
