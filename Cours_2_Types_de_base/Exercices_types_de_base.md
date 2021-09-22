@@ -52,8 +52,9 @@ if __name__ == '__main__':
 On utilise 5 bits pour coder en binaire les entiers relatifs.
 
 1. Comment code-t-on le nombre 9 ?
-2. Comment code-t-on le nombre -10 ?
+2. Comment code-t-on le nombre -15 ?
 3. Si on utilise 5 bits pour coder les entiers relatifs, combien de nombres peut-on coder et lesquels ?
+4. Comment se code - 56 sur le nombre de bit nécessaire à sa représentation ?
 
 ## Exercice 5
 
