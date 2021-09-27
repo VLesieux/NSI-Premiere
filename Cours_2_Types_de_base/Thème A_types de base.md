@@ -804,12 +804,4 @@ Utiliser [ce site](https://nickciske.com/tools/binary.php) pour encoder le mot "
 
 Créer un fichier Word et écrire : "ceci est un texte écrit avec des accents". Enregistrer ce fichier au format Text brut .txt ; choisir l'encodage ASCII. Qu'observez-vous ?
 
-
-L'encodage UTF-8 est lui aussi compatible avec l'ASCII. En revanche ISO-8859-1
-et UTF-8 sont incompatibles entre eux pouvant conduire à ce genre de problèmes :
-
-![](assets/martine.jpg)
-
-Aller plus loin : Plus d'informations sur ces différents aspects sont disponibles [dans chapitre 1 du polycopié du cours de Codage de l'information donné en L2 informatique](assets/poly.pdf).
-
 Application : dans le bloc `<head>` d'un fichier HTML (c'est-à-dire entre les balises `<head>` et `</head>`), on insère la ligne `<meta http-equiv="Content -Type" content="text/html; charset=UTF-8">` pour permettre un affichage correct des caractères spéciaux sur tout système d'exploitation.
