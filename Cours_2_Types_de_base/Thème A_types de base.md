@@ -765,8 +765,8 @@ l'ASCII.  L'ISO-8859-1 (aussi appelé *Latin-1*), pour l'Europe occidentale, a
 vu le jour en 1986.  Celui-ci comble les manques pour la plupart des langues
 d'Europe occidentale.  Pour le français il manque cependant le œ, le Œ et le Ÿ
 et, bien entendu, le symbole €.  L'encodage en ISO-8859-1 utilise 8 bits, les
-128 premières valeurs de l'ISO-8859-1 sont identiques à l'ASCII, ce qui assure
-une compatibilité avec cet encodage.
+128 premières valeurs de l'ISO-8859-1 sont identiques à l'ASCII, **ce qui assure
+une compatibilité avec cet encodage**.
 
 Voici la table des caractères ISO-8859-1 :
 
