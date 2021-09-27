@@ -717,8 +717,8 @@ Remarque : distinguer ce que l'on entend par **encodage de caractère** (ASCII, 
 ### CODAGE ASCII
 Le code ASCII (*American Standard Code for Information Interchange*) est la première
 norme largement utilisée pour encoder des caractères.  Comme son nom l'indique
-cette norme est américaine et elle sert pour l'échange d'information dans cette langue ;  elle n'**inclue donc pas les lettres  
-accentuées** mais comme le tableau ci-dessous l'indique, des chiffres, opérateurs mathématiques, caractères de
+cette norme est américaine et elle sert pour l'échange d'information dans cette langue ;
+elle n'**inclue donc pas les lettres accentuées** mais comme le tableau ci-dessous l'indique, des chiffres, opérateurs mathématiques, caractères de
 ponctuation ou de délimitation et certains caractères spéciaux.
 
 Voici les caractères de la table ASCII (les 33 premiers, et le dernier, ne sont pas imprimables) :
@@ -746,7 +746,7 @@ Pour obtenir le code ASCII d'un caractère et inversement :
 '4'
 ```
 
-> Exemple : Le code ASCII de la lettre A est 0x41, celui de la lettre B est 0x42, celui de la lettre C est 0x43, etc.
+> Exemple : Le code ASCII de la lettre A est 0x41 écrit en notation héxadécimale, celui de la lettre B est 0x42, celui de la lettre C est 0x43, etc...
 Quel est le code ASCII, en hexadécimal, de la lettre X, qui est la 24e lettre de l'alphabet usuel ?
 
 Voyons l'écriture du code ASCII en hexadécimal pour les lettres qui suivent : on aura donc  0x43 pour 3e lettre .. puis  0x49 pour 9e lettre, 0x4A pour la 10e lettre..0x4F pour la 15e lettre, puis  0x50 pour la 16e lettre et donc  0x58 pour la 24e lettre.
