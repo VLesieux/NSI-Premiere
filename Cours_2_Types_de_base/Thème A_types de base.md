@@ -760,7 +760,7 @@ Voyons l'écriture du code ASCII en hexadécimal pour les lettres qui suivent : 
 
 ### CODAGE ISO-8859-1
 
-Par la suite d'autres encodages ont vu le jour afin de pallier les limites de
+Par la suite d'autres encodages ont vu le jour afin de palier les limites de
 l'ASCII.  L'ISO-8859-1 (aussi appelé *Latin-1*), pour l'Europe occidentale, a
 vu le jour en 1986.  Celui-ci comble les manques pour la plupart des langues
 d'Europe occidentale.  Pour le français il manque cependant le œ, le Œ et le Ÿ
