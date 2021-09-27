@@ -802,6 +802,6 @@ Les caractères en UTF-8 doivent avoir une forme particulière décrite dans la 
 
 Utiliser [ce site](https://nickciske.com/tools/binary.php) pour encoder le mot "défi" et expliquer le résultat obtenu.
 
-Créer un fichier Word et écrire : "ceci est un texte écrit avec des accents". Enregistrer ce fichier au format Text brut .txt ; choisir l'encodage ASCII. Qu'observez-vous ?
+Créer un fichier Word et écrire : "ceci est un texte écrit avec des accents". Enregistrer ce fichier au format Text brut .txt ; choisir l'encodage ASCII. Quel problème d'encodage apparaît-il ?
 
 Application : dans le bloc `<head>` d'un fichier HTML (c'est-à-dire entre les balises `<head>` et `</head>`), on insère la ligne `<meta http-equiv="Content -Type" content="text/html; charset=UTF-8">` pour permettre un affichage correct des caractères spéciaux sur tout système d'exploitation.
