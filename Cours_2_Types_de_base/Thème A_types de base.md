@@ -788,7 +788,7 @@ L'encodage le plus pratique pour échanger des textes constitués de **caractèr
 
 Le codage UTF-8 est un **codage de longueur variable qui se fait sur 1 à 4 octets** à la différence de l'ISO 8859-1 qui encode tous les caractères sur un seul octet. Certains caractères sont codés sur un seul octet, ce sont les 128 caractères du codage ASCII.  Les
 autres caractères peuvent être codés sur 2, 3 ou 4 octets.  Ainsi l'UTF-8 permet en théorie de représenter *`2^21 = 2 097 152`* caractères différents, en réalité un peu moins. Il y a actuellement environ une centaine de milliers de caractères Unicode (incluant les [caractères des langues vivantes ou mortes](https://unicode.org/cldr/charts/latest/supplemental/languages_and_scripts.html) et également de [nombreux emojis indispensables](https://unicode.org/emoji/charts-12.0/full-emoji-list.html)
-😇); [on peut ainsi les coder en html](https://www.w3schools.com/charsets/ref_emoji_smileys.asp)
+😇); [on peut ainsi les coder en html](https://www.w3schools.com/charsets/ref_emoji_smileys.asp).
 
 
 Les caractères en UTF-8 doivent avoir une forme particulière décrite dans la table ci-dessous, il faut en effet être capable de distinguer dans un texte les caractères qui se codent sur 1, 2, 3 ou 4 octets :
@@ -799,6 +799,11 @@ Les caractères en UTF-8 doivent avoir une forme particulière décrite dans la 
 | 2                  | `110xxxxx 10xxxxxx`                   |
 | 3                  | `1110xxxx 10xxxxxx 10xxxxxx`          |
 | 4                  | `11110xxx 10xxxxxx 10xxxxxx 10xxxxxx` |
+
+Utiliser [ce site](https://nickciske.com/tools/binary.php) pour encoder le mot "défi" et expliquer le résultat obtenu.
+
+Créer un fichier Word et écrire : "ceci est un texte écrit avec des accents". Enregistrer ce fichier au format Text brut .txt ; choisir l'encodage ASCII. Qu'observez-vous ?
+
 
 L'encodage UTF-8 est lui aussi compatible avec l'ASCII. En revanche ISO-8859-1
 et UTF-8 sont incompatibles entre eux pouvant conduire à ce genre de problèmes :
