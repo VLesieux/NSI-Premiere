@@ -334,7 +334,7 @@ seq   : ind  : mot
 66666 : 7775 : tour
 ```
 
-Première façon de raisonner :
+- Première façon de raisonner :
 
 En désignant par *c\_0c\_1c\_2c\_3c\_4* une séquence de cinq lancers
 de dés, les *c_k* étant des chiffres de 1 à 6, comment peut-on
@@ -376,7 +376,7 @@ On peut généraliser ce résultat pour déterminer le nombre associé à une s�
 **N = Somme_{k=0} à {k=n-1} (c\_k - 1)x6^{n-1-k}.**
 
 
-Deuxième façon de raisonner
+- Deuxième façon de raisonner
 
 ```
 seq   : ind  : écriture en base 6 de l'indice : mot
