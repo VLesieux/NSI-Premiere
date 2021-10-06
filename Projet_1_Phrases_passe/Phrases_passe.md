@@ -334,6 +334,8 @@ seq   : ind  : mot
 66666 : 7775 : tour
 ```
 
+Première façon de raisonner :
+
 En désignant par *c\_0c\_1c\_2c\_3c\_4* une séquence de cinq lancers
 de dés, les *c_k* étant des chiffres de 1 à 6, comment peut-on
 calculer l'indice associé selon la méthode décrite ci-dessus ?
@@ -373,6 +375,44 @@ On peut généraliser ce résultat pour déterminer le nombre associé à une s�
 
 **N = Somme_{k=0} à {k=n-1} (c\_k - 1)x6^{n-1-k}.**
 
+
+Deuxième façon de raisonner
+
+```
+seq   : ind  : écriture en base 6 de l'indice : mot
+11111 :    0 : 00000 : montes
+11112 :    1 : 00001 : troue
+11113 :    2 : 00002 : alliais
+11114 :    3 : 00003 : annotes
+11115 :    4 : 00004 : vairon
+11116 :    5 : 00005 : tirer
+11121 :    6 : 00010 : sulkys
+11122 :    7 : 00011 : bornant
+11123 :    8 : 00012 : museaux
+11124 :    9 : 00013 : patrons
+...
+24521 : 2094 : 13410 : morigener
+...
+66653 : 7766 : 55542 : zelees
+66654 : 7767 : 55543 : valant
+66655 : 7768 : 55544 : exocet
+66656 : 7769 : 55545 : dejoua
+66661 : 7770 : 55550 : redises
+66662 : 7771 : 55551 : gril
+66663 : 7772 : 55552 : planta
+66664 : 7773 : 55553 : sourcil
+66665 : 7774 : 55554 : souda
+66666 : 7775 : 55555 : tour
+```
+
+On passe aisément de l'écriture de la séquence de dés à l'écriture en base 6 de valeur de l'indice du mot associé en retranchant 1 à la valeur du dé qui s'affiche.
+
+On peut vérifier dans la console :
+
+```python
+>>> int("13410",6)
+2094
+```
 
 ### À faire n°6
 
