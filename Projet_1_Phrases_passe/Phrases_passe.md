@@ -302,10 +302,8 @@ ce procédé vérifie bien
    1. que deux séquences soient associées à deux nombre différents ;
    2. et que tout nombre compris entre 0 et 7775 soit associé à une séquence.
 
-Une solution naturelle pour établir une telle association consiste à
-ranger les 7776 séquences selon l'ordre lexicographique (i.e. l'ordre
-alphabétique).
-
+Une solution naturelle consiste à
+établir une association entre les 7776 séquences de tirages de dés possibles et les 7776 indices pour tous les mots du tuple LISTE_MOTS.
 
 On obtient alors l'association
 
