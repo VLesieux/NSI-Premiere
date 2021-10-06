@@ -405,7 +405,7 @@ seq   : ind  : écriture en base 6 de l'indice : mot
 66666 : 7775 : 55555 : tour
 ```
 
-On passe aisément de l'écriture de la séquence de dés à l'écriture en base 6 de valeur de l'indice du mot associé en retranchant 1 à la valeur du dé qui s'affiche.
+On passe aisément de l'écriture de la séquence de dés à l'écriture en base 6 de la valeur de l'indice du mot associé en retranchant 1 à la valeur du dé qui s'affiche.
 
 On peut vérifier dans la console :
 
