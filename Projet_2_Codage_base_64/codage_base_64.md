@@ -107,24 +107,26 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
 	20
 	>>> -0b11 * 0b10100
 	-60
+  	
   	```
   
-  * en octal (base 8) en préfixant par les littéraux par `0o`
+	* en octal (base 8) en préfixant par les littéraux par `0o`
 	
 	```python
 	>>> 0o24
 	20
 	>>> -0o3 * 0o24
-	-60
-  	```
+  -60
+  ```
   
-  * en hexadécimal (base 16) en préfixant par les littéraux par `0x`
+	* en hexadécimal (base 16) en préfixant par les littéraux par `0x`
 	
 	  ```python
 	>>> 0x14
 	20
 	>>> -0x3 * 0x14
 	-60
+	
 	```
 
 ### Rappels sur les opérations logiques sur les entiers
@@ -242,11 +244,7 @@ if __name__ == '__main__':
 
 **Indications** (veuillez respecter le nom donné aux fonctions) :
 
-
-On pourra s'aider des algorithmes de conversion donnés [ici](https://github.com/VLesieux/NSI-Premiere/blob/master/Cours_2_Types_de_base/assets/Conversions_Thonny.md)
-
-
-a) Créer une fonction _conversion_binaire_decimal(mot_binaire)_ qui retourne la valeur décimale d'un mot binaire.     
+a) Créer au préalable une fonction _conversion_binaire_decimal(mot_binaire)_ qui retourne la valeur décimale d'un mot binaire.     
 
 Exemple:
 ```python
@@ -254,16 +252,7 @@ Exemple:
 5
 ```
 
-Remarque: Il peut être utile de renverser une chaîne de caractère.  
-Pour cela on peut utiliser l'écriture [::-1].
-
-```python
->>> chaine="exemple"
->>> chaine[::-1]
-'elpmexe'
-```
-
-b) Créer une fonction _conversion_decimal_binaire_6bits(dec)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de 0 pour aller jusque 6 bits.
+b) Créer une fonction _conversion_decimal_binaire_6bits(nombre)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 6 bits.
 
 Exemple: 
 ```python
@@ -271,7 +260,7 @@ Exemple:
 '000011'
 ```
 
-c) Créer une fonction _conversion_decimal_binaire_8bits(dec)_ qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci.
+c) Créer une fonction _conversion_decimal_binaire_8bits(nombre)_ qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci.
 
 Exemple: 
 ```python
@@ -285,7 +274,7 @@ Pour gagner du temps, on utilisera la liste appelée `lettres` donnée ci-dessou
 lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"] 
 
 
-Exemple: 
+Exemple à vérifier : 
 ```python
 >>> equivalence['B']
 '000001'
@@ -296,6 +285,12 @@ Rappel:
 
 ```for cle,val in equivalence.items():#on peut parcourir ainsi les items du dictionnaire equivalence en dissociant clé et valeur```
 
+Exemple :
+```python 
+>>> get_in_dictionary('000001')
+'B'
+```
+
 f) Créer une fonction _sequence_binaire(n_uplet)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres). Pour cela, utiliser la fonction précédente : _conversion_decimal_binaire_8bits(dec)_.     
 
 Exemple :      
@@ -303,18 +298,23 @@ Exemple :
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_    
-Exemple : 
+g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ . Modifier les noms des fonctions dans les exemples de la docstring.
+
+Exemple de slicing : 
 ```python
 >>> s="parapluie"
->>> s[4:9]
+>>> s[4:9]#4 compris, 9 exclu
 'pluie'
 ```
-h) Réaliser la fonction d'une autre méthode en écrivant la fonction _to_base64(n_uplet)_ qui utilise les opérateurs logiques présentés plus haut.
+
+Faire un schéma peut nous aider.
+<img src="assets/schema.png">
+
+h) Réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
 
 Exemple:      
-Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets pour la lisibilité en insérant des points : '011010.010101.011001.000010'.      
-Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant de la droite soit 011001.
+Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets en insérant des points  pour plus de lisibilité : '011010.010101.011001.000010'.      
+Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant de la droite soit 011001, sextet correspondant au symbole Z.
 
 ```python
 >>> 0b011010010101011001000010#on va travailler avec les valeurs décimales
@@ -322,16 +322,20 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 >>> 0b111111
 63
 >>> bin(63<<6)
-'0b111111000000'# cette opération permet de décaler de 6 bits vers la gauche le mot binaire 111111  dont la valeur décimale est 63.       
+'0b111111000000'# cette opération permet ainsi de décaler de 6 bits vers la gauche le mot binaire 111111  dont la valeur décimale est 63.       
 >>> bin(6903362 & (63<<6))# l'opération logique ET appliquée sur la sequence_binaire permet de ne garder que ces 6 bits qui nous intéressent
 '0b11001000000'# il ne reste plus maintenant qu'à éliminer les six 0 de droite
 >>> bin((6903362 & (63<<6))>>6)# on décale pour cela de 6 bits vers la droite
-'0b11001'# on est bien parvenu à extraire la découpe de 6 bits recherchée 
+'0b11001'# on est bien parvenu à extraire la découpe de 6 bits recherchée
+>>> conversion_decimal_binaire_6bits((6903362 & (63<<6))>>6)
+'011001'
+>>> get_in_dictionary(conversion_decimal_binaire_6bits((6903362 & (63<<6))>>6))
+'Z'
 ```
 
 2. Réalisez maintenant la fonction _from_base64(b64_string)_ **dont la docstring est donnée plus haut**. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple. On reproduira la méthode des opérateurs logiques utilisée à la question précédente 1.h).
 
-Exemple : 
+Exemple de conversion de liste en tuple : 
 ```python
 >>> liste=[3,4,5]
 >>> n_uplet=tuple(liste)
