@@ -197,9 +197,8 @@ Armé de cette table et des opérations logiques présentées ci-dessus, il est 
 
 ```python
 def to_base64(n_uplet):
-    '''
+   '''
 	convertit le tuple d'octets en une chaîne de symboles
-	
 	:param n_uplet:  tuple : une séquence d'octets
 	:return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
 	:CU: les entiers du tuple tous compris entre 0 et 255
@@ -218,12 +217,10 @@ def to_base64(n_uplet):
 def from_base64(b64_string):
     '''
 	convertit une chaîne de symboles en un tuple d'octets
-	
 	:param : b64_string: (str) une chaîne de symboles de la base 64
 	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
 	:CU: les caractères de b64_string sont dans la table ou le symbole =
 	:Exemple:
-	
 	>>> from_base64('Eric')
 	(18, 184, 156)
 	>>> from_base64('Erg=')
@@ -308,6 +305,7 @@ Exemple de slicing :
 ```
 
 Faire un schéma peut nous aider.
+
 <img src="assets/schema.png">
 
 h) Réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
