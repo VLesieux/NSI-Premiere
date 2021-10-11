@@ -197,7 +197,7 @@ Armé de cette table et des opérations logiques présentées ci-dessus, il est 
 
 ```python
 def to_base64(n_uplet):
-   '''
+	'''
 	convertit le tuple d'octets en une chaîne de symboles
 	:param n_uplet:  tuple : une séquence d'octets
 	:return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
@@ -215,7 +215,7 @@ def to_base64(n_uplet):
 
 ```python
 def from_base64(b64_string):
-    '''
+	'''
 	convertit une chaîne de symboles en un tuple d'octets
 	:param : b64_string: (str) une chaîne de symboles de la base 64
 	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
@@ -325,7 +325,7 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 '0b11001000000'# il ne reste plus maintenant qu'à éliminer les six 0 de droite
 >>> bin((6903362 & (63<<6))>>6)# on décale pour cela de 6 bits vers la droite
 '0b11001'# on est bien parvenu à extraire la découpe de 6 bits recherchée
->>> conversion_decimal_binaire_6bits((6903362 & (63<<6))>>6)
+>>> conversion_decimal_binaire_6bits((6903362 & (63<<6))>>6)#pour bien récupérer l'écriture sur 6 bits
 '011001'
 >>> get_in_dictionary(conversion_decimal_binaire_6bits((6903362 & (63<<6))>>6))
 'Z'
