@@ -1,20 +1,20 @@
+## Le codage en base 64
+
 **Objectifs :** 
 
-* découvrir un moyen de transmission de documents binaire
-* l'un de ces moyens est l'usage de la base 64
-* comprendre le principe du codage en base 64
+* découvrir un moyen de transmission des documents binaires, l'usage de la base 64
+* comprendre le principe de ce codage
 * le programmer
-* utiliser les dictionnaires : **[rappels](assets/dictionnaire.py)**
+* mettre en oeuvre les dictionnaires : **[rappels](assets/dictionnaire.py)**
 
 ## Scénario de la séance
 
-* la veille envoyer un courrier électronique à tous les participants avec une pièce jointe 
-  (non textuelle), par exemple une **[image](assets/image_originale.png)**
+* la veille envoyer un courrier électronique à tous les participants avec une pièce jointe (non textuelle), par exemple une **[image](assets/image_originale.png)**
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique (76 caractères par ligne) sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
-* s'apercevoir que la pièce-jointe est représentée sous forme textuelle, (le mail ne peut transporter que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués du message)
-* seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions majuscules et minuscules, les 10 chiffres, le `+` et le `/`)
+* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* s'apercevoir que la pièce-jointe est représentée sous forme textuelle, le mail ne pouvant transporter que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués du message
+* seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions majuscules et minuscules, les 10 chiffres, les caractères `+` et `/`)
 * utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld` sous Linux) : 
 
 Exemples   
@@ -25,9 +25,9 @@ base64 image_originale.png > texte_image2.txt
 
 Sous Windows, accéder aux commandes avec Windows R cmd, puis dir au lieu de ls et écrire certutil -decode image.txt image.png
 
-* présenter le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée binaire à encoder sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles (2<sup>6</sup>=64).
+* observer le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée binaire à encoder sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles (2<sup>6</sup>=64).
 * la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas un multiple de 3 ? on complète avec un ou 2 `=`.
-* on programme un codeur puis un décodeur base 64. (Un module avec des opérations de lecture/écriture dans un fichier binaire est fourni pour aller plus loin).
+* nous allons programmer un codeur puis un décodeur base 64.
   
 ## Description du codage en base 64
 
@@ -95,7 +95,7 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
 
 ## Programmation en Python
 
-### Entiers littéraux
+### Rappels sur les entiers littéraux
 
 * écriture usuelle décimale
 * possibilité d'écrire 
@@ -127,7 +127,7 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
 	-60
 	```
 
-### Opérations logiques sur les entiers
+### Rappels sur les opérations logiques sur les entiers
 Python dispose d'opérateurs logiques sur les entiers : les opérations booléennes classiques sont étendues aux bits de l'écriture binaire des entiers, avec la convention que le bit `0` correspond à la valeur booléenne `False`, et le bit `1` à `True`.
 
 1. **Et :** 
@@ -339,23 +339,3 @@ Exemple :
 (3, 4, 5)
 ```
 
- Pour aller plus loin...(ne pas faire pour le DM)
-
-3. Réalisez la fonction `base64_encode` qui encode en base64 le contenu du fichier dont le nom est passé en paramètre. Pour cela vous pourrez utiliser le module [binary_IO](assets/binary_IO.py) qui définit deux classes nommées `Reader` et `Writer` dont les objets permettent de lire et écrire des données binaires dans des fichiers.
-   
-   ```python
-   def  base64_encode(source):
-        '''
-		Encode a file in base64 and outputs the result on standard output.
-
-		:param source: (str) the source filename
-		:return: None
-		:side effect: print on the standard output the base64 encoded version of the content 
-                      of source file
-		'''
-   ```
-   
-   Améliorez cette fonction de sorte que la sortie ne soit constituée que de lignes de longueur 76 sauf éventuellement la dernière.
-
-
-4. Utilisez votre script pour coder/décoder les fichiers de votre choix.
