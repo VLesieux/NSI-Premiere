@@ -105,7 +105,7 @@ x,y,z=3,4,x+y
 
 > Exemple 1: On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
 
-> Exemple 2: Une fonction peut retourner un tuple.
+> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué d'un nombre et son carré.
 
 2) `list` : liste ou tableau
 
@@ -214,7 +214,7 @@ True
 
 > Exemple 2 : Soit l'instruction L=[[i,i+1] for i in range(2)]. Quelle est la valeur de L?
 
-> Exemple 3 : On cherche à obtenir la liste [0,1,4,9,16] par compréhension.
+> Exemple 3 : On cherche à obtenir la liste [0,1,4,9,16] par compréhension. Proposer un code
 
 > Exemple 4 : On considère la suite  
 t = [1,2,3,4,5,6,7,8,9] et on se demande ce que vaut la variable v ainsi définie :  
@@ -235,8 +235,7 @@ for i in range(3):
 
 > Exemple 7 : Supposons que l'on dispose des informations ci-dessous concernant les températures mensuelles moyennes d'une région française.    
 annee2019 = [('janvier',6), ('février',6), ('mars',12), ('avril',20), ('mai',23), ('juin',25), ('juillet',29), ('août',25), ('septembre',22), ('octobre',15), ('novembre',11), ('décembre',7)].  
-
-On cherche à accéder à la température la plus élevée.
+On cherche à accéder à la température la plus élevée. Proposer un code.
 
 
 > Exemple 8 : On cherche à construire une fonction construitTable(L,C) capable de construire un tableau de L lignes et C colonnes, contenant les entiers consécutifs de 0 à n-1 où n représente le produit L*C.
