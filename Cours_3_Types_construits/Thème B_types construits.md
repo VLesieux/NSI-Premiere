@@ -214,7 +214,7 @@ True
 
 > Exemple 2 : Soit l'instruction L=[[i,i+1] for i in range(2)]. Quelle est la valeur de L?
 
-> Exemple 3 : On cherche à obtenir la liste [0,1,4,9,16] par compréhension. Proposer un code
+> Exemple 3 : On cherche à obtenir la liste [0,1,4,9,16] par compréhension. Proposer un code.
 
 > Exemple 4 : On considère la suite  
 t = [1,2,3,4,5,6,7,8,9] et on se demande ce que vaut la variable v ainsi définie :  
