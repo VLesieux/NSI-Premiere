@@ -105,21 +105,7 @@ x,y,z=3,4,x+y
 
 > Exemple 1: On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
 
-```Python
->>> t=(3,5,1)
->>> t[1]=4
-Traceback (most recent call last):
-  File "<pyshell>", line 1, in <module>
-TypeError: 'tuple' object does not support item assignment
-```
 > Exemple 2: Une fonction peut retourner un tuple.
-
-```Python
->>> def f(x):
-    	return x,x**2
-	f(2)
-(2, 4)
-```
 
 2) `list` : liste ou tableau
 
@@ -226,43 +212,13 @@ True
 
 > Exemple 1 : Soit la liste L=[[1,2,3],[4,5,6],[7,8,9]], quelle est la valeur de L[1][2]?    
 
-```python 	
->>> L=[[1,2,3],[4,5,6],[7,8,9]]
->>> L[1][2]
-6
-```
-
 > Exemple 2 : Soit l'instruction L=[[i,i+1] for i in range(2)]. Quelle est la valeur de L?
 
-Il s'agit d'une liste de 2 élements établie par compréhension :
-
-```python 	
->>> L=[[i,i+1] for i in range(2)]
->>> L
-[[0, 1], [1, 2]]
-```
-
 > Exemple 3 : On cherche à obtenir la liste [0,1,4,9,16] par compréhension.
-
-On observe qu'il s'agit d'une liste de 5 éléments qui sont les carrés d'entiers de 0 à 4.
-
-```python 	
->>> L=[ i**2 for i in range(5)]
->>> L
-[0, 1, 4, 9, 16]
-```
 
 > Exemple 4 : On considère la suite  
 t = [1,2,3,4,5,6,7,8,9] et on se demande ce que vaut la variable v ainsi définie :  
 v = [c for c in t if c%3 == 0].
-
-Il s'agit de prendre parmi les valeurs de la liste celles paramétrées c ici qui répondent à la condition c%3 == 0, ce qui signifie celles dont le reste de la division par 3 est nul ou encore celles qui sont des multiples de 3.
-
-```python 
->>> t = [1,2,3,4,5,6,7,8,9]v = [c for c in t if c%3 == 0]
->>> v
-[3, 6, 9]
-```
 
 > Exemple 5 : On construit une matrice avec le code ci-dessous ; quelle est la valeur de cette matrice ?
 
@@ -272,79 +228,19 @@ for i in range(3):
     m[i][i]=i+1
     m[0][i]=m[0][i]+i+1
     m[i][2]=m[i][2]+i+1
->>> m
-[[2, 2, 4], [0, 2, 2], [0, 0, 6]]
 ```
 
 > Exemple 6 : Cherchons le code utilisant la méthode par compréhension permettant d'obtenir la liste : [[0,1,2], [3,4,5], [6,7,8], [9,10,11], [12,13,14]].
 
-On observe qu'il s'agit d'une liste de 5 éléments; chaque élément est une liste de 3 entiers consécutifs, le premier d'entre eux étant un multiple de 3 à partir de 0.
-On peut donc proposer :
-
-```Python
->>> m=[[3*i,3*i+1,3*i+2] for i in range(5)]
->>> m
-[[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11], [12, 13, 14]]
-```
-Ce qui peut également s'écrire plus simplement: 
-
-```Python
->>> m=[[3*i+p for p in range (3)] for i in range(5)]
->>> m
-[[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11], [12, 13, 14]]
-```
 
 > Exemple 7 : Supposons que l'on dispose des informations ci-dessous concernant les températures mensuelles moyennes d'une région française.    
 annee2019 = [('janvier',6), ('février',6), ('mars',12), ('avril',20), ('mai',23), ('juin',25), ('juillet',29), ('août',25), ('septembre',22), ('octobre',15), ('novembre',11), ('décembre',7)].  
+
 On cherche à accéder à la température la plus élevée.
 
-Voici le code que l'on peut proposer.
-
-```Python
->>> annee2019 = [('janvier',6), ('février',6), ('mars',12), ('avril',20), ('mai',23), ('juin',25), ('juillet',29), ('août',25), ('septembre',22), ('octobre',15), ('novembre',11), ('décembre',7)]
-m = annee2019[0][1]
-for mois in annee2019:
-    if (m < mois[1]):
-        m = mois[1]
->>> m
-29
-```
-On utilise ici un algorithme qui consiste à rechercher un extremum (minimum ou maximum) ; soit m sa valeur, on lui attribue comme valeur initiale la valeur du premier élément, on parcourt ensuite les éléments de la liste les uns après les autres et on attribut à m la valeur de l'élément suivant s'il est plus petit ou plus grand que m. Ici mois[1] représente la température qui fait l'objet de la comparaison.
-
-Par exemple, si l'on dispose d'une liste non ordonnée de valeurs et que l'on cherche à écrire une fonction permettant de déterminer le minimum de la liste.
-
-```Python
->>> def minimum(liste):
-    m=liste[0]
-    for i in liste:
-        if i<m:
-            m=i
-    return m
-minimum([8,1,7,3])
-
-1
-```
 
 > Exemple 8 : On cherche à construire une fonction construitTable(L,C) capable de construire un tableau de L lignes et C colonnes, contenant les entiers consécutifs de 0 à n-1 où n représente le produit L*C.
 Ainsi construitTable(2,3) renvoie [ [0, 1, 2],[3, 4, 5] ].
-
-Il faut bien réfléchir à la construction du tableau pour arriver à le coder correctement.
-
-```Python
->>> def construitTable(L,C):
-    t = []
-    for i in range(L):
-        ligne = []
-        for j in range(C):
-            ligne.append(C*i+j)
-        t.append(ligne)
-    return t
-
->>> construitTable(2,3)
-[[0, 1, 2], [3, 4, 5]]
-```
-
-
 
 3) `dict` : dictionnaire
 
@@ -434,46 +330,15 @@ TypeError: unhashable type: 'list'#mais une clé de dictionnaire ne peut pas êt
 >>> d={"if":"si","yes":"oui","no":"non"} 
 for c in d:
     print(d[c])
-si
-oui
-non
 ```
 
 > Exemple 2 : On définit un dictionnaire :  
 d = { 'couleur': 'vert', 'taille': 42, 'marque': 'le coq sportif' }.  
  Quelle est la valeur de l'expression d.keys() ?
 
-```Python
->>> d = { 'couleur': 'vert', 'taille': 42, 'marque': 'le coq sportif' }
->>> d.keys()
-dict_keys(['couleur', 'taille', 'marque'])
-```
-d.keys() représente les clés du dictionnaire.
-
 > Exemple 3 : Soit le dictionnaire d = {'a': 1, 'b': 2, 'c': 3, 'z': 26}. Quelle expression permet de récupérer la valeur de la clé 'z' ? 
-
-```Python
->>> d = {'a': 1, 'b': 2, 'c': 3, 'z': 26}
->>> d['z']
-26
-```
 
 > Exemple 4 : On dispose du dictionnaire ci-dessous.
 regions = { 'Mayotte': 376, 'Pays de la Loire': 32082,'La Réunion': 2504, 'Grand Est': 57441,'Martinique': 1128, 'Corse': 8680,'Bretagne': 27208, 'Nouvelle-Aquitaine': 84036 } ; on se demande ce qu'il faut utiliser comme code pour ajouter la valeur 31806 pour 'Hauts de France'.
 
-Il s'agit d'ajouter une nouvelle clé et sa valeur correspondante dans le dictionnaire. On respecte pour cela la notation :dictionnaire[clé]=valeur.
-
-```Python
->>> regions = { 'Mayotte': 376, 'Pays de la Loire': 32082,'La Réunion': 2504, 'Grand Est': 57441,'Martinique': 1128, 'Corse': 8680,'Bretagne': 27208, 'Nouvelle-Aquitaine': 84036 }
->>> regions['Hauts de France']=31806
->>> regions
-{'Mayotte': 376, 'Pays de la Loire': 32082, 'La Réunion': 2504, 'Grand Est': 57441, 'Martinique': 1128, 'Corse': 8680, 'Bretagne': 27208, 'Nouvelle-Aquitaine': 84036, 'Hauts de France': 31806}
-```
-
 > Exemple 5 : On dispose du dictionnaire ci-suivant :  dico = { 'a': (1,2,3), 'b': (4,5,6) }. On se demande commande atteindre la valeur 2 placée dans le tuple associé à la clé 'a'.
-
-```Python
->>> dico = { 'a': (1,2,3), 'b': (4,5,6) }
->>> dico['a'][1]
-2
-```
