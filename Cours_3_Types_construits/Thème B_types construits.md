@@ -105,7 +105,7 @@ x,y,z=3,4,x+y
 
 > Exemple 1: On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
 
-> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué d'un nombre et son carré.
+> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué d'un nombre et de son carré.
 
 2) `list` : liste ou tableau
 
