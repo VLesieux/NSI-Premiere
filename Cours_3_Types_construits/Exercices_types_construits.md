@@ -76,7 +76,7 @@ def renvoie_position(position,dictionnaire):
     """
     Renvoie la ville à partir de position avec une précision au dix-millième de degré
     param : position : tuple
-    param : dictionnaire : dic
+    param : dictionnaire : dict
     return : str
     >>> renvoie_position((11.611377,43.147762),positions)
     'Djibouti'
@@ -96,7 +96,7 @@ def stat(texte):
     """
     Renvoie les nombres d'occurence de chaque lettre du texte sous forme de dictionnaire
     param : string
-    return : dic
+    return : dict
     >>> stat("ceci est un texte")
     {'c': 2, 'e': 4, 'i': 1, 's': 1, 't': 3, 'u': 1, 'n': 1, 'x': 1}
     """
@@ -130,7 +130,7 @@ def recherche1(liste_voca,k):
 def recherche2(dictionnaire_voca,k):
     """
     Renvoie la clé associée à la valeur k
-    param : dictionnaire_voca : dic
+    param : dictionnaire_voca : dict
     param : k : str
     return : str
     recherche2(dictionnaire_a_f,"no")
@@ -184,7 +184,7 @@ def classement_mots(possibles):
     """
     Renvoie un dictionnaire associant mot et valeur avec les valeurs rangées dans l'ordre décroissant
     param : possibles : tuple
-    return : int
+    return : dict
     >>> classement_mots(("CASSER","RESSAC","ECRASES"))
     {'RESSAC': 14, 'ECRASES': 13, 'CASSER': 10}
     """
