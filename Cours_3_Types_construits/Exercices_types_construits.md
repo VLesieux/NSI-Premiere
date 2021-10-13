@@ -1,5 +1,11 @@
 # Exercices types construits : tuples, listes et dictionnaires
 
+```Python
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+```
+
 ## Exercice 1
 
 Écrire une fonction _separe_ qui prend en argument un n-uplet _t_ composé d'entiers et renvoie deux listes : la première liste _pairs_ contient les nombres pairs et la seconde _impairs_ les nombres impairs.
@@ -60,8 +66,24 @@ On suppose avoir reçu une photo prise sur un smartphone par une personne en vac
 Par exemple si les coordonnées sont (11.61135,43.14775), la fonction doit nous renvoyer "Djibouti", mais si les coordonnées sont (11.61135,43.14798), la fonction doit nous renvoyer "Position inconnue".
 
 __Indications__ : 
+
 1) l'idée est de faire un parcours des clés du dictionnaire (revoir la procédure dans le cours), comparer les coordonnées du site avec chacune des clés du dictionnaire en élargissant l'égalité avec un encadrement
+
 2) penser à comparer la valeur absolue (avec abs()) de la différence des coordonnées multipliée par 10000 pour retourner ensuite la valeur associée à la clé (revoir la procédure dans le cours).
+
+```Python
+def renvoie_position(position,dictionnaire):
+    """
+    Renvoie la ville à partir de position avec une précision au dix-millième de degré
+    param : position : tuple
+    param : dictionnaire : dic
+    return : str
+    >>> renvoie_position((11.611377,43.147762),positions)
+    'Djibouti'
+    >>> renvoie_position((11.611368,43.14798),positions)
+    'Position inconnue'
+    """
+```
 
 ## Exercice 6
 
@@ -69,22 +91,71 @@ __Indications__ :
 
 __Indications__ : parcourir les lettres du textes, créer s'il n'existe pas encore le nouvel item (lettre:1) dans le dictionnaire statistiques, ou augmenter de 1 sa valeur si l'item existe déjà.
 
+```Python
+def stat(texte):
+    """
+    Renvoie les nombres d'occurence de chaque lettre du texte sous forme de dictionnaire
+    param : string
+    return : dic
+    >>> stat("ceci est un texte")
+    {'c': 2, 'e': 4, 'i': 1, 's': 1, 't': 3, 'u': 1, 'n': 1, 'x': 1}
+    """
+```
+    
 ## Exercice 7
 
-On suppose que l'on dispose d'un traducteur anglais-français et la question est de mesurer l'intérêt d'une représentation par un dictionnaire {"yes":"oui","no":"non",...} plutôt que par une liste de listes [["yes","oui"],["no","non"],...]. Nous allons donc compter le temps de recherche d'un élément. Pour traduire "yes", on doit trouver dans le dictionnaire la valeur correspondant à la clé "yes" et dans la liste de listes la valeur du deuxième élément d'une sous-liste dont le premier élément a pour valeur "yes".
-1. Écrire une fonction _recherche1_ qui prend en paramètres une liste de listes et une variable k qui pourrait être "yes" et qui renvoie le deuxième élément de la sous-liste dont le premier élément a la valeur de k et qui serait "oui" dans ce cas.
-2. Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k.
-3. Pour la recherche qui doit être effectuée sur un grand ensemble, nous simplifions nos objets. Construire par compréhension une liste de listes dont les éléments sont de la forme [i,i] pour i allant de 0 à 10<sup>6</sup>-1. Mélanger cette liste avec la fonction `shuffle` du module `random`. Créer alors le dictionnaire correspondant à l'aide de la fonction `dict`.
+On suppose que l'on dispose d'un traducteur anglais-français et la question est de mesurer l'intérêt d'une représentation par un dictionnaire {"yes":"oui","no":"non",...} plutôt que par une liste de listes [["yes","oui"],["no","non"],...]. Nous allons donc compter le temps de recherche d'un élément. Pour traduire "yes", on doit trouver dans le dictionnaire la valeur correspondant à la clé "yes" et dans la liste de listes la valeur du deuxième élément d'une sous-liste dont le premier élément a pour valeur "yes". 
+
+1) Écrire une fonction _recherche1_ qui prend en paramètres une liste de listes et une variable k qui pourrait être "yes" et qui renvoie le deuxième élément de la sous-liste dont le premier élément a la valeur de k et qui serait "oui" dans ce cas.
+
+```Python
+dictionnaire_a_f={"yes":"oui","no":"non"}
+liste_a_f=[["yes","oui"],["no","non"]]
+
+def recherche1(liste_voca,k):
+    """
+    Renvoie l'élément[1] de liste dont element[0]=k
+    param : liste_a_f : list
+    param : k : str
+    return : str
+    recherche1(liste_a_f,"no")
+    "non"
+    """
+``` 
+
+
+2) Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k.
+
+```Python
+def recherche2(dictionnaire_voca,k):
+    """
+    Renvoie la clé associée à la valeur k
+    param : dictionnaire_voca : dic
+    param : k : str
+    return : str
+    recherche2(dictionnaire_a_f,"no")
+    "non"
+    """
+```     
+    
+3) Pour la recherche qui doit être effectuée sur un grand ensemble, nous simplifions nos objets. Construire par compréhension une liste de listes dont les éléments sont de la forme [i,i] pour i allant de 0 à 10<sup>6</sup>-1. Mélanger cette liste avec la fonction `shuffle` du module `random`. Créer alors le dictionnaire correspondant à l'aide de la fonction `dict`.
 
 ```Python
 >>> from random import shuffle
 >>> liste=[1,2,3,4]
->>> shuffle(liste)
+>>> shuffle(liste)#ne pas écrire liste=shuffle(liste)
 >>> liste
 [3, 4, 1, 2]
 ```
 
-4. Tester les fonctions de recherche sur la liste et le dictionnaire en utilisant pour le paramètre k les valeurs de 0 à 49. Pour les tests, utiliser la fonction `time` du module `time`. 
+```Python
+>>> liste=[[5,5],[7,7]]
+>>> dictionnaire=dict(liste)
+>>> dictionnaire
+{5: 5, 7: 7}
+```
+
+4) Tester les fonctions de recherche sur la liste et le dictionnaire en utilisant pour le paramètre k les valeurs de 0 à 49. Pour les tests, utiliser la fonction `time` du module `time`. 
 
 ```Python
 from time import time
@@ -93,7 +164,7 @@ st=time()
 print(time()-st)
 ```
 
-5. Pour gagner une ligne de code, on peut améliorer la fonction _recherche2_ en utilisant la méthode get associée au dictionnaire qui renvoie la valeur d'une clé et ne retourne pas d'erreur si la clé est introuvable. Créer la fonction _recherche3_ et comparer son efficacité avec les fonctions précédentes.
+5) Pour gagner une ligne de code, on peut améliorer la fonction _recherche2_ en utilisant la méthode get associée au dictionnaire qui renvoie la valeur d'une clé et ne retourne pas d'erreur si la clé est introuvable. Créer la fonction _recherche3_ et comparer son efficacité avec les fonctions précédentes.
 
 
 ## Exercice 8
@@ -114,22 +185,31 @@ Par exemple :
 {'RESSAC': 14, 'ECRASES': 11, 'CASSER': 10}
 ```
 
-Écrire les doc_test des fonctions réalisées pour atteindre cet objectif.
-
-
-```Python
-if __name__ == '__main__':
-  import doctest
-  doctest.testmod(verbose=True)
-```
-
 Indications :
 
-1) Créer un dictionnaire associant une valeur à chaque lettre.
+1) Créer un dictionnaire associant une valeur à un tuple de lettres.
+
 2) Créer une première fonction appelée _points_ retournant la valeur en points d'un mot entré en paramètre
-3) Utiliser les méthodes `sort()` et `reverse()` des listes dans une nouvelle fonction _classement_mots_ ; il s'agira en effet de créer une liste contenant les valeurs des mots, puis d'ordonner et de renverser cette liste. On sera ensuite amené à créer un nouveau dictionnaire initialement vide que l'on remplira avec des mots (les clés) qui ont pour valeur celles de cette liste.
+
+```Python
+def points(mot):
+    """
+    Renvoie la valeur d'un mot dont la sixième lettre compte triple
+    param : mot : str
+    return : int
+    >>> points('CASSER')
+    10
+    >>> points('RESSAC')
+    14
+    >>> points('ECRASES')
+    13
+    """
+```
+
+3) Utiliser les méthodes `sort()` et `reverse()` des listes dans une nouvelle fonction `classement_mots`; il s'agira en effet de créer une liste contenant les valeurs des mots, puis d'ordonner et de renverser cette liste. On sera ensuite amené à créer un nouveau dictionnaire initialement vide que l'on remplira avec des mots (les clés) qui ont pour valeur celles de cette liste.
 
 Exemple :
+
 ```Python
 >>> liste=[1,8,9,3]
 >>> liste.sort()
@@ -140,31 +220,13 @@ Exemple :
 [9, 8, 3, 1]
 ```
 
-Rappel : deux façons de parcourir une chaîne de caractères :  
-- en la parcourant comme une liste d'éléments
 ```Python
->>> mot="poisson"
->>> for caractere in mot:
-    print(i)
-p
-o
-i
-s
-s
-o
-n
-```
-- en la parcourant de l'indice 0 à l'indice len(mot)-1
-```Python
->>> mot="poisson"
->>> for i in range(len(mot)):
-    print(mot[i])
-
-p
-o
-i
-s
-s
-o
-n
+def classement_mots(possibles):
+    """
+    Renvoie un dictionnaire avec les valeurs des possibles dans l'ordre décroissant
+    param : possibles : tuple
+    return : int
+    >>> classement_mots(("CASSER","RESSAC","ECRASES"))
+    {'RESSAC': 14, 'ECRASES': 13, 'CASSER': 10}
+    """
 ```
