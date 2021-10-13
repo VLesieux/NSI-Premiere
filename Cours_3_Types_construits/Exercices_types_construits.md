@@ -182,7 +182,7 @@ On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la
 ```Python
 def classement_mots(possibles):
     """
-    Renvoie un dictionnaire avec les valeurs des possibles dans l'ordre décroissant
+    Renvoie un dictionnaire associant mot et valeur avec les valeurs rangées dans l'ordre décroissant
     param : possibles : tuple
     return : int
     >>> classement_mots(("CASSER","RESSAC","ECRASES"))
