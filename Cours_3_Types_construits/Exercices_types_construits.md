@@ -155,7 +155,7 @@ def recherche2(dictionnaire_voca,k):
 {5: 5, 7: 7}
 ```
 
-4) Tester les fonctions de recherche sur la liste et le dictionnaire en utilisant pour le paramètre k les valeurs de 0 à 49. Pour les tests, utiliser la fonction `time` du module `time`. 
+4) Tester les fonctions de recherche sur la liste et le dictionnaire en utilisant pour le paramètre k une valeur quelconque. Pour les tests, utiliser la fonction `time` du module `time`. 
 
 ```Python
 from time import time
@@ -179,10 +179,15 @@ Au scrable, les valeurs des pièces sont les suivantes:
 On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
 Écrire une fonction capable de renvoyer à partir d'un tuple de mots possibles un dictionnaire associant une valeur en points à chacun des mots en plaçant les mots dans l'ordre décroissant des points.   
 
-Par exemple :
 ```Python
->>> classement_mots(("CASSER","RESSAC","ECRASES"))
-{'RESSAC': 14, 'ECRASES': 11, 'CASSER': 10}
+def classement_mots(possibles):
+    """
+    Renvoie un dictionnaire avec les valeurs des possibles dans l'ordre décroissant
+    param : possibles : tuple
+    return : int
+    >>> classement_mots(("CASSER","RESSAC","ECRASES"))
+    {'RESSAC': 14, 'ECRASES': 13, 'CASSER': 10}
+    """
 ```
 
 Indications :
@@ -220,13 +225,3 @@ Exemple :
 [9, 8, 3, 1]
 ```
 
-```Python
-def classement_mots(possibles):
-    """
-    Renvoie un dictionnaire avec les valeurs des possibles dans l'ordre décroissant
-    param : possibles : tuple
-    return : int
-    >>> classement_mots(("CASSER","RESSAC","ECRASES"))
-    {'RESSAC': 14, 'ECRASES': 13, 'CASSER': 10}
-    """
-```
