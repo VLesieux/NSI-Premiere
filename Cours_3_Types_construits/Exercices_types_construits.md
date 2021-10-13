@@ -204,7 +204,7 @@ def points(mot):
     """
 ```
 
-3) Utiliser les méthodes `sort()` et `reverse()` des listes dans une nouvelle fonction `classement_mots`; il s'agira en effet de créer une liste contenant les valeurs des mots, puis d'ordonner et de renverser cette liste. On sera ensuite amené à créer un nouveau dictionnaire initialement vide que l'on remplira avec des mots (les clés) qui ont pour valeur celles de cette liste.
+3) Utiliser les méthodes `sort()` et `reverse()` des listes dans une nouvelle fonction `classement_mots`; il s'agira en effet de créer une liste contenant les valeurs des mots, puis d'ordonner et de renverser cette liste. On sera ensuite amené à créer un nouveau dictionnaire initialement vide que l'on remplira avec des mots (les clés) qui ont pour valeur les valeurs de cette dernière liste.
 
 Exemple :
 
