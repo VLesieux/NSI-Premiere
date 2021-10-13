@@ -170,12 +170,14 @@ print(time()-st)
 ## Exercice 8
 
 Au scrable, les valeurs des pièces sont les suivantes:  
+
     1 point : E , A , I , N , O , R , S , T , U , L    
     2 points : D , M , G    
     3 points : B , C , P    
     4 points : F , H , V    
     8 points : J , Q    
     10 points : K , W , X , Y, Z    
+    
 On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
 
 On cherche à écrire une fonction capable de renvoyer à partir d'un tuple de mots possibles un dictionnaire associant une valeur en points à chacun des mots de ce tuple en plaçant les mots dans l'ordre décroissant des points.   
