@@ -289,7 +289,7 @@ tailles=['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
 Par exemple, pour obtenir le prix des tailles S, il fait : 8 + 0.5*8**0.5 = 9.41.
 
-Proposer une écriture en compréhension permettant d'obtenir
+Proposer une écriture en compréhension permettant d'obtenir pour le dictionnaire `marchandises`:
 
 ```Python
 {'XS': '8 €', 'S': '9.41 €', 'M': '10.94 €', 'L': '12.59 €', 'XL': '14.36 €', 'XXL': '16.25 €'}
@@ -303,13 +303,15 @@ Remarque : pour arrondir à deux décimales
 9.41
 ```
 
-Indication : créer une liste `prix` où chacun des prix pour chaque taile est initialement à 0
+Indication : créer une liste `prix` où chacun des prix pour chaque taille est initialement à 0
 
 ```Python
 prix=[0]*len(tailles)
 ```
 
-puis affecter le premier prix de la liste à 8, puis faire le calcul des prix des autres tailles par compréhension ; affecter ces prix au taille dans le dictionnaire `marchandises`.
+puis affecter le premier prix de la liste à 8,
+puis faire le calcul des prix des autres tailles par compréhension ;
+affecter ces prix aux taillex dans le dictionnaire `marchandises`.
 
 3. Un magasin fait une commande à un grossiste en précisant ses quantités de tee-shirts par taille sous la forme :
 
