@@ -271,6 +271,7 @@ def calcul_distance_totale(dictionnaire):
 ### Exercice 10
 
 Un fabricant décide de créer des tee-shirts dont la taille peut être : XS, S, M, L, XL, XXL.
+
 À chaque taille son prix : il adopte le principe suivant : 8 € pour la taille XS et il ajoute 2 € en passant à la taille supérieure, jusqu'au XXL.
 
 1. Proposer une écriture en compréhension permettant d'obtenir un dictionnaire que l'on appelera `marchandises` :
@@ -320,6 +321,8 @@ quantites={'XS': 200, 'S': 350 , 'M': 125 , 'L': 370 , 'XL': 50 , 'XXL': 50}
 ```
 
 Calculer le prix de revient de cette commande.
+
+Indication : travailler avec les nombres, retirer les '€'.
 
 
 
