@@ -101,7 +101,7 @@ def stat(texte):
     {'c': 2, 'e': 4, 'i': 1, 's': 1, 't': 3, 'u': 1, 'n': 1, 'x': 1}
     """
 ```
-    
+
 ## Exercice 7
 
 On suppose que l'on dispose d'un traducteur anglais-français et la question est de mesurer l'intérêt d'une représentation par un dictionnaire {"yes":"oui","no":"non",...} plutôt que par une liste de listes [["yes","oui"],["no","non"],...]. Nous allons donc compter le temps de recherche d'un élément. Pour traduire "yes", on doit trouver dans le dictionnaire la valeur correspondant à la clé "yes" et dans la liste de listes la valeur du deuxième élément d'une sous-liste dont le premier élément a pour valeur "yes". 
@@ -118,10 +118,10 @@ def recherche1(liste_voca,k):
     param : liste_a_f : list
     param : k : str
     return : str
-    recherche1(liste_a_f,"no")
-    "non"
+    >>> recherche1(liste_a_f,"no")
+    'non'
     """
-``` 
+```
 
 
 2) Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k.
@@ -133,11 +133,11 @@ def recherche2(dictionnaire_voca,k):
     param : dictionnaire_voca : dict
     param : k : str
     return : str
-    recherche2(dictionnaire_a_f,"no")
-    "non"
+    >>> recherche2(dictionnaire_a_f,"no")
+    'non'
     """
-```     
-    
+```
+
 3) Pour la recherche qui doit être effectuée sur un grand ensemble, nous simplifions nos objets. Construire par compréhension une liste de listes dont les éléments sont de la forme [i,i] pour i allant de 0 à 10<sup>6</sup>-1. Mélanger cette liste avec la fonction `shuffle` du module `random`. Créer alors le dictionnaire correspondant à l'aide de la fonction `dict`.
 
 ```Python
@@ -177,7 +177,7 @@ Au scrable, les valeurs des pièces sont les suivantes:
     4 points : F , H , V    
     8 points : J , Q    
     10 points : K , W , X , Y, Z    
-    
+
 On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
 
 On cherche à écrire une fonction capable de renvoyer à partir d'un tuple de mots possibles un dictionnaire associant une valeur en points à chacun des mots de ce tuple en plaçant les mots dans l'ordre décroissant des points.   
@@ -228,4 +228,97 @@ def classement_mots(possibles):
     {'RESSAC': 14, 'ECRASES': 13, 'CASSER': 10}
     """
 ```
+
+### Exercice 9
+
+Soit un ensemble de points :
+
+A : (-2,4) ; B : (1,-2) ; C : (3,7) ; D : (5,-3)
+
+que l'on présente sous la forme d'un dictionnaire de points
+
+```Python
+dictionnaire_points={"A": (-2,4), "B": (1,-2), "C": (3,7), "D": (5,-3)}
+```
+
+1. Écrire une fonction `calcul_distance` qui calcule la distance entre deux points.
+
+```Python
+def distance_entre_deux_points(point1,point2):
+    """
+    Renvoie la distance entre point1 et point2
+    param : point1 : tuple
+    param : point2 : tuple
+    return : float
+    >>> distance_entre_deux_points((1,1),(4,5))
+    5.0
+    """
+```
+
+2. Écrire une fonction `calcul_distance_totale` qui calcule la longueur totale du chemin : AB + BC + CD et qui peut s'appliquer à n'importe quelle série de points fournie sous la forme d'un dictionnaire.
+
+```Python
+def calcul_distance_totale(dictionnaire):
+    """
+    Renvoie la distance totale pour une série de points fournie dans un dictionnaire
+    param : dictionnaire : dict
+    return : float
+    >>> calcul_distance_totale(dictionnaire_points)
+    26.125787416977825
+    """
+```
+
+### Exercice 10
+
+Un fabricant décide de créer des tee-shirts dont la taille peut être : XS, S, M, L, XL, XXL.
+À chaque taille son prix : il adopte le principe suivant : 8 € pour la taille XS et il ajoute 2 € en passant à la taille supérieure, jusqu'au XXL.
+
+1. Proposer une écriture en compréhension permettant d'obtenir un dictionnaire que l'on appelera `marchandises` :
+
+```Python
+{'XS': '8 €', 'S': '10 €', 'M': '12 €', 'L': '14 €', 'XL': '16 €', 'XXL': '18 €'}
+```
+
+Indication : créer une liste `tailles`
+
+```Python
+tailles=['XS', 'S', 'M', 'L', 'XL', 'XXL']
+```
+
+2. Ce même fabricant décide de changer sa façon de fixer les prix de vente des tee-shirts. Ceux dont la taille est XS sont toujours à 8 €, mais cette fois-ci, pour passer d'une taille à la suivante, il ajoute au prix de la taille inférieure la moitié de sa racine carrée (prendre la racine carrée d'un nombre, c'est l'élever à la puissance 1/2=0.5).
+
+Par exemple, pour obtenir le prix des tailles S, il fait : 8 + 0.5*8**0.5 = 9.41.
+
+Proposer une écriture en compréhension permettant d'obtenir
+
+```Python
+{'XS': '8 €', 'S': '9.41 €', 'M': '10.94 €', 'L': '12.59 €', 'XL': '14.36 €', 'XXL': '16.25 €'}
+
+```
+
+Remarque : pour arrondir à deux décimales
+
+```Python
+>>> round(9.414213562373096,2)
+9.41
+```
+
+Indication : créer une liste `prix` où chacun des prix pour chaque taile est initialement à 0
+
+```Python
+prix=[0]*len(tailles)
+```
+
+puis affecter le premier prix de la liste à 8, puis faire le calcul des prix des autres tailles par compréhension ; affecter ces prix au taille dans le dictionnaire `marchandises`.
+
+3. Un magasin fait une commande à un grossiste en précisant ses quantités de tee-shirts par taille sous la forme :
+
+```Python
+quantites={'XS': 200, 'S': 350 , 'M': 125 , 'L': 370 , 'XL': 50 , 'XXL': 50}
+```
+
+Calculer le prix de revient de cette commande.
+
+
+
 
