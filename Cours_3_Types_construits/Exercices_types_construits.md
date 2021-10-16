@@ -311,7 +311,7 @@ prix=[0]*len(tailles)
 
 puis affecter le premier prix de la liste à 8,
 puis faire le calcul des prix des autres tailles par compréhension ;
-affecter ces prix aux taillex dans le dictionnaire `marchandises`.
+affecter ces prix aux tailles dans le dictionnaire `marchandises`.
 
 3. Un magasin fait une commande à un grossiste en précisant ses quantités de tee-shirts par taille sous la forme :
 
