@@ -115,7 +115,7 @@ Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 * écriture usuelle décimale
 * possibilité d'écrire 
   
-  - en binaire (base 2) en préfixant par les littéraux par `0b`
+    - en binaire (base 2) en préfixant par les littéraux par `0b`
   
     ```python
 	>>> 0b10100
