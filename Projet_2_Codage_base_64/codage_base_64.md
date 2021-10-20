@@ -12,8 +12,8 @@
 * la veille envoyer un courrier électronique à tous les participants avec une pièce jointe (non textuelle), par exemple une **[image](assets/image_originale.png)**
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
-* s'apercevoir que la pièce-jointe est représentée sous forme textuelle, le mail ne pouvant transporter que des caractères ASCII, d'ailleurs on peut remarquer l'encodage des caractères accentués du message
+* lire le contenu de ce fichier correspondant uniquement à l'image avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* s'apercevoir que la pièce-jointe est représentée sous forme textuelle, le mail ne pouvant transporter que des caractères ASCII (American Standard Code for Information Interchange), d'ailleurs on peut remarquer l'encodage des caractères accentués du message proprement dit.
 * seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions majuscules et minuscules, les 10 chiffres, les caractères `+` et `/`)
 * utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld` sous Linux) : 
 
@@ -26,7 +26,7 @@ base64 image_originale.png > texte_image2.txt
 Sous Windows, accéder aux commandes avec Windows R cmd, puis dir au lieu de ls et écrire certutil -decode image.txt image.png
 
 * observer le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée binaire à encoder sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles (2<sup>6</sup>=64).
-* la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas un multiple de 3 ? on complète avec un ou 2 `=`.
+* la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas un multiple de 3 (ou dit autrement si le nombre de bits de la donnée binaire n'est pas un multiple de 6) ? on complète avec un ou 2 `=`.
 * nous allons programmer un codeur puis un décodeur base 64.
   
 ## Description du codage en base 64
@@ -52,23 +52,36 @@ Le codage Base64 permet de transformer toute donnée binaire en une suite de sym
 | `111000` (`56`) | `4` | `111001` (`57`) | `5` | `111010` (`58`) | `6` | `111011` (`59`) | `7` |
 | `111100` (`60`) | `8` | `111101` (`61`) | `9` | `111110` (`62`) | `+` | `111111` (`63`) | `/` |
 
-### Coder trois octets en quatre symboles
-Trois octets correspondent à 24 bits. Chaque symbole est numéroté par un entier compris entre 0 et 63, et donc peut-être codé sur 6 bits (sextet). 
+### Exemple : coder trois octets en quatre symboles
 
-La façon de procéder à ce codage est très simple : on découpe les 24 bits qui forment les trois octets en quatre paquets de six bits. Chaque paquet de six bits correspond à un symbole.
+La façon de procéder à ce codage est très simple : on découpe les 24 bits correspondant à ces trois octets en quatre paquets de six bits (ou sextets). 
+
+Chaque paquet de six bits correspond à un symbole ; on a en effet 2^6 sextets possibles soit 64 sextets possibles, autant que de caractères ASCII.
+
 Voici un exemple du codage en base 64 du triplet d'octets (18, 184, 156) :
 
 	   18       184      156
 	 00010010 10111000 10011100
 	 000100 101011 100010 011100
 	   E      r      i      c
+
 Ainsi le triplet d'octets (18, 184, 156) est encodé par les quatre symboles `Eric`.
 
 Coder un fichier binaire en base64 consiste donc à coder chaque bloc de trois octets consécutifs par ce procédé.
 
 ### Codage de blocs incomplets
+
 Que faire si la taille du fichier binaire n'est pas multiple de trois octets ?    
-Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de figure.
+
+Le dernier bloc peut ne contenir qu'un ou deux octets. 
+Sans le démontrer mais pour se le prouver, on peut afficher les restes des 10 premiers multiples de 8 par la division euclidienne par 6 en réalisant la liste de ces restes par compréhension :
+
+```python
+>>> [(i*8)%6 for i in range(10)]
+[0, 2, 4, 0, 2, 4, 0, 2, 4, 0]
+```
+
+Voyons les deux cas de figure.
 
 1. **Cas d'un bloc de deux octets :** on a 16 bits de données. On rajoute 2 bits fictifs nuls : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
 
@@ -76,15 +89,17 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
 	    00010010 10111000
 		000100 101011 1000|00
 		  E      r      g
-	Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, le dernier symbole signalant qu'un bourrage de deux bits a été effectué.
+
+Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, le dernier symbole signalant qu'un bourrage de deux bits a été effectué.
 	
-1. **Cas d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
+2. **Cas d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
 
 		  18
 		00010010
 		000100 10|0000
 		  E      g	  
-	  Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
+		  
+Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 	
 ### Exercices à faire manuellement
 
@@ -130,6 +145,7 @@ Le dernier bloc peut ne contenir qu'un ou deux octets. Voyons les deux cas de fi
 	```
 
 ### Rappels sur les opérations logiques sur les entiers
+
 Python dispose d'opérateurs logiques sur les entiers : les opérations booléennes classiques sont étendues aux bits de l'écriture binaire des entiers, avec la convention que le bit `0` correspond à la valeur booléenne `False`, et le bit `1` à `True`.
 
 1. **Et :** 
@@ -230,7 +246,8 @@ def from_base64(b64_string):
 	'''
 ```
 
-Code pour la vérification des docstring
+Code pour la vérification des docstring :
+
 ```python
 if __name__ == '__main__':
     import doctest
@@ -252,20 +269,23 @@ Exemple:
 b) Créer une fonction _conversion_decimal_binaire_6bits(nombre)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 6 bits.
 
 Exemple: 
+
 ```python
 >>> conversion_decimal_binaire_6bits(3)
 '000011'
 ```
 
-c) Créer une fonction _conversion_decimal_binaire_8bits(nombre)_ qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci.
+c) Créer une fonction _conversion_decimal_binaire_8bits(nombre)_ qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 8 bits.
 
 Exemple: 
+
 ```python
 >>> conversion_decimal_binaire_8bits(3)
 '00000011'
 ```
 
-d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On pourra créer le dictionnaire par compréhension.
+d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On réalisera la création de ce dictionnaire par compréhension.
+
 Pour gagner du temps, on utilisera la liste appelée `lettres` donnée ci-dessous (qui respecter la position des caractères dans la table) et on reprendra la fonction précédente _conversion_decimal_binaire_6bits(dec)_.
 
 lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"] 
@@ -278,11 +298,13 @@ Exemple à vérifier :
 ```
 
 e) Créer la fonction _get_in_dictionary(sixtet)_ qui renvoie la clé du dictionnaire _equivalence_ à partir de la donnée du sixtet.  
+
 Rappel: 
 
 ```for cle,val in equivalence.items():#on peut parcourir ainsi les items du dictionnaire equivalence en dissociant clé et valeur```
 
 Exemple :
+
 ```python 
 >>> get_in_dictionary('000001')
 'B'
@@ -290,12 +312,13 @@ Exemple :
 
 f) Créer une fonction _sequence_binaire(n_uplet)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres). Pour cela, utiliser la fonction précédente : _conversion_decimal_binaire_8bits(dec)_.     
 
-Exemple :      
+Exemple :
+      
 ```python
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ . Modifier les noms des fonctions dans les exemples de la docstring.
+g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ . Modifier les noms des fonctions dans les exemples de la docstring pour vérifier les tests.
 
 Exemple de slicing : 
 ```python
@@ -310,7 +333,8 @@ Faire un schéma peut nous aider.
 
 h) Réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
 
-Exemple:      
+Exemple: 
+     
 Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets en insérant des points  pour plus de lisibilité : '011010.010101.011001.000010'.      
 Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant de la droite soit 011001, sextet correspondant au symbole Z.
 
@@ -334,6 +358,7 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 2. Réalisez maintenant la fonction _from_base64(b64_string)_ **dont la docstring est donnée plus haut**. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple. On reproduira la méthode des opérateurs logiques utilisée à la question précédente 1.h).
 
 Exemple de conversion de liste en tuple : 
+
 ```python
 >>> liste=[3,4,5]
 >>> n_uplet=tuple(liste)
