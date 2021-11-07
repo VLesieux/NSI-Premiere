@@ -316,7 +316,8 @@ Exemple :
 >>> sequence_binaire((105,86,66))
 '011010010101011001000010'
 ```
-g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ . Modifier les noms des fonctions dans les exemples de la docstring pour vérifier les tests.
+g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ .   
+Modifier les noms des fonctions dans les exemples de la docstring pour vérifier les tests.
 
 Exemple de slicing : 
 ```python
@@ -326,10 +327,15 @@ Exemple de slicing :
 ```
 
 Faire un schéma peut nous aider.
+Trois cas sont en effet à distinguer.  
+Premier cas : le nombre de bits est un multiple de 6, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6.  
+Deuxième cas : le reste de la division du nombre de bits par 6 est égal à 4. On ajoute '00' à la séquence, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6, et on ajoute au code '='.   
+Troisième cas : le reste de la division du nombre de bits par 6 est égal à 2. On ajoute '0000' à la séquence, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6, et on ajoute au code '=='.   
+
 
 <img src="assets/schema.png">
 
-h) Réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
+h) On se propose de réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
 
 Exemple: 
      
@@ -337,13 +343,13 @@ Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire ob
 Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant de la droite soit 011001, sextet correspondant au symbole Z.
 
 ```python
->>> 0b011010010101011001000010#on va travailler avec les valeurs décimales
+>>> 0b011010010101011001000010#on va travailler avec la valeur décimale de la séquence de bits
 6903362
 >>> 0b111111
 63
 >>> bin(63<<6)
-'0b111111000000'# cette opération permet ainsi de décaler de 6 bits vers la gauche le mot binaire 111111  dont la valeur décimale est 63.       
->>> bin(6903362 & (63<<6))# l'opération logique ET appliquée sur la sequence_binaire permet de ne garder que ces 6 bits qui nous intéressent
+'0b111111000000'# cette opération permet de décaler de 6 bits vers la gauche le mot binaire 111111  dont la valeur décimale est 63.       
+>>> bin(6903362 & (63<<6))# l'opération logique ET appliquée sur la sequence_binaire permet de ne garder que les 6 bits qui nous intéressent
 '0b11001000000'# il ne reste plus maintenant qu'à éliminer les six 0 de droite
 >>> bin((6903362 & (63<<6))>>6)# on décale pour cela de 6 bits vers la droite
 '0b11001'# on est bien parvenu à extraire la découpe de 6 bits recherchée
@@ -353,7 +359,11 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 'Z'
 ```
 
-2. Réalisez maintenant la fonction _from_base64(b64_string)_ **dont la docstring est donnée plus haut**. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple. On reproduira la méthode des opérateurs logiques utilisée à la question précédente 1.h).
+On pourra proposer une conversion de la droite vers la gauche.
+
+
+2. Réalisez maintenant la fonction _from_base64(b64_string)_ **dont la docstring est donnée plus haut**. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple.   
+On reproduira la méthode des opérateurs logiques utilisée à la question précédente 1.h).
 
 Exemple de conversion de liste en tuple : 
 
