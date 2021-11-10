@@ -260,8 +260,14 @@ a) Créer au préalable une fonction _conversion_binaire_decimal(mot_binaire)_ q
 
 Exemple:
 ```python
->>> conversion_binaire_decimal("00101")
-5
+def conversion_binaire_decimal(mot_binaire):
+    """
+    Renvoie la valeur décimale d'un mot binaire
+    param : mot_binaire
+    return : int
+    >>> conversion_binaire_decimal("00101")
+    5
+    """
 ```
 
 b) Créer une fonction _conversion_decimal_binaire_6bits(nombre)_ qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 6 bits.
@@ -269,8 +275,14 @@ b) Créer une fonction _conversion_decimal_binaire_6bits(nombre)_ qui retourne u
 Exemple: 
 
 ```python
->>> conversion_decimal_binaire_6bits(3)
-'000011'
+def conversion_decimal_binaire_6bits(nombre):
+    """
+    Renvoie le code binaire sur 6 bits
+    param : dec : int
+    return : str
+    >>> conversion_decimal_binaire_6bits(3)
+    '000011'    
+    """
 ```
 
 c) Créer une fonction _conversion_decimal_binaire_8bits(nombre)_ qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 8 bits.
@@ -278,8 +290,14 @@ c) Créer une fonction _conversion_decimal_binaire_8bits(nombre)_ qui retourne u
 Exemple: 
 
 ```python
->>> conversion_decimal_binaire_8bits(3)
-'00000011'
+def conversion_decimal_binaire_8bits(nombre):
+    """
+    Renvoie le code binaire sur 8 bits
+    param : dec : int
+    return : str
+    >>> conversion_decimal_binaire_8bits(3)
+    '00000011'    
+    """
 ```
 
 d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On réalisera la création de ce dictionnaire par compréhension.
@@ -304,8 +322,14 @@ Rappel:
 Exemple :
 
 ```python 
->>> get_in_dictionary('000001')
-'B'
+def get_in_dictionary(sixtet):
+    """
+    Renvoie la clé du dictionnaire à partir du sixtet
+    param : str
+    return : str
+    >>> get_in_dictionary('000001')
+    'B'
+    """
 ```
 
 f) Créer une fonction _sequence_binaire(n_uplet)_ qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres). Pour cela, utiliser la fonction précédente : _conversion_decimal_binaire_8bits(dec)_.     
@@ -313,13 +337,36 @@ f) Créer une fonction _sequence_binaire(n_uplet)_ qui renvoie un mot binaire à
 Exemple :
       
 ```python
->>> sequence_binaire((105,86,66))
-'011010010101011001000010'
+def sequence_binaire(n_uplet):
+    """
+    Renvoie un mot binaire à partir d'un tuple d'octet
+    param : n_uplet : tuple
+    return : str
+    >>> sequence_binaire((105,86,66))
+    '011010010101011001000010'
+    """
 ```
-g) Pour réaliser la fonction _to_base64(n_uplet)_ **dont la docstring est donnée plus haut**, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ .   
-Modifier les noms des fonctions dans les exemples de la docstring pour vérifier les tests.
+g) Pour réaliser la fonction _to_base64(n_uplet)_, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée _sequence_ en utilisant le slicing d'une chaîne de caractères. Cette première version de la fonction sera appelée : _to_base64_slice(n_uplet)_ .   
+
+```python
+def to_base64_slice(n_uplet):
+    '''
+    convertit le tuple d'octets en une chaîne de symboles    
+    :param n_uplet:  tuple : une séquence d'octets
+    :return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
+    :CU: les entiers du tuple tous compris entre 0 et 255
+    :Exemples:
+    >>> to_base64_slice((18, 184, 156))
+    'Eric'
+    >>> to_base64_slice((18, 184))
+    'Erg='
+    >>> to_base64_slice((18,))
+    'Eg=='
+    '''
+```
 
 Exemple de slicing : 
+
 ```python
 >>> s="parapluie"
 >>> s[4:9]#4 compris, 9 exclu
@@ -337,6 +384,23 @@ Troisième cas : le reste de la division du nombre de bits par 6 est égal à 2.
 
 h) On se propose de réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
 
+```python
+def to_base64_logique(n_uplet):
+    '''
+    convertit le tuple d'octets en une chaîne de symboles    
+    :param n_uplet:  tuple : une séquence d'octets
+    :return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
+    :CU: les entiers du tuple tous compris entre 0 et 255
+    :Exemples:
+    >>> to_base64_logique((18, 184, 156))
+    'Eric'
+    >>> to_base64_logique((18, 184))
+    'Erg='
+    >>> to_base64_logique((18,))
+    'Eg=='
+    '''
+```    
+    
 Exemple: 
      
 Admettons que le tuple ou n_uplet soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets en insérant des points  pour plus de lisibilité : '011010.010101.011001.000010'.      
@@ -362,7 +426,7 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 On pourra proposer une conversion de la droite vers la gauche.
 
 
-2. Réalisez maintenant la fonction _from_base64(b64_string)_ **dont la docstring est donnée plus haut**. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple.   
+2. Réalisez maintenant la fonction _from_base64(b64_string)_. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple.   
 On reproduira la méthode des opérateurs logiques utilisée à la question précédente 1.h).
 
 Exemple de conversion de liste en tuple : 
@@ -374,3 +438,20 @@ Exemple de conversion de liste en tuple :
 (3, 4, 5)
 ```
 
+```python
+def from_base64(b64_string):
+    '''
+    convertit une chaîne de symboles en un tuple d'octets
+    
+    :param : b64_string: (str) une chaîne de symboles de la base 64
+    :return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
+    :CU: les caractères de b64_string sont dans la table ou le symbole =
+    :Exemple:    
+    >>> from_base64('Eric')
+    (18, 184, 156)
+    >>> from_base64('Erg=')
+    (18, 184)
+    >>> from_base64('Eg==')
+    (18,)
+    '''
+ ```
