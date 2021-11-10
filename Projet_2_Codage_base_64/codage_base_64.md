@@ -309,8 +309,8 @@ lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R"
 
 Exemple à vérifier : 
 ```python
->>> equivalence['B']
-'000001'
+>>> equivalence['000001']
+'B'
 ```
 
 e) Créer la fonction _get_in_dictionary(sixtet)_ qui renvoie la clé du dictionnaire _equivalence_ à partir de la donnée du sixtet.  
