@@ -300,7 +300,7 @@ def conversion_decimal_binaire_8bits(nombre):
     """
 ```
 
-d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On réalisera la création de ce dictionnaire par compréhension.
+d) Créer un dictionnaire appelé _equivalence_ qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On réalisera la création de ce dictionnaire **par compréhension**.
 
 Pour gagner du temps, on utilisera la liste appelée `lettres` donnée ci-dessous (qui respecter la position des caractères dans la table) et on reprendra la fonction précédente _conversion_decimal_binaire_6bits(dec)_.
 
