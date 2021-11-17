@@ -35,39 +35,44 @@ Récupérez le [dossier](https://github.com/VLesieux/NSI-Premiere/tree/master/Pr
  Ce dossier contient trois sous-dossiers :
 
  -   [`src/`](./src) : contient le module  [src/Competitor.py](src/Competitor.py)
- - `docs/` : contient la documentation du module `Competitor`, accessible depuis le fichier index.html
+ - `doc/` : contient la documentation du module `Competitor`, accessible depuis le fichier index.html
  -  [`data/`](./data) : contient deux jeux de données dans quatre fichiers de données : un
      petit jeu  de données pour faire des tests simples
- ([data/small\_inscrits.csv](data/small_inscrits.csv) et
- [data/small\_performances.csv](data/small_performances.csv)), et un gros jeu de données
- ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
+      ([data/small\_inscrits.csv](data/small_inscrits.csv) et
+      [data/small\_performances.csv](data/small_performances.csv)), et un gros jeu de données
+      ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
 
 <img src="assets/small_inscrits.png" width="300"/><img src="assets/small_performances.png" width="300"/>
 
-2.  **Documentation**
-
-Consultez la documentation du module fourni.
-
+2.  **Documentation du module Competitor**
 
 Le module `Competitor.py`  placé dans le dossier src  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
 
-Vous pouvez bien sûr examiner le code (accessible depuis la documentation), mais **se limiter à la lecture de la documentation est un bon exercice**, car il implique de se limiter à manipuler les données de type `Competitor` via l'interface fournie, sans se préoccuper de l'implémentation qui en a été réalisée (c'est ce qui se passe de fait, par exemple, dans les langages objets pour lesquels la notion d'attribut *privé* à un sens).
+Vous pouvez bien sûr examiner le code (accessible depuis la documentation), mais se limiter à la lecture de la documentation suivante est suffisante, car il implique de se limiter à manipuler les données de type `Competitor` via l'interface fournie, sans se préoccuper de l'implémentation qui en a été réalisée (c'est ce qui se passe de fait, par exemple, dans les langages objets pour lesquels la notion d'attribut *privé* à un sens).
 
-On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`). On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
+On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`).  
+On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
 
 Exemple : création d'un compétiteur avec `Competitor.create` puis affichage de celui-ci avec `Competitor.to_string`
 
 ```python
 >>> Competitor.create("Laurie","Anderson",'F','5/6/1947',5)
+
 {'bib_num': 5, 'first_name': 'Laurie', 'last_name': 'Anderson', 'sex': 'F', 'birth_date': '5/6/1947', 'performance': None}
+
+# On voit que la fonction create du module Competitor renvoie un dictionnaire formé d'une série de clés et de valeurs associées.
+
 >>> Competitor.to_string({'bib_num': 5, 'first_name': 'Laurie', 'last_name': 'Anderson', 'sex': 'F', 'birth_date': '5/6/1947', 'performance': None})
+
 '[5]: Laurie Anderson (F - 5/6/1947) '
+
+# On voit que la fonction to_string du module Competitor renvoie un affichage condensé du compétiteur avec son numéro de brassard et son identité.
 ```
 
-3. **Création du module `Time`**
+3. **Documentation du module `Time`**
 
-Nous allons créer un module `Time.py` placé dans le dossier src que l'on importera en écrivant `import src.Time as Time`.  
+Nous allons créer un module `Time.py` placé dans le même dossier src que l'on importera en écrivant `import src.Time as Time`.  
 
 Les performances des compétiteurs vont être représentées par leur temps de course exprimé en heures, minutes et secondes.
 
@@ -79,9 +84,9 @@ Cette notion est définie dans le module `collections` de Python. Il convient do
 from collections import namedtuple
 ```
 
-Remarque : un tuple nommé est une séquence et ses éléments sont donc ordonnés, ce qui n'est pas le cas d'un dictionnaire qui est un ensemble de paires ; .. les attributs d'un tuple nommé doivent être des chaines de caractères alors que les clés d'un dictionnaire peuvent être n'importe quelle donnée non modifiable.
+Remarque : un tuple nommé est une séquence et ses éléments sont donc ordonnés, ce qui n'est pas le cas d'un dictionnaire qui est un ensemble de paires ; de plus les attributs d'un tuple nommé doivent être des chaines de caractères alors que les clés d'un dictionnaire peuvent être n'importe quelle donnée non modifiable.
 
-**Comprendre le fonctionnement d'un tuple nommé**
+**Comprendre le fonctionnement du module Time et les tuples nommés**
 
 Créer le module `Time.py` à partir du code donné ci-dessous qui définit :
 
@@ -170,6 +175,9 @@ def to_string(time):
 Exemple
 >>> Time.create(2,30,20)
 Time(hours=2, minutes=30, seconds=20)
+>>> p=Time.create(2,30,20)
+>>> Time.to_string(p)
+' 2h 30mn 20s'
 ```
 
 Gestion des inscrits
@@ -182,23 +190,17 @@ Il sera bien sûr nécessaire d'importer les modules `Competitor` et `Time` plac
 
 Votre première tâche est de construire la liste des compétiteurs inscrits à la compétition.
 
-Les données concernant ces compétiteurs se trouvent dans le fichier `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui est un fichier au format [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values), c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes tel que Sublime Text).
+Les données concernant ces compétiteurs se trouvent dans le fichier `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui est un fichier au format [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values), c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes tel que Sublime Text ou NotePad ++).
 
-La première ligne de ce fichier est constituée des libellés des données
-qui suivent :
+La première ligne de ce fichier est constituée des libellés des données qui suivent :
 
 ``` {.sourceCode .text}
 Prénoms;Noms;Sexes;Date naiss.
 ```
 
-Elle précise donc que chacune des lignes qui suivent contient dans cet
-ordre le prénom, le nom, le sexe et la date de naissance du compétiteur
-inscrit. Ces informations sont séparées par un point-virgule.
+Elle précise donc que chacune des lignes qui suivent contient dans cet ordre le prénom, le nom, le sexe et la date de naissance du compétiteur inscrit. Ces informations sont séparées par un séparateur qui est un point-virgule.
 
-Avec ces données vous allez construire des compétiteurs à l'aide de la
-fonction `Competitor.create`. Il vous faudra attribuer à chacun de ces
-compétiteurs un numéro de dossard, obtenu par simple incrémentation d'un
-compteur. 
+Avec ces données vous allez construire des compétiteurs à l'aide de la fonction `Competitor.create`. Il vous faudra attribuer à chacun de ces compétiteurs un numéro de dossard, obtenu par simple incrémentation d'un compteur. 
 
 Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **clés** seront les numéros de dossard et les **valeurs** le tuple contenant les quatre informations associées au compétiteur.
 
@@ -209,7 +211,7 @@ Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
 fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire de
 ces inscrits.
 
-*Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne.  
+*Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne  `/n`.  
 
 Testez la validité de votre fonction avec le fichier `data/small_inscrits.csv`. 
 Vérifiez par exemple la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments.
@@ -254,7 +256,7 @@ Vous devriez obtenir ceci (vous pouvez dérouler vers la droite): on observe qu'
 Manipulations du dictionnaire
 -----------------------------
 
-Indication pour la suite : comme on a affaire à un dictionnaire de tuples nommés, on accédera de la manière suivante aux données.
+Indication pour la suite : comme on a affaire à un dictionnaire de dictionnaires, on accédera de la manière suivante aux données.
 
 ```python
 >>> ma_bib_musicale={"Disc1":{"auteur":"Bob Dylan","album":"New Morning","date":1970},"Disc2":{"auteur":"David Bowie","album":"Loving the Alien","date":1984}}
@@ -270,12 +272,11 @@ Réalisez une fonction _affichage_ qui prend en paramètre une liste de données
 
 Utilisez votre fonction pour afficher les compétiteurs contenus dans le dictionnaire produit par la fonction `read_competitors`.
 
-
-Rappel sur le parcours des éléments d'un dictionnaire :
+Rappel sur le parcours des valeurs d'un dictionnaire :
 ```python
 >>> frequences={'do4': 523.25, 'la3': 440, 'mi4': 659.26}
-for i in frequences:#attention i est une clé du dictionnaire, pas un indice !
-    print(frequences[i])
+for cle in frequences:
+    print(frequences[cle])
 523.25
 440
 659.26
@@ -364,7 +365,7 @@ bib_num;hours;minutes;seconds
 
 Elle précise donc que chacune des lignes qui suivent contient dans cet ordre le numéro de dossard, le nombre d'heures, de minutes et de secondes du temps de parcours d'un compétiteur, ces informations étant séparées par un point-virgule.
 
-Seuls les compétiteurs ayant effectivement participé et achevé la course figurent dans ce fichier.  Avec ces données vous allez construire un dictionnaire des performances qui associe à un numéro de dossard un objet de type `Time` du module que vous avez défini.
+Seuls les compétiteurs ayant effectivement participé et achevé la course figurent dans ce fichier.  Avec ces données, vous allez construire un dictionnaire des performances qui associe à un numéro de dossard un objet de type `Time` du module que vous avez défini.
 
 
 **À faire n°6**
@@ -388,12 +389,12 @@ Vous devriez obtenir ceci:
 
 ### Report
 
-Maintenant que vous disposez des données sur les compétiteurs et leurs performances sous forme de dictionnaires qui partagent les mêmes clefs, votre travail consiste à reporter les performances dans les fiches de ces compétiteurs. On réalise ainsi une fusion des deux tables.
+Maintenant que vous disposez des données sur les compétiteurs et leurs performances sous forme de dictionnaires qui partagent les mêmes clefs, votre travail consiste à reporter les performances dans les fiches de ces compétiteurs. On réalise ainsi une **fusion** des deux tables.
 
 
 **À faire n°7**
 
-Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs qui renvoie le dictionnaire des compétiteurs augmenté de leurs performances sous la forme d'un Time. Il faut gérer la situation où un compétiteur n'a pas de performance s'il s'est inscrit à la course mais n'a pas concouru, c'est-à-dire la cas où la clé du dictionnaire des compétiteurs est absente du dictionnaire des performances. Il faudra gérer l'exception de clé manquante `KeyError`.
+Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs qui renvoie le dictionnaire des compétiteurs augmenté de leurs performances sous la forme d'un Time. Il faut gérer la situation où un compétiteur n'a pas de performance s'il s'est inscrit à la course mais n'a pas concouru, c'est-à-dire la cas où la clé du dictionnaire des compétiteurs est absente du dictionnaire des performances. Il faudra ici gérer l'exception de clé manquante `KeyError`.
 
 Testez la validité de votre fonction avec les listes produites par le petit jeu de données.
 
@@ -406,7 +407,8 @@ Vous devriez obtenir ceci:
 
 # Tris
 
-Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard. Vous créez le module Tri.py placé dans le dossier src que vous importez dans votre fichier : `import src.Tri as Tri`.
+Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard.
+Vous créez le module Tri.py placé dans le dossier src que vous importez dans votre fichier de la façon suivante : `import src.Tri as Tri`.
 
 ```python
 ####################
@@ -506,7 +508,7 @@ exemples :
 
 **À faire n°8**
 
-Utilisez la fonction `tri.compare_chaine_lexicographique` et `tri_selection(l,comp)` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
+Utilisez les fonctions `tri.compare_chaine_lexicographique` et `tri_selection(l,comp)` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
 
 Vous devriez obtenir ceci : 
 
@@ -519,7 +521,7 @@ Vous devriez obtenir ceci :
 
 De manière similaire, faites le travail nécessaire pour définir une fonction `sort_competitors_by_performance` qui produit la liste des compétiteurs triée par ordre croissant des performances réalisées. Les compétiteurs sans résultat sont placés en fin de liste par ordre alphabétique. 
 
-Première méthode :
+- Première méthode :
 
 On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
 
@@ -536,7 +538,7 @@ Vous devriez obtenir ceci :
 {7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
 ```
 
-Deuxième méthode : 
+- Deuxième méthode : 
 
 On utilise la fonction de comparaison du module Time, ce qui est mieux.
 
@@ -561,7 +563,7 @@ Réalisez une fonction nommée `print_results` paramétrée par un dictionnaire 
 compétiteurs qui imprime sur la sortie standard cette liste en précisant
 leur prénom, nom, sexe, numéro de dossard et performance.
 
-Par exemple, avec le petit jeu de données, et en supposant que le report des performances a été effectué et la liste de compétiteurs triée par ordre de performance, on otient l'affichage :
+Par exemple, avec le petit jeu de données, et en supposant que le report des performances a été effectué et la liste de compétiteurs triée par ordre de performance, on obtient l'affichage :
 
 ``` {.sourceCode .bash}
 [7]: Archard Rivard (M - 10/6/1950)      =>  0h46mn31s
@@ -614,7 +616,7 @@ Testez votre fonction avec le petit jeu de données puis sauvegardez les résult
 **Allons un peu plus loin**
 
 On peut constater que les deux fonctions de sélection réalisées sont assez similaires et on pourrait imaginer d'autres fonctions de sélection (par sexe, par tranche d'âge, etc.) qui le
-seraient tout autant.  À chaque fois, il s'agit de filtrer parmi les valeurs du dictionnaire, celles qui satisfont un critère de sélection. Ce critère pourrait être défini par un **prédicat**, c'est-à-dire une fonction dont le résultat est un booléen, dont le paramètre serait un compétiteur. Le résultat de cette fonction est `True` si le compétiteur doit être sélectionné (on dit qu'il vérifie le prédicat) et `False` dans le cas contraire.
+seraient tout autant.  À chaque fois, il s'agit de filtrer parmi les valeurs du dictionnaire celles qui satisfont un critère de sélection. Ce critère pourrait être défini par un **prédicat**, c'est-à-dire une fonction dont le résultat est un booléen, dont le paramètre serait un compétiteur. Le résultat de cette fonction est `True` si le compétiteur doit être sélectionné (on dit qu'il vérifie le prédicat) et `False` dans le cas contraire.
 
 
 **À faire n°12**    
