@@ -20,7 +20,7 @@ Introduction
 
 Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord frontalière de la Belgique, la [course du chicon](http://courirabaisieux.fr/la-course-du-chicon/).
 
-Cette course se décline sur plusieurs distances de 15km à 0.5km. Nous ne nous intéresserons dans ce TP qu'à la version de 15km.
+Cette course se décline sur plusieurs distances de 15 km à 0.5 km. Nous ne nous intéresserons dans ce TP qu'à la version de 15 km.
 
 Vous imaginez que vous avez la responsabilité du traitement informatique des données : gestion des inscriptions, récolte des performances des concurrents, publication des résultats.
 
