@@ -30,7 +30,7 @@ Préparation
 
 1.  **Archive**
 
-Récupérez le [dossier](https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/blob/master/bloc1/course_chicon/mat_course_chicon.zip)
+Récupérez le [dossier](https://github.com/VLesieux/NSI-Premiere/tree/master/Projet_3_Course_chicons/assets/mat_course_chicon.zip)
 
  Ce dossier contient trois sous-dossiers :
 
