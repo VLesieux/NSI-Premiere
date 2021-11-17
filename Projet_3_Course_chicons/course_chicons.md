@@ -2,14 +2,13 @@ La course du chicon
 ===================
 
 
-**Objectifs**
-
+**Objectifs** : Mettre en œuvre
 -   les dictionnaires
--   tuples nommés
--   modules
--   traitement des données en tables
--   utilisation des tris
--   lecture/écriture de fichiers textes et format CSV
+-   les tuples nommés
+-   les modules
+-   le traitement des données en tables
+-   l'utilisation des tris
+-   la lecture/écriture de fichiers textes et format CSV
 
 On s'intéresse donc ici en particulier à cette partie du programme de NSI de 1ère :
 
@@ -19,14 +18,11 @@ On s'intéresse donc ici en particulier à cette partie du programme de NSI de 1
 Introduction
 ------------
 
-Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord
-frontalière de la Belgique, la [course du chicon](http://courirabaisieux.fr/la-course-du-chicon/).
+Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord frontalière de la Belgique, la [course du chicon](http://courirabaisieux.fr/la-course-du-chicon/).
 
-Cette course se décline sur plusieurs distances de 15km à 0.5km. Nous ne nous intéresserons dans ce TP qu'à la version 15km.
+Cette course se décline sur plusieurs distances de 15km à 0.5km. Nous ne nous intéresserons dans ce TP qu'à la version de 15km.
 
-Vous avez la responsabilité du traitement informatique des données :
-gestion des inscriptions, récolte des performances des concurrents,
-publication des résultats.
+Vous imaginez que vous avez la responsabilité du traitement informatique des données : gestion des inscriptions, récolte des performances des concurrents, publication des résultats.
 
 Préparation
 -----------
@@ -38,9 +34,9 @@ Récupérez le [dossier](https://gitlab-fil.univ-lille.fr/diu-eil-lil/portail/bl
 
  Ce dossier contient trois sous-dossiers :
 
- -   [`src/`](./src) contient le module  [src/Competitor.py](src/Competitor.py)
- - `docs/` contient la documentation du module `Competitor`, accessible depuis le fichier index.html
- -  [`data/`](./data)  contient deux jeux de données dans quatre fichiers de données : un
+ -   [`src/`](./src) : contient le module  [src/Competitor.py](src/Competitor.py)
+ - `docs/` : contient la documentation du module `Competitor`, accessible depuis le fichier index.html
+ -  [`data/`](./data) : contient deux jeux de données dans quatre fichiers de données : un
      petit jeu  de données pour faire des tests simples
  ([data/small\_inscrits.csv](data/small_inscrits.csv) et
  [data/small\_performances.csv](data/small_performances.csv)), et un gros jeu de données
@@ -85,13 +81,13 @@ from collections import namedtuple
 
 Remarque : un tuple nommé est une séquence et ses éléments sont donc ordonnés, ce qui n'est pas le cas d'un dictionnaire qui est un ensemble de paires ; .. les attributs d'un tuple nommé doivent être des chaines de caractères alors que les clés d'un dictionnaire peuvent être n'importe quelle donnée non modifiable.
 
-**À faire**
+**Comprendre le fonctionnement d'un tuple nommé**
 
 Créer le module `Time.py` à partir du code donné ci-dessous qui définit :
 
  * le type `Time` qui correspond à un tuple nommé possédant trois champs `hours`, `minutes` et `seconds` ;
  * une fonction `create` à trois arguments, permettant de créer une donnée de ce type, dont le résultat est la donnée `Time` créée (on peut envisager un contrôle de validité des valeurs des paramètres pour ce constructeur) ;
- * une fonction `compare` qui définit une relation d'ordre sur les données de type `Time`. De manière classique le résultat de cette fonction, à deux paramètres de type `Time`, est négatif si son premier paramètre est inférieur au second, positif s'il lui est plus grand et nul quand ils sont égaux.
+ * une fonction `compare` qui définit une relation d'ordre sur les données de type `Time`. De manière classique le résultat de cette fonction, à deux paramètres de type `Time`, est négatif si son premier paramètre est inférieur au second, positif s'il lui est plus grand, et nul quand ils sont égaux.
  * une fonction `to_string` qui a pour résultat une représentation sous la forme d'une chaîne de caractères de son paramètre de type `Time`.
 
 
@@ -118,6 +114,7 @@ def create (hours, minutes, seconds):
     return Time(hours,minutes,seconds)
 
 p=create(5,28,10)
+#p est donc un tuple nommé
 #on dispose de deux modes d'accès possibles aux informations du tuple nommé
 #p.hours=5
 #p[0]=5
@@ -162,10 +159,11 @@ def to_string(time):
 #to_string(p)=' 5h 28mn 10s'
 
 #On utilise la méthode appelée format qui s'applique aux objets de type string
-#c'est équivalent à une concaténation mais plus simple
+#c'est équivalent à une concaténation mais s'écrit plus simplement
 #>>> valeur=18
 #>>> print("Il a {} ans".format(valeur))
 #Il a 18 ans
+#valeur a pris place entre les accolades
         
 ```
 ```python
