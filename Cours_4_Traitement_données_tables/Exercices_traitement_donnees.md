@@ -176,11 +176,11 @@ On réalise ainsi une nouvelle table de données appelée `table_commande2`.
 ```python
 def fusion(table1,table2):
     """
-    Renvoie la fusion des tables table1 et table2 en réalisant leur jointure
+    Renvoie la fusion des tables en réalisant leur jointure
     param : table1 : list
     param : table2 : list
     return : list
     >>> fusion(table_commande1,table_commande2)
-    [['18635', 'lot crayons HB', 2.3, 1, 'BUC'], ['15223', 'stylo rouge', 1.5, 3, 'PALOT'], ['20112', 'cahier petites carreaux', 3.5, 2]]
+    [['18635', 'lot crayons HB', 2.3, 1, 'BUC'], ['15223', 'stylo rouge', 1.5, 3, 'PALOT'], ['20112', 'cahier petits carreaux', 3.5, 2, 'CLOSEFONTAINE']]
     """
 ```
