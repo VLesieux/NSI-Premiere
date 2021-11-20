@@ -211,10 +211,11 @@ Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **cl
 if __name__ == '__main__':
     import doctest
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-    
+```
+
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
 fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire des inscrits.
-```
+
 
 ```python
 def read_competitors(text):
