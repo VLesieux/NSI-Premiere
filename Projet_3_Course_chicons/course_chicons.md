@@ -34,12 +34,12 @@ Récupérez le [dossier](https://github.com/VLesieux/NSI-Premiere/tree/master/Pr
 
  Ce dossier contient trois sous-dossiers :
 
- -   [`src/`](./src) : contient le module  [src/Competitor.py](src/Competitor.py)
+ -   [`src/`](./src) : contient le module  [Competitor.py](src/Competitor.py)
  - `doc/` : contient la documentation du module `Competitor`, accessible depuis le fichier index.html
  -  [`data/`](./data) : contient deux jeux de données dans quatre fichiers de données : un
      petit jeu  de données pour faire des tests simples
-      ([data/small\_inscrits.csv](data/small_inscrits.csv) et
-      [data/small\_performances.csv](data/small_performances.csv)), et un gros jeu de données
+      ([data/small\_inscrits.csv](data/small_inscrits.csv) et [data/small\_performances.csv](data/small_performances.csv)), 
+      et un gros jeu de données
       ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
 
 <img src="assets/small_inscrits.png" width="300"/><img src="assets/small_performances.png" width="300"/>
@@ -48,8 +48,6 @@ Récupérez le [dossier](https://github.com/VLesieux/NSI-Premiere/tree/master/Pr
 
 Le module `Competitor.py`  placé dans le dossier src  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
-
-Vous pouvez bien sûr examiner le code (accessible depuis la documentation), mais se limiter à la lecture de la documentation suivante est suffisante, car il implique de se limiter à manipuler les données de type `Competitor` via l'interface fournie, sans se préoccuper de l'implémentation qui en a été réalisée (c'est ce qui se passe de fait, par exemple, dans les langages objets pour lesquels la notion d'attribut *privé* à un sens).
 
 On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`).  
 On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
@@ -86,9 +84,9 @@ from collections import namedtuple
 
 Remarque : un tuple nommé est une séquence et ses éléments sont donc ordonnés, ce qui n'est pas le cas d'un dictionnaire qui est un ensemble de paires ; de plus les attributs d'un tuple nommé doivent être des chaines de caractères alors que les clés d'un dictionnaire peuvent être n'importe quelle donnée non modifiable.
 
-**Comprendre le fonctionnement du module Time et les tuples nommés**
+**Comprendre le fonctionnement du module Time et des tuples nommés**
 
-Créer le module `Time.py` à partir du code donné ci-dessous qui définit :
+Créer le module `Time.py` en faisant un copier-coller du code donné ci-dessous qui définit :
 
  * le type `Time` qui correspond à un tuple nommé possédant trois champs `hours`, `minutes` et `seconds` ;
  * une fonction `create` à trois arguments, permettant de créer une donnée de ce type, dont le résultat est la donnée `Time` créée (on peut envisager un contrôle de validité des valeurs des paramètres pour ce constructeur) ;
@@ -183,16 +181,16 @@ Time(hours=2, minutes=30, seconds=20)
 Gestion des inscrits
 --------------------
 
-Les fonctions suivantes sont à définir maintenant dans le module `course_chicon` que vous allez créer qui regroupera les fonctions utiles à la gestion de la course.
+Les fonctions suivantes sont à définir maintenant dans le fichier `course_chicon.py` que vous allez créer qui regroupera les fonctions utiles à la gestion de la course.
 
 Il sera bien sûr nécessaire d'importer les modules `Competitor` et `Time` placés dans le dossier src.
 
 
 Votre première tâche est de construire la liste des compétiteurs inscrits à la compétition.
 
-Les données concernant ces compétiteurs se trouvent dans le fichier `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui est un fichier au format [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values), c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes tel que Sublime Text ou NotePad ++).
+Les données concernant ces compétiteurs se trouvent dans le fichier `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui est un fichier au format [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values), c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes).
 
-La première ligne de ce fichier est constituée des libellés des données qui suivent :
+La première ligne de ce fichier est constituée des libellés des données ou descripteurs de champs qui suivent :
 
 ``` {.sourceCode .text}
 Prénoms;Noms;Sexes;Date naiss.
@@ -204,6 +202,8 @@ Avec ces données vous allez construire des compétiteurs à l'aide de la foncti
 
 Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **clés** seront les numéros de dossard et les **valeurs** le tuple contenant les quatre informations associées au compétiteur.
 
+Pour vérifier les tests dans les docstrings des fonctions données ci-dessous :
+
 ```python
 if __name__ == '__main__':
     import doctest
@@ -213,8 +213,8 @@ if __name__ == '__main__':
 **À faire n°1**
 
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
-fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire des inscrits.
-
+fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire des inscrits.   
+On envisage de plus de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
 
 ```python
 def read_competitors(text):
@@ -233,10 +233,8 @@ def read_competitors(text):
 *Indications* : 
 
 - Pensez à la méthode `split` des chaînes de caractères. 
-- La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne  `/n`.  
-- On envisage de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
-
-Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError` rencontrée pour les listes :
+- Utiliser la méthode `rstrip` pour supprimer les marqueurs de fin de ligne  `/n`.  
+- Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError` rencontrée pour les listes :
 
 ```python
 ### sans levée d'exception : message d'erreur
@@ -280,7 +278,7 @@ Indication pour la suite : comme on a affaire à un dictionnaire de dictionnaire
 
 **À faire n°2**
 
-Réalisez une fonction _affichage_ qui prend en paramètre une liste de données de type `Competitor` et affiche sur la sortie standard chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
+Réalisez une fonction _affichage_ qui prend en paramètre une liste de données de type `Competitor` et affiche chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
 
 ```python
 def affichage(competiteurs):
@@ -333,18 +331,18 @@ def select_competitor_by_bib(competiteurs,numero):
 
 *Suggestion* : Étudiez la documentation de la fonction `endswith` des chaînes de caractères.
 
-Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie ?
-
-Exemple : Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
+Exemple : Dans le petit jeu de données, deux compétiteurs sont nés en 1980. Aucun compétiteur n'est né en 1960.
 
 ```python
-def select_competitor_by_birth_year(competiteurs,age):
+def select_competitor_by_birth_year(competiteurs,date_naissance):
     """
     Renvoie la liste des competiteurs de cet age
     param : competiteurs : csv
     param : age : int
     >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1980)
     [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
+    >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1960)
+    "Il n'y a pas de compétiteur ayant cette date de naissance"
     """
 ```
 
@@ -408,6 +406,8 @@ def read_performances(text):
     """
 ```
 
+Indication : ne pas oublier de convertir les chaines en nombre entier avec int()
+
 ### Report
 
 Maintenant que vous disposez des données sur les compétiteurs et leurs performances sous forme de dictionnaires qui partagent les mêmes clefs, votre travail consiste à reporter les performances dans les fiches de ces compétiteurs. On réalise ainsi une **fusion** des deux tables.
@@ -432,6 +432,10 @@ def set_performances(dic1,dic2):
     {1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}}
     """
 ```
+
+Indications : 
+- on sera amené à utiliser `Time.to_string()`.
+- un inscrit qui n'a pas de performance aura une performance égale à None
 
 # Tris
 
@@ -536,14 +540,12 @@ exemples :
 
 **À faire n°8**
 
-Utilisez les fonctions `tri.compare_chaine_lexicographique` et `tri_selection(l,comp)` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme défini précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms.
-
-Vous devriez obtenir ceci : 
+Utilisez les fonctions `tri.compare_chaine_lexicographique` et `tri_selection(l,comp)` pour définir une fonction `sort_competitors_by_lastname` qui prend en paramètre un dictionnaire de compétiteurs, comme celui réalisé précédemment, et a pour résultat un nouveau dictionnaire de compétiteurs triés par ordre alphabétique de leurs noms de famille (last name).
 
 ```python
 def sort_competitors_by_lastname(dic):
     """
-    renvoie un dictionnaire trié dans l'ordre alphabétique décroissant
+    renvoie un dictionnaire trié dans l'ordre alphabétique croissant
     utilise la fonction de tri présente dans le module Tri
     param : dic : dict
     return : dict
@@ -554,18 +556,24 @@ def sort_competitors_by_lastname(dic):
 
 **À faire n°9**
 
-De manière similaire, faites le travail nécessaire pour définir une fonction `sort_competitors_by_performance` qui produit la liste des compétiteurs triée par ordre croissant des performances réalisées. Les compétiteurs sans résultat sont placés en fin de liste par ordre alphabétique. 
+De manière similaire, faites le travail nécessaire pour définir une fonction `sort_competitors_by_performance` qui produit la liste des compétiteurs triée par ordre croissant des performances réalisées. 
+Attention : les compétiteurs sans résultat sont placés en fin de liste par ordre alphabétique. 
 
 - Première méthode :
 
 On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
+Indication : utiliser les méthodes split et strip qui agissent sur les string.
 
 ```python
->>> conversion_en_seconde(' 1h 21mn 23s')
-4883
+def conversion_en_seconde(time):
+    """
+    Renvoie time converti en seconde
+    param : time : str
+    return : int
+    >>> conversion_en_seconde(' 1h 21mn 23s')
+    4883
+    """
 ```
-
-Vous devriez obtenir ceci :
 
 ```python
 def sort_competitors_by_performance_methode1(dic):
