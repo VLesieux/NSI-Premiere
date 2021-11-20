@@ -208,15 +208,27 @@ Tous les compétiteurs seront rassemblés dans un **dictionnaire** dont les **cl
 **À faire n°1**
 
 Réalisez une fonction nommée `read_competitors` paramétrée par le nom du
-fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire de
-ces inscrits.
+fichier CSV contenant les données des inscrits, qui a pour résultat le dictionnaire des inscrits.
 
-*Indication* : Pensez à la méthode `split` des chaînes de caractères. La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne  `/n`.  
+```python
+def read_competitors(text):
+    """
+    lit un fichier csv et retourne un dictionnaire dont les clés sont les numéros de brassard
+    et les valeurs les tuples contenant les informations sur les compétiteurs
+    param : text : csv file
+    return : dict
+    >>> read_competitors("data/small_inscrits.csv")
+    {1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}
+    >>> read_competitors("no_file.csv")
+    Votre fichier n'est pas un csv lisible ou il n'existe pas
+    """
+```
 
-Testez la validité de votre fonction avec le fichier `data/small_inscrits.csv`. 
-Vérifiez par exemple la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments.
+*Indications* : 
 
-Vous pouvez envisager de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
+- Pensez à la méthode `split` des chaînes de caractères. 
+- La méthode `rstrip` est également utilisée pour supprimer les marqueurs de fin de ligne  `/n`.  
+- On envisage de gérer la situation où aucun fichier ne correspond au paramètre fourni. Cela peut être fait en capturant l'exception `FileNotFoundError` qui est alors déclenchée.
 
 Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError` rencontrée pour les listes :
 
@@ -246,12 +258,6 @@ votre liste ne comporte pas d'élément d'indice 2
 
 ```
 
-Vous devriez obtenir ceci (vous pouvez dérouler vers la droite): on observe qu'il s'agit d'un dictionnaire dont les clés sont les numéros de brassard et les valeurs des tuples nommés contenant les données sur les compétiteurs.
-
-```python
->>> read_competitors("data/small_inscrits.csv")
-{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}   
-```
 
 Manipulations du dictionnaire
 -----------------------------
@@ -270,31 +276,24 @@ Indication pour la suite : comme on a affaire à un dictionnaire de dictionnaire
 
 Réalisez une fonction _affichage_ qui prend en paramètre une liste de données de type `Competitor` et affiche sur la sortie standard chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
 
-Utilisez votre fonction pour afficher les compétiteurs contenus dans le dictionnaire produit par la fonction `read_competitors`.
-
-Rappel sur le parcours des valeurs d'un dictionnaire :
 ```python
->>> frequences={'do4': 523.25, 'la3': 440, 'mi4': 659.26}
-for cle in frequences:
-    print(frequences[cle])
-523.25
-440
-659.26
-```
-Vous devriez obtenir ceci: 
-
-```python
->>> affichage(read_competitors("data/small_inscrits.csv"))
-[1]: Sidney Robert (M - 21/7/1970) 
-[2]: Paien Gilbert (M - 26/11/1953) 
-[3]: Vincent Riquier (M - 16/9/1980) 
-[4]: Saville Marier (M - 19/11/1969) 
-[5]: Namo Lereau (M - 26/3/1980) 
-[6]: Romaine Hughes (F - 17/10/1943) 
-[7]: Archard Rivard (M - 10/6/1950) 
-[8]: Cheney Chassé (M - 21/3/1949) 
-[9]: Avelaine CinqMars (F - 14/2/1983) 
-[10]: Sidney Charest (M - 5/3/1981) 
+def affichage(competiteurs):
+    """
+    Renvoie un affichage (avec print) du fichier des competiteurs
+    param : competiteurs : csv
+    return : None
+    >>> affichage(read_competitors("data/small_inscrits.csv"))
+    [1]: Sidney Robert (M - 21/7/1970) 
+    [2]: Paien Gilbert (M - 26/11/1953) 
+    [3]: Vincent Riquier (M - 16/9/1980) 
+    [4]: Saville Marier (M - 19/11/1969) 
+    [5]: Namo Lereau (M - 26/3/1980) 
+    [6]: Romaine Hughes (F - 17/10/1943) 
+    [7]: Archard Rivard (M - 10/6/1950) 
+    [8]: Cheney Chassé (M - 21/3/1949) 
+    [9]: Avelaine CinqMars (F - 14/2/1983) 
+    [10]: Sidney Charest (M - 5/3/1981) 
+    """
 ```
 
 ### Sélections
@@ -310,11 +309,16 @@ Comment proposez-vous de  gérer la situation où aucun compétiteur ne correspo
 
 *Suggestion* : cela peut être l'occasion de tester à nouveau une levée d'exception.
 
-Exemple :
 
 ```python
->>> select_competitor_by_bib(read_competitors("data/small_inscrits.csv"),8)
-{'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}
+def select_competitor_by_bib(competiteurs,numero):
+    """
+    Renvoie le competiteur à partir de son dossard
+    param : competiteurs : csv
+    param : numero : int
+    >>> select_competitor_by_bib(read_competitors("data/small_inscrits.csv"),8)
+    {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}
+    """
 ```
 
 **À faire n°4**    
@@ -328,8 +332,14 @@ Quel résultat renvoyer si aucun compétiteur ne correspond à l'année fournie 
 Exemple : Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
 
 ```python
->>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1980)
-[{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
+def select_competitor_by_birth_year(competiteurs,age):
+    """
+    Renvoie la liste des competiteurs de cet age
+    param : competiteurs : csv
+    param : age : int
+    >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1980)
+    [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
+    """
 ```
 
 **À faire n°5**
@@ -341,8 +351,14 @@ Exemple : Dans le petit jeu de données, deux compétiteurs sont nés en 1980.
 Exemple : Dans le petit jeu de données, deux compétiteurs ont leur nom de famille qui commence par "Ri".
 
 ```python
->>> select_competitor_by_name(read_competitors("data/small_inscrits.csv"),"Ri")
-[{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}]
+def select_competitor_by_name(competiteurs,chaine):
+    """
+    Sélectionne un compétiteur si la chaine est contenu dans son nom de famille
+    param : competiteurs : csv
+    param : chaine : str
+    >>> select_competitor_by_name(read_competitors("data/small_inscrits.csv"),"Ri")
+    [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}]    
+    """
 ```
 
 
@@ -375,16 +391,15 @@ La clé du dictionnaire est le numéro de brassard déjà inclu dans le fichier 
 On n'oubliera pas de transformer les données fournies en chaînes de caractères en entier à l'aide de la fonction `int()`.  
 Cette fonction est très similaire à la fonction _read_competitor_.
 
-Testez la validité de votre fonction avec le fichier `data/small_performances.csv`.
-Vérifiez en particulier la taille du dictionnaire obtenu, ainsi que le contenu de quelques éléments. 
-
-Vérifiez que vos données sont bien du type int.
-
-Vous devriez obtenir ceci: 
-
 ```python
->>> read_performances("data/small_performances.csv")
-{1: Time(hours=1, minutes=8, seconds=55), 3: Time(hours=1, minutes=21, seconds=23), 4: Time(hours=0, minutes=56, seconds=29), 5: Time(hours=1, minutes=6, seconds=20), 6: Time(hours=1, minutes=17, seconds=8), 7: Time(hours=0, minutes=46, seconds=31), 8: Time(hours=0, minutes=48, seconds=10), 10: Time(hours=1, minutes=6, seconds=38)}
+def read_performances(text):
+    """
+    lit un fichier csv et retourne un dictionnaire dont les clés sont les numéros de brassard
+    et les valeurs les tuples contenant les performances des compétiteurs
+    param : text : csv
+    >>> read_performances("data/small_performances.csv")
+    {1: Time(hours=1, minutes=8, seconds=55), 3: Time(hours=1, minutes=21, seconds=23), 4: Time(hours=0, minutes=56, seconds=29), 5: Time(hours=1, minutes=6, seconds=20), 6: Time(hours=1, minutes=17, seconds=8), 7: Time(hours=0, minutes=46, seconds=31), 8: Time(hours=0, minutes=48, seconds=10), 10: Time(hours=1, minutes=6, seconds=38)}
+    """
 ```
 
 ### Report
@@ -401,8 +416,15 @@ Testez la validité de votre fonction avec les listes produites par le petit jeu
 Vous devriez obtenir ceci: 
 
 ```python
->>> set_performances(read_performances('data/small_performances.csv'),read_competitors("data/small_inscrits.csv"))
-{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}}
+def set_performances(dic1,dic2):
+    """
+    fusionne les dictionnaires en utilisant la clé commune = numéro de brassard
+    param : dic1 : dict
+    param : dic2 : dict
+    return : dict
+    >>> set_performances(read_competitors("data/small_inscrits.csv"),read_performances('data/small_performances.csv'))
+    {1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}}
+    """
 ```
 
 # Tris
@@ -513,8 +535,15 @@ Utilisez les fonctions `tri.compare_chaine_lexicographique` et `tri_selection(l,
 Vous devriez obtenir ceci : 
 
 ```python
->>> sort_competitors_by_lastname(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
-{10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}}
+def sort_competitors_by_lastname(dic):
+    """
+    renvoie un dictionnaire trié dans l'ordre alphabétique décroissant
+    utilise la fonction de tri présente dans le module Tri
+    param : dic : dict
+    return : dict
+    >>> sort_competitors_by_lastname(set_performances(read_competitors("data/small_inscrits.csv"),read_performances('data/small_performances.csv')))
+    {10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}}
+    """
 ```
 
 **À faire n°9**
@@ -533,20 +562,29 @@ On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné
 Vous devriez obtenir ceci :
 
 ```python
->>> sort_competitors_by_performance_methode1(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')))
-
-{7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
+def sort_competitors_by_performance_methode1(dic):
+    """
+    renvoie un dictionnaire des compétiteurs trié par performance
+    utilise la méthode compare_entier_croissant du module Tri
+    >>> sort_competitors_by_performance_methode1(set_performances(read_competitors("data/small_inscrits.csv"),read_performances('data/small_performances.csv')))
+    {7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
+    """
 ```
 
 - Deuxième méthode : 
 
-On utilise la fonction de comparaison du module Time, ce qui est mieux.
+On utilise la fonction de comparaison `Time.compare` du module Time, ce qui est mieux.
 
 Vous devriez obtenir ceci (la même chose que précédemment) :
 
 ```python
->>> sort_competitors_by_performance_methode2(set_performances(read_performances('data/small_performances.csv'),read_competitors('data/small_inscrits.csv')),read_performances("data/small_performances.csv"))
-{7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
+def sort_competitors_by_performance_methode2(dic1,dic2):
+    """
+    renvoie un dictionnaire des compétiteurs trié par performance
+    utilise la méthode compare_entier_croissant du module Tri
+    >>> sort_competitors_by_performance_methode1(set_performances(read_competitors("data/small_inscrits.csv"),read_performances('data/small_performances.csv')))
+    {7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
+    """
 ```
 
 Publication et sauvegarde des résultats
@@ -625,33 +663,56 @@ On a vu que les fonctions de comparaison pouvaient être passées en paramètre 
 En reprenant ce principe, définissez une fonction `select_competitor` dont le premier paramètre est un dictionnaire de compétiteurs et le second est une fonction prédicat.
 Le résultat de `select_competitor` est la liste des compétiteurs qui vérifient le prédicat.
 
-Définissez une prédicat qui vérifie si son paramètre de type `Competitor` est de sexe féminin, puis sans définir de nouvelle fonction produisez la liste des compétiteurs de sexe féminin. 
+Définissez un prédicat qui vérifie si son paramètre de type `Competitor` est de sexe féminin, puis sans définir de nouvelle fonction produisez la liste des compétiteurs de sexe féminin. 
 
-Vous devriez obtenir ceci :
 
 ```python
->>> select_competitor(read_competitors('data/small_inscrits.csv'),is_sexe_feminin)
-[{'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}]
+def is_sexe_feminin(competitor):
+    """
+    Renvoie True si le competitor est de sexe féminin
+    param : competitor : csv
+    return : bool
+    >>> is_sexe_feminin({'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None})
+    True
+    """
+    
+def select_competitor(dic,predicat):
+    """
+    Renvoie des compétiteurs en fonction d'un prédicat
+    param : dic : dict
+    param : predicat : fonction définie
+    >>> select_competitor(read_competitors('data/small_inscrits.csv'),is_sexe_feminin)
+    [{'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}]
+    """
 ```
 
 **À faire n°13**  
 
-Après avoir défini le prédicat qui convient, proposez une seconde version de la fonction  `select_competitor_by_birth_year`.
-
-Vous devriez obtenir ceci :
+Après avoir défini le prédicat qui convient, proposez une seconde version de la fonction  `select_competitor_by_birth_year_new`.
 
 ```python
-new_select_competitor_by_birth_year(read_competitors('data/small_inscrits.csv'),is_plus_age)
-{1: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 3: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 4: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 5: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 6: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 9: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}
+def select_competitor_by_birth_year_new(dictionnaire,annee_naissance):
+    """
+    Renvoie la liste des competiteurs de cet age
+    param : competiteurs : csv
+    param : age : int
+    >>> select_competitor_by_birth_year_new(read_competitors("data/small_inscrits.csv"),1980)
+    [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
+    """
 ```
 
 **À faire n°14**  
 
-Après avoir défini le prédicat qui convient, proposez une seconde version de la fonction  `select_competitor_by_name`.
-
-Vous devriez obtenir ceci :
+Après avoir défini le prédicat qui convient, proposez une seconde version de la fonction  `select_competitor_by_name_new`.
 
 ```python
->>> new_select_competitor_by_birth_year(read_competitors('data/small_inscrits.csv'),is_plus_avance_ordre_alpha)
-{1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 2: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 7: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 8: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 9: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}}
+
+def select_competitor_by_name_new(competiteurs,chaine):
+    """
+    Sélectionne un compétiteur si la chaine est contenu dans son nom de famille
+    param : competiteurs : csv
+    param : chaine : str
+    >>> select_competitor_by_name_new(read_competitors("data/small_inscrits.csv"),"Ri")
+    [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}]    
+    """
 ```
