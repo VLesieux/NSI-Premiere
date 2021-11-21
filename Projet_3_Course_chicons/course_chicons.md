@@ -755,7 +755,7 @@ def is_plus_age(competitor1,competitor2):
 
 On utilise la fonction `selection_min(dic,i,comp)` qui renvoie l'indice du minium pour les valeurs situées à partir de l'indice i.
 
-On donne ici l'exemple avec une liste de nombres, il faudra l'appliquer à notre dictionnaire de dictionnaire dont les clés sont des nombres.
+On donne ici l'exemple avec une liste de nombres, il faudra l'appliquer à notre dictionnaire de dictionnaires dont les clés sont des nombres (numéros de brassard selon ce critère).
 
 ```python
 def compare_entier_croissant(a, b):
