@@ -726,11 +726,11 @@ def select_competitor(dic,predicat):
 
 **À faire n°13**  
 
-On cherche à classer les compétiteurs du plus vieux au plus jeune.
+On cherche à classer les compétiteurs du plus vieux au plus jeune.   
 On utilise le tri par selection présenté dans le module Tri et reformulé ci-dessous :
 
 ```python
-	def recherche_indice_minimum(liste,j):
+def recherche_indice_minimum(liste,j):
     """
     Renvoie l'indice de (minimum de la liste à partir de l'indice j)
     param : liste : list
