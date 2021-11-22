@@ -727,7 +727,37 @@ def select_competitor(dic,predicat):
 **À faire n°13**  
 
 On cherche à classer les compétiteurs du plus vieux au plus jeune.
-On utilise le tri par selection présenté dans le module Tri.
+On utilise le tri par selection présenté dans le module Tri et reformulé ci-dessous :
+
+```python
+	def recherche_indice_minimum(liste,j):
+    """
+    Renvoie l'indice de (minimum de la liste à partir de l'indice j)
+    param : liste : list
+    return : int
+    >>> recherche_indice_minimum([8,7,9,13,2,19],1)
+    4
+    """
+    indice_minimum=j
+    for i in range(j,len(liste)):
+        if liste[i]<liste[indice_minimum]:
+            indice_minimum=i
+    return indice_minimum
+
+
+def tri_selection(liste):
+    """
+    Renvoie une liste triée
+    param : list
+    return : list
+    >>> tri_selection([8,7,9,13,2,19])
+    [2, 7, 8, 9, 13, 19]
+    """
+    for i in range(len(liste)):
+        j=recherche_indice_minimum(liste,i)
+        liste[i],liste[j]=liste[j],liste[i]
+    return liste   
+```
 
 On commence par réaliser une fonction de conversion de la date de naissance en l'exprimant en année.
 
