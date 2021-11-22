@@ -730,6 +730,15 @@ On cherche à classer les compétiteurs du plus vieux au plus jeune en utilisant
 
 On utilise pour cela un algorithme de tri appelé **tri par sélection** décrit dans le module Tri et reformulé à nouveau ci-dessous :
 
+On recherche l'indice du minimum de l'indice et non le minimum pour réaliser ensuite la permutation des valeurs de la liste selon :
+
+```python
+>>> liste=[8,7,9,13,2,19]
+>>> liste[1],liste[3]=liste[3],liste[1]
+>>> liste
+[8, 13, 9, 7, 2, 19]
+```
+
 ```python
 def recherche_indice_minimum(liste,j):
     """
