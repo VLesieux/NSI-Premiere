@@ -728,7 +728,7 @@ def select_competitor(dic,predicat):
 
 On cherche à classer les compétiteurs du plus vieux au plus jeune en utilisant leur date de naissance.
 
-On utilise pour cela un algorithme de tri appelé **tri par selection** décrit dans le module Tri et reformulé à nouveau ci-dessous :
+On utilise pour cela un algorithme de tri appelé **tri par sélection** décrit dans le module Tri et reformulé à nouveau ci-dessous :
 
 ```python
 def recherche_indice_minimum(liste,j):
