@@ -104,7 +104,7 @@ Many American families are split by large geographical distances.]
 En utilisant un `.` pour les séparer, les deux méthodes peuvent s'appliquer à la suite sur chaque ligne qui compose le document.
 
 ```python
-f=open("Tableau_capitales.csv","r")#la fonction open renvoie une valeur affectée à la variable f ; "r" signifie read lecture
+f=open("Tableau_capitales.csv","r",encoding="utf-8")#la fonction open renvoie une valeur affectée à la variable f ; "r" signifie read lecture ; on peut préciser l'encodage pour éviter les problèmes d'accent
 table=[ligne.rstrip().split(';') for ligne in f]#construction d'une liste par compréhension ; l'écriture condensée ligne.rstrip().split(';') permet de faire agir les deux méthodes successivement d'abord rstrip() puis split(';')
 f.close()
 print(table)

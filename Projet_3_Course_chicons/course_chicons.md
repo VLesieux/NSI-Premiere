@@ -325,6 +325,7 @@ def select_competitor_by_bib(competiteurs,numero):
     Renvoie le competiteur à partir de son dossard
     param : competiteurs : csv
     param : numero : int
+    return : dict
     >>> select_competitor_by_bib(read_competitors("data/small_inscrits.csv"),8)
     {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}
     """
@@ -344,6 +345,7 @@ def select_competitor_by_birth_year(competiteurs,date_naissance):
     Renvoie la liste des competiteurs de cet age
     param : competiteurs : csv
     param : age : int
+    return : list
     >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1980)
     [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
     >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1960)
@@ -365,6 +367,7 @@ def select_competitor_by_name(competiteurs,chaine):
     Sélectionne un compétiteur si la chaine est contenu dans son nom de famille
     param : competiteurs : csv
     param : chaine : str
+    return : list
     >>> select_competitor_by_name(read_competitors("data/small_inscrits.csv"),"Ri")
     [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}]    
     """
@@ -406,6 +409,7 @@ def read_performances(text):
     lit un fichier csv et retourne un dictionnaire dont les clés sont les numéros de brassard
     et les valeurs les tuples contenant les performances des compétiteurs
     param : text : csv
+    return : dict
     >>> read_performances("data/small_performances.csv")
     {1: Time(hours=1, minutes=8, seconds=55), 3: Time(hours=1, minutes=21, seconds=23), 4: Time(hours=0, minutes=56, seconds=29), 5: Time(hours=1, minutes=6, seconds=20), 6: Time(hours=1, minutes=17, seconds=8), 7: Time(hours=0, minutes=46, seconds=31), 8: Time(hours=0, minutes=48, seconds=10), 10: Time(hours=1, minutes=6, seconds=38)}
     """
@@ -615,6 +619,8 @@ def sort_competitors_by_performance_methode2(dic):
     """
     renvoie un dictionnaire des compétiteurs trié par performance
     utilise la méthode compare du module Time
+    param : dic : dict
+    return : dict
     >>> sort_competitors_by_performance_methode2(set_performances_time(read_competitors("data/small_inscrits.csv"),read_performances('data/small_performances.csv')))
     {7: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'}, 8: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': ' 0h 48mn 10s'}, 4: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': ' 0h 56mn 29s'}, 5: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': ' 1h 6mn 20s'}, 10: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': ' 1h 6mn 38s'}, 1: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': ' 1h 8mn 55s'}, 6: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': ' 1h 17mn 8s'}, 3: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'}, 9: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 2: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}}
     """
@@ -719,6 +725,7 @@ def select_competitor(dic,predicat):
     Renvoie des compétiteurs en fonction d'un prédicat
     param : dic : dict
     param : predicat : fonction définie
+    return : list
     >>> select_competitor(read_competitors('data/small_inscrits.csv'),is_sexe_feminin)
     [{'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}]
     """
@@ -788,6 +795,9 @@ On réalise une fonction qui renvoie la différence d'âge positive ou négative
 def is_plus_age(competitor1,competitor2):
     """
     Renvoie un nombre négatif si age(competitor1)<age(competitor2)
+    param : competitor1 : dict
+    param : competitor2 : dict
+    return : float
     >>> is_plus_age({'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': ' 0h 46mn 31s'},{'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None})
     -3.460502283105143
     """
@@ -817,6 +827,9 @@ def compare_entier_croissant(a, b):
 def selection_min(dic,i,comp):
     """
     Renvoie l'indice du minimum situé à partir de l'indice i
+    param : dic ou list
+    param : i : int
+    param : comp : fonction
     >>> selection_min([4,9,2,7],1,compare_entier_croissant)
     2
     """
@@ -833,6 +846,9 @@ On réalisera ainsi la fonction :
 def new_select_competitor_by_birth_year(dic,comp):
     """
     Renvoie le dictionnaire avec un classement des compétiteurs du plus jeune au plus vieux
+    param : dic : dict
+    param : comp : fonction
+    return : dict
     >>> new_select_competitor_by_birth_year(read_competitors('data/small_inscrits.csv'),is_plus_age)
     {1: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 2: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 3: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 4: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 5: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 6: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}, 7: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 8: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 9: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}, 10: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}}    
     """
@@ -848,6 +864,9 @@ Au préalable, on crée la fonction `is_plus_avance_ordre_alpha` qui utilise la 
 def is_plus_avance_ordre_alpha(competitor1,competitor2):
     """
     Renvoie la comparaison des noms de famille par rapport à l'ordre alphabétique
+    param : competitor1 : dict
+    param : competitor2 : dict
+    return : int
     >>> is_plus_avance_ordre_alpha({'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None},{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': ' 1h 21mn 23s'})
     -1    
     """
@@ -860,6 +879,9 @@ Puis en utilisant à nouveau la fonction `selection_min(dic,i,comp)`, on réalis
 def new_select_competitor_by_name(dic,comp):
     """
     Renvoie le dictionnaire avec un classement des compétiteurs du plus jeune au plus vieux
+    param : dic : dict
+    param : comp : fonction
+    return : dict
     >>> new_select_competitor_by_name(read_competitors('data/small_inscrits.csv'),is_plus_avance_ordre_alpha)
     {1: {'bib_num': 10, 'first_name': 'Sidney', 'last_name': 'Charest', 'sex': 'M', 'birth_date': '5/3/1981', 'performance': None}, 2: {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}, 3: {'bib_num': 9, 'first_name': 'Avelaine', 'last_name': 'CinqMars', 'sex': 'F', 'birth_date': '14/2/1983', 'performance': None}, 4: {'bib_num': 2, 'first_name': 'Paien', 'last_name': 'Gilbert', 'sex': 'M', 'birth_date': '26/11/1953', 'performance': None}, 5: {'bib_num': 6, 'first_name': 'Romaine', 'last_name': 'Hughes', 'sex': 'F', 'birth_date': '17/10/1943', 'performance': None}, 6: {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}, 7: {'bib_num': 4, 'first_name': 'Saville', 'last_name': 'Marier', 'sex': 'M', 'birth_date': '19/11/1969', 'performance': None}, 8: {'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, 9: {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}, 10: {'bib_num': 1, 'first_name': 'Sidney', 'last_name': 'Robert', 'sex': 'M', 'birth_date': '21/7/1970', 'performance': None}}
     """
