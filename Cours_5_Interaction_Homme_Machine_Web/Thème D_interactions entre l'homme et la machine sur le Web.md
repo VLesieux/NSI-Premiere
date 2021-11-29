@@ -276,8 +276,6 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 Deuxième méthode :  `**POST** `  : 
 [formulaire POST à expérimenter ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
 
-
-
 formulaire2.html
 
  ```html
@@ -579,3 +577,6 @@ right : 100 px ;
 _**Utiliser les outils de développement du navigateur**_
 
 Pour cela, faire un clic droit sur la page et faire l’inspection de l’élément ; à gauche le code html, à droite le code css. Possibilité de changer le code, d’observer directement l’effet des modifications sur la page puis de copier-coller ces modifications pour mettre à jour votre page.
+
+--> Exemple [de page web](http://vfsilesieux.free.fr/exemple_page_web_SNT.html) à inspecter.
+
