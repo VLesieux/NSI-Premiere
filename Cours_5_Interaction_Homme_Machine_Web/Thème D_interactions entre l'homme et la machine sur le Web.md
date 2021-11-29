@@ -492,10 +492,11 @@ On dispose de propriétés, exprimées en px ou en pourcentage, de largeur ```wi
 _**Utilisation de marges**_  
 
 Deux types de marge peuvent être utilisés :
--	marge intérieure entre la bordure et le début du texte à l’intérieur : ```padding``` en px
-on peut préciser ```padding -top``` ; ```padding -bottom``` ; ```padding -left``` ; ```padding -right```
--	marge extérieure entre la bordure et le texte à l’extérieur : ```margin``` en px
-on peut préciser ```margin-top``` ; ```margin-bottom``` ; ```margin-left``` ; ```margin-right```  
+
+-	marge intérieure entre la bordure (qui peut avoir une certaine épaisseur) et le début du contenu : ```padding``` en px
+on peut préciser pour les quatre directions :  ```padding -top``` ; ```padding -bottom``` ; ```padding -left``` ; ```padding -right```
+-	marge extérieure entre la bordure et l'extérieur : ```margin``` en px
+on peut préciser pour les quatre directions :```margin-top``` ; ```margin-bottom``` ; ```margin-left``` ; ```margin-right```.
 
 ![Représentation binaire de 755 ](assets/marges.png#center)   
 Pour centrer un bloc après lui avoir donné une largeur, utiliser : ```margin : auto```.  
