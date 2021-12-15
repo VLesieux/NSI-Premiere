@@ -37,7 +37,7 @@ plt.show()
 plt.close()
 
 ```
-<img src="charge_positive.png" />
+<img src="assets/charge_positive.png" />
 
 
 **2) Champ électrique créé par une charge négative**
@@ -76,7 +76,7 @@ plt.show()
 plt.close()
 
 ```
-<img src="charge_negative.png" />
+<img src="assets/charge_negative.png" />
 
 
 **3) Champ électrique créé par dipôle électrique**
@@ -125,4 +125,4 @@ plt.show()
 plt.close()
 
 ```
-<img src="dipole.png" />
+<img src="assets/dipole.png" />
