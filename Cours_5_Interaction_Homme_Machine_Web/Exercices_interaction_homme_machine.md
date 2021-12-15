@@ -37,9 +37,13 @@ Pour avoir un nombre compris entre 1 et 100 compris, on peut utiliser : Math.flo
 
 ## Exercice 3
 
-Réaliser une calculatrice sur une page HTML.
+Réaliser une calculatrice sur une page HTML.  
+Le bouton AC permet de vider l'affichage.  
+Le bouton DEL permet de supprimer le dernier caractère affiché.   
+Le bouton (-) permet de multiplier par -1.  
+Le bouton Mem permet de mémoriser le résultat du dernier calcul et de rappeler ce résultat dans un nouveau calcul.
 
-<img width="400px" height="400px" src="assets/calculatrice.png"> 
+<img src="assets/calculatrice.png"> 
 
 Indication : pour transformer une chaîne de caractère en une expression calculable, utiliser eval.
 
