@@ -1,7 +1,7 @@
 Cartographie du champ électrique
 ===================
 
-1) Champ électrique créé par une charge positive
+**1) Champ électrique créé par une charge positive**
 
 ```python
 import matplotlib.pyplot as plt
@@ -40,7 +40,7 @@ plt.close()
 <img src="charge_positive.png" />
 
 
-2) Champ électrique créé par une charge négative
+**2) Champ électrique créé par une charge négative**
 
 ```python
 import matplotlib.pyplot as plt
@@ -79,7 +79,7 @@ plt.close()
 <img src="charge_negative.png" />
 
 
-2) Champ électrique créé par dipôle électrique
+**3) Champ électrique créé par dipôle électrique**
 
 ```python
 import matplotlib.pyplot as plt
