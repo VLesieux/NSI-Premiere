@@ -28,30 +28,23 @@ if __name__ == '__main__':
 
 ## Représentation d'une grille
 
-Du point de vue technique une grille du jeu de la vie sera représentée par une
-liste de listes de nombre entiers. Chaque nombre entier représente le nombre
-de cellules vivantes dans une case de la grille (0 ou 1).
+Du point de vue technique une grille du jeu de la vie sera représentée par une liste de listes de nombre entiers. Chaque nombre entier représente le nombre de cellules vivantes dans une case de la grille (0 ou 1).
 Par exemple la liste :
 
 ```
 [ [0, 1, 0], [1, 0, 0] ]
 ```
-représente une grille de jeu de 6 cases, 3 cases en largeur et 2 cases en
-hauteur. Sur la première ligne seule la deuxième case possède une cellule, 
-tandis que sur la deuxième ligne, seule la première case en possède une.
+représente une grille de jeu de 6 cases, 3 cases en largeur et 2 cases en hauteur. Sur la première ligne, seule la deuxième case possède une cellule, tandis que sur la deuxième ligne, seule la première case en possède une.
 
 
 ### Construction d'une grille vide
 
-Réalisez une fonction `creer_grille` qui prend en paramètre le nombre de cases
-horizontalement ou nombre de colonnes, puis verticalement ou nombre de lignes, et qui renvoie une liste de listes
-correspondant à une grille du jeu de la vie aux dimensions souhaitées, ne
-contenant aucune cellule.
+Réalisez une fonction `creer_grille` qui prend en paramètre le nombre de cases horizontalement ou nombre de colonnes, puis le nombre de cases verticalement ou nombre de lignes, et qui renvoie une liste de listes correspondant à la grille du jeu de la vie aux dimensions souhaitées, ne contenant initialement aucune cellule.
 
 ```
 def creer_grille(nb_colonnes,nb_lignes):
     """
-    renvoie une grille vide comportant nb_lignes et nb_colonnes colonnes
+    renvoie une grille vide comportant nb_lignes et nb_colonnes
     >>> creer_grille(3, 2)
     [[0, 0, 0], [0, 0, 0]]
     """
@@ -61,8 +54,7 @@ Indication : on réalisera une liste de liste par compréhension.
 
 ### Dimensions d'une grille
 
-Réalisez une fonction `hauteur_grille` qui prend en paramètre une grille de
-jeu de la vie et qui renvoie le nombre de cases verticalement.
+Réalisez une fonction `hauteur_grille` qui prend en paramètre une grille de jeu de la vie et qui renvoie le nombre de cases verticalement ou nombre de lignes.
 
 ```
 def hauteur_grille(grille):
@@ -73,8 +65,7 @@ def hauteur_grille(grille):
     """  
 ```
 
-Réalisez une fonction `largeur_grille` qui prend en paramètre une grille de
-jeu de la vie et qui renvoie le nombre de cases horizontalement.
+Réalisez une fonction `largeur_grille` qui prend en paramètre une grille de jeu de la vie et qui renvoie le nombre de cases horizontalement ou nombre de colonnes.
 
 ``` 
 def largeur_grille(grille):
@@ -87,10 +78,8 @@ def largeur_grille(grille):
 
 ### Initialisation d'une grille
 
-La grille créée par la fonction `creer_grille` ne contient aucune cellule.
-Réalisez une fonction `creer_grille_aleatoire` qui prend en paramètre les
-dimensions horizontales et verticales de la grille et une probabilité *p*, qui
-est la probabilité pour une case de la grille d'avoir une cellule. On ne proposera pas de docstring dans le cas présent puisque la fonction renvoie un résultat aléatoire néanmoins voici quelques exemples de résultat que l'on peut obtenir.
+La grille créée par la fonction `creer_grille` ne contient aucune cellule. 
+Réalisez une fonction `creer_grille_aleatoire` qui prend en paramètre les dimensions horizontales et verticales de la grille et une probabilité *p*, qui est la probabilité pour une case de la grille d'avoir une cellule. On ne propose pas de docstring dans le cas présent puisque la fonction renvoie un résultat aléatoire, néanmoins voici quelques exemples de résultat que l'on peut obtenir.
 
 ```
 >>> creer_grille_aleatoire(3, 2, 1)
@@ -101,7 +90,7 @@ est la probabilité pour une case de la grille d'avoir une cellule. On ne propos
 [[1, 0, 1], [0, 0, 1]]
 ```
 
-Indication 1 : on pourra utiliser la fonction suivante qui utilise la fonction random() du module random qui renvoie un réel aléatoire dans [0,1[
+Indication 1 : on pourra utiliser la fonction suivante qui utilise la fonction random() du module random qui renvoie un réel aléatoire dans [0,1[ et qui prend en compte la probabilité de présence d'une cellule.
 
 ```
 from random import *
@@ -114,18 +103,14 @@ def aleatoire(probabilite):
     return valeur
 ```
 
-Indication 2 : on utilisera le même principe que pour la fonction creer_grille, c'est-à-dire une liste de liste par compréhension.
+Indication 2 : on utilisera le même principe que pour la fonction creer_grille, c'est-à-dire que l'on réalisera une liste de liste par compréhension.
 
 ### Voisins d'une case
 
-Réalisez une fonction `voisins_case` qui prend en paramètre une grille de jeu
-de la vie ainsi que les coordonnées en abscisse et en ordonnée de la case (la
-coordonnée 0,0 étant la case en haut à gauche).  La fonction renvoie une liste
-contenant la valeur des cases voisines de la case donnée en paramètre.
-Le nombre de valeurs retournées dans la liste correspond au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille).
-L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant dans l'exemple ci-dessous les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
+Réalisez une fonction `voisins_case` qui prend en paramètre une grille de jeu de la vie ainsi que les coordonnées en abscisse et en ordonnée de la case (la coordonnée (0,0) étant la case située en haut à gauche).  La fonction renvoie une liste contenant la valeur des cases voisines de la case donnée en paramètre. Le nombre de valeurs retournées dans la liste correspond au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille). L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant dans l'exemple ci-dessous les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
 
-Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale grille, ce qui nous permettra de réaliser des docstrings fonctionnelles :
+Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale grille, ce qui nous permettra de réaliser avec elle des docstrings fonctionnelles :
+
 ```
 grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
 ```
@@ -139,7 +124,7 @@ def voisins_case(grille,abscisse,ordonnee):
     >>> voisins_case(grille, 2, 2)
     [0, 0, 1]
     >>> voisins_case(grille, 0, 2)
-    [1, 0, 1]
+    [1, 0, 0]
     """
 ```
 
@@ -183,12 +168,14 @@ except IndexError:
                   continue
   ```
 
-  ​
+- On peut s'aider d'un schéma tel que celui-ci :
+
+
+<img src="assets/schema.png" width="300"/>
 
 ### Nombre de cellules dans le voisinage
 
-Réalisez une fonction `nb_cellules_voisins` qui prend en paramètre une grille
-ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes dans les cases voisines de la case passée en paramètre.
+Réalisez une fonction `nb_cellules_voisins` qui prend en paramètre une grille ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes parmi les cases voisines de la case passée en paramètre.
 
 ```
 def nb_cellules_voisins(grille,abscisse,ordonnee):
@@ -203,13 +190,7 @@ def nb_cellules_voisins(grille,abscisse,ordonnee):
 
 ## Afficher une grille
 
-Visualiser une grille sous forme de listes de listes n'est pas aisé.  Nous
-allons donc réaliser une procédure `afficher_grille` dont le rôle sera
-d'afficher de manière plus claire une grille du jeu de la vie qui lui est
-passée en paramètre.  Les cases vides seront affichées avec un tiret bas (`_`)
-et les cases contenant une cellule seront affichées avec un o majuscule
-(`O`). Le contenu des cases sera séparé par une espace. Chaque ligne de la grille
-sera affichée sur une ligne distincte.
+Visualiser une grille sous forme de listes de listes n'est pas aisé.  Nous allons donc réaliser une procédure `afficher_grille` dont le rôle sera d'afficher de manière plus claire une grille du jeu de la vie qui lui est passée en paramètre.  Les cases vides seront affichées avec un tiret bas (`_`) et les cases contenant une cellule seront affichées avec un o majuscule (`O`). Le contenu des cases sera séparé par une espace. Chaque ligne de la grille sera affichée sur une ligne distincte.
 
 C'est la **seule** fonction ou procédure qui pourra utiliser un `print`.
 
@@ -218,12 +199,12 @@ def afficher_grille(grille):
     """
     affiche la grille
     >>> afficher_grille(grille)
-    _ O _ 
-    O _ _ 
-    O O O 
+     _  O  _ 
+     O  _  _ 
+     O  O  O 
     >>> afficher_grille(creer_grille(3, 2))
-    _ _ _ 
-    _ _ _ 
+     _  _  _ 
+     _  _  _ 
     
     """
 ```
@@ -259,15 +240,11 @@ import copy
 copie = copy.deepcopy(grille)
 ```
 
-Indication : on utilisera la fonction  précédente :`nb_cellules_voisins(grille,abscisse,ordonnee)`
+Indication : on utilisera la fonction  précédente : `nb_cellules_voisins(grille,ligne,colonne)`
 
 ### Évolution au fil de n générations
 
-Nous allons réaliser une procédure `evolution_n_generations` qui prend en
-paramètre une grille et un entier naturel `n` et qui va afficher l'évolution
-de la grille au fil de `n` générations.  Afin de mieux visualiser l'évolution
-nous ferons une pause d'une seconde entre chaque génération.  La fonction
-`sleep` du module `time` vous permettra de faire une telle pause.
+Nous allons réaliser une procédure `evolution_n_generations` qui prend en paramètre une grille de départ et un entier naturel `n` et qui va afficher l'évolution de la grille au fil de `n` générations.  Afin de mieux visualiser l'évolution nous ferons une pause d'une seconde entre chaque génération.  La fonction `sleep` du module `time` vous permettra de faire une telle pause.
 
 ```
 import time
@@ -278,38 +255,37 @@ time.sleep(1.0)
 Quelques motifs récurrents peuvent être obtenus à partir de grilles
 particulières.
 
-Par exemple, un oscillateur à deux états peut être obtenu avec la grille :
+Par exemple, un oscillateur à deux états peut être obtenu avec la grille de départ :
 
  [[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]] :
 
 ```
 >>> evolution_n_generations([[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]],4)
+ _  _  O  _ 
+ O  _  _  O 
+ O  _  _  O 
+ _  O  _  _ 
 
-_ _ _ _ 
-_ O O O 
-O O O _ 
-_ _ _ _ 
+ _  _  _  _ 
+ _  O  O  O 
+ O  O  O  _ 
+ _  _  _  _ 
 
-_ _ O _ 
-O _ _ O 
-O _ _ O 
-_ O _ _ 
+ _  _  O  _ 
+ O  _  _  O 
+ O  _  _  O 
+ _  O  _  _ 
 
-_ _ _ _ 
-_ O O O 
-O O O _ 
-_ _ _ _ 
-
-_ _ O _ 
-O _ _ O 
-O _ _ O 
-_ O _ _ 
+ _  _  _  _ 
+ _  O  O  O 
+ O  O  O  _ 
+ _  _  _  _ 
 
 ```
 
 Le planeur est un motif qui se déplace jusqu'à disparaître de la grille. 
 
-Voici une grille : 
+Voici une grille de départ : 
 
 [[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] 
 
@@ -317,61 +293,58 @@ permettant d'obtenir un planeur qui se répète toutes les quatre générations 
 
 ```
 >>> evolution_n_generations([[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],8)
+ _  O  _  _  _ 
+ _  _  O  _  _ 
+ O  O  O  _  _ 
+ _  _  _  _  _ 
+ _  _  _  _  _ 
 
-_ _ _ _ _ 
-O _ O _ _ 
-_ O O _ _ 
-_ O _ _ _ 
-_ _ _ _ _ 
+ _  _  _  _  _ 
+ O  _  O  _  _ 
+ _  O  O  _  _ 
+ _  O  _  _  _ 
+ _  _  _  _  _ 
 
-_ _ _ _ _ 
-_ _ O _ _ 
-O _ O _ _ 
-_ O O _ _ 
-_ _ _ _ _ 
+ _  _  _  _  _ 
+ _  _  O  _  _ 
+ O  _  O  _  _ 
+ _  O  O  _  _ 
+ _  _  _  _  _ 
 
-_ _ _ _ _ 
-_ O _ _ _ 
-_ _ O O _ 
-_ O O _ _ 
-_ _ _ _ _ 
+ _  _  _  _  _ 
+ _  O  _  _  _ 
+ _  _  O  O  _ 
+ _  O  O  _  _ 
+ _  _  _  _  _ 
 
-_ _ _ _ _ 
-_ _ O _ _ 
-_ _ _ O _ 
-_ O O O _ 
-_ _ _ _ _ 
+ _  _  _  _  _ 
+ _  _  O  _  _ 
+ _  _  _  O  _ 
+ _  O  O  O  _ 
+ _  _  _  _  _ 
 
-_ _ _ _ _ 
-_ _ _ _ _ 
-_ O _ O _ 
-_ _ O O _ 
-_ _ O _ _ 
+ _  _  _  _  _ 
+ _  _  _  _  _ 
+ _  O  _  O  _ 
+ _  _  O  O  _ 
+ _  _  O  _  _ 
 
-_ _ _ _ _ 
-_ _ _ _ _ 
-_ _ _ O _ 
-_ O _ O _ 
-_ _ O O _ 
+ _  _  _  _  _ 
+ _  _  _  _  _ 
+ _  _  _  O  _ 
+ _  O  _  O  _ 
+ _  _  O  O  _ 
 
-_ _ _ _ _ 
-_ _ _ _ _ 
-_ _ O _ _ 
-_ _ _ O O 
-_ _ O O _ 
-
-_ _ _ _ _ 
-_ _ _ _ _ 
-_ _ _ O _ 
-_ _ _ _ O 
-_ _ 
+ _  _  _  _  _ 
+ _  _  _  _  _ 
+ _  _  O  _  _ 
+ _  _  _  O  O 
+ _  _  O  O  _ 
 
 ```
 
 # Ressources additionnelles
 
 Vous trouverez des motifs plus complexes sur la [page Wikipedia du jeu de la
-vie](https://fr.wikipedia.org/wiki/Jeu_de_la_vie#Structures), en particulier
-dans sa [version
-anglophone](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns).
+vie](https://fr.wikipedia.org/wiki/Jeu_de_la_vie#Structures), en particulier dans sa [version anglophone](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns).
 
