@@ -171,7 +171,7 @@ except IndexError:
 - On peut s'aider d'un schéma tel que celui-ci :
 
 
-<img src="assets/schema.png" width="300"/>
+<img src="assets/schema.png" width="600"/>
 
 ### Nombre de cellules dans le voisinage
 
