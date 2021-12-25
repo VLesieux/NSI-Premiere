@@ -2,17 +2,35 @@
 
 ![Programme officiel ](assets/bo.png)
 
-# I. Un exemple classique d'algorithme: l'algorithme d'Euclide pour la recherche du pgcd
+# I. Un exemple classique d'algorithme: l'algorithme d'Euclide pour la recherche du pgcd de deux nombres
 
 Euclide est un mathématicien de la Grèce antique, auteur du livre <i>les éléments de mathématiques</i>, qui constituent l'un des textes fondateurs de cette discipline en Occident. 
 
 En arithmétique élémentaire, le plus grand commun diviseur ou PGCD de deux nombres entiers non nuls est le plus grand entier qui les divise simultanément. Par exemple, le PGCD de 20 et de 30 est 10, puisque leurs diviseurs communs sont 1, 2, 5 et 10.
 
+Étape 1 : on divise m par n et on note r le reste de la division euclidienne  
+Étape 2 : si le reste est nul, c'est terminé, le pgcd est n     
+Étape 3 : sinon, on remplace m par n et n par r et on recommence l'étape 1
+
+![Exemple ](assets/exemple.png)
+
+Explications :
+```python
+360=252*1+108
+252=108*2+36
+108=36*3
+
+360=252*1+108=(108*2+36)*1+108=((36*3)*2+36)*1+(36*3)=36*10
+252=108*2+36=(36*3)*2+36=36*7
+```
+
+**Implémentation en Python** :
+
 ```python
 def pgcd(m,n):
     r=m%n
     while r!=0:
-        m,n=n,r
+        m,n=n,r# permutation du diviseur avec le dividende et permutation du reste avec le diviseur
         r=m%n
     return n
 
@@ -20,21 +38,13 @@ def pgcd(m,n):
 36
 ```
 
-Étape 1 : on divise m par n et on note r le reste de la division    
-Étape 2 : si le reste est nul, c'est terminé, le pgcd est n     
-Étape 3 : sinon, on remplace m par n et n par r et on recommence l'étape 1
-
-![Exemple ](assets/exemple.png)
-
-
 # II. Les outils utilisés pour la construction des algorithmes
 
 ## 1. Compteurs et accumulateurs
 
-Un **compteur** est une valeur généralement initialisée à 0 qui est incrémentée d'une unité à chaque passage dans une boucle, éventuellement suite à un test.
+- Un **compteur** est une valeur généralement initialisée à 0 qui est incrémentée d'une unité à chaque passage dans une boucle, éventuellement suite à un test.
 
-
-> Exemple : Soit le script suivant, on cherche à compter combien de fois le mot NSI est affiché.
+Exemple : Soit le script suivant, on cherche à compter combien de fois le mot NSI est affiché.
 
 ```python
 def ecrire(n):
@@ -57,9 +67,10 @@ NSI
 NSI
 10
 ```
-À chaque fois que i varie de 0 à n-1, on affiche le mot 'NSI' i fois.
+À chaque fois que i varie de 0 à n-1, c'est-à-dire n fois, on affiche le mot 'NSI' i fois.
 Au total le nombre de fois où le mot est affiché est donc : 0+1+2+...(n-1).  
-Cette somme se rencontre souvent ; il s'agit de la somme des termes d'une suite arithmétique de raison 1.  
+Cette somme se rencontre souvent ; il s'agit de la somme des termes d'une suite arithmétique de raison 1. Une astuce permet de donner rapidement la valeur de cette somme.
+ 
 S=1+2+...(n-1).   
 S=(n-1)+(n-2)+.....+1.   
 2S=nx(n-1) donc S=nx(n-1)/2 ; pour n=5 : S=10.
@@ -72,35 +83,57 @@ if __name__ == '__main__':
     doctest.testmod(verbose=True)
 ```
 
-<u>Exercice 1)</u>  
+Pour chacun de ces 3 exercices, on réalisera un compteur.
+
+<u>Exercice 1</u>  
 Écrire une fonction `taille_binaire(n)` qui renvoie le nombre de chiffres dans l'écriture binaire de l'entier n (c'est-à-dire le nombre de divisions euclidiennes successives de n par 2 jusqu'à arriver à un quotient nul).
 
 ```python
->>> taille_binaire(9)
-4
+def taille_binaire(n):
+    """
+    Renvoie le nombre de bits dans l'écriture binaire de n
+    param : n : int
+    return : int
+    >>> taille_binaire(9)
+    4
+    >>> taille_binaire(255)
+    8
+    """
 ```
 
-<u>Exercice 2)</u>   
-Écrire une fonction `nombre_de_1(n)` qui renvoie le nombre de 1 dans l'écriture binaire du nombre.
+<u>Exercice 2</u>   
+Écrire une fonction `nombre_de_1(n)`, indépendante de la fonction précédente, qui renvoie le nombre de 1 dans l'écriture binaire du nombre.
 
 ```python
->>> nombre_de_1(9)
-2
+def nombre_de_1(n):
+    """
+    Renvoie le nombre de bits égaux à 1 dans l'écriture binaire de n
+    param : n : int
+    return : int
+    >>> nombre_de_1(9)
+    2
+    >>> taille_binaire(255)
+    8
+    """
 ```
 
-<u>Exercice 3)</u>   
+<u>Exercice 3</u>   
 Écrire une fonction `diviseurs(n)` qui renvoie le nombre de diviseurs de n.
 
 ```python
->>> diviseurs(15)
-4
+def diviseurs(n):
+    """
+    Renvoie le nombre de diviseurs de n
+    param : n : int
+    return : int
+    >>> diviseurs(15)
+    4
+    """
 ```
 
-Un **accumulateur** est semblable à un compteur mais il est en général incrémenté d'une valeur différente de 1 ; il peut aussi être décrémenté.
+- Un **accumulateur** est semblable à un compteur mais il est en général incrémenté d'une valeur différente de 1 ; il peut aussi être décrémenté.
 
-
-
-> Exemple : Cherchons à écrire une fonction chargée de calculer le produit de tous les éléments d'une liste passée en paramètre.
+Exemple : Cherchons à écrire une fonction chargée de calculer le produit de tous les éléments d'une liste passée en paramètre.
 
 ```python
 def produit(tab):
@@ -114,28 +147,37 @@ def produit(tab):
 Ici p joue le rôle d'accumulateur qui est initialisé à 1.
 
 
-<u>Exercice 4)</u>   
+<u>Exercice 4</u>   
 Écrire une fonction `somme(liste)` qui renvoie la somme des termes d'une liste de nombres.
 
 ```python
->>> somme([1,4,6])
-11
+def somme(liste):
+    """
+    Renvoie la somme des termes d'une liste de nombres
+    param : liste : list
+    return : int
+    >>> somme([1,4,6])
+    11
+    """
 ```
 
-
-
-
-<u>Exercice 5)</u>     
+<u>Exercice 5</u>     
 Écrire une fonction `somme_paire(liste)` qui renvoie la somme des termes paires d'une liste de nombres.
 
 ```python
->>> somme_pairs([1,4,6])
-10
+def somme_pairs(liste):
+    """
+    Renvoie la somme des termes paires d'une liste de nombres
+    param : liste : list
+    return : int
+    >>> somme_pairs([1,4,6])
+    10
+    """
 ```
 
 ## 2. La permutation des valeurs
 
-La permutation des valeurs nécessite de prendre soin à la manière de procéder.  
+La permutation des valeurs nécessite de prendre soin de la manière de procéder.  
 
 Exemple :  
 
@@ -150,7 +192,7 @@ print(var1,var2)
 La permutation est-elle effectuée ? Pourquoi ? Sinon comment procéder ?
 
 On peut passer par une variable temporaire, généralement notée temp, chargée de stocker la valeur d'une variable. Écrire cette méthode.    
-Une autre méthode immédiate, souvent utilisée dans Python, basée sur l'identité des tuples (en l'occurence des couples), consiste à écrire :  
+Une autre méthode, immédiate et efficace, utilisée dans Python, basée sur l'identité des tuples (en l'occurence des couples), consiste à écrire :  
 
 ```python
 var1=17
@@ -162,7 +204,7 @@ print(var1,var2)
 
 ## 3. Les tests  
 
-On fera attention à bien distinguer if de elif.   
+On fera attention à bien distinguer `if` de `elif`.   
 Expliquer la différence de résultat obtenu avec ces deux codes.
 
 Code 1 :   
@@ -176,6 +218,7 @@ elif x<0:
 else:
     x=x+2
 print(x)
+2
 ```
 
 Code 2 :  
@@ -189,6 +232,7 @@ if x<0:
 else:
     x=x+2
 print(x)
+4
 ```
 
 ## 4. Les boucles 
@@ -211,9 +255,9 @@ for i in range(4):
 
 Lorsqu'on écrit un algorithme, il est impératif de vérifier que cet algorithme va produire un résultat en un temps fini et que ce résultat sera correct dans le sens où il sera conforme à une spécification précise. Nous dirons alors que l'algorithme est **valide** ou **correct**.
 
-Un algorithme itératif est construit avec des boucles. Pour prouver que l'algorithme est **correct** (on dit aussi que l'on prouve la correction de l'algorithme), nous disposons de la notion d'**invariant de boucle**.  
-Un invariant d'une boucle est une propriété qui est vérifiée avant l'entrée dans une boucle, à chaque passage dans cette boucle et à la sortie de cette boucle. On peut faire le lien avec les suites définies par récurrence du programme de mathématiques.
-Pour vérifier qu'une propriété est un invariant d'une boucle, on commence donc par vérifier que la propriété est vraie avant la boucle : cette étape s'appelle l'**initialisation**, on prouve ensuite que si la propriété est vraie avant un passage dans la boucle, elle reste vraie après ce passage. Cette étape s'appelle l'**hérédité**. On peut alors conclure que la propriété reste vraie à la sortie de la boucle. 
+### a. Correction de l'algorithme
+
+Un algorithme est dit **itératif** s'il est construit avec des boucles. Pour prouver que l'algorithme est **correct** (on dit aussi que l'on prouve la **correction** de l'algorithme), nous disposons de la notion d'**invariant de boucle**.  Un invariant de boucle est une propriété qui est vérifiée avant l'entrée dans la boucle, à chaque passage dans la boucle et à la sortie de la boucle. On peut faire le lien avec les suites définies par récurrence du programme de mathématiques. Pour vérifier qu'une propriété est un invariant d'une boucle, on commence donc par vérifier que la propriété est vraie avant la boucle : cette étape s'appelle l'**initialisation**, on prouve ensuite que **si la propriété est vraie avant un passage dans la boucle, elle restera vraie après le passage dans la boucle.** Cette étape s'appelle l'**hérédité**. On peut alors conclure que la propriété reste vraie à la sortie de la boucle. 
 
 Exemple :
 
@@ -229,21 +273,27 @@ def multiplie(a,b):
 >>> multiplie(4,3)
 12
 ```
-Cet algorithme simple a pour but de renvoyer le produit a×b.  
+Cet algorithme simple a pour but de renvoyer le produit a×b sans utiliser le signe *.
 
 On se propose de montrer que la propriété "p=m×b" est un invariant de boucle ; c'est-à-dire qu'en tout point de la boucle, on a bien "p=m×b".
 
-La propriété est vraie à la phase d'initialisation.  
-Supposons la propriété vraie à l'entrée de la boucle, vérifions qu'elle reste vraie à la sortie de la boucle, lorsque m et p prennent les nouvelles valeurs m' et p'.  
-On a bien : p'=p+b=m×b+b=(m+1)×b=m'×b.
+La propriété se vérifie aisément à la phase d'initialisation.  
+Supposons maintenant que la propriété soit vraie à l'entrée de la boucle, vérifions qu'elle reste vraie à la sortie de la boucle, lorsque m et p prennent les nouvelles valeurs m' et p'. On a bien : p'=p+b=m×b+b=(m+1)×b=m'×b.
 Enfin, puisqu'à la sortie de la boucle, on a m=a, on peut bien affirmer que la fonction renvoie le produit a×b.
 
-Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On parle ici de boucles conditionnelles (utilisant while) car dans les boucles inconditionnelles (utilisant for) le nombre d'étapes est nécessairement déterminé.
-On choisit un **variant**, c'est-à-dire une expression, la plus simple étant une variable, <u>telle que la suite formée par les valeurs de cette expression au cours des itérations converge en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt</u>. Dans notre exemple, si nous choisissons m comme variant, celui-ci prend les valeurs 0,1,... jusque a, et donc il y a exactement a passages dans la boucle, ce qui prouve sa terminaison.
+### b. Terminaison de l'algorithme
+
+Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On ne parle ici que des boucles conditionnelles (utilisant `while`) car dans les boucles inconditionnelles (utilisant `for`) le nombre d'étapes est nécessairement déterminé.
+
+On choisit donc un **variant**, c'est-à-dire une expression, la plus simple étant une variable, telle que la suite formée par les valeurs de cette expression au cours des itérations **converge** en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt. 
+
+Dans notre exemple, si nous choisissons `m` comme variant, celui-ci prend les valeurs 0,1,... jusque `a`, et donc il y a exactement `a` passages dans la boucle, ce qui prouve sa terminaison.
 
 ## 2. Coût d'un algorithme
 
-Supposons q'un programme ait à traiter une liste de 10<sup>7</sup> éléments puis une liste de 10<sup>8</sup> éléments ; le **temps d'exécution du programme** sera-t-il multiplié par 10 ? Les réponses sont variées et dépendent de l'algorithme et de la liste. Pour une liste donnée, un programme peut être plus rapide qu'un autre, mais avec une autre liste, cela peut être le contraire. Le même programme peut être plus rapide avec une liste plus longue. L'étude n'est pas simple et pour comparer deux algorithmes nous allons nous concentrer sur le nombre d'opérations à effectuer en essayant d'évaluer un ordre de grandeur de ce nombre en fonction de la taille des données. Nous nous placerons dans le pire des cas, celui où le coût en terme d'opérations est le plus important.
+Supposons q'un programme ait à traiter une liste de 10<sup>7</sup> éléments puis une liste de 10<sup>8</sup> éléments ; le **temps d'exécution du programme** sera-t-il multiplié par 10 ? 
+
+Les réponses sont variées et dépendent de l'algorithme et de la liste. Pour une liste donnée, un programme peut être plus rapide qu'un autre, mais avec une autre liste, cela peut être le contraire. Le même programme peut être plus rapide avec une liste plus longue. L'étude n'est pas simple et pour comparer deux algorithmes nous allons nous concentrer sur le nombre d'opérations à effectuer en essayant d'évaluer un **ordre de grandeur** de ce nombre en fonction de la taille des données. Nous nous placerons toujours dans le pire des cas, celui où le coût en terme d'opérations est le plus important.
 
 Dans l'exemple précédent que nous reprenons ci-dessous :
 
@@ -259,9 +309,9 @@ def multiplie(a,b):
 >>> multiplie(4,3)
 12
 ```
-les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4×a opérations. Nous dirons que le coût est proportionnel à a ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β.  
+les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4×a opérations. Nous dirons que le coût est proportionnel à a, ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β.  
  
-On dit que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ.
+On dira ainsi que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ.
 
 Dans le cas de deux boucles imbriquées, on peut avoir, selon les cas, soit une complexité linéaire soit une complexité quadratique.
 
@@ -296,7 +346,10 @@ for i in range(n):
         ... (on suppose r opérations effectuées ici) 
 ```
 
-Nous avons n passages dans la boucle externe et à chaque passage, nous avons le nombre fixe de q opérations puis i passages dans la boucle interne où nous avons le nombre fixe de r opérations. Ainsi pour chaque valeur de i allant de 0 à (n-1), nous avons q+r×i opérations, soit q+(q+r)+(q+r×2)+.......(q+r×(n-1)), soit q×n+r×(1+2+...(n-1))=q×n+r×n×(n-1)/2=(r/2)×n<sup>2</sup>+(q-r/2)×n, ce qui est de la forme α×n<sup>2</sup>+β×n, donc un coût quadratique.
+Nous avons n passages dans la boucle externe et à chaque passage, nous avons le nombre fixe de q opérations puis i passages dans la boucle interne où nous avons le nombre fixe de r opérations.
+Ainsi pour chaque valeur de i allant de 0 à (n-1), nous avons q+r×i opérations, 
+soit q+(q+r)+(q+r×2)+.......(q+r×(n-1)),
+soit q×n+r×(1+2+...(n-1))=q×n+r×n×(n-1)/2=(r/2)×n<sup>2</sup>+(q-r/2)×n, ce qui est de la forme α×n<sup>2</sup>+β×n, donc un coût quadratique.
 
 > Exemple : Soit le code ci-dessous, posons-nous la question de savoir si le coût est linéaire ou quadratique.
 
@@ -342,6 +395,18 @@ Un parcours séquentiel signifie que la liste ou le tuple sont parcourus éléme
 ### a. Calcul d'une moyenne
 
 Proposer l'écriture de la fonction `moyenne(liste)` qui renvoie la moyenne d'une liste de nombre.
+
+```python
+def moyenne(liste):
+    """
+    Renvoie la moyenne d'une liste de nombres
+    param : liste : list
+    return : float
+    >>> moyenne([4,10,22])
+    12.0
+    """
+```    
+    
 Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n de la liste.
 
 
@@ -353,8 +418,24 @@ Proposer l'écriture de la fonction `recherche(x,t)` qui recherche l'élément x
 On utilisera une boucle conditionnelle puis une boucle inconditionnelle.
 
 ```python
->>> recherche("o","algorithme")
-3
+def recherche_boucle_conditionnelle(x,t):
+    """
+    Renvoie la position de la lettre x dans la chaîne de caractères t
+    param : x : str
+    param : t : str
+    >>> recherche_boucle_conditionnelle('o','algorithme')
+    3
+    """
+```
+```python
+def recherche_boucle_non_conditionnelle(x,t):
+    """
+    Renvoie la position de la lettre x dans la chaîne de caractères t
+    param : x : str
+    param : t : str
+    >>> recherche_boucle_non_conditionnelle('o','algorithme')
+    3
+    """
 ```
 
 Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n de la liste.
@@ -367,11 +448,54 @@ Recherche du maximum : l'idée est la suivante : on suppose que le premier élé
 
 Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)` de deux manières différentes : parcours des éléments de la liste ou parcours des indices de la liste.
 
+```python
+def recherche_maximum_liste_parcours_element(t):
+    """
+    Renvoie le maximum d'une liste de nombres
+    param : t : list
+    return : int
+    >>> recherche_maximum_liste_parcours_element([3,18,5,21,6])
+    21
+    """
+```
+```python
+def recherche_maximum_liste_parcours_indice(t):
+    """
+    Renvoie le maximum d'une liste de nombres
+    param : t : list
+    return : int
+    >>> recherche_maximum_liste_parcours_indice([3,18,5,21,6])
+    21
+    """
+```
+```python
+def recherche_minimum_liste_parcours_element(t):
+    """
+    Renvoie le maximum d'une liste de nombres
+    param : t : list
+    return : int
+    >>> recherche_minimum_liste_parcours_element([3,18,2,21,6])
+    2
+    """
+```
+```python
+def recherche_minimum_liste_parcours_indice(t):
+    """
+    Renvoie le maximum d'une liste de nombres
+    param : t : list
+    return : int
+    >>> recherche_minimum_liste_parcours_indice([3,18,2,21,6])
+    2
+    """
+```
 
 ## 2. Recherche dichotomique
 
-La recherche dichotomique dans une liste doit s'effectuer **sur une liste préalablement trié**.  
-Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
+La recherche dichotomique dans une liste doit s'effectuer nécessairement <u>**sur une liste préalablement triée**</u>.  
+
+Avec Python, nous disposons pour cela :
+
+- de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. 
 
 ```python
 >>> liste=[4,1,3,2]
@@ -380,32 +504,44 @@ Avec Python, nous disposons de la fonction `sorted(liste)` qui prend en argument
 [1, 2, 3, 4]
 >>> print(liste)
 [4, 1, 3, 2]
+```
+
+- de la méthode sort() de l'objet liste qui trie la liste à laquelle elle s'applique en la modifiant.
+
+```python
+>>> liste=[4,1,3,2]
 >>> liste.sort()
 >>> print(liste)
 [1, 2, 3, 4]
 ```
 
-Le principe de la dichotomie (binary search en anglais) repose sur le principe <i>diviser pour mieux régner</i> (en anglais divide-and-conquer) : à chaque étape, on coupe le tableau en deux et on effectue un test pour savoir dans quelle partie se trouve l'élément recherché.
+Le principe de la dichotomie (**binary search** en anglais) repose sur le principe **<i>diviser pour mieux régner</i> (en anglais divide-and-conquer)** : à chaque étape, on coupe le tableau en deux et on effectue un test pour savoir dans quelle partie se trouve l'élément recherché.
+
+Proposer une fonction `recherche_dichotomie`.
 
 
 ```python
 def recherche_dichotomie(valeur, liste):
     """
-    renvoie True si valeur est dans la liste triée, False sinon
+    renvoie l'indice de position de valeur dans la liste triée
     param : valeur : int
     param : liste : list
     return : bool
     >>> recherche_dichotomie(5, [2, 5, 9, 24])
-    True
-    >>> recherche_dichotomie(8, [2, 5, 9, 24])
-    False
+    1
+    >>> recherche_dichotomie(9, [2, 5, 9, 24])
+    2
     """
 ```
 
-Faisons la preuve de la **terminaison** de l'algorithme avec le **variant** de la boucle : (`d-g`). Si la taille du tableau est inférieur à 2<sup>n</sup>, après k itérations, d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.   
-Par exemple, il faut sept étapes pour une tableau dont la taille est de l'ordre de 100 (2<sup>7</sup>=128) et 10 étapes pour un tableau dont la taille est de l'ordre de 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc nettement inférieur au nombre d'étapes d'une recherche linéaire !
+On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'indice de position de `valeur` dans `liste`.
 
-Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.
+
+- Faisons la preuve de la **terminaison** de l'algorithme en choisissant comme **variant** de la boucle : (`d-g`). 
+Supposons que la taille du tableau soit inférieure à 2<sup>n</sup>, après k itérations, l'intervalle `d-g` sera tel que : d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.
+On peut également parler de la complexité de l'algorithme. Par exemple, il faut sept étapes pour une tableau dont la taille est de l'ordre de 100 (2<sup>7</sup>=128) et 10 étapes pour un tableau dont la taille est de l'ordre de 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc **nettement inférieur au nombre d'étapes d'une recherche linéaire**, d'où son intérêt pratique !
+
+- Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.
 Il faut évidemment que cela soit vrai avant l'entrée dans la boucle, d'où la possibilité, afin d'améliorer le programme, d'ajouter une assertion dans le programme avant de commencer la recherche et ainsi ne pas effectuer la boucle pour rien. Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien et sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
 
 
@@ -414,9 +550,10 @@ Il faut évidemment que cela soit vrai avant l'entrée dans la boucle, d'où la 
 ```
 
 Si l'assertion est vérifiée, alors la propriété est vraie avant l'entrée dans la boucle.    
-Supposons la propriété vraie avant le passage dans la boucle : `liste[g]≤x<liste[d]`.    D'après le choix de k, k=(g+d)//2 ,liste[g]≤liste[k]≤liste[d] puisque la liste est triée.  
+Supposons maintenant la propriété vraie avant le passage dans la boucle : `liste[g]≤x<liste[d]`.    
+D'après le choix de k, k=(g+d)//2 ,liste[g]≤liste[k]≤liste[d] puisque la liste est triée.  
 Si `x<liste[k]`, on obtient `liste[g]≤x<liste[k]`, dans ce cas la nouvelle valeur de d est k, et donc la propriété `liste[g]≤x<liste[d]` est vraie en sortant de la boucle.   
-Sinon si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nouvelle valeur de g est k, et donc la propriété `liste[g]≤x<liste[d]` est encore vraie en sortant de la boucle.
+Sinon, si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nouvelle valeur de g est k, et donc la propriété `liste[g]≤x<liste[d]` est encore vraie en sortant de la boucle.
 
 
 ## 3. Les algorithmes de tri       
