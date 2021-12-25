@@ -10,22 +10,22 @@ if __name__ == '__main__':
 ```
 #### Exercice 1 : Un algorithme de tri
 
-Traiter l'[exercice 2 du sujet n°2](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_02/21-NSI-02.pdf) de la banque des sujets de Terminale NSI.
+Traiter l'[exercice 2 du sujet n°2](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_02/21-NSI-02.pdf) de la banque des sujets de Terminale NSI.
 
 
 #### Exercice 2 : tri bulles
 
-Traiter l'[exercice 2 du sujet n°11](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_11/21_NSI_11.pdf) de la banque des sujets de Terminale NSI.
+Traiter l'[exercice 2 du sujet n°11](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_11/21_NSI_11.pdf) de la banque des sujets de Terminale NSI.
 
 
 #### Exercice 3: tri par insertion
 
-Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_05/21_NSI_05.pdf) de la banque des sujets de Terminale NSI.
+Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_05/21_NSI_05.pdf) de la banque des sujets de Terminale NSI.
 
 
 #### Exercice 4 : tri par sélection
 
-Traiter l'[exercice1 du sujet n°13](https://github.com/VLesieux/NSI-Terminale/blob/master/Banque_Sujets_2021/21_NSI_13/21_NSI_13.pdf) de la banque des sujets de Terminale NSI.
+Traiter l'[exercice1 du sujet n°13](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_13/21_NSI_13.pdf) de la banque des sujets de Terminale NSI.
 
 
 #### Exercice 5 : Application du tri par sélection : ordre lexicographique
