@@ -10,7 +10,7 @@
 
 #### Exercice 3 : Recherche d'une moyenne
 
-[Sujet Bac Terminale exercice 2](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_02/21-NSI-02.pdf)
+[Sujet Bac Terminale exercice 1](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_02/21-NSI-02.pdf)
 
 
 #### Exercice 4 : Recherche par dichotomie
