@@ -289,7 +289,20 @@ On choisit donc un **variant**, c'est-à-dire une expression, la plus simple ét
 
 Dans notre exemple, si nous choisissons `m` comme variant, celui-ci prend les valeurs 0,1,... jusque `a`, et donc il y a exactement `a` passages dans la boucle, ce qui prouve sa terminaison.
 
-## 2. Coût d'un algorithme
+## 2. Coût d'un algorithme ou complexité
+
+Au préalable, on se propose d'avoir une première approche de cette notion en parcourant quelques pages du dictionaire des sciences de Michel Serres et Nayla Farouki écrit dans un style de vulgarisation scientifique.
+
+Au mot **Combinatoire**
+
+![Dictionnaire des sciences ](assets/1.jpeg)
+![Dictionnaire des sciences ](assets/2.jpeg)
+![Dictionnaire des sciences ](assets/3.jpeg)
+
+Au mot **Complexité**
+
+![Dictionnaire des sciences ](assets/4.jpeg)
+![Dictionnaire des sciences ](assets/5.jpeg)
 
 Supposons q'un programme ait à traiter une liste de 10<sup>7</sup> éléments puis une liste de 10<sup>8</sup> éléments ; le **temps d'exécution du programme** sera-t-il multiplié par 10 ? 
 

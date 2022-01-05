@@ -50,7 +50,7 @@ def creer_grille(nb_colonnes,nb_lignes):
     """
 ```
 
-Indication : essayer `[[0]*2]*3` dans la console, cela devrait vous éclairer.
+Indication : essayer `[[0]*2]*3` dans la console puis `[[0 for i in range(2) ] for i in range(3)]`, cela devrait vous éclairer.
 
 
 ### Dimensions d'une grille
