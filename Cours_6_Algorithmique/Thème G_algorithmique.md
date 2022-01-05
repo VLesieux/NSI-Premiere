@@ -303,6 +303,7 @@ Au préalable, on se propose d'avoir une première approche de cette notion en p
 
 ![Dictionnaire des sciences ](assets/4.jpeg)
 ![Dictionnaire des sciences ](assets/5.jpeg)
+![Dictionnaire des sciences ](assets/6.jpeg)
 
 Supposons q'un programme ait à traiter une liste de 10<sup>7</sup> éléments puis une liste de 10<sup>8</sup> éléments ; le **temps d'exécution du programme** sera-t-il multiplié par 10 ? 
 
