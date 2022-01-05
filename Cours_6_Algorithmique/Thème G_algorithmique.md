@@ -291,7 +291,7 @@ Dans notre exemple, si nous choisissons `m` comme variant, celui-ci prend les va
 
 ## 2. Coût d'un algorithme ou complexité
 
-Au préalable, on se propose d'avoir une première approche de cette notion en parcourant quelques pages du dictionaire des sciences de Michel Serres et Nayla Farouki écrit dans un style de vulgarisation scientifique.
+Au préalable, on se propose d'avoir une première approche de cette notion en parcourant quelques pages du dictionnaire des sciences de Michel Serres et Nayla Farouki écrit dans un style de vulgarisation scientifique.
 
 Au mot **Combinatoire**
 
