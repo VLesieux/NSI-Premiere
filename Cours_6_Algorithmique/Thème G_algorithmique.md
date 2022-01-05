@@ -293,13 +293,13 @@ Dans notre exemple, si nous choisissons `m` comme variant, celui-ci prend les va
 
 Au préalable, on se propose d'avoir une première approche de cette notion en parcourant quelques pages du dictionnaire des sciences de Michel Serres et Nayla Farouki écrit dans un style de vulgarisation scientifique.
 
-Au mot **Combinatoire**
+### Au mot **Combinatoire**
 
 ![Dictionnaire des sciences ](assets/1.jpeg)
 ![Dictionnaire des sciences ](assets/2.jpeg)
 ![Dictionnaire des sciences ](assets/3.jpeg)
 
-Au mot **Complexité**
+### Au mot **Complexité**
 
 ![Dictionnaire des sciences ](assets/4.jpeg)
 ![Dictionnaire des sciences ](assets/5.jpeg)
