@@ -626,6 +626,22 @@ C'est l'algorithme de tri le plus lent et il n'est guère utilisé en pratique.
 [Vidéo](https://www.youtube.com/watch?v=8u3Yq-5DTN8) 
 
 <u>Principe</u> : On dispose de n données. **On cherche la plus petite donnée et on la place en première position, puis on cherche la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.**  
+
+<u>Exemple</u> : 
+
+Soit le tableau : liste=[7,4,3,2,9,5] de longueur n=6.   
+
+Pour i égal 0, permutation de 7=liste[0] avec 2 minimum de liste[0:n]  : [2,4,3,7,9,5].      
+
+Pour i égal 1, permutation de 4=liste[1] avec 3 minimum de liste[1:n]  : [2,3,4,7,9,5].   
+
+Pour i égal 2, pas de permutation : [2,3,4,7,9,5]. 
+
+Pour i égal 3, permutation de 7=liste[3] avec 5 minimum de liste[3:n]   : [2,3,4,5,9,7]. 
+ 
+Pour i égal 4=6-2, permutation de 9=liste[4] avec 7 minimum de liste[4:n]  : [2,3,4,5,7,9]. 
+
+
 Si les données sont les éléments d'une liste appelée `liste`, l'algorithme consiste donc à faire varier un indice i de 0 à `len(liste)-2`.   
 Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit élément et on l'échange avec `liste[i]`.  
 On connaît déjà l'algorithme de recherche du minimum vu précédemment ; on réalise une fonction qui donne le minimum à partir d'un certain indice.
@@ -668,20 +684,6 @@ def tri_selection(t):
     [10, 12, 18, 31, 43]
     """
 ```
-
-<u>Exemple</u> : 
-
-Soit le tableau : liste=[7,4,3,2,9,5] de longueur n=6.   
-
-Pour i égal 0, permutation de 7=liste[0] avec 2 minimum de liste[0:n]  : [2,4,3,7,9,5].      
-
-Pour i égal 1, permutation de 4=liste[1] avec 3 minimum de liste[1:n]  : [2,3,4,7,9,5].   
-
-Pour i égal 2, pas de permutation : [2,3,4,7,9,5]. 
-
-Pour i égal 3, permutation de 7=liste[3] avec 5 minimum de liste[3:n]   : [2,3,4,5,9,7]. 
- 
-Pour i égal 4=6-2, permutation de 9=liste[4] avec 7 minimum de liste[4:n]  : [2,3,4,5,7,9].    
 
 <u>Terminaison de l'algorithme</u> : dans la mesure où les boucles utilisées sont deux boucles inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
 
