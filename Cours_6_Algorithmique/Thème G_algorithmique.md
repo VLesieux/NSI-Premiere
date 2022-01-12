@@ -724,7 +724,7 @@ def placement(valeur,liste):
     """
 ```
 
-Implémenter l'algorithme du tri par insertion en faisant appel à la fonction intermédaire `placement` (envisager la formation d'une nouvelle liste):
+Implémenter l'algorithme du tri par insertion en faisant appel à la fonction intermédiaire `placement` (envisager la formation d'une nouvelle liste):
 
 ```python    
 def tri_insertion_indirect(t):
