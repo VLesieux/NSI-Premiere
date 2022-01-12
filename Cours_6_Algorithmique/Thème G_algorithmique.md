@@ -673,11 +673,15 @@ def tri_selection(t):
 
 Soit le tableau : liste=[7,4,3,2,9,5] de longueur n=6.   
 
-Pour i égal 0, permutation de 7=liste[0] avec 2 minimum de liste[0:n]  : [2,4,3,7,9,5] 
-Pour i égal 1, permutation de 4=liste[1] avec 3 minimum de liste[1:n]  : [2,3,4,7,9,5] 
-Pour i égal 2, pas de permutation : [2,3,4,7,9,5]
-Pour i égal 3, permutation de 7=liste[3] avec 5 minimum de liste[3:n]   : [2,3,4,5,9,7] 
-Pour i égal 4=6-2, permutation de 9=liste[4] avec 7 minimum de liste[4:n]  : [2,3,4,5,7,9] 
+Pour i égal 0, permutation de 7=liste[0] avec 2 minimum de liste[0:n]  : [2,4,3,7,9,5].      
+
+Pour i égal 1, permutation de 4=liste[1] avec 3 minimum de liste[1:n]  : [2,3,4,7,9,5].   
+
+Pour i égal 2, pas de permutation : [2,3,4,7,9,5]. 
+
+Pour i égal 3, permutation de 7=liste[3] avec 5 minimum de liste[3:n]   : [2,3,4,5,9,7]. 
+ 
+Pour i égal 4=6-2, permutation de 9=liste[4] avec 7 minimum de liste[4:n]  : [2,3,4,5,7,9].    
 
 <u>Terminaison de l'algorithme</u> : dans la mesure où les boucles utilisées sont deux boucles inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
 
