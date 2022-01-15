@@ -578,19 +578,17 @@ Sinon, si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nou
 
 <u>Principe</u> : **cet algorithme fait remonter les valeurs les plus grandes les uns après les autres par permutations sucessives à la manière d'une bulle ; d'où le nom de tri bulle pour cet algorithme de tri.**
 
-Passons d'abord par une fonction intermédaire que l'on appelle remonter.
+Passons d'abord par une fonction intermédaire que l'on appelle `remonter`.
 
 ```python
 def remonter(indice,liste):
     """
     Fait remonter la valeur située à l'indice i autant que possible dans la liste
+   	 param : liste : list
+    return : list
     >>> remonter(1,[2, 22, 10, 12, 24])
     [2, 10, 12, 22, 24]
     """
-    for i in range(indice,len(liste)-1):
-        if liste[i+1]<liste[i]:
-            liste[i],liste[i+1]=liste[i+1],liste[i]
-    return liste
 ```
 Puis utilisons cette fonction intermédaire
 
