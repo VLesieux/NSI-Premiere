@@ -614,7 +614,6 @@ def tri_bulle_direct(liste):
     >>> tri_bulle_direct([2, 25, 10, 24])
     [2, 10, 24, 25]
     """
-    """
 ```
 Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste la plus désordonnée.
 
