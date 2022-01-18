@@ -584,7 +584,7 @@ Passons d'abord par une fonction intermédaire que l'on appelle `remonter`.
 def remonter(indice,liste):
     """
     Fait remonter la valeur située à l'indice i autant que possible dans la liste
-   	 param : liste : list
+    param : liste : list
     return : list
     >>> remonter(1,[2, 22, 10, 12, 24])
     [2, 10, 12, 22, 24]
