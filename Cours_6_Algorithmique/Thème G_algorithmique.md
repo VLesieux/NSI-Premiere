@@ -606,13 +606,14 @@ def tri_bulle_indirect(liste):
 Écrire maintenant une implémentation directe de cet algorithme en python.
 
 ```python
-def tri_bulle(liste):
+def tri_bulle_direct(liste):
     """
     renvoie une liste triée en faisant remonter les plus grandes valeurs par permutations successives
     param : liste : list
     return : list
-    >>> tri_bulle([2, 25, 10, 24])
+    >>> tri_bulle_direct([2, 25, 10, 24])
     [2, 10, 24, 25]
+    """
     """
 ```
 Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste la plus désordonnée.
@@ -701,11 +702,11 @@ def tri_selection_indirect(t):
 Implémenter l'algorithme de tri par sélection sans faire appel à la fonction intermédiaire : 
 
 ```python
-def tri_selection(t):
+def tri_selection_direct(t):
     """
     param : t : list
     return : list
-    >>> tri_selection([43,12,18,31,10])
+    >>> tri_selection_direct([43,12,18,31,10])
     [10, 12, 18, 31, 43]
     """
 ```
@@ -764,11 +765,11 @@ def tri_insertion_indirect(t):
 Implémenter l'algorithme du tri par insertion sans faire appel à la fonction intermédiaire :
 
 ```python  
-def tri_insertion(t):
+def tri_insertion_direct(t):
     """
     param : t : list
     return : list
-    >>> tri_insertion([43,12,18,31,10])
+    >>> tri_insertion_direct([43,12,18,31,10])
     [10, 12, 18, 31, 43]
     """
 ```
