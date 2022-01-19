@@ -578,7 +578,7 @@ Sinon, si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nou
 
 <u>Principe</u> : **cet algorithme fait remonter les valeurs les plus grandes les uns après les autres par permutations sucessives à la manière d'une bulle ; d'où le nom de tri bulle pour cet algorithme de tri.**
 
-Passons d'abord par une fonction intermédaire que l'on appelle `remonter`.
+Passons d'abord par l'écriture d'une fonction intermédaire que l'on appelle `remonter`.
 
 ```python
 def remonter(indice,liste):
@@ -590,7 +590,7 @@ def remonter(indice,liste):
     [2, 10, 12, 22, 24]
     """
 ```
-Puis utilisons cette fonction intermédaire
+Puis utilisons cette fonction intermédaire pour réaliser la fonction tri_bulle de façon indirecte
 
 ```python
 def tri_bulle_indirect(liste):
@@ -603,7 +603,7 @@ def tri_bulle_indirect(liste):
     """
 ```
 
-Écrire maintenant une implémentation directe de cet algorithme en python.
+Écrivons maintenant une implémentation directe de cet algorithme en python.
 
 ```python
 def tri_bulle_direct(liste):
@@ -668,8 +668,9 @@ Pour i égal 4=6-2, permutation de 9=liste[4] avec 7 minimum de liste[4:n]  : [2
 
 
 Si les données sont les éléments d'une liste appelée `liste`, l'algorithme consiste donc à faire varier un indice i de 0 à `len(liste)-2`.   
-Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit élément et on l'échange avec `liste[i]`.  
-On connaît déjà l'algorithme de recherche du minimum vu précédemment ; on réalise une fonction qui donne le minimum à partir d'un certain indice.
+Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit élément et on l'échange avec `liste[i]`. 
+ 
+On connaît déjà l'algorithme de recherche du minimum vu précédemment ; on réalise une fonction intermédiaire qui donne le minimum à partir d'un certain indice.
 
 ```python
 def minimum(liste,i):
@@ -686,7 +687,7 @@ def minimum(liste,i):
 
 Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec le minimum.
 
-Implémenter l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum` : 
+Implémentons l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum` : 
 
 ```python
 def tri_selection_indirect(t):
@@ -698,7 +699,7 @@ def tri_selection_indirect(t):
     """
 ```
 
-Implémenter l'algorithme de tri par sélection sans faire appel à la fonction intermédiaire : 
+Implémentons maintenant l'algorithme de tri par sélection sans faire appel à la fonction intermédiaire : 
 
 ```python
 def tri_selection_direct(t):
@@ -736,6 +737,7 @@ Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc u
 
 <u>Principe</u> : C'est le tri utilisé par les joueurs de cartes. On dispose de n données et on procède par étapes. **À chaque étape, on suppose les k premières données triées, et on insère une donnée supplémentaire à la bonne place parmi ces k données déjà triées.**   
 Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle clé. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé après chaque comparaison.  
+
 Pour commencer, on peut décomposer l'algorithme en créant une fonction intermédaire appelée `placement` qui sera réutilisée ensuite.
 
 ```python
@@ -749,7 +751,7 @@ def placement(valeur,liste):
     """
 ```
 
-Implémenter l'algorithme du tri par insertion en faisant appel à la fonction intermédiaire `placement` (envisager la formation d'une nouvelle liste):
+Implémentons l'algorithme du tri par insertion en faisant appel à cette fonction intermédiaire `placement` (envisager la formation d'une nouvelle liste):
 
 ```python    
 def tri_insertion_indirect(t):
@@ -761,7 +763,7 @@ def tri_insertion_indirect(t):
     """
 ```
 
-Implémenter l'algorithme du tri par insertion sans faire appel à la fonction intermédiaire :
+Implémentons maintenant l'algorithme du tri par insertion sans faire appel à cette fonction intermédiaire :
 
 ```python  
 def tri_insertion_direct(t):
