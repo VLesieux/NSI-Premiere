@@ -690,21 +690,22 @@ Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette par
 Implémentons l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum` : 
 
 ```python
-def tri_selection_indirect(t):
+def tri_selection_indirect(liste):
     """
-    param : t : list
+    renvoie une liste triée
+    param : liste : list
     return : list
-    >>> tri_selection_indirect([43,12,18,31,10])
-    [10, 12, 18, 31, 43]
+    >>> tri_selection_indirect([30, 25, 10, 24])
+    [10, 24, 25, 30]
     """
 ```
 
 Implémentons maintenant l'algorithme de tri par sélection sans faire appel à la fonction intermédiaire : 
 
 ```python
-def tri_selection_direct(t):
+def tri_selection_direct(liste):
     """
-    param : t : list
+    param : liste : list
     return : list
     >>> tri_selection_direct([43,12,18,31,10])
     [10, 12, 18, 31, 43]
@@ -754,11 +755,11 @@ def placement(valeur,liste):
 Implémentons l'algorithme du tri par insertion en faisant appel à cette fonction intermédiaire `placement` (envisager la formation d'une nouvelle liste):
 
 ```python    
-def tri_insertion_indirect(t):
+def tri_insertion_indirect(liste):
     """
-    param : t : list
+    param : liste : list
     return : list
-    >>> tri_insertion_indirect([43,12,18,31,10])
+    >>> tri_insertion_indirect([43,12,18,10,31])
     [10, 12, 18, 31, 43]
     """
 ```
@@ -766,9 +767,9 @@ def tri_insertion_indirect(t):
 Implémentons maintenant l'algorithme du tri par insertion sans faire appel à cette fonction intermédiaire :
 
 ```python  
-def tri_insertion_direct(t):
+def tri_insertion_direct(liste):
     """
-    param : t : list
+    param : liste : list
     return : list
     >>> tri_insertion_direct([43,12,18,31,10])
     [10, 12, 18, 31, 43]
