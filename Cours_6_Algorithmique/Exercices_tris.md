@@ -36,15 +36,15 @@ alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r
 
 
 1. Écrire une fonction `ordre_alphabet` qui prend en arguments deux caractères alphabétiques c1 et c2 et renvoie -1 si c1 est avant c2, 1 si c2 est avant c1 et 0 si c1 = c2.
-On pourra utiliser la méthode index qui renvoie l'indice d'un élément dans une chaîne de caractères. Exemple :
+On pourra utiliser la méthode index qui renvoie l'indice d'un élément dans une chaîne de caractères. 
+
+Exemple :
+
 ```python
 >>> liste=[3,5,7]
 >>> liste.index(5)
 1
 ```
-2. Écrire une fonction `ordre_lexicographique` qui prend en arguments deux mots m1 et m2 et renvoie -1 si m1 est avant m2, 0 si m1 et m2 sont identiques et 1 si m1 est après m2.
-3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant le tri par sélection.
-
 
 ```python
 def ordre_alphabet(c1,c2):
@@ -62,8 +62,11 @@ def ordre_alphabet(c1,c2):
     >>> ordre_alphabet('m','m')
     0
     """
-    pass
-```
+ ```   
+ 
+    
+2. Écrire une fonction `ordre_lexicographique` qui prend en arguments deux mots m1 et m2 et renvoie -1 si m1 est avant m2, 0 si m1 et m2 sont identiques et 1 si m1 est après m2.
+
 ```python
 def ordre_lexicographique(m1,m2):
     """
@@ -80,8 +83,20 @@ def ordre_lexicographique(m1,m2):
     >>> ordre_lexicographique('mari','mari')
     0
     """
-    pass
 ```
+
+3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant le tri par sélection ; ce sera l'occasion de le retrouver par soi-même.
+
+```python
+def tri_selection(t):
+    """
+    param : t : list
+    return : list
+    >>> tri_selection([43,12,18,31,10])
+    [10, 12, 18, 31, 43]
+    """
+```    
+
 ```python
 def tri_lexicographique(liste):
     """
@@ -104,8 +119,17 @@ Indications:
 
 - écrire une fonction `distance` qui prend en paramètre une liste de deux nombres, nommée point, qui représente les coordonnées d'un point du plan
 - écrire une fonction `compare` qui prend en paramètre deux listes p1 et p2 représentant deux points P1 et P2 et qui renvoie -1 si P1 est plus proche de O que P2, 1 si P2 est plus proche de O que P1, et 0 si les deux points sont équidistants
-- écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant le tri par insertion.
+- écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant le tri par insertion ; ce sera l'occasion de le retrouver par soi-même.
 
+```python
+def tri_insertion(t):
+    """
+    param : t : list
+    return : list
+    >>> tri_insertion([43,12,18,31,10])
+    [10, 12, 18, 31, 43]
+    """ 
+```
 
 ```python
 def distance(x,y):
@@ -119,8 +143,8 @@ def distance(x,y):
     >>> distance(4,3)
     5.0
     """
-    pass
 ```
+
 ```python
 def compare(p1,p2):
     """
@@ -137,8 +161,8 @@ def compare(p1,p2):
     >>> compare((1,0),(1,0))
     0
     """
-    pass
 ```
+
 ```python
 def tri_points(liste):
     """
@@ -149,7 +173,6 @@ def tri_points(liste):
     >>> tri_points([(2,0), (1,0), (0,3)])
     [(1, 0), (2, 0), (0, 3)]
     """
-    pass
 ```
 
 
