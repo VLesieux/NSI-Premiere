@@ -807,7 +807,7 @@ print(liste1)
 [-3, -1, 2, 4]##liste1 n'est pas modifiée pour autant
 ```
 
-<img src="Assets/Temps_tri.png">
+<img src="assets/Temps_tri.png">
 
 
 ## 4. L'algorithme des k plus proches voisins [Projet : les iris](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_6_Les%20iris/Les_iris.md)
