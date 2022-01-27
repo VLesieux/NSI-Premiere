@@ -85,7 +85,22 @@ def ordre_lexicographique(m1,m2):
     """
 ```
 
-3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant le tri par sélection ; ce sera l'occasion de le retrouver par soi-même.
+3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant la fonction `tri_selection` ; ce sera l'occasion de retrouver son écriture par soi-même.
+
+Rappel : on peut passer par l'écriture d'une fonction intermédiare
+
+```python
+def indice_minimum_a_partir_de_indice(t,i):
+    """
+    Renvoie l'indice de (minimum de la liste à partir de l'indice i)
+    param : t : liste
+    param : i : int
+    >>> indice_minimum_a_partir_de_indice([3,6,2,9,1,12],2)
+    4
+    """
+``` 
+
+Puis réaliser une suite d'interversions pour obtenir la fonction `tri_selection` 
 
 ```python
 def tri_selection(t):
@@ -97,6 +112,29 @@ def tri_selection(t):
     """
 ```    
 
+Adaptons ces fonctions à nos besoins :
+
+```python
+def indice_minimum_mot_a_partir_de_indice(t,i):
+    """
+    Renvoie l'indice de (minimum de la liste à partir de l'indice i)
+    param : t : liste
+    param : i : int
+    >>> indice_minimum_mot_a_partir_de_indice(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'],2)
+    4
+    """
+``` 
+
+```python
+def tri_selection_mot(t):
+    """
+    param : t : list
+    return : list
+    >>> tri_selection_mot(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
+    ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
+    """
+``` 
+
 ```python
 def tri_lexicographique(liste):
     """
@@ -107,7 +145,6 @@ def tri_lexicographique(liste):
     >>> tri_lexicographique(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
     ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
     """
-    pass
 ```
 
 #### Exercice 6 : Application du tri par insertion : trier des points
@@ -117,19 +154,7 @@ On se propose de trier ces points en fonction de leur distance à O, de la plus 
 
 Indications: 
 
-- écrire une fonction `distance` qui prend en paramètre une liste de deux nombres, nommée point, qui représente les coordonnées d'un point du plan
-- écrire une fonction `compare` qui prend en paramètre deux listes p1 et p2 représentant deux points P1 et P2 et qui renvoie -1 si P1 est plus proche de O que P2, 1 si P2 est plus proche de O que P1, et 0 si les deux points sont équidistants
-- écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant le tri par insertion ; ce sera l'occasion de le retrouver par soi-même.
-
-```python
-def tri_insertion(t):
-    """
-    param : t : list
-    return : list
-    >>> tri_insertion([43,12,18,31,10])
-    [10, 12, 18, 31, 43]
-    """ 
-```
+- écrire une fonction `distance` qui prend en paramètre deux nombres `x` et `y` qui représentent les coordonnées abscisse et ordonnée d'un point du plan pour renvoyer la distance de ce point à l'origine O du repère
 
 ```python
 def distance(x,y):
@@ -144,6 +169,8 @@ def distance(x,y):
     5.0
     """
 ```
+
+- écrire une fonction `compare` qui prend en paramètre deux tuples p1 et p2 représentant deux points P1 et P2 et qui renvoie -1 si P1 est plus proche de O que P2, 1 si P2 est plus proche de O que P1, et 0 si les deux points sont équidistants
 
 ```python
 def compare(p1,p2):
@@ -163,6 +190,43 @@ def compare(p1,p2):
     """
 ```
 
+- écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant la fonction `tri_insertion`; ce sera l'occasion de la retrouver par soi-même.
+
+Rappel : on peut passer par l'écriture d'une fonction intermédiare
+
+```python
+def emplacement(t,indice):
+    """
+    param : t : list
+    return : list
+    >>> emplacement([1, 4, 5, 6, 8],4)
+    [1, 4, 5, 6, 8]
+    """
+```
+
+```python
+def tri_insertion(t):
+    """
+    param : t : list
+    return : list
+    >>> tri_insertion([43, 12, 18, 31, 10])
+    [10, 12, 18, 31, 43]
+    """
+    """
+```
+
+Adaptons ces fonctions à nos besoins :
+
+```python
+def emplacement_point(t,indice):
+    """
+    param : t : list
+    return : list
+    >>> emplacement([(1,0),(4,0),(6,0),(8,0),(5,0)],4)
+    [(1, 0), (4, 0), (5, 0), (6, 0), (8, 0)]
+    """
+```
+
 ```python
 def tri_points(liste):
     """
@@ -174,5 +238,3 @@ def tri_points(liste):
     [(1, 0), (2, 0), (0, 3)]
     """
 ```
-
-
