@@ -187,6 +187,7 @@ Rappel : on peut passer par l'écriture d'une fonction intermédiare
 ```python
 def emplacement(t,indice):
     """
+    place correctement la valeur à l'indice i dans la liste après avoir décalé les autres vers la droite
     param : t : list
     return : list
     >>> emplacement([1, 4, 5, 6, 8],4)
