@@ -126,16 +126,6 @@ def indice_minimum_mot_a_partir_de_indice(t,i):
 ``` 
 
 ```python
-def tri_selection_mot(t):
-    """
-    param : t : list
-    return : list
-    >>> tri_selection_mot(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
-    ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
-    """
-``` 
-
-```python
 def tri_lexicographique(liste):
     """
     Renvoie une liste de mots triée dans l'ordre lexicographique
@@ -211,7 +201,6 @@ def tri_insertion(t):
     return : list
     >>> tri_insertion([43, 12, 18, 31, 10])
     [10, 12, 18, 31, 43]
-    """
     """
 ```
 
