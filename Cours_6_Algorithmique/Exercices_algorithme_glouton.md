@@ -30,7 +30,18 @@ def rendu_monnaie_glouton(somme,pieces):
     [100, 50, 10, 10, 5, 2]
     """
 ```
-Indication : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs (somme-valeur) pour toutes les valeurs dans `pieces` et prendre la valeur minimale parmi les valeurs positives ou nulles. Prendre l'opposé de cette valeur minimale ajouté de la valeur de `somme`, pour récupérer la valeur de la pièce choisie et ajouter cette valeur à la liste `rendu`. Retrancher à somme la valeur de cette pièce et poursuivre le processus aussi longtemps que somme>0.
+Indication : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs (somme-valeur) pour toutes les valeurs dans `pieces` et prendre la valeur minimale parmi les valeurs positives ou nulles. 
+
+On pourra utiliser la méthode `min` des listes.
+
+```python
+>>> liste=[13,29,15,8]
+>>> x=min(liste)
+>>> x
+8
+```
+
+Prendre l'opposé de cette valeur minimale ajouté de la valeur de `somme`, pour récupérer la valeur de la pièce choisie et ajouter cette valeur à la liste `rendu`. Retrancher à somme la valeur de cette pièce et poursuivre le processus aussi longtemps que somme>0.
 
 L'algorithme glouton propose une solution mais attention, celle-ci n'est pas toujours optimale !
 
@@ -74,9 +85,7 @@ On peut donc réaliser une fonction `ks_glouton(lvaleurs, lpoids,P)` capable de 
 
 Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier s'il existe, sinon `None`. 
 
-On pourra utiliser les méthode `index()` et `max()` des listes.   
-
-Exemples :
+On pourra utiliser les méthode `index()` et `max()` des listes.  
 
 ```python
 >>> liste=[13,29,15,8]
