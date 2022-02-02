@@ -34,14 +34,15 @@ Indication : créer une liste vide `rendu` puis réaliser, par compréhension, u
 
 L'algorithme glouton propose une solution mais attention, celle-ci n'est pas toujours optimale !
 
-Pour s'en rendre compte, travailler avec le système impérial qui est l'ancien système monétaire britannique : [30,24,12,6,3,1] et observer ce que donne l'algorithme :
+Pour s'en rendre compte, travailler maintenant avec le système impérial qui est l'ancien système monétaire britannique : [30,24,12,6,3,1] et observer ce que donne l'algorithme :
 
 ```python
 >>> rendu_monnaie_glouton(48,[30,24,12,6,3,1])
 [30, 12, 6]
 ```
 
-L'algorithme glouton propose un rendu de 3 pièces alors que la solution optimale serait bien évidemment le rendu de 2 pièces : [24,24].
+L'algorithme glouton propose un rendu de 3 pièces alors que la solution optimale serait bien évidemment le rendu de 2 pièces : [24,24] !  
+Dorénavant les systèmes monétaires sont canoniques de façon à ce que le rendu de monnaie optimal soit le rendu de monnaie "gloutonien".
 
 
 2. Le problème du sac à dos
@@ -71,21 +72,30 @@ Rappel de l'algorithme glouton : cet algorithme ne donne pas forcèment le résu
 
 On peut donc réaliser une fonction `ks_glouton(lvaleurs, lpoids,P)` capable de nous donner la liste des indices des objets en suivant l'algortithme glouton.
 
-Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier.
+Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier, sinon `None`.
+On pourra utiliser les méthode `index()` et `max()` des listes.
 
+```python
+>>> liste=[13,29,15,8]
+>>> x=max(liste)
+>>> x
+29
+>>> liste.index(x)
+1
+```
 
 ```python
 def choix_glouton(lpoids,lvaleurs,P):
     """
     : return : renvoie l'indice de l'objet
-    * de poids < limite P
+    * de poids <= limite P
     * de plus grande valeur
     * qui n'est pas encore dans le sac
     s'il existe
     sinon renvoyez none
     :CU: 
     - len(lvaleurs) == len(lpoids) 
-    - lpoids est triée par ordre croissant
+    - lpoids est triée par ordre croissant de poids
     >>> choix_glouton(lpoids,lvaleurs,15)
     4
     >>> choix_glouton(lpoids,lvaleurs,6)
@@ -93,7 +103,9 @@ def choix_glouton(lpoids,lvaleurs,P):
     """ 
 ```
 
-On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton` ; pour ne pas reprendre le même poids, on donne la valeur infinie au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.
+On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton`.  
+De plus, pour ne pas reprendre le même poids, on donne la valeur infinie au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.   
+Dans la fonction `ks_glouton`, on introduira une variale `poids_disponible`.
 
 
 ```python            
