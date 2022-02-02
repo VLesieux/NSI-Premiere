@@ -864,7 +864,8 @@ On retiendra que la stratégie gloutonne procède par une suite de choix en sél
 Par exemple, la meilleure façon de rendre 7 euros est de rendre un billet de cinq et une pièce de deux, même si d'autres façons existent (rendre 7 pièces de un euro, par exemple). 
 Pour certains systèmes de monnaie dits canoniques, l'algorithme glouton est optimal, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — ce tant qu'il reste quelque chose à rendre. C'est la méthode employée en pratique, ce qui se justifie car la quasi-totalité des systèmes ayant cours dans le monde sont canoniques. 
 
-<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets prendre ?  
+<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. S'il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
+
 L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis à recommencer en prenant parmi les objets de poids P-P<sub>1</sub> celui de plus grande valeur, et ainsi de suite.
 
 Prenons un exemple : supposons que le sac à dos peut supporter au maximum 15 kg.   
