@@ -74,8 +74,10 @@ On peut donc réaliser une fonction `ks_glouton(lvaleurs, lpoids,P)` capable de 
 
 Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier s'il existe, sinon `None`. 
 
-On pourra utiliser les méthode `index()` et `max()` des listes.
+On pourra utiliser les méthode `index()` et `max()` des listes.   
+
 Exemples :
+
 ```python
 >>> liste=[13,29,15,8]
 >>> x=max(liste)
