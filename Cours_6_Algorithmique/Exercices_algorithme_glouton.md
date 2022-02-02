@@ -8,7 +8,7 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
-1. Le rendu de monnaie
+**1. Le rendu de monnaie**
 
 Contexte du problème : on suppose que l'on dispose d'un nombre illimité de pièces de 2cts, 5cts, 10cts, 50cts et 1 euro(100 cts).
 Le problème est le suivant : " comment rendre la monnaie en un minimum de pièces ? ".
@@ -55,8 +55,7 @@ Pour s'en rendre compte, travailler maintenant avec le système impérial qui es
 L'algorithme glouton propose un rendu de 3 pièces alors que la solution optimale serait bien évidemment le rendu de 2 pièces : [24,24] !  
 Dorénavant les systèmes monétaires sont canoniques de façon à ce que le rendu de monnaie optimal soit le rendu de monnaie "gloutonien".
 
-
-2. Le problème du sac à dos
+**2. Le problème du sac à dos**
 
 Contexte du problème : on imagine que l'on cherche à remplir un sac à dos avec des objets de valeur en maximisant la valeur totale du contenu du sac. Chaque objet ne peut être pris qu'une seule fois et possède un poids particulier. La contrainte est de ne pas dépasser un poids maximal P pour le sac.
 
