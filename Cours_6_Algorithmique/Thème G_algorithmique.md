@@ -866,7 +866,7 @@ Pour certains systèmes de monnaie dits canoniques, l'algorithme glouton est opt
 
 <u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. S'il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
 
-L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis à recommencer en prenant parmi les objets de poids P-P<sub>1</sub> celui de plus grande valeur, et ainsi de suite.
+L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis à recommencer en prenant parmi les objets de poids (P-P<sub>1</sub>) celui de plus grande valeur, et ainsi de suite.
 
 Prenons un exemple : supposons que le sac à dos peut supporter au maximum 15 kg.   
 Soit le tableau ci-dessous donnant pour différents objets leur valeur en euro et leur poids en kg.
@@ -909,7 +909,7 @@ Soit le tableau ci-dessous donnant pour différents objets leur valeur en euro e
 </tr>
 </table>
 
-Les objets écrits sous forme de tuples sont introduits dans une liste :
+Les objets décrits sous forme de tuples sont introduits dans une liste :
 
 ```python
 objets=[('Objet1',126,14),('Objet2',32,2),('Objet3',20,5),('Objet4',5,1),('Objet5',18,6),('Objet6',80,8)]
@@ -928,7 +928,7 @@ def rapport(objet):
     return objet[1]/objet[2]#réalise un compromis entre les deux critères précédents
 ```
 
-Nous définissons ensuite une fonction `glouton` qui prend en paramètres une liste d'objets, un poids maximal (celui que peut supporter le sac à dos) et le type de choix utilisé (par valeur, par poids ou par rapport valeur/poids). La première chose à faire est de trier la liste par ordre décroissant. Nous utilisons pour cela la fonction `sorted` avec ses paramètres de critère de classement et d'ordre choisi. Puis nous parcourons la liste triée et ajoutons dans la liste de sortie les noms des objets un par un tant que le poids total ne dépasse pas le poids maximaml du sac. La valeur totale et le poids du sac sont stockés dans deux variables `valeur` et `poids`.
+Nous définissons ensuite une fonction `glouton` qui prend en paramètres une liste d'objets, un poids maximal (celui que peut supporter le sac à dos) et le type de choix utilisé (par valeur, par poids ou par rapport valeur/poids). La première chose à faire est de trier la liste par ordre décroissant. Nous utilisons pour cela la fonction `sorted` avec ses paramètres de critère de classement et d'ordre choisi. Puis nous parcourons la liste triée et ajoutons dans la liste de sortie les noms des objets un par un tant que le poids total ne dépasse pas le poids maximal du sac. La valeur totale et le poids du sac sont stockés dans deux variables `valeur` et `poids`.
 
 ```python
 def glouton(liste, poids_max, choix):
@@ -957,7 +957,7 @@ On obtient les résultats suivants suivant le critère de choix des objets pour 
 (['Objet2', 'Objet6', 'Objet4'], 117)
 ```
 
-On observe que parmi les trois critères le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €.
+On observe que parmi les trois critères de choix proposés, le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €.
 
 Cependant, cette solution n'est pas optimale et une étude exhaustive montrerait que le choix (['Objet 2', 'Objet 3', 'Objet 6'], 132) est le choix optimal !
 On dit que le 'choix glouton' est un choix **localement optimal** mais il n'est pas toujours optimal.
