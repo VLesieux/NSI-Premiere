@@ -845,14 +845,15 @@ def proches_voisins(E,x,k,d):
 
 def d(x,y):
     return abs(x-y)
+```
 
+```python
 #Application
 E=list(range(1000))
 >>> proches_voisins(E,15.2,1,d)
 [15]
 >>> proches_voisins(E,15.2,4,d)
 [16, 17, 14, 15]
-
 ```
 
 ## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_5_Voyageur_de_commerce/TSP.md)
@@ -906,7 +907,12 @@ Soit le tableau ci-dessous donnant pour différents objets leur valeur en euro e
 </tr>
 </table>
 
-Chaque objet sera représenté par une liste, par exemple : ['Objet 1',126,14].  
+Les objets écrits sous forme de tuples sont introduits dans une liste :
+
+```python
+objets=[('Objet1',126,14),('Objet2',32,2),('Objet3',20,5),('Objet4',5,1),('Objet5',18,6),('Objet6',80,8)]
+```
+
 Nous définissons dans un premier temps 3 fonctions chargées de retourner respectivement : la valeur de l'objet, l'inverse du poids de l'objet et le rapport valeur/poids de l'objet.
 
 ```python
@@ -937,22 +943,20 @@ def glouton(liste, poids_max, choix):
             valeur += val
         i +=1
     return reponse,valeur
+```
+On obtient les résultats suivants suivant le critère de choix des objets pour une limite de 15 kg :
 
-print(glouton(objets,15,valeur))
->>>
-(['Objet 1', 'Objet 4'], 131)
-
-print(glouton(objets,15,poids))        
->>>
-(['Objet 4', 'Objet 2', 'Objet 3', 'Objet 5'], 75)
-
-print(glouton(objets,15,rapport))
->>>
-(['Objet 2', 'Objet 6', 'Objet 4'], 117)
+```python
+>>> glouton(objets,15,valeur)
+(['Objet1', 'Objet4'], 131)
+>>> glouton(objets,15,poids)
+(['Objet4', 'Objet2', 'Objet3', 'Objet5'], 75)
+>>> glouton(objets,15,rapport)
+(['Objet2', 'Objet6', 'Objet4'], 117)
 ```
 
-On obtient ainsi la valeur du butin emporté par le voleur en fonction du critère retenu.  
-Le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €. Cependant, cette solution n'est pas optimale et une étude exhaustive montrerait que le choix (['Objet 2', 'Objet 3', 'Objet 6'], 132) est le choix optimal. Le choix glouton est donc un choix localement optimal.
+On observer que le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €. Cependant, cette solution n'est pas optimale et une étude exhaustive montrerait que le choix (['Objet 2', 'Objet 3', 'Objet 6'], 132) est le choix optimal !
+On dit que le 'choix glouton' est un choix **localement optimal**.
 
 
 
