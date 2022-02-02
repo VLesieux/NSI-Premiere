@@ -12,7 +12,7 @@ On se propose d'écrire un algorithme adapté à un espace à une seule dimensio
 
 <img src="assets/plus_proche_voisins.png">
 
-On dispose d'une liste de positions de divers éléments ainsi qu'une liste de classes associées à ces éléments ('T' pour triangle, 'C' pour carré), le rond vert est l'inconnue dont on connaît la position mais dont on cherche à déterminer la classe.
+On dispose d'une liste de positions de divers éléments ainsi qu'une liste de classes associées à ces éléments ('T' pour triangle, 'C' pour carré), le rond vert est l'inconnue dont on connaît la position notée x mais dont on cherche à déterminer la classe.
 
 ```python
 L=[0.5,1.0,2.0,3.7,5.0,6.0,7.0]
@@ -25,7 +25,7 @@ Classes=['T','C','C','T','T','C','C']
 
 On cherche les k plus proches voisins de l'élément rond vert, supposé représenté un élément inconnu, de coordonnée x=3.0.
 
-Écrire une fonction `Kvoisins` qui prend en arguments une liste L de coordonnées, un entier k, et x la position d'un nouvel élément tel que le rond vert et qui renvoie la liste des indices dans L des k plus proches voisins de x.
+Écrire une fonction `Kvoisins` qui prend en arguments une liste L de coordonnées, un entier k, et la position d'un nouvel élément tel que le rond vert et qui renvoie la liste des indices dans L des k plus proches voisins de x.
 
 On sera amené à créer une fonction intermédaire `distance` pour le calcul des distances en utilisant la fonction `abs` qui renvoie la valeur absolue d'un nombre.
 
@@ -86,7 +86,7 @@ def Kvoisins(liste,k,x):
 
 On attribue à notre inconnue la classe qui est la plus rencontrée parmi les k plus proches voisins obtenus précédemment.
 
-On réalise pour cela une fonction `predire_classe` qui admet comme paramètres la liste des positions, la liste des classes, la valeur de k et la position de notre inconnue x.
+On réalise pour cela une fonction `predire_classe` qui admet comme paramètres la liste des positions, la liste des classes, la valeur de k et la position x de notre inconnue.
 
 ```python
 def predire_classe(liste_positions,liste_classes,k,x):
