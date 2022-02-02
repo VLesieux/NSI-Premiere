@@ -70,7 +70,7 @@ Rappel de l'algorithme glouton : cet algorithme ne donne pas forcèment le résu
 
 On peut donc réaliser une fonction `ks_glouton(lvaleurs, lpoids,P)` capable de nous donner la liste des indices des objets en suivant l'algortithme glouton.
 
-Au préalable, on réalise pour une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier.
+Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier.
 
 
 ```python
