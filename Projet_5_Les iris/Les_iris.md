@@ -75,7 +75,7 @@ Les fonctions à compléter sont : `create` ; `distance` ; `caractere_le_plus_co
 
 <u>On lira avec soin les docstring de toutes les fonctions qui sont là pour vous aider et vous permettre de tester votre code par vous-mêmes.</u>
 
-Pour transformer une valeur littérale en nombre à virgule, utiliser `float`.
+Pour transformer une chaîne de caractères en nombre à virgule, utiliser `float`.
 
 N.B : la lecture d'un tableau csv a déjà été vue ici : [traitement de données en table](https://github.com/VLesieux/NSI-Premiere/blob/master/Cours_4_Traitement_donn%C3%A9es_tables/Th%C3%A8me%20C_Traitement%20de%20donn%C3%A9es%20en%20tables.md)
 
