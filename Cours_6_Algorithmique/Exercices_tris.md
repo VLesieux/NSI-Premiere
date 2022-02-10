@@ -120,17 +120,18 @@ def indice_minimum_mot_a_partir_de_indice(t,i):
     Renvoie l'indice de (minimum de la liste à partir de l'indice i)
     param : t : liste
     param : i : int
+    return : int
     >>> indice_minimum_mot_a_partir_de_indice(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'],2)
     4
     """
 ``` 
 
 ```python
-def tri_lexicographique(liste):
+def tri_lexicographique(t):
     """
     Renvoie une liste de mots triée dans l'ordre lexicographique
-    :param : (list)
-    :return: (list) 
+    :param : t : list
+    :return: list
     :Exemple:
     >>> tri_lexicographique(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
     ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
@@ -218,11 +219,11 @@ def emplacement_point(t,indice):
 ```
 
 ```python
-def tri_points(liste):
+def tri_points(t):
     """
     tri la liste des points par distance croissante à l'origine
-    :param : (list)
-    :return: (int)
+    :param : t : list
+    :return: list
     :Exemple:
     >>> tri_points([(2,0), (1,0), (0,3)])
     [(1, 0), (2, 0), (0, 3)]
