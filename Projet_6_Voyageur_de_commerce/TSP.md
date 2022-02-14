@@ -9,7 +9,7 @@ Le problème du TSP sous sa forme la plus classique est le suivant : « Un voyag
 
 Les domaines d’application sont nombreux : problèmes de logistique, de transport aussi bien de marchandises que de personnes, et plus largement toutes sortes de problèmes d’ordonnancement. Certains problèmes rencontrés dans l’industrie se modélisent sous la forme d’un problème de voyageur de commerce, comme l’optimisation de trajectoires de machines outils : comment percer plusieurs points sur une carte électronique le plus vite possible ?
 
-Pour un ensemble de `n` points, il existe au total `n!` chemins c'est-à-dire : `1×2×3....×(n-1)×n` chemins possibles. Le point de départ ne changeant pas la longueur du chemin,
+Pour un ensemble de `n` points, il existe au total `n!` (la factorielle de l'entier naturel n ) chemins c'est-à-dire : `1×2×3....×(n-1)×n` chemins possibles. Le point de départ ne changeant pas la longueur du chemin,
 on peut choisir celui-ci de façon arbitraire, on a ainsi `(n-1)!`
 chemins différents. Enfin, chaque chemin pouvant être parcouru dans
 deux sens et les deux possibilités ayant la même longueur, on peut
@@ -24,11 +24,11 @@ Par exemple, pour `71` villes, le nombre de chemins candidats est 70!/2, supéri
 
 L'objectif de ce TP est de réaliser un algorithme glouton pour résoudre le TSP. 
 
-Pour cela vous avez à votre disposition :
+Pour cela vous avez à votre disposition deux fichiers, à placer dans le même dossier que votre programme python  :
 
 - un jeu de données [exemple.txt](assets/exemple.txt)  contenant les
   coordonnées de différentes villes à raison d'une par ligne sous la
-  forme `nom_de_la_ville latitude longitude`, vous pouvez bien sur
+  forme `nom_de_la_ville latitude longitude`, vous pouvez bien sûr
   l'étendre ou en générer un nouveau avec vos propres villes. 
 
 ```txt
@@ -38,7 +38,7 @@ Bastia	9,434300423	42,66175842
 ...................................
 ```
 
-- un fichier [TSP_biblio.py](assets/TSP_biblio.py) que l'on importera en écrivant `import TSP_biblio` contenant un ensemble de fonctions permettant la lecture des données et la visualisation d'un tour réalisé par le voyageur (ici pour le moment dans l'ordre d'apparition). Voici les principales fonctions et ce qu'elles donnent en sortie.
+- un fichier [TSP_biblio.py](assets/TSP_biblio.py) que l'on importera en écrivant `import TSP_biblio` contenant un ensemble de fonctions permettant la lecture des données et la visualisation d'un tour réalisé par le voyageur (ici pour le moment dans l'ordre d'apparition). Voici les principales fonctions et ce qu'elles donnent en sortie (à voir dans la console de Thonny).
 
     ```python
     def get_tour_fichier(f):
@@ -85,10 +85,13 @@ Bastia	9,434300423	42,66175842
         Trace la tournée réalisée
         : param tour: liste de ville
         """
+>>> TSP_biblio.trace(TSP_biblio.get_tour_fichier('exemple.txt'))
     ```
+    
+Avec cela on doit obtenir par exemple le résultat suivant pour la tournée Lille-Annecy
 ![Tournée Annecy (plus proche voisin)](assets/tournee_Lille.png)
 
-Afin de créer l'algorithme glouton et résoudre le problème du TSP, nous allons réaliser certaines étapes.
+Afin de créer l'algorithme glouton et de résoudre le problème du TSP, nous allons réaliser certaines étapes.
 
 ###### 1. Préalable
 Définir l'heuristique choisie pour la solution optimale locale. En théorie de la complexité des algorithmes, une heuristique est une méthode de calcul qui fournit rapidement une solution réalisable, mais qui n'est pas nécessairement optimale, pour un problème d'optimisation ; on utilise ici l'heuristique gloutonne.
