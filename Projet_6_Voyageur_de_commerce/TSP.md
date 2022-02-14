@@ -85,7 +85,7 @@ Bastia	9,434300423	42,66175842
         Trace la tournée réalisée
         : param tour: liste de ville
         """
->>> TSP_biblio.trace(TSP_biblio.get_tour_fichier('exemple.txt'))
+	>>> TSP_biblio.trace(TSP_biblio.get_tour_fichier('exemple.txt'))
     ```
     
 Avec cela on doit obtenir par exemple le résultat suivant pour la tournée Lille-Annecy
