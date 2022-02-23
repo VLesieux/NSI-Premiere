@@ -82,7 +82,7 @@ Rappel de l'algorithme glouton : cet algorithme ne donne pas forcèment le résu
 
 On peut donc réaliser une fonction `ks_glouton(lvaleurs, lpoids,P)` capable de nous donner la liste des indices des objets en suivant l'algortithme glouton.
 
-Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier s'il existe, sinon `None`. 
+Au préalable, on réalise une fonction `choix_glouton(lpoids,lvaleurs,P)` qui retourne l'indice de l'objet que l'on prend en premier s'il existe (car il y arrivera un moment où on ne pourra plus rien prendre), sinon `None`. 
 
 On pourra utiliser les méthode `index()` et `max()` des listes.  
 
