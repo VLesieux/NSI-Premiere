@@ -114,10 +114,14 @@ def choix_glouton(lpoids,lvaleurs,P):
     """ 
 ```
 
-On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton`.  
-De plus, pour ne pas reprendre le même poids, on donne la valeur infinie au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.   
-Dans la fonction `ks_glouton`, on introduira une variale `poids_disponible`.
+Indications : 
 
+- créer une liste des possibles par rapport à la limite de poids
+
+- créer une liste des valeurs des possibles et déterminer l'indice du maximum pour maximiser la valeur de la prise
+
+On crée maintenant une copie de la liste des poids, car celle-ci sera modifiée, et on réalise autant que possible des  `choix_glouton`.  
+De plus, pour répondre à l'exigence de ne pas reprendre le même poids, on donne la valeur infinie au poids qui a été sélectionné en lui donnant la valeur `math.inf` après avoir importé le module math.   
 
 ```python            
 from copy import deepcopy
@@ -136,6 +140,12 @@ def ks_glouton(lvaleurs, lpoids,P) :
     [2, 0]
     """ 
 ```
+
+Indications : 
+
+- Introduire une variale `poids_disponible` initialement égale à `P`
+- Réaliser le `choix_glouton` aussi longtemps que cette variale est strictement positive et ajouter l'indice du choix dans la liste des résultats si le résultat du choix glouton n'est pas None
+
 
 On définira également une fonction `interet_glouton` pour calculer le gain remporté dans le sac lorqu'on utilise cet algorithme glouton.
 
