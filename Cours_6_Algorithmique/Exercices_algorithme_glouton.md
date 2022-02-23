@@ -30,7 +30,7 @@ def rendu_monnaie_glouton(somme,pieces):
     [100, 50, 10, 10, 5, 2]
     """
 ```
-Indication : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs (somme-valeur) pour toutes les valeurs dans `pieces` et prendre la valeur minimale parmi les valeurs positives ou nulles. 
+**Indication** : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs des différences (somme-valeur) pour toutes les valeurs dans `pieces` et prendre la valeur minimale parmi les valeurs positives ou nulles. 
 
 On pourra utiliser la méthode `min` des listes.
 
@@ -114,7 +114,7 @@ def choix_glouton(lpoids,lvaleurs,P):
     """ 
 ```
 
-Indications : 
+**Indications** : 
 
 - créer une liste des possibles par rapport à la limite de poids
 
@@ -141,7 +141,7 @@ def ks_glouton(lvaleurs, lpoids,P) :
     """ 
 ```
 
-Indications : 
+**Indications** : 
 
 - Introduire une variale `poids_disponible` initialement égale à `P`
 - Réaliser le `choix_glouton` aussi longtemps que cette variale est strictement positive et ajouter l'indice du choix dans la liste des résultats si le résultat du choix glouton n'est pas None
