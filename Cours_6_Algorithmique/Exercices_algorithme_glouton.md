@@ -30,7 +30,7 @@ def rendu_monnaie_glouton(somme,pieces):
     [100, 50, 10, 10, 5, 2]
     """
 ```
-**Indication** : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs des différences (somme-valeur) pour toutes les valeurs dans `pieces` et prendre la valeur minimale parmi les valeurs positives ou nulles. 
+**Indications** : créer une liste vide `rendu` puis réaliser, par compréhension, une liste `difference` contenant les valeurs des différences (somme-valeur) pour toutes les valeurs dans `pieces` et prendre la valeur minimale parmi les valeurs positives ou nulles. 
 
 On pourra utiliser la méthode `min` des listes.
 
