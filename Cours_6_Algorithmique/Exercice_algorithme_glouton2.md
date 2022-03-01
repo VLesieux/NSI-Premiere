@@ -17,6 +17,7 @@ On souhaite sélectionner un nombre maximal d'activités toutes compatibles entr
 1. On se donne des activités avec les créneaux suivant : 8h-13h, 12h-17h, 9h-11h, 14h-16h, 11h-12h. Quel est le nombre maximal d'activités que l'on peut concilier sur une journée ?
 2. On propose une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée ; choisir l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie à la situation précédente.
 3. On suppose avoir n activités numérotées de 0 à n-1 et deux tableaux `debuts` et `fins` de taille n tels que `debut[i]` et `fin[i]` correspondent respectivement à l'heure du début et à l'heure de fin de l'activité numéro i.  
+
 a. Écrire une fonction `prochaine(horaires_debut,horaires_fin,h)` qui sélectionne parmi les activités dont l'heure de début n'est pas antérieures à `h` une activité s'arrêtant le plus tôt. On demandera également à la fonction de renvoyer `None` s'il n'y a aucun créneau compatible. 
 
 ```Python
