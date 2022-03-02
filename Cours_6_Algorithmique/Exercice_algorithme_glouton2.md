@@ -32,8 +32,7 @@ activites=['A','B','C','D','E']
 
 def prochaine(horaires_debut,horaires_fin,h):
     """
-    Renvoie l'indice de la séance qui commence après h
-    et qui se termine le plus tôt dans la journée
+    Renvoie l'indice de la séance qui commence après h et qui se termine le plus tôt dans la journée
     param : horaires_debut : list
     param : horaires_fin : list
     return : int
