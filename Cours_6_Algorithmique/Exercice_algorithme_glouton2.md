@@ -18,7 +18,7 @@ On souhaite sélectionner un nombre maximal d'activités toutes compatibles entr
 
 <img width=500px height=300px src="assets/schema.png">
 
-2. On se propose d'appliquer une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée ; pour cela on choisit l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie pour donner la liste des activités choisies.
+2. On se propose d'appliquer une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée ; pour cela on choisit l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie pour donner la liste des activités choisies pour une journée débutant à 8h et finissant à 18h.
 
 
 3. On suppose avoir n activités numérotées de 0 à n-1 et deux tableaux `debuts` et `fins` de taille n tels que `debut[i]` et `fin[i]` correspondent respectivement à l'heure du début et à l'heure de fin de l'activité numéro i.  
