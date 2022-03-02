@@ -16,7 +16,7 @@ On souhaite sélectionner un nombre maximal d'activités toutes compatibles entr
 
 1. On se donne des activités 'A','B','C','D','E' avec les créneaux suivant : 8h-13h, 12h-17h, 9h-11h, 14h-16h, 11h-12h. Quel est le nombre maximal d'activités que l'on peut concilier sur une journée ?
 
-<img src="assets/schema.png">
+<img width=500px height=200px src="assets/schema.png">
 
 2. On se propose d'appliquer une stratégie gloutonne pour sélectionner des activités en commençant par le début de journée ; pour cela on choisit l'activité dont l'heure de fin arrive le plus tôt (parmi les activités dont l'heure de début est bien postérieure aux créneaux des activités déjà choisies). Appliquer cette stratégie pour donner la liste des activités choisies.
 
