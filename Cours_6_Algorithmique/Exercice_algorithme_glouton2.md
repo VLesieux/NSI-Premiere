@@ -54,5 +54,7 @@ def selection(debut,fin,horaires_debut,horaires_fin):
     return : list
     >>> selection(8,18,debuts,fins)
     ['C', 'E', 'D']
+    >>> selection(11,16,debuts,fins)
+    ['E', 'D']
     """
 ```
