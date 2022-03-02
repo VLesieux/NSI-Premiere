@@ -32,9 +32,7 @@ def creer_pile(Nombre_de_place):
     >>> creer_pile(5)
     [1, None, None, None, None, None]
     """
-    Ma_pile=[None]*(Nombre_de_place+1)#on crée un tableau avec une case de plus
-    Ma_pile[0]=1#on initialise la première case à 1
-    return Ma_pile
+	pass
 
 def empiler(P,x):
     """
@@ -55,25 +53,46 @@ def empiler(P,x):
     [5, 8, 3, 5, 9, 7]
     >>> empiler([5, 8, 3, 5, 9, 7],4)
     'pile pleine'
+    >>> empiler([3, 8, 3, 5, None, None],7)
+    [4, 8, 3, 7, None, None]
     """
     pass
 
 def depiler(P):
     """
-    retire la dernière donnée de P et la retourne si la pile n'est pas vide
+    modifie la valeur dans la case 0 et retourne la pile si elle n'est pas vide
     sinon renvoie 'pile vide'
     param : P : list
-    >>> depiler([5, 8, 3, 5, 9, None])
-    9
+    >>> depiler([4, 8, 3, 5, None, None])
+    [3, 8, 3, 5, None, None]
     >>> depiler([1, None, None, None, None, None])
     'pile vide'    
     """
     pass
-
 ```    
 
 **Application** :
 
-On cherche à réaliser une fonction capable de dire si une expression est erronée ou pas du point de vue du parenthèsage en utilisant une pile.
+On cherche à réaliser une fonction capable de dire si une expression mathématique est erronée ou pas du point de vue du parenthésage en utilisant une pile.
 
+```python 
+def transforme_en_liste(E):
+    """
+    transforme une expression mathématique en liste de parenthèses
+    >>> transforme_en_liste('4*(3+5))')
+    ['(', ')', ')']
+    """
+    pass
 
+def verifier(E):
+
+    """
+    renvoie True si l'expression E est cohérente du point de vue du parenthésage
+    sinon False
+    >>> verifier('4*(3+5))')
+    False
+    >>> verifier('4*(3+(5*7)+9)')
+    True
+    """    
+    pass
+```    
