@@ -46,7 +46,7 @@ Indication :
 ```python 
 def empiler(P,x):
     """
-    insère la donnée x au sommet de la pile P si celle-ci n'est pas pleine
+    insère la donnée x au sommet de la pile P
     sinon renvoie 'pile pleine'
     param : P : list
     param : x : int
@@ -61,8 +61,8 @@ def empiler(P,x):
     [5, 8, 3, 5, 9, None]
     >>> empiler([5, 8, 3, 5, 9, None],7)
     [5, 8, 3, 5, 9, 7]
-    >>> empiler([5, 8, 3, 5, 9, 7],4)
-    'pile pleine'
+    >>> empiler([5, 8, 3, 5, 9, 7],4)#le 4 écrase le 7
+    [5, 8, 3, 5, 9, 4]
     >>> empiler([3, 8, 3, 5, None, None],7)
     [4, 8, 3, 7, None, None]
     """
@@ -71,16 +71,16 @@ def empiler(P,x):
 def depiler(P):
     """
     modifie la valeur dans la case 0 et retourne la pile si elle n'est pas vide
-    sinon renvoie 'pile vide'
     param : P : list
+    return : list ou str
     >>> depiler([4, 8, 3, 5, None, None])
     [3, 8, 3, 5, None, None]
     >>> depiler([1, None, None, None, None, None])
-    'pile vide'   
+    'pile vide'
     >>> depiler([1, ')', None, None, None, None])
-    'pile vide'  
+    'pile vide'
     >>> depiler([1, '(', None, None, None, None])
-    'pile vide'   
+    'pile vide'    
     """
     pass
 ```    
