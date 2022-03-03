@@ -114,6 +114,8 @@ def verifier(E):
     False
     >>> verifier('4*(3+(5*7)+9)')
     True
-    """    
+    >>> verifier('4*(3+((5*7)+9)')
+    False
+    """  
     pass
  ```
