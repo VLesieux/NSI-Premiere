@@ -33,7 +33,15 @@ def creer_pile(Nombre_de_place):
     [1, None, None, None, None, None]
     """
 	pass
+```
+	
+Indication :
+```python
+>>> [None]*5
+[None, None, None, None, None]
+```
 
+```python 
 def empiler(P,x):
     """
     insère la donnée x au sommet de la pile P si celle-ci n'est pas pleine
@@ -73,7 +81,9 @@ def depiler(P):
 
 **Application** :
 
-On cherche à réaliser une fonction capable de dire si une expression mathématique est erronée ou pas du point de vue du parenthésage en utilisant une pile.
+On cherche à réaliser une fonction capable de dire si une expression mathématique est erronée ou non du point de vue du parenthésage en utilisant une pile.
+
+On transforme pour cela à l'aide de `transforme_en_liste(E)` l'équation E en une liste de parenthèses ouvrantes ou fermantes. 
 
 ```python 
 def transforme_en_liste(E):
@@ -83,9 +93,20 @@ def transforme_en_liste(E):
     ['(', ')', ')']
     """
     pass
+```   
+ 
+Puis, dans la fonction `verifier(E)`, on forme une pile pouvant accueillir au maximum tous ces caractères.  
+On parcourt la liste des parenthèses dans l'ordre croissant des indices.  
 
+Lorsqu'on trouve une parenthèse ouvrante, on empile cette parenthèse ouvrante.  
+Lorsqu'on trouve une parenthèse fermante, on dépile si P[0]>1, sinon on empile une parenthèse fermante.
+
+À la fin, si P[0]=1, l'équation est correcte du point de vue du parenthésage, sinon elle est incorrecte.
+
+<img src="assets/schema_pile.png">
+
+ ```python 
 def verifier(E):
-
     """
     renvoie True si l'expression E est cohérente du point de vue du parenthésage
     sinon False
@@ -95,4 +116,4 @@ def verifier(E):
     True
     """    
     pass
-```    
+ ```
