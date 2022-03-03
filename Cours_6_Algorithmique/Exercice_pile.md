@@ -36,10 +36,12 @@ def creer_pile(Nombre_de_place):
 ```
 	
 Indication :
+
 ```python
 >>> [None]*5
 [None, None, None, None, None]
 ```
+
 
 ```python 
 def empiler(P,x):
@@ -74,7 +76,11 @@ def depiler(P):
     >>> depiler([4, 8, 3, 5, None, None])
     [3, 8, 3, 5, None, None]
     >>> depiler([1, None, None, None, None, None])
-    'pile vide'    
+    'pile vide'   
+    >>> depiler([1, ')', None, None, None, None])
+    'pile vide'  
+    >>> depiler([1, '(', None, None, None, None])
+    'pile vide'   
     """
     pass
 ```    
