@@ -797,6 +797,7 @@ print(liste1)
 
 <img src="assets/Temps_tri.png">
 
+Prenons le cas de 40 données, le temps du tri insertion (courbe orange) est de 0.0125 s; dans le cas de 120 données, 3 fois plus de données, le temps devient 0.1125 s, il est 0.1125/0.0125=9=3^2 fois plus long ; on a bien la preuve du coût quadratique de ce tri, à savoir que le coût (le temps nécessaire pour trier) est proportionnel au carré du nombre de données.
 
 ## 4. L'algorithme des k plus proches voisins [Projet : les iris](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_5_Les%20iris/Les_iris.md)
 
