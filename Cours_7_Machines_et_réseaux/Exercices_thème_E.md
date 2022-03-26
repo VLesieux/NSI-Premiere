@@ -32,6 +32,30 @@ Un appareil connecté sur un sous-réseau possède une adresse sous la forme 192
 
 3. Quelle devrait être la forme de son adresse pour que cela convienne à notre souhait ? Donner alors la solution du problème en précisant le nombre de sous-réseaux.
 
+4. On cherche à réaliser un calculateur de masque IPv4 similaire à 
+[celui-ci](https://cric.grenoble.cnrs.fr/Administrateurs/Outils/CalculMasque/)
+
+Compléter le code suivant :
+
+```Python
+def calculateur_masque_IPV4(adresseIP,CIDR):
+    """
+    Renvoie les adresses de la première et de la dernière machine
+    du sous-réseau
+    param : adresseIP : str
+    param : CIDR : int
+    >>> calculateur_masque_IPV4("192.168.1.12",28)
+    ('192.168.1.1', '192.168.1.14')
+    >>> calculateur_masque_IPV4("192.168.1.43",26)
+    ('192.168.1.1', '192.168.1.62')
+    """
+    pass
+    
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
+
 
 
 
