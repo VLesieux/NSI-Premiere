@@ -253,9 +253,6 @@ Il reste 1 allumettes sur la table
 Egalité !!!!
 ```
 
-
-
-
 **Votre solution ayant été validée**, on vous demande de concevoir maintenant un nouveau jeu (tic tac toe) en vous inspirant du jeu Nim.
 
 **Contraintes:**
@@ -295,7 +292,7 @@ Tester son bon fonctionnement avec le doctest.
 
 **_Remarque:_**  _Pour chacune des fonctions demandées, définir les paramètres en entrée et en sortie et réaliser la doctest_
 
-B1.1 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
+3.9 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
@@ -308,7 +305,7 @@ True
 False
 ```
 
-B1.2 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
+3.10 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
@@ -321,7 +318,7 @@ False
 True
 ```
 
-B2.1 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
+3.11 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
@@ -334,7 +331,7 @@ True
 False
 ```
 
-B2.2 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
+3.12 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
@@ -350,7 +347,7 @@ True
 **Faire valider votre travail**
 
 
-B1.3 Écrire la fonction &quot;test\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
+3.13 Écrire la fonction &quot;test\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
 
 ```python
 >>> test_jeu_rempli([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
@@ -361,12 +358,12 @@ True
 
 Tester son bon fonctionnement avec le doctest.
 
-B1.4 Écrire la fonction &quot;action\_joueur&quot; qui a pour résultat le choix de jeu du joueur ; pour cette fonction, le joueur et  le paramètre du jeu sont passés en paramètres.
+3.14 Écrire la fonction &quot;action\_joueur&quot; qui a pour résultat le choix de jeu du joueur ; pour cette fonction, le joueur et  le paramètre du jeu sont passés en paramètres.
 
 Pas de test de fonctionnement de test_validite_choix avec le doctest.
 
 
-B2.3 Écrire la fonction &quot; evolution\_jeu &quot; qui a pour résultat le paramètre du jeu ,  le paramètre du jeu et le choix du joueur sont passés en paramètres. Tester son bon fonctionnement.
+3.15 Écrire la fonction &quot; evolution\_jeu &quot; qui a pour résultat le paramètre du jeu ,  le paramètre du jeu et le choix du joueur sont passés en paramètres. Tester son bon fonctionnement.
 
 ```python
 >>> evolution_jeu(True,[['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']],'1,1')
@@ -376,7 +373,7 @@ True
 
 Tester son bon fonctionnement avec le doctest.
 
-B2.4 Écrire la fonction &quot; aff\_evolution\_jeu&quot; qui affiche le plateau de jeu dont le plateau de jeu est passé en paramètre.
+3.16 Écrire la fonction &quot; aff\_evolution\_jeu&quot; qui affiche le plateau de jeu dont le plateau de jeu est passé en paramètre.
 
 ```python
 >>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
@@ -388,7 +385,7 @@ B2.4 Écrire la fonction &quot; aff\_evolution\_jeu&quot; qui affiche le plateau
 Tester son bon fonctionnement avec le doctest.
 
 
-Q3.9 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
+3.17 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
 
 ```python
 >>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
