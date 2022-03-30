@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
 2.2 Faire l&#39;analogie entre les fonctions du jeu de Nim et le déroulement des jeux à deux joueurs si cela est possible.
 
-2.3 D&#39;après l&#39;analyse précédente, peut-on utiliser le jeu tel quel ? Si non expliquer ce qui manque.
+2.3 D&#39;après l&#39;analyse précédente, peut-on utiliser le jeu tel quel ? Si non, expliquer ce qui manque.
 
 On décide de rendre le code opérationnel, pour cela il faut respecter l&#39;ordre de déroulement des jeux à deux joueurs.
 
