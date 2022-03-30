@@ -416,7 +416,7 @@ Pour cela,  on remplacera jeu_nim par jeu dans tout le code et à la place de im
 
 Maintenant que nos deux jeux fonctionnent, il serait intéressant de concevoir un programme permettant le choix de l&#39;un ou de l&#39;autre à l&#39;aide d&#39;une interface commune.
 
-Rappel introduction:  ces jeux partagent un_ **mécanisme de déroulement** _des parties_  qui est **commun**. Ce sont uniquement les règles du jeu qui différent.
+Rappel introduction:  ces jeux partagent un **mécanisme de déroulement** _des parties_  qui est **commun**. Ce sont uniquement les règles du jeu qui différent.
 
 En vous aidant de l&#39;exemple simple suivant, modifier le programme principal du projet 8 afin que celui-ci propose, au lancement, un menu donnant le choix entre le jeu Nim ou le jeu Tic-tac-toe.
 
