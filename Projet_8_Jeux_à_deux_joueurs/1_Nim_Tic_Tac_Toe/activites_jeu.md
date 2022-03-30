@@ -10,15 +10,16 @@ Ces jeux partagent un mécanisme de déroulement des parties qui est commun. Ce 
 
 1. Installer le jeu, c&#39;est-à-dire créer la _situation courante_ initiale.
 2. Déterminer le premier _joueur courant_.
-3. Si le jeu n&#39;est pas fini
+3. **Si le jeu n&#39;est pas fini**
   - si le _joueur courant_ peut jouer dans la _situation courante_, 
      - le _joueur courant_ joue, c&#39;est-à-dire qu&#39;il choisit un coup possible parmi les coups autorisés dans la _situation courante_ du jeu. Chaque coup de jeu amène le jeu dans une nouvelle situation. Donc choisir un coup de jeu (= jouer) revient à choisir la prochaine _situation courante_ parmi toutes celles possibles.
      - mettre à jour la _situation courante_ suite au choix du joueur
+     - afficher celle-ci
   - sinon
      - ne rien faire (la _situation courante_ ne change pas)
      - l&#39;autre joueur devient le _joueur courant_
   - recommencer en 3.
-4. Sinon le jeu est fini, afficher le résultat (le joueur vainqueur ou partie nulle).
+4. Le jeu est fini, afficher le résultat de la partie : le nom du joueur vainqueur ou partie nulle.
 
   
 
@@ -146,12 +147,11 @@ if __name__ == '__main__':
 
 ```
 
-2.1 Combien de fonctions composent le jeu de Nim ? Donner, par écrit, leurs noms et leurs rôles, indiquer les paramètres retournés ainsi que leur type.
+2.1 Combien de fonctions composent le jeu de Nim ? Donner, par écrit, leurs noms et leurs rôles, indiquer les paramètres retournés ainsi que leur type (bool,int,str..).
 
 2.2 Faire l&#39;analogie entre les fonctions du jeu de Nim et le déroulement des jeux à deux joueurs si cela est possible.
 
-2.3 D&#39;après l&#39;analyse précédente, peut-on utiliser le jeu ? Si non expliquer pourquoi.
-
+2.3 D&#39;après l&#39;analyse précédente, peut-on utiliser le jeu tel quel ? Si non expliquer ce qui manque.
 
 On décide de rendre le code opérationnel, pour cela il faut respecter l&#39;ordre de déroulement des jeux à deux joueurs.
 
@@ -197,13 +197,13 @@ jeu_nim.aff_evolution_jeu(param_jeu)    #Affichage de l'état du jeu
 
 fini=False  #Initialisation de la situation du jeu
 
-while not fini: # Début de la partie 3 de l'introduction (si le jeu n'est pas fini) du déroulement des jeux à deux joueurs
+while not fini: # Voir le point 3 de l'introduction : si le jeu n'est pas fini
 
 ##############################
 
 Cette partie est à compléter : 
 
-5 à 7 lignes de code utilisant les fonctions définies dans jeu_nim.py
+5 à 7 lignes de code utilisant les fonctions définies dans jeu_nim.py, remarquer que certaines fonctions en appellent d'autres.
 
 #################
 
@@ -212,7 +212,7 @@ aff_mess_vainqueur(vainqueur,per_gag)   # jeu fini et affichage du résultat.
 
 
 ```
-Exemple de partie :
+Exemples de partie :
 
 ```python
 Il reste 11 allumettes sur la table
@@ -226,6 +226,35 @@ JOUEUR I : Choisir le nombre d'allumettes à enlever : 3
 Il reste 0 allumettes sur la table
 Le joueur I a gagné
 ```
+```python
+Il reste 11 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 2
+Il reste 9 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 2
+Il reste 7 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 2
+Il reste 5 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 2
+Il reste 3 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 3
+Il reste 0 allumettes sur la table
+Le joueur II a gagné
+```
+```python
+Il reste 11 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 2
+Il reste 9 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 2
+Il reste 7 allumettes sur la table
+JOUEUR II : Choisir le nombre d'allumettes à enlever : 3
+Il reste 4 allumettes sur la table
+JOUEUR I : Choisir le nombre d'allumettes à enlever : 3
+Il reste 1 allumettes sur la table
+Egalité !!!!
+```
+
+
+
 
 **Votre solution ayant été validée**, on vous demande de concevoir maintenant un nouveau jeu (tic tac toe) en vous inspirant du jeu Nim.
 
