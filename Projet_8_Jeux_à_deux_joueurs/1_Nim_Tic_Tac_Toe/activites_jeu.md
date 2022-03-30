@@ -295,8 +295,6 @@ Tester son bon fonctionnement avec le doctest.
 
 **_Remarque:_**  _Pour chacune des fonctions demandées, définir les paramètres en entrée et en sortie et réaliser la doctest_
 
-**Travail du binôme 1:**
-
 B1.1 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
@@ -322,8 +320,6 @@ False
 >>> test_diagonale1([['-', 'X', '0'], ['0', '0', 'X'], ['0', '-', '0']])
 True
 ```
-
-**Travail du binôme 2:**
 
 B2.1 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
@@ -353,7 +349,6 @@ True
 
 **Faire valider votre travail**
 
-**Travail du binôme 1:**
 
 B1.3 Écrire la fonction &quot;test\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
 
@@ -370,7 +365,6 @@ B1.4 Écrire la fonction &quot;action\_joueur&quot; qui a pour résultat le choi
 
 Pas de test de fonctionnement de test_validite_choix avec le doctest.
 
-**Travail du binôme 2:**
 
 B2.3 Écrire la fonction &quot; evolution\_jeu &quot; qui a pour résultat le paramètre du jeu ,  le paramètre du jeu et le choix du joueur sont passés en paramètres. Tester son bon fonctionnement.
 
@@ -393,7 +387,6 @@ B2.4 Écrire la fonction &quot; aff\_evolution\_jeu&quot; qui affiche le plateau
 
 Tester son bon fonctionnement avec le doctest.
 
-**Travail en binôme:**
 
 Q3.9 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
 
