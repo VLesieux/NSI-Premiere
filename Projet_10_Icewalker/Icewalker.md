@@ -4,7 +4,7 @@ Projet Icewalker
 ## Préalable
 
 Consulter le cours suivant sur la 
-[programmation objet](assets/Le_modèle_objet.md)
+[programmation objet](assets/Le_modele_objet.md)
 
 ## I. Présentation du jeu
 
