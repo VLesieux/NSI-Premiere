@@ -529,6 +529,8 @@ Nous allons à présent modifier notre module `othello` afin de pourvoir jouer c
 a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`. L'ordinateur devient JOUEUR_NOIR et joue un aléatoirement un coup parmi les coups possibles.
 On rappelle que `random.randint(a,b)` tire aléatoirement un nombre entier entre a compris et b compris.
 
+Indication :  compléter une liste de coups_possibles et choisir aléatoirement dans cette liste.
+
 Exemple de partie jouée contre l'ordinateur :
 
 ```python
@@ -564,7 +566,7 @@ Au JOUEUR_NOIR de jouer, donner la case choisie au format x,y : 1,6
 8 · ■ ■ ■ ■ ■ ■ ■ 
 ```
 
-b) L'algorithme du min-max permet d'améliorer la qualité du jeu contre l'ordinateur qui va être capable d'évaluer les coups pour choisir le meilleur coup à jouer selon des critères d'évaluation que l'on va spécifier ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
+b) L'algorithme du min-max permet d'améliorer considérablement la qualité du jeu contre l'ordinateur qui va être capable d'évaluer les coups pour choisir le meilleur coup à jouer selon des critères d'évaluation que l'on va spécifier ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
 
 
 ```python
@@ -624,17 +626,17 @@ def creer_liste_coups_possibles(config, joueur):
 Nous allons maintenant créer la fonction `creer_liste_configs_suivantes(config, joueur)` qui renvoie une liste de configurations à partir de la liste des coups possibles obtenus par la fonction précédente.
 
 **Attention** : Pour éviter la modification de la configuration courante, il nous faudra faire au préalable une copie de la configuration. Pour cela, on importe le module copy : `import copy`. En écrivant `copie=copy.deepcopy(config)`, on réalise une copie profonde de `config`.
+
 ```python
 def creer_liste_configs_suivantes(config, joueur):
     '''
     Fonction INTERNE qui prend en paramètre la configuration du jeu et
-    le joueur courant. Elle retourne des configurations représentant les 		 coups futur.
+    le joueur courant. Elle retourne les configurations possibles futures.
     param : config (liste) configuration du jeu
     param : joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
     return: liste_configs_suivantes (liste) liste de configurations futures
     '''
 ```
-
 
 On peut expérimenter cette fonction :
 
