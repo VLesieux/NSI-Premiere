@@ -1,4 +1,4 @@
-# Jeux à deux joueurs : jeu d'Othello
+# Jeux à deux joueurs : jeux d'Othello et de Puissance 4
 
 ## Les jeux à deux joueurs
 
@@ -766,4 +766,83 @@ def puissance(a,b):
         return a*puissance(a,b-1)
 ```
 
+## Troisième Partie
 
+Sur le même modèle, réaliser un jeu de Puissance 4.
+
+Exemple de partie contre l'ordinateur :
+
+```python
+
+1. Jeu contre un humain 2. Jeu contre l'ordinateur : 2
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+A vous de jouer, donnez la colonne choisie : 2
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · ■ · · · · · 
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  □ ■ · · · · · 
+A vous de jouer, donnez la colonne choisie : 3
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  □ ■ ■ · · · · 
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  □ · · · · · · 
+  □ ■ ■ · · · · 
+A vous de jouer, donnez la colonne choisie : 3
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  □ · ■ · · · · 
+  □ ■ ■ · · · · 
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  □ · · · · · · 
+  □ · ■ · · · · 
+  □ ■ ■ · · · · 
+A vous de jouer, donnez la colonne choisie : 4
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  · · · · · · · 
+  □ · · · · · · 
+  □ · ■ · · · · 
+  □ ■ ■ ■ · · · 
+  1 2 3 4 5 6 7
+  · · · · · · · 
+  · · · · · · · 
+  □ · · · · · · 
+  □ · · · · · · 
+  □ · ■ · · · · 
+  □ ■ ■ ■ · · · 
+====================
+Le gagnant est JOUEUR_BLANC
+====================
+```
