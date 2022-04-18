@@ -87,7 +87,7 @@ Si un joueur ne possède aucun coup permettant le retournement de pions adverses
 
 Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm) pour plus d'informations sur les règles du jeu
 
-## Programmation du jeu
+## Première Partie
 
 Bien valider les doctests donnés pour chaque fonction, étapes après étapes, pour pouvoir aller jusqu'au bout du projet.
 
@@ -146,7 +146,7 @@ def afficher_config(configuration):
     """
     : Affiche la situation courante du jeu
     : param : list
-    : return : strg
+    : return : None
     >>> afficher_config(creer_config_init())
       1 2 3 4 5 6 7 8
     1 · · · · · · · · 
@@ -519,6 +519,8 @@ def afficher_fin(config, joueur):
     ====================
     '''
 ```
+
+## Deuxième Partie
 
 #### 5) Amélioration du jeu : l'algorithme du min-max
 
