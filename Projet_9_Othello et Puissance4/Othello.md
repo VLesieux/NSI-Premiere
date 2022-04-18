@@ -1,4 +1,4 @@
-# Jeux à deux joueurs : jeux d'Othello et de Puissance 4
+# Jeux à deux joueurs : Othello et Puissance 4
 
 ## Les jeux à deux joueurs
 
