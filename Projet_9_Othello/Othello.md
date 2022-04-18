@@ -254,14 +254,6 @@ On rappelle que le pion qui se trouve en (x,y) : x axe horizontal, y axe vertica
 
 Indication : une idée peut consister à construire une liste que l'on agrandit aussi longtemps que l'on rencontre la couleur du camp opposé à joueur quand on se dirige dans la direction donnée ; le voisin du dernier élément de cette liste dans cette direction devra être de la même couleur que joueur.
 
-Pour éviter les erreurs d'index, on peut utiliser :
-
-```python
-    try:
-    except IndexError:
-        pass
-```
-
 * Réaliser une fonction `est_coup_possible` qui, prend en paramètre la configuration du jeu et le joueur courant. Cette fonction renvoie vrai si le joueur courant peut jouer et faux dans le cas contraire:
 
 ```python
