@@ -55,7 +55,7 @@ if __name__ == "__main__":
 
 ## Travail à réaliser
 
-Il faut mettre en œuvre un module Othello.py qui permette:
+Il s'agit de réaliser le module Othello.py qui permette:
 
 * de jouer aux jeux à deux joueurs avec le jeu d'Othello en utilisant un import du programme `main.py`
 * Il faudra réaliser dans le module `Othello.py` la mise en œuvre du jeu Othello en utilisant les ressources fournies ci-dessous.
