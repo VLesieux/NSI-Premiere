@@ -597,12 +597,13 @@ def min_max(config, profondeur, joueur):
     if jeu.est_jeu_fini(config) or profondeur == 0:
         return jeu.evaluation(config,joueur)*jeu.coef_joueur(joueur)
     else:
-        if joueur == JOUEUR1:
-            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR1)
-            return min([min_max(suivante, profondeur-1, JOUEUR2) for suivante in liste_configs_suivantes])
+        if joueur == JOUEUR_NOIR:
+            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR_NOIR)
+            return min([min_max(suivante, profondeur-1, JOUEUR_BLANC) for suivante in liste_configs_suivantes])
         else:
-            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR2)
-            return max([min_max(suivante, profondeur-1, JOUEUR1) for suivante in liste_configs_suivantes])
+            liste_configs_suivantes = jeu.creer_liste_configs_suivantes(config, JOUEUR_BLANC)
+            return max([min_max(suivante, profondeur-1, JOUEUR_NOIR) for suivante in liste_configs_suivantes])
+
 ```
 
 Cette fonction sera placée dans main.py car elle est utilisable pour n'importe quel jeu à deux joueurs, elle utilise trois fonctions qui seront elles importées de Othello.py.
