@@ -532,36 +532,54 @@ Le principe est de réaliser une liste de coups possibles et de choisir aléatoi
 Exemple de partie jouée contre l'ordinateur :
 
 ```python
-Au JOUEUR_NOIR de jouer, donner la case choisie au format x,y : 2,1
+1. Jeu contre un humain 2. Jeu contre l'ordinateur : 2
   1 2 3 4 5 6 7 8
-1 ■ ■ □ □ ■ □ · □ 
-2 □ ■ □ □ □ ■ □ · 
-3 □ ■ □ □ ■ □ ■ · 
-4 □ □ ■ □ □ ■ □ □ 
-5 □ □ □ □ □ □ □ □ 
-6 · □ · ■ ■ □ · · 
-7 · ■ □ □ □ □ · · 
-8 · ■ ■ ■ ■ ■ ■ ■ 
-Coup choisi par l'ordinateur :  (3, 6)
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · · · · · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+A vous de jouer, donner la case choisie au format x,y : 5,6
   1 2 3 4 5 6 7 8
-1 ■ ■ □ □ ■ □ · □ 
-2 □ ■ □ □ □ ■ □ · 
-3 □ ■ □ □ ■ □ ■ · 
-4 □ □ ■ □ □ ■ □ □ 
-5 □ □ □ □ □ □ □ □ 
-6 · □ □ □ □ □ · · 
-7 · ■ □ □ □ □ · · 
-8 · ■ ■ ■ ■ ■ ■ ■ 
-Au JOUEUR_NOIR de jouer, donner la case choisie au format x,y : 1,6
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ ■ · · · 
+6 · · · · ■ · · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
   1 2 3 4 5 6 7 8
-1 ■ ■ □ □ ■ □ · □ 
-2 □ ■ □ □ □ ■ □ · 
-3 □ ■ □ □ ■ □ ■ · 
-4 □ □ ■ □ □ ■ □ □ 
-5 □ ■ □ □ □ □ □ □ 
-6 ■ □ □ □ □ □ · · 
-7 · ■ □ □ □ □ · · 
-8 · ■ ■ ■ ■ ■ ■ ■ 
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ □ · · · 
+6 · · · · ■ □ · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+A vous de jouer, donner la case choisie au format x,y : 6,5
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · ■ ■ ■ · · 
+6 · · · · ■ □ · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
+  1 2 3 4 5 6 7 8
+1 · · · · · · · · 
+2 · · · · · · · · 
+3 · · · · · · · · 
+4 · · · □ ■ · · · 
+5 · · · □ ■ ■ · · 
+6 · · · □ □ □ · · 
+7 · · · · · · · · 
+8 · · · · · · · · 
 ```
 
 b) L'algorithme du min-max permet d'améliorer considérablement la qualité du jeu contre l'ordinateur qui va être capable d'évaluer les coups pour choisir le meilleur coup à jouer selon des critères d'évaluation que l'on va spécifier ; son principe est explicité ici :  [algorithme du min_max](algo_minmax.md)
