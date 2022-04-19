@@ -499,15 +499,15 @@ def afficher_fin(config, joueur):
     '''
     Fonction qui prend en paramètre la configuration du jeu et
     le joueur courant et qui affiche les résultats du jeu.
-    param : config (liste) configuration du jeu
-    param : joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
-    return: None
-    >>> s = jeu.creer_config_init()
+    -   paramètres: config (liste) configuration du jeu
+                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    -   return: None
+    >>> s = creer_config_init()
     >>> afficher_fin(s,JOUEUR_NOIR)
     ====================
       Egalité 
     ====================
-    >>> s1=jeu.incrementer_config(s,(3,4),JOUEUR_NOIR)
+    >>> s1=incrementer_config(s,(3,4),JOUEUR_NOIR)
     >>> afficher_fin(s1,JOUEUR_NOIR)
     ====================
     Le gagnant est JOUEUR_NOIR
