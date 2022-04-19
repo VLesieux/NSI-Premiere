@@ -439,6 +439,7 @@ Le quatrième test permet au pion blanc placé en (3,5) de retourner deux pions 
 
 Un cinquième test peut s'avérer nécessaire.
 
+**Indication** : Envisager toutes les directions possibles et créer pour chacune d'elle une liste de cases à retourner comme dans la fonction `test_dir_valide`, puis placer la valeur de joueur dans les cases de cette liste.
 
 #### 4) Test du jeu dans le module main.py
 
