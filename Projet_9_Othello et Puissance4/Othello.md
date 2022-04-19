@@ -478,7 +478,7 @@ if __name__ == "__main__":
 * Quelle fonction manque t-il dans le module Othello.py ?
 * Réaliser cette fonction `afficher_fin` qui prend en paramètres la configuration du jeu et le joueur courant, et tester de nouveau votre jeu. La règle du jeu stipule que le vainqueur d'une partie d'Othello est le joueur qui possède le plus de pions de sa couleur à la fin de la partie.
 
-On aura besoin d'une fonction qui comptabilise les pions:
+On aura donc besoin d'une fonction qui comptabilise les pions:
 ```python
 def compte_pions(config, joueur):
     '''
@@ -492,6 +492,7 @@ def compte_pions(config, joueur):
     2
     '''
 ```
+Enfin, il faudra afficher le résultat de la partie.
 
 ```python
 def afficher_fin(config, joueur):
