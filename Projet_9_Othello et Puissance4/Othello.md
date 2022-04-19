@@ -526,7 +526,7 @@ On rappelle que `random.randint(a,b)` tire aléatoirement un nombre entier entre
 
 **Indication** :  modifier le main en ajoutant dans la fonction jouer 
 `choix=input("1. Jeu contre un humain 2. Jeu contre l'ordinateur : ")`.   
-Modifier en conséquence la fonction `coup_joueur(configuration,joueur,choix)` en ajoutant le paramètre `choix`.    
+Modifier en conséquence la fonction `coup_joueur(configuration,joueur,choix)` dans le module Othello en ajoutant le paramètre `choix`.    
 Le principe est de réaliser une liste de coups possibles et de choisir aléatoirement un coup dans cette liste.
 
 Exemple de partie jouée contre l'ordinateur :
