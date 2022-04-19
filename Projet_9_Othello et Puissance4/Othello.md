@@ -326,7 +326,7 @@ Le deuxième test donne False car il n'est pas possible de placer un pion blanc 
 
 Indication : on sera évidemment amené à utiliser la fonction `test_dir_valide(jeu,case,direction,joueur)` réalisée précédemment.
 
-* Réaliser une fonction `coup_joueur` qui prend en paramètre la configuration du jeu et le joueur courant. Elle renvoie une variable `coup ` qui contient les coordonnées de la case où le joueur désire placer son pion. Une vérification de la validité du coup sera faite, si le coup n'est pas valable, le joueur est invité à saisir de nouvelles valeurs au clavier:
+* Réaliser une fonction `coup_joueur` qui prend en paramètre la configuration du jeu et le joueur courant. Elle renvoie une variable `coup ` qui contient les coordonnées de la case où le joueur désire placer son pion. Une vérification de la validité du coup sera faite, si le coup n'est pas valable, le joueur est invité à saisir de nouvelles valeurs au clavier ; il faut aboutir à ce qui est illustré ci-dessous :
 
 ```python
 >>> config = creer_config_init()
