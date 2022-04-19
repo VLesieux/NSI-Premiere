@@ -341,14 +341,7 @@ Au JOUEUR_BLANC de jouer, donner la case choisie au format x,y : 6,4
 
 La fonction attend la saisie des valeurs au clavier.
 
-Indications : quelques difficultés techniques peuvent apparaître ; on rappelle que le résultat d'un input est du type str ; on peut transformer en liste une chaîne de caractères avec deux éléments séparés par une virgule à l'aide de la fonction split, puis on peut transformer un string en valeur numérique avec la fonction int() ; les éléments suivants devraient vous aider.
-
-```python
->>> choix="6,4"
->>> case=(int(choix.split(",")[0]),int(choix.split(",")[1]))
->>> case
-(6, 4)
-```
+Indications : quelques difficultés techniques peuvent apparaître ; on rappelle que le résultat d'un input est du type str ; on peut transformer un string en valeur numérique avec la fonction int().
 
 Il faut pour terminer actualiser la configuration du jeu suite au coup du joueur courant.
 
