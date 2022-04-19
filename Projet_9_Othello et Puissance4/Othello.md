@@ -252,7 +252,7 @@ Remarque : faire attention aux positions affichées sur le tableau de jeu et aux
 
 On rappelle que le pion qui se trouve en (x,y) : x axe horizontal, y axe vertical, est donné par `jeu[y][x]`.
 
-Indication : une idée peut consister à construire une liste que l'on agrandit aussi longtemps que l'on rencontre la couleur du camp opposé à joueur quand on se dirige dans la direction donnée ; le voisin du dernier élément de cette liste dans cette direction devra être de la même couleur que joueur.
+**Indication** : une idée peut consister à construire une liste que l'on agrandit aussi longtemps que l'on rencontre la couleur du camp opposé à joueur quand on se dirige dans la direction donnée ; le voisin du dernier élément de cette liste dans cette direction devra être de la même couleur que joueur.
 
 * Réaliser une fonction `est_coup_possible` qui, prend en paramètre la configuration du jeu et le joueur courant. Cette fonction renvoie vrai si le joueur courant peut jouer et faux dans le cas contraire:
 
@@ -276,7 +276,7 @@ Le premier test renvoie `True` car la configuration est le plateau de début de 
 
 Le deuxième test renvoie `False` car la configuration du jeux est un plateau complètement rempli de pions noir.
 
-*Remarque : l'utilisation de la fonction précédente `test_dir_valide` est requise.*
+**Indication** : l'utilisation de la fonction précédente `test_dir_valide` est requise. Tester cette fonction dans toutes les directions possibles (créer à cette fin une liste `directions`) au niveau des positions non occupées du jeu.
 
 Afin de pouvoir stopper le jeu, il nous faut savoir si les joueurs peuvent encore jouer.
 
