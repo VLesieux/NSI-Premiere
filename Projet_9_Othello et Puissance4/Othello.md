@@ -524,7 +524,10 @@ Nous allons à présent modifier notre module `othello` afin de pourvoir jouer c
 a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`. L'ordinateur devient JOUEUR_NOIR et joue aléatoirement un coup parmi les coups possibles.
 On rappelle que `random.randint(a,b)` tire aléatoirement un nombre entier entre a compris et b compris.
 
-**Indication** :  réaliser une liste de coups_possibles et choisir aléatoirement dans cette liste.
+**Indication** :  modifier le main en ajoutant dans la fonction jouer 
+`choix=input("1. Jeu contre un humain 2. Jeu contre l'ordinateur : ")`
+Modifier la fonction `coup_joueur(configuration,joueur,choix)` en ajoutant le paramètre `choix`.
+Le principe est de réaliser une liste de coups_possibles et de choisir aléatoirement un coup dans cette liste.
 
 Exemple de partie jouée contre l'ordinateur :
 
