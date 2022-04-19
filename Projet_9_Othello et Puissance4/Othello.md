@@ -750,7 +750,7 @@ Il reste à changer la fonction coup_joueur.
 
 Le principe est de créer la liste des coups possibles pour le joueur 2 qui est l'ordinateur. Pour chacun de ces coups possibles, on va incrémenter la configuration du jeu résultant du coup joué et évaluer la situation du jeu à une profondeur donnée. On retient le coup qui obtient l'évaluation maximale selon les critères d'évaluation choisis.
 
-Remarque : on observe que la fonction min_max présente la particularité de s'appeller elle-même ; une telle fonction est dite **récursive** et elle a une portée généralement puissante.  Elles seront étudiées en spécialité Terminale.
+Remarque : on observe que la fonction min_max présente la particularité de s'appeller elle-même ; une telle fonction est dite **récursive** et elle a une portée généralement très efficace.  Cette notion est développée en spécialité Terminale.
 
 Voici deux exemples classiques de fonctions récurcives.
 
