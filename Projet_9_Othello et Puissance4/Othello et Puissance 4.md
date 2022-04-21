@@ -69,7 +69,7 @@ Il s'agit de réaliser le module Othello.py qui permette:
 
 Othello se joue à 2 joueurs, sur un plateau unicolore de 64 cases (8 sur 8), avec des pions bicolores, noirs d'un côté et blancs de l'autre. Le but du jeu est d'avoir plus de pions de sa couleur que l'adversaire à la fin de la partie, celle-ci s'achevant lorsque aucun des deux joueurs ne peut plus jouer de coup légal, généralement lorsque les 64 cases sont occupées. Au début de la partie, la ***situation de départ*** est indiquée ci-dessous et les noirs commencent  :
 
-![jeu](imgs/othello1.png)
+![jeu](assets/othello1.png)
 
 #### Règles:
 
@@ -77,13 +77,13 @@ Chacun son tour, les joueurs vont poser un pion de leur couleur sur une case vid
 
 On peut encadrer des pions adverses dans les huit directions et plusieurs pions peuvent être encadrés dans chaque direction.
 
-![img](imgs/othello2.png)
+![img](assets/othello2.png)
 
 Par exemple, sur l'image ci-dessous, le joueur Noir joue et place un pion noir en c6. Il retourne alors les pions b6, b5, d7, c5 et c4. Il n'y a pas de réaction en chaîne : les pions retournés ne peuvent pas servir à en retourner d'autres lors du même tour de jeu. 
 
 Si un joueur ne possède aucun coup permettant le retournement de pions adverses, celui-ci passe son tour et c'est à l'adversaire de jouer.
 
-<img width="600" height="600" src="imgs/othello3.png">
+<img width="600" height="600" src="assets/othello3.png">
 
 Vous pouvez visiter le lien suivant [http://www.lecomptoirdesjeux.com/regle-reversi.htm](http://www.lecomptoirdesjeux.com/regle-reversi.htm) pour plus d'informations sur les règles du jeu
 
@@ -864,3 +864,15 @@ A vous de jouer, donnez la colonne choisie : 4
 Le gagnant est JOUEUR_BLANC
 ====================
 ```
+
+Réaliser maintenant le projet en utilisant l'interface graphique tkinter :
+
+![jeu](assets/puissance4.png)
+
+Exemples de réalisations avec cette interface :
+
+ [exemple1](https://drive.google.com/file/d/0B6JMjmZv1UAwSzlqTVFOOXdpSXM/view?resourcekey=0-XeWtk0zpQrcsdLa_pSIOtg) ; 
+ [exemple2](http://isnangellier.alwaysdata.net/php/Exercice3_Python.html)
+ 
+ 
+
