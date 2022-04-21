@@ -784,9 +784,9 @@ def puissance(a,b):
         return a*puissance(a,b-1)
 ```
 
-## Troisième Partie
+## Troisième Partie : le Puissance 4
 
-Sur le même modèle, réaliser un jeu de Puissance 4.
+Sur le même modèle que précédemment, réaliser maintenant un jeu de Puissance 4.
 
 Exemple de partie contre l'ordinateur :
 
@@ -865,7 +865,7 @@ Le gagnant est JOUEUR_BLANC
 ====================
 ```
 
-Réaliser maintenant le projet en utilisant l'interface graphique tkinter :
+Utiliser maintenant l'interface graphique tkinter :
 
 ![jeu](assets/puissance4.png)
 
