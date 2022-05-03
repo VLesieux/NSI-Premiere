@@ -612,7 +612,7 @@ Cette fonction sera placée dans le `main` car elle est utilisable pour n'import
 import Othello as jeu
 ```
 
-Les trois fonctions sont  :
+Les trois fonctions nécessaires au fonctionnement du `min_max` sont  :
 
 - `creer_liste_configs_suivantes(config, joueur)` 
 
