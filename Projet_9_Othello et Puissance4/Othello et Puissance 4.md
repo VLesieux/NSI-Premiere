@@ -521,8 +521,8 @@ def afficher_fin(config, joueur):
 
 Nous allons à présent modifier notre module `othello` afin de pourvoir jouer contre l'ordinateur.
 
-a) Proposer une modification de la fonction `coup_joueur`  en utilisant le module `random`. L'ordinateur devient JOUEUR_BLANC et joue aléatoirement un coup parmi les coups possibles.
-On rappelle que `random.randint(a,b)` tire aléatoirement un nombre entier entre a compris et b compris.
+a) Proposer une modification de la fonction `coup_joueur` en utilisant le module `random`. L'ordinateur devient JOUEUR_BLANC et joue aléatoirement un coup parmi les coups possibles ; générer pour cela la liste `coups_possibles`.
+On rappelle que `random.randint(a,b)` tire aléatoirement un nombre entier entre a compris et b compris. La fonction `coup_joueur` admettra un nouveau paramètre `choix` : si `choix`=1, jeu contre un humain, si `choix`=2, jeu contre l'ordinateur.
 
 **Indication** :  modifier également le `main` en ajoutant dans la fonction jouer 
 `choix=input("1. Jeu contre un humain 2. Jeu contre l'ordinateur : ")`.   
