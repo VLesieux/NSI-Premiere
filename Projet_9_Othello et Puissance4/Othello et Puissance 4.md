@@ -606,7 +606,11 @@ def min_max(config, profondeur, joueur):
 
 ```
 
-Cette fonction sera placée dans main.py car elle est utilisable pour n'importe quel jeu à deux joueurs, elle utilise trois fonctions qui seront elles importées de Othello.py.
+Cette fonction sera placée dans le `main` car elle est utilisable pour n'importe quel jeu à deux joueurs, elle utilise trois fonctions qui seront elles importées du module `Othello`.
+
+```python
+import Othello as jeu
+```
 
 Les trois fonctions sont  :
 
