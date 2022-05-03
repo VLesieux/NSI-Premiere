@@ -873,7 +873,7 @@ Utiliser maintenant l'interface graphique tkinter :
 
 ![jeu](assets/puissance4.png)
 
- Voir le [livre de Swinnen Ch8](https://github.com/VLesieux/NSI-Premiere/blob/master/Ressources/apprendre_python3_livre_Swinnen.pdf)
+ Voir le Ch8 du [livre de Swinnen ](https://github.com/VLesieux/NSI-Premiere/blob/master/Ressources/apprendre_python3_livre_Swinnen.pdf) pour l'utilisation de tkinter.
 
 Exemples de réalisations avec cette interface :
 
