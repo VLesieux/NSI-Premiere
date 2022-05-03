@@ -647,7 +647,8 @@ def creer_liste_coups_possibles(config, joueur):
 
 Nous allons maintenant créer la fonction `creer_liste_configs_suivantes(config, joueur)` qui renvoie une liste de configurations à partir de la liste des coups possibles obtenus par la fonction précédente.
 
-**Attention** : Pour éviter la modification de la configuration courante, il nous faudra faire au préalable une copie de la configuration. Pour cela, on importe le module copy : `import copy`. En écrivant `copie=copy.deepcopy(config)`, on réalise une copie profonde de `config`.
+**Attention** : Pour éviter la modification de la configuration courante, il nous faudra faire au préalable une copie de la configuration. Pour cela, on importe le module copy : `import copy`.  
+En écrivant `copie=copy.deepcopy(config)`, on réalise ainsi une copie profonde de `config`.
 
 ```python
 def creer_liste_configs_suivantes(config, joueur):
