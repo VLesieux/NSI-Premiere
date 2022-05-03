@@ -663,7 +663,6 @@ def creer_liste_configs_suivantes(config, joueur):
 
 On peut expérimenter cette fonction :
 
-
 ```python
 >>> s = creer_config_init()    
 >>> for i in creer_liste_configs_suivantes(s, JOUEUR_NOIR):
@@ -708,7 +707,7 @@ On peut expérimenter cette fonction :
 
 ```
 
-Pour la fonction d'évaluation ci-dessous, on attribuera + 300 points aux cases situées sur la première et dernière ligne, ainsi que celles sur la première et dernière colonne. En effet ces positions se révèlent stratégiques car un pion placé dans ces positions ne peut être retourné.
+Pour la fonction `evaluation(config,joueur)`, on attribuera + 300 points aux cases situées sur la première et dernière ligne, ainsi que celles sur la première et dernière colonne. En effet ces positions se révèlent stratégiques car un pion placé dans ces positions ne peut être retourné.
 
 On attribuera -500 points aux cases situées dans les coins : par exemple pour le coin haut gauche : les cases (1,2) ; (2,2); (2,1). En effet, les pions dans ces positions peuvent être aisément retournés.
 
