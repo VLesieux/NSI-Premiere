@@ -790,7 +790,26 @@ def puissance(a,b):
 
 ## Troisième Partie : le Puissance 4
 
-Sur le même modèle que précédemment, réaliser maintenant un jeu de Puissance 4.
+Sur le même modèle que précédemment, avec le même `main` identique pour tous les jeux à deux joueurs, réaliser maintenant un jeu de Puissance 4.
+
+**Indications** : 
+
+Comme le jeu `Othello`, le jeu `Puissance4` comportera les mêmes fonctions ou des fonctions voisines :
+
+- `choisir_premier_joueur()`
+- `creer_config_init()`
+- `afficher_config(configuration)`
+- `incrementer_joueur(joueur)`
+- `test_valide(jeu,colonne,joueur)`
+- `incrementer_config(jeu,colonne,joueur)`
+- `est_jeu_fini(configuration)`
+- `est_jeu_gagnant(configuration,joueur)`
+- `coup_joueur(configuration,joueur,choix)`
+- `afficher_fin(configuration, joueur)`
+- `creer_liste_coups_possibles(config, joueur)`
+- `creer_liste_configs_suivantes(config, joueur)`
+- `evaluation(config,joueur)`
+- `coef_joueur(joueur)`
 
 Exemple de partie contre l'ordinateur :
 
