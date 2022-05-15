@@ -801,15 +801,18 @@ Comme le jeu `Othello`, le jeu `Puissance4` comportera les mêmes fonctions ou d
 - `afficher_config(configuration)`
 - `incrementer_joueur(joueur)`
 - `test_valide(jeu,colonne,joueur)`
-- `incrementer_config(jeu,colonne,joueur)`
+- `test_colonne(configuration,joueur)`
+- `test_ligne(configuration,joueur)`
+- `test_diagonale_up(configuration,joueur)`
+- `test_diagonale_down(configuration,joueur)`
 - `est_jeu_fini(configuration)`
-- `est_jeu_gagnant(configuration,joueur)`
 - `coup_joueur(configuration,joueur,choix)`
-- `afficher_fin(configuration, joueur)`
+- `incrementer_config(jeu,colonne,joueur)`
 - `creer_liste_coups_possibles(config, joueur)`
 - `creer_liste_configs_suivantes(config, joueur)`
 - `evaluation(config,joueur)`
 - `coef_joueur(joueur)`
+- `afficher_fin(configuration, joueur)`
 
 Exemple de partie contre l'ordinateur :
 
