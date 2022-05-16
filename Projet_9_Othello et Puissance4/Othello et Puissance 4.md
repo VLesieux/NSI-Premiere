@@ -797,6 +797,16 @@ Sur le même modèle que précédemment, avec le même `main` identique pour tou
 Comme le jeu `Othello`, le jeu `Puissance4` comportera les mêmes fonctions ou des fonctions voisines :
 
 - `choisir_premier_joueur()`
+```python
+def choisir_premier_joueur():
+    '''
+    retourne le nom du joueur qui débute
+    -   paramètres: None
+    -   return: joueur_courant
+    >>> choisir_premier_joueur()
+    1
+    '''
+```
 - `creer_config_init()`
 - `afficher_config(configuration)`
 - `incrementer_joueur(joueur)`
