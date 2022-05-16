@@ -808,6 +808,17 @@ def choisir_premier_joueur():
     '''
 ```
 - `creer_config_init()`
+```python
+def creer_config_init():
+    """
+    : créer la configuration initiale du jeu
+    : param : rien
+    : return : list
+    Exemple:
+    >>> creer_config_init()
+    [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
+    """
+```
 - `afficher_config(configuration)`
 - `incrementer_joueur(joueur)`
 - `test_valide(jeu,colonne,joueur)`
