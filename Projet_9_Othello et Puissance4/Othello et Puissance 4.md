@@ -820,18 +820,313 @@ def creer_config_init():
     """
 ```
 - `afficher_config(configuration)`
+```python
+def afficher_config(configuration):
+    """
+    : affiche la configuration courante du jeu
+    : param : list
+    : return : str
+    Exemple:
+    >>> afficher_config(creer_config_init())
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    """
+```
 - `incrementer_joueur(joueur)`
+```python
+def incrementer_joueur(joueur):
+    """
+    >>> incrementer_joueur(JOUEUR_NOIR)
+    2
+    >>> incrementer_joueur(JOUEUR_BLANC)
+    1
+    """ 
+```
 - `test_valide(jeu,colonne,joueur)`
+```python
+def test_valide(jeu,colonne,joueur):
+    """
+    : teste la validité d'une colonne
+    : param : configuration : list
+    : param : coordonnees : int
+    : joueur : int
+    : return : bool
+    >>> config = [[0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    >>> test_valide(config,2,JOUEUR_NOIR)
+    False
+    >>> test_valide(config,1,JOUEUR_BLANC)
+    True
+    """
+``` 
 - `test_colonne(configuration,joueur)`
+```python
+def test_colonne(configuration,joueur):
+    """
+    Renvoie True si alignement selon colonne des jetons de joueur sinon False
+    >>> config = [[0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 0, 0, 2, 0, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · □ · · □ · · 
+    · □ · · □ · · 
+    >>> test_colonne(config,JOUEUR_NOIR)
+    True
+    >>> test_colonne(config,JOUEUR_BLANC)
+    False
+    """
+```
 - `test_ligne(configuration,joueur)`
+```python
+def test_ligne(configuration,joueur):
+    """
+    Renvoie True si alignement selon colonne des jetons de joueur sinon False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 0], [0, 1, 2, 2, 2, 2, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ · · ■ · · 
+    · ■ □ □ □ □ · 
+    >>> test_ligne(config,JOUEUR_NOIR)
+    False
+    >>> test_ligne(config,JOUEUR_BLANC)
+    True
+    """
+```
 - `test_diagonale_up(configuration,joueur)`
+```python
+def test_diagonale_up(configuration,joueur):
+    """
+    Renvoie True si alignement selon diagonale montante des jetons de joueur sinon False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 1, 0], [0, 0, 0, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · ■ ■ · 
+    · · · ■ ■ □ · 
+    · ■ ■ □ ■ ■ · 
+    · ■ □ □ □ ■ · 
+    >>> test_diagonale_up(config,JOUEUR_NOIR)
+    True
+    >>> test_diagonale_up(config,JOUEUR_BLANC)
+    False
+    """
+```
 - `test_diagonale_down(configuration,joueur)`
+```python
+def test_diagonale_down(configuration,joueur):
+    """
+    Renvoie True si alignement selon diagonale descendante des jetons de joueur sinon False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 1, 1, 0], [0, 0, 2, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · ■ · ■ ■ · 
+    · · □ ■ ■ □ · 
+    · ■ ■ □ ■ ■ · 
+    · ■ □ □ □ ■ · 
+    >>> test_diagonale_down(config,JOUEUR_NOIR)
+    True
+    >>> test_diagonale_down(config,JOUEUR_BLANC)
+    False
+    """
+```
 - `est_jeu_fini(configuration)`
+```python
+    """
+    : renvoie si le jeu est fini ou non
+    : param : configuration (list) 
+    : return : bool
+    >>> config = creer_config_init()
+    >>> est_jeu_fini(config)
+    False
+    >>> config = [[1 for _ in range(7)] for _ in range(6)]
+    >>> est_jeu_fini(config)
+    True
+    """ 
+```
 - `coup_joueur(configuration,joueur,choix)`
+```python
+def coup_joueur(configuration,joueur,choix):
+    """
+    : renvoie une variable `coup ` qui contient les coordonnées de la case où le joueur désire placer son pion.
+    : param : configuration (list)
+    : param : joueur (str) 
+    : return : tuple
+    """ 
+```
 - `incrementer_config(jeu,colonne,joueur)`
+```python
+def incrementer_config(jeu,colonne,joueur):
+    """
+    : modifie la configuration du jeu en ajoutant le nouveau pion et en retournant le ou les pions de couleur opposée
+    : param : configuration (list)
+    : param : joueur (str) 
+    : return : liste
+    >>> s =[[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 0, 0, 0]]
+    >>> afficher_config(s)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ □ · · · · 
+    >>> s1=incrementer_config(s,2,JOUEUR_NOIR)
+    >>> afficher_config(s1)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ · · · · · 
+    · ■ □ · · · · 
+    >>> afficher_config(incrementer_config(s1,3,JOUEUR_BLANC))
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ □ · · · · 
+    · ■ □ · · · · 
+    >>> afficher_config(incrementer_config(s1,1,JOUEUR_BLANC))
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ □ · · · · 
+    □ ■ □ · · · · 
+    """    
+```
 - `creer_liste_coups_possibles(config, joueur)`
+```python
+def creer_liste_coups_possibles(jeu, joueur):
+    '''
+    Fonction INTERNE qui prend en paramètre la configuration du jeu et
+    le joueur courant. Elle retourne une liste de coups possibles.
+    -   paramètres: config (liste) configuration du jeu
+                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    -   return: liste_coups_suivantes (liste) liste de coups possibles.
+    >>> s = [[0, 0, 2, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 1, 2, 0, 0, 0, 0], [0, 2, 2, 0, 0, 1, 0]]
+    >>> afficher_config(s)
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    · □ □ · · ■ · 
+    >>> creer_liste_coups_possibles(s, JOUEUR_NOIR)
+    [1, 2, 4, 5, 6, 7]
+    '''
+```
 - `creer_liste_configs_suivantes(config, joueur)`
+```python
+def creer_liste_configs_suivantes(config, joueur):
+    '''
+    Fonction INTERNE qui prend en paramètre la configuration du jeu et
+    le joueur courant. Elle retourne des configurations représenttant les coups futur.
+    -   paramètres: config (liste) configuration du jeu
+                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    -   return: liste_configs_suivantes (liste) liste de configurations futur
+    >>> s = [[0, 0, 2, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 1, 2, 0, 0, 0, 0], [0, 2, 2, 0, 0, 1, 0]]
+    >>> afficher_config(s)
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    · □ □ · · ■ · 
+    >>> for i in creer_liste_configs_suivantes(s,1): afficher_config(i)   
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    ■ □ □ · · ■ · 
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    · ■ □ · · · · 
+    · □ □ · · ■ · 
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    · □ □ ■ · ■ · 
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    · □ □ · ■ ■ · 
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · ■ · 
+    · □ □ · · ■ · 
+    1 2 3 4 5 6 7
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · · □ · · · · 
+    · ■ □ · · · · 
+    · □ □ · · ■ ■ 
+    '''
+```
 - `evaluation(config,joueur)`
+```python
+def evaluation(config,joueur):
+    '''
+    Fonction INTERNE qui prend en paramètre la configuration du
+    jeu et le joueur courant. Elle retourne une valeur image
+    de la qualité du coup proposé.
+    -   paramètres: config (liste) configuration du jeu
+                    joueur (int) donne le nom du joueur courant 1 NOIR ou 2 BLANC
+    -   return: Val (int) representatif de la qualité du coup proposé
+    >>> config2 = [[1, 0, 0, 0, 0, 0, 0], [2, 2, 0, 2, 0, 0, 0], [1, 1, 2, 1, 0, 0, 0], [1, 2, 2, 2, 0, 0, 0], [2, 2, 1, 1, 0, 0, 0], [1, 1, 2, 1, 1, 0, 1]]
+    >>> afficher_config(config2)
+    1 2 3 4 5 6 7
+    ■ · · · · · · 
+    □ □ · □ · · · 
+    ■ ■ □ ■ · · · 
+    ■ □ □ □ · · · 
+    □ □ ■ ■ · · · 
+    ■ ■ □ ■ ■ · ■ 
+    >>> evaluation(config2,JOUEUR_NOIR)
+    2400
+    '''
+```
 - `coef_joueur(joueur)`
 - `afficher_fin(configuration, joueur)`
 
