@@ -1213,8 +1213,7 @@ Utiliser maintenant l'interface graphique tkinter :
 
  Voir le Ch8 du [livre de Swinnen ](https://github.com/VLesieux/NSI-Premiere/blob/master/Ressources/apprendre_python3_livre_Swinnen.pdf) pour l'utilisation de tkinter.
 
-Exemples de réalisations avec cette interface :
 
- [exemple1](https://drive.google.com/file/d/0B6JMjmZv1UAwSzlqTVFOOXdpSXM/view?resourcekey=0-XeWtk0zpQrcsdLa_pSIOtg) ; 
- [exemple2](http://isnangellier.alwaysdata.net/php/Exercice3_Python.html)
+
+ [Exemple de réalisation avec cette interface :](https://drive.google.com/file/d/0B6JMjmZv1UAwSzlqTVFOOXdpSXM/view?resourcekey=0-XeWtk0zpQrcsdLa_pSIOtg)
  
