@@ -1213,7 +1213,92 @@ Utiliser maintenant l'interface graphique tkinter :
 
  Voir le Ch8 du [livre de Swinnen ](https://github.com/VLesieux/NSI-Premiere/blob/master/Ressources/apprendre_python3_livre_Swinnen.pdf) pour l'utilisation de tkinter.
 
+Exemple d'application avec interface graphique
 
-
- [Exemple de réalisation avec cette interface :](https://drive.google.com/file/d/0B6JMjmZv1UAwSzlqTVFOOXdpSXM/view?resourcekey=0-XeWtk0zpQrcsdLa_pSIOtg)
+```Python
+valeur_a_atteindre=0
+Solution=[]    
+Suite=[]    
+nombre_essais=0    
+valeur_obtenue=0    
+solution_affiche=""         
+from random import randint         
+def initialise():    
+    global Solution    
+    Solution=[]    
+    global Suite    
+    Suite=[]    
+    global nombre_essais    
+    nombre_essais=0    
+    global valeur_obtenue    
+    valeur_obtenue=0   
+    global valeur_a_atteindre    
+    valeur_a_atteindre=0    
+    for i in range(1,10):#on construit une suite de 9 valeurs tirées au hasard entre 0 et 20     
+        Suite.append(str(randint(0,21)))   
+    print ("Suite de valeurs choisies : ",Suite)    
+    CopieSuite=tuple(Suite)#on réalise une copie-témoin de la suite qui va subir des modifications (suppression de valeurs)      
+    for i in range(1,4):    
+        n=len(Suite)#mesurer la taille de la liste    
+        x=randint(0,n-1)#choisit une valeur d'index au hasard sur une liste de plus en plus courte    
+        Solution.append(Suite[x])#on ajoute cette valeur à liste Solution    
+        valeur_a_atteindre += int(Suite[x])#on calcule au fur et à mesure la valeur à atteindre    
+        Suite.remove(Suite[x])#on supprime la valeur de Suite pour qu'elle ne soit pas à nouveau choisie    
+    global solution_affiche    
+    solution_affiche=';'.join(Solution)    
+    print ("Combinaison à réaliser : ", Solution)    
+    print (valeur_a_atteindre)  
+    L3.config(text="")             
+    for i in range(1, 10):    
+        B = eval("B" + str(i))    
+        B.config(text=str(CopieSuite[i-1]))    
+        B.config(command=lambda x=i, y=CopieSuite[i-1]: ajoute(x, y))    
+        B.config(state=NORMAL)              
+    L1.config(text="Valeur à atteindre en moins de 3 coups : "+str(valeur_a_atteindre))   
+    L2.config(text="Valeur obtenue : "+str(valeur_obtenue))         
+def ajoute(n,valeur):#le premier paramètre est le numéro du bouton, le second est la valeur à ajouter    
+    global valeur_obtenue    
+    global nombre_essais    
+    nombre_essais+=1    
+    valeur_obtenue+=int(valeur)    
+    print (valeur_obtenue)    
+    L2.config(text="Valeur obtenue : "+str(valeur_obtenue))    
+    B=eval("B"+str(n))    
+    B.config(state=DISABLED)    
+    if valeur_obtenue==valeur_a_atteindre:    
+        L3.config(text="Vous avez gagné !")    
+        nombre_essais=-1    
+    if nombre_essais<3 and nombre_essais>0:    
+        L3.config(text="Reste : "+str(3-nombre_essais)+" coups.")    
+    if nombre_essais>=3:    
+        L3.config(text="Perdu. Une solution était : "+' + '.join(Solution))#affiche les éléments de la liste solution avec le séparateur +     
+    
+from tkinter import *    
+fenetre = Tk()#on crée l'objet fenêtre    
+fenetre.geometry('600x200')#la méthode geometry() permet de la redimensionner    
+B1=Button(fenetre)    
+B2=Button(fenetre)    
+B3=Button(fenetre)    
+B4=Button(fenetre)    
+B5=Button(fenetre)    
+B6=Button(fenetre)    
+B7=Button(fenetre)    
+B8=Button(fenetre)    
+B9=Button(fenetre)     
+    
+Replay=Button(fenetre,text="Replay",command=initialise)    
+Replay.place(x=300,y=150)
+    
+for i in range(1,10):    
+    B=eval("B"+str(i))    
+    B.place(x=10+50*i,y=10)    
+L1=Label(fenetre,text="Valeur à atteindre en moins de 3 coups :"+str(valeur_a_atteindre))    
+L1.place(x=10,y=50)    
+L2=Label(fenetre,text="Valeur obtenue : "+str(valeur_obtenue))    
+L2.place(x=10,y=100)    
+L3=Label(fenetre)    
+L3.place(x=10,y=150)    
+initialise()    
+fenetre.mainloop()#la méthode mainloop() permet de lancer un gestionnaire d’événements sur cette fenêtre
+```
  
