@@ -43,7 +43,76 @@ Le jeu se finit lorsque :
 
 1) Modélisation du jeu
 
-a) Dans un fichier grid.py, créez une classe `grid` permettant de modéliser le plateau du jeu.
+a) Dans un fichier grid.py, réaliser la représentation du jeu.
+
+```python
+def placer_un_mur_vertical():
+    pass
+                    
+def placer_un_mur_horizontal():
+    pass
+            
+def contient_un_joueur(joueurs,case):
+    pass
+
+def contient_la_case_finale(objectif,case):
+    pass   
+    
+def recuperer_numero_joueur(joueurs,case):
+    pass
+
+def contient_un_mur_vertical(murs_verticaux,case):
+    pass
+
+def contient_un_mur_horizontal(murs_horizontaux,case):
+    pass
+    
+def representation_plateau(text):
+    """
+    Représente le plateau à partir du texte
+    >>> representation_plateau("datas/grid01.txt")
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+    |1      |           |           |
+    +                               + 
+    |                           |   |
+    +                          -+  -+ 
+    |  2        |                   |
+    +          -+     +-            + 
+    |                 |             |
+    +    -+                      -+ + 
+    |     |        3              | |
+    +-                              + 
+    |             |          0      |
+    + +-          +-                + 
+    | |                     |       |
+    +             +-+-+     +-      + 
+    |             |   |             |
+    +             +   +             + 
+    |             |   |             |
+    +             +-+-+             + 
+    |       |                 |     |
+    +       +-  +-            +-    + 
+    |           |                   |
+    +-                              + 
+    |                   |           |
+    +              -+  -+          -+ 
+    |               |               |
+    +  -+                        -+ + 
+    |   |                         | |
+    +                   +-          + 
+    |      ⬜|           |           |
+    +      -+                       + 
+    |         |             |       |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+    """
+    pass
+    
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+```
+
+b) Créez maintenant une classe `grid` permettant de modéliser le plateau du jeu.
 
 Voici les fonctionnalités de cette classe : 
 
@@ -72,10 +141,10 @@ Voici les fonctionnalités de cette classe :
 
 -   Implémenter la méthode `__str__`, qui permettra d'afficher le plateau du jeu.
 
-b) Dans un fichier grid_square.py, on définit maintenant une classe `case` pour modéliser les cases du plateau. 
+c) Dans un fichier grid_square.py, on définit maintenant une classe `case` pour modéliser les cases du plateau. 
 Une case peut posséder ou non des murs dans différentes directions, contenir ou non un joueur et être ou non la case finale.
 
-c) Dans un fichier main.py, on définit maintenant la classe `IceWalker` permettant de modéliser le jeu. Un jeu est paramétré par un plateau de jeu.
+d) Dans un fichier main.py, on définit maintenant la classe `IceWalker` permettant de modéliser le jeu. Un jeu est paramétré par un plateau de jeu.
 Les fonctionalités principales de cette classe sont :
 
 -	Permettre de jouer au jeu de manière interactive.
@@ -559,6 +628,7 @@ class grid:#nouvelle class pour la grille de jeu
         """
         constructeur de la classe
         """
+        pass
             
     def get_case(self, x, y):
         """
