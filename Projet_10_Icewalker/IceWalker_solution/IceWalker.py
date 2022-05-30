@@ -30,7 +30,7 @@ class Plateau_de_jeu(object):
     def placer_un_mur(self, triplet_infos):
         x,y, direction = int(triplet_infos[0]) , int(triplet_infos[1]) , triplet_infos[2]
         if direction == 'E':
-                self.cases[y][x].mettre_un_mur_est()
+            self.cases[y][x].mettre_un_mur_est()
         if direction == 'S':
             self.cases[y][x].mettre_un_mur_sud()
     
