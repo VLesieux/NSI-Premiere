@@ -7,8 +7,6 @@ def est_valide(i,j,n,m):
     """
     Renvoie True si le couple (i,j) correspond à des coordonnées valides pour un
     labyrinthe de taille (n,m) et False sinon
-    >>> est_valide(5, 2, 10, 10)
-    True
     >>> est_valide(-3, 4, 10, 10)  	False
     """
 	pass
@@ -20,6 +18,15 @@ def depart(lab):
     (5, 0)
     """
 	pass
+
+def nb_cases_vides(lab):
+    """
+    Renvoie le nombre de cases vides du labyrinthe y-compris le départ et l'arrivée
+    >>> nb_cases_vides(lab2)
+    19
+    """
+	pass
+
 
 def voisines(i,j,lab):
     """
