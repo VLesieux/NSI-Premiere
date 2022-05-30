@@ -12,7 +12,7 @@ def est_valide(i,j,n,m):
     >>> est_valide(-3, 4, 10, 10)
     False
     """
-pass
+	pass
 	
 def depart(lab):
     """
@@ -20,7 +20,7 @@ def depart(lab):
     >>> depart(lab1)
     (5, 0)
     """
-pass
+	pass
     
 def nb_cases_vides(lab):
     """
@@ -28,7 +28,7 @@ def nb_cases_vides(lab):
     >>> nb_cases_vides(lab2)
     19
     """
-pass
+	pass
 
 
 def voisines(i,j,lab):
@@ -38,7 +38,7 @@ def voisines(i,j,lab):
     >>> voisines(1, 1, [[1, 1, 1], [4, 0, 0], [1, 0, 1]])
     [(1, 2), (2, 1)]
     """
-pass
+	pass
 
 
 def solution(lab):
@@ -47,7 +47,7 @@ def solution(lab):
     >>> solution(lab2)
     [(1, 0), (1, 1), (1, 2),(1, 3), (1, 4), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5)]
     """
-pass 
+	pass 
 
 
 
