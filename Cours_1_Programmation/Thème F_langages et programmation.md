@@ -339,7 +339,7 @@ def division(a,b):
 4
 ```
 
-2. Une fonction peut être utilisée pour construire une liste par compréhension
+2. Une fonction peut être utilisée pour construire une **liste par compréhension**
 
 ```python
 def f(x):
