@@ -174,7 +174,7 @@ On suit l'évolution des variables s et n en réalisant un tableau :
 </table>
 
 
-2) Une  **bloucle non conditionnelle**  mais **bornée** se fait avec `for i in range(n)` qui produit **n** tours de boucle,  :
+2) Une  **bloucle non conditionnelle**  mais **bornée** se fait avec `for i in range(n)` qui produit **n** tours de boucle car i comme à 0 et s'arrête à n-1,  :
 
 ```Python
 for i in range(3):#i prend 3 valeurs entières successives à partir de 0 jusque 2, 3 étant exclu
