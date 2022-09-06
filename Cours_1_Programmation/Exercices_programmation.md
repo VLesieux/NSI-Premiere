@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
 ## Exercice 1
 
-Soit le code suivant. Déterminer la valeur finale de x. Utiliser un papier et un stylo.
+Soit le code suivant. Déterminer la valeur finale de x. Utiliser un papier et un stylo. 
 
 ```Python
 x=1
@@ -18,6 +18,11 @@ n=5
 while n>1:
     x=x*n
     n=n-1
+```
+Vérifier avec Thonny en ajoutant :
+
+```Python
+print("la valeur de n est ",n," et la valeur de x est ",x)
 ```
 
 ## Exercice 2
