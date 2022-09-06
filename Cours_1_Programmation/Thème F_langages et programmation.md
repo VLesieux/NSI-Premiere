@@ -95,7 +95,18 @@ else:#else est toujours suivi immédiatement de deux points
 
 ## III. Boucles conditionnelles et boucles non conditionnelles
 
-1) Une **bloucle conditionnelle** et **non bornée** se fait avec l'instruction `while`:
+1) Une **bloucle conditionnelle** et **non bornée** se fait avec l'instruction `while`: la boucle s'exécute aussi longtemps que la condition booléenne s'applique.
+
+Dans l'exemple ci-dessous, la condition booléenne est i<3 ; en effet, elle peut être True ou False.
+
+```Python
+>>> i=2
+>>> i<3
+True
+>>> i>5
+False
+```
+
 
 ```Python
 i=0
@@ -198,7 +209,6 @@ def tranche_age(age):
     >>> tranche_age(48)
     'adulte'
     """
-    qualificatif=''
     if age<10:
         qualificatif='enfant'
     elif age>=10 and age<=18:
