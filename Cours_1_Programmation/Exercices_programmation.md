@@ -19,7 +19,7 @@ while n>1:
     x=x*n
     n=n-1
 ```
-Vérifier avec Thonny en ajoutant :
+Vérifier avec Thonny en ajoutant l'instruction :
 
 ```Python
 print("La valeur de n est : ",n,", et la valeur de x est : ",x,".")
