@@ -95,7 +95,7 @@ else:#else est toujours suivi immédiatement de deux points
 
 ## III. Boucles conditionnelles et boucles non conditionnelles
 
-1) Une **bloucle conditionnelle** et **non bornée** se fait avec l'instruction `while`: la boucle s'exécute aussi longtemps que la condition booléenne s'applique.
+1) Une **bloucle conditionnelle** et **non bornée** se fait avec l'instruction `while`: la boucle s'exécute aussi longtemps que la condition booléenne est **True**.
 
 Dans l'exemple ci-dessous, la condition booléenne est i<3 ; en effet, elle peut être True ou False.
 
@@ -112,13 +112,13 @@ False
 i=0
 while i<3:
     print("valeur de i :",i)
-    i+=1
+    i+=1#on dit que i est incrémenté (de 1)
 >>> 
 valeur de i : 0
 valeur de i : 1
 valeur de i : 2
 ```
-<img src="assets/warning.png" alt="drawing" width="30"/> La valeur finale de la variable i est 3 car l'affichage se produit avant l'incrémentation.
+<img src="assets/warning.png" alt="drawing" width="30"/> La valeur finale de la variable i est bien 3 car l'affichage se produit avant l'incrémentation.
 
 > Exemple : Soit le script suivant :
 
