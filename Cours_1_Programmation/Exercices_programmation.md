@@ -22,7 +22,7 @@ while n>1:
 Vérifier avec Thonny en ajoutant :
 
 ```Python
-print("la valeur de n est ",n," et la valeur de x est ",x)
+print("La valeur de n est : ",n,", et la valeur de x est : ",x,".")
 ```
 
 ## Exercice 2
