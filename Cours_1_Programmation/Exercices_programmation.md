@@ -37,7 +37,7 @@ for i in range(2):
         x=x+j
 ```
 Vérifier avec Thonny en ajoutant l'instruction  ```print(x)``` pour afficher la valeur de x.  
-Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas.
+Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas (cela sera vu en cours).
 
 ## Exercice 3
 
