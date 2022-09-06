@@ -57,14 +57,14 @@ Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas.
 13
 ```
 
-2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à 2n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel non nul et renvoie True s'il est parfait et False sinon.
+2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à son double 2*n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel non nul et renvoie True s'il est parfait et False sinon.
 
 ```Python
 >>> est_parfait(6)
 True
 ```
 
-3. Déterminer (sans écrire de fonction spécifique) les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
+3. Déterminer les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
 
 
 ## Exercice 5
