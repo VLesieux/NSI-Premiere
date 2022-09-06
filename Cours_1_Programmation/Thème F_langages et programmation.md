@@ -167,6 +167,10 @@ On suit l'évolution des variables s et n en réalisant un tableau :
 <td>21</td>
 <td>0</td>
 </tr>
+<tr>
+<td>21</td>
+<td>-1</td>
+</tr>
 </table>
 
 
