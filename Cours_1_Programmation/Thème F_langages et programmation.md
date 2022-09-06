@@ -5,7 +5,7 @@
 Quelques éléments d'histoire : le langage Python a été créé en 1989 par le développeur néerlandais Guido van Rossum né en 1956 à Haarlem près d'Amsterdam. Il a fait ses études de mathématiques à l’université d'Amsterdam, obtenant son master en 1982. Il fit partie des développeurs du langage ABC (successeur du BASIC). En 1989, profitant d’une semaine de vacances durant les fêtes de Noël, il utilise son ordinateur personnel pour écrire la première version du langage. Fan de la série télévisée _Monty Python's Flying Circus_ créée par la BBC, il décide avec humour de baptiser ce projet Python. En **1991** sort la première version publique du langage. En 2002, il a reçu le prix pour le développement du logiciel libre décerné par la FSF (Free Sofware Foundation) pour récompenser son travail. Fin 2005, il a été engagé par Google pour travailler sur Python. En décembre 2012, il quitte Google pour rejoindre Dropbox. Le 12 juillet 2018, il annonce son retrait en tant que Benevolent Dictator for Life du projet Python.   
 
 Un programme est composé de **séquences** : des **instructions** exécutées les unes après les autres dans l'ordre où elles sont écrites, de définitions de **variables** et de **fonctions**, d'**instructions conditionnelles**, de **bloucles conditionnelles**  ou **non conditionnelles**, utilisant des **expressions**, en particulier des **appels de fonctions**.   
-Une instruction est une commande que doit exécuter la machine tandis qu'une expression est un valeur renvoyée généralement par une fonction suite à une combinaison d'opérations.
+Une **instruction** est une commande que doit exécuter la machine tandis qu'une **expression** est un valeur renvoyée généralement par une fonction suite à une combinaison d'opérations.
 
 HTML, CSS ne sont pas des langages de programmation mais de description à la différence de C++.
 
@@ -107,17 +107,18 @@ valeur de i : 0
 valeur de i : 1
 valeur de i : 2
 ```
+<img src="assets/warning.png" alt="drawing" width="30"/> La valeur finale de la variable i est 3 car l'affichage se produit avant l'incrémentation.
 
 > Exemple : Soit le script suivant :
 
 ```Python
->>> n = 6
+n = 6
 s = 0
 while n >= 0:
     s = s + n
     n = n -1
->>> s
-21
+print(s)
+print(n)
 ```
 À chaque tour de boucle, la valeur de s augmente de la valeur de n tandis que n décroît d'une unité, et cela aussi longtemps que n reste supérieur ou égal à 0.
 On suit l'évolution des variables s et n en réalisant un tableau : 
@@ -301,10 +302,11 @@ Pour cela, on réalise une liste de 4 éléments ; on fait tirer au sort 100 foi
 Remarque : `return` fait sortir de la boucle dès qu'il y a une erreur.
 
 ```python
+import random##importation du module random
 def test():
     liste=['a','b','c','d']
     for i in range(100):#on réalise une batterie de 100 tests
-        choix=choice(liste)
+        choix=random.choice(liste)
         if choix not in liste:
             return False
     return True
@@ -317,7 +319,7 @@ def test():
 ```python
 def division(a,b):
     """
-    renvoie le quotient et le reste de la division euclidienne de a par b
+    renvoie le quotient et le reste de la division euclidienne de a par b sans utiliser les opérateurs // et %
     : param a : (int)
     : param b : (int)
     : CU : b non nul
