@@ -78,17 +78,20 @@ True
 False
 ```
 
-2. Écrire une fonction _premiers_ qui prend en paramètre un nombre entier et renvoie la liste de tous les nombres premiers inférieurs strictement à ce nombre. 1 n'est pas considéré comme premier.
+2. Écrire une fonction `affichage_premiers` qui prend en paramètre un nombre entier et affiche la liste de tous les nombres premiers inférieurs strictement à ce nombre. 1 n'est pas considéré comme premier.
 
 ```Python
->>> premiers(10)
-[2, 3, 5, 7]
+>>> affichage_premiers(10)
+2
+3
+5
+7
 ```
 
 
 ## Exercice 6
 
-Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random (voir deux manières d'importer la fonction) après avoir recherché sa documentation.
+Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random (utiliser les deux manières d'importer la fonction) après avoir recherché sa documentation.
 
 ## Exercice 7
 
