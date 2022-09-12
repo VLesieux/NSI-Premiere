@@ -91,7 +91,9 @@ False
 
 ## Exercice 6
 
-Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. Utiliser la fonction randint du module random (utiliser les deux manières d'importer la fonction) après avoir recherché sa documentation.
+Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. 
+
+Utiliser la fonction `randint` du module `random` (utiliser les deux manières d'importer la fonction) après avoir recherché sa documentation.
 
 ## Exercice 7
 
@@ -103,6 +105,29 @@ False
 ```
 
 On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot.
+
+On peut en effet parcourir une liste ou un tuple de deux manières différentes.
+
+```Python
+>>> liste=[3,5,9]
+>>> for i in range(len(liste)):
+    print(liste[i])
+    
+3
+5
+9
+
+>>> for element in liste:
+    print(element)
+    
+3
+5
+9
+```
+
+Dans la première formulation, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs d'indice des éléments de la liste.
+
+Dans la seconde formulation, `element` joue le rôle d'un élément constitutif de la liste.
 
 ## Exercice 8
 
