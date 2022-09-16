@@ -181,7 +181,9 @@ On utilise le module Turtle que l'on importera dans sa totalité, on utilise les
 
 ## Exercice 10
 
-Écrire une fonction qui trace, à l'aide de la bibliothèque Matplotlib, la courbe représentative de la fonction f(x) sur un intervalle [a;b] en utilisant n points. On importe au préalable le module pyplot de Matplotlib. Écrire une fonction _trace_ qui prend en arguments deux nombres a et b, une fonction f et un entier n. L'appel _trace(a,b,f,n)_ permet d'obtenir le tracé de la courbe.
+Écrire une fonction `trace` qui trace, à l'aide de la bibliothèque Matplotlib, la courbe représentative de la fonction f(x) sur un intervalle [a;b] en utilisant n points. On importe au préalable le module pyplot de Matplotlib.
+La fonction prend en arguments deux nombres a et b, une fonction f et un entier n.
+L'appel _trace(a,b,f,n)_ permet d'obtenir le tracé de la courbe.
 
 ```Python
 import matplotlib.pyplot as plt
