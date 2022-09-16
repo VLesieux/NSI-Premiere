@@ -148,7 +148,17 @@ TypeError: 'str' object does not support item assignment
 True
 ```
 
-2. Écrire une fonction qui prend en argument deux mots et renvoie True si les deux mots commencent par la même lettre et se terminent également par la même lettre et False sinon.
+Remarque : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0 et de droite à gauche à partir de -1 en décroissant.
+
+```Python
+>>> mot="saucisson"
+>>> mot[7]
+'o'
+>>> mot[-2]
+'o'
+```
+
+2. Écrire une fonction qui prend en argument deux mots et renvoie True si les deux mots commencent par la même lettre et se terminent également par la même lettre, et False sinon.
 
 ```Python
 >>> meme_debut_et_fin("tomba","tonna")
