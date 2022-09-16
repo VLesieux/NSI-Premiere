@@ -141,7 +141,7 @@ TypeError: 'str' object does not support item assignment
 
 ## Exercice 8
 
-1. Écrire une fonction qui prend en argument un mot et renvoie True si le mot commence ou se termine par la même lettre et False sinon.
+1. Écrire une fonction qui prend en argument un mot et renvoie True si le mot commence et se termine par la même lettre et False sinon.
 
 ```Python
 >>> a_meme_debut_et_fin("tout")
@@ -170,7 +170,7 @@ False
 
 ## Exercice 9
 
-On utilise le module Turtle que l'on importera dans sa totalité, on utilise les fonctions forward, left après avoir lu leur documentation.
+On utilise le module `turtle` que l'on importera dans sa totalité, on utilise les fonctions forward, left après avoir lu leur documentation.
 1. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Les carrés sont inclus les uns dans les autres et ont un sommet commun. On définira une fonction _carre_ admettant le paramètre _n_ chargée de représenter un carré de côté _n_.
 
 <img width="400" height="400" src="assets/turtle1.png">
