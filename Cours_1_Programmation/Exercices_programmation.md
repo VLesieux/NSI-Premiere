@@ -97,7 +97,7 @@ Utiliser la fonction `randint` du module `random` (utiliser les deux manières d
 
 ## Exercice 7
 
-Écrire une fonction _double_ qui prend en argument un mot et renvoie le mot obtenu en doublant les unes après les autres chaque lettre du mot. 
+Écrire une fonction _double_ qui prend en argument un mot (une chaîne de caractères) et renvoie le mot obtenu en doublant les unes après les autres chaque lettre du mot. 
 
 ```Python
 >>> double('bon')
@@ -128,6 +128,16 @@ On peut en effet parcourir une liste ou un tuple de deux manières différentes.
 Dans la première formulation, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs d'indice des éléments de la liste.
 
 Dans la seconde formulation, `element` joue le rôle d'un élément constitutif de la liste.
+
+Remarque : une chaîne de caractère est assimilable à un tuple car elle est non mutable.
+
+```Python
+>>> mot="objet"
+>>> mot[1]='c'
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+```
 
 ## Exercice 8
 
