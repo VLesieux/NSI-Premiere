@@ -157,7 +157,7 @@ if __name__ == "__main__":
 
 ```
 
-Dans ce programme, on utilise une _**boucle non bornée**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into) pour voir son déroulement.
+Dans ce programme, on utilise une _**boucle conditionnelle**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into) pour voir son déroulement.
 On observera également l'_**indentation**_ qui a été réalisée pour écrire cette boucle.
 
 ## 4) Programmation de la conversion binaire-décimal
