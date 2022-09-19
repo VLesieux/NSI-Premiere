@@ -56,7 +56,7 @@ renvoyer x0 , x1, . . . , xi.
 [Voir les algorithmes de conversions en Python](assets/Conversions_Thonny.md)
 
 
-[Voir la conversion binaire-décimal en JavaScript](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
+[Voir la conversion binaire-décimal en JavaScript, cf code source](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
 
 > Exemple 1 : Donnons la représentation binaire de 64.
 
@@ -70,9 +70,12 @@ donc il s'agit de 0100 0000.
 
 > Exemple 2 : Comment parmi les quatre propositions suivantes de code binaire 11 1100 1101 ; 11 1110 0101 ; 10 0111 1001; 10 1111 1001 retenir rapidement celle qui correspond à 761 ?
 
-On voit que le bit de poids le plus fort est commun aux quatre propositions : 1 qui représente la puissance de 9 car 2<sup>9</sup>=2x2<sup>8</sup>==2x256=512.
-Ainsi 761=512+249. Puis 249=1x128+121=1x2<sup>7</sup>+1x2<sup>6</sup>+..
-On attend donc le début 1011... seule la dermière proposition est donc cohérente et peut être retenue sans avoir à poursuivre le travail de décomposition.
+On voit que le bit de poids le plus fort, ici 1, est commun aux quatre propositions : il représente la puissance de 9 car 2<sup>9</sup>=2x2<sup>8</sup>==2x256=512.
+De plus : 761=512+249. 
+Puis 249=1x128+121=1x2<sup>7</sup>+1x2<sup>6</sup>+..
+On attend donc le début 1011... 
+Seule la dermière proposition est donc cohérente et peut être retenue sans avoir à poursuivre le travail de décomposition. 
+On vérifie dans la console :
 
 ```python
 >>> bin(761)
