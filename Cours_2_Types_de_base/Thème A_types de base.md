@@ -289,7 +289,8 @@ les entiers relatifs sur 3 bits et qu'on fait 2 + (-1). Cela donne, en
 représentation signe-valeur absolue : 010 + 101 = 111. Or 111 en
 représentation signe-valeur absolue correspond à -3, ce qui est incorrect.
 
-À la place la représentation en complément à 2 est généralement préférée.
+À la place, la représentation en complément à 2 est généralement préférée.
+
 Soit *`n`* l'entier relatif à représenter sur *`p`* bits (avec *`|n| < 2^(p-1)`*):
 - si *`n > 0`* : *`n`* est représenté en binaire sur *`p`* bits.
 - sinon : le complément à 2 de *`-n`* est représenté sur *`p`* bits.
