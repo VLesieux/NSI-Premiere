@@ -311,7 +311,8 @@ n'implique pas forcément de calculer un complément à 2 !)
 > - l'entier le plus négatif :  -2^(p-1) : représenté par le mot binaire : `10...0`
 > - et l'entier le plus positif : 2^(p-1)-1 : représenté par le mot binaire :  `01...1`
 
-Les entiers négatifs ont leur bit de plus haut poids égal à 1
+Les entiers négatifs ont leur bit de plus haut poids égal à 1 
+
 Cas particulier : la valeur -1 est codée par la suite de p bits de valeur 1
 
 ### Exemples
