@@ -39,18 +39,17 @@ binaire.
 Algorithme de conversion d'un entier en base b≥2 :
 
 ```python
-Entrée : b la base de numération, n est un entier naturel.
-Sortie : x0 , x1 ,. . . xp−1 les différents chiffres de l’écriture de n en base b.
+Entrée : b est la base de la numération, n est un entier naturel à convertir dans cette base.
+Sortie : x0 , x1 ,. . . xp−1 les différents chiffres correspondant à l’écriture de n dans la base b.
 
 m := n
 i := 0
 tant que m ≥ b faire
- r := m (mod b)
- m := m ÷ b
+ r := m % b (m modulo b)
+ m := m // b (quotient de la division euclidienne de m par b)
  xi := chiffre correspondant à r
  i := i + 1
 fin tant que
-xi := chiffre correspondant à m
 renvoyer x0 , x1, . . . , xi.
 
 ```
