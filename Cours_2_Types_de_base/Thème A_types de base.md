@@ -20,7 +20,7 @@ Pendant ce temps, la construction de l'**ENIAC** avait commencé ; Eckert et Mau
 
 Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf,
 par usage et commodité, en base 10) :   
-1010<sub>2</sub> = 10 = A<sub>16</sub>
+10 = 1010<sub>2</sub> = A<sub>16</sub>
 
 **Note** : la base par défaut dans du code Python est la base 10. Mais, avec certaines notations, il est
 possible d'utiliser d'autres bases.
