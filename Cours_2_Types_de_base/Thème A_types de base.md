@@ -101,21 +101,19 @@ L'addition se faisant simplement avec des retenues comme en base 10, on peut che
 '0b100100'
 ```
 
-> Exemple 5 : Soit n l'entier positif dont l'écriture binaire est 10001. Recherchons l'écriture binaire de l'entier 2n.
+> Exemple 5 : Soit n l'entier positif dont l'écriture binaire est 10001. Recherchons l'écriture binaire de l'entier 2*n.
 
 Multiplier par 2 un nombre binaire résulte en un décalage vers la gauche de tous les bits. Il s'agit donc de : 100010.
-
-
-
 
 > Exemple 6 : Cherchons le nombre de bits minimum nécessaire pour coder le nombre décimal 4085.
 
 On cherche la puissance de 2 la plus proche, dans le cas présent ce n'est pas évident, mais on connait évidemment 2<sup>8</sup>=256 et à partir de là 2<sup>9</sup>=512 ; 2<sup>10</sup>=1024; 2<sup>11</sup>=2048 et 2<sup>12</sup>=4096; ainsi 4085 possédera 2<sup>11</sup> dans sa décomposition et par conséquent nécessite un minimum de 12 bits puisque le bit de plus petit poids correspond à 2<sup>0</sup>=1.   
-(Une autre méthode hors-programme utilise l'outil mathématique logarithme, logx, fonction réciproque de 10<sup>x</sup>. Ainsi log(10<sup>x</sup>)=x. Sachant que 10<sup>a+b</sup>=10<sup>a</sup>x10<sup>b</sup>, on observe que log(10<sup>a+b</sup>)=log(10<sup>a</sup>x10<sup>b</sup>)=a+b=log(10<sup>a</sup>)+log(10<sup>b</sup>). Ainsi la fonction log(x) possède la propriété intéressante de transformer une somme en produit : log(axb)=log(a)+log(b) et à partir de là on déduit également log(a<sup>n</sup>)=log(axa...xa)=nxlog(a).  
-Nous cherchons ici la puissance de 2 telle que 2<sup>n</sup>=4085. En prenant le logarithme de chaque membre de cette équation, on obtient : log(2<sup>n</sup>)=nxlog(2)=log(4085) d'où n=log(4085)/log(2)=11.996.. avec la calculatrice. C'est plus rapide mais la fonction log s'étudie en terminale).
-
-
-
+(Une autre méthode hors-programme utilise l'outil mathématique logarithme, logx, fonction réciproque de 10<sup>x</sup>.
+Ainsi log(10<sup>x</sup>)=x.
+Sachant que 10<sup>a+b</sup>=10<sup>a</sup>x10<sup>b</sup>, on observe que log(10<sup>a+b</sup>)=log(10<sup>a</sup>x10<sup>b</sup>)=a+b=log(10<sup>a</sup>)+log(10<sup>b</sup>). Ainsi la fonction log(x) possède la propriété intéressante de transformer une somme en produit : log(axb)=log(a)+log(b) et à partir de là on déduit également log(a<sup>n</sup>)=log(axa...xa)=nxlog(a).  
+Nous cherchons ici la puissance de 2 telle que 2<sup>n</sup>=4085. 
+En prenant le logarithme de chaque membre de cette équation, on obtient : log(2<sup>n</sup>)=nxlog(2)=log(4085) d'où n=log(4085)/log(2)=11.996.. avec la calculatrice. 
+C'est plus rapide mais la fonction log s'étudie en terminale).
 
 
 ### Passage du binaire (base 2) à l'hexadécimacal (base 16), et inversement
@@ -235,10 +233,7 @@ ki, Mi, Gi, Ti, etc.
 > 16, 32 ou 64 bits).  Il est possible d’évoquer la représentation des entiers
 > de taille arbitraire de Python.
 
-## Taille d'un entier positif dans l'écriture en base 2
-
-Le fait que l'entier soit relatif ne change finalement pas grand chose. Il
-faut uniquement prendre en compte un bit en plus afin de stocker le signe.
+## a) Taille d'un entier positif dans l'écriture en base 2
 
 En utilisant exactement *`n`* bits **avec un nième bit non nul** on peut représenter les entiers naturels de
 *`2^(n-1)`* (le bit 1 suivi de (n-1) bits 0) à *`(2^n)-1`* (le bit 1 suivi de (n-1) bits 1).  
@@ -266,8 +261,6 @@ Pour répondre à cette question, commençons par le cas simple de la multiplica
 >>> bin(255*255)
 '0b1111111000000001'
 ```
-
-
 > Exemple 3 : On ajoute trois chiffres 0 à droite de l'écriture binaire d'un entier N strictement positif ; montrons que cela revient à donner l'écriture binaire de 8×N.
 
 En effet, pour un entier N qui s'écrit sur n bits :
@@ -285,8 +278,7 @@ Par exemple :
 80
 ```
 
-
-## Écriture en complément à 2 d'un entier négatif
+## b) Écriture en complément à 2 d'un entier négatif
 
 Pour représenter un **nombre signé** on pense intuitivement qu'il suffit d'ajouter
 un bit de signe. Mais cette représentation (appelée *signe-valeur absolue*) ne
@@ -362,8 +354,6 @@ Une autre méthode consiste à calculer 2<sup>8</sup>-255 car 255 est la valeur 
 > Exemple 6 : Recherchons la représentation binaire en complément à deux de l'opposé du nombre dont le code binaire sur 8 bits est 0110 1110.
 
 On prend le complément à deux : 1001 0001 puis on lui ajoute 1 : 1001 0010
-
-
 
 ### Représentation des entiers de taille arbitraire en Python
 
