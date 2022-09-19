@@ -114,7 +114,7 @@ Observons cette image qui représente la démarche à suivre sur papier :
 
 ![Représentation binaire de 755 ](divisions.png)
 
-## 3) Programmation de la conversion décimal-binaire en utilisant l'algorithme
+## 3) Programmation de la conversion d'un nombre décimal dans une base b en utilisant l'algorithme
 
 On se propose de réaliser un processus qui sera répété aussi longtemps que la condition d'arrêt ne sera pas atteinte.  
 
@@ -131,25 +131,26 @@ On utilise la notation _**//**_ pour obtenir le quotient entier d'une division e
 ```
 
 ```python
-def base2(n):
+def conversion_dans_base(n,b):
     """
-    convertit un entier n en base 2
+    convertit un entier n en base b
     param : n: int
+    param : b : int
     return : string
     exemples:
-    >>> base2(3)
+    >>> conversion_dans_base(3,2)
     '11'
-    >>> base2(10)
-    '1010'
+    >>> conversion_dans_base(175,5)
+    '1200'
     """
     if n==0:
         return "0"
-    b=""
+    resultat=""
     while n!=0:
-        r=n%2
-        n=n//2
-        b=str(r)+b#on ajoute le reste à la chaîne
-    return b
+        r=n%b
+        n=n//b
+        resultat=str(r)+resultat#on ajoute le reste à la chaîne à gauche de celle-ci
+    return resultat
 
 if __name__ == "__main__":
     import doctest
@@ -157,10 +158,10 @@ if __name__ == "__main__":
 
 ```
 
-Dans ce programme, on utilise une _**boucle conditionnelle**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into) pour voir son déroulement.
+Dans ce programme, on utilise une _**boucle conditionnelle**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into).
 On observera également l'_**indentation**_ qui a été réalisée pour écrire cette boucle.
 
-## 4) Programmation de la conversion binaire-décimal
+## 4) Programmation de la conversion inverse, de l'écriture dans la base b au décimal
 
 On demande à l'utilisateur d'entrer une chaîne de caractère correspondant au mot binaire.
 On parcourt la chaîne de caractères en traitant les bits les uns après les autres pour obtenir la valeur décimale.
@@ -226,11 +227,25 @@ n
 D'où la proposition de programme pour réaliser la conversion binaire-décimal : 
 
 ```python
-def base10(mot):
-    a=0
-    for i in range(len(mot)):
-        a+=int(mot[::-1][i])*(2**i)
-    return a
+def conversion_decimale(ecriture_base_b,b):
+    """
+    Renvoie la valeur décimale correspondant à l'écriture en base b
+    param : ecriture_base_b : str
+    param : b : int
+    return : int
+    >>> conversion_decimale('11',2)
+    3
+    >>> conversion_decimale('1200',5)
+    175
+    """
+    resultat=0
+    for i in range(len(ecriture_base_b)):
+        resultat+=int(ecriture_base_b[::-1][i])*(b**i)
+    return resultat
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose = True) 
 ```
 
 ou 
@@ -238,11 +253,25 @@ ou
 plus rapidement :
 
 ```python
-def base10(mot):
-    n=0
-    for bit in mot:
-        n=2*n+int(bit)
-    return n
+def conversion_decimale_version2(ecriture_base_b,b):
+    """
+    Renvoie la valeur décimale correspondant à l'écriture en base b
+    param : ecriture_base_b : str
+    param : b : int
+    return : int
+    >>> conversion_decimale_version2('11',2)
+    3
+    >>> conversion_decimale_version2('1200',5)
+    175
+    """
+    resultat=0
+    for bit in ecriture_base_b:
+        resultat=b*resultat+int(bit)
+    return resultat
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose = True) 
 ```
 
 
