@@ -56,7 +56,7 @@ renvoyer x0 , x1, . . . , xi.
 [Voir les algorithmes de conversions en Python](assets/Conversions_Thonny.md)
 
 
-[Voir la conversion binaire-décimal en JavaScript, cf code source](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
+[Voir la conversion binaire-décimal en JavaScript, cf code source en inspectant la page](http://isnangellier.alwaysdata.net/php/binaire_decimal.html)
 
 > Exemple 1 : Donnons la représentation binaire de 64.
 
@@ -70,11 +70,14 @@ donc il s'agit de 0100 0000.
 
 > Exemple 2 : Comment parmi les quatre propositions suivantes de code binaire 11 1100 1101 ; 11 1110 0101 ; 10 0111 1001; 10 1111 1001 retenir rapidement celle qui correspond à 761 ?
 
-On voit que le bit de poids le plus fort, ici 1, est commun aux quatre propositions : il représente la puissance de 9 car 2<sup>9</sup>=2x2<sup>8</sup>==2x256=512.
+On voit que le bit de poids le plus fort, ici 1, est commun aux quatre propositions : il représente la puissance 9ième de 2 qui vaut 2<sup>9</sup>=2x2<sup>8</sup>==2x256=512.   
+
 De plus : 761=512+249. 
 Puis 249=1x128+121=1x2<sup>7</sup>+1x2<sup>6</sup>+..
-On attend donc le début 1011... 
+On attend donc le début 1011...   
+
 Seule la dermière proposition est donc cohérente et peut être retenue sans avoir à poursuivre le travail de décomposition. 
+
 On vérifie dans la console :
 
 ```python
@@ -94,23 +97,26 @@ Le résultat s'obtient en additionnant bit à bit avec les retenues comme avec l
 > Exemple 4 : Calculons le résultat de la soustraction en binaire 101001 - 101.
 
 
-L'addition se faisant simplement avec des retenues comme en base 10, on peut chercher ce qu'il faut ajouter à 101 pour obtenir 101001.
+L'addition se faisant simplement avec des retenues comme en base 10, on peut aussi chercher ce qu'il faut ajouter à 101 pour obtenir 101001.
 
 ```python
 >>> bin(0b101001-0b101)
 '0b100100'
 ```
 
-> Exemple 5 : Soit n l'entier positif dont l'écriture binaire est 10001. Recherchons l'écriture binaire de l'entier 2*n.
+> Exemple 5 : Soit n l'entier positif dont l'écriture binaire est 10001. 
+Recherchons l'écriture binaire de l'entier 2*n.
 
 Multiplier par 2 un nombre binaire résulte en un décalage vers la gauche de tous les bits. Il s'agit donc de : 100010.
 
 > Exemple 6 : Cherchons le nombre de bits minimum nécessaire pour coder le nombre décimal 4085.
 
-On cherche la puissance de 2 la plus proche, dans le cas présent ce n'est pas évident, mais on connait évidemment 2<sup>8</sup>=256 et à partir de là 2<sup>9</sup>=512 ; 2<sup>10</sup>=1024; 2<sup>11</sup>=2048 et 2<sup>12</sup>=4096; ainsi 4085 possédera 2<sup>11</sup> dans sa décomposition et par conséquent nécessite un minimum de 12 bits puisque le bit de plus petit poids correspond à 2<sup>0</sup>=1.   
+On cherche la puissance de 2 la plus proche, dans le cas présent ce n'est pas évident, mais on connait évidemment 2<sup>8</sup>=256 et à partir de là 2<sup>9</sup>=512 ; 2<sup>10</sup>=1024; 2<sup>11</sup>=2048 et 2<sup>12</sup>=4096; ainsi 4085 possédera 2<sup>11</sup> dans sa décomposition et par conséquent nécessite un **minimum de 12 bits** puisque le bit de plus petit poids correspond à 2<sup>0</sup>=1.   
+
 (Une autre méthode hors-programme utilise l'outil mathématique logarithme, logx, fonction réciproque de 10<sup>x</sup>.
 Ainsi log(10<sup>x</sup>)=x.
 Sachant que 10<sup>a+b</sup>=10<sup>a</sup>x10<sup>b</sup>, on observe que log(10<sup>a+b</sup>)=log(10<sup>a</sup>x10<sup>b</sup>)=a+b=log(10<sup>a</sup>)+log(10<sup>b</sup>). Ainsi la fonction log(x) possède la propriété intéressante de transformer une somme en produit : log(axb)=log(a)+log(b) et à partir de là on déduit également log(a<sup>n</sup>)=log(axa...xa)=nxlog(a).  
+
 Nous cherchons ici la puissance de 2 telle que 2<sup>n</sup>=4085. 
 En prenant le logarithme de chaque membre de cette équation, on obtient : log(2<sup>n</sup>)=nxlog(2)=log(4085) d'où n=log(4085)/log(2)=11.996.. avec la calculatrice. 
 C'est plus rapide mais la fonction log s'étudie en terminale).
@@ -124,15 +130,16 @@ La base 16 est fréquemment utilisée. Pourquoi ?
 16 a le bon goût d'être une puissance de 2 (2<sup>4</sup>) et ainsi **deux chiffres hexadécimaux suffisent pour décrire un octet de 8 bits**.   
 
 Abordons le passage de la base 2 à la base 16 (et inversement).  
-Quatre bits (2<sup>4</sup>=16 possibilités) correspondent à un caractère hexadécimal (0 à 9 puis A à F soit 16 possibilités). 
-On peut donc convertir un nombre de la base 2 à la base 16, sans passer par l'écriture décimale, en procédant par la formation de paquets de 4 bits. Si le nombre de bits n'est pas un multiple de 4, on peut toujours « ajouter » des 0 non significatifs avant le bit de poids fort.
+Quatre bits (2<sup>4</sup>=16 possibilités) correspondent à un caractère hexadécimal (0 à 9 puis A à F soit 16 possibilités en tout). 
+
+On peut donc convertir un nombre de la base 2 à la base 16, sans passer par l'écriture décimale, en procédant par la formation de paquets de 4 bits. Si le nombre de bits n'est pas un multiple de 4, on peut toujours « ajouter » des 0 non significatifs à gauche avant le bit de poids fort.
 
 > Exemple 1 : Recherchons l'écriture hexadécimale du nombre entier 157.
 
 Une première méthode peut consister à réaliser la décomposition de l'entier en base 16.
 Sachant que 16<sup>2</sup>=2<sup>8</sup>=256, et que 10x16=160, on cherche une décomposition en 9x16=144 ; ainsi 157=9x16<sup>1</sup>+13 et l'écriture hexadécimale de 157 est : 9D.
 
-Une autre méthode peut consister à donner l'écriture binaire de 157 en réalisant des divisions successives par 2 jusqu'à ce que le quotient soit nul et en remontant de bas en haut pour obtenir : 10011101 puis on fait des regroupements de 4 : 1001 qui correspond à 9 et 1101 qui correspond à 13 soit D.
+Une autre méthode peut consister à donner l'écriture binaire de 157 en réalisant des divisions successives par 2 jusqu'à ce que le quotient soit nul et en remontant de bas en haut pour obtenir : 10011101, puis on fait des regroupements de 4 bits : 1001 qui correspond à 9 et 1101 qui correspond à 13 soit D.
 
 ```python
 >>> hex(157)
@@ -158,7 +165,6 @@ Soit 101001101011
 >>> bin(0xA6B)
 '0b101001101011'
 ```
-
 
 > Exemple 4 : Recherchons l'écriture hexadécimale de l'entier dont la représentation en binaire non signé est 1100 0011.
 
@@ -220,8 +226,7 @@ donc 2A + 2 vaut 44.
 **À noter** : 1ko c'est 1 000 octets, pas 1 024. Le préfixe kilo correspond
 toujours à 1000, l'informatique ne fait pas exception (de même pour méga,
 giga, téra, etc.). Il existe cependant les préfixes kibi (2<sup>10</sup>=1024), mébi
-(2<sup>20</sup>), gibi (2<sup>30</sup>), tébi (2<sup>40</sup>), etc. qui sont respectivement abbréviés en
-ki, Mi, Gi, Ti, etc.
+(2<sup>20</sup>), gibi (2<sup>30</sup>), tébi (2<sup>40</sup>), etc. qui sont respectivement abbréviés en ki, Mi, Gi, Ti, etc.
 
 # 2] Représentation binaire (en base 2) d'un entier relatif
 
