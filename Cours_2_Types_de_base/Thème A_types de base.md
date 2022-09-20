@@ -44,9 +44,9 @@ Sortie : x0 , x1 ,. . . xp−1 les différents chiffres correspondant à l’éc
 
 m := n
 i := 0
-tant que m ≥ b faire
+tant que m ≥ b ou m // b >0 (m // b : quotient de la division euclidienne de m par b) faire
  r := m % b (m modulo b)
- m := m // b (quotient de la division euclidienne de m par b)
+ m := m // b
  xi := chiffre correspondant à r
  i := i + 1
 fin tant que
