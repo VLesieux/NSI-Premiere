@@ -104,10 +104,10 @@ Entrez un nombre binaire : 0b1011110011
 755
 ```
 
-## 2) Un algorithme pour obtenir la représentation binaire d'un nombre  
+## 2) Un algorithme pour obtenir la représentation binaire d'un nombre dans la base b
 
 Un _**algorithme**_ est une recette qui permet d'atteindre le résultat à condition de l'appliquer rigoureusement.
-Pour obtenir la représentation binaire d'un nombre, il s'agit de réaliser un processus répétitif de divisions successives par 2 que l'on arrête <u>dès que le quotient de la division est nul</u>, on note alors les restes des divisions de bas en haut. Plus précisément, on observe qu'au cours du processus le quotient devient le nouveau dividende ou que le nouveau dividende prend la valeur du quotient précédent.
+Pour obtenir la représentation binaire d'un nombre, il s'agit de réaliser un processus répétitif de divisions successives par b que l'on arrête <u>dès que le quotient de la division est nul</u>, on note alors les restes des divisions de bas en haut. Plus précisément, on observe qu'au cours du processus le quotient devient le nouveau dividende ou que le nouveau dividende prend la valeur du quotient précédent.
 
 Observons cette image qui représente la démarche à suivre sur papier :    
 
@@ -118,8 +118,8 @@ Observons cette image qui représente la démarche à suivre sur papier :
 
 On se propose de réaliser un processus qui sera répété aussi longtemps que la condition d'arrêt ne sera pas atteinte.  
 
-L'idée est de garder en mémoire le reste de la division du dividende par 2 en ajoutant les valeurs de droite à gauche par **_concaténation_** pour obtenir le mot binaire final. D'autre part, il nous faudra traduire dans le programme que le quotient devient le nouveau dividende.   
-On utilise la notation _**//**_ pour obtenir le quotient entier d'une division et la notation _**%**_ pour obtenir le reste d'une division :   
+L'idée est de garder en mémoire le reste de la division du dividende par b en ajoutant les valeurs de droite à gauche par **_concaténation_** pour obtenir le mot binaire final. D'autre part, il nous faudra traduire dans le programme que le quotient devient le nouveau dividende.   
+On utilise la notation _**//**_ pour obtenir le quotient de la division euclidienne et la notation _**%**_ pour obtenir le reste de la division euclidienne :   
 
 ```python
 >>> 377/2
@@ -158,20 +158,20 @@ if __name__ == "__main__":
 
 ```
 
-Dans ce programme, on utilise une _**boucle conditionnelle**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du debugger, en entrant dans la boucle (step into).
-On observera également l'_**indentation**_ qui a été réalisée pour écrire cette boucle.
+Dans ce programme, on utilise une _**boucle conditionnelle**_ dite _**boucle while**_ parce qu'on ne sait pas d'avance le nombre de tour à effectuer. On peut voir le déroulement du programme à l'aide du **debugger**, en entrant dans la boucle (step into).
+On observera également l'_**indentation**_ qui a été réalisée pour l'écriture de la boucle.
 
-## 4) Programmation de la conversion inverse, de l'écriture dans la base b au décimal
+## 4) Programmation de la conversion inverse : de l'écriture dans la base b à la valeur décimale du nombre
 
 On demande à l'utilisateur d'entrer une chaîne de caractère correspondant au mot binaire.
 On parcourt la chaîne de caractères en traitant les bits les uns après les autres pour obtenir la valeur décimale.
 On réalise cette fois une _**boucle bornée**_ ou _**boucle for**_ car on sait combien de tours devront être effectués, puisque c'est la longueur de la chaîne de caractère.
 
-Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une _**chaîne de caractère**_ qui se comporte comme une _**liste**_.
+Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une _**chaîne de caractère**_ qui se comporte comme une _**tuple**_ (non mutable).
 
 ```python
->>> liste=[1,5,"A",4,"e"]
->>> liste[2]#la liste est indicée en commençant par l'indice 0
+>>> mon_tuple=(1,5,"A",4,"e")
+>>> mon_tuple[2]#le tuple comme la liste est indicé en commençant par l'indice 0
 'A'
 >>> mot="jardin"
 >>> mot[2]#on récupère l'élément de la chaîne d'indice 2
@@ -186,9 +186,9 @@ Pour bien comprendre le programme, voyons d'abord quelques manipulations sur une
 'ri'
 >>> mot[5:2:-1]#on récupère tous les éléments depuis l'indice 5 à 2 non compris avec un pas de -1
 'nid'
->>> mot[::-1]#on récupère la chaîne de caractère renversée
+>>> mot[::-1]#on récupère la totalité de la chaîne de caractères renversée
 'nidraj'
->>> len(liste)
+>>> len(mon_tuple)
 5
 >>> len(mot)
 6
@@ -198,7 +198,7 @@ Pour bien comprendre la boucle for, commençons par un exemple simple :
 
 ```python
 x="jardin"
-for i in range(5):# de 0 compris à 5 non compris mais 5 tours de boucle
+for i in range(5):# de 0 compris à 5 non compris, mais 5 tours de boucle
     print(x[i])
 ```
 ```
@@ -211,7 +211,7 @@ i
 
 ```python
 x="jardin"
-for i in range(len(x)):#permet de parcourir tous les éléments d'une chaîne ou d'une liste
+for i in range(len(x)):#permet de parcourir tous les éléments d'une chaîne ou d'une liste ou d'un tuple
     print(x[i])
 ```
  
@@ -240,7 +240,7 @@ def conversion_decimale(ecriture_base_b,b):
     """
     resultat=0
     for i in range(len(ecriture_base_b)):
-        resultat+=int(ecriture_base_b[::-1][i])*(b**i)
+        resultat+=int(ecriture_base_b[::-1][i])*(b**i)#on parcourt les bits de droite à gauche d'où le renversement de la chaîne de caractères effectué
     return resultat
 
 if __name__ == "__main__":
