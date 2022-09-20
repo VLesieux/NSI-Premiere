@@ -104,7 +104,7 @@ Entrez un nombre binaire : 0b1011110011
 755
 ```
 
-## 2) Un algorithme pour obtenir la représentation binaire d'un nombre dans la base b
+## 2) Un algorithme pour obtenir la représentation d'un nombre dans la base b
 
 Un _**algorithme**_ est une recette qui permet d'atteindre le résultat à condition de l'appliquer rigoureusement.
 Pour obtenir la représentation binaire d'un nombre, il s'agit de réaliser un processus répétitif de divisions successives par b que l'on arrête <u>dès que le quotient de la division est nul</u>, on note alors les restes des divisions de bas en haut. Plus précisément, on observe qu'au cours du processus le quotient devient le nouveau dividende ou que le nouveau dividende prend la valeur du quotient précédent.

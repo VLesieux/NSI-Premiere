@@ -109,7 +109,7 @@ Recherchons l'écriture binaire de l'entier 2*n.
 
 Multiplier par 2 un nombre binaire résulte en un décalage vers la gauche de tous les bits. Il s'agit donc de : 100010.
 
-> Exemple 6 : Cherchons le nombre de bits minimum nécessaire pour coder le nombre décimal 4085.
+> Exemple 6 : Cherchons le nombre de bits minimum nécessaire pour coder le nombre décimal 4085 en base 2
 
 On cherche la puissance de 2 la plus proche, dans le cas présent ce n'est pas évident, mais on connait évidemment 2<sup>8</sup>=256 et à partir de là 2<sup>9</sup>=512 ; 2<sup>10</sup>=1024; 2<sup>11</sup>=2048 et 2<sup>12</sup>=4096; ainsi 4085 possédera 2<sup>11</sup> dans sa décomposition et par conséquent nécessite un **minimum de 12 bits** puisque le bit de plus petit poids correspond à 2<sup>0</sup>=1.   
 
