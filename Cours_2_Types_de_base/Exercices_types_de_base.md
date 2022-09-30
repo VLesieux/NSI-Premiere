@@ -167,7 +167,7 @@ F
 def conversion_hexadecimal_decimal(code):
     """
     Renvoie la conversion en décimal du code hexadécimal
-    param : code: str
+    param : code : str
     return : int
     >>> conversion_hexadecimal_decimal('70F')
     1807
