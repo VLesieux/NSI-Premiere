@@ -142,9 +142,15 @@ Compléter le code suivant :
 6
 >>> liste[2]#on prend l'élement en position 2; les indices de position commencent à 0 jusque len(liste)-1.
 'C'
->>> liste.index("D")#on demande l'indice de position de l'élément dans la liste
+>>> liste.index("D")#on demande l'indice de position de l'élément dans la liste (ou dans le tuple ou dans la chaîne de caractères)
 3
+>>> "E" in liste#permet de savoir si un caractère est dans une liste
+True
 >>> code="70F"
+>>> code.index("F")#une chaîne de caractère fonctionne comme un tuple
+2
+>>> "F" in code#une chaîne de caractère fonctionne comme un tuple
+True
 >>> code[::-1]#on retourne la chaîne de caractères
 'F07'
 >>> for caractere in code:#on parcourt les éléments de la chaîne de caractères
