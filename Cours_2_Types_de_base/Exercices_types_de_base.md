@@ -124,4 +124,61 @@ f.close()##fermeture du fichier
 
 Voir l'effet en modifiant l'encodage de la page html utf-8 ou ISO-8859-1.
 
+## Exercice 10
+
+Compléter le code suivant :
+
+**Indications** :
+
+```python
+>>> str(10)
+'10'
+>>> "A"+str(2)
+'A2'
+>>> liste=["A","B","C","D","E","F"]
+>>> liste[2]
+'C'
+>>> liste.index("D")
+3
+>>> code="70F"
+>>> code[::-1]
+'F07'
+>>> for caractere in code:
+    print(caractere)
+    
+7
+0
+F
+```
+
+ ```python
+ def conversion_decimal_hexadecimal(n):
+    """
+    Renvoie la conversion en hexadécimal d'un nombre décimal
+    param : n : int
+    return : str
+    >>> conversion_decimal_hexadecimal(1807)
+    '70F'
+    """
+    resultat=""
+    liste=["A","B","C","D","E","F"]
+
+
+def conversion_hexadecimal_decimal(code):
+    """
+    Renvoie la conversion en décimal du code hexadécimal
+    param : code: str
+    return : int
+    >>> conversion_hexadecimal_decimal('70F')
+    1807
+    """
+    resultat=0
+    i=0
+    liste=["A","B","C","D","E","F"]
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose = True)  
+```
 
