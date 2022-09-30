@@ -138,6 +138,8 @@ Compléter le code suivant :
 >>> "A"+str(2)#on concatène les chaînes de caractères pour obtenir une plus longue chaîne
 'A2'
 >>> liste=["A","B","C","D","E","F"]
+>>> len(liste)#donne la longueur de liste
+6
 >>> liste[2]#on prend l'élement en position 2; les indices de position commencent à 0 jusque len(liste)-1.
 'C'
 >>> liste.index("D")#on demande l'indice de position de l'élément dans la liste
