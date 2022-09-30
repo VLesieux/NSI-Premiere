@@ -133,6 +133,8 @@ Compléter le code suivant :
 ```python
 >>> str(10)#on transforme le nombre en chaîne de caractères
 '10'
+>>> int('10')#on transforme la chaîne de caractères en nombre entier
+10
 >>> "A"+str(2)#on concatène les chaînes de caractères pour obtenir une plus longue chaîne
 'A2'
 >>> liste=["A","B","C","D","E","F"]
