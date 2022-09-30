@@ -131,20 +131,20 @@ Compléter le code suivant :
 **Indications** :
 
 ```python
->>> str(10)
+>>> str(10)#on transforme le nombre en chaîne de caractères
 '10'
->>> "A"+str(2)
+>>> "A"+str(2)#on concatène les chaînes de caractères pour obtenir une plus longue chaîne
 'A2'
 >>> liste=["A","B","C","D","E","F"]
->>> liste[2]
+>>> liste[2]#on prend l'élement en position 2 de liste, les indices de position commencent par 0 de gauche à droite
 'C'
->>> liste.index("D")
+>>> liste.index("D")#on demande l'indice de position de l'élément dans la liste
 3
 >>> code="70F"
->>> code[::-1]
+>>> code[::-1]#on retourne la chaîne de caractères
 'F07'
->>> for caractere in code:
-    print(caractere)
+>>> for caractere in code:#on parcourt les éléments de la chaîne de caractères
+    print(caractere)#on les affiche
     
 7
 0
