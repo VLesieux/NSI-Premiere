@@ -1,5 +1,7 @@
 # Exercices types construits : tuples, listes et dictionnaires
 
+Pour les différents exercices, lorsqu'une fonction est demandée, produire la documentation de la fonction avec un ou plusieurs tests de votre choix à vérifier.
+
 ```Python
 if __name__ == '__main__':
   import doctest
