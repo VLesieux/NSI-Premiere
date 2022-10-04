@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
 ## Exercice 1
 
-Écrire une fonction _separe_ qui prend en argument un n-uplet _t_ composé d'entiers et renvoie deux listes : la première liste _pairs_ contient les nombres pairs et la seconde _impairs_ les nombres impairs.
+Écrire une fonction _separe_ qui prend en argument un tuple _t_ composé d'entiers et renvoie deux listes : la première liste _pairs_ contient les nombres pairs et la seconde _impairs_ les nombres impairs.
 
 __Indications__ : 
 1) revoir dans le cours sur les tuples le moyen de parcourir les éléments d'un tuple
