@@ -47,12 +47,8 @@ Le trouver d'abord avec un crayon avant de tester sur machine.
 
 ## Exercice 4
 
-L'instruction `tuple(sorted(t))` renvoie le tuple ordonné dans l'ordre croissant. Compléter la fonction `maxi` qui renvoie le maximum d'une suite de valeurs données dans un tuple en utilisant cette instruction.
-
-```Python
-def maxi(t):
-    return ...
-```
+L'instruction `tuple(sorted(t))` renvoie le tuple ordonné dans l'ordre croissant.   
+Écrire une fonction `maxi` qui renvoie le maximum d'une suite de valeurs données dans un tuple en utilisant cette instruction.
 
 ## Exercice 5
 
