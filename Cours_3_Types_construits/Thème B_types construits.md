@@ -176,7 +176,7 @@ True
 >>> liste="1;a;5".split(";")
 >>> liste
 ['1', 'a', '5']#une liste peut être créée à partir d'une chaîne de caractère en appliquant la méthode split() 
-en précisant comme paramètre de la méthode la nature du séparateur écrit entre guillemets
+#en précisant comme paramètre de la méthode la nature du séparateur écrit entre guillemets
 >>> tuple(['a', 'b', 5])
 ('a', 'b', 5)#une liste peut être transformée en tuple en utilisant la fonction tuple()
 >>> x=[i*2 for i in range(10)]####***construction d'une liste par compréhension####
