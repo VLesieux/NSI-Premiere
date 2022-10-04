@@ -243,7 +243,8 @@ Ainsi construitTable(2,3) renvoie [ [0, 1, 2],[3, 4, 5] ].
 3) `dict` : dictionnaire
 
 ```Python
->>> frequences={"do4":523.25,"la3":440}#dictionnaire clé-valeur : clé=nom de la note, valeur=fréquence en Hz à l'intérieur d'une accolade
+>>> frequences={"do4":523.25,"la3":440}#dictionnaire clé-valeur : clé=nom de la note, valeur=fréquence en Hz
+#à l'intérieur d'une accolade
 >>> frequences=[["do4",523.25],["la3",440]]
 >>> dico=dict(frequences)
 >>> dico
@@ -252,7 +253,7 @@ Ainsi construitTable(2,3) renvoie [ [0, 1, 2],[3, 4, 5] ].
 523.25
 >>> frequences["la3"]=660
 >>> frequences
-{'do4': 523.25, 'la3': 660}#un dictionnaire est mutable
+{'do4': 523.25, 'la3': 660}#un dictionnaire est mutable comme une liste
 >>> frequences["la3"]=440
 >>> frequences["mi4"]=659.26#ajout d'un nouveau couple clé-valeur au dictionnaire
 >>> frequences
@@ -265,7 +266,8 @@ KeyError: 'mi5'#Erreur de clé KeyError car la clé 'mi5' demandée n'existe pas
 >>> #pas de réponse mais ne provoque pas de signalement d'erreur KeyError en l'absence de la clé
 >>> len(frequences)#longueur du dictionnaire
 3
->>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire, ne pas oublier () ; la méthode keys() est une fonction associée à l'objet fréquences d'où le point qui les connecte
+>>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire, ne pas oublier () ;
+#la méthode keys() est une fonction associée à l'objet fréquences d'où le point qui les connecte.
 dict_keys(['do4', 'la3', 'mi4'])
 >>> for j in frequences.keys():#on peut parcourir les clés du dictionnaire
     print("les notes sont",j)    
