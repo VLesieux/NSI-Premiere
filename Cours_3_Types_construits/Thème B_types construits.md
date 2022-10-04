@@ -237,8 +237,7 @@ for i in range(3):
 annee2019 = [('janvier',6), ('février',6), ('mars',12), ('avril',20), ('mai',23), ('juin',25), ('juillet',29), ('août',25), ('septembre',22), ('octobre',15), ('novembre',11), ('décembre',7)].  
 On cherche à accéder à la température la plus élevée. Proposer un code.
 
-
-> Exemple 8 : On cherche à construire une fonction construitTable(L,C) capable de construire un tableau de L lignes et C colonnes, contenant les entiers consécutifs de 0 à n-1 où n représente le produit L*C.
+> Exemple 8 : Écrire une fonction construitTable(L,C) capable de construire un tableau de L lignes et C colonnes, contenant les entiers consécutifs de 0 à n-1 où n représente le produit L*C.
 Ainsi construitTable(2,3) renvoie [ [0, 1, 2],[3, 4, 5] ].
 
 3) `dict` : dictionnaire
