@@ -23,7 +23,7 @@ __Indications__ :
 
 __Indications__ : 
 1) Réaliser une première écriture en passant par la création d'une liste vierge _nouvelle_liste_ que l'on complète au fur et à mesure du parcours de la liste _nombres_
-2) Proposer une deuxième méthode beaucoup plus efficace en créant une liste par compréhension qui répond à la demande (revoir les exemples du cours), et la renvoyer directement sans avoir à créer de liste intermédiaire 
+2) Proposer une deuxième méthode beaucoup plus efficace en créant une liste par compréhension qui répond à la demande (voir les exemples du cours), et la renvoyer directement sans avoir à créer de liste intermédiaire 
 
 ## Exercice 3
 
@@ -42,12 +42,12 @@ def mystere(liste1,liste2):
     return liste
 ```
 On appelle cette fonction avec l'instruction mystere([2,5,6,8],[1,4,7,8,9]). Quel est le résultat renvoyé ?   
-Le trouver avec un crayon avant de tester sur machine.
+Le trouver d'abord avec un crayon avant de tester sur machine.
 
 
 ## Exercice 4
 
-L'instruction tuple(sorted(t)) renvoie le tuple ordonné dans l'ordre croissant. Compléter la fonction maxi qui renvoie le maximum d'une suite de valeurs données dans un tuple.
+L'instruction `tuple(sorted(t))` renvoie le tuple ordonné dans l'ordre croissant. Compléter la fonction `maxi` qui renvoie le maximum d'une suite de valeurs données dans un tuple en utilisant cette instruction.
 
 ```Python
 def maxi(t):
