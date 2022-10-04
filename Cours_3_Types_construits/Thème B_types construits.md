@@ -34,10 +34,10 @@ Opérations sur les types simples
 >>> x+=1
 >>> x
 6
->>> x*=2
+>>> x*=2#multiplie x par 2
 >>> x
 12
->>> x**=2
+>>> x**=2#élève x à la puissance 2
 >>> x
 144
 
@@ -57,9 +57,9 @@ Opérations sur les types simples
 >>> chaine*2
 'poissonpoisson'
 >>> float('100.5')
-100.5#convertit une chaîne de caractères contenant un flottant en flottant
+100.5#convertit une chaîne de caractères (str) contenant un flottant en flottant (float)
 >>> int('100')
-100#convertit une chaîne de caractères contenant un entier en entier
+100#convertit une chaîne de caractères contenant un entier en entier int
 ```
 
 
@@ -68,7 +68,7 @@ Opérations sur les types simples
 1) `tuple` : p-uplet
 
 ```Python
->>> p_uplet=(1,"a") # les tuples sont des éléments séparés par des virgules entre des parenthèses
+>>> p_uplet=(1,"a") # les tuples sont des éléments séparés par des virgules à l'intérieur de parenthèses
 ou >>> p_uplet=1,"a" # les parenthèses ne sont pas obligatoires mais elles sont préférées
 >>> len(p_uplet)#pour obtenir la longueur du tuple
 2
@@ -80,7 +80,7 @@ ou >>> p_uplet=1,"a" # les parenthèses ne sont pas obligatoires mais elles sont
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
 TypeError: 'tuple' object does not support item assignment   
-# !!!!!!!! les tuples ne sont pas des objets mutables, on ne peut pas les modifier par affectation
+# !!!!!!!! les tuples ne sont pas des objets mutables, on ne peut pas les modifier par affectation, contrairement aux listes
 >>> p_uplet[2]='c'
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
@@ -93,8 +93,7 @@ t=((1,2,3),('bonjour','auto'),4)#un tuple peut être constitué lui-même de tup
 True #condition d'appartenance de 4 au tuple t, 4 est effectivement présent à l'indice 2
 >>> (2,4)*3 
 (2, 4, 2, 4, 2, 4)#et non (6,12)
-Remarque : l'affectation multiple résulte de l'égalité des tuples
-x,y,z=3,4,x+y
+Remarque : l'affectation multiple résulte de l'égalité des tuples : x,y,z=3,4,x+y
 >>> t=((1,2,3),('bonjour','auto'),4)
 >>> for i in t:#on parcourt ainsi les éléments de la liste, i représente un élément constitutif de t
     print(i)  
@@ -105,7 +104,7 @@ x,y,z=3,4,x+y
 
 > Exemple 1: On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
 
-> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué d'un nombre et de son carré.
+> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué de la racine carré d'un nombre (positif) et de son carré.
 
 2) `list` : liste ou tableau
 
@@ -176,7 +175,7 @@ True
 ['a', 'b', 5]#un tuple peut être transformé en liste
 >>> liste="1;a;5".split(";")
 >>> liste
-['1', 'a', '5']#une liste peut être créée à partir d'une chaîne de caractère en appliquant la méthode str.split()
+['1', 'a', '5']#une liste peut être créée à partir d'une chaîne de caractère en appliquant la méthode split() en précisant comme paramètre de la méthode la nature du séparateur écrit entre guillemets
 >>> tuple(['a', 'b', 5])
 ('a', 'b', 5)#une liste peut être transformée en tuple en utilisant la fonction tuple()
 >>> x=[i*2 for i in range(10)]####***construction d'une liste par compréhension####
