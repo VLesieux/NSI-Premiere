@@ -308,10 +308,11 @@ mi4 659.26
 {'do4': 523.25, 'mi4': 600}
 >>> frequences3
 {'do4': 523.25, 'mi4': 659.26}
->>> d={x:x**2 for x in  range(1,5)}#construction d'un dictionnaire par compréhension associant clé et valeur, comme les listes, intéressant !
+>>> d={x:x**2 for x in  range(1,5)}#construction d'un dictionnaire par compréhension associant clé et valeur
 >>> d
 {1: 1, 2: 4, 3: 9, 4: 16}
->>> pays={'France':{'capitale':'Paris','superficie':643800},'Portugal':{'capitale':'Lisbonne','superficie':92300}}#création de dictionnaire de dictionnaire
+>>> pays={'France':{'capitale':'Paris','superficie':643800},'Portugal':{'capitale':'Lisbonne','superficie':92300}}
+#création de dictionnaire de dictionnaire
 >>> pays["France"]["superficie"]#recherche d'une valeur dans un dictionnaire de dictionnaire
 643800
 Remarques:
