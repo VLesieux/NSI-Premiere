@@ -22,7 +22,7 @@ Opérations sur les types simples
 2
 >>> 1/2#division
 0.5
->>> 1//2#division entière : renvoie le quotient entier de la division
+>>> 1//2#division entière : renvoie le quotient entier de la division, ou quotient de la division euclidienne
 0
 >>> 5%2#renvoie le reste de la division
 1#c'est le cas des entiers impairs

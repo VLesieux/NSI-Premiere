@@ -142,7 +142,7 @@ Compléter le code suivant :
 6
 >>> liste[2]#on prend l'élement en position 2; les indices de position commencent à 0 jusque len(liste)-1.
 'C'
->>> liste.index("D")#on demande l'indice de position de l'élément dans la liste (ou dans le tuple ou dans la chaîne de caractères)
+>>> liste.index("D")#on demande l'indice de position de l'élément dans la liste (ou dans le tuple ou dans la chaîne)
 3
 >>> "E" in liste#permet de savoir si un caractère est dans une liste
 True
