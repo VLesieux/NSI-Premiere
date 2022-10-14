@@ -145,7 +145,6 @@ def recherche2(dictionnaire_voca,k):
     >>> recherche2(dictionnaire_a_f,"no")
     'non'
     >>> recherche2(dictionnaire_a_f,"inconnu")
-    None
     """
 ```
 
