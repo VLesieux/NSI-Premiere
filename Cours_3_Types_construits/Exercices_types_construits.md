@@ -186,7 +186,7 @@ Au scrable, les valeurs des pièces sont les suivantes:
     8 points : J , Q    
     10 points : K , W , X , Y, Z    
 
-On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif.
+On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif avec les mêmes lettres et cherche à connaître le meilleur choix.
 
 On cherche à écrire une fonction capable de renvoyer à partir d'un tuple de mots possibles un dictionnaire associant une valeur en points à chacun des mots de ce tuple en plaçant les mots dans l'ordre décroissant des points.   
 
