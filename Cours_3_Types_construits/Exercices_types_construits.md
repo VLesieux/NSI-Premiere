@@ -175,9 +175,6 @@ st=time()
 print(time()-st)
 ```
 
-5) Pour gagner une ligne de code, on peut améliorer la fonction _recherche2_ en utilisant la méthode get associée au dictionnaire qui renvoie la valeur d'une clé et ne retourne pas d'erreur si la clé est introuvable. Créer la fonction _recherche3_ et comparer son efficacité avec les fonctions précédentes.
-
-
 ## Exercice 8
 
 Au scrable, les valeurs des pièces sont les suivantes:  
