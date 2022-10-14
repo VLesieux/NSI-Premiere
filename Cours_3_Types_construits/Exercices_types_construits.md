@@ -133,7 +133,7 @@ def recherche1(liste_voca,k):
 ```
 
 
-2) Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k.
+2) Écrire une fonction _recherche2_ qui prend en paramètres un dictionnaire et une variable k et renvoie la valeur correspondant à la clé k si elle est présente dans le dictionnaire et rien (None) sinon.
 
 ```Python
 def recherche2(dictionnaire_voca,k):
@@ -144,6 +144,8 @@ def recherche2(dictionnaire_voca,k):
     return : str
     >>> recherche2(dictionnaire_a_f,"no")
     'non'
+    >>> recherche2(dictionnaire_a_f,"inconnu")
+    None
     """
 ```
 
