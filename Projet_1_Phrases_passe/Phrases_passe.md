@@ -195,8 +195,15 @@ True
 ```
 
 **Indications** : 
+
 1) Une seule ligne de code suffit avec all()
+
 2) Une seule ligne de code suffit avec all() après avoir défini la liste _accents_
+```python
+>>> accents=["é","ê","à","û","ô","î","â","ù"]
+>>> all(caractere.lower() not in accents for caractere in LISTE_MOTS[0])
+True
+```
 3) Créer une fonction appelée _est_unique(mot,n_uplet)_ avec sa docstring qui renvoie True si _mot_ est présent une et une seule fois dans _n_uplet_ et False autrement, puis, dans un deuxième temps, utiliser dans la console la fonction all() pour passer en revue ce prédicat sur tous les mots.
 
 Exemples à vérifier : 
