@@ -242,7 +242,7 @@ Soit un ensemble de points :
 
 A : (-2,4) ; B : (1,-2) ; C : (3,7) ; D : (5,-3)
 
-que l'on présente sous la forme d'un dictionnaire de points
+que l'on présente sous la forme d'un dictionnaire de points associant le nom d'un point (clé) au tuple (valeur) correspondant à ses coordonnées dans un repère orthonormé.
 
 ```Python
 dictionnaire_points={"A": (-2,4), "B": (1,-2), "C": (3,7), "D": (5,-3)}
