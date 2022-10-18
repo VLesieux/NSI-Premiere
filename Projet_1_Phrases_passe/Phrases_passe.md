@@ -145,7 +145,7 @@ Exemples:
 Nous nous proposons de vérifier les trois affirmations suivantes : 
 
    1) tous les éléments de ce tuple sont des chaînes de caractères
-   2) chacune de ces chaînes ne contient pas de lettres accentuées ; vérifier que les lettres minuscules accentuées de la liste accents=["é","ê","à","û","ô","î","â","ù"] ne sont pas présentes dans les mots
+   2) chacune de ces chaînes ne contient pas de lettres accentuées ; vérifier que les lettres minuscules accentuées de la liste `accents=["é","ê","à","û","ô","î","â","ù"]` ne sont pas présentes dans les mots
    3) tous les mots sont différents
 
 Étudiez la documentation de la fonction prédéfinie
@@ -190,8 +190,6 @@ True
 True
 >>> "a" not in "bdr"
 True
-
-#conclusion : chaîne de caractères ou string, liste et tuple ont un comportement analogue.
 ```
 
 **Indications** : 
