@@ -197,6 +197,8 @@ True
 1) Une seule ligne de code suffit avec all()
 
 2) Une seule ligne de code suffit avec all() après avoir défini la liste _accents_
+On peut le montrer pour le premier élément de la liste puis on le fera pour tous les autres.
+
 ```python
 >>> accents=["é","ê","à","û","ô","î","â","ù"]
 >>> all(caractere.lower() not in accents for caractere in LISTE_MOTS[0])
