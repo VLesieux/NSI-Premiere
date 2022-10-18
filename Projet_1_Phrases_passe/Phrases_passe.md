@@ -196,7 +196,8 @@ True
 
 1) Une seule ligne de code suffit avec all()
 
-2) Une seule ligne de code suffit avec all() après avoir défini la liste _accents_
+2) Une seule ligne de code suffit avec all() après avoir défini la liste _accents_.
+
 On peut le montrer pour le premier élément de la liste puis on le fera pour tous les autres.
 
 ```python
