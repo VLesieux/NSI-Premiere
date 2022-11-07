@@ -148,7 +148,7 @@ Nous nous proposons de vérifier les trois affirmations suivantes :
    2) chacune de ces chaînes ne contient pas de lettres accentuées ; vérifier que les lettres minuscules accentuées de la liste `accents=["é","ê","à","û","ô","î","â","ù"]` ne sont pas présentes dans les mots
    3) tous les mots sont différents
 
-Étudiez la documentation de la fonction prédéfinie
+Pour cela, étudiez pour commencer la documentation de la fonction prédéfinie
 (*built-in*) `all()`.  Utilisez la méthode `lower()` des objets du type `str`.
 
 Rappel : pour obtenir la documentation sur une fonction _built-in_ telle que all(), écrire dans le Shell  ```help(all)```.
@@ -192,7 +192,7 @@ True
 True
 ```
 
-**Indications** : 
+**Indications pour les 3 affirmations à vérifier** : 
 
 1) Une seule ligne de code suffit avec all()
 
