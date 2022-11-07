@@ -459,8 +459,7 @@ Quels sont les cinq lancers de dés pour lesquels la fonction _en_nombre_ renvoi
 Indications : 
 
 Il s'agit comme il a été dit plus haut de **l'écriture en base 6 d'un nombre, avec un décalage de +1 pour chacun des chiffres.**  
-On se référera à l'algorithme déjà étudié pour la conversion en binaire (en base 2) d'un nombre décimal (cf. la fonction `conversion_dans_base(n,b)` sur [cette page](https://github.com/VLesieux/NSI-Premiere/blob/master/Cours_2_Types_de_base/assets/Conversions_Thonny.md).
-), puis on écrira une fonction `lancer_de_des(dec)` avec sa docstring.
+On se référera à l'algorithme déjà étudié pour la conversion en binaire (en base 2) d'un nombre décimal (cf. la fonction `conversion_dans_base(n,b)` sur [cette page](https://github.com/VLesieux/NSI-Premiere/blob/master/Cours_2_Types_de_base/assets/Conversions_Thonny.md), puis on écrira une fonction `lancer_de_des(dec)` avec sa docstring.
 
 Exemple:
 ```python
