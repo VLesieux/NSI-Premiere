@@ -451,9 +451,6 @@ Remarque 2 : mettre à la puissance s'écrit avec **
 >>> 6**2
 36
 ```
-Autres remarques :
-   * la réalisation précédente de la fonction `en_nombre` suit un algorithme classique de l'évaluation des polynômes : l'algorithme de Horner. Cet algorithme optimise le nombre d'opérations arithmétiques (addition/multiplication).
-   * la réalisation précédente ne se limite pas aux séquences de longueur 5. Si on se limitait aux séquences de longueur 5 , on pourrait se dispenser de la boucle et précalculer les premières puissances de 6.
 
 ### À faire n°7
 
