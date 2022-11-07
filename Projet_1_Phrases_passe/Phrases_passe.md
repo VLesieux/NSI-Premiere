@@ -532,7 +532,7 @@ Voici un exemple de ce que vous devez obtenir :
 >>> genere_phrase_passe('111116666624521')
 'montes-tour-morigener'
 >>> genere_phrase_passe('1141116666624521')
-la longueur de la chaîne doit être un multiple de 5   
+la longueur de la chaîne doit être un multiple de 5
 ```
 
 Indication : 
@@ -565,7 +565,7 @@ On pourra ainsi obtenir grâce à cette fonction par exemple :
 ## Augmenter l'entropie
 L'entropie est un mot emprunté à la physique, de la thermodynamique plus précisément qui est la science de l'énergie, qui est une mesure du désordre. Plus l'état du système est désordonné, plus son entropie est grande.
 Une première manière d'augmenter l'entropie des phrases de passe
-générées est de perturber la chaine produite en y mélangeant
+générées est de perturber la chaîne produite en y mélangeant
 majuscules et minuscules. C'est ce que nous allons faire maintenant.
 
 
@@ -594,9 +594,9 @@ False
 ### À faire n°12
 
 Réalisez une fonction `perturbe_chaine` paramétrée par une chaîne de
-caractères `s` qui renvoie la chaîne obtenue en changeant
-aléatoirement ou pas (une chance sur deux)  chacune des lettres de `s`
-en sa majuscule ou minuscule. Les autres caractères de `s` restent
+caractères `chaine` qui renvoie la chaîne obtenue en changeant
+aléatoirement ou pas (une chance sur deux) chacune des lettres de `chaine`
+en sa majuscule ou minuscule. Les autres caractères de `chaine` restent
 inchangés.
 
 Voici un exemple de ce que vous pouvez obtenir :
@@ -662,7 +662,7 @@ Dans un dictionnaire chaque clef est unique. La clef permet d'accéder
 
 Pour perturber un peu plus nos phrases de passe, nous allons continuer à
 modifier aléatoirement les lettres en majuscules ou minuscules, mais
-cette fois, en plus, lorsqu'une lettre n'aura pas été modifiée, s'il
+cette fois, en plus, lorsqu'une lettre n'aura pas été modifiée (mise en majuscule), s'il
 s'agit de l'une des clefs de `EQUIVALENTS` alors on va aléatoirement
 (une chance sur deux) la remplacer ou pas par la valeur qui lui est
 associée.
