@@ -225,7 +225,7 @@ if __name__ == '__main__':
 
 > ### À faire n°4
 
-Calculez les longueurs minimales et maximales des mots de cette liste. 
+Calculez les longueurs minimales et maximales des mots de cette liste, après avoir écrit une liste par compréhension contenant les longueurs de tous les mots de la liste.
 
 **Indications** : 
 
