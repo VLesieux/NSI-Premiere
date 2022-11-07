@@ -113,7 +113,7 @@ Exemples:
 
 > ### À faire n°2 
 
-Vérifiez que la longueur est bien celle annoncée. Justifier.
+Vérifiez que la longueur de cette liste de mots est bien celle annoncée. Justifier.
 
 On rappelle que la longueur d'une chaîne de caractères, d'une liste, d'un tuple ou d'un dictionnaire, s'obtient avec la fonction ```len()```.
 
