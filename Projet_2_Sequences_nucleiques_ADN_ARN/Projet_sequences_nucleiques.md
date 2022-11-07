@@ -2,7 +2,7 @@
 
 <img src="adn.png">
 
-##Quelques connaissances en biologie moléculaire
+## Quelques connaissances en biologie moléculaire
 
 1) **ADN** : c'est le support stable et transmissible de l'information génétique.  
 Il est composé des 4 **nucléotides** suivants, appelés aussi **bases** :   
@@ -71,8 +71,8 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
-##Les séquences ADN
-###Question 1
+## Les séquences ADN
+### Question 1
 
 Réaliser une fonction nommée `estADN` qui vérifie si la chaîne de caractères passée en paramètre ne contient aucun autre caractère que les quatre bases A, C, G et T.  
 Cette fonction renvoie True si tel est le cas, False dans le cas contraire.  
@@ -95,7 +95,7 @@ def estADN(chaine):
 
 **Indication** : utiliser la fonction prédéfinie `all()`
 
-###Question 2 
+### Question 2 
 
 Il est possible de générer aléatoirement une séquence d'ADN. La version naïve suppose que les 4 bases ont la même probabilité d'apparaître à une position donnée.
 
@@ -124,9 +124,9 @@ exemple de résultat :
 >>> help(random)
 ```
 
-##La transcription
+## La transcription
 
-###Question 3 
+### Question 3 
 
 Réaliser une fonction nommée `baseComplementaire` qui renvoie la base complémentaire de la base passée en paramètre, selon le type de séquence démandée en sortie, qui peut être soit 'ADN', soit 'ARN'.
 
@@ -147,7 +147,7 @@ def baseComplementaire(base,chaine):
 **Indication** : réaliser deux dictionnaires `vers_ARN` et `vers_ADN`
 
 
-###Question 4
+### Question 4
 
 Réaliser une fonction nommée transcrit qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. La première base de la séquence étant numérotée 1. On utilisera la fonction `baseComplementaire`.
 
@@ -158,9 +158,9 @@ Réaliser une fonction nommée transcrit qui renvoie l'ARN construit à partir d
 'nim' 
 ```  
 
-##La traduction
+## La traduction
 
-###Question 5
+### Question 5
 
 Réaliser une fonction `traduit` qui donne le code génétique de la séquence ARN passée en paramètre.
 
@@ -175,9 +175,9 @@ def traduit(sequence):
     """
 ```  
 
-##La réplication
+## La réplication
 
-###Question 6
+### Question 6
 
 Réaliser une fonction nommée `réplique` qui construit la séquence ADN complémentaire et inversée de celle passée en paramètre.
 
