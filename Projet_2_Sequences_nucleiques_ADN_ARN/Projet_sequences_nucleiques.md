@@ -7,20 +7,20 @@
 1) **ADN** : c'est le support stable et transmissible de l'information génétique.  
 Il est composé des 4 **nucléotides** suivants, appelés aussi **bases** :   
 
-- A : adénine 
-- T : thymine
-- G : guanine
-- C : cytosine
+- A : Adénine 
+- T : Thymine
+- G : Guanine
+- C : Cytosine
 
 Dans l'ADN, les bases A et T sont **complémentaires** ainsi que les bases G et C (cf.image)
 
 2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique. 
 Il est composé des 4 **nucléotides** suivants :
 
-- A : adénine 
-- U : uracine
-- G : guanine
-- C : cytosine
+- A : Adénine 
+- U : Uracine
+- G : Guanine
+- C : Cytosine
 
 3) Les **protéines** : outils de la cellule, elles sont composées de 20 acides aminés différents.
 
@@ -28,12 +28,12 @@ Il est composé des 4 **nucléotides** suivants :
 
 La transcription consiste en l'assemblage des nucléotides ARN en suivant le modèle ADN et en prenant les **bases complémentaires** à savoir : 
 
-- le A de l'ADN est remplacé par un U dans l'ARN  
-- le T par un A   
-- le G par un C   
-- le C par un G
+- le A de l'ADN est remplacé par U dans l'ARN  
+- le T par A   
+- le G par C   
+- le C par G
 
-5) La **traduction** : les ARN messagers sont traduits en protéine. Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du **code génétique**. Dans ce code, chaque mot de 3 bases, appelé **codon**, correspond à un acide aminé. Il est possibble de construire 4^3=64 codons différents à l'aide de 4 bases. Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé. Les codons sont lus sans chevauchement, les uns à la suite des autres.
+5) La **traduction** : les ARN messagers sont traduits en protéine. Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du **code génétique**. Dans ce code, chaque mot de 3 bases, appelé **codon**, correspond à un acide aminé. Il est possible de construire 4^3=64 codons différents à l'aide de 4 bases. Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé. Les codons sont lus sans chevauchement, les uns à la suite des autres.
 
 ```python
 'UUU','UUC' : 'F'   
@@ -46,7 +46,7 @@ La transcription consiste en l'assemblage des nucléotides ARN en suivant le mod
 'ACU','ACC','ACA','ACG' : 'T'        
 'GCU','GCC','GCA','GCG' : 'A'       
 'UAU','UAC' : 'Y'      
-'UAA','UAG','UGA' : '*'          
+'UAA','UAG','UGA' : '*'#ces codons stop ont pour rôle de signaler la fin du gène lors de la traduction          
 'CAU','CAC' : 'H'      
 'CAA','CAG' : 'O'      
 'AAU','AAC' : 'N'          
@@ -144,12 +144,12 @@ def baseComplementaire(base,chaine):
     """
 ```
 
-**Indication** : réaliser deux dictionnaires `vers_ARN` et `vers_ADN`
+**Indication** : réaliser deux dictionnaires `vers_ARN` et `vers_ADN`.
 
 
 ### Question 4
 
-Réaliser une fonction nommée transcrit qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. La première base de la séquence étant numérotée 1. On utilisera la fonction `baseComplementaire`.
+Réaliser une fonction nommée `transcrit` qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. La première base de la séquence étant numérotée 1. On utilisera la fonction `baseComplementaire`.
 
 **Indication** : 
 
