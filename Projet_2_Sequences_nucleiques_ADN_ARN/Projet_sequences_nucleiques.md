@@ -1,4 +1,4 @@
-# Les séquences nucléiques de l'ADN et ARN
+# Projet : Les séquences nucléiques de l'ADN et ARN
 
 <img src="adn.png">
 
@@ -95,38 +95,9 @@ def estADN(chaine):
 
 **Indication** : utiliser la fonction prédéfinie `all()`
 
-### Question 2 
-
-Il est possible de générer aléatoirement une séquence d'ADN. La version naïve suppose que les 4 bases ont la même probabilité d'apparaître à une position donnée.
-
-Réalisez une fonction nommée `genereADN` qui renvoie une séquence ADN générée **aléatoirement** et dont la taille est passée en paramètre.
-
-```python
-def genereADN(n):
-    """
-    Génère une séquence ADN de taille n
-    param : n : int
-    return : str
-    """
-```     
-    
-exemple de résultat :
-
-```python
->>> genereADN(10)
-'GGACGAGGCA'
-``` 
-
-**Indication** : rechercher dans l'aide une fonction adéquate du module `random` à l'aide de 
-
-```python
->>> import random
->>> help(random)
-```
-
 ## La transcription
 
-### Question 3 
+### Question 2 
 
 Réaliser une fonction nommée `baseComplementaire` qui renvoie la base complémentaire de la base passée en paramètre, selon le type de séquence démandée en sortie, qui peut être soit 'ADN', soit 'ARN'.
 
@@ -147,7 +118,7 @@ def baseComplementaire(base,chaine):
 **Indication** : réaliser deux dictionnaires `vers_ARN` et `vers_ADN`.
 
 
-### Question 4
+### Question 3
 
 Réaliser une fonction nommée `transcrit` qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. La première base de la séquence étant numérotée 1. On utilisera la fonction `baseComplementaire`.
 
@@ -160,7 +131,7 @@ Réaliser une fonction nommée `transcrit` qui renvoie l'ARN construit à partir
 
 ## La traduction
 
-### Question 5
+### Question 4
 
 Réaliser une fonction `traduit` qui donne le code génétique de la séquence ARN passée en paramètre.
 
@@ -177,7 +148,7 @@ def traduit(sequence):
 
 ## La réplication
 
-### Question 6
+### Question 5
 
 Réaliser une fonction nommée `réplique` qui construit la séquence ADN complémentaire et inversée de celle passée en paramètre.
 
