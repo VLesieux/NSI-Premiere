@@ -56,6 +56,13 @@ table4=copy.deepcopy(table3)
 table3[0][0]=1
 print(table3)
 print(table4)
+################### rappel : on peut aussi faire pour ne pas tout importer ###################
+#from copy import deepcopy
+#table3=[[0] * 3 for i in range(4)]
+#table4=deepcopy(table3)
+#table3[0][0]=1
+#print(table3)
+#print(table4)
 ```
 
 - La table de données peut également se présenter sous la forme d'un dictionnaire.
@@ -88,7 +95,7 @@ Avec ce premier code ci-dessous, on obtient une liste de listes.
 
 On utilise pour cela deux **méthodes** associées aux chaînes de caractères ou strings :
 
-- str.rstrip() supprime le caractère `espace` en fin de ligne, on peut aussi supprimer tout autre caractère si on le précise ; la fonction rstrip() est une fonction associée à l'objet str au moyen du **.** ; on appelle cela une méthode associée à l'objet str
+- str.rstrip() supprime le caractère `espace` en fin de ligne, on peut aussi supprimer tout autre caractère si on le précise ; la fonction rstrip() est une fonction associée à l'objet str au moyen du **.** ; on appelle cela une **méthode** associée à l'objet str.
 
 Par exemple : 
 
@@ -104,7 +111,7 @@ Par exemple :
 Examples : We spent the weekend stripping wallpaper.
 The wind had stripped the leaves from the trees.]
 
-- str.split(';') qui renvoie une liste en utilisant ';' comme séparateur
+- str.split(';') qui renvoie une liste en utilisant ';' comme **séparateur**
 
 Par exemple : 
 
@@ -147,8 +154,9 @@ print(table)
 >>>
 [('Nom', 'Continent', 'Superficie', 'Population', 'Capitale'), ('Afghanistan', 'Asie', '652864.0', '34124800', 'Kaboul'), ('Angola', 'Afrique', '1246700.0', '30355900', 'Luanda'), ('Albanie', 'Europe', '28748.0', '2048000', 'Tirana'), ('Andorre', 'Europe', '468.0', '85600', 'Andorre-la-Vieille'), ('Argentine', 'Amerique du Sud', '2791800.0', '44293300', 'Buenos Aires'), ('Armenie', 'Asie', '29800.0', '3045200', 'Erevan'), ('Australie', 'Oceanie', '7692060.0', '23470100', 'Canberra'), ('Autriche', 'Europe', '83871.0', '8754400', 'Vienne')]
 ```
-Il s'agit maintenant de distinguer la première ligne qui contient **les descripteurs des champs de la table de données** des autres lignes qui contiennent les données correspondantes.
-De plus, il s'agit maintenant de convertir les données décimales sur la superficie de type string en float et les données entières sur la population de type string en int. On disposera ainsi de données numériques et non plus de chaînes de caractères.
+Il s'agit maintenant de distinguer la première ligne qui contient **les descripteurs des champs de la table de données** des autres lignes qui contiennent les données proprement dites.    
+De plus, il s'agit maintenant de convertir les données décimales sur la superficie de type string en float et les données entières sur la population de type string en int.  
+On disposera ainsi de données numériques et non plus de chaînes de caractères.
 
 Par exemple :
 
@@ -206,9 +214,10 @@ On voit qu'il est nécessaire avec la méthode rstrip() de supprimer les passage
 Poursuivons le code précédent pour rechercher dans notre tableau les pays d'Europe contenant plus de 5 millions d'habitants.   
 La recherche fait intervenir les paramètres Continent, Population et doit nous retourner un Nom. 
 
-On commence par créer une liste appelée indices contenant les indices de position des champs : Nom, Continent, Population. Dans notre cas simple, les indices sont assez évidents mais on pourrait disposer d'une table comportant un très grand nombre de champs, auquel cas il est utile de repérer les indices des champs qui sont vraiment utiles pour notre recherche.
+On commence par créer une liste appelée indices contenant les indices de position des champs : Nom, Continent, Population.  
+Dans notre cas simple, les indices sont assez évidents mais on pourrait disposer d'une table comportant un très grand nombre de champs, auquel cas il est utile de repérer les indices des champs qui sont vraiment utiles pour notre recherche.
 
-On utilise pour cela la méthode `index` associée au liste pour obtenir l'indice de position d'un élément de la liste.
+On utilise pour cela la **méthode** `index` des listes pour obtenir l'indice de position d'un élément de la liste.
 
 La méthode consiste à créer une liste initialement vide appelée `rep` et d'ajouter au fur et à mesure du parcours des lignes du tableau les éléments qui satisfont les conditions de la recherche.
 
@@ -246,7 +255,8 @@ On souhaite écrire une fonction capable de renvoyer sous forme de liste uniquem
 Cherchons à éliminer les **doublons** qui auraient par exemple tous les deux le même nom de pays.   
 
 Premier cas : supposons que la table est déjà triée suivant les noms.  
-Dans ce cas, il suffit de comparer les lignes de la table avec la dernière ligne enregistrée dans la nouvelle table. L'indice -1 correspond en effet au dernier élément placé dans la liste.
+Dans ce cas, il suffit de comparer les lignes de la table avec la dernière ligne enregistrée dans la nouvelle table.   
+L'indice -1 correspond en effet au dernier élément placé dans la liste.
 
 ```python
     rep=[table[0]]
@@ -256,7 +266,7 @@ Dans ce cas, il suffit de comparer les lignes de la table avec la dernière lign
     return rep
 ```
 
-Deuxième cas : supposons que la table n'est pas déjà triée suivant les noms.     
+Deuxième cas : supposons que la table n'est pas déjà été triée suivant les noms.     
 Le principe est le suivant : pour chaque nouvelle ligne ajoutée, il faut vérifier son absence dans la nouvelle table.
 
 ```python
@@ -301,19 +311,19 @@ def sans_doublons(table,indice):
 [('Afghanistan', 'Asie', 652864.0, 34124800, 'Kaboul'), ('Angola', 'Afrique', 1246700.0, 30355900, 'Luanda')]
 ```
 
-Remarque : On peut s'interroger sur le coût d'un tel algorithme et se demander s'il ne vaudrait pas mieux trier la table dans un premier temps pour lui appliquer ensuite la première version qui est plus simple.
+Remarque : On peut s'interroger sur le coût d'un tel algorithme et se demander s'il ne vaudrait pas mieux trier la table dans un premier temps pour lui appliquer la première version qui est plus simple.
 
 
 ### 5) Tri d'une table de données
 
-On sait déjà trier une liste :
+On sait déjà trier une liste avec la fonction prédéfinie `sorted` :
 
 ```python
 >>> sorted([16,1,8,20])
 [1, 8, 16, 20]
 ```
 
-On peut faire un tri sur des objets complexes en utilisant les indices des objets en tant que **clé** ou **key**. On utilise pour cela une fonction **`lambda` dite fonction anonyme** limitée à une seule expression et dont le résultat est la valeur renvoyée.
+On peut améliorer le tri sur des objets complexes en utilisant les indices des objets en tant que **clé** ou **key**. On utilise pour cela une fonction **`lambda` dite fonction anonyme** limitée à une seule expression et dont le résultat est la valeur renvoyée.
 
 Exemple :
 
@@ -384,9 +394,10 @@ def ajout(table1,table2,indice):
 
 2. **Jointure** entre tables
 
-Supposons que nous disposions d'une deuxième table avec le nom de pays en commun et d'autres champs non communs comme le PIB, la langue officielle, etc... Nous allons construire une nouvelle table contenant toutes les informations des deux tables sans que le nom de pays figure deux fois. Si un pays est présent dans une table et pas dans l'autre, on donne la valeur *None* aux différents champs vides. On suppose de plus que les deux tables sont sans doublon.   
+Supposons que nous disposions d'une deuxième table avec le nom de pays en commun et d'autres champs non communs comme le PIB, la langue officielle, etc...   
+Nous allons construire une nouvelle table contenant toutes les informations des deux tables sans que le nom de pays figure deux fois. Si un pays est présent dans une table et pas dans l'autre, on donne la valeur *None* aux différents champs vides. On suppose de plus que les deux tables sont sans doublon.   
 Les paramètres `i1` et `i2` désignent les indices du champ 'Nom' dans chacune des deux tables.
-Techniquement, comme `table1` figure comme paramètre de la fonction, il est nécessaire de faire une copie profonde de table 1 afin d'ajouter sur ses lignes les valeurs de table2, nous verrons l'intérêt de cela dans un deuxième temps.
+Techniquement, comme `table1` figure comme paramètre de la fonction, il est nécessaire de faire une **copie profonde** de table 1 afin d'ajouter sur ses lignes les valeurs de table2, nous verrons l'intérêt de cela dans un deuxième temps.
 
 ```python
 from copy import deepcopy#importation de deepcopy de la bibliothèque copy
