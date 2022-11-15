@@ -56,7 +56,7 @@ table4=copy.deepcopy(table3)
 table3[0][0]=1
 print(table3)
 print(table4)
-################### rappel : on peut aussi faire pour ne pas tout importer ###################
+################### rappel : on peut aussi faire ainsi pour ne pas tout importer ###################
 #from copy import deepcopy
 #table3=[[0] * 3 for i in range(4)]
 #table4=deepcopy(table3)
