@@ -23,6 +23,23 @@ ou plus simplement :
 [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
 ```
 
+**Remarque importante** :
+
+```python
+table1=[[0] * 3 for i in range(4)]
+table2=table1
+table2[0][0]=1
+print(table2)
+print(table1)
+################### pour éviter ce problème ###################
+import copy
+table3=[[0] * 3 for i in range(4)]
+table4=copy.deepcopy(table3)
+table3[0][0]=1
+print(table3)
+print(table4)
+```
+
 >Exemple 2 : on considère le tableau suivant : tableau = [[1,3,4],[2,7,8],[9,10,6],[12,11,5]]. 
 On souhaite accéder à la valeur 12, première valeur de la sous-quatrième liste qui constitue la liste `tableau`.
 
