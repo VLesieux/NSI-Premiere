@@ -86,7 +86,7 @@ On a créé un fichier Excel [à télécharger](assets/Tableau_capitales.xlsx)
 
 ![](assets/Image_Excel.png)	
 
-On l'a enregistré également avec l'**extension** .csv pour avoir un fichier au format texte [à télécharger](assets/Tableau_capitales.csv) ; ici on a un format de fichier où les données sont séparés par un point-virgule mais elles pourraient être séparées par un autre caractère tel qu'une virgule.
+On l'a enregistré également avec l'**extension** .csv pour avoir un fichier au format texte [à télécharger](assets/Tableau_capitales.csv) ; ici on a un format de fichier où les données sont séparés par un point-virgule mais elles pourraient être séparées par un autre caractère tel qu'une virgule ; csv est l'acronyme de « Coma Separated Values ».
 
 ![](assets/Image_csv.png)
 
