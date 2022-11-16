@@ -35,12 +35,12 @@ La transcription consiste en l'assemblage des nucléotides ARN en suivant le mod
 
 5) La **traduction** : les ARN messagers sont traduits en protéine.  
 Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés se fait à l'aide du **code génétique**. 
-Chaque **acide aminé** est représenté sur l'ADN par un triplet de bases appelé **codon**.
+Chaque **acide aminé** est représenté sur l'ADN par un triplet de bases appelé **codon**.      
 Il est possible de construire 4^3=64 codons différents à l'aide de 4 bases (4 possibilités pour le premier, idem pour le second, idem pour le troisième). 
-Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé.   
-Les codons sont lus sans chevauchement, les uns à la suite des autres.
-La table ci-dessous donne la traduction des codons en acides aminés dans le code génétique standard.
-Par exemple, l'acide aminé qui correspond à la phénylalanine et qui est désigné par la lettre F par l'Union internationale de biochimie et de biologie moléculaire est encodé sur les ARN messagers par les codons UUU et UUC.
+Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé.       
+Les codons sont lus sans chevauchement, les uns à la suite des autres.       
+La table ci-dessous donne la traduction des codons en acides aminés dans le code génétique standard.       
+Par exemple, l'acide aminé qui correspond à la phénylalanine et qui est désigné par la lettre F par l'Union internationale de biochimie et de biologie moléculaire est encodé sur les ARN messagers par les codons UUU et UUC.      
 
 ```python
 'UUU','UUC' : 'F'   
@@ -145,7 +145,7 @@ def transcrit(sequence,debut,fin):
     """
 ```
 
-**Indication** : 
+**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères.
 
 ```python
 >>> "animal"[1:4]
