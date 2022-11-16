@@ -33,7 +33,12 @@ La transcription consiste en l'assemblage des nucléotides ARN en suivant le mod
 - le G par C   
 - le C par G
 
-5) La **traduction** : les ARN messagers sont traduits en protéine. Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du **code génétique**. Dans ce code, chaque mot de 3 bases, appelé **codon**, correspond à un acide aminé. Il est possible de construire 4^3=64 codons différents à l'aide de 4 bases. Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé. Les codons sont lus sans chevauchement, les uns à la suite des autres.
+5) La **traduction** : les ARN messagers sont traduits en protéine.  
+Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du **code génétique**. 
+Chaque **acide aminé** est représenté sur l'ADN par un triplet de bases appelé **codon**.
+Il est possible de construire 4^3=64 codons différents à l'aide de 4 bases. 
+Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé.   
+Les codons sont lus sans chevauchement, les uns à la suite des autres.
 
 ```python
 'UUU','UUC' : 'F'   
@@ -160,11 +165,15 @@ def traduit(sequence):
     """
 ```  
 
+**Indication** : Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.
+
+
 ## La réplication
 
 ### Question 5
 
 Réaliser une fonction nommée `réplique` qui construit la séquence ADN complémentaire et inversée de celle passée en paramètre.
+Cette fonction utilise la fonction `baseComplementaire`.
 
 ```python
 def replique(sequence):
