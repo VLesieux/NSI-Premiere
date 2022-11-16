@@ -129,7 +129,6 @@ def baseComplementaire(base,chaine):
 
 Réaliser une fonction nommée `transcrit` qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. 
 Attention, la première base de la séquence est numérotée ici 1.   
-On utilisera la fonction `baseComplementaire`.
 
 ```python
 def transcrit(sequence,debut,fin):
@@ -145,7 +144,7 @@ def transcrit(sequence,debut,fin):
     """
 ```
 
-**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères.
+**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères illustré ci-dessous et la fonction précédente `baseComplementaire`.
 
 ```python
 >>> "animal"[1:4]
@@ -170,7 +169,7 @@ def traduit(sequence):
 ```  
 
 **Indications** : Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.     
-Réaliser un parcours du dictionnaire à l'aide du code `for cle,val in code.items()`.
+Réaliser un parcours de ce dictionnaire à l'aide du code `for cle,val in code.items()`.
 
 
 ## La réplication
