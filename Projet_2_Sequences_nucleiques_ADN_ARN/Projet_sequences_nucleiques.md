@@ -169,7 +169,8 @@ def traduit(sequence):
     """
 ```  
 
-**Indication** : Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.
+**Indications** : Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.     
+Réaliser un parcours du dictionnaire à l'aide du code `for cle,val in code.items()`.
 
 
 ## La réplication
