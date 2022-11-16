@@ -28,10 +28,10 @@ Il est composé des 4 **nucléotides** suivants :
 
 La transcription consiste en l'assemblage des nucléotides ARN en suivant le modèle ADN et en prenant les **bases complémentaires** à savoir : 
 
-- le A de l'ADN est remplacé par U dans l'ARN  
-- le T par A   
-- le G par C   
-- le C par G
+- le A de l'ADN est remplacé par le U dans l'ARN  
+- le T par le A   
+- le G par le C   
+- le C par le G
 
 5) La **traduction** : les ARN messagers sont traduits en protéine.  
 Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du **code génétique**. 
