@@ -127,7 +127,9 @@ def baseComplementaire(base,chaine):
 
 ### Question 3
 
-Réaliser une fonction nommée `transcrit` qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. La première base de la séquence étant numérotée 1. On utilisera la fonction `baseComplementaire`.
+Réaliser une fonction nommée `transcrit` qui renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions passées en paramètres, incluses. 
+Attention, la première base de la séquence est numérotée ici 1.   
+On utilisera la fonction `baseComplementaire`.
 
 ```python
 def transcrit(sequence,debut,fin):
