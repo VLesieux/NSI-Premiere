@@ -187,17 +187,7 @@ def fusion(table1,table2):
 
 ### Exercice 5
 
-1. Dans un premier temps on extrait à l'aide du programme ci-dessous en Python les données d'un fichier csv appelé `les_salles_de_cinemas_en_ile-de-france.csv` .   
-Vous trouverez ce fichier `csv` (comma-separated values) dans le dossier `Assets`.
-
-```Python
-import csv
-fichier=open("les_salles_de_cinemas_en_ile-de-france.csv","r")
-table_des_donnees=[]
-for ligne in fichier:
-    table_des_donnees.append(ligne.rstrip().split(';'))
-fichier.close
-```
+1. Dans un premier temps réaliser une table appelée `table_des_donnees` obtenue grâce à l'extraction des données du fichier csv appelé `les_salles_de_cinemas_en_ile-de-france.csv`  présent dans le dossier `Assets`.
 
 Dans la console, noter les résultats affichés :
 
@@ -214,12 +204,10 @@ e) print(table_des_donnees[0].index('entrees_2020'))
 f) print(table_des_donnees[0].index('geo')) 
 
 Donnez la signification de ces résultats.   
-Pour la suite, supprimer la ligne des descripteurs en ajoutant :  
- `del table_des_donnees[0]` après `fichier.close`
 
 2. On se demande combien il y a de cinémas dans le département 95.   
 
-Dans un premier temps, compléter les lignes de code de la fonction `denombre` pour que sa docstring soit vérifiée.  
+Compléter la fonction `denombre` pour que sa docstring soit vérifiée.  
 On dénombre en effet 30 salles de cinéma dans le département 93.
 
 ```Python
@@ -233,44 +221,33 @@ def denombre(departement,tableau):
     >>> denombre("93",table_des_donnees)
     30
     """
-    ................................
-    ................................
-    ................................
-    ................................
-    ................................
-
         
 if __name__ == '__main__':
     import doctest
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
-**Indications**: 
-
-- Créer un compteur (comme dans la fonction2 de l'exercice 4) qui est incrémenté lorsqu'on rencontre une donnée correspondant au `departement` placé en paramètre
-- Renvoyer ce compteur
-
-
 3. Quel est le nom du cinéma d'Île de France (tous départements confondus) qui a fait le plus d'entrée en 2020 ?
 
-**Indications** : utiliser `sorted` et une fonction `tri_selon_entree_2020` comme critère de tri (cf. exercice 3).
+**Indication** : utiliser `sorted` après avoir réalisé une fonction de tri appelée `tri_selon_entree_2020`.
 
 4. Quel est le nom du cinéma du département 95 qui a fait le plus d'entrée en 2020 ?
 
-**Indications** : réaliser une fonction de filtrage `filtre_selon_code(code,tableau)` (cf. exercice 3) pour retenir les éléments du tableau de la question précédente correspondant au code mis en paramètre.
+**Indications** : réaliser une fonction de filtrage `filtre_selon_code(code,tableau)`.
 
 5. On se propose de répondre à la question suivante : combien y-a-t-il de cinéma à moins de 10 km de Paris ?    
+
 Pour cela, on importe un programme appelé `calcul_distance_latitude_longitude.py` en ajoutant dans notre code 
+
 ```Python
 import calcul_distance_latitude_longitude as distance
 ```
- après avoir placé ce programme que l'on trouvera dans le dossier Assets dans le même dossier que le programme actif. 
- 
-Ce programme possède une fonction `a_paris(geo)` qui renvoie la distance en <u>mètre</u> par rapport à Paris d'un point dont les coordonnées géographiques sont données sous forme de tuple (latitude,longitude) ; pour l'appeler et l'utiliser dans notre programme, il suffit d'écrire la fonction `distance.a_paris` par exemple 
+
+Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous forme de tuple (latitude,longitude) ; pour l'appeler et l'utiliser dans notre programme, il suffit d'écrire la fonction `distance.a_paris` par exemple 
 
 ```Python
 >>> distance.a_paris('48.873073,2.298394')
 4346.833687547045`
 ```
 
-**Indications** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)` pour retenir les éléments du tableau correspondant à notre requête.
+**Indications** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
