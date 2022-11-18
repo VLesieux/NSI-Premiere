@@ -323,9 +323,9 @@ On sait déjà trier une liste avec la fonction prédéfinie `sorted` :
 [1, 8, 16, 20]
 ```
 
-On peut améliorer le tri sur des objets complexes en utilisant les indices des objets en tant que **clé** ou **key**. On utilise pour cela une fonction **`lambda` dite fonction anonyme** limitée à une seule expression et dont le résultat est la valeur renvoyée.
+On peut améliorer le tri sur des objets complexes en utilisant les indices des objets en tant que **clé** ou **key**. On utilise pour cela une fonction `lambda` dite **fonction anonyme** limitée à une seule expression et dont le résultat est la valeur renvoyée.
 
-Exemple1 :
+Exemple 1 :
 
 ```python
 >>> sorted(["-1","-5","2","3"])
@@ -335,7 +335,7 @@ Exemple1 :
 >>> sorted(["-1","-5","2","3"], key=lambda element:int(element),reverse=True)
 ['3', '2', '-1', '-5']#On peut également décider d'un tri dans l'ordre décroissant en ajoutant le critère reverse=True
 ```
-Exemple2 :
+Exemple 2 :
 
 ```python
 
