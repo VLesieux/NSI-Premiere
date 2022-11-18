@@ -233,7 +233,7 @@ if __name__ == '__main__':
 
 4. Quel est le nom du cinéma du département 95 qui a fait le plus d'entrée en 2020 ?
 
-**Indications** : réaliser une fonction de filtrage `filtre_selon_code(code,tableau)`.
+**Indication** : réaliser une fonction de filtrage `filtre_selon_code(code,tableau)`.
 
 5. On se propose de répondre à la question suivante : combien y-a-t-il de cinéma à moins de 10 km de Paris ?    
 
@@ -243,7 +243,7 @@ Pour cela, on importe un programme appelé `calcul_distance_latitude_longitude.p
 import calcul_distance_latitude_longitude as distance
 ```
 
-Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous forme de tuple (latitude,longitude) ; pour l'appeler et l'utiliser dans notre programme, il suffit d'écrire la fonction `distance.a_paris` par exemple 
+Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous forme du tuple (latitude,longitude) ; pour l'appeler et l'utiliser cette fonction dans notre programme, il suffit d'écrire `distance.a_paris` par exemple 
 
 ```Python
 >>> a_paris(48.873073,2.298394)
@@ -252,4 +252,4 @@ Ce programme se trouve également dans le dossier Assets. Il possède une foncti
 #sont données sous la forme du tuple (latitude,longitude)
 ```
 
-**Indications** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
+**Indication** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
