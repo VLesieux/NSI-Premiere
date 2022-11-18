@@ -189,6 +189,8 @@ def fusion(table1,table2):
 
 1. Dans un premier temps réaliser une table appelée `table_des_donnees` obtenue grâce à l'extraction des données du fichier csv appelé `les_salles_de_cinemas_en_ile-de-france.csv`  présent dans le dossier `Assets`.
 
+Ne pas demander d'afficher la table dans sa totalité au risque de bloquer le logiciel Thonny.
+
 Dans la console, noter les résultats affichés :
 
 a) len(table_des_donnees)
@@ -197,22 +199,24 @@ b) table_des_donnees[0]
 
 c) len(table_des_donnees[0])
 
-d) table_des_donnees[0].index('dep')
+d) table_des_donnees[0].index('nom')
 
-e) table_des_donnees[0].index('entrees_2020')
+e) table_des_donnees[0].index('dep')
 
-f) table_des_donnees[0].index('geo') 
+f) table_des_donnees[0].index('entrees_2020')
+
+g) table_des_donnees[0].index('geo') 
 
 Donnez la signification de ces résultats.   
 
 2. On se demande combien il y a de cinémas dans le département 95.   
 
-Compléter la fonction `denombre` pour que sa docstring soit vérifiée.  
+Compléter la fonction `denombre` ci-dessous pour que sa docstring soit vérifiée.  
 On dénombre en effet 30 salles de cinéma dans le département 93.
 
 ```Python
 
-def denombre(departement,tableau):
+def denombre(departement,table):
     """
     Renvoie le nombre de salles de cinéma dans departement après le parcours de tableau 
     param : departement : str
