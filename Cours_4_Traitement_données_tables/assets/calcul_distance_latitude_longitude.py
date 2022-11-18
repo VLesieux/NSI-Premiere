@@ -26,10 +26,8 @@ def calcul_distance_a_vol_d_oiseau(A,B):
     d=6378137*S
     return d
 
-def a_paris(A):
-    liste=A.split(',')
-    couple=(float(liste[0]),float(liste[1]))
-    return calcul_distance_a_vol_d_oiseau(couple,(48.856614,2.3522219))
+def a_paris(latitude,longitude):
+    return calcul_distance_a_vol_d_oiseau((latitude,longitude),(48.856614,2.3522219))
 
 
 if __name__ == '__main__':

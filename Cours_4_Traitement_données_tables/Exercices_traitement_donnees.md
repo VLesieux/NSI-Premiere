@@ -246,8 +246,10 @@ import calcul_distance_latitude_longitude as distance
 Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous forme de tuple (latitude,longitude) ; pour l'appeler et l'utiliser dans notre programme, il suffit d'écrire la fonction `distance.a_paris` par exemple 
 
 ```Python
->>> distance.a_paris('48.873073,2.298394')
-4346.833687547045`
+>>> a_paris(48.873073,2.298394)
+4346.833687547045
+#Cette fonction calcule la distance en mètre entre Paris et le lieu dont les coordonnées géographiques
+#sont données sous la forme du tuple (latitude,longitude)
 ```
 
 **Indications** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
