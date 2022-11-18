@@ -207,7 +207,10 @@ f) table_des_donnees[0].index('entrees_2020')
 
 g) table_des_donnees[0].index('geo') 
 
-Donnez la signification de ces résultats.   
+Donnez la signification de ces résultats, les copier sur un papier. 
+
+On peut maintenant supprimer la ligne des champs en écrivant `del(table_des_donnees[0])`.
+  
 
 2. On se demande combien il y a de cinémas dans le département 95.   
 
@@ -220,20 +223,39 @@ def denombre(departement,table):
     """
     Renvoie le nombre de salles de cinéma dans departement après le parcours de tableau 
     param : departement : str
-    param : tableau : list
+    param : table : list
     return : int
     >>> denombre("93",table_des_donnees)
     30
     """
 ```
 
-3. Quel est le nom du cinéma d'Île de France (tous départements confondus) qui a fait le plus d'entrée en 2020 ?
+3. Quel est le nom du cinéma d'Île de France (tous départements confondus) avec son nombre d'entrée qui a fait le plus d'entrée en 2020 ?
 
-**Indication** : utiliser `sorted` après avoir réalisé une fonction de tri appelée `tri_selon_entree_2020`.
+```Python
+def cinema_plus_d_entree(table):
+    """
+    Renvoie le nom du cinéma qui a fait le plus d'entrée
+    param : table : list
+    return : str
+    >>> cinema_plus_d_entree(table_des_donnees)
+    ('LES 2 SCENES', '9987.0')
+    """
+```
 
 4. Quel est le nom du cinéma du département 95 qui a fait le plus d'entrée en 2020 ?
 
-**Indication** : réaliser une fonction de filtrage `filtre_selon_code(code,tableau)`.
+```Python
+def cinema_plus_d_entree_par_code(table,code):
+    """
+    Renvoie le nom du cinéma qui a fait le plus d'entrée
+    param : table : list
+    param : code : int (#attention, penser à convertir la donnée str en int)
+    return : str
+    >>> cinema_plus_d_entree_par_code(table_des_donnees,95)
+    ('STUDIO CINE', '9939.0')
+    """
+```
 
 5. On se propose de répondre à la question suivante : combien y-a-t-il de cinéma à moins de 10 km de Paris ?    
 
@@ -249,7 +271,8 @@ Ce programme se trouve également dans le dossier Assets. Il possède une foncti
 >>> a_paris(48.873073,2.298394)
 4346.833687547045
 #Cette fonction calcule la distance en mètre entre Paris et le lieu dont les coordonnées géographiques
-#sont données sous la forme du tuple (latitude,longitude).
+#sont données sous la forme du tuple (latitude,longitude)
+#il est intéressant du point de vue mathématique de comprendre le code de cette fonction
 ```
 
 **Indication** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
