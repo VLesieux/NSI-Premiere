@@ -191,17 +191,17 @@ def fusion(table1,table2):
 
 Dans la console, noter les résultats affichés :
 
-a) print(len(table_des_donnees)) 
+a) len(table_des_donnees)
 
-b) print(table_des_donnees[0]) 
+b) table_des_donnees[0]
 
-c) print(len(table_des_donnees[0])) 
+c) len(table_des_donnees[0])
 
-d) print(table_des_donnees[0].index('dep')) 
+d) table_des_donnees[0].index('dep')
 
-e) print(table_des_donnees[0].index('entrees_2020'))  
+e) table_des_donnees[0].index('entrees_2020')
 
-f) print(table_des_donnees[0].index('geo')) 
+f) table_des_donnees[0].index('geo') 
 
 Donnez la signification de ces résultats.   
 
