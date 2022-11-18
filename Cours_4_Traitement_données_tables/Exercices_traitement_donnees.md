@@ -279,6 +279,8 @@ Ce programme se trouve également dans le dossier Assets. Il possède une foncti
 def nombre_de_cinemas_a_distance_de_Paris(table,d):
     """
     Renvoie le nombre de cinema à une distance d de Paris
+    param : table : list
+    param : d : int
 	>>> nombre_de_cinemas_a_distance_de_Paris(table_des_donnees,20000)
 	229
     """
