@@ -1,5 +1,13 @@
 ## Exercices traitement de données en table
 
+On donne le code pour vérifier les tests des docstrings.
+
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
+
 ### Exercice 1
 
 Réaliser un fichier au format CSV appelé `bon_commande.csv` décrivant le bon de commande ci-dessous, dans lequel les colonnes référence et désignation contiennent des chaînes de caractères, la colonne prix des nombres décimaux et la colonne quantité des nombres entiers.
@@ -47,14 +55,6 @@ Remarque : Pour transformer `,` en `.` utiliser :
 ```
 
 ### Exercice 2
-
-On donne le code pour vérifier les tests des docstrings.
-
-```python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-```
 
 1) Reprendre l'exercice précédent et réaliser une fonction `verifie_quantites(table)` qui analyse le bon de commande et renvoie True si pour chaque produit commandé la quantité est bien positive.
 
@@ -221,10 +221,6 @@ def denombre(departement,tableau):
     >>> denombre("93",table_des_donnees)
     30
     """
-        
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
 3. Quel est le nom du cinéma d'Île de France (tous départements confondus) qui a fait le plus d'entrée en 2020 ?
@@ -243,13 +239,13 @@ Pour cela, on importe un programme appelé `calcul_distance_latitude_longitude.p
 import calcul_distance_latitude_longitude as distance
 ```
 
-Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous forme du tuple (latitude,longitude) ; pour l'appeler et l'utiliser cette fonction dans notre programme, il suffit d'écrire `distance.a_paris` par exemple 
+Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous la forme d'un tuple (latitude,longitude) ; pour l'appeler et l'utiliser cette fonction dans notre programme, il suffit d'écrire `distance.a_paris` par exemple 
 
 ```Python
 >>> a_paris(48.873073,2.298394)
 4346.833687547045
 #Cette fonction calcule la distance en mètre entre Paris et le lieu dont les coordonnées géographiques
-#sont données sous la forme du tuple (latitude,longitude)
+#sont données sous la forme du tuple (latitude,longitude).
 ```
 
 **Indication** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
