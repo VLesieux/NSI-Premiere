@@ -207,7 +207,7 @@ f) table_des_donnees[0].index('entrees_2020')
 
 g) table_des_donnees[0].index('geo') 
 
-Donnez la signification de ces résultats, les copier sur un papier. 
+Donnez la signification de ces résultats, noter les sur un papier car elles seront utiles pour la suite. 
 
 On peut maintenant supprimer la ligne des champs en écrivant `del(table_des_donnees[0])`.
   
@@ -230,7 +230,7 @@ def denombre(departement,table):
     """
 ```
 
-3. Quel est le nom du cinéma d'Île de France (tous départements confondus) avec son nombre d'entrée qui a fait le plus d'entrée en 2020 ?
+3. Quel est le nom du cinéma d'Île de France (tous départements confondus) qui a fait le plus d'entrée en 2020 ? Quel est son son nombre d'entrée ?
 
 ```Python
 def cinema_plus_d_entree(table):
@@ -268,11 +268,28 @@ import calcul_distance_latitude_longitude as distance
 Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous la forme d'un tuple (latitude,longitude) ; pour l'appeler et l'utiliser cette fonction dans notre programme, il suffit d'écrire `distance.a_paris` par exemple 
 
 ```Python
->>> a_paris(48.873073,2.298394)
+>>> distance.a_paris(48.873073,2.298394)
 4346.833687547045
 #Cette fonction calcule la distance en mètre entre Paris et le lieu dont les coordonnées géographiques
 #sont données sous la forme du tuple (latitude,longitude)
 #il est intéressant du point de vue mathématique de comprendre le code de cette fonction
 ```
 
-**Indication** : réaliser une fonction de filtrage `filtre_selon_distance_a_Paris(tableau,rayon_a_Paris)`.
+```Python
+def nombre_de_cinemas_a_distance_de_Paris(table,d):
+    """
+    Renvoie le nombre de cinema à une distance d de Paris
+	>>> nombre_de_cinemas_a_distance_de_Paris(table_des_donnees,20000)
+	229
+    """
+```
+
+**indications** : 
+
+```Python
+>>> table_des_donnees[1][36]
+'48.872265,2.300938'
+
+>>> float(table_des_donnees[1][36].split(",")[0])
+48.872265
+```
