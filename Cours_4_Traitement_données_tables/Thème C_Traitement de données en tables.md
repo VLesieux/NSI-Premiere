@@ -345,7 +345,7 @@ Exemple2 :
 [(2, 6), (34, 12), (23, 76)]
 ```
 
-Par exemple, on cherche à trier des fiches d'identité, données sous la forme de tuples, par âge croissant, qui représente la valeur en position 2 du tuple :
+Exemple 3 : on cherche à trier des fiches d'identité, données sous la forme de tuples, par âge croissant, qui représente la valeur en position 2 du tuple :
 
 ```python
 >>> student_tuples = [('john', 'A', 15),('jane', 'B', 12),('dave', 'B', 10)]
