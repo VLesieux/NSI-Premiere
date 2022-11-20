@@ -73,6 +73,16 @@ Le trouver d'abord avec un crayon avant de tester sur machine.
 L'instruction `tuple(sorted(t))` renvoie le tuple ordonné dans l'ordre croissant.   
 Écrire une fonction `maxi` qui renvoie le maximum d'une suite de valeurs données dans un tuple en utilisant cette instruction.
 
+```Python
+def maxi(valeurs):
+    """
+    Renvoie le maximum d'une liste valeurs
+    param : valeurs : tuple
+    return : int
+    >>> maxi((7,18,9,2))
+    18
+```
+
 ## Exercice 5
 
 On construit un dictionnaire ayant pour clés des couples contenant les coordonnées GPS de villes (Latitude et Longitude) et pour valeur les noms des villes correspondantes. On trouve les coordonnées sur Internet par exemple. Les données sont sous forme décimale en degré.      
