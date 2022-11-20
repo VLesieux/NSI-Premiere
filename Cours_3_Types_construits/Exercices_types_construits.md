@@ -12,6 +12,17 @@ if __name__ == '__main__':
 
 Écrire une fonction _separe_ qui prend en argument un tuple _t_ composé d'entiers et renvoie deux listes : la première liste _pairs_ contient les nombres pairs et la seconde _impairs_ les nombres impairs.
 
+```Python
+def separe(t):
+    """
+    Renvoie une liste de nbre pairs et une liste de nbre impaires
+    param : t : tuple
+    return : tuple
+    >>> separe((5,8,2,9,6))
+    ([8, 2, 6], [5, 9])
+    """
+```
+
 __Indications__ : 
 1) revoir dans le cours sur les tuples le moyen de parcourir les éléments d'un tuple
 2) revoir le moyen de tester la parité d'un nombre
@@ -21,6 +32,18 @@ __Indications__ :
 
 Écrire une fonction _produit_ qui prend en paramètres une liste de nombres appelée _nombres_ et un entier naturel appelé _n_ non nul et qui renvoie une liste obtenue en multipliant chaque élément de la liste _nombres_ par _n_. On proposera différentes écritures du programme.
 
+```Python
+def produit(nombres,n):
+    """
+    Renvoie la liste obtenue en multipliant par n toutes les valeurs de nombres
+    param : nombres : list
+    param : n: int
+    return : list
+    >>> produit([3,7,4],2)
+    [6, 14, 8]
+    """
+```
+    
 __Indications__ : 
 1) Réaliser une première écriture en passant par la création d'une liste vierge _nouvelle_liste_ que l'on complète au fur et à mesure du parcours de la liste _nombres_
 2) Proposer une deuxième méthode beaucoup plus efficace en créant une liste par compréhension qui répond à la demande (voir les exemples du cours), et la renvoyer directement sans avoir à créer de liste intermédiaire 
