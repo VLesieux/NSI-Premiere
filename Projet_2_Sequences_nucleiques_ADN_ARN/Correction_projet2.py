@@ -18,16 +18,6 @@ def estADN(chaine):
         return True
     return all((caractere in bases) for caractere in chaine)
 
-#def genereADN(n):
-#    """
-#    Génère une séquence aléatoire ADN de taille n
-#    param : n : int
-#    return : str
-#    """
-#    sequence=""
-#    for i in range(n):
-#        sequence+=bases[random.randint(0,3)]
-#    return sequence
     
 #####################################Question 2#############################
 
