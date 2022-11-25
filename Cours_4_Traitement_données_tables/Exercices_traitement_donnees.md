@@ -112,7 +112,7 @@ def tri(table):
 
 **Indications** :
 
-- créer d'abord une liste triée `table_tri` en utilisant la fonction anonyme `lambda`
+- créer d'abord une liste triée `table_tri` en utilisant la fonction anonyme `lambda` (cf.cours)
 - créer le dictionnaire par compréhension comme à l'exercice 1
 
 ### Exercice 4
