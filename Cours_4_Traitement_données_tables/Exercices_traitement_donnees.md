@@ -140,7 +140,7 @@ Réaliser un fichier au format CSV appelé `marques.csv` décrivant les marques 
 
 On réalise ainsi une nouvelle table de données appelée `table_commande2`.
 
-Écrire la fonction `fusion(table1,table2)` pour réaliser maintenant la fusion des deux tables afin d'obtenir la nouvelle table représentée ci-dessous.
+Compléter la fonction `fusion(table1,table2)` ci-dessous pour réaliser maintenant la fusion des deux tables afin d'obtenir la nouvelle table représentée ci-dessous.
 
 <table>
 <tr>
