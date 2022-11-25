@@ -106,14 +106,14 @@ def tri(table):
     param : table : list
     return : dict
     >>> tri(table_commande1)
-    {'cahier petites carreaux': 3.5, 'lot crayons HB': 2.3, 'stylo rouge': 1.5}
+    {'cahier petits carreaux': 3.5, 'lot crayons HB': 2.3, 'stylo rouge': 1.5}
     """
 ```
 
-Indications :
+**Indications** :
 
 - créer d'abord une liste triée `table_tri` en utilisant la fonction anonyme `lambda`
-- créer le dictionnaire par compréhension
+- créer le dictionnaire par compréhension comme à l'exercice 1
 
 ### Exercice 4
 
