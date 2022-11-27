@@ -337,7 +337,9 @@ def select_competitor_by_bib(competiteurs,numero):
     param : numero : int
     return : dict
     >>> select_competitor_by_bib(read_competitors("data/small_inscrits.csv"),8)
-    {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}
+    {'bib_num': 8, 'first_name': 'Cheney', 'last_name': 'Chassé', 'sex': 'M', 'birth_date': '21/3/1949', 'performance': None}    
+    >>> select_competitor_by_bib(read_competitors("data/small_inscrits.csv"),0)
+    Ce compétiteur n'existe pas    
     """
 ```
 
