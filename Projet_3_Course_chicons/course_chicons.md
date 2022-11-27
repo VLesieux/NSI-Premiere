@@ -361,7 +361,7 @@ def select_competitor_by_birth_year(competiteurs,date_naissance):
     >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1980)
     [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 5, 'first_name': 'Namo', 'last_name': 'Lereau', 'sex': 'M', 'birth_date': '26/3/1980', 'performance': None}]
     >>> select_competitor_by_birth_year(read_competitors("data/small_inscrits.csv"),1960)
-    "Il n'y a pas de compétiteur ayant cette date de naissance"
+    Il n'y a pas de compétiteur ayant cette date de naissance
     """
 ```
 
