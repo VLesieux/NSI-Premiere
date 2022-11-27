@@ -45,7 +45,7 @@ Dans le dossier `assets` se trouvent les sous-dossiers :
 2.**Documentation du module Competitor**
 
 Le module `Competitor.py`  placé dans le dossier `src`  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
-L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
+L'étude du code nous permet de comprendre les différentes informations contenues dans une telle donnée.
 
 On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`).  
 On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
@@ -303,6 +303,16 @@ def affichage(competiteurs):
     [9]: Avelaine CinqMars (F - 14/2/1983) 
     [10]: Sidney Charest (M - 5/3/1981) 
     """
+```
+
+**indication** : 
+
+Pour réaliser une affichage avec retour à la ligne :
+
+```python
+>>> print("il y a"+"\n"+"un passage à la ligne")
+il y a
+un passage à la ligne
 ```
 
 ### Sélections
