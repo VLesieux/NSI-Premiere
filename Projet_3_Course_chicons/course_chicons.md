@@ -195,7 +195,7 @@ Votre première tâche est de construire la liste des compétiteurs inscrits à 
 
 Les données concernant ces compétiteurs se trouvent dans le fichier `data/inscrits.csv` (ou `data/small_inscrits.csv`) qui est un fichier au format [CSV](https://fr.wikipedia.org/wiki/Comma-separated_values), c'est-à-dire un fichier texte contenant des données tabulées (observer sa constitution à l'aide d'un éditeur de textes).
 
-La première ligne de ce fichier est constituée des libellés des données ou descripteurs de champs qui suivent :
+La première ligne de ce fichier est constituée des libellés des données ou **descripteurs** de champs qui suivent :
 
 ``` {.sourceCode .text}
 Prénoms;Noms;Sexes;Date naiss.
@@ -239,7 +239,7 @@ def read_competitors(text):
 
 - Pensez à la méthode `split` des chaînes de caractères. 
 - Utiliser la méthode `rstrip` pour supprimer les marqueurs de fin de ligne  `/n`.  
-- Exemple de capture d'erreur et de levée d'exception dans le cas de `IndexError` rencontrée pour les listes :
+- Exemple de `capture d'erreur` et de `levée d'exception` dans le cas de `IndexError` rencontrée pour les listes :
 
 ```python
 ### sans levée d'exception : message d'erreur
