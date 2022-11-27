@@ -68,7 +68,7 @@ Exemple : création d'un compétiteur avec `Competitor.create` puis affichage de
 
 3.**Documentation du module `Time`**
 
-Nous allons également créer un module `Time.py` que l'on placera dans le même dossier `src` et que l'on importera en écrivant `import src.Time as Time`.  
+Nous allons créer un module `Time.py` que l'on placera également dans le même dossier `src` et que l'on importera en écrivant `import src.Time as Time`.  
 
 Les performances des compétiteurs vont être représentées par leur temps de course exprimé en heures, minutes et secondes.
 
@@ -87,7 +87,7 @@ Remarque : un tuple nommé est une séquence et ses éléments sont donc ordonn�
 Créer le module `Time.py` en faisant un copier-coller du code donné ci-dessous qui définit :
 
  * le type `Time` qui correspond à un tuple nommé possédant trois champs `hours`, `minutes` et `seconds` ;
- * une fonction `create` à trois arguments, permettant de créer une donnée de ce type, dont le résultat est la donnée `Time` créée (on peut envisager un contrôle de validité des valeurs des paramètres pour ce constructeur) ;
+ * une fonction `create` à trois arguments, permettant de créer une donnée de ce type, dont le résultat est la donnée `Time` créée ;
  * une fonction `compare` qui définit une relation d'ordre sur les données de type `Time`. De manière classique le résultat de cette fonction, à deux paramètres de type `Time`, est négatif si son premier paramètre est inférieur au second, positif s'il lui est plus grand, et nul quand ils sont égaux.
  * une fonction `to_string` qui a pour résultat une représentation sous la forme d'une chaîne de caractères de son paramètre de type `Time`.
 
