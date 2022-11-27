@@ -68,7 +68,7 @@ Exemple : création d'un compétiteur avec `Competitor.create` puis affichage de
 
 3.**Documentation du module `Time`**
 
-Nous allons créer un module `Time.py` placé dans le même dossier src que l'on importera en écrivant `import src.Time as Time`.  
+Nous allons également créer un module `Time.py` que l'on placera dans le même dossier `src` et que l'on importera en écrivant `import src.Time as Time`.  
 
 Les performances des compétiteurs vont être représentées par leur temps de course exprimé en heures, minutes et secondes.
 
