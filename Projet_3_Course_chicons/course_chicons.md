@@ -347,7 +347,7 @@ def select_competitor_by_bib(competiteurs,numero):
 
 Écrivez une fonction `select_competitor_by_birth_year` dont le résultat est la **liste** des compétiteurs dont l'année de naissance correspond à une valeur passée en paramètre.
 
-*Suggestion* : Étudiez la documentation de la fonction `endswith` des chaînes de caractères.
+*Suggestion* : Étudiez la documentation de la fonction `endswith` des chaînes de caractères en écrivant `help(str.endswith)` dans la console.
 
 Exemple : Dans le petit jeu de données, deux compétiteurs sont nés en 1980. Aucun compétiteur n'est né en 1960.
 
