@@ -32,19 +32,19 @@ Préparation
 
 Dans le dossier `assets` se trouvent les sous-dossiers :
 
- -   [`src/`](./src) : il contient le module  [Competitor.py](src/Competitor.py)
+ -   [`src/`](./src) : il contient le module `Competitor.py`
  -  [`data/`](./data) : contient deux jeux de données dans quatre fichiers de données : un
      petit jeu  de données pour faire des tests simples
-      ([data/small\_inscrits.csv](data/small_inscrits.csv) et [data/small\_performances.csv](data/small_performances.csv)), 
+      `small_inscrits.csv` et `small_performances.csv`, 
       et un gros jeu de données
-      ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
+      `inscrits.csv` et `performances.csv`.
 
 <img src="assets/small_inscrits.png" width="300"/><img src="assets/small_performances.png" width="300"/>. 
 
 
 2.**Documentation du module Competitor**
 
-Le module `Competitor.py`  placé dans le dossier src  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
+Le module `Competitor.py`  placé dans le dossier `src`  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
 
 On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`).  
