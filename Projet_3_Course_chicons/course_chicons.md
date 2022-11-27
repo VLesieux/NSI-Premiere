@@ -367,11 +367,11 @@ def select_competitor_by_birth_year(competiteurs,date_naissance):
 
 **À faire n°5**
 
-Écrivez une fonction `select_competitor_by_name` dont le résultat est la **liste** des compétiteurs dont le nom (*last name*) contient la chaîne de caractères passée en paramètre.
+Écrivez une fonction `select_competitor_by_name` dont le résultat est la **liste** des compétiteurs dont le nom de famille (*last name*) contient la chaîne de caractères passée en paramètre.
 
 *Suggestion* : Pensez à utiliser `in` pour les chaînes de caractères.
 
-Exemple : Dans le petit jeu de données, deux compétiteurs ont leur nom de famille qui commence par "Ri".
+Exemple : Dans le petit jeu de données, deux compétiteurs ont leur nom de famille qui commence par "Ri" : "Riquier" et "Rivard".
 
 ```python
 def select_competitor_by_name(competiteurs,chaine):
@@ -382,6 +382,8 @@ def select_competitor_by_name(competiteurs,chaine):
     return : list
     >>> select_competitor_by_name(read_competitors("data/small_inscrits.csv"),"Ri")
     [{'bib_num': 3, 'first_name': 'Vincent', 'last_name': 'Riquier', 'sex': 'M', 'birth_date': '16/9/1980', 'performance': None}, {'bib_num': 7, 'first_name': 'Archard', 'last_name': 'Rivard', 'sex': 'M', 'birth_date': '10/6/1950', 'performance': None}]    
+    >>> select_competitor_by_name(read_competitors("data/small_inscrits.csv"),"Joe")
+    Il n'y a pas de compétiteur dont le nom commence ainsi
     """
 ```
 
