@@ -28,23 +28,21 @@ Préparation
 -----------
 
 
-1.  **Archive**
+1.**Archive**
 
-Récupérez le [dossier](https://github.com/VLesieux/NSI-Premiere/tree/master/Projet_3_Course_chicons/assets/mat_course_chicon.zip)
+Dans le dossier `assets` se trouvent les sous-dossiers :
 
- Ce dossier contient trois sous-dossiers :
-
- -   [`src/`](./src) : contient le module  [Competitor.py](src/Competitor.py)
- - `doc/` : contient la documentation du module `Competitor`, accessible depuis le fichier index.html
+ -   [`src/`](./src) : il contient le module  [Competitor.py](src/Competitor.py)
  -  [`data/`](./data) : contient deux jeux de données dans quatre fichiers de données : un
      petit jeu  de données pour faire des tests simples
       ([data/small\_inscrits.csv](data/small_inscrits.csv) et [data/small\_performances.csv](data/small_performances.csv)), 
       et un gros jeu de données
       ([data/inscrits.csv](data/inscrits.csv) et [data/performances.csv](data/performances.csv)).
 
-<img src="assets/small_inscrits.png" width="300"/><img src="assets/small_performances.png" width="300"/>
+<img src="assets/small_inscrits.png" width="300"/><img src="assets/small_performances.png" width="300"/>. 
 
-2.  **Documentation du module Competitor**
+
+2.**Documentation du module Competitor**
 
 Le module `Competitor.py`  placé dans le dossier src  que l'on importera en écrivant `import src.Competitor as Competitor` permet de manipuler des valeurs représentant les compétiteurs de la course. On peut considérer qu'il permet la définition d'un type `Competitor`.
 L'étude de la documentation permet de déduire les différentes informations contenues dans une telle donnée.
@@ -68,7 +66,7 @@ Exemple : création d'un compétiteur avec `Competitor.create` puis affichage de
 # On voit que la fonction to_string du module Competitor renvoie un affichage condensé du compétiteur avec son numéro de brassard et son identité.
 ```
 
-3. **Documentation du module `Time`**
+3.**Documentation du module `Time`**
 
 Nous allons créer un module `Time.py` placé dans le même dossier src que l'on importera en écrivant `import src.Time as Time`.  
 
@@ -169,7 +167,9 @@ def to_string(time):
 #valeur a pris place entre les accolades
         
 ```
+
 Exemple
+
 ```python
 >>> p=Time.create(2,30,20)
 >>> p
