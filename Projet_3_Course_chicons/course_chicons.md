@@ -583,7 +583,7 @@ Attention : les compétiteurs sans résultat sont placés en fin de liste par or
 - Première méthode :
 
 On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
-Indication : utiliser les méthodes split et strip qui agissent sur les string.
+**Indication** : utiliser les méthodes `split` et `strip` qui agissent sur les string.
 
 ```python
 def conversion_en_seconde(time):
