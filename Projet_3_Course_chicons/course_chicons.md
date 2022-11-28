@@ -50,7 +50,9 @@ L'étude du code nous permet de comprendre les différentes informations contenu
 On dispose ainsi d'un **constructeur**  (`create`) et les différentes informations qui décrivent une donnée `Competitor` sont ainsi accessibles via les différents **accesseurs** (`get_XXX`).  
 On constate de plus que le seul **modificateur** concerne la performance d'un compétiteur (`set_performance`).
 
-Exemple : création d'un compétiteur avec `Competitor.create` puis affichage de celui-ci avec `Competitor.to_string`
+**Exemples d'applications de ce module** : 
+
+Création d'un compétiteur avec `Competitor.create` puis affichage de celui-ci avec `Competitor.to_string`
 
 ```python
 >>> Competitor.create("Laurie","Anderson",'F','5/6/1947',5)
@@ -168,7 +170,7 @@ def to_string(time):
         
 ```
 
-Exemple
+**Exemples d'applications de ce module** : 
 
 ```python
 >>> p=Time.create(2,30,20)
