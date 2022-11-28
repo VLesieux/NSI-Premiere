@@ -439,7 +439,7 @@ Maintenant que vous disposez des données sur les compétiteurs et leurs perform
 
 **À faire n°7**
 
-Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs qui renvoie le dictionnaire des compétiteurs augmenté de leurs performances sous la forme d'un Time. Il faut gérer la situation où un compétiteur n'a pas de performance s'il s'est inscrit à la course mais n'a pas concouru, c'est-à-dire la cas où la clé du dictionnaire des compétiteurs est absente du dictionnaire des performances. Il faudra ici gérer l'exception de clé manquante : `KeyError`.
+Réalisez une fonction nommée `set_performances` paramétrée par le dictionnaire des performances et le dictionnaire des compétiteurs qui renvoie le dictionnaire des compétiteurs augmenté de leurs performances sous la forme d'un Time. Il faut gérer la situation où un compétiteur n'a pas de performance s'il s'est inscrit à la course mais n'a pas concouru, sa performance est égale à `None`.
 
 ```python
 def set_performances(dic1,dic2):
@@ -453,9 +453,7 @@ def set_performances(dic1,dic2):
     """
 ```
 
-**Indications** : 
-- on sera amené à utiliser `Time.to_string()`.
-- un inscrit qui n'a pas de performance aura une performance égale à None
+**Indication** :  on sera amené à utiliser `Time.to_string()`.
 
 # Tris
 
