@@ -659,7 +659,8 @@ Il est temps de procéder à la publication des résultats.
 Réalisez une fonction nommée `print_results` paramétrée par un dictionnaire de
 compétiteurs qui imprime sur la sortie standard cette liste en précisant
 leur prénom, nom, sexe, numéro de dossard et performance.
-Le report des performances a été effectué et la liste de compétiteurs triée par ordre de performance.
+Le report des performances a été effectué et la liste de compétiteurs triée par ordre de performance.    
+On produit ainsi l'affichage des résultats par ordre des performances.
 
 ```python
 def print_results(dic):
@@ -679,9 +680,13 @@ def print_results(dic):
      """
 ```
 
-Produisez l'affichage des résultats par ordre alphabétique, et par ordre des performances.
+**Indication** : utiliser la méthode `format()` pour le formatage des chaînes de caractères.
 
-Indication : utiliser la méthode `format()` pour le formatage des chaînes de caractères.
+```python
+>>> txt = "Cela coûte {prix} euros !"
+print(txt.format(prix = 50)) 
+Cela coûte 50 euros !
+```
 
 ### Sauvegarde des résultats
 
