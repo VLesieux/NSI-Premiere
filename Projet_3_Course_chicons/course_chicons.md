@@ -577,8 +577,9 @@ def sort_competitors_by_lastname(dic):
 
 **À faire n°9**
 
-De manière similaire, faites le travail nécessaire pour définir une fonction `sort_competitors_by_performance` qui produit la liste des compétiteurs triée par ordre croissant des performances réalisées. 
-Attention : les compétiteurs sans résultat sont placés en fin de liste par ordre alphabétique. 
+De manière similaire, faites le travail nécessaire pour définir une fonction `sort_competitors_by_performance` qui produit la liste des compétiteurs triée par ordre croissant des performances réalisées.    
+
+**Attention** : les compétiteurs sans résultat sont placés en fin de liste par ordre alphabétique. 
 
 - Première méthode :
 
