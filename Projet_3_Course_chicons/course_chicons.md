@@ -458,7 +458,8 @@ def set_performances(dic1,dic2):
 # Tris
 
 Vous allez avoir l'occasion d'utiliser une méthode de tri appelée _tri_selection_ dont l'algorithme sera étudié plus tard.
-Vous créez le module Tri.py placé dans le dossier src que vous importez dans votre fichier de la façon suivante : `import src.Tri as Tri`.
+Vous créez le module Tri.py placé dans le dossier src que vous importez dans votre fichier de la façon suivante : `import src.Tri as Tri`.  
+On peut tout de même, dès à présent, regarder son code.
 
 ```python
 ####################
