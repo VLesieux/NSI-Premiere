@@ -618,7 +618,8 @@ def sort_competitors_by_performance_methode1(dic):
 On utilise la fonction de comparaison `Time.compare` du module Time, qui permet de comparer deux temps entre eux sans avoir à faire de conversion en seconde.
 
 
-Au préalable, on crée la fonction `set_performances_time(dic1,dic2)` où les performances sont données sous forme de Time.
+Au préalable, on crée la fonction `set_performances_time(dic1,dic2)` où les performances sont données sous forme de Time.  
+Après avoir classé les performances au format Time, elles apparaîtrons sous leur format littéral dans le résultat final.
 
 ```python
 def set_performances_time(dic1,dic2):
