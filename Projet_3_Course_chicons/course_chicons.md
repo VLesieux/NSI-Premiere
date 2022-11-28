@@ -710,6 +710,19 @@ Réalisez une fonction nommée `save_results` paramétrée par un dictionnaire d
     8;Cheney;Chassé; 0h48mn10s
     ...
     ```
+    
+**Méthode pour créer un fichier de sauvegarde** : 
+
+```python
+import csv  
+descripteurs = ['name', 'area', 'country_code2', 'country_code3']
+donnee = ['Afghanistan', 652090, 'AF', 'AFG']
+f=open("exemple.csv","w")#w signifie write
+writer = csv.writer(f)
+writer.writerow(descripteurs)
+writer.writerow(donnee)
+f.close()  
+```
 
 Testez votre fonction avec le petit jeu de données puis sauvegardez les résultats complets de la course.
 
