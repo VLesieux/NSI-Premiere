@@ -418,7 +418,6 @@ On n'oubliera pas de transformer les données fournies en chaînes de caractère
 
 
 ```python
-def read_performances(text):
     """
     lit un fichier csv et retourne un dictionnaire dont les clés sont les numéros de brassard
     et les valeurs les tuples contenant les performances des compétiteurs
@@ -426,10 +425,11 @@ def read_performances(text):
     return : dict
     >>> read_performances("data/small_performances.csv")
     {1: Time(hours=1, minutes=8, seconds=55), 3: Time(hours=1, minutes=21, seconds=23), 4: Time(hours=0, minutes=56, seconds=29), 5: Time(hours=1, minutes=6, seconds=20), 6: Time(hours=1, minutes=17, seconds=8), 7: Time(hours=0, minutes=46, seconds=31), 8: Time(hours=0, minutes=48, seconds=10), 10: Time(hours=1, minutes=6, seconds=38)}
+    >>> read_performances("no_file.csv")
+    Votre fichier n'est pas un csv lisible ou il n'existe pas    
     """
 ```
-**Indications** : Cette fonction est très similaire à la fonction _read_competitor_.
-Ne pas oublier de convertir les chaines en nombre entier avec int()
+**Indications** : Cette fonction est voisine de la fonction _read_competitor_, ne pas oublier de convertir les chaines en nombre entier avec `int()`.
 
 ### Report
 
