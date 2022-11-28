@@ -683,9 +683,9 @@ def print_results(dic):
 **Indication** : utiliser la méthode `format()` pour le formatage des chaînes de caractères.
 
 ```python
->>> txt = "Cela coûte {prix} euros !"
-print(txt.format(prix = 50)) 
-Cela coûte 50 euros !
+>>> txt = "Cela coûte {prix_en_euro} €, soit {prix_en_dollar} $"
+print(txt.format(prix_en_euro = 10,prix_en_dollar=10.44)) 
+Cela coûte 10 €, soit 10.44 $
 ```
 
 ### Sauvegarde des résultats
