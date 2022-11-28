@@ -582,8 +582,14 @@ Attention : les compétiteurs sans résultat sont placés en fin de liste par or
 
 - Première méthode :
 
-On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.
+On réalisera une fonction _conversion_en_seconde_ qui convertit le temps donné en text en un nombre de secondes.     
+
 **Indication** : utiliser les méthodes `split` et `strip` qui agissent sur les string.
+
+```python
+>>> int(' 1h 21mn 23s'.strip(' ').split(' ')[0].strip('h'))
+1
+```
 
 ```python
 def conversion_en_seconde(time):
