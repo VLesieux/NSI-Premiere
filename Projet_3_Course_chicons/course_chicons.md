@@ -415,7 +415,7 @@ Seuls les compétiteurs ayant effectivement participé et achevé la course figu
 Réalisez une fonction nommée `read_performances` paramétrée par le nom du fichier CSV contenant les données des performances, qui renvoie le dictionnaire des performances contenues dans ce fichier.   
 La clé du dictionnaire est le numéro de brassard déjà inclu dans le fichier csv.
 On n'oubliera pas de transformer les données fournies en chaînes de caractères en entier à l'aide de la fonction `int()`.  
-**Indication** : Cette fonction est très similaire à la fonction _read_competitor_.
+
 
 ```python
 def read_performances(text):
@@ -428,8 +428,8 @@ def read_performances(text):
     {1: Time(hours=1, minutes=8, seconds=55), 3: Time(hours=1, minutes=21, seconds=23), 4: Time(hours=0, minutes=56, seconds=29), 5: Time(hours=1, minutes=6, seconds=20), 6: Time(hours=1, minutes=17, seconds=8), 7: Time(hours=0, minutes=46, seconds=31), 8: Time(hours=0, minutes=48, seconds=10), 10: Time(hours=1, minutes=6, seconds=38)}
     """
 ```
-
-Indication : ne pas oublier de convertir les chaines en nombre entier avec int()
+**Indications** : Cette fonction est très similaire à la fonction _read_competitor_.
+Ne pas oublier de convertir les chaines en nombre entier avec int()
 
 ### Report
 
