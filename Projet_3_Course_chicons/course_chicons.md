@@ -430,7 +430,7 @@ def read_performances(text):
     Votre fichier n'est pas un csv lisible ou il n'existe pas    
     """
 ```
-**Indications** : Cette fonction est voisine de la fonction _read_competitor_, ne pas oublier de convertir les chaines en nombre entier avec `int()`.
+**Indication** : Cette fonction est voisine de la fonction _read_competitor_.
 
 ### Report
 
