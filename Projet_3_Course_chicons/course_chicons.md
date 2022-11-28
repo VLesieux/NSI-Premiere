@@ -418,6 +418,7 @@ On n'oubliera pas de transformer les données fournies en chaînes de caractère
 
 
 ```python
+def read_performances(text):
     """
     lit un fichier csv et retourne un dictionnaire dont les clés sont les numéros de brassard
     et les valeurs les tuples contenant les performances des compétiteurs
