@@ -544,7 +544,7 @@ def selection_min(l,i,comp):
     return i_min
 ```
 
-exemples : 
+Exemples d'applications de ce module : 
 
 ```python
 >>> liste=["Joe","Pierre","Alfred","Victor"]
