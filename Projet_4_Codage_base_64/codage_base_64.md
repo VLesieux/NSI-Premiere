@@ -282,7 +282,7 @@ Exemple à vérifier :
 '000001'
 ```
 
-e) Compléter la fonction `get_in_dictionary(sixtet)` qui renvoie la clé du dictionnaire _equivalence_ à partir de la donnée du sixtet.  
+e) Compléter la fonction `get_in_dictionary(sixtet)` qui renvoie la clé du dictionnaire `equivalence` à partir de la donnée du sixtet.  
 
 
 ```python 
@@ -345,7 +345,7 @@ Trois cas sont en effet à distinguer.
 
 <img src="assets/schema.png">
 
-h) On se propose de réaliser la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
+h) On se propose de réaliser maintenant la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
 
 ```python
 def to_base64_logique(n_uplet):
@@ -364,9 +364,9 @@ def to_base64_logique(n_uplet):
     '''
 ```    
     
-Exemple: 
+Exemple pour comprendre le principe : 
      
-Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets en insérant des points  pour plus de lisibilité : '011010.010101.011001.000010'.      
+Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets à l'aide de points  insérés pour plus de lisibilité : '011010.010101.011001.000010'.      
 Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant de la droite soit 011001, sextet correspondant au symbole Z.
 
 ```python
