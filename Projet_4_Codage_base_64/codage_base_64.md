@@ -12,18 +12,15 @@
 * la veille envoyer un courrier électronique à tous les participants avec une pièce jointe (non textuelle), par exemple une **[image](assets/image_originale.png)**
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier correspondant uniquement à l'image avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** (cliquer le bouton `Raw`); observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* lire le contenu de ce fichier correspondant uniquement à l'image avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** (cliquer le bouton `Raw`); observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé projet_codage_base64 en le nommant `image.txt`.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, le mail ne pouvant transporter que des caractères ASCII (American Standard Code for Information Interchange), d'ailleurs on peut remarquer l'encodage des caractères accentués du message proprement dit.
 * seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions majuscules et minuscules, les 10 chiffres, les caractères `+` et `/`)
-* utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld` sous Linux) : 
-
-Exemples   
+* utiliser dans un shell **sous Linux** la commande `base64` pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld` ) :    
 ```shell
 base64 --decode texte_image.txt > image_originale.png
 base64 image_originale.png > texte_image2.txt
 ```
-
-Sous Windows, accéder aux commandes avec Windows R cmd, puis dir au lieu de ls et écrire certutil -decode image.txt image.png
+**Sous Windows**, accéder à `Invite de commande` dans `Système Windows`, puis `dir` au lieu de `ls` et écrire `certutil -decode NSI_2022\projet_codage_base64\image.txt NSI_2022\projet_codage_base64\image.png`
 
 * observer le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée binaire à encoder sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles (2<sup>6</sup>=64).
 * la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas un multiple de 3 (ou dit autrement si le nombre de bits de la donnée binaire n'est pas un multiple de 6) ? on complète avec un ou 2 `=`.
@@ -74,16 +71,16 @@ Coder un fichier binaire en base64 consiste donc à coder chaque bloc de trois o
 Que faire si la taille du fichier binaire n'est pas multiple de trois octets ?    
 
 Le dernier bloc peut ne contenir qu'un ou deux octets. 
-Sans le démontrer mais pour se le prouver, on peut afficher les restes des 10 premiers multiples de 8 par la division euclidienne par 6 en réalisant la liste de ces restes par compréhension :
+Sans le démontrer mais pour se le prouver, on peut afficher les restes des 10 premiers multiples de 8 par la division euclidienne par 6 en réalisant la liste de ces restes par compréhension : on voit que les restes sont toujours 0, 2 ou 4.
 
 ```python
 >>> [(i*8)%6 for i in range(10)]
 [0, 2, 4, 0, 2, 4, 0, 2, 4, 0]
 ```
 
-Voyons les deux cas de figure.
+Voyons donc les deux cas de figure.
 
-1. **Cas d'un bloc de deux octets :** on a 16 bits de données. On rajoute 2 bits fictifs nuls : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
+1.**Exemple d'un bloc de deux octets :** on a 16 bits de données. On rajoute 2 bits fictifs nuls : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
 
 		  18       184
 	    00010010 10111000
@@ -92,7 +89,7 @@ Voyons les deux cas de figure.
 
 Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, le dernier symbole signalant qu'un bourrage de deux bits a été effectué.
 	
-2. **Cas d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
+2.**Exemple d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
 
 		  18
 		00010010
