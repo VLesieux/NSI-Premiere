@@ -307,14 +307,22 @@ def affichage(competiteurs):
     """
 ```
 
-**indication** : 
+**Indications** : 
 
-Pour réaliser une affichage avec retour à la ligne :
+- Pour réaliser une affichage avec retour à la ligne :
 
 ```python
 >>> print("il y a"+"\n"+"un passage à la ligne")
 il y a
 un passage à la ligne
+```
+
+- Utiliser la méthode `format()` pour le formatage des chaînes de caractères.
+
+```python
+>>> txt = "Cela coûte {prix_en_euro} €, soit {prix_en_dollar} $"
+print(txt.format(prix_en_euro = 10,prix_en_dollar=10.44)) 
+Cela coûte 10 €, soit 10.44 $
 ```
 
 ### Sélections
@@ -678,14 +686,6 @@ def print_results(dic):
      [9]: Avelaine CinqMars (F - 14/2/1983)=> None
      [2]: Paien Gilbert (M - 26/11/1953)=> None
      """
-```
-
-**Indication** : utiliser la méthode `format()` pour le formatage des chaînes de caractères.
-
-```python
->>> txt = "Cela coûte {prix_en_euro} €, soit {prix_en_dollar} $"
-print(txt.format(prix_en_euro = 10,prix_en_dollar=10.44)) 
-Cela coûte 10 €, soit 10.44 $
 ```
 
 ### Sauvegarde des résultats
