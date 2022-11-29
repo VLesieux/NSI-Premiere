@@ -205,7 +205,7 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
-1. Réalisez la fonction `to_base64(n_uplet)` dont la docstring est donnée ci-dessous :
+1.Réalisez la fonction `to_base64(n_uplet)` dont la docstring est donnée ci-dessous :
 
 ```python
 def to_base64(n_uplet):
@@ -371,7 +371,7 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 
 ```python
 >>> 0b011010010101011001000010#on va travailler avec la séquence de bits dont la valeur décimale est 6903362
->>> 0b111111
+>>> 0b111111#c'est le sixtet formé de bits égaux tous à 1 dont la valeur décimale est 63
 63
 >>> bin(63<<6)
 '0b111111000000'# cette opération permet de décaler de 6 bits vers la gauche le mot binaire 111111  dont la valeur décimale est 63.       
