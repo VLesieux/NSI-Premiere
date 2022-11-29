@@ -287,7 +287,7 @@ def nombre_de_cinemas_a_distance_de_Paris(table,d):
     """
 ```
 
-**indications** : 
+**Indications** : 
 
 ```Python
 >>> table_des_donnees[1][36]
