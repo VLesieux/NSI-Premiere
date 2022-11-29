@@ -5,7 +5,7 @@
 * découvrir un moyen de transmission des documents binaires, l'usage de la base 64
 * comprendre le principe de ce codage
 * le programmer
-* mettre en oeuvre les dictionnaires : **[rappels](assets/dictionnaire.py)**
+* mettre en œuvre les dictionnaires : **[rappels](assets/dictionnaire.py)**
 
 ## Scénario de la séance
 
