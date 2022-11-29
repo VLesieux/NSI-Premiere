@@ -237,7 +237,7 @@ def read_competitors(text):
     """
 ```
 
-*Indications* : 
+**Indications** : 
 
 - Pensez à la méthode `split` des chaînes de caractères. 
 - Utiliser la méthode `rstrip` pour supprimer les marqueurs de fin de ligne  `/n`.  
