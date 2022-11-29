@@ -285,7 +285,7 @@ Indication pour la suite : comme on a affaire à un dictionnaire de dictionnaire
 
 **À faire n°2**
 
-Réalisez une fonction _affichage_ qui prend en paramètre une liste de données de type `Competitor` et affiche chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
+Réalisez une fonction `affichage` qui prend en paramètre une liste de données de type `Competitor` et affiche chacune de ces données à raison d'une par ligne (utilisez la fonction `to_string` de `Competitor`).
 
 ```python
 def affichage(competiteurs):
