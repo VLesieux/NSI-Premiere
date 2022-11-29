@@ -12,7 +12,7 @@
 * la veille envoyer un courrier électronique à tous les participants avec une pièce jointe (non textuelle), par exemple une **[image](assets/image_originale.png)**
 * en début de séance inviter tous les participants à lire ce courrier à l'aide d'un webmail ou autre logiciel de lecture de courriers
 * enregistrer le courrier dans un fichier
-* lire le contenu de ce fichier correspondant uniquement à l'image avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** ; observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
+* lire le contenu de ce fichier correspondant uniquement à l'image avec un simple éditeur de textes : **[le consulter](assets/texte_image.txt)** (cliquer le bouton `Raw`); observer que le texte est constitué de lignes de longueur identique comportant chacune 76 caractères, sauf éventuellement la dernière. L'enregistrer dans un dossier intitulé Codage_base_64 en le nommant texte_image.txt.
 * s'apercevoir que la pièce-jointe est représentée sous forme textuelle, le mail ne pouvant transporter que des caractères ASCII (American Standard Code for Information Interchange), d'ailleurs on peut remarquer l'encodage des caractères accentués du message proprement dit.
 * seuls 64 symboles apparaissent (les 26 lettres de l'alphabet latin non accentué en versions majuscules et minuscules, les 10 chiffres, les caractères `+` et `/`)
 * utiliser dans un shell la commande base64 pour coder/décoder (en se plaçant d'abord dans le dossier de l'image grâce aux commandes `ls` et `ld` sous Linux) : 
