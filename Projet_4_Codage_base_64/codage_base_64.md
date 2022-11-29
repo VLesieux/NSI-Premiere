@@ -80,7 +80,7 @@ Sans le démontrer mais pour se le prouver, on peut afficher les restes des 10 p
 
 Voyons donc les deux cas de figure.
 
-1.**Exemple d'un bloc de deux octets :** on a 16 bits de données. On rajoute 2 bits fictifs nuls : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
+1.**Exemple d'un bloc de deux octets :** on a 16 bits de données. On rajoute **2 bits fictifs nuls** : c'est le *bourrage* ou *remplissage* (*padding* en anglais). Cela permet d'avoir 18 bits soit 3 sextets codés par trois symboles. Pour le signifier, on ajoute un symbole particulier, le symbole `=` qui signale qu'il y a deux bits fictifs ajoutés. Voici un exemple avec le couple d'octets (18, 184) :
 
 		  18       184
 	    00010010 10111000
@@ -89,7 +89,7 @@ Voyons donc les deux cas de figure.
 
 Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, le dernier symbole signalant qu'un bourrage de deux bits a été effectué.
 	
-2.**Exemple d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par quatre bits fictifs nuls pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
+2.**Exemple d'un bloc d'un seul octet :** il manque alors deux octets, et les huit bits doivent être complétés par **4 bits fictifs nuls** pour pouvoir former deux sextets codés par deux symboles. On ajoute deux symboles `=` pour signaler la présence de quatre bits fictifs. Voici un exemple avec l'octet singleton 18 :
 
 		  18
 		00010010
@@ -100,7 +100,7 @@ Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 	
 ### Exercices à faire manuellement
 
-1. Codez la séquence d'octets (12, 133, 4, 32, 178, 200, 44, 177).
+1. Codez la séquence d'octets (12, 133, 4, 32, 178, 200, 44, 177). Dans la console, utilisez `bin()`.
 2. Décodez la chaîne de caractères `Hyk7Ag==`.
 3. Quels sont les symboles possibles précédent un simple symbole `=` ? Même question pour un double.
 4. Si on code une donnée constituée de `n` octets, exprimez en fonction de `n` la longueur de la chaîne de caractères obtenue en incluant les éventuels symboles `=`.
@@ -119,15 +119,6 @@ Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 	20
 	>>> -0b11 * 0b10100
 	-60
-  	```
-  
-	- en octal (base 8) en préfixant par les littéraux par `0o`
-	
-	```python
-	>>> 0o24
-	20
-	>>> -0o3 * 0o24
-  	-60
   	```
   
 	- en hexadécimal (base 16) en préfixant par les littéraux par `0x`
@@ -206,6 +197,16 @@ BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
 
 Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un tuple d'octets (donnés chacun de façon décimale) en une chaîne de symboles de la base 64, ainsi que l'opération inverse de décodage.
 
+Code pour la vérification des docstring :
+
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
+
+1. Réalisez la fonction `to_base64(n_uplet)` dont la docstring est donnée ci-dessous :
+
 ```python
 def to_base64(n_uplet):
 	'''
@@ -222,34 +223,6 @@ def to_base64(n_uplet):
 	'Eg=='
 	'''
 ```
-
-
-```python
-def from_base64(b64_string):
-	'''
-	convertit une chaîne de symboles en un tuple d'octets
-	:param : b64_string: (str) une chaîne de symboles de la base 64
-	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
-	:CU: les caractères de b64_string sont dans la table ou le symbole =
-	:Exemple:
-	>>> from_base64('Eric')
-	(18, 184, 156)
-	>>> from_base64('Erg=')
-	(18, 184)
-	>>> from_base64('Eg==')
-	(18,)
-	'''
-```
-
-Code pour la vérification des docstring :
-
-```python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-```
-
-1. Réalisez la fonction _to_base64(n_uplet)_ dont la docstring est donnée plus haut
 
 **Indications** (veuillez respecter le nom donné aux fonctions) :
 
@@ -425,7 +398,26 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 On pourra proposer une conversion de la droite vers la gauche.
 
 
-2. Réalisez maintenant la fonction _from_base64(b64_string)_. On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple.   
+2. Réalisez maintenant la fonction `from_base64(b64_string)` dont la docstring est donnée ci-dessous :
+
+```python
+def from_base64(b64_string):
+	'''
+	convertit une chaîne de symboles en un tuple d'octets
+	:param : b64_string: (str) une chaîne de symboles de la base 64
+	:return: (tuple) un tuple d'octets dont b64_string est la représentation en base 64
+	:CU: les caractères de b64_string sont dans la table ou le symbole =
+	:Exemple:
+	>>> from_base64('Eric')
+	(18, 184, 156)
+	>>> from_base64('Erg=')
+	(18, 184)
+	>>> from_base64('Eg==')
+	(18,)
+	'''
+```
+
+On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple.   
 On reproduira la méthode des opérateurs logiques utilisée à la question précédente 1.h).
 
 Exemple de conversion de liste en tuple : 
