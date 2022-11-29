@@ -408,7 +408,6 @@ def from_base64(b64_string):
 ```
 
 On pourra envisager de créer une liste que l'on transformera en tuple pour renvoyer un tuple.   
-On reproduira la méthode des opérateurs logiques expliquée à la question précédente.
 
 Exemple de conversion de liste en tuple : 
 
@@ -418,3 +417,5 @@ Exemple de conversion de liste en tuple :
 >>> n_uplet
 (3, 4, 5)
 ```
+
+On reproduira la méthode des opérateurs logiques utilisée à la question précédente.
