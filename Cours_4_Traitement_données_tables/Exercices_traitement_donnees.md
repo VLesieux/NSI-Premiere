@@ -265,14 +265,15 @@ Pour cela, on importe un programme appelé `calcul_distance_latitude_longitude.p
 import calcul_distance_latitude_longitude as distance
 ```
 
-Ce programme se trouve également dans le dossier Assets. Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous la forme d'un tuple (latitude,longitude) ; pour l'appeler et l'utiliser cette fonction dans notre programme, il suffit d'écrire `distance.a_paris` par exemple 
+Ce programme se trouve également dans le dossier `Assets`.  
+Il possède une fonction `a_paris(geo)` qui renvoie la distance en *mètre* par rapport à Paris d'un point dont les coordonnées géographiques sont données sous la forme d'un tuple (latitude,longitude) ; pour l'appeler et utiliser cette fonction dans notre programme, il suffit d'écrire `distance.a_paris` par exemple :
 
 ```Python
 >>> distance.a_paris(48.873073,2.298394)
 4346.833687547045
 #Cette fonction calcule la distance en mètre entre Paris et le lieu dont les coordonnées géographiques
 #sont données sous la forme du tuple (latitude,longitude)
-#il est intéressant du point de vue mathématique de comprendre le code de cette fonction
+#il peut être intéressant du point de vue mathématique de comprendre le code de cette fonction
 ```
 
 ```Python
