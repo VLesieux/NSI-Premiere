@@ -269,7 +269,7 @@ d) Créer un dictionnaire appelé `equivalence` qui associe aux 64 symboles leur
 
 Pour gagner du temps, on utilisera la liste appelée `lettres` donnée ci-dessous (qui respecte la position des caractères dans la table) et on reprendra la fonction précédente `conversion_decimal_binaire_6bits(dec)`.
 
-En d'autres termes, on réalise un dictionnaire où la clé est un caractère situé à l'indice de position i dans la liste `lettres` et la valeur la conversion binaire sur 6 bits de cet entier i.
+En d'autres termes, on réalise un dictionnaire où la clé est un caractère situé à l'indice de position i dans la liste `lettres` et la valeur la conversion binaire sur 6 bits de ce même entier i.
 
 ```python
 lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"]
@@ -364,7 +364,7 @@ def to_base64_logique(n_uplet):
     '''
 ```    
     
-Exemple pour comprendre le principe : 
+**Exemple pour comprendre le principe** : 
      
 Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets à l'aide de points  insérés pour plus de lisibilité : '011010.010101.011001.000010'.      
 Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant de la droite soit 011001, sextet correspondant au symbole Z.
