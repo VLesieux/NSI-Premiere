@@ -3,19 +3,20 @@
 On commencera par regarder cette [vidéo didactique](https://www.youtube.com/watch?v=S-W0NX97DB0) de David Louapre qui présente le jeu de la vie et ses structures complexes.
 
 Le jeu de la vie est une modélisation simpliste de la vie de cellules dans
-l'espace. Dans le cadre de cet exercice l'espace sera une grille rectangulaire
+l'espace. Dans le cadre de cet exercice, l'espace sera une grille rectangulaire
 dont chaque case peut contenir au plus une cellule. Chaque case contiendra
 donc soit 0 soit 1 cellule. Les cellules peuvent émerger ou mourir selon trois
 critères précis qui sont réévalués à chaque nouvelle génération :
+
 1. Une cellule émergera dans une case qui possède exactement trois voisines
-   avec une cellule.
+   possédant une cellule.
 2. Une cellule disparaît de sa case si elle est entourée par strictement moins
    de deux cellules vivantes ou strictement plus de trois cellules vivantes.
 3. Les autres cases restent dans leur état.
 
 Les voisines prises en compte sont toutes les cases situées immédiatement à
 gauche, à droite, en haut, en bas ou sur les quatre diagonales, si elles existent.
-Une case a donc au plus 8 voisines, moins si elle se situe sur un bord de la grille.
+Une case a par conséquent au plus 8 voisines, moins si elle se situe sur un bord de la grille.
 
 On utilisera les **docstrings** fournies en plaçant le code ci-dessous pour réaliser les doctests:
 
@@ -29,6 +30,7 @@ if __name__ == '__main__':
 ## Représentation d'une grille
 
 Du point de vue technique une grille du jeu de la vie sera représentée par une liste de listes de nombre entiers. Chaque nombre entier représente le nombre de cellules vivantes dans une case de la grille (0 ou 1).
+
 Par exemple la liste :
 
 ```
@@ -39,7 +41,7 @@ représente une grille de jeu de 6 cases, 3 cases en largeur et 2 cases en haute
 
 ### Construction d'une grille vide
 
-Réalisez une fonction `creer_grille` qui prend en paramètre le nombre de cases horizontalement ou nombre de colonnes, puis le nombre de cases verticalement ou nombre de lignes, et qui renvoie une liste de listes correspondant à la grille du jeu de la vie aux dimensions souhaitées, ne contenant initialement aucune cellule.
+Réalisez une fonction `creer_grille` qui prend en paramètre le nombre de cases horizontalement ou nombre de colonnes, puis le nombre de cases verticalement ou nombre de lignes, et qui renvoie une liste de listes (ou matrice) correspondant à la grille du jeu de la vie aux dimensions souhaitées, ne contenant initialement aucune cellule.
 
 ```
 def creer_grille(nb_colonnes,nb_lignes):
@@ -50,7 +52,7 @@ def creer_grille(nb_colonnes,nb_lignes):
     """
 ```
 
-Indication : essayer `[[0]*2]*3` dans la console puis `[[0 for i in range(2) ] for i in range(3)]`, cela devrait vous éclairer.
+**Indication** : essayer `[[0]*2]*3` dans la console, puis `[[0 for i in range(2) ] for i in range(3)]`, cela devrait vous éclairer.
 
 
 ### Dimensions d'une grille
@@ -66,7 +68,7 @@ def hauteur_grille(grille):
     """  
 ```
 
-Réalisez une fonction `largeur_grille` qui prend en paramètre une grille de jeu de la vie et qui renvoie le nombre de cases horizontalement ou nombre de colonnes.
+Réalisez de même une fonction `largeur_grille` qui prend en paramètre une grille de jeu de la vie et qui renvoie le nombre de cases horizontalement ou nombre de colonnes.
 
 ``` 
 def largeur_grille(grille):
@@ -79,8 +81,11 @@ def largeur_grille(grille):
 
 ### Initialisation d'une grille
 
-La grille créée par la fonction `creer_grille` ne contient aucune cellule. 
-Réalisez une fonction `creer_grille_aleatoire` qui prend en paramètre les dimensions horizontales et verticales de la grille et une probabilité *p*, qui est la probabilité pour une case de la grille d'avoir une cellule. On ne propose pas de docstring dans le cas présent puisque la fonction renvoie un résultat aléatoire, néanmoins voici quelques exemples de résultat que l'on peut obtenir.
+La grille créée par la fonction `creer_grille` ne contient aucune cellule.  
+
+Réalisez une fonction `creer_grille_aleatoire` qui prend en paramètre les dimensions horizontales et verticales de la grille et une probabilité *p*, qui est la probabilité pour une case de la grille d'avoir une cellule. 
+
+On ne propose pas de docstring dans le cas présent puisque le résultat est aléatoire, néanmoins voici quelques exemples de résultat que l'on peut obtenir.
 
 ```
 >>> creer_grille_aleatoire(3, 2, 1)
@@ -91,12 +96,12 @@ Réalisez une fonction `creer_grille_aleatoire` qui prend en paramètre les dime
 [[1, 0, 1], [0, 0, 1]]
 ```
 
-Indication 1 : on pourra utiliser la fonction suivante qui utilise la fonction random() du module random qui renvoie un réel aléatoire dans [0,1[ et qui prend en compte la probabilité de présence d'une cellule.
+**Indication 1** : on pourra utiliser la fonction suivante, qui utilise la fonction random() du module random et qui renvoie un réel aléatoire dans [0,1[, et qui prend ainsi en compte la probabilité de présence d'une cellule.
 
 ```
 from random import *
 #importation de toutes les fonctions du module random
-#en particulier la fonction random() 
+#et en particulier la fonction random() 
 def aleatoire(probabilite):
     valeur=0
     if random()<probabilite:
@@ -104,13 +109,14 @@ def aleatoire(probabilite):
     return valeur
 ```
 
-Indication 2 : on utilisera le même principe que pour la fonction creer_grille, c'est-à-dire que l'on réalisera une liste de liste par compréhension.
+**Indication 2** : on utilisera le même principe que pour la fonction creer_grille, c'est-à-dire que l'on réalisera une liste par compréhension.
 
 ### Voisins d'une case
 
-Réalisez une fonction `voisins_case` qui prend en paramètre une grille de jeu de la vie ainsi que les coordonnées en abscisse et en ordonnée de la case (la coordonnée (0,0) étant la case située en haut à gauche).  La fonction renvoie une liste contenant la valeur des cases voisines de la case donnée en paramètre. Le nombre de valeurs retournées dans la liste correspond au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille). L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant dans l'exemple ci-dessous les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
+Réalisez une fonction `voisins_case` qui prend en paramètre une grille de jeu de la vie ainsi que les coordonnées en abscisse et en ordonnée de la case (on choisit la coordonnée (0,0) pour la case située en haut à gauche).  
+La fonction doit renvoyer une liste contenant la valeur des cases voisines de la case donnée en paramètre. Le nombre de valeurs retournées dans la liste correspond donc au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille). L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant, dans l'exemple ci-dessous, les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
 
-Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale grille, ce qui nous permettra de réaliser avec elle des docstrings fonctionnelles :
+Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale `grille`, ce qui nous permettra de réaliser avec elle des docstrings fonctionnelles :
 
 ```
 grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
@@ -129,7 +135,7 @@ def voisins_case(grille,abscisse,ordonnee):
     """
 ```
 
-Indications : 
+**Indications** : 
 
 - on peut utiliser l'instruction try_except qui permet de passer au-dessus d'éventuelles erreurs de dépassement d'index :
 
@@ -144,7 +150,7 @@ except IndexError:
 #passe sur l'erreur de dépassement d'index
 ```
 
-- on peut utiliser deux boucles dont l'une vous est donnée ci-dessous:
+- on peut utiliser deux boucles dont la première vous est donnée ci-dessous:
 
 ```
 >>> for j in range(-1,2):
@@ -154,7 +160,7 @@ except IndexError:
 1
 ```
 
-- il faut penser à écarter la possibilité d'avoir des indices négatifs en effet on aurait des résultats inattendus 
+- il faut penser à écarter la possibilité d'avoir des indices négatifs, en effet on aurait des résultats inattendus comme on peut le voir à travers l'exemple ci-dessous :cellules_voisines
 
 ```
 >>> liste=[1,2,3,4]
@@ -176,22 +182,24 @@ except IndexError:
 
 ### Nombre de cellules dans le voisinage
 
-Réalisez une fonction `nb_cellules_voisins` qui prend en paramètre une grille ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes parmi les cases voisines de la case passée en paramètre.
+Réalisez une fonction `nb_cellules_voisines` qui prend en paramètre une grille ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes parmi les cases voisines de la case passée en paramètre.
 
 ```
-def nb_cellules_voisins(grille,abscisse,ordonnee):
+def nb_cellules_voisines(grille,abscisse,ordonnee):
     """
     renvoie le nombre de cases voisines de la case passée en paramètre
-    >>> nb_cellules_voisins(grille, 1, 1)
+    >>> nb_cellules_voisines(grille, 1, 1)
     5
-    >>> nb_cellules_voisins(grille, 2, 2)
+    >>> nb_cellules_voisines(grille, 2, 2)
     1
     """
 ```
 
 ## Afficher une grille
 
-Visualiser une grille sous forme de listes de listes n'est pas aisé.  Nous allons donc réaliser une procédure `afficher_grille` dont le rôle sera d'afficher de manière plus claire une grille du jeu de la vie qui lui est passée en paramètre.  Les cases vides seront affichées avec un tiret bas (`_`) et les cases contenant une cellule seront affichées avec un o majuscule (`O`). Le contenu des cases sera séparé par une espace. Chaque ligne de la grille sera affichée sur une ligne distincte.
+Visualiser une grille sous forme de listes de listes n'est pas aisé.   
+Nous allons donc réaliser une procédure `afficher_grille` dont le rôle sera d'afficher de manière plus claire une grille du jeu de la vie qui lui est passée en paramètre.  
+Pour cela, les cases vides seront affichées avec un tiret bas (`_`) et les cases contenant une cellule seront affichées avec un o majuscule (`O`). Le contenu des cases sera séparé par une espace. Chaque ligne de la grille sera affichée sur une ligne distincte.
 
 C'est la **seule** fonction ou procédure qui pourra utiliser un `print`.
 
@@ -210,15 +218,14 @@ def afficher_grille(grille):
     """
 ```
 
-Indication : on peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`. L'ajout d'un espace " " se fait entre deux caractères d'une même ligne mais ni au début ni à la fin d'une ligne ; le passage à la ligne ne se fait pas à la dernière ligne.
+**Indication** : on peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`. L'ajout d'un espace " " se fait entre deux caractères d'une même ligne mais ni au début ni à la fin d'une ligne ; le passage à la ligne ne se fait pas à la dernière ligne.
 
 ## Évolution d'un jeu de la vie
 ### Génération suivante
 
 Nous allons maintenant réaliser une fonction qui, à partir d'une grille passée
-en paramètre, calcule la grille de la génération suivante et la retourne.  La
-nouvelle génération est calculée à partir des critères d'émergence ou de mort
-des cellules indiqués au début de l'énoncé.
+en paramètre, calcule la grille de la génération suivante et la retourne.   
+La nouvelle génération est ainsi calculée à partir de la précédente en respectant les critères d'émergence ou de mort des cellules, indiqués au début de l'énoncé.
 Dans le jeu de la vie, on considère que la nouvelle génération apparaît spontanément dans toutes les cellules au même moment.
 
 ```
@@ -241,11 +248,12 @@ import copy
 copie = copy.deepcopy(grille)
 ```
 
-Indication : on utilisera la fonction  précédente : `nb_cellules_voisins(grille,ligne,colonne)`
+**Indication** : on utilisera la fonction  précédente : `nb_cellules_voisines(grille,ligne,colonne)`
 
 ### Évolution au fil de n générations
 
-Nous allons réaliser une procédure `evolution_n_generations` qui prend en paramètre une grille de départ et un entier naturel `n` et qui va afficher l'évolution de la grille au fil de `n` générations.  Afin de mieux visualiser l'évolution nous ferons une pause d'une seconde entre chaque génération.  La fonction `sleep` du module `time` vous permettra de faire une telle pause.
+Nous allons maintenant réaliser une procédure `evolution_n_generations` qui prend en paramètre une grille de départ et un entier naturel `n` et qui va afficher l'évolution de la grille au fil de `n` générations.  Afin de mieux visualiser l'évolution nous ferons une pause d'une seconde entre chaque génération.  
+La fonction `sleep` du module `time` vous permet de faire une telle pause.
 
 ```
 import time
