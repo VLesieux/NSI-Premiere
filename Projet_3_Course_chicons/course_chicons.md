@@ -736,7 +736,7 @@ Testez votre fonction avec le petit jeu de données puis sauvegardez les résult
 **Allons un peu plus loin**
 
 On peut constater que les deux fonctions de sélection réalisées sont assez similaires et on pourrait imaginer d'autres fonctions de sélection (par sexe, par tranche d'âge, etc.) qui le
-seraient tout autant.  À chaque fois, il s'agit de filtrer parmi les valeurs du dictionnaire celles qui satisfont un critère de sélection. Ce critère pourrait être défini par un **prédicat**, c'est-à-dire une fonction dont le résultat est un booléen, dont le paramètre est un compétiteur. Le résultat de cette fonction est `True` si le compétiteur possède cet attribut (on dit qu'il vérifie le prédicat) et doit être sélectionné, et `False` dans le cas contraire.
+seraient tout autant.  À chaque fois, il s'agit de filtrer parmi les valeurs du dictionnaire celles qui satisfont un critère de sélection. Ce critère peut être défini par un **prédicat**, c'est-à-dire une fonction dont le résultat est un booléen, dont le paramètre est un compétiteur. Le résultat de cette fonction est `True` si le compétiteur possède cet attribut (on dit qu'il vérifie le prédicat) et doit être sélectionné, et `False` dans le cas contraire.
 
 
 **À faire n°12**    
