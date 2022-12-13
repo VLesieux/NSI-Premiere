@@ -9,19 +9,19 @@ def delta_vecteurs_sur_dt(vecteur1,vecteur2):
 ########################################################################################################
 vecteurs_positions="à compléter"#liste de doublets séparés par des virgules, par exemple [(-0.007,0.062),(0.008,0.074),(0.024,0.082),(0.041,0.085),(0.06,0.085)], coordonnées en m
 """
-ce sont les coordonnées cartésiennes des vecteurs positions des 5 points G3,G4,G5,G6,G7 dans le repère (O,Ox,Oy) lues sur le document
+ce sont les coordonnées cartésiennes des vecteurs positions des 5 points G1,G2,G3,G4,G5 dans le repère (O,Ox,Oy) lues sur le document
 """
 ########################################################################################################
 vecteurs_vitesse=[]
 for i in range(1,4):#i varie de 1 à 3
     """
-    calcule les 3 vecteurs vitesses aux points G4, G5, G6 et les ajoute (avec la méthode append) à la liste initialement vide appelée vecteurs_vitesse
+    calcule les 3 vecteurs vitesses aux points G2, G3, G4 et les ajoute (avec la méthode append) à la liste initialement vide appelée vecteurs_vitesse
     """
     vecteurs_vitesse.append(delta_vecteurs_sur_dt(vecteurs_positions[i-1],vecteurs_positions[i+1]))
 ########################################################################################################    
 vecteur_acceleration=delta_vecteurs_sur_dt(vecteurs_vitesse[0],vecteurs_vitesse[2])
 """
-calcule le vecteur accélération au point G5 en utilisant les vecteurs vitesse v(G6) et v(G4) présents aux indices respectivement 2 et 0 dans la liste précédente
+calcule le vecteur accélération au point G3 en utilisant les vecteurs vitesse v(G4) et v(G2) présents aux indices respectivement 2 et 0 dans la liste précédente
 """
 norme_vecteur_acceleration=((vecteur_acceleration[0]**2+vecteur_acceleration[1]**2)**0.5)*conversion_doc_reel
 
@@ -49,7 +49,7 @@ for i in range(1,4):
 #####################################################     Représentation des points    ###################################################    
 for i in range(len(x)):
     plt.text(x[i],y[i],'G'+str(i+3))        
-##################################################  Représentation du vecteur accélération en G5    ######################################################      
+##################################################  Représentation du vecteur accélération en G3    ######################################################      
 plt.quiver(x[2],y[2]+.002,vecteur_acceleration[0],vecteur_acceleration[1],angles="xy",scale_units="xy",scale=100,color='blue',width=0.003)
 
 plt.xlabel("x (en m)")
