@@ -182,7 +182,7 @@ except IndexError:
 
 ### Nombre de cellules dans le voisinage
 
-Réalisez une fonction `nb_cellules_voisines` qui prend en paramètre une grille ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes parmi les cases voisines de la case passée en paramètre.
+Réalisez une fonction `nb_cellules_voisines` qui prend en paramètre une grille ainsi que les coordonnées d'une case et qui renvoie le nombre de cellules effectivement présentes à l'intérieur des cases voisines de la case passée en paramètre.
 
 ```
 def nb_cellules_voisines(grille,abscisse,ordonnee):
