@@ -241,7 +241,7 @@ def generation_suivante(grille):
     """
 ```
 
-Pour que les évolutions aient lieu spontanément dans toutes les cellules au même moment, on fera une copie profonde de la grille dans la fonction, on effectuera les modifications sur cette copie et on retournera celle-ci.
+Pour que les évolutions aient lieu **spontanément** dans toutes les cellules au même moment à partir de la grille passée en paramètre, on fera une copie profonde de celle-ci dans la fonction, on effectuera les modifications sur cette copie sans affecter la grille passée en paramètre, et on retournera cette copie.
 
 ```
 import copy
