@@ -160,7 +160,7 @@ except IndexError:
 1
 ```
 
-- il faut penser à écarter la possibilité d'avoir des indices négatifs, en effet on aurait des résultats inattendus comme on peut le voir à travers l'exemple ci-dessous :cellules_voisines
+- il faut penser à écarter la possibilité d'avoir des indices négatifs ; en effet, on aurait des résultats inattendus comme on peut le voir à travers l'exemple ci-dessous :
 
 ```
 >>> liste=[1,2,3,4]
