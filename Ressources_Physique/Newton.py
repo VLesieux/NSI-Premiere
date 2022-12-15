@@ -25,7 +25,7 @@ calcule le vecteur accélération au point G3 en utilisant les vecteurs vitesse 
 """
 norme_vecteur_acceleration=((vecteur_acceleration[0]**2+vecteur_acceleration[1]**2)**0.5)*conversion_doc_reel
 
-print("norme de l'accélération en G5 déterminée expérimentatement : ",norme_vecteur_acceleration)
+print("norme de l'accélération en G3 déterminée expérimentatement : ",norme_vecteur_acceleration)
 ########################################################################################################
 norme_vecteur_acceleration_theorique=6.73*(40.9-13.5)*0.01/0.64
 ########################################################################################################
