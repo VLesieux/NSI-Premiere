@@ -122,6 +122,10 @@ Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons
 grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
 ```
 
+Cette grille est représentée sur le schéma ci-dessous ; elle permet de visualiser les voisins de la case repérée par les coordonnées (i,j) :
+
+<img src="assets/schema.png" width="600"/>
+
 ```
 def voisins_case(grille,abscisse,ordonnee):
     """
@@ -175,10 +179,6 @@ except IndexError:
                   continue
   ```
 
-- On peut s'aider du schéma ci-dessous qui vous permet de visualiser les voisins de la case repérée par les coordonnées (i,j) :
-
-
-<img src="assets/schema.png" width="600"/>
 
 ### Nombre de cellules dans le voisinage
 
