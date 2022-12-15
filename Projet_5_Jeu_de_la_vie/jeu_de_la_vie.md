@@ -96,7 +96,7 @@ On ne propose pas de docstring dans le cas présent puisque le résultat est al�
 [[1, 0, 1], [0, 0, 1]]
 ```
 
-**Indication 1** : on pourra utiliser la fonction suivante appelée `aleatoire(probabilite)`, qui utilise la fonction `random()` du module random et qui renvoie un réel aléatoire dans [0,1[, et qui prend ainsi en compte la probabilité de présence d'une cellule.
+**Indication 1** : on pourra utiliser la fonction suivante appelée `aleatoire(probabilite)`, qui utilise la fonction `random()` du module `random` et qui renvoie un réel aléatoire dans [0,1[, et qui prend ainsi en compte la probabilité de présence d'une cellule.
 
 ```
 from random import *
@@ -137,7 +137,7 @@ def voisins_case(grille,abscisse,ordonnee):
 
 **Indications** : 
 
-- on peut utiliser l'instruction try_except qui permet de passer au-dessus d'éventuelles erreurs de dépassement d'index :
+- on peut utiliser l'instruction `try_except` qui permet de passer au-dessus d'éventuelles erreurs de dépassement d'index :
 
 ```
 liste=[1,2,3,4]
@@ -147,7 +147,7 @@ try:
     print(liste[4])
 except IndexError:
         pass
-#passe sur l'erreur de dépassement d'index
+#passe sur l'erreur de dépassement d'index et ne fait rien
 ```
 
 - on peut utiliser deux boucles dont la première vous est donnée ci-dessous:
