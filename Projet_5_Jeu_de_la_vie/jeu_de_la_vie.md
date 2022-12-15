@@ -296,7 +296,7 @@ Le `planeur` est un motif qui se déplace jusqu'à disparaître de la grille.
 
 Voici une grille de départ : [[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] 
 
-permettant d'obtenir un motif qui se répète toutes les quatre générations en se déplaçant d'une case vers le bas et d'une case vers la droite :
+permettant d'obtenir ce motif qui se répète toutes les quatre générations en se déplaçant d'une case vers le bas et d'une case vers la droite :
 
 ```
 >>> evolution_n_generations([[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],8)
