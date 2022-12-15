@@ -96,7 +96,7 @@ On ne propose pas de docstring dans le cas présent puisque le résultat est al�
 [[1, 0, 1], [0, 0, 1]]
 ```
 
-**Indication 1** : on pourra utiliser la fonction suivante, qui utilise la fonction `random()` du module random et qui renvoie un réel aléatoire dans [0,1[, et qui prend ainsi en compte la probabilité de présence d'une cellule.
+**Indication 1** : on pourra utiliser la fonction suivante appelée `aleatoire(probabilite)`, qui utilise la fonction `random()` du module random et qui renvoie un réel aléatoire dans [0,1[, et qui prend ainsi en compte la probabilité de présence d'une cellule.
 
 ```
 from random import *
