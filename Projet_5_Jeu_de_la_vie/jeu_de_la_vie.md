@@ -150,7 +150,7 @@ except IndexError:
 #passe sur l'erreur de dépassement d'index et ne fait rien
 ```
 
-- on peut utiliser deux boucles dont la première vous est donnée ci-dessous:
+- on peut utiliser deux boucles imbriquées l'une dans l'autre, dont la première vous est donnée ci-dessous:
 
 ```
 >>> for j in range(-1,2):
@@ -175,7 +175,7 @@ except IndexError:
                   continue
   ```
 
-- On peut s'aider d'un schéma tel que celui-ci :
+- On peut s'aider du schéma ci-dessous qui vous permet de visualiser les voisins de la case repérée par les coordonnées (i,j) :
 
 
 <img src="assets/schema.png" width="600"/>
