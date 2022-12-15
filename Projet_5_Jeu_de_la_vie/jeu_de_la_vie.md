@@ -172,7 +172,7 @@ except IndexError:
 3
 ```
 
-- Dans une boucle, pour passer le cas d'une situation problématique, on peut insérer par exemple :
+- Dans une boucle, pour passer le cas d'une situation à exclure, on peut écrire :
 
   ```
               if i==0 and j==0:
