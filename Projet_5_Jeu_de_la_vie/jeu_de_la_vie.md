@@ -225,7 +225,7 @@ def afficher_grille(grille):
 
 Nous allons maintenant réaliser une fonction qui, à partir d'une grille passée
 en paramètre, calcule la grille de la génération suivante et la retourne.   
-La nouvelle génération est ainsi calculée à partir de la précédente en respectant les critères d'émergence ou de mort des cellules, indiqués au début de l'énoncé.
+La nouvelle génération est ainsi calculée à partir de la précédente en respectant les critères d'émergence ou de mort des cellules indiqués au début de l'énoncé.
 Dans le jeu de la vie, on considère que la nouvelle génération apparaît spontanément dans toutes les cellules au même moment.
 
 ```
@@ -253,7 +253,7 @@ copie = copy.deepcopy(grille)
 ### Évolution au fil de n générations
 
 Nous allons maintenant réaliser une procédure `evolution_n_generations` qui prend en paramètre une grille de départ et un entier naturel `n` et qui va afficher l'évolution de la grille au fil de `n` générations.  Afin de mieux visualiser l'évolution nous ferons une pause d'une seconde entre chaque génération.  
-La fonction `sleep` du module `time` vous permet de faire une telle pause.
+La fonction `sleep` du module `time` permet de faire une telle pause.
 
 ```
 import time
@@ -264,7 +264,7 @@ time.sleep(1.0)
 Quelques motifs récurrents peuvent être obtenus à partir de grilles
 particulières.
 
-Par exemple, un oscillateur à deux états peut être obtenu avec la grille de départ :
+Par exemple, un `oscillateur à deux états` peut être obtenu à partir de la grille de départ :
 
  [[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]] :
 
@@ -292,11 +292,11 @@ Par exemple, un oscillateur à deux états peut être obtenu avec la grille de d
 
 ```
 
-Le planeur est un motif qui se déplace jusqu'à disparaître de la grille. 
+Le `planeur` est un motif qui se déplace jusqu'à disparaître de la grille. 
 
 Voici une grille de départ : [[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] 
 
-permettant d'obtenir un planeur qui se répète toutes les quatre générations en se déplaçant d'une case vers le bas et d'une case vers la droite :
+permettant d'obtenir un motif qui se répète toutes les quatre générations en se déplaçant d'une case vers le bas et d'une case vers la droite :
 
 ```
 >>> evolution_n_generations([[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],8)
