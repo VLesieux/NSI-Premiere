@@ -109,7 +109,7 @@ def aleatoire(probabilite):
     return valeur
 ```
 
-**Indication 2** : on utilisera le même principe que pour la fonction creer_grille, c'est-à-dire que l'on réalisera une liste par compréhension.
+**Indication 2** : on utilisera le même principe que pour la fonction `creer_grille`, c'est-à-dire que l'on réalisera une liste par compréhension.
 
 ### Voisins d'une case
 
@@ -214,11 +214,10 @@ def afficher_grille(grille):
     >>> afficher_grille(creer_grille(3, 2))
      _  _  _ 
      _  _  _ 
-    
     """
 ```
 
-**Indication** : on peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`. L'ajout d'un espace " " se fait entre deux caractères d'une même ligne mais ni au début ni à la fin d'une ligne ; le passage à la ligne ne se fait pas à la dernière ligne.
+**Indication** : on peut réaliser la concanténation d'une chaîne de caractères ; le passage à la ligne se fait avec `\n`. Le passage à la ligne ne se faisant pas sur la dernière ligne, on peut utiliser `texte=texte.strip("\n")`.
 
 ## Évolution d'un jeu de la vie
 ### Génération suivante
