@@ -116,10 +116,10 @@ def aleatoire(probabilite):
 Réalisez une fonction `voisins_case` qui prend en paramètre une grille de jeu de la vie ainsi que les coordonnées en abscisse et en ordonnée de la case (on choisit la coordonnée (0,0) pour la case située en haut à gauche).  
 La fonction doit renvoyer une liste contenant la valeur des cases voisines de la case donnée en paramètre. Le nombre de valeurs retournées dans la liste correspond donc au nombre de voisines de la case (au plus huit, moins quand elle se trouve sur un bord de la grille). L'ordre dans lequel les valeurs sont renvoyées n'est pas spécifié.  Cependant, dans l'exemple ci-dessous, les valeurs des cases voisines sont renvoyées ligne par ligne, de gauche à droite.
 
-Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale `grille`, ce qui nous permettra de réaliser avec elle des docstrings fonctionnelles :
+Pour les exemples qui suivent (jusqu'à la fin de l'énoncé), nous considérons définie une variable globale `Grille`, ce qui nous permettra de réaliser avec elle des docstrings fonctionnelles :
 
 ```
-grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
+Grille = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]
 ```
 
 Cette grille est représentée sur le schéma ci-dessous ; elle permet de visualiser les voisins de la case repérée par les coordonnées (i,j) :
@@ -130,11 +130,11 @@ Cette grille est représentée sur le schéma ci-dessous ; elle permet de visual
 def voisins_case(grille,abscisse,ordonnee):
     """
     renvoie la liste des voisins d'une case
-    >>> voisins_case(grille, 1, 1)
+    >>> voisins_case(Grille, 1, 1)
     [0, 1, 0, 1, 0, 1, 1, 1]
-    >>> voisins_case(grille, 2, 2)
+    >>> voisins_case(Grille, 2, 2)
     [0, 0, 1]
-    >>> voisins_case(grille, 0, 2)
+    >>> voisins_case(Grille, 0, 2)
     [1, 0, 0]
     """
 ```
@@ -188,9 +188,9 @@ Réalisez une fonction `nb_cellules_voisines` qui prend en paramètre une grille
 def nb_cellules_voisines(grille,abscisse,ordonnee):
     """
     renvoie le nombre de cases voisines de la case passée en paramètre
-    >>> nb_cellules_voisines(grille, 1, 1)
+    >>> nb_cellules_voisines(Grille, 1, 1)
     5
-    >>> nb_cellules_voisines(grille, 2, 2)
+    >>> nb_cellules_voisines(Grille, 2, 2)
     1
     """
 ```
@@ -207,7 +207,7 @@ C'est la **seule** fonction ou procédure qui pourra utiliser un `print`.
 def afficher_grille(grille):
     """
     affiche la grille
-    >>> afficher_grille(grille)
+    >>> afficher_grille(Grille)
      _  O  _ 
      O  _  _ 
      O  O  O 
@@ -231,7 +231,7 @@ Dans le jeu de la vie, on considère que la nouvelle génération apparaît spon
 def generation_suivante(grille):
     """
     Calcule la grille après la génération suivante
-    >>> generation_suivante(grille)
+    >>> generation_suivante(Grille)
     [[0, 0, 0], [1, 0, 1], [1, 1, 0]]
     >>> generation_suivante([[0, 0, 0], [1, 0, 1], [1, 1, 0]])
     [[0, 0, 0], [1, 0, 0], [1, 1, 0]]
