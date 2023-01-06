@@ -54,9 +54,7 @@ eval("3*8+7")
 
 ## Exercice 4
 
-On trouve au casino le jeu de roulette :
-
-<img src="assets/roulette.jpeg"> 
+On trouve au casino le jeu de roulette.
 
 Réaliser une simulation du jeu dont les règles vous sont données ici : 
 
@@ -65,7 +63,25 @@ Voici comment le jeu se déroule :
 les joueurs font leurs paris en plaçant leurs jetons sur la table de jeu. Ils peuvent parier sur un seul numéro, une combinaison de numéros, la couleur rouge ou noir, ou encore sur un groupe de numéros (par exemple, les chiffres de 1 à 18 ou de 19 à 36).
 Le croupier tourne la roue dans un sens et lance la bille dans la direction opposée.
 Quand la bille commence à perdre de la vitesse, le croupier annonce « Rien ne va plus » et les joueurs ne peuvent plus placer de nouveaux paris.
-La bille finit par atterrir dans une case de la roue. Si vous avez parié sur ce numéro ou cette couleur, vous gagnez. Les gains sont payés selon les odds (cotes) associées à chaque type de pari.```
+La bille finit par atterrir dans une case de la roue. Si vous avez parié sur ce numéro ou cette couleur, vous gagnez. Les gains sont payés selon les odds (cotes) associées à chaque type de pari.
+Voici les cotes pour les différents types de paris au jeu de roulette :
+
+- Pari sur un seul numéro (numéro plein) : Si vous pariez sur un seul numéro et que la bille atterrit dans cette case, vous gagnez 35 fois votre mise.
+
+- Pari sur deux numéros (cheval) : Si vous pariez sur deux numéros adjacents (par exemple, 5 et 8) et que l'un d'eux est tiré, vous gagnez 17 fois votre mise.
+
+- Pari sur trois numéros (transversale) : Si vous pariez sur trois numéros disposés en ligne sur la table (par exemple, 1, 2 et 3) et que l'un d'eux est tiré, vous gagnez 11 fois votre mise.
+
+- Pari sur quatre numéros (carré) : Si vous pariez sur quatre numéros formant un carré sur la table (par exemple, 1, 2, 4 et 5) et que l'un d'eux est tiré, vous gagnez 8 fois votre mise.
+
+- Pari sur six numéros (sixain) : Si vous pariez sur six numéros disposés en deux lignes de trois (par exemple, 1, 2, 3 et 4, 5, 6) et que l'un d'eux est tiré, vous gagnez 5 fois votre mise.
+
+- Pari sur la couleur rouge ou noir : Si vous pariez sur la couleur rouge ou noir et que la bille atterrit sur une case de cette couleur, vous gagnez votre mise.
+
+- Pari sur les chiffres de 1 à 18 ou de 19 à 36 : Si vous pariez sur l'un de ces deux groupes de numéros et que la bille atterrit sur un numéro de ce groupe, vous gagnez votre mise.
+
+- Pari sur pair ou impair : Si vous pariez sur pair ou impair et que la bille atterrit sur un numéro de ce type, vous gagnez votre mise.
+```
 
 
 ## Exercice 5
