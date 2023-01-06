@@ -62,7 +62,7 @@ Réaliser une simulation du jeu dont les règles vous sont données ici :
 
 ```Le jeu de roulette consiste à parier sur le numéro ou la couleur sur lequel la bille va atterrir sur une roue tournante. La roue est divisée en 37 (en Europe) ou 38 (aux États-Unis) cases numérotées de 0 à 36. Les cases sont alternées de couleur rouge et noir, excepté pour la case 0 qui est verte.
 Voici comment le jeu se déroule :
-Les joueurs font leurs paris en plaçant leurs jetons sur la table de jeu. Ils peuvent parier sur un seul numéro, une combinaison de numéros, la couleur rouge ou noir, ou encore sur un groupe de numéros (par exemple, les chiffres de 1 à 18 ou de 19 à 36).
+les joueurs font leurs paris en plaçant leurs jetons sur la table de jeu. Ils peuvent parier sur un seul numéro, une combinaison de numéros, la couleur rouge ou noir, ou encore sur un groupe de numéros (par exemple, les chiffres de 1 à 18 ou de 19 à 36).
 Le croupier tourne la roue dans un sens et lance la bille dans la direction opposée.
 Quand la bille commence à perdre de la vitesse, le croupier annonce « Rien ne va plus » et les joueurs ne peuvent plus placer de nouveaux paris.
 La bille finit par atterrir dans une case de la roue. Si vous avez parié sur ce numéro ou cette couleur, vous gagnez. Les gains sont payés selon les odds (cotes) associées à chaque type de pari.```
