@@ -89,7 +89,7 @@ Pour créer  une _**liste ordonnée**_, il suffit de remplacer  ```<ul> ``` et  
 	-	Lien vers une ancre, c’est-à-dire un repère dans la page, ce qui peut être utile si la page est longue. On choisit pour cela n’importe quelle balise à l’endroit approprié à laquelle on donne un identifiant :  
 	 ```<p id="monparagraphe"> Mon paragraphe</p>``` puis ```<a href="#monparagraphe">Lien vers mon paragraphe</a>```
 
-	Remarque :  on peut forcer l’ouverture du lien dans une nouvelle fenêtre en ajoutant dans la balise l’attribut ```target="_blank"``` ; pour faire un lien pour télécharger un fichier, on fait un lien en indiquant simplement le nom du fichier à télécharger :``` <a href="monfichierimage.jpg">Fichier à télécharger< /a> ``` 
+Remarque :  on peut forcer l’ouverture du lien dans une nouvelle fenêtre en ajoutant dans la balise l’attribut ```target="_blank"``` ; pour faire un lien pour télécharger un fichier, on fait un lien en indiquant simplement le nom du fichier à télécharger :``` <a href="monfichierimage.jpg">Fichier à télécharger< /a> ``` 
 	
 	
 - _**Insérer des images**_
@@ -128,11 +128,12 @@ function action() {
 </html>
 ```
 
-Remarque : on voit que le Nom entré par l'utilisateur est contenu dans l'élément dont l'attribut `id` est 'nom'.
+Remarque : on voit que le nom entré dans la barre d'input par l'utilisateur est contenu dans l'élément dont l'attribut `id` est 'nom'.
 
 2. Deuxième méthode
 
-On a ajouté un écouteur d'événement qui attend l'événement click.
+On a ajouté un **écouteur d'événement** qui attend l'événement `click`.
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -159,7 +160,7 @@ function action() {
 
 3. Troisième méthode
 
-On sépare le fichier javaScript du fichier html, le lien se fait avec 
+On sépare le fichier JavaScript du fichier html, en plaçant dans le premier fichier dont l'extension est `.html` un lien vers le fichier d'extension `.js`, cela se fait avec :
 `<script language="javascript" type="text/javascript" src="script.js"> </script>`
 
 <u>action.html</u>
@@ -228,12 +229,12 @@ function action() {
  ```
 - _**Création d'un formulaire : événement côté serveur**_
 
-On retiendra que lors de la consultation d'une page web, le langage HTML est exécuté côté client tandis que le **langage PHP est exécuté côté serveur**.
+On retiendra que lors de la consultation d'une page web, le langage HTML est exécuté **côté client** tandis que le langage PHP est exécuté **côté serveur**. Il faut donc disposer d'un serveur qui herberge les pages (comme alwaysdata.net), il existe aussi des **serveur web local** tels que MAMP (le logiciel MAMP, abbréviation de Macintosh, Apache, Mysql and PHP) qui permet de lancer sur une machine fonctionnant sur le système d'exploitation Mac OS X.
 
 On observera dans la console la différence entre les deux méthodes GET et POST.
 
 Première méthode :  `**GET** ` : 
-[formulaire GET à expérimenter](http://isnangellier.alwaysdata.net/php/formulaire1.html)
+[formulaire GET à expérimenter sur le serveur alwaysdata](http://isnangellier.alwaysdata.net/php/formulaire1.html)
 
 formulaire1.html
 
@@ -274,7 +275,7 @@ Bonjour <?php echo($prenom.' '.$nom);?>
  ```
 
 Deuxième méthode :  `**POST** `  : 
-[formulaire POST à expérimenter ](http://isnangellier.alwaysdata.net/php/formulaire2.html)
+[formulaire POST à expérimenter sur le serveur alwaysdata](http://isnangellier.alwaysdata.net/php/formulaire2.html)
 
 formulaire2.html
 
@@ -316,30 +317,36 @@ Bonjour <?php echo($prenom.' '.$nom);?>
 
 À retenir :
 
-- **On observe ainsi qu'un formulaire en HTML commence par la balise `<form>`.**
-- La méthode POST est plus appropriée que la méthode GET quand il s'agit d'envoyer dans le formulaire d'une page web des paramètres sensibles tels que des mots de passe car ces paramètres apparaissent dans l'adresse avec la méthode GET.
-
-
+- On observe ainsi qu'un **formulaire** en HTML commence par la balise **`<form>`**.
+- La **méthode POST** est plus appropriée que la **méthode GET** quand il s'agit d'envoyer dans le formulaire d'une page web des paramètres sensibles tels que des mots de passe car ces paramètres apparaissent dans l'adresse avec la méthode GET.
 
 
 # Utilisation du CSS
 
 Comment place-t-on le code CSS ?
 
-On crée un fichier externe de mise en forme mon_style.css qui accompagnera le fichier de contenu brut ma_page.html. Pour cela dans le fichier html il suffira d’ajouter dans la section head de la page :
+On crée un fichier externe de mise en forme à l'extension `.css `, par exemple  `mon_style.css ` qui accompagnera le fichier de contenu brut  `ma_page.html `. Pour cela dans le fichier à l'extension  `.html `, il suffira d’ajouter dans la section  `head ` de la page :
+
  ```html
 <link rel="stylesheet" href="mon_style.css" />
  ```
-**Remarque** : on peut aussi insérer le code CSS directement à l'intérieur de la balise ```<style> </style>``` dans la section head de la page html. Une autre technique plus ancienne mais qui reste cependant utilisable est d’insérer les informations de style dans une balise html :  ```<p style="color :blue ; font-size :10px ;"> Mon paragraphe en bleu de taille 10px </p> ```  
-Il est conseillé néanmoins d’utiliser un fichier css externe pour distinguer nettement le fond de la forme ; par ailleurs, et c’est là le plus important, si le site comporte plusieurs pages, on peut affecter la même mise en forme pour toutes les pages du site en plaçant simplement le lien ```<link rel="stylesheet" href="style.css" /> ``` dans la section head de toutes les pages. Ainsi une modification dans le seul fichier css affectera immédiatement la mise en forme de toutes les pages du site.
+ 
+**Remarque** : on peut aussi insérer le code CSS directement à l'intérieur de la balise ```<style> </style>``` dans la section head de la page html. Une autre technique plus ancienne mais qui reste cependant utilisable est d’insérer les informations de style dans une balise html : 
+
+ ```<p style="color :blue ; font-size :10px ;"> Mon paragraphe en bleu de taille 10px </p> ```  
+ 
+Il est conseillé néanmoins d’utiliser un fichier css externe pour distinguer nettement le fond de la forme ; par ailleurs, et c’est là le plus important, si le site comporte plusieurs pages, on peut affecter la même mise en forme pour toutes les pages du site en plaçant simplement le lien ```<link rel="stylesheet" href="style.css" /> ``` dans la section  `head ` de toutes les pages. Ainsi une modification dans le seul fichier css affectera immédiatement la mise en forme de toutes les pages du site.
 
 _**Structure générale du code CSS**_
 
-On trouve dans le code CSS
+On trouve dans le code CSS :
+
 -	des noms de balises appelés _**sélecteurs**_
 -	des _**propriétés**_ CSS
 -	des _**valeurs**_
+
 Il faut respecter la structure suivante :
+
 ```css
 balise1
 { 
@@ -354,7 +361,9 @@ propriete2 : valeur5 ;
 propriete3 : valeur6 ;
 }
  ```
+ 
 **Remarque 1** : si deux balises possèdent la même mise en forme, on peut éviter la répétition de la manière suivante :
+
 ```css
 balise1, balise2
 { 
@@ -363,7 +372,9 @@ propriete2 : valeur2 ;
 propriete3 : valeur3 ;
 }
  ```
+ 
 **Remarque 2** : on peut donner une mise en forme uniquement aux balises 2 situées à l’intérieur des balises 1 de la manière suivante, cette fois-ci sans la virgule entre balise1 et balise 2
+
 ```css
 balise1 balise2
 { 
@@ -372,24 +383,31 @@ propriete2 : valeur2 ;
 propriete3 : valeur3 ;
 }
  ```
+ 
 On peut également ajouter des commentaires dans le code CSS en utilisant : ``` /* mon commentaire */ ```
 
 
 **Amélioration du code CSS** : utilisation des attributs _**class**_ et _**id**_, ainsi que les balises universelles telles que p
 
 Si l’on écrit :
+
 ```css
 p
 {
 color : blue ;
 }
  ```
+ 
 Tous les paragraphes seront de couleur bleue.
 
 Si on veut mettre en bleu un ou certains paragraphes en particulier uniquement, on utilise l’attribut _**class**_, il faudra procéder en deux temps :  
-Dans la page html, attribuer une classe à la balise : ```<p class="mon_paragraphe_en_bleu">mon paragraphe à mettre en bleu</p>```   
+
+Dans la page html, attribuer une classe à la balise :
+
+ ```<p class="mon_paragraphe_en_bleu">mon paragraphe à mettre en bleu</p>```   
 
 Puis dans le css : 
+
 ```css
 .mon_paragraphe_en_bleu
 {
@@ -399,17 +417,22 @@ color : blue ;
 
 Ainsi tous les paragraphes qui possèdent la classe mon_paragraphe_en_bleu seront de couleur bleue sur la page.
 
-On utilise également l’attribut _**id**_ pour affecter un style à un élément unique de la page html, de plus id prend le dessus sur class.  
+On utilise également l’attribut _**id**_ pour affecter un style à un élément unique de la page html, de plus id prend le dessus sur class.
+  
 Dans le html : ```<p id="monparagrapheenbleu">mon paragraphe à mettre en bleu</p>```  
 
 Puis dans le css :
+
 ```css
 #monparagrapheenbleu
 {
 color : blue ;
 }
 ```
-Mais le fait que class ou id soient des attributs de balise ne restreint pas pour autant leur utilisation aux balises communes telles que ```<p>```,``` <img />```…. En effet, il existe d’autres balises appelées balises universelles qui n’ont pas de signification particulière mais auxquelles nous pourrons affecter ces attributs.
+
+Mais le fait que class ou id soient des attributs de balise ne restreint pas pour autant leur utilisation aux balises communes telles que ```<p>```,``` <img />```….
+
+En effet, il existe d’autres balises appelées balises universelles qui n’ont pas de signification particulière mais auxquelles nous pourrons affecter ces attributs.
 
 -	la balise de type inline : ```<span> </span>``` : elle permet de sélectionner certains mots en particulier dans un paragraphe
 -	la balise de type block : ```<div> </div>``` : elle permet de sélectionner un bloc de texte.
@@ -432,13 +455,16 @@ _**Mise en place de bordures**_
 -	la couleur
 -	le type de bordure : solid (un trait simple) ; dotted (pointillés) ; dashed (tirets) ; ridge (effet de relief)  
 Par exemple, pour entourer les titres importants de type h1 d’une bordure noire de 4px en pointillé
+
 ```css
 h1
 {
 border : 4px black dotted ;
 }
 ```
+
 On peut aussi distinguer les côtés droit, gauche, haut, bas
+
 ```css
 h1
 {
@@ -446,13 +472,16 @@ border-right : 4px black dotted ;
 border-bottom : 2px red solid ;
 }
 ```
+
 On peut aussi créer une bordure arrondie :
+
 ```css
 h1
 {
 border-radius : 10px;
 }
 ```
+
 _**Mise en place d’apparences dynamiques**_
 
 On peut faire des changements d’apparence :
@@ -463,6 +492,7 @@ On peut faire des changements d’apparence :
 -	lorsqu’un lien a été consulté : visited
 
 Par exemple, pour décider qu’un lien non survolé soit bleu et qu’il devienne rouge au survol
+
 ```css
 a
 {
@@ -474,9 +504,11 @@ a:hover
 color: red;
 }
 ```
+
 _**Organiser la page : le positionnement des blocs**_
 
-On peut organiser la page en blocs en utilisant des balises structurantes introduites pour délimiter différentes zones qui constituent la page web : 
+On peut organiser la page en blocs en utilisant des balises structurantes introduites pour délimiter différentes zones qui constituent la page web :
+ 
 -	```<header>``` : en-tête
 -	```<footer>``` : pied de page
 -	```<nav>``` : liens principaux de navigation
@@ -495,13 +527,16 @@ Deux types de marge peuvent être utilisés :
 
 -	marge intérieure entre la bordure (qui peut avoir une certaine épaisseur) et le début du contenu : ```padding``` en px
 on peut préciser pour les quatre directions :  ```padding -top``` ; ```padding -bottom``` ; ```padding -left``` ; ```padding -right```
+
 -	marge extérieure entre la bordure et l'extérieur : ```margin``` en px
 on peut préciser pour les quatre directions :```margin-top``` ; ```margin-bottom``` ; ```margin-left``` ; ```margin-right```.
 
 ![Représentation binaire de 755 ](assets/marges.png#center)   
+
 Pour centrer un bloc après lui avoir donné une largeur, utiliser : ```margin : auto```.  
 Si le texte contenu dans le bloc dépasse ses limites, le navigateur peut ajouter des barres de défilement : ```overflow : auto```  
 Le positionnement ```inline-block``` permet de transformer, grâce à la propriété ```display```, en inline-block deux éléments que l’on veut placer côte à côte, par exemple un menu de navigation et une section du centre de la page.
+
 ```css
 nav
 { 
@@ -515,7 +550,9 @@ display : inline-block ;
 border : 1 px solid blue ;
 }
 ```
+
 La propriété ```vertical-align``` permet de modifier l’alignement vertical des éléments   
+
 ```baseline``` : aligne selon la ligne de la base de l’élément  
 ```top``` : aligne en haut    
 ```middle``` : centre verticalement   
@@ -524,6 +561,7 @@ La propriété ```vertical-align``` permet de modifier l’alignement vertical d
 
 
 Ainsi, pour aligner en haut les blocs nav et section, on écrira :
+
 ```css
 nav
 { 
@@ -532,7 +570,6 @@ vertical-align:top;
 width :150px ;
 border : 1px solid black ;
 }
-
 section
 {
 display : inline-block ;
@@ -542,6 +579,7 @@ border : 1 px solid blue ;
 ```
 
 Une autre méthode est le positionnement absolu qui permet de placer l’élément n’importe où sur la page :
+
 ```css
 element  
 {
@@ -552,6 +590,7 @@ top : 10% :
 bottom : 120px ;
 }
 ```
+
 Lorsque des éléments se chevauchent, la propriété z-index permet de préciser quel élément est situé au dessus de l’autre.
 
 Le positionnement fixe permet de fixer la position du bloc même si on descend dans la page.
@@ -564,6 +603,7 @@ left : 50px ;
 right : 100 px ;
 }
 ```
+
 Le positionnement relatif permet de décaler le bloc par rapport à sa position initiale.
 
 ```css
@@ -577,7 +617,7 @@ right : 100 px ;
 
 _**Utiliser les outils de développement du navigateur**_
 
-Pour cela, faire un clic droit sur la page et faire l’inspection de l’élément ; à gauche le code html, à droite le code css. Possibilité de changer le code, d’observer directement l’effet des modifications sur la page puis de copier-coller ces modifications pour mettre à jour votre page.
+Pour cela, faire un clic droit sur la page et faire l’**inspection** de l’élément ; à gauche le code html, à droite le code css. Possibilité de changer le code, d’observer directement l’effet des modifications effectuées sur la page puis de copier-coller ces modifications pour mettre à jour votre page.
 
 --> Exemple [de page web](http://vfsilesieux.free.fr/exemple_page_web_SNT.html) à inspecter.
 
