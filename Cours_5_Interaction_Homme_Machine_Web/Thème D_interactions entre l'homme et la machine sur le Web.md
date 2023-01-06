@@ -229,7 +229,7 @@ function action() {
  ```
 - _**Création d'un formulaire : événement côté serveur**_
 
-On retiendra que lors de la consultation d'une page web, le langage HTML est exécuté **côté client** tandis que le langage PHP est exécuté **côté serveur**. Il faut donc disposer d'un serveur qui herberge les pages (comme alwaysdata.net), il existe aussi des **serveur web local** tels que MAMP (le logiciel MAMP, abbréviation de Macintosh, Apache, Mysql and PHP) qui permet de lancer sur une machine fonctionnant sur le système d'exploitation Mac OS X.
+On retiendra que lors de la consultation d'une page web, le langage HTML est exécuté **côté client** tandis que le langage PHP est exécuté **côté serveur**. Il faut donc disposer d'un serveur qui herberge les pages (comme alwaysdata.net), il existe aussi des **serveur web local** tels que MAMP (le logiciel MAMP, abbréviation de Macintosh, Apache, Mysql and PHP) qui permet de lancer un serveur sur une machine fonctionnant sur le système d'exploitation Mac OS X (cela est utilisé pour essayer son code php avant de le mettre en ligne).
 
 On observera dans la console la différence entre les deux méthodes GET et POST.
 
@@ -415,7 +415,7 @@ color : blue ;
 }
 ```
 
-Ainsi tous les paragraphes qui possèdent la classe mon_paragraphe_en_bleu seront de couleur bleue sur la page.
+Ainsi tous les paragraphes qui possèdent la classe `mon_paragraphe_en_bleu` seront de couleur bleue sur la page.
 
 On utilise également l’attribut _**id**_ pour affecter un style à un élément unique de la page html, de plus id prend le dessus sur class.
   
