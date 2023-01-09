@@ -56,9 +56,11 @@ eval("3*8+7")
 
 On trouve au casino le jeu de roulette.
 
+<img src="assets/roulette.jpeg">
+
 Réaliser une simulation du jeu dont les règles vous sont données ici : 
 
-```js
+```Pyhton
 Le jeu de roulette consiste à parier sur le numéro ou la couleur sur lequel la bille va atterrir sur une roue tournante.
 La roue est divisée en 37 (en Europe) ou 38 (aux États-Unis) cases numérotées de 0 à 36.
 Les cases sont alternées de couleur rouge et noir, excepté pour la case 0 qui est verte.
