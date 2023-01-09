@@ -94,6 +94,7 @@ Voici les cotes pour les différents types de paris au jeu de roulette :
 - Pari sur pair ou impair : Si vous pariez sur pair ou impair et que la bille atterrit sur un numéro de ce type, vous gagnez votre mise.
 ```
 
+Indication : on trouvera ici une [ébauche de simulation](http://isnangellier.alwaysdata.net/php/roulette.html).
 
 ## Exercice 5
 
