@@ -54,7 +54,7 @@ eval("3*8+7")
 
 ## Exercice 4
 
-On trouve au casino le jeu de roulette.
+On trouve au casino des jeux de roulette automatiques électroniques.
 
 <img src="assets/roulette.jpeg">
 
