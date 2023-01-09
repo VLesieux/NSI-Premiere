@@ -86,5 +86,6 @@ Voici les cotes pour les différents types de paris au jeu de roulette :
 
 ## Exercice 5
 
-S'approprier le code expliqué de ce [quiz anglais](http://isnangellier.alwaysdata.net/php/Creation_quizz.html) et réalisez vous-même un quiz sur le thème de votre choix.
+- S'approprier le code expliqué de ce [quiz anglais](http://isnangellier.alwaysdata.net/php/Creation_quizz.html) et réalisez vous-même un quiz sur le thème de votre choix.
 
+- Étudier le code mise en œuvre dans cette autre [application web](http://isnangellier.alwaysdata.net/php/Lependu.html).
