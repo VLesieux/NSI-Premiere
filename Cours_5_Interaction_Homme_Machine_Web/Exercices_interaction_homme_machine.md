@@ -87,6 +87,12 @@ Voici les cotes pour les différents types de paris au jeu de roulette :
 
 - Pari sur six numéros (sixain) : Si vous pariez sur six numéros disposés en deux lignes de trois (par exemple, 1, 2, 3 et 4, 5, 6) et que l'un d'eux est tiré, vous gagnez 5 fois votre mise.
 
+- Pari sur la première douzaine (numéros 1 à 12) : vous gagnez 2 fois votre mise si la bille atterrit sur un numéro de cette douzaine.
+
+- Pari sur la deuxième douzaine (numéros 13 à 24) : vous gagnez 2 fois votre mise si la bille atterrit sur un numéro de cette douzaine.
+
+- Pari sur la troisième douzaine (numéros 25 à 36) : vous gagnez 2 fois votre mise si la bille atterrit sur un numéro de cette douzaine.
+
 - Pari sur la couleur rouge ou noir : Si vous pariez sur la couleur rouge ou noir et que la bille atterrit sur une case de cette couleur, vous gagnez votre mise.
 
 - Pari sur les chiffres de 1 à 18 ou de 19 à 36 : Si vous pariez sur l'un de ces deux groupes de numéros et que la bille atterrit sur un numéro de ce groupe, vous gagnez votre mise.
