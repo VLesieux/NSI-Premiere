@@ -24,7 +24,9 @@ for point in points:
     if point != (c,d):
         norme=calcul_norme_champ(point[0],point[1],c,d,q)
         plt.quiver(point[0],point[1],(point[0]-c)*norme*signe(q),(point[1]-d)*norme*signe(q),angles="xy",scale_units="xy",scale=1,color='blue',width=0.003)
-
+# le vecteur champ électrique est représenté à partir du point considéré de coordonnées (point[0],point[1])
+# la direction du vecteur champ électrique est colinéaire au vecteur qui joint la charge au point, ses coordonnées sont : (point[0]-c,point[1]-d)
+# pour représenter le vecteur champ électrique, on multiplie ces coordonnées par norme*signe(q).
 plt.xlabel("x (en m)")
 plt.ylabel("y (en m)")
 plt.title ("Spectre du champ créé par une charge positive placée au point (2,0)")
