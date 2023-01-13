@@ -102,6 +102,8 @@ Voici les cotes pour les différents types de paris au jeu de roulette :
 
 Indication : on trouvera ici une [ébauche de simulation](http://isnangellier.alwaysdata.net/php/roulette/roulette.html).
 
+Image du jeu : <img src="assets/exemple_jeu.png">
+
 ## Exercice 5
 
 - S'approprier le code expliqué de ce [quiz anglais](http://isnangellier.alwaysdata.net/php/Creation_quizz.html) et réalisez vous-même un quiz sur le thème de votre choix.
