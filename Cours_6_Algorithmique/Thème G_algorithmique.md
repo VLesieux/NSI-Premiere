@@ -112,7 +112,7 @@ def nombre_de_1(n):
     return : int
     >>> nombre_de_1(9)
     2
-    >>> taille_binaire(255)
+    >>> nombre_de_1(255)
     8
     """
 ```
