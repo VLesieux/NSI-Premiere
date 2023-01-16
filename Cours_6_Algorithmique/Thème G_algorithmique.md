@@ -495,7 +495,7 @@ def recherche_minimum_liste_parcours_indice(t):
 
 La recherche dichotomique dans une liste doit s'effectuer nécessairement <u>**sur une liste préalablement triée**</u>.  
 
-Avec Python, nous disposons pour cela :
+Avec Python, nous disposons d'outils pour trier :
 
 - de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. 
 
