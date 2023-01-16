@@ -569,32 +569,7 @@ Sinon, si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nou
 
 <u>Principe</u> : **cet algorithme fait remonter les valeurs les plus grandes les uns après les autres par permutations sucessives à la manière d'une bulle ; d'où le nom de tri bulle pour cet algorithme de tri.**
 
-Passons d'abord par l'écriture d'une fonction intermédaire que l'on appelle `remonter`.
-
-```python
-def remonter(indice,liste):
-    """
-    Fait remonter la valeur située à l'indice i autant que possible dans la liste
-    param : liste : list
-    return : list
-    >>> remonter(1,[2, 22, 10, 12, 24])
-    [2, 10, 12, 22, 24]
-    """
-```
-Puis utilisons cette fonction intermédaire pour réaliser la fonction tri_bulle de façon indirecte
-
-```python
-def tri_bulle_indirect(liste):
-    """
-    renvoie une liste triée en faisant remonter les plus grandes valeurs par permutations successives
-    param : liste : list
-    return : list
-    >>> tri_bulle_indirect([2, 25, 10, 24])
-    [2, 10, 24, 25]
-    """
-```
-
-Écrivons maintenant une implémentation directe de cet algorithme en python.
+Écrivons maintenant une implémentation de cet algorithme en python.
 
 ```python
 def tri_bulle_direct(liste):
@@ -602,10 +577,11 @@ def tri_bulle_direct(liste):
     renvoie une liste triée en faisant remonter les plus grandes valeurs par permutations successives
     param : liste : list
     return : list
-    >>> tri_bulle_direct([2, 25, 10, 24])
-    [2, 10, 24, 25]
+    >>> tri_bulle_direct([2, 25, 10, 24, 5, 32, 3])
+    [2, 3, 5, 10, 24, 25, 32]
     """
 ```
+
 Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste la plus désordonnée.
 
 On choisit la liste de 10 éléments [10,9,8,7,6,5,4,3,2,1] et on lui fait subir la fonction.
