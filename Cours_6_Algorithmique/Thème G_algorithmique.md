@@ -537,7 +537,8 @@ def recherche_dichotomie(valeur, liste):
     """
 ```
 
-On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'indice de position de `valeur` dans `liste`.
+**Indication** : On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'`indice` de position de `valeur` dans `liste`.
+Écrire les choses à la main dans un premier temps.
 
 
 - Faisons la preuve de la **terminaison** de l'algorithme en choisissant comme **variant** de la boucle : (`d-g`). 
