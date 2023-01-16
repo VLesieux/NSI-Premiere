@@ -75,7 +75,7 @@ S=1+2+...(n-1).
 S=(n-1)+(n-2)+.....+1.   
 2S=nx(n-1) donc S=nx(n-1)/2 ; pour n=5 : S=10.
 
-Pour les exercices, réaliser les docstrings :
+>Pour les exercices, réaliser les docstrings et vérifier les tests :
 
 ```python
 if __name__ == '__main__':
