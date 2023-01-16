@@ -567,7 +567,31 @@ Sinon, si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nou
 
 [Vidéo](https://www.youtube.com/watch?v=MtcrEhrt_K0&feature=youtu.be) 
 
-<u>Principe</u> : **cet algorithme fait remonter les valeurs les plus grandes les uns après les autres par permutations sucessives à la manière d'une bulle ; d'où le nom de tri bulle pour cet algorithme de tri.**
+<u>Principe</u> : **cet algorithme consiste à faire remonter les valeurs les plus grandes les uns après les autres par permutations sucessives à la manière d'une bulle ; d'où le nom de tri bulle pour cet algorithme de tri.**
+
+Dans l'exemple [2, 25, 10, 24, 5, 32, 3], voici les différentes étapes :
+
+    [2, 25, 10, 24, 5, 32, 3] 0 0
+    [2, 10, 25, 24, 5, 32, 3] 0 1
+    [2, 10, 24, 25, 5, 32, 3] 0 2
+    [2, 10, 24, 5, 25, 32, 3] 0 3
+    [2, 10, 24, 5, 25, 32, 3] 0 4
+    [2, 10, 24, 5, 25, 3, 32] 0 5 #remontée du 32
+    [2, 10, 24, 5, 25, 3, 32] 1 0
+    [2, 10, 24, 5, 25, 3, 32] 1 1
+    [2, 10, 5, 24, 25, 3, 32] 1 2
+    [2, 10, 5, 24, 25, 3, 32] 1 3
+    [2, 10, 5, 24, 3, 25, 32] 1 4 #remontée du 25
+    [2, 10, 5, 24, 3, 25, 32] 2 0
+    [2, 5, 10, 24, 3, 25, 32] 2 1
+    [2, 5, 10, 24, 3, 25, 32] 2 2
+    [2, 5, 10, 3, 24, 25, 32] 2 3 #remontée du 24
+    [2, 5, 10, 3, 24, 25, 32] 3 0
+    [2, 5, 10, 3, 24, 25, 32] 3 1
+    [2, 5, 3, 10, 24, 25, 32] 3 2 #remontée du 10
+    [2, 5, 3, 10, 24, 25, 32] 4 0
+    [2, 3, 5, 10, 24, 25, 32] 4 1 #remontée du 5
+    [2, 3, 5, 10, 24, 25, 32] 5 0
 
 Écrivons maintenant une implémentation de cet algorithme en python.
 
@@ -580,6 +604,12 @@ def tri_bulle_direct(liste):
     >>> tri_bulle_direct([2, 25, 10, 24, 5, 32, 3])
     [2, 3, 5, 10, 24, 25, 32]
     """
+    n = len(liste)
+    for i in range(n):
+        for j in range(n-i-1):
+            if liste[j] > liste[j+1]:
+                liste[j], liste[j+1] = liste[j+1], liste[j]
+    return liste
 ```
 
 Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste la plus désordonnée.
@@ -617,7 +647,7 @@ C'est l'algorithme de tri le plus lent et il n'est guère utilisé en pratique.
 
 [Vidéo](https://www.youtube.com/watch?v=8u3Yq-5DTN8) 
 
-<u>Principe</u> : On dispose de n données. **On cherche la plus petite donnée et on la place en première position, puis on cherche la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.**  
+<u>Principe</u> : On dispose de n données. **On sélectionne la plus petite donnée et on la place en première position, puis on sélectionne à nouveau la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.**  
 
 <u>Exemple</u> : 
 
