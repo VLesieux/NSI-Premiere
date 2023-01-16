@@ -744,7 +744,7 @@ def tri_insertion(liste):
     """
     param : liste : list
     return : list
-    >>> tri_insertion_direct([43,12,18,31,10])
+    >>> tri_insertion([43,12,18,31,10])
     [10, 12, 18, 31, 43]
     """
     for i in range(1,len(liste)):
