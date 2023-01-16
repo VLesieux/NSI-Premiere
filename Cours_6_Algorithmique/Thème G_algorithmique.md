@@ -734,43 +734,26 @@ Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc u
 [Vidéo](https://www.youtube.com/watch?v=bRPHvWgc6YM) 
 
 <u>Principe</u> : C'est le tri utilisé par les joueurs de cartes. On dispose de n données et on procède par étapes. **À chaque étape, on suppose les k premières données triées, et on insère une donnée supplémentaire à la bonne place parmi ces k données déjà triées.**   
-Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle clé. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé après chaque comparaison.  
+Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle clé. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé ou key après chaque comparaison.  
 
-Pour commencer, on peut décomposer l'algorithme en créant une fonction intermédaire appelée `placement` qui sera réutilisée ensuite.
 
-```python
-def placement(valeur,liste):
-    """
-    range la dernière valeur mal placée dans la liste supposée ordonnée à gauche en décalant les autres vers la droite
-    param : liste : list
-    return : list
-    >>> placement(5,[2, 10, 14, 22, 5])
-    [2, 5, 10, 14, 22]
-    """
-```
-
-Implémentons l'algorithme du tri par insertion en faisant appel à cette fonction intermédiaire `placement` (envisager la formation d'une nouvelle liste):
-
-```python    
-def tri_insertion_indirect(liste):
-    """
-    param : liste : list
-    return : list
-    >>> tri_insertion_indirect([43,12,18,10,31])
-    [10, 12, 18, 31, 43]
-    """
-```
-
-Implémentons maintenant l'algorithme du tri par insertion sans faire appel à cette fonction intermédiaire :
+Implémentons l'algorithme du tri par insertion :
 
 ```python  
-def tri_insertion_direct(liste):
+def tri_insertion(liste):
     """
     param : liste : list
     return : list
     >>> tri_insertion_direct([43,12,18,31,10])
     [10, 12, 18, 31, 43]
     """
+    for i in range(1,len(liste)):
+        key=liste[i]
+        while key<liste[i-1] and i>0:
+            liste[i]=liste[i-1]
+            i-=1
+        liste[i]=key
+    return liste
 ```
 
 <u>Terminaison</u> : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
