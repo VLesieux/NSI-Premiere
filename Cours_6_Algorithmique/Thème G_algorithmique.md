@@ -525,7 +525,7 @@ Proposer une fonction `recherche_dichotomie`.
 ```python
 def recherche_dichotomie(valeur, liste):
     """
-    renvoie l'indice de position de valeur dans la liste d'entiers préalablement triée
+    renvoie l'indice de position de valeur dans une liste d'entiers préalablement triée
     param : valeur : int
     param : liste : list
     return : int
