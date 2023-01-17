@@ -311,9 +311,9 @@ def multiplie(a,b):
 >>> multiplie(4,3)
 12
 ```
-les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4×a opérations. Nous dirons que le coût est proportionnel à a, ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β.  
+les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4×a opérations. Nous dirons que le coût est proportionnel à a, ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β, l'ordre de grandeur asymptotique noté Θ est Θ(n), car quand n est grand, le nombre d'opérations est proportionnel à n. 
  
-On dira ainsi que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ.
+On dira ainsi que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ, l'ordre de grandeur asymptotique noté Θ est Θ(n<sup>2</sup>), , car quand n est grand, le nombre d'opérations est proportionnel à n<sup>2</sup> (c'est la puissance la plus forte qui donne la tendance).
 
 Dans le cas de deux boucles imbriquées, on peut avoir, selon les cas, soit une complexité linéaire soit une complexité quadratique.
 
