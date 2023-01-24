@@ -12,7 +12,8 @@ Le rangement des assiettes convient à cette description. En effet l'ordre dans 
 
 Deux opérations élémentaires sont nécessaires pour réaliser cette structure.
 
-EMPILER(P,x) qui correspond à l'insertion de la donnée x au sommet de la pile P si celle-ci n'est pas pleine.
+EMPILER(P,x) qui correspond à l'insertion de la donnée x au sommet de la pile P si celle-ci n'est pas pleine.   
+
 DEPILER(P) qui retire la dernière donnée de P et la retourne si la pile n'est pas vide.
 
 Afin de représenter une pile capable de contenir n éléments à l'aide d'un tableau de type list, on se propose de procéder ainsi : 
