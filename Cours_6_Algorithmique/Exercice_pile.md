@@ -16,9 +16,9 @@ EMPILER(P,x) qui correspond à l'insertion de la donnée x au sommet de la pile 
 
 DEPILER(P) qui retire la dernière donnée de P et la retourne si la pile n'est pas vide.
 
-Afin de représenter une pile capable de contenir n éléments à l'aide d'un tableau de type list, on se propose de procéder ainsi : 
+Afin de représenter une pile capable de contenir n éléments à l'aide d'un tableau de type `list`, on se propose de procéder ainsi : 
 
-- la première case du tableau d'indice 0 contient l'indice du prochain élément à insérer dans la pile
+- la première case du tableau d'indice 0 contient **l'indice** du prochain élément à insérer dans la pile
 
 - les cases suivantes du tableau (d'indices 1 à n) contiennent les éléments de la pile ou sont vides. La dernière case non vide du tableau est le sommet de la pile.
 
