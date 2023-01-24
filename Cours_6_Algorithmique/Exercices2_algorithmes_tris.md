@@ -88,10 +88,10 @@ def ordre_lexicographique(m1,m2):
 
 
 ```python
-def tri_lexicographique(t):
+def tri_lexicographique(tab):
     """
     Renvoie une liste de mots triée dans l'ordre lexicographique
-    :param : t : list
+    :param : tab : list
     :return: list
     :Exemple:
     >>> tri_lexicographique(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
@@ -145,10 +145,10 @@ def compare(p1,p2):
 - écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant la fonction `tri_insertion`; ce sera l'occasion de la retrouver par soi-même.
 
 ```python
-def tri_points(t):
+def tri_points(tab):
     """
     tri la liste des points par distance croissante à l'origine
-    :param : t : list
+    :param : tab : list
     :return: list
     :Exemple:
     >>> tri_points([(2,0), (1,0), (0,3)])
