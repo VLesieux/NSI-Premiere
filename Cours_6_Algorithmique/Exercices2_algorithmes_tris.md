@@ -144,41 +144,6 @@ def compare(p1,p2):
 
 - écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant la fonction `tri_insertion`; ce sera l'occasion de la retrouver par soi-même.
 
-Rappel : on peut passer par l'écriture d'une fonction intermédiare
-
-```python
-def emplacement(t,indice):
-    """
-    place correctement la valeur à l'indice i dans la liste après avoir décalé les autres vers la droite
-    param : t : list
-    return : list
-    >>> emplacement([1, 4, 5, 6, 8],4)
-    [1, 4, 5, 6, 8]
-    """
-```
-
-```python
-def tri_insertion(t):
-    """
-    param : t : list
-    return : list
-    >>> tri_insertion([43, 12, 18, 31, 10])
-    [10, 12, 18, 31, 43]
-    """
-```
-
-Adaptons ces fonctions à nos besoins :
-
-```python
-def emplacement_point(t,indice):
-    """
-    param : t : list
-    return : list
-    >>> emplacement([(1,0),(4,0),(6,0),(8,0),(5,0)],4)
-    [(1, 0), (4, 0), (5, 0), (6, 0), (8, 0)]
-    """
-```
-
 ```python
 def tri_points(t):
     """
