@@ -63,7 +63,6 @@ def ordre_alphabet(c1,c2):
     0
     """
  ```   
- 
     
 2. Écrire une fonction `ordre_lexicographique` qui prend en arguments deux mots m1 et m2 et renvoie -1 si m1 est avant m2, 0 si m1 et m2 sont identiques et 1 si m1 est après m2.
 
@@ -87,44 +86,6 @@ def ordre_lexicographique(m1,m2):
 
 3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant la fonction `tri_selection` ; ce sera l'occasion de retrouver son écriture par soi-même.
 
-Rappel : on peut passer par l'écriture d'une fonction intermédiare
-
-```python
-def indice_minimum_a_partir_de_indice(t,i):
-    """
-    Renvoie l'indice de (minimum de la liste à partir de l'indice i)
-    param : t : liste
-    param : i : int
-    >>> indice_minimum_a_partir_de_indice([3,6,2,9,1,12],2)
-    4
-    """
-``` 
-
-Puis réaliser une suite d'interversions pour obtenir la fonction `tri_selection` 
-
-```python
-def tri_selection(t):
-    """
-    param : t : list
-    return : list
-    >>> tri_selection([43,12,18,31,10])
-    [10, 12, 18, 31, 43]
-    """
-```    
-
-Adaptons ces fonctions à nos besoins :
-
-```python
-def indice_minimum_mot_a_partir_de_indice(t,i):
-    """
-    Renvoie l'indice de (minimum de la liste à partir de l'indice i)
-    param : t : liste
-    param : i : int
-    return : int
-    >>> indice_minimum_mot_a_partir_de_indice(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'],2)
-    4
-    """
-``` 
 
 ```python
 def tri_lexicographique(t):
