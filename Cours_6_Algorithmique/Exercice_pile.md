@@ -7,8 +7,21 @@ if __name__ == '__main__':
 ```
 
 **Notion de pile** :
+
 Une pile est une structure de données qui donne accès en priorité aux dernières données ajoutées. Ainsi la dernière information ajoutée sera la première à sortir. Autrement dit, on ne peut accéder qu'à l'objet situé au  sommet de la pile.
 Le rangement des assiettes convient à cette description. En effet l'ordre dans lequel les assiettes sont dépilées est l'inverse de celui dans lequel elles ont été empilées, puisque seule l'assiette supérieure est accessible.
+
+Exemples d'applications pratiques : 
+
+    1. La gestion de l'historique de navigation dans un navigateur web. Lorsque vous naviguez sur internet, les pages web que vous visitez sont empilées dans un ordre spécifique, vous permettant de retourner à des pages précédemment visitées en utilisant le bouton "Retour" de votre navigateur.
+
+    2. La résolution d'expressions mathématiques en notation polonaise inversée (RPN). Cette méthode utilise une pile pour stocker les opérandes et effectuer les opérations en utilisant des opérateurs comme des "pop" et des "push" pour manipuler les données sur la pile.
+
+    3. La gestion de la mémoire d'un ordinateur. Les systèmes d'exploitation utilisent des piles pour stocker les adresses de retour des appels de fonction lors de l'exécution de programmes. Cela permet de retourner automatiquement à l'emplacement d'où la fonction a été appelée une fois que celle-ci a été exécutée.
+
+    4. La gestion des appels récursifs : Pour chaque appel récursif on stocke les informations de l'appel en cours dans la pile pour pouvoir y revenir à la fin de l'appel.
+
+    5. La résolution d'algorithme de parcours de graphe : Pour chaque noeud visité on stocke les informations pour pouvoir y revenir si besoin et continuer l'exploration.
 
 Deux opérations élémentaires sont nécessaires pour réaliser cette structure.
 
@@ -86,7 +99,23 @@ def depiler(P):
     pass
 ```    
 
-**Application** :
+**Application 1** :
+
+Voici un exemple d'utilisation des fonctions EMPILER et DEPILER dans le contexte de la gestion de l'historique de navigation dans un navigateur web :
+
+```python 
+# Initialisation de la pile pour stocker l'historique de navigation
+historique = []
+
+# Lorsque l'utilisateur accède à une nouvelle page web
+url = "https://www.example.com"
+EMPILER(historique, url)
+
+# Lorsque l'utilisateur clique sur le bouton "Retour"
+url_precedente = DEPILER(historique)
+```   
+
+**Application 2** :
 
 On cherche à réaliser une fonction capable de dire si une expression mathématique est erronée ou non du point de vue du parenthésage en utilisant une pile.
 
@@ -103,7 +132,7 @@ def transforme_en_liste(E):
 ```   
  
 Puis, dans la fonction `verifier(E)`, on forme une pile pouvant accueillir au maximum tous ces caractères.  
-On parcourt la liste des parenthèses dans l'ordre croissant des indices.  
+On parcourt la liste des parenthèses.  
 
 Lorsqu'on trouve une parenthèse ouvrante, on empile cette parenthèse ouvrante.  
 Lorsqu'on trouve une parenthèse fermante, on dépile si P[0]>1, sinon on empile une parenthèse fermante.
