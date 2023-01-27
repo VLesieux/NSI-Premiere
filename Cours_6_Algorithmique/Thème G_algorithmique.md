@@ -806,7 +806,7 @@ Voici un exemple d'algorithme où on construit une liste appelés `voisins` qui 
 1) Pour i allant de 0 à k-1, placer les points E[i] dans la liste `voisins`.  
 2) Pour i allant de k à n-1, si la distance entre E[i] et x est inférieure à la distance entre x et un point de la liste `voisins`, supprimer de la liste `voisins` ce point et le remplacer par la point E[i].
 
-Voici la concrétisation de l'algorithme en Python où d désigne dans le cas présent une fonction chargée de déterminer la distance euclidienne entre deux points.
+Voici la concrétisation de l'algorithme en Python où `distance` désigne dans le cas présent une fonction chargée de déterminer la distance euclidienne entre deux points, mais toute autre fonction chargée d'évaluer la proximité peut être utilisée.
 
 ```python
 def proches_voisins(E,x,k,d):
