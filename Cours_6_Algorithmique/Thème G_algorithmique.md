@@ -837,7 +837,7 @@ E=list(range(1000))
 [16, 17, 14, 15]
 ```
 
-## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_6_Voyageur_de_commerce/TSP.md)
+## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_7_Voyageur_de_commerce/TSP.md)
 
 L'**algorithme glouton** est un type d'algorithme de résolution de problème qui consiste à prendre des décisions localement optimales dans l'espoir de parvenir à une solution globale optimale. Il fonctionne en sélectionnant à chaque étape la meilleure option disponible, sans se soucier des conséquences à long terme de cette décision.
 
