@@ -839,13 +839,37 @@ E=list(range(1000))
 
 ## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_6_Voyageur_de_commerce/TSP.md)
 
-On retiendra que la stratégie gloutonne procède par une suite de choix en sélectionnant à chaque étape la solution qui paraît être la meilleure localement.
+L'**algorithme glouton** est un type d'algorithme de résolution de problème qui consiste à prendre des décisions localement optimales dans l'espoir de parvenir à une solution globale optimale. Il fonctionne en sélectionnant à chaque étape la meilleure option disponible, sans se soucier des conséquences à long terme de cette décision.
+
+En d'autres termes, l'algorithme glouton choisit l'option qui semble la meilleure à chaque étape, sans regarder les effets de cette décision sur les étapes ultérieures. Cela peut entraîner des solutions qui ne sont pas optimales à long terme, mais qui sont généralement proches de l'optimum.
+
+Il est important de noter que l'algorithme glouton ne fonctionne que pour certains types de problèmes et ne garantit pas une solution optimale pour tous les types de problèmes. Il est donc important de s'assurer que l'algorithme glouton est approprié pour résoudre un problème donné avant de l'utiliser.
 
 <u>Exemple 1</u> : le **rendu de la monnaie** par le caissier consiste à donner en priorité des pièces ou des billets de plus grosses valeurs pour minimiser le nombre de pièces rendus. 
 Par exemple, la meilleure façon de rendre 7 euros est de rendre un billet de cinq et une pièce de deux, même si d'autres façons existent (rendre 7 pièces de un euro, par exemple). 
-Pour certains systèmes de monnaie dits canoniques, l'algorithme glouton est optimal, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — ce tant qu'il reste quelque chose à rendre. C'est la méthode employée en pratique, ce qui se justifie car la quasi-totalité des systèmes ayant cours dans le monde sont canoniques. 
+Pour certains systèmes de monnaie dits canoniques, l'algorithme glouton est **optimal**, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — et cela tant qu'il reste quelque chose à rendre. C'est la méthode employée en pratique, ce qui se justifie car la quasi-totalité des systèmes monétaires ayant cours dans le monde sont canoniques. 
 
-<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. S'il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
+```python
+# Définition des pièces disponibles
+coins = [1, 5, 10, 25]
+
+# Montant à rendre
+amount = 63
+
+# Initialise un compteur pour le nombre de pièces utilisées
+coin_count = 0
+
+# Parcours les pièces disponibles dans l'ordre décroissant de valeur
+for coin in sorted(coins, reverse=True):
+    # Ajoute autant de pièces de cette valeur que possible
+    while amount >= coin:
+        amount -= coin
+        coin_count += 1
+
+print("Nombre de pièces utilisées :", coin_count)
+```
+
+<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
 
 L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis à recommencer en prenant parmi les objets de poids (P-P<sub>1</sub>) celui de plus grande valeur, et ainsi de suite.
 
@@ -941,7 +965,7 @@ On obtient les résultats suivants suivant le critère de choix des objets pour 
 On observe que parmi les trois critères de choix proposés, le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €.
 
 Cependant, cette solution n'est pas optimale et une étude exhaustive montrerait que le choix (['Objet 2', 'Objet 3', 'Objet 6'], 132) est le choix optimal !
-On dit que le 'choix glouton' est un choix **localement optimal** mais il n'est pas toujours optimal.
+On dit que le 'choix glouton' est un choix **localement optimal**, et qu'il n'est pas toujours optimal.
 
 
 
