@@ -45,7 +45,9 @@ On sera également amené à créer une fonction intermédiaire `critere` qui re
 ```python
 def critere(a):
     """
-    renvoie la deuxième valeur du doublet
+    renvoie la deuxième valeur de la liste a
+    param : a : list
+    return : int
     >>> critere([3,8])
     8
     """
