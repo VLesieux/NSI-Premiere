@@ -64,7 +64,7 @@ Illustration de sorted selon `critere` :
 
 Algorithme : 
 
-1) Créer, par compréhension, dans la fonction `Kvoisins`, une liste appelée `ListeDistanceIndice` qui contient les couples [i,di] des indices i dans la liste L et des distances di par rapport à x.
+1) Créer, par compréhension, dans la fonction `k_plus_proches_voisins`, une liste appelée `ListeDistanceIndice` qui contient les couples [i,di] des indices i dans la liste L et des distances di par rapport à x.
 
 Rappel : cherchons à créer par compréhension la liste des [i,i**2] pour i de 0 à 4
 ```python 
