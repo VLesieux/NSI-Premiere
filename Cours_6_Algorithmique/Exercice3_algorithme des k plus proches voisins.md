@@ -66,6 +66,12 @@ Algorithme :
 
 1) Créer, par compréhension, dans la fonction `Kvoisins`, une liste appelée `ListeDistanceIndice` qui contient les couples [i,di] des indices i dans la liste L et des distances di par rapport à x.
 
+Rappel : cherchons à créer par compréhension la liste des [i,i**2] pour i de 0 à 4
+```python 
+>>> [ [i,i**2] for i in range(5)]
+[[0, 0], [1, 1], [2, 4], [3, 9], [4, 16]]
+```
+
 2) Ordonner cette liste selon le critère de distance (en utilisant `sorted`, `key`, et la fonction `critere` précédente).
 
 3) Ne garder dans cette liste ordonnée que les k premiers éléments qui sont donc les k plus proches voisins, encore une fois en créant une liste par compréhension.
