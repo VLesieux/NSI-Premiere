@@ -79,7 +79,7 @@ Rappel : cherchons à créer par compréhension la liste des [i,i**2] pour i de 
 
 
 ```python
-def k_plus_proches_voisins(liste,k,x):
+def k_plus_proches_voisins(liste_positions,k,x):
     """
     renvoie la liste des indices des k objets les plus proches de l'élément d'abscisse x
     param : liste : list
