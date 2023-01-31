@@ -25,7 +25,7 @@ Classes=['T','C','C','T','T','C','C']
 
 On cherche les k plus proches voisins de l'élément rond vert, supposé représenté un élément inconnu, de coordonnée x=3.0.
 
-Écrire une fonction `Kvoisins` qui prend en arguments une liste L de coordonnées, un entier k, et la position d'un nouvel élément tel que le rond vert et qui renvoie la liste des indices dans L des k plus proches voisins de x.
+Écrire une fonction `k_plus_proches_voisins` qui prend en arguments une liste L de coordonnées, un entier k, et la position d'un nouvel élément tel que le rond vert et qui renvoie la liste des indices dans L des k plus proches voisins de x.
 
 On sera amené à créer une fonction intermédaire `distance` pour le calcul des distances en utilisant la fonction `abs` qui renvoie la valeur absolue d'un nombre.
 
@@ -62,11 +62,12 @@ Illustration de sorted selon `critere` :
 [[1, 2], [3, 5], [7, 9]]
 ```
 
-Algorithme : 
+Algorithme à suivre pour compléter la fonction `k_plus_proches_voisins(liste,k,x)` donnée ci-dessous : 
 
-1) Créer, par compréhension, dans la fonction `k_plus_proches_voisins`, une liste appelée `ListeDistanceIndice` qui contient les couples [i,di] des indices i dans la liste L et des distances di par rapport à x.
+1) Créer, par compréhension une liste appelée `ListeDistanceIndice` qui contient les couples [i,di] des indices i dans la liste L et des distances di par rapport à x.
 
 Rappel : cherchons à créer par compréhension la liste des [i,i**2] pour i de 0 à 4
+
 ```python 
 >>> [ [i,i**2] for i in range(5)]
 [[0, 0], [1, 1], [2, 4], [3, 9], [4, 16]]
