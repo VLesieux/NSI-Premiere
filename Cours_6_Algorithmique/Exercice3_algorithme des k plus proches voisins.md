@@ -64,20 +64,20 @@ Algorithme :
 
 1) Créer, par compréhension, dans la fonction `Kvoisins`, une liste appelée `ListeDistanceIndice` qui contient les couples [i,di] des indices i dans la liste L et des distances di par rapport à x.
 
-2) Ordonner cette liste selon le critère de distance (en utilisant `sorted`, `key`, et la fonction `critere` )
+2) Ordonner cette liste selon le critère de distance (en utilisant `sorted`, `key`, et la fonction `critere` précédente).
 
-3) Ne garder dans cette liste que les k premiers éléments qui sont donc les k plus proches voisins, encore une fois en créant une liste par compréhension.
+3) Ne garder dans cette liste ordonnée que les k premiers éléments qui sont donc les k plus proches voisins, encore une fois en créant une liste par compréhension.
 
 
 ```python
-def Kvoisins(liste,k,x):
+def k_plus_proches_voisins(liste,k,x):
     """
     renvoie la liste des indices des k objets les plus proches de l'élément d'abscisse x
     param : liste : list
     param : k : int
     param : x : float
     return : list
-    >>> Kvoisins(L,3,3.0)
+    >>> k_plus_proches_voisins(L,3,3.0)
     [3, 2, 1]
     """
 ```
@@ -87,6 +87,8 @@ def Kvoisins(liste,k,x):
 On attribue à notre inconnue la classe qui est la plus rencontrée parmi les k plus proches voisins obtenus précédemment.
 
 On réalise pour cela une fonction `predire_classe` qui admet comme paramètres la liste des positions, la liste des classes, la valeur de k et la position x de notre inconnue.
+
+On réalisera pour cela un compteur pour compter l'occurence des différentes classes parmi ces k plus proches voisins.
 
 ```python
 def predire_classe(liste_positions,liste_classes,k,x):
