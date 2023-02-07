@@ -164,6 +164,6 @@ def interet_glouton(lvaleurs, lpoids,P) :
     """
     renvoie l'interet obtenu par application de l'algorithme glouton
     >>> interet_glouton(lvaleurs, lpoids,15)
-    52
+    57
     """
 ```
