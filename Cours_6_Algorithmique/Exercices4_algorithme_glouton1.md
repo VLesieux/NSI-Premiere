@@ -66,7 +66,7 @@ Dorénavant les systèmes monétaires sont canoniques de façon à ce que le ren
 
 **2. Le problème du sac à dos**
 
-Contexte du problème : on imagine que l'on cherche à remplir un sac à dos avec des objets de valeur en maximisant la valeur totale du contenu du sac. Chaque objet ne peut être pris qu'une seule fois et possède un poids particulier. La contrainte est de ne pas dépasser un poids maximal P pour le sac.
+Contexte du problème : on imagine que l'on cherche à remplir un sac à dos avec des objets de valeur en maximisant la valeur totale du contenu du sac. Chaque objet ne peut être pris **qu'une seule fois** et possède un poids particulier. La contrainte est de ne pas dépasser un poids maximal P pour le sac.
 
 Dans le tableau ci-dessous, on suppose que les objets ont été triés initialement par poids croissants.
 
@@ -119,8 +119,8 @@ def choix_glouton(lpoids,lvaleurs,P):
     >>> choix_glouton(lpoids,lvaleurs,15)
     4
     >>> choix_glouton(lpoids,lvaleurs,6)
-    2
-    """ 
+    3
+    """
 ```
 
 **Indications** : 
@@ -144,9 +144,11 @@ def ks_glouton(lvaleurs, lpoids,P) :
     - len(lvaleurs) == len(lpoids) 
     - lpoids est triée par ordre croissant
     >>> ks_glouton(lvaleurs, lpoids,15)
-    [4, 2, 1, 0]
+    [4, 3, 1]
     >>> ks_glouton(lvaleurs, lpoids,6)
-    [2, 0]
+    [3]
+    """
+    copie=deepcopy(lpoids)#la copie doit être refaite pour chaque test
     """ 
 ```
 
