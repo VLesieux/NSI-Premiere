@@ -119,7 +119,7 @@ def choix_glouton(lpoids,lvaleurs,P):
     >>> choix_glouton(lpoids,lvaleurs,15)
     4
     >>> choix_glouton(lpoids,lvaleurs,6)
-    3
+    2
     """
 ```
 
@@ -144,12 +144,11 @@ def ks_glouton(lvaleurs, lpoids,P) :
     - len(lvaleurs) == len(lpoids) 
     - lpoids est triée par ordre croissant
     >>> ks_glouton(lvaleurs, lpoids,15)
-    [4, 3, 1]
+    [4, 2, 1, 0]
     >>> ks_glouton(lvaleurs, lpoids,6)
-    [3]
+    [2, 0]
     """
     copie=deepcopy(lpoids)#la copie doit être refaite pour chaque test
-    """ 
 ```
 
 **Indications** : 
