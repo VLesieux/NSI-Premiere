@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
 ```Python
 >>> liste_ville('exemple.txt')
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
 ```
 
    3. Réaliser une fonction `indice_plus_proche(ville, liste_ville, mat_dist)` qui retourne l'indice de la ville la plus proche étant donnée l'indice d'une ville, une liste de ville sous forme d'indice et une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
@@ -125,7 +125,16 @@ if __name__ == '__main__':
 9
 ```
 
-   4. réaliser la fonction `glouton(ind_ville,liste_ville,mat_dist)` qui répond à l'heuristique gloutonne donnant le tour parcouru par le voyageur de commerce à partir de l'indice d'une ville donné en paramètre, la liste des villes et la matrice des distances ville à ville. On utilisera la méthode remove des listes qui permet de supprimer une valeur d'une liste en écrivant : `liste.remove(valeur)`.
+   4. réaliser la fonction `glouton(ind_ville,liste_ville,mat_dist)` qui répond à l'heuristique gloutonne donnant le tour parcouru par le voyageur de commerce à partir de l'indice d'une ville donné en paramètre, la liste des villes et la matrice des distances ville à ville. 
+
+**Indication:** On utilisera la méthode remove des listes qui permet de supprimer une valeur d'une liste en écrivant : `liste.remove(valeur)`.
+
+```Python
+>>> liste=[5,9,6]
+>>> liste.remove(9)
+>>> liste
+[5, 6]
+```
 
 ```Python
 >>> glouton(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
