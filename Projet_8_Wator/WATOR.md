@@ -383,9 +383,9 @@ Exemple :
  _  T  _ 
 
 >>> recherche_case(cases_voisines((1,1),3,3),grille,1)
-(0, 1)
+(1, 0)
 >>> recherche_case(cases_voisines((1,1),3,3),grille,1)
-(1, 2)
+(2, 1)
 ```
 
 > **À vous de jouer n°9** : _écrire la fonction ```recherche_case``` avec sa docstring_
