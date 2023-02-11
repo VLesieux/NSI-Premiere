@@ -351,8 +351,8 @@ Il sera de plus nécessaire de réfléchir aux coordonnées des voisines d'une c
 <img width="200" height="200"  src="assets/exemple3.png"/>
 
 ```python
->>> cases_voisines((2,0),3,3)
-[(2, 2), (1, 0), (0, 0), (2, 1)]
+>>> cases_voisines((0,2),3,3)
+[(0, 1), (2, 2), (1, 2), (0, 0)]
 
 ```
 
