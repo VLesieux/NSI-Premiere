@@ -272,7 +272,7 @@ Utiliser le caractère _**itérable**_ des listes.
 > **À vous de jouer n°6** : _écrire la fonction ```denombre_espece``` avec sa docstring_.
 
 
-Il s'agit maintenant de placer des poissons dans la grille en respectant un pourcentage donné des espèces. Réaliser une fonction ```init_grille``` qui admet comme paramètres les pourcentages initiaux de chacune des espèces _p_thons_ puis _p_requins_ ainsi que le nombre de cases horizontales _nb_lignes_ et le nombre de cases verticales _nb_colonnes_ de la grille. La fonction retournera une grille aléatoire répondant à ces contraintescar.
+Il s'agit maintenant de placer des poissons dans la grille en respectant un pourcentage donné des espèces. Réaliser une fonction ```init_grille``` qui admet comme paramètres les pourcentages initiaux de chacune des espèces _p_thons_ puis _p_requins_ ainsi que le nombre de cases horizontales _nb_lignes_ et le nombre de cases verticales _nb_colonnes_ de la grille. La fonction retournera une grille aléatoire répondant à la contrainte.
 
 Par exemple (à placer dans la doctest):
 ```python
