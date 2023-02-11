@@ -324,10 +324,10 @@ Réaliser une fonction ```cases_voisines``` prenant comme paramètres :
 - le nombre de cases présentes dans la grille verticalement ou nb_lignes
 - le nombre de cases présentes dans la grille horizontalement ou nb_colonnes
 
-Cette fonction doit retourner une liste de 4 coordonnées sous la forme de 4 tuples (x,y) des cases voisines selon les 4 directions cardinales : NORD, OUEST, EST et SUD.
+Cette fonction doit retourner une liste de 4 coordonnées sous la forme de 4 tuples (x,y) des cases voisines selon les 4 directions cardinales : OUEST, NORD, SUD et EST.
 Il sera de plus nécessaire de réfléchir aux coordonnées des voisines d'une case située sur le bord de la grille dans la mesure où l'environnement est torique (retournement sur lui-même).
 
-Par exemple : 
+- Exemple1
 
 <img width="200" height="200" src="assets/exemple1.png"/>
 
@@ -338,11 +338,15 @@ Par exemple :
 
 <img width="200" height="200"  src="assets/exemple2.png"/>
 
+- Exemple2
+
 ```python
 >>> cases_voisines((1,1),3,3)
 [(1, 0), (0, 1), (2, 1), (1, 2)]
 
 ```
+
+- Exemple3
 
 <img width="200" height="200"  src="assets/exemple3.png"/>
 
