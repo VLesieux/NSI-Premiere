@@ -175,10 +175,9 @@ Remarque : la variable i peut être remplacée par une variable dite non nommée
 
 
 Afin de remplir la grille aléatoirement nous aurons besoin de sélectionner une case de la grille de façon aléatoire.  
-Réaliser une fonction appelée ```selection_case``` prenant en paramètres le nombre total de cases horizontales noté nb_cases_h et le nombre total de cases verticales noté nb_cases_v de la grille et qui renvoie un tuple de la forme (x,y) où x désigne l'abscisse de la case (x=0 au début d'une ligne) et y l'ordonnée d'une case (on commencera à y=0 et y augmente de 1 lorsqu'on passe à la ligne suivante) choisie de façon **aléatoire**.
+Réaliser une fonction appelée ```selection_case``` prenant en paramètres le nombre total de cases horizontales noté nb_cases_h et le nombre total de cases verticales noté nb_cases_v de la grille et qui renvoie un tuple de la forme (x,y) où x désigne le numéro de ligne et y le numéro de colonne choisie de façon **aléatoire**.
 La case de coordonnées (0,0) sera donc la première de la grille.  
 
-<img width="500" src="assets/fig1.png"/>
 
 Par exemple :
 ```python
