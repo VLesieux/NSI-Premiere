@@ -293,14 +293,19 @@ Les cases de la mer seront affichées avec un tiret bas _ , les cases occupées 
 Exemple :
 
 ```python
->>> afficher_grille(init_grille(0.3,0.1,2,4))
- R  T  _  T 
- _  T  _  _ 
+def afficher_grille(grille):
+    """
+    >>> grille1 = [[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0), (2, 5, 3), (0, 0, 0)]]
+    >>> afficher_grille(grille1)
+     T  T  _ 
+     _  R  _ 
+     
+    """
 ```
 
 Indications :  
 
-- Passer une ligne avec `print()`
+- Passer une ligne en ajoutant `"\n"` à la chaîne de caractères
 
 - Utiliser le processus dit de _**concaténation**_ des chaînes de caractères. Par exemple :
 ```python
