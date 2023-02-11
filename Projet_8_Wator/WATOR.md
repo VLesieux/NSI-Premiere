@@ -336,9 +336,9 @@ Il sera de plus nécessaire de réfléchir aux coordonnées des voisines d'une c
 [(1, 0), (0, 1), (0, 1), (1, 0)]
 ```
 
-<img width="200" height="200"  src="assets/exemple2.png"/>
-
 - Exemple2
+
+<img width="200" height="200"  src="assets/exemple2.png"/>
 
 ```python
 >>> cases_voisines((1,1),3,3)
