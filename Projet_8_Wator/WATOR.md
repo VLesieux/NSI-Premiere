@@ -399,10 +399,13 @@ La fonction retournera la durée de gestation de l'espèce diminuée d'une unit�
 Par exemple avec la même grille que précedemment :
 
 ```python
->>> evol_gestation((0,0),grille)
+    """
+Renvoie le niveau de gestation diminué d'une unité
+>>> evol_gestation((0,0),grille_exemple)
 1
->>> evol_gestation((1,1),grille)
-4
+>>> evol_gestation((1,1),grille_exemple)
+4    
+    """
 ```
 
 > **À vous de jouer n°10** : _écrire la fonction ```evol_gestation``` avec sa docstring_
