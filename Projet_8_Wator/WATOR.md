@@ -370,7 +370,7 @@ Cette fonction retournera les coordonnées sous la forme de tuple (x,y) d'une ca
 Exemple : 
 
 ```python
->>> grille=[
+>>> grille_exemple=[
     [(1, 2, 0), (0, 0, 0), (0, 0, 0)],
     [(1, 2, 0), (2, 5, 3), (0, 0, 0)],
     [(0, 0, 0), (1, 2, 0), (0, 0, 0)]
@@ -382,9 +382,9 @@ Exemple :
 
  _  T  _ 
 
->>> recherche_case(cases_voisines((1,1),3,3),grille,1)
+>>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
 (1, 0)
->>> recherche_case(cases_voisines((1,1),3,3),grille,1)
+>>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
 (2, 1)
 ```
 
