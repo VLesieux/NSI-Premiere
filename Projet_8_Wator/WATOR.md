@@ -88,8 +88,9 @@ Exemple :
 ### Première étape : représentation de la grille
 
 Réaliser une fonction ```creer_grille``` qui prend en _**paramètres**_ :
-- le nombre de cases horizontalement ou largeur noté _nb_colonnes_
+
 - le nombre de cases verticalement ou hauteur noté _nb_lignes_
+- le nombre de cases horizontalement ou largeur noté _nb_colonnes_
 
 qui **_renvoie_** une liste de listes correspondant à une grille aux dimensions souhaitées, ne contenant dans un premier temps que de la mer.
 
