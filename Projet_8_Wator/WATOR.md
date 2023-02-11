@@ -375,7 +375,7 @@ Exemple :
     [(1, 2, 0), (2, 5, 3), (0, 0, 0)],
     [(0, 0, 0), (1, 2, 0), (0, 0, 0)]
     ]
->>> afficher_grille(grille)
+>>> afficher_grille(grille_exemple)
  T  _  _ 
 
  T  R  _ 
