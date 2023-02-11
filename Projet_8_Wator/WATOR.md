@@ -381,11 +381,8 @@ Exemple :
     ]
 >>> afficher_grille(grille_exemple)
  T  _  _ 
-
  T  R  _ 
-
  _  T  _ 
-
 >>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
 (1, 0)
 >>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
