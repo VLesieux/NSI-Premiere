@@ -299,9 +299,11 @@ Exemple :
  _  T  _  _ 
 ```
 
-Indication :  
+Indications :  
 
-Utiliser le processus dit de _**concaténation**_ des chaînes de caractères. Par exemple :
+- Passer une ligne avec `print()`
+
+- Utiliser le processus dit de _**concaténation**_ des chaînes de caractères. Par exemple :
 ```python
 >>> "Py"+"thon"
 'Python'
