@@ -329,22 +329,24 @@ Il sera de plus nécessaire de réfléchir aux coordonnées des voisines d'une c
 
 Par exemple : 
 
+<img width="500" src="assets/exemple1.png"/>
 ```python
 >>> cases_voisines((1,1),2,2)
 [(1, 0), (0, 1), (0, 1), (1, 0)]
-<img width="500" src="assets/exemple1.png"/>
 ```
 
+<img width="500" src="assets/exemple2.png"/>
 ```python
 >>> cases_voisines((1,1),3,3)
 [(1, 0), (0, 1), (2, 1), (1, 2)]
-<img width="500" src="assets/exemple2.png"/>
+
 ```
 
+<img width="500" src="assets/exemple3.png"/>
 ```python
 >>> cases_voisines((2,0),3,3)
 [(2, 2), (1, 0), (0, 0), (2, 1)]
-<img width="500" src="assets/exemple3.png"/>
+
 ```
 
 > **À vous de jouer n°8** : _écrire la fonction ```cases_voisines``` avec sa docstring_.
