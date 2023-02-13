@@ -1,5 +1,13 @@
 # WA-TOR : Mise en place du projet
 
+Code à ajouter pour le tests des docstrings
+
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
+
 Règle du jeu : **[à consulter ici](assets/Wator_regles_du_jeu.md)**
 
 ## Première partie : représentation et affichage de la grille 
@@ -130,12 +138,6 @@ def fonction_boucle(nombre_de_tours):
 
 > **À vous de jouer n°1** : _écrire la fonction ```creer_grille_methode1``` utilisant la première méthode avec son docstring_.
 
-Code à ajouter pour le doctest
-```python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-```
 
 ##### Deuxième méthode : utilisation des listes par compréhension
 
@@ -439,9 +441,7 @@ Exemples :
 >>> afficher_grille(grille1)
 
  T  T  _ 
-
  _  R  _ 
-
 
 >>> deplace_vers_mer(1, (0, 0), (0, 1),grille1, 1)
 [
