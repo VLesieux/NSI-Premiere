@@ -306,6 +306,7 @@ def denombre_espece(grille,nature):
     >>> denombre_espece(init_grille(0.5,0.5,2,2), 2)
     2
     """
+    pass
 ```
 
 Il s'agit maintenant de placer des poissons dans la grille en respectant un pourcentage donné des espèces. Réaliser une fonction ```init_grille``` qui admet comme paramètres les pourcentages initiaux de chacune des espèces _p_thons_ puis _p_requins_ ainsi que le nombre de cases horizontales _nb_lignes_ et le nombre de cases verticales _nb_colonnes_ de la grille. La fonction retournera une grille aléatoire répondant à la contrainte.
@@ -320,6 +321,7 @@ def init_grille(p_thons,p_requins,nb_lignes,nb_colonnes):
     >>> denombre_espece(init_grille(0.5,0.5,2,2), 2)
     2    
     """
+    pass
 ```
 
 Par la suite, on choisira des pourcentages initiaux adaptés pour ces deux espèces : par exemple 30 % pour les thons et 10 % pour les requins.
@@ -342,6 +344,7 @@ def afficher_grille(grille):
      _  R  _ 
      
     """
+    pass
 ```
 
 Indications :  
@@ -413,6 +416,7 @@ def cases_voisines(case,nb_lignes,nb_colonnes):
     >>> cases_voisines((0,2),3,3)
     [(0, 1), (2, 2), (1, 2), (0, 0)]
     """
+    pass
 ```    
     
 
@@ -441,6 +445,7 @@ def recherche_case(liste_4_cases,grille,nature):
     >>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
     (1, 0)
     """
+    pass
 ``` 
 
 ### Troisième étape : actions liées aux espèces
@@ -464,6 +469,7 @@ def evol_gestation(case,grille):
     >>> evol_gestation((1,1),grille_exemple)
     4    
     """
+    pass
 ``` 
 
 #### Action commune : se déplacer vers la mer   
@@ -505,6 +511,7 @@ def deplace_vers_mer(nature,case_initiale,case_finale,grille,gestation,energie=0
      T  T  _ 
      T  R  _ 
     """
+    pass
 ``` 
 
 #### Actions propres aux thons   
@@ -528,6 +535,7 @@ def tour_thon(case,grille):
      T  T  _ 
      T  R  R   
     """
+    pass
 ```
 
 #### Actions propres aux requins
@@ -547,6 +555,7 @@ def evol_energie(case,grille):
     >>> evol_energie((1,1),grille_exemple)
     2 
     """
+    pass
 ```
 
 ##### Chasse au thon  
@@ -575,6 +584,7 @@ def chasse_au_thon(case_initiale,case_finale,grille,gestation):
      _  R  _ 
     
     """
+    pass
 ```
 
 
@@ -615,6 +625,7 @@ def tour_requin(case,grille):
      _  R  _ 
 
     """
+    pass
 ```
 
 ## Troisième partie : évolution des populations
