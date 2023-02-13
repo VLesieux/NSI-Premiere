@@ -116,6 +116,7 @@ On proposera deux approches :
 ##### Première méthode : utilisation de listes et de boucles, rappels
 
 1. Utilisation de la méthode ```append``` des listes (une **méthode** est une fonction associée à un **objet**, ici l'objet liste, qui s'écrit sous la forme ```objet.methode```)
+
 ```python
 >>> liste=[]
 >>> liste.append((0,0,0))
@@ -136,8 +137,20 @@ def fonction_boucle(nombre_de_tours):
 ['a', 'a', 'a', 'a', 'a']
 ```
 
-> **À vous de jouer n°1** : _écrire la fonction ```creer_grille_methode1``` utilisant la première méthode avec son docstring_.
+> **À vous de jouer n°1** : 
 
+```python
+def creer_grille_methode1(nb_lignes,nb_colonnes):
+    """
+    Renvoie une grille de nb_colonnes et nb_lignes formé de tuple (0,0,0)
+    param : nb_colonnes : int
+    param : nb_lignes : int
+    return : list
+    >>> creer_grille_methode1(2,4)
+    [[(0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)], [(0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)]]    
+    """
+    pass
+```
 
 ##### Deuxième méthode : utilisation des listes par compréhension
 
@@ -170,8 +183,20 @@ Remarque : la variable i peut être remplacée par une variable dite non nommée
 [[(0, 0, 0), (0, 0, 0)], [(0, 0, 0), (0, 0, 0)], [(0, 0, 0), (0, 0, 0)]]
 ```
 
-> **À vous de jouer n°2** : _écrire la fonction ```creer_grille_methode2``` utilisant la deuxième méthode avec sa docstring_. Par la suite on appelera cette dernière fonction plus simplement ```creer_grille```.
+> **À vous de jouer n°1(bis)** : 
 
+```python
+def creer_grille(nb_lignes,nb_colonnes):
+    """
+    Renvoie une grille de nb_colonnes et nb_lignes formé de tuple (0,0,0)
+    param : nb_colonnes : int
+    param : nb_lignes : int
+    return : list
+    >>> creer_grille(2,4)
+    [[(0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)], [(0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)]]    
+    """
+    pass
+```
 
 ### Deuxième étape : sélection des cases de la grille  
 
@@ -216,7 +241,7 @@ Ce qui donne par exemple :
 6
 ```
 
-> **À vous de jouer n°3** : _écrire la fonction ```selection_case``` avec sa docstring_ sans exemple.
+> **À vous de jouer n°2** : _écrire la fonction ```selection_case``` avec sa docstring_ sans exemple.
 
 ### Troisième étape : initialisation des cases 
 
@@ -225,23 +250,29 @@ Déclarer préalablement dans votre code quatre variables globales notées G_THO
 Puis réaliser la fonction ```init_case``` qui utilisera ces variables globales.
 Par ailleurs, dans l'écriture du code, il est toujours préférable de n'écrire qu'un seul ```return``` final.
 
+
+> **À vous de jouer n°3** : 
+
 ```python
->>> init_case(0)
-(0, 0, 0)
->>> init_case(1)
-(1, 2, 0)
->>> init_case(2)
-(2, 5, 3)
+def init_case(nature):
+    """
+    >>> init_case(0)
+    (0, 0, 0)
+    >>> init_case(1)
+    (1, 2, 0)
+    >>> init_case(2)
+    (2, 5, 3)
+    """
+    pass
 ```
 
-> **À vous de jouer n°4** : _écrire la fonction ```init_case``` avec sa docstring_.
-
-### Quatrième étape : placement aléatoire des poissons dans la grille   
+> ### Quatrième étape : placement aléatoire des poissons dans la grille   
 
 Réaliser maintenant une fonction appelée ```placement_espece``` prenant en paramètres une _grille_ (en pratique, une liste à deux dimensions comme définie plus haut), la _nature_ de l'espèce (thon ou requin) à placer aléatoirement et le nombre de poissons _nb_poissons_ de cette nature. Cette fonction retournera la grille correspondante. Dans cette fonction, vous utiliserez les fonctions précédentes ```selection_case``` et ```init_case```.   
 Remarque : comme la fonction ```selection_case``` admet comme paramètres la largeur et la hauteur de la grille, on se demandera comment relier, en utilisant la fonction ```len()```, ces deux paramètres au seul paramètre grille.
 
 Par exemple : on place 4 requins aléatoirement sur une grille comportant 2 lignes et 3 colonnes.
+
 ```python
 >>> placement_espece(creer_grille(3,2),2,4)
 [[(2, 5, 3), (0, 0, 0), (2, 5, 3)], [(2, 5, 3), (2, 5, 3), (0, 0, 0)]]
@@ -254,33 +285,41 @@ Indications :
 3) On pourra créer une variable locale intermédiaire nommée case telle que x=case[0] et y=case[1].
 4) On utilisera une boucle ```while``` pour faire le décompte du nombre d'espèces ajoutées.
 
-> **À vous de jouer n°5** : _écrire la fonction ```placement_espece``` avec sa docstring_.
+> **À vous de jouer n°4** : _écrire la fonction ```placement_espece``` avec sa docstring_.
 
 ### Cinquième étape : initialisation de la grille   
 
 Réaliser une fonction ```denombre_espece``` qui admet comme paramètre la grille et la nature de l'espèce, et qui retourne le nombre d'espèces dans la grille.
-
-Par exemple : 
-
-```python
->>> denombre_espece(placement_espece(creer_grille(3,2),2,4),2)
-4
-```
 
 Indication :   
 Utiliser le caractère _**itérable**_ des listes.
 
 > **À vous de jouer n°6** : _écrire la fonction ```denombre_espece``` avec sa docstring_.
 
+```python
+def denombre_espece(grille,nature):
+    """
+    >>> denombre_espece(placement_espece(creer_grille(3,2),2,4),2)
+    4
+    >>> denombre_espece(init_grille(0.5,0.5,2,2), 1)
+    2
+    >>> denombre_espece(init_grille(0.5,0.5,2,2), 2)
+    2
+    """
+```
 
 Il s'agit maintenant de placer des poissons dans la grille en respectant un pourcentage donné des espèces. Réaliser une fonction ```init_grille``` qui admet comme paramètres les pourcentages initiaux de chacune des espèces _p_thons_ puis _p_requins_ ainsi que le nombre de cases horizontales _nb_lignes_ et le nombre de cases verticales _nb_colonnes_ de la grille. La fonction retournera une grille aléatoire répondant à la contrainte.
 
-Par exemple (à placer dans la doctest):
 ```python
->>> denombre_espece(init_grille(0.5,0.5,2,2), 1)
-2
->>> denombre_espece(init_grille(0.5,0.5,2,2), 2)
-2
+def init_grille(p_thons,p_requins,nb_lignes,nb_colonnes):
+    """
+    Renvoie une grille possédant nb_lignes et nb_colonnes
+    avec p_thons et p_requins
+    >>> denombre_espece(init_grille(0.5,0.5,2,2), 1)
+    2
+    >>> denombre_espece(init_grille(0.5,0.5,2,2), 2)
+    2    
+    """
 ```
 
 Par la suite, on choisira des pourcentages initiaux adaptés pour ces deux espèces : par exemple 30 % pour les thons et 10 % pour les requins.
@@ -316,7 +355,6 @@ Indications :
 ```
 
 > **À vous de jouer n°7** : _écrire la fonction ```afficher_grille``` avec sa docstring_.
-
 
 
 ## Deuxième partie : gestion de l'environnement   
@@ -359,10 +397,24 @@ Il sera de plus nécessaire de réfléchir aux coordonnées des voisines d'une c
 ```python
 >>> cases_voisines((0,2),3,3)
 [(0, 1), (2, 2), (1, 2), (0, 0)]
-
 ```
 
-> **À vous de jouer n°8** : _écrire la fonction ```cases_voisines``` avec sa docstring_.
+> **À vous de jouer n°8** :
+
+```python
+def cases_voisines(case,nb_lignes,nb_colonnes):
+    """
+    Renvoie les 4 cases voisines de case dans la grille torique
+    dans l'ordre OUEST, NORD, SUD et EST
+    >>> cases_voisines((1,1),2,2)
+    [(1, 0), (0, 1), (0, 1), (1, 0)]
+    >>> cases_voisines((1,1),3,3)
+    [(1, 0), (0, 1), (2, 1), (1, 2)]
+    >>> cases_voisines((0,2),3,3)
+    [(0, 1), (2, 2), (1, 2), (0, 0)]
+    """
+```    
+    
 
 ### Deuxième étape : rechercher un type de case parmi les voisines
 
@@ -373,25 +425,23 @@ Lors de leurs déplacements respectifs, les thons et les requins cherchent aléa
 
 Cette fonction retournera les coordonnées sous la forme de tuple (x,y) d'une case tirée au sort parmi celles répondant au critère de recherche, sinon, si cette case n'existe pas, la fonction retourne **False**.
 
-Exemple : 
+> **À vous de jouer n°9** : 
 
 ```python
->>> grille_exemple=[
-    [(1, 2, 0), (0, 0, 0), (0, 0, 0)],
-    [(1, 2, 0), (2, 5, 3), (0, 0, 0)],
-    [(0, 0, 0), (1, 2, 0), (0, 0, 0)]
-    ]
->>> afficher_grille(grille_exemple)
- T  _  _ 
- T  R  _ 
- _  T  _ 
->>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
-(1, 0)
->>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
-(2, 1)
-```
+def recherche_case(liste_4_cases,grille,nature):
+    """
+    Choisit aléatoirement dans la liste_4_cases celle qui correspondent à nature si possible
+    sinon renvoie False
+    >>> grille_exemple=[[(1, 2, 0), (0, 0, 0), (0, 0, 0)],[(1, 2, 0), (2, 5, 3), (0, 0, 0)],[(0, 0, 0), (0, 0, 0), (0, 0, 0)]]
+    >>> afficher_grille(grille_exemple)
+     T  _  _ 
+     T  R  _ 
+     _  _  _ 
 
-> **À vous de jouer n°9** : _écrire la fonction ```recherche_case``` avec sa docstring_
+    >>> recherche_case(cases_voisines((1,1),3,3),grille_exemple,1)
+    (1, 0)
+    """
+``` 
 
 ### Troisième étape : actions liées aux espèces
 
@@ -400,20 +450,21 @@ Exemple :
 Réaliser une fonction ```evol_gestation``` acceptant deux paramètres : les coordonnées d'une case et une grille.  
 La fonction retournera la durée de gestation de l'espèce diminuée d'une unité.
 
-Par exemple avec la même grille que précedemment :
-
-```python
-    """
-Renvoie le niveau de gestation diminué d'une unité
->>> evol_gestation((0,0),grille_exemple)
-1
->>> evol_gestation((1,1),grille_exemple)
-4    
-    """
-```
 
 > **À vous de jouer n°10** : _écrire la fonction ```evol_gestation``` avec sa docstring_
 
+```python
+
+def evol_gestation(case,grille):
+    """
+    Renvoie le niveau de gestation diminué d'une unité
+    >>> grille_exemple=[[(1, 2, 0), (0, 0, 0), (0, 0, 0)],[(1, 2, 0), (2, 5, 3), (0, 0, 0)], [(0, 0, 0), (1, 2, 0), (0, 0, 0)]]
+    >>> evol_gestation((0,0),grille_exemple)
+    1
+    >>> evol_gestation((1,1),grille_exemple)
+    4    
+    """
+``` 
 
 #### Action commune : se déplacer vers la mer   
 
@@ -432,100 +483,29 @@ La fonction retourne la grille ayant évolué en conséquence.
 La fonction ne s'occupe pas de la mise à jour du temps de gestation ou de l'énergie et on suppose que cette mise à jour est faite préalablement au déplacement.
 
 
-Exemples :
+> **À vous de jouer n°11** : 
+
 ```python
->>> grille1 = [
-[(1, 2, 0), (1, 2, 0), (0, 0, 0)],
-[(0, 0, 0), (2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille1)
+def deplace_vers_mer(nature,case_initiale,case_finale,grille,gestation,energie=0):
+    """
+    >>> grille1 = [[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0), (2, 5, 3), (0, 0, 0)]]
+    >>> afficher_grille(grille1)
+     T  T  _ 
+     _  R  _ 
 
- T  T  _ 
- _  R  _ 
+    >>> afficher_grille(deplace_vers_mer(1, (0, 0), (1, 0),grille1, 1))
+     _  T  _ 
+     T  R  _
+    >>> grille2 = [[(1, 0, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0), (2, 5, 3), (0, 0, 0)]]
+    >>> afficher_grille(grille2)
+     T  T  _ 
+     _  R  _ 
 
->>> deplace_vers_mer(1, (0, 0), (0, 1),grille1, 1)
-[
-[(0, 0, 0), (1, 2, 0), (0, 0, 0)],
-[(1, 1, 0), (2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille1)
-
- _  T  _ 
-
- T  R  _ 
-
-
-# le thon passe de la case (0,0) à la case (0,1) avec un temps de gestation de 1
-# sans enfanter, il laisse une mer sur la case qu'il quitte
-___________________________________________________________________________
-
->>> grille2 = [
-[(0, 0, 0), (0, 0, 0), (0, 0, 0)],
-[(0, 0, 0), (2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille2)
-
- _  _  _ 
-
- _  R  _ 
-
->>> deplace_vers_mer(2, (1, 1), (2, 1), grille2, 4, 2)
-[
-[(0, 0, 0), (0, 0, 0), (0, 0, 0)],
-[(0, 0, 0), (0, 0, 0), (2, 4, 2)]
-]
->>> afficher_grille(grille2)
-
- _  _  _ 
-
- _  _  R 
-
-
-# le requin passe de la case (1,1) à la case (2,1) avec un temps de gestation de 4 et une énergie de 2
-# il laisse une mer sur la case qu'il quitte
-___________________________________________________________________________
-
->>> grille3 = [
-[(0, 0, 0), (0, 0, 0), (0, 0, 0)],
-[(0, 0, 0), (2, 1, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille3)
- _  _  _ 
-
- _  R  _ 
-
->>> deplace_vers_mer(2,(1, 1), (2, 1), grille3, 0, 2)
-[
-[(0, 0, 0), (0, 0, 0),
-(0, 0, 0)], [(0, 0, 0),
-(2, 5, 3), (2, 5, 2)]
-]
->>> afficher_grille(grille3)
- _  _  _ 
-
- _  R  R 
-
-
-# le requin passe de la case (1,1) à la case (2,1) avec un temps de gestation de 0 et une énergie de 2
-# il a donc enfanté un requin sur la case qu'il a quitté dont le temps de gestation est 5 et l'énergie 3
-# le requin qui s'est déplacé a un temps de gestation réinitialisé parce qu'il a enfanté et garde son énergie de 2
-
-```
-
-Rappels : lorsqu'un thon a un temps de gestation nul, il engendre un nouveau thon là où il était et son temps de gestation est réinitialisé. Lorsqu'un requin a un temps de gestation nul, il engendre un nouveau requin là où il était, son temps de gestation est réinitialisé mais pas son niveau d'énergie. Il faudra donc en tenir compte.
-
-Remarque : donner à un argument une valeur par défaut peut se comprendre sur un exemple : 
-```python
-def calcul(x,a,b=2):
-    return a*x+b
->>> calcul(5,2,4)
-14
->>> calcul(5,2)#il n'est pas la peine de donner une valeur au paramètre b, sa valeur sera celle par défaut si elle n'est pas indiquée
-12
-```
-
-> **À vous de jouer n°11** : _écrire la fonction ```deplace_vers_mer``` avec sa docstring_
-
+    >>> afficher_grille(deplace_vers_mer(1, (0, 0), (1, 0),grille2, 0))
+     T  T  _ 
+     T  R  _ 
+    """
+``` 
 
 #### Actions propres aux thons   
 
@@ -535,44 +515,20 @@ Il faut envisager le cas où il n'y a pas de case mer disponible pour le déplac
 Cette fonction mettra en œuvre les quatre fonctions ```recherche_case```, ```cases_voisines```, ```evol_gestation```, ```deplace_vers_mer```.   
 Elle prendra comme argument une case et une grille.
 
-Exemple :
+> **À vous de jouer n°12** : 
+
 ```python
->>> grille=[
-[(0, 0, 0), (1, 2, 0), (0, 0, 0)],
-[(1, 1, 0), (2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille)
- _  T  _ 
-
- T  R  _ 
-
->>> evol_gestation((0,1),grille)
-0#le thon (0,1) va pouvoir se reproduire
->>> tour_thon((0,1),grille)
-[
-[(1, 2, 0), (1, 2, 0), (0, 0, 0)],
-[(1, 2, 0), (2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille)
- T  T  _ 
-
- T  R  _ 
-# il s'est déplacé en (0,0) et a engendré un nouveau thon à la place quittée
-#les temps de gestation sont réinitialisés
->>> tour_thon((0,1),grille)
-[
-[(1, 2, 0), (1, 2, 0), (0, 0, 0)],
-[(0, 0, 0), (2, 5, 3), (1, 1, 0)]
-]
-#le thon (0,1) s'est déplacé en (2,2) en utilisant le caractère torique de la mer
->>> afficher_grille(grille)
- T  T  _ 
-
- _  R  T 
+def tour_thon(case,grille):
+    """
+    >>> grille1=[[(0, 0, 0), (1, 2, 0), (0, 0, 0)],[(1, 1, 0), (2, 5, 3), (2, 5, 3)]]
+    >>> afficher_grille(grille1)
+     _  T  _ 
+     T  R  R 
+    >>> afficher_grille(tour_thon((1,0),grille1))
+     T  T  _ 
+     T  R  R   
+    """
 ```
-
-> **À vous de jouer n°12** : écrire la fonction ```tour_thon``` avec sa docstring
-
 
 #### Actions propres aux requins
 
@@ -580,12 +536,18 @@ Exemple :
 
 Réaliser une fonction  ```evol_energie``` acceptant deux paramètres : les coordonnées d'une case et une grille. La fonction retournera l'énergie de l'espèce diminuée d'une unité.
 
-Exemple :
+
+> **À vous de jouer n°13** : 
+
 ```python
->>> evol_energie((1, 1),[[(1, 2, 0), (1, 2, 0), (0, 0, 0)], [(0, 0, 0),(2, 5, 3), (0, 0, 0)]])
-2
+def evol_energie(case,grille):
+    """
+    Renvoie le niveau de gestation diminué d'une unité
+    >>> grille_exemple=[[(1, 2, 0), (0, 0, 0), (0, 0, 0)],[(1, 2, 0), (2, 5, 3), (0, 0, 0)], [(0, 0, 0), (1, 2, 0), (0, 0, 0)]]
+    >>> evol_energie((1,1),grille_exemple)
+    2 
+    """
 ```
-> **À vous de jouer n°13** : écrire la fonction ```evol_energie``` avec sa docstring
 
 ##### Chasse au thon  
 
@@ -597,56 +559,23 @@ Lors de son tour, le requin, après avoir perdu un temps de gestation et trouvé
 
 La fonction retournera la grille ayant évolué en conséquence ; penser aux éventuelles naissances mais on ne fait pas encore intervenir `evol_gestation` pour l'instant.
 
-Exemples : 
-
-```python
->>> grille=[
-[(1, 2, 0), (1, 2, 0), (0, 0, 0)],
-[(0, 0, 0),(2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille)
- T  T  _ 
-
- _  R  _ 
-
->>> chasse_au_thon((1,1),(1,0),grille,5)
-[
-[(1, 2, 0), (2, 5, 3), (0, 0, 0)],
-[(0, 0, 0), (0, 0, 0), (0, 0, 0)]
-]
->>> afficher_grille(chasse_au_thon((1,1),(1,0),grille,5))
- T  R  _ 
-
- _  _  _ 
-
-#le requin situé en (1,1) mange le thon situé en (1,0) en laissant la mer derrière lui.
-___________________________________________________________________________
-
->>> grille=[
-[(1, 2, 0), (1, 2, 0), (0, 0, 0)],
-[(0, 0, 0),(2, 0, 3), (0, 0, 0)]
-]
->>> afficher_grille(grille)
- T  T  _ 
-
- _  R  _ 
-
->>> chasse_au_thon((1,1),(1,0),grille,0)
-[
-[(1, 2, 0), (2, 5, 3), (0, 0, 0)],
-[(0, 0, 0), (2, 5, 3), (0, 0, 0)]
-]
->>> afficher_grille(chasse_au_thon((1,1),(1,0),grille,0))
- T  R  _ 
-
- _  R  _ 
-
-
-#le requin situé en (1,1) mange le thon situé en (0,1) en laissant derrière lui un bébé requin.
-
-```
 
 > **À vous de jouer n°14** : écrire la fonction ```chasse_au_thon``` avec sa docstring
+
+```python
+def chasse_au_thon(case_initiale,case_finale,grille,gestation):
+    """
+    >>> grille1=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 0, 3), (0, 0, 0)]]
+    >>> afficher_grille(grille1)
+     T  T  _ 
+     _  R  _ 
+
+    >>> afficher_grille(chasse_au_thon((1,1),(0,1),grille1,0))
+     T  R  _ 
+     _  R  _ 
+    
+    """
+```
 
 
 ##### Tour du requin  
@@ -655,55 +584,38 @@ Réaliser une fonction ```tour_requin``` qui traduira parfaitement les actions d
 
 La fonction met en oeuvre les fonctions  ```evol_gestation```, ```evol_energie```, ```recherche_case```, ```cases_voisines```. Elle accepte les paramètres case et grille et renvoie une grille mise à jour.
 
-
-Exemples : 
+> **À vous de jouer n°15** : 
 
 ```python
+def tour_requin(case,grille):
+    """
+    >>> grille1=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 2, 4), (0, 0, 0)]]
+    >>> afficher_grille(grille1)
+     T  T  _ 
+     _  R  _ 
 
->>> grille=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 2, 4), (0, 0, 0)]]
->>> afficher_grille(grille)
- T  T  _ 
- _  R  _ 
->>> tour_requin((1,1),grille)
-[[(1, 2, 0), (2, 1, 3), (0, 0, 0)], [(0, 0, 0), (0, 0, 0), (0, 0, 0)]]
->>> afficher_grille(grille)
- T  R  _ 
- _  _  _ 
-#le requin situé en (1,1) mange le thon en (1,0) et laisse la mer derrière lui
+    >>> afficher_grille(tour_requin((1,1),grille1))
+     T  R  _ 
+     _  _  _
+    >>> grille2=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 2, 1), (0, 0, 0)]]
+    >>> afficher_grille(grille2)
+     T  T  _ 
+     _  R  _ 
 
+    >>> afficher_grille(tour_requin((1,1),grille2))
+     T  T  _ 
+     _  _  _
+    >>> grille3=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 1, 2), (0, 0, 0)]]
+    >>> afficher_grille(grille3)
+     T  T  _ 
+     _  R  _ 
 
-___________________________________________________________________________
+    >>> afficher_grille(tour_requin((1,1),grille3))
+     T  R  _ 
+     _  R  _ 
 
->>> grille=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 2, 1), (0, 0, 0)]]
->>> afficher_grille(grille)
- T  T  _ 
- _  R  _ 
->>> tour_requin((1,1),grille)
-[[(1, 2, 0), (1, 2, 0), (0, 0, 0)], [(0, 0, 0), (0, 0, 0), (0, 0, 0)]]
->>> afficher_grille(grille)
- T  T  _ 
- _  _  _ 
-#le requin situé en (1,1) meurt car son niveau d'énergie passe de 1 à 0 au moment de l'appel de la fonction et il laisse la mer derrière lui
-
-
-___________________________________________________________________________
-
-
->>> grille=[[(1, 2, 0), (1, 2, 0), (0, 0, 0)],[(0, 0, 0),(2, 1, 2), (0, 0, 0)]]
->>> afficher_grille(grille)
- T  T  _ 
- _  R  _ 
->>> tour_requin((1,1),grille)
-[[(1, 2, 0), (2, 5, 3), (0, 0, 0)], [(0, 0, 0), (2, 5, 3), (0, 0, 0)]]
->>> afficher_grille(grille)
- T  R  _ 
- _  R  _ 
-#le requin situé en (1,1) au niveau de gestation 1 (au moment de l'appel de la fonction) mange le thon en (1,0) et enfante un requin
-#ses niveaux de gestation et d'énergie sont réinitialisés
-
+    """
 ```
-
-> **À vous de jouer n°15** : écrire la fonction ```tour_requin``` avec sa docstring
 
 ## Troisième partie : évolution des populations
 
