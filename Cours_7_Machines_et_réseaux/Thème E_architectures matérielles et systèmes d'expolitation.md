@@ -83,7 +83,7 @@ Il s'agit de faire le lien entre circuits électroniques, calcul logique et calc
 
 N.B : Le logiciel Logisim est un logiciel gratuit permettant de comprendre les circuits combinatoires permettant de mettre en oeuvre des fonctions booléennes.
 
-# 4. Notions de langage machine (non exigible)
+# 4. Notions de langage machine
 
 Les instructions d'un programme écrit dans un langage de haut niveau sont traduites pour être comprises par la machine. Avec le module `dis`, nous pouvons avoir une idée des instructions passées à la machine lorsque nous écrivons du code en Python.
 
