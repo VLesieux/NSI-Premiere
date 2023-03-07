@@ -3,14 +3,13 @@
 
 
 Les Pokemons sont des animaux imaginaires inventés par Nintendo.   
-Ils possèdent tous des caractéristiques différentes : [nom ; points de vie ; attaque; defense; vitesse; type].  
+Ils possèdent tous des caractéristiques différentes : [nom ; points de vie (Health Points); attaque; défense; vitesse; type].  
 En fonction de ces caractéristiques, ils appartiennent à des types définis.   
 Sur la carte à jouer ci-dessus, on voit que le pokemon Krabby possède la configuration résumée par la liste : ['Krabby','30','105','90','50','Eau'] et appartient au type 'Eau'.
 
-L'objectif de ce projet est de produire une fonction qui sera capable de prédire pour un Pokemon donné le type auquel il appartient.
-L'algorithme utilisé sera celui des K plus proches voisins.  
-En effet, on recherche les K plus proches voisins d'un individu donné, on recherche le type majoritaire parmi ces K voisins et on affecte ce type à notre inconnu.  
-La notion de distance entre deux pokemons se calculera de façon euclidienne, en calculant la racine-carré de la somme des carrés des différences entre leurs pouvoirs, en considérant que tous les pouvoirs ont le même poids.
+L'objectif de ce projet est de produire une fonction qui sera capable de prédire pour un Pokemon donné le type auquel il appartient.  
+L'algorithme utilisé sera celui des K plus proches voisins. En effet, on recherche les K plus proches voisins d'un individu donné, on recherche le type majoritaire parmi ces K voisins et on affecte ce type à notre inconnu.  
+La notion de distance entre deux pokemons se calculera de façon euclidienne, en calculant la racine-carré de la somme des carrés des différences entre les pouvoirs, en considérant que tous les pouvoirs ont le même poids.
 
 1) Il nous faudra dans un premier temps lire un fichier c.s.v et le transformer en table.
 
@@ -21,6 +20,7 @@ La notion de distance entre deux pokemons se calculera de façon euclidienne, en
 4) Il nous faudra enfin créer la fonction qui pour un pokemon donné de type inconnu lui attribuera le type majoritaire parmi ses K plus proches voisins.
 
 
+
 ```Python
 import csv
 
@@ -29,6 +29,7 @@ def lecture(text):
     Renvoie une table à partir du fichier csv
     param : fichier : csv file
     return : list
+    remarque : la ligne des descripteurs est éliminée
     >>> lecture('pokemon.csv')[0]
     ['Clic', '60', '80', '95', '50', 'Acier']
     '''
