@@ -11,21 +11,25 @@ lab1 = [[1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
 [1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1]]
 
 lab2 = [[1, 1, 1, 1, 1, 1, 1],
-[2, 0, 0, 0, 0, 0, 1],
+[1, 0, 0, 0, 0, 0, 1],
 [1, 1, 1, 1, 1, 0, 1],
 [1, 0, 1, 0, 0, 0, 1],
 [1, 0, 1, 0, 1, 0, 1],
 [1, 0, 0, 0, 1, 0, 1],
 [1, 1, 1, 1, 1, 3, 1]]
 
+###lab2 sera à modifier par la suite pour placer l'entrée correctement
+
 def est_valide(i,j,n,m):
     """
     Renvoie True si le couple (i,j) correspond à des coordonnées valides pour un
     labyrinthe de taille (n,m) et False sinon
+    >>> est_valide(5, 2, 10, 10)
+    True
     >>> est_valide(-3, 4, 10, 10)  
     False
     """
-
+    pass
 
 def depart(lab):
     """
