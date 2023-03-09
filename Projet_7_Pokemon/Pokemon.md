@@ -5,7 +5,9 @@
 Les Pokemons sont des animaux imaginaires inventés par Nintendo.   
 Ils possèdent tous des caractéristiques différentes : [nom ; points de vie (Health Points); attaque; défense; vitesse; type].  
 En fonction de ces caractéristiques, ils appartiennent à des types définis.   
-Sur la carte à jouer ci-dessus, on voit que le pokemon Krabby possède la configuration résumée par la liste : ['Krabby','30','105','90','50','Eau'] et appartient au type 'Eau'.
+Sur la carte à jouer ci-dessus, on voit que le pokemon Krabby possède la configuration résumée par la liste : ['Krabby','30','105','90','50','Eau'] et appartient au type 'Eau'.   
+Les différents types sont :
+['Acier','Combat','Dragon','Eau','Electrik','Fée','Feu','Glace','Insecte','Normal','Plante','Poison','Psy','Roche','Sol','Spectre','Ténèbres','Vol']
 
 L'objectif de ce projet est de produire une fonction qui sera capable de prédire pour un Pokemon donné le type auquel il appartient.  
 L'algorithme utilisé sera celui des K plus proches voisins. En effet, on recherche les K plus proches voisins d'un individu donné, on recherche le type majoritaire parmi ces K voisins et on affecte ce type à notre inconnu.  
