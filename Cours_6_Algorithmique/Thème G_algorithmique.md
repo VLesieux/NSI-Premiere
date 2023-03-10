@@ -524,17 +524,21 @@ Pour l'implémenter en Python, on utilise une boucle `while` pour continuer à d
 Proposer une fonction `recherche_dichotomie`.
 
 ```python
-def recherche_dichotomie(valeur, liste):
+def recherche_dichotomie(T,valeur):
     """
-    renvoie l'indice de position de valeur dans une liste d'entiers préalablement triée
+    Recherche valeur dans T par dichotomie
+    Renvoie son indice de position, et le nombre d'étapes
+    param : T : list
     param : valeur : int
-    param : liste : list
     return : int
-    >>> recherche_dichotomie(5, [2, 5, 9, 24])
-    1
-    >>> recherche_dichotomie(9, [2, 5, 9, 24])
-    2
+    >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],18)
+    (4, 3)
     """
+	pass
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
 **Indication** : On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'`indice` de position de `valeur` dans `liste`.
