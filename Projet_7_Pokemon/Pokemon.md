@@ -37,6 +37,18 @@ def lecture(text):
     '''
 	pass
 
+
+def creation_dictionnaire(text):
+    """
+    Renvoie un dictionnaire dont la clé est le nom du pokemon
+    param: text : fichier
+    return : dict
+    >>> creation_dictionnaire('pokemon.csv')['Clic']
+    ('60', '80', '95', '50', 'Acier')    
+    """
+    pass
+
+
 def distance(p1,p2):
     '''
     Renvoie la distance entre deux pokemons p1 et p2
