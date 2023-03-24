@@ -7,7 +7,7 @@
 On peut résumer ainsi la construction du tableau : pour passer d'une ligne à l'autre, on détermine le sommet à marquer en retenant le sommet pour lequel on a la plus petite distance (False représente une distance infinie), puis pour chacune des colonnes des sommets non marqués, on écrit la distance (si elle existe, sinon False) entre le sommet marqué et le sommet non marqué si, après addition de la retenue, celle-ci est **strictement inférieure** à la valeur inscrite dans la ligne précédente ; on précise également la provenance correspondant au sommet marqué.
 Pour obtenir le résultat final, on part du sommet d'arrivée et on remonte en passant par les provenances.
 
-L'implémentation en Python de cet algorithme est donnée ci-dessous : on y retrouvera la construction du tableau dans `ajout_ligne(T,S_marques,Graphe)` puis dans `calcule_tableau(Graphe, depart)`.
+3) L'implémentation en Python de cet algorithme est donnée ci-dessous : on y retrouvera la construction du tableau dans `ajout_ligne(T,S_marques,Graphe)` puis dans `calcule_tableau(Graphe, depart)`.
 
 ```Python
 #  Implémentation  de  l’algorithme  de  Dijkstra
@@ -153,7 +153,7 @@ if __name__ == '__main__':
  
 ```
 
-3) Ajouter deux fonctions à ce programme : `distance_deux_points(graphe,i,j)` et `distance_totale(graphe,liste)` pour que le programme retourne la longueur du chemin le plus court. Le programme sera validé par les tests fournis dans les docstrings.
+Ajouter deux fonctions à ce programme : `distance_deux_points(graphe,i,j)` et `distance_totale(graphe,liste)` pour que le programme retourne la longueur du chemin le plus court. Le programme sera validé par les tests fournis dans les docstrings.
 
 **Indication:**
 
@@ -170,8 +170,9 @@ if __name__ == '__main__':
 >>> Graphe1[1][6]
 8
 ```
-4) Après avoir défini `Graphe2`, retrouvez grâce à votre programme vos résultats de la question 1. Indiquer par écrit les instructions passées dans la console.
+4) Après avoir défini `Graphe2`, retrouvez grâce à votre programme le résultat de la question 1. Indiquer par écrit les instructions passées dans la console.
 
-5) a) Comment peut-on modifier de façon simple la fonction `SommetSuivant` pour remplacer la ligne `if not(minimum) or L[i][0] < minimum :` par plus simplement `if L[i][0] < minimum :` ?    
-	b) Étudier la fonction `ajout_ligne` et interpréter dans le détail le fonctionnement du code placé dans la partie encadrée en proposant un commentaire pour les différentes lignes.
+5) Étudier la fonction `ajout_ligne` et interpréter dans le détail le fonctionnement du code placé dans la partie encadrée en proposant un commentaire pour les différentes lignes.
+
+6) Comment pourrait-on modifier de façon simple la fonction `SommetSuivant` pour remplacer la ligne `if not(minimum) or L[i][0] < minimum :` par plus simplement `if L[i][0] < minimum :` ?   
 
