@@ -156,21 +156,6 @@ if __name__ == '__main__':
 Compléter le code des deux fonctions `distance_deux_points(graphe,i,j)` et `distance_totale(graphe,liste)`.
 Les fonctions seront validées par les tests fournis dans les docstrings.
 
-**Indication:**
-
-```Python
->>> Graphe1 = [
-          [0,2,5,False,3,False,False],
-          [2,0,2,1,False,False,8],
-          [5,2,0,1,4,2,False],
-          [False,1,1,0,False,False,5],
-          [3,False,4,False,0,False,False],
-          [False,False,2,False,False,0,1],
-          [False,8,False,5,False,1,False]
-          ]
->>> Graphe1[1][6]
-8
-```
 4) Après avoir défini `Graphe2`, retrouvez grâce à votre programme le résultat de la question 1. Indiquer par écrit l'instruction à passer dans la console pour cela.
 
 5) Étudier la fonction `ajout_ligne` et interpréter dans le détail le fonctionnement du code placé dans la partie encadrée en proposant un commentaire pour les différentes lignes.  
