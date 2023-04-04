@@ -82,7 +82,7 @@
 
 **4. On souhaite modifier ces droits de manière à obtenir : **```-rw-r--r--```.
 
-![question][question] On pourra tester par exemple l’effet de la commande ```chmod og -r paris```.
+![question][question] On pourra tester par exemple l’effet de la commande ```chmod og-r paris```.
 
 ![question][question] Vérifier la modification des droits en tapant de nouveau ```ls -l```.
 
