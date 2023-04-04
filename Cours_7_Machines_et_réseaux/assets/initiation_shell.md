@@ -62,7 +62,7 @@
 
 ![question][question] Visualiser le contenu du fichier paris à l’aide de la commande ```cat```. 
 
-![question][question] Utiliser la commande ```ls-l``` pour afficher les caractéristiques des fichiers paris, lille et capitale.
+![question][question] Utiliser la commande ```ls -l``` pour afficher les caractéristiques des fichiers paris, lille et capitale.
 
 **3. Les droits d’accès**
 
