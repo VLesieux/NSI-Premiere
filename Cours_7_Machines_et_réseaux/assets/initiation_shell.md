@@ -22,7 +22,7 @@
 	+ Gérer les droits et permissions.
 
 
-- **Lien utile** : [La page wikipedia des commandes Unix][lien wiki].
+- **Lien utile** : [la page wikipedia des commandes Unix][lien wiki].
 
 
 ## ![dossier][dossier] Première partie : Création de dossiers et fichiers.
@@ -52,7 +52,7 @@
 
 **1. Placer vous maintenant dans le répertoire France.**
 
-**2. Utiliser l’éditeur ```nano``` (ou pico) pour éditer le fichier paris :**
+**2. Utiliser l’éditeur ```nano``` pour éditer le fichier paris :**
 
 a. Écrire : "Paris est la capitale de la France".
 
