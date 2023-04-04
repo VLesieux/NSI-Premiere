@@ -36,12 +36,12 @@
 
 **3. Lancer le terminale** ![logo][logo shell]
 
-**4. ![question][question] Afficher le contenu du répertoire courant à l’aide de la commande ```ls```.**
+**4. Afficher le contenu du répertoire courant à l’aide de la commande ```ls```.**
 
-- Le répertoire contient plusieurs dossiers dont le dossier Documents.
+- Le répertoire contient plusieurs dossiers parmi lesquels vous créerez le dossier Documents.
 - Placer vous dans le répertoire Documents.
 
-**5. ![question][question] Utiliser les commandes shell de base pour créer l’arborescence ci-dessous.**
+**5. Utiliser les commandes shell de base pour créer l’arborescence ci-dessous.**
 
 + Son affichage a été obtenu à l'aide de la commande ```tree```.
 ![arbre][shell]
@@ -54,15 +54,15 @@
 
 **2. Utiliser l’éditeur ```nano``` (ou pico) pour éditer le fichier paris :**
 
-![question][question] Écrire : "Paris est la capitale de la France".
+a. Écrire : "Paris est la capitale de la France".
 
-![question][question] Enregistrer le fichier ainsi édité.
+b. Enregistrer le fichier ainsi édité.
 
-![question][question] Faire une copie du fichier paris sous le nom capitale.
+c. Faire une copie du fichier paris sous le nom capitale.
 
-![question][question] Visualiser le contenu du fichier paris à l’aide de la commande ```cat```. 
+d. Visualiser le contenu du fichier paris à l’aide de la commande ```cat```. 
 
-![question][question] Utiliser la commande ```ls -l``` pour afficher les caractéristiques des fichiers paris, lille et capitale.
+e. Utiliser la commande ```ls -l``` pour afficher les caractéristiques des fichiers paris, lille et capitale.
 
 **3. Les droits d’accès**
 
@@ -77,23 +77,25 @@
 | ```l``` : lien symbolique (link) | ```x``` : execute (droit d'exécuter un fichier ou d'ouvrir un répertoire)|
 
 
-![question][question] Donner la signification de ```-rw-rw-r--```?
+Donner la signification de ```-rw-rw-r--```?
 
 
-**4. On souhaite modifier ces droits de manière à obtenir : **```-rw-r--r--```.
+**4. Modification des droits d'accès**
 
-![question][question] On pourra tester par exemple l’effet de la commande ```chmod og-r paris```.
+On souhaite modifier ces droits de manière à obtenir : ```-rw-r--r--```
 
-![question][question] Vérifier la modification des droits en tapant de nouveau ```ls -l```.
+Pour cela, on pourra commencer par tester l’effet de la commande ```chmod og-r paris```.
 
-![question][question] Modifier de nouveau les droits de manière à obtenir ```-rw-r--r--```.
+Vérifier la modification des droits en tapant de nouveau ```ls -l```.
 
-![question][question] puis de manière à obtenir ```-rw-rw-rw-```.
+À vous de modifier de nouveau les droits de manière à obtenir ```-rw-r--r--```.
+
+![verifier][verifier] **Faire vérifier votre travail par le professeur.**
 
  
 **5. Notation numérique et système octal**
 
-| **Droit**	| **Valeur alphanumérique** | ![question][question] **Valeur octale à compléter** | **Valeur binaire** |
+| Droit	| Valeur alphanumérique | Valeur octale <br>**<u>à compléter</u>** | Valeur binaire |
 | :------: | :------: | :---------------: | :------: |
 | aucun droit |	---	| ...| 000 |
 | exécution seulement |	--x | ... | 001 |
@@ -104,32 +106,58 @@
 | lecture et écriture | rw-	| ...	| 110 |
 | tous les droits (lecture, écriture et exécution) | rwx | ...	| 111 | 
 
-![verifier][verifier] **Faire vérifier votre travail par le professeur.**
+La numération octale peut être construite à partir de la numération en groupant les chiffres consécutifs en triplets (à partir de la droite). Par exemple, la représentation binaire du nombre décimal 74 est 1001010, que l'on groupe en (00)1 001 010 ; ainsi, la représentation octale est 1 pour 1, 1 pour le groupe 001, et 2 pour le groupe 010, ce qui donne 112. 
 
-En combinant 3 chiffres décimaux on peut changer le mode d’accès pour l’ensemble des propriétaires.
 
-![question][question] On pourra tester la commande : ```chmod 777 paris```.
+En combinant ainsi 3 chiffres décimaux on peut changer le mode d’accès pour l’ensemble des propriétaires.
 
-![question][question] puis ```chmod 000 paris```.
+On pourra tester la commande : ```chmod 777 paris```  puis ```chmod 000 paris```.
 
-![question][question] Vérifier la validité de cette dernière commande en tapant de nouveau ```ls-l``` puis en entrant la commande ```cat```.
+Vérifier la validité de cette dernière commande en tapant de nouveau ```ls -l```  puis en entrant la commande ```cat```.
 
-![question][question] Utiliser ensuite la commande décimale pour protéger votre fichier en mode **"parano"** avec ```-rw-------```.
+Utiliser ensuite la commande décimale pour protéger votre fichier en mode "parano" avec ```-rw-------``` puis en mode standard avec ```-rw-r--r--```.
 
-![question][question] Puis en mode standard avec ```-rw-r--r--```.
+Remarque: la gestion des droits s’applique aussi aux répertoires. Modifier les droits du répertoire `france` afin que seul le propriétaire puisse lire, modifier et exécuter le contenu de celui-ci.
 
-**5. la gestion des droits s’applique aussi aux répertoires**
+**6. Challenge Python** : compléter le code
 
-![question][question] Modifier les droits du répertoire france afin que seul le propriétaire puisse lire, modifier et exécuter le contenu de celui-ci.
+```Python
+def encode(chaine):
+    """
+    encode la chaine à partir du deuxième caractère
+    param: chaine : str
+    return : str
+    >>> encode("-rw-rw-rw-")
+    '110110110'
+    """
+	pass
 
-**6. Challenge Python**
+def conversion_binaire_decimal(chaine):
+    """
+    renvoie la valeur décimale d'un code binaire
+    param : chaine : str
+    return : int
+    >>> conversion_binaire_decimal("0100")
+    4
+    """
+	pass
 
-On donne les fonctions suivantes :
+def donne_la_valeur_octale(chaine):
+    """
+    Renvoie la valeur octale d'une chaine
+    >>> donne_la_valeur_octale("-rw-rw-rw-")
+    ('fichier', '666')
+    >>> donne_la_valeur_octale("drwxrwxrwx")
+    ('repertoire', '777')
+    """   
+	pass
 
-![python][python]
 
-![question][question] Réaliser la docString et les docTest pour ces deux fonctions.
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+```
 
-![question][question] Utiliser ces fonctions pour vérifier certaines de vos réponses données dans cette activité.
+
 
 ![verifier][verifier] **Faire vérifier votre travail par le professeur.**
