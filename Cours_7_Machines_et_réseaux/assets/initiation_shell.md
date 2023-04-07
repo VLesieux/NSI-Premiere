@@ -38,12 +38,12 @@
 
 **4. Afficher le contenu du répertoire courant à l’aide de la commande ```ls```.**
 
-- Le répertoire contient plusieurs dossiers parmi lesquels vous créerez le dossier Documents.
+- Le répertoire contient plusieurs dossiers parmi lesquels vous créerez un dossier appelé `Documents`.
 - Placer vous dans le répertoire Documents.
 
 **5. Utiliser les commandes shell de base pour créer l’arborescence ci-dessous.**
 
-+ Son affichage a été obtenu à l'aide de la commande ```tree```.
++ Son affichage a été obtenu à l'aide de la commande ```tree Documents```.
 ![arbre][shell]
 
 ![verifier][verifier] **Faire vérifier votre travail par le professeur.**
