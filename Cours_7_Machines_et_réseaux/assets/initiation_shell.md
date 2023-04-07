@@ -117,7 +117,9 @@ Vérifier la validité de cette dernière commande en tapant de nouveau ```ls -l
 
 Utiliser ensuite la commande décimale pour protéger votre fichier en mode "parano" avec ```-rw-------``` puis en mode standard avec ```-rw-r--r--```.
 
-Remarque: la gestion des droits s’applique aussi aux répertoires. Modifier les droits du répertoire `france` afin que seul le propriétaire puisse lire, modifier et exécuter le contenu de celui-ci.
+La gestion des droits s’applique aussi aux répertoires. Modifier les droits du répertoire `france` afin que seul le propriétaire puisse lire, modifier et exécuter le contenu de celui-ci.
+
+![verifier][verifier] **Faire vérifier votre travail par le professeur.**
 
 **6. Challenge Python** : compléter le code
 
