@@ -8,6 +8,7 @@
 [droit]: images/droit.png
 [question]: images/question.png
 [python]: images/python.png
+[chmod]: images/chmod.png
 
 [lien wiki]: https://fr.wikipedia.org/wiki/Commandes_Unix#Fichiers_et_répertoires
 
@@ -80,11 +81,13 @@ e. Utiliser la commande ```ls -l``` pour afficher les caractéristiques des fich
 Donner la signification de ```-rw-rw-r--```?
 
 
-**4. Modification des droits d'accès**
+**4. Modification des droits d'accès avec l'instruction chmod**
+
+![chmod][chmod]
 
 On souhaite modifier ces droits de manière à obtenir : ```-rw-r--r--```
 
-Pour cela, on pourra commencer par tester l’effet de la commande ```chmod og-r paris```.
+Pour cela, on pourra commencer par tester l’effet de la commande ```chmod og-r paris``` qui ajoute les droits de lecture au groupe du fichier (group, read).
 
 Vérifier la modification des droits en tapant de nouveau ```ls -l```.
 
