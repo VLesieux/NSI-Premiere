@@ -81,7 +81,7 @@ e. Utiliser la commande ```ls -l``` pour afficher les caractéristiques des fich
 Donner la signification de ```-rw-rw-r--```?
 
 
-**4. Modification des droits d'accès avec l'instruction chmod**
+**4. Modification des droits d'accès avec la commande chmod**
 
 ![chmod][chmod]
 
