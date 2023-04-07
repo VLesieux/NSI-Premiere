@@ -9,7 +9,7 @@
 [question]: images/question.png
 [python]: images/python.png
 [chmod]: images/chmod.png
-
+[navigation]: images/navigation.png
 [lien wiki]: https://fr.wikipedia.org/wiki/Commandes_Unix#Fichiers_et_répertoires
 
 # ![pingus][pingus] **Initiation au Shell et gestion des droits de permission** 
@@ -32,6 +32,9 @@
 
 - ```mkdir "nom du dossier" ``` : Création d'un dossier.
 - ```touch "nom du fichier" ``` : Création d'un fichier.
+- Utiliser la commande `cd` pour la navigation 
+
+![navigation][navigation]
 
 **2. Démarrer la machine virtuelle** ![virtuelle][machine virtuelle]
 
