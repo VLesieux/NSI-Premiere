@@ -57,5 +57,8 @@ if __name__ == '__main__':
 ```
 
 
+**Exercice 4** :
 
+<img  src="Assets/page1.png">
+<img  src="Assets/page2.png">
 
