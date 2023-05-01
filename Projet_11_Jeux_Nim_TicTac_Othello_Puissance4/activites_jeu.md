@@ -292,6 +292,15 @@ Tester son bon fonctionnement avec le doctest.
 
 **_Remarque:_**  _Pour chacune des fonctions demandées, définir les paramètres en entrée et en sortie et réaliser la doctest_
 
+3.9 Implémenter la fonction choix_joueur
+
+```python
+>>> choix_joueur(True,situation_init())
+JOUEUR I : Choisir la position de votre pion par exemple 1,1 : 2,3
+JOUEUR I : Choisir la position de votre pion par exemple 1,1 : 2,2
+(2, 2)
+```
+
 3.9 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
