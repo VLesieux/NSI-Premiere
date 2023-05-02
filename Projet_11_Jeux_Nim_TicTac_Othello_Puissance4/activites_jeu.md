@@ -155,12 +155,12 @@ if __name__ == '__main__':
 
 On décide de rendre le code opérationnel, pour cela il faut respecter l&#39;ordre de déroulement des jeux à deux joueurs.
 
-2.4 Compléter le programme **principal\_jeu.py** donné ci-dessous pour rendre le jeu opérationnel, tester le bon fonctionnement de votre solution.
+2.4 Compléter le programme **interface_jeu.py** donné ci-dessous pour rendre le jeu opérationnel, tester le bon fonctionnement de votre solution.
 
 ```python
 # coding: UTF-8
 
-import jeu_nim  #importation des fonctions du jeu Nim 
+import jeu_nim as jeu #importation des fonctions du jeu Nim 
 
 def aff_mess_vainqueur(valeur_joueur,per_gag):
     """
@@ -189,11 +189,11 @@ def aff_mess_vainqueur(valeur_joueur,per_gag):
 
     return None
 
-param_jeu = jeu_nim.situation_init()    #création de la situation courante initiale
+param_jeu = jeu.situation_init()    #création de la situation courante initiale
 
 valeur_joueur=False #Détermination du premier joueur courant
 
-jeu_nim.aff_evolution_jeu(param_jeu)    #Affichage de l'état du jeu
+jeu.aff_evolution_jeu(param_jeu)    #Affichage de l'état du jeu
 
 fini=False  #Initialisation de la situation du jeu
 
