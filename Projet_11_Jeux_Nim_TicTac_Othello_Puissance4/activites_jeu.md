@@ -290,18 +290,7 @@ Tester son bon fonctionnement avec le doctest.
 [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
 ```
 
-**_Remarque:_**  _Pour chacune des fonctions demandées, définir les paramètres en entrée et en sortie et réaliser la doctest_
-
-3.9 Implémenter la fonction choix_joueur
-
-```python
->>> choix_joueur(True,situation_init())
-JOUEUR I : Choisir la position de votre pion par exemple 1,1 : 2,3
-JOUEUR I : Choisir la position de votre pion par exemple 1,1 : 2,2
-(2, 2)
-```
-
-3.10 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
+3.9 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
@@ -314,7 +303,7 @@ True
 False
 ```
 
-3.11 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
+3.10 Écrire la fonction &quot;test\_diagonale1&quot; (orientée vers le haut) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
 
@@ -327,7 +316,7 @@ False
 True
 ```
 
-3.12 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
+3.11 Écrire la fonction &quot;test\_colonne&quot;  qui a pour résultat l&#39;état d&#39;une colonne (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
@@ -340,7 +329,7 @@ True
 False
 ```
 
-3.13 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
+3.12 Écrire la fonction &quot;test\_diagonale2&quot; (orientée vers le bas) qui a pour résultat l&#39;état d&#39;une diagonale (remplie, pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction pour les joueurs 1 et 2.
 
@@ -356,7 +345,7 @@ True
 **Faire valider votre travail**
 
 
-3.14 Écrire la fonction &quot;test\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
+3.13 Écrire la fonction &quot;test\_jeu\_rempli&quot; qui a pour résultat l&#39;état du plateau de jeu (rempli, pas rempli) dont le plateau de jeu est passé en paramètre.
 
 ```python
 >>> test_jeu_rempli([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
@@ -366,6 +355,15 @@ True
 ```
 
 Tester son bon fonctionnement avec le doctest.
+
+3.14 Implémenter la fonction choix_joueur
+
+```python
+>>> choix_joueur(True,situation_init())
+JOUEUR I : Choisir la position de votre pion par exemple 1,1 : 2,3
+JOUEUR I : Choisir la position de votre pion par exemple 1,1 : 2,2
+(2, 2)
+```
 
 3.15 Écrire la fonction &quot;action\_joueur&quot; qui a pour résultat le choix de jeu du joueur ; pour cette fonction, le joueur et  le paramètre du jeu sont passés en paramètres.
 
