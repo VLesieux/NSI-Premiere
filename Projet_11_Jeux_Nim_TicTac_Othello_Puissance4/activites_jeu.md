@@ -373,9 +373,8 @@ Pas de test de fonctionnement de test_validite_choix avec le doctest.
 3.16 Écrire la fonction &quot; evolution\_jeu &quot; qui a pour résultat le paramètre du jeu ;  le paramètre du jeu et le choix du joueur sont passés en paramètres. Tester son bon fonctionnement.
 
 ```python
->>> evolution_jeu(True,[['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']],'1,1')
+>>> evolution_jeu(True,[['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']],(1,1))
 [['0', '0', 'X'], ['0', 'X', 'X'], ['0', 'X', '0']]
-True
 ```
 
 Tester son bon fonctionnement avec le doctest.
