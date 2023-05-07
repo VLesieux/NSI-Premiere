@@ -290,6 +290,20 @@ Tester son bon fonctionnement avec le doctest.
 [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
 ```
 
+**Attention !**
+
+Ne pas écrire : 
+```python
+return [['-']*3]*3
+```
+en effet: 
+```python
+>>> a=situation_init()
+>>> a[1][1]='X'
+>>> a
+[['-', 'X', '-'], ['-', 'X', '-'], ['-', 'X', '-']]
+```
+
 3.9 Écrire la fonction &quot;test\_ligne&quot;  qui a pour résultat l&#39;état d&#39;une ligne (remplie ou pas remplie) dont le plateau de jeu est passé en paramètre.
 
 Prévoir le test de cette fonction, commun pour les joueurs 1 et 2.
