@@ -1,5 +1,3 @@
-# coding: UTF-8
-
 import jeu_tic_tac_2023 as jeu  #importation des fonctions du jeu Nim 
 
 def aff_mess_vainqueur(valeur_joueur,per_gag):

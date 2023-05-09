@@ -22,7 +22,6 @@ def test_ligne(plateau):
                 return True
     return False
 
-
 def test_diagonale1(plateau):
     """
     >>> test_diagonale1([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
