@@ -13,7 +13,7 @@ plt.plot(inv_val_alg_OA,inv_val_alg_OB,'+',markersize=10,color="blue")
 plt.xlabel("1/OA (en m) : valeurs algébriques")
 plt.ylabel("1/OA' (en m) : valeurs algébriques")
 plt.title("Lentille mince convergente de vergence : 8 ẟ")
-########################   modélisation linéaire et représentation  ################                  ##################################
+########################   modélisation linéaire et représentation  ##################################################
 droite=sc.linregress(inv_val_alg_OA,inv_val_alg_OB)
 coefficient=droite.slope
 print("coefficient directeur : ",coefficient)
