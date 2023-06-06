@@ -28,18 +28,6 @@ for i in range(len(boutons)):
     
 limites=[(i,(40*i+30,40*i+50)) for i in range(1,8)]
 
-#def jouer(choix_colonne):
-#    global config
-#    global joueur_courant
-#    if test_valide(config,choix_colonne,JOUEUR_NOIR):            
-#        config = incrementer_config(config,choix_colonne,JOUEUR_NOIR)
-#        afficher_config(config)
-#    if est_jeu_fini(config):
-#        afficher_fin(config,joueur_courant)
-#    joueur_courant = incrementer_joueur(joueur_courant)
-#    config = incrementer_config(config,meilleur_coup,JOUEUR_BLANC)
-#    afficher_config(config)
-
 def aff_mess_vainqueur(plateau):
     """
     : affichage du gagnant
