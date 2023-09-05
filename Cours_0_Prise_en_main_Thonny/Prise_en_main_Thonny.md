@@ -2,24 +2,20 @@
 
 
 Thonny est un *environnement de développement intégré* (EDI ou IDE en anglais pour 
-*Integrated Development Environment*) qui a été particulièrement bien conçu pour les programmeurs débutant en Python.
+*Integrated Development Environment*) qui a été particulièrement bien conçu pour les programmeurs débutant en Python ; c'est un outil puissant qui facilite le processus de développement en Python en fournissant une gamme de fonctionnalités et d'outils essentiels pour écrire, déboguer et gérer efficacement des projets Python.
 
 
-La dernière version disponible à ce jour (septembre 2020) est la 3.7.
+La dernière version disponible à ce jour (septembre 2023) est la 3.10.
 
-Sites officiels :
-
-* [Thonny](https://thonny.org)
-* Wiki [Wiki](https://github.com/thonny/thonny/wiki)
+Site officiel pour télécharger l'application : [Thonny](https://thonny.org)
 
 **Remarque** : distinguer Python qui est un langage et Thonny qui est un environnement intégré de programmation en Python.
 
 
 ## Utilisation de base
 Lorsqu'on lance Thonny la première fois, on découvre une fenêtre avec sa barre de menus usuels, une rangée de boutons, et deux panneaux correspondant à
-
-* l'éditeur (onglet nommé initialement `<untitled>`)
-* l'interpréteur (onglet nommé `Shell`)
+* l'éditeur (l'onglet correspondant est nommé initialement `<untitled>`)
+* l'interpréteur (l'onglet correspondant est nommé `Shell`)
 
 ![vue sur Thonny](assets/thonny.png)
 
@@ -28,9 +24,14 @@ Le *shell* est la zone dans laquelle l'utilisateur intéragit/dialogue avec l'in
 
 ### Dialogue avec l'interpréteur
 
-L'*invite de commande* (ou prompt) `>>>` attend une instruction. Une instuction doit être écrite sur une seule ligne sauf si 
-* elle est parenthésée (liste : [], tuples : (), dictionnaires : {}, chaînes de caractères avec triple délimiteur : ''' ''')
+L'*invite de commande* (ou prompt) `>>>` attend une instruction.    Une instuction doit être écrite sur une seule ligne sauf si:
+
+* elle est parenthésée (liste : [], tuples : (), dictionnaires : {}, chaînes de caractères avec triple délimiteur : ''' ''')     
 * elle est composée : instructions conditionnelles (if ...) , itérations (for ...)
+
+Mon premier dialogue avec l'interpréteur :
+
+![premier dialogue](assets/hello.png)
 
 ### L'explorateur de variables
 
@@ -54,9 +55,9 @@ L'éditeur permet la rédaction de *scripts* (fichiers contenant du code Python)
 * effectue une sauvegarde à chaque exécution (demande un nom de fichier si 1ère exécution) => toute modification est sauvegardée
 * coloration syntaxique permettant de visualiser des erreurs :
   * des mots clés du langage (`def`, `if`, `for`, `while`, `True`, `False` ...)
-  * des constantes litérales (couleurs distinctes pour nombres et chaînes de caractères)
-  * coloration des régions marqués par un délimiteur ouvert mais non fermé (chaines de caractères, listes, tuples, dictionnaires, ...)
-* indentation automatique lorsque nécessaire
+  * des constantes littérales (couleurs distinctes pour nombres et chaînes de caractères)
+  * coloration des régions marquées par un délimiteur ouvert mais non fermé (chaines de caractères, listes, tuples, dictionnaires, ...)
+* **indentation automatique** lorsque nécessaire :  l'indentation est un moyen de structurer visuellement votre code en utilisant des espaces ou des tabulations pour montrer les blocs de code imbriqués. C'est une caractéristique importante de la syntaxe Python, car elle indique comment le code est organisé et quelles parties du code sont liées les unes aux autres.
 * complétion automatique avec la touche TAB => favorise l'utilisation de noms longs pour les paresseux
 * visualisation de la portée des variables
 
@@ -75,12 +76,17 @@ Si le script vient d'être créé (onglet nommé `<untitled>`), boîte de dialog
 => un script peut 
 
 * ne contenir que des définitions de variables, fonctions, ... et on utilise ces définitions dans le shell
-* contenir des instructions d'affichage (ou d'`input`) qui seront immédiatement exécutées et laisseront des traces dans le shell (éviter leur abus en phase de développement de fonctions)
+* contenir des instructions d'affichage (ou d'`input`) qui seront immédiatement exécutées et laisseront des traces dans le shell (éviter leur abus en phase de développement de fonctions).
 
-### Illustration de ces points avec suite Syracuse
-cf fichier [demo_syracuse.py](demo_syracuse.py)
+### Illustration de ces points avec un exemple simple: la suite Syracuse
+cf fichier [demo_syracuse.py](assets/demo_syracuse.py)
 
-Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir qu'il s'agit d'une suite de valeurs construite à partir d'une valeur initiale ; pour obtenir la valeur suivante on divise la valeur initiale par 2 si celle-ci est paire, et on la multiplie par 3 en lui ajoutant 1 si la valeur initiale est impaire ; il s'avère qu'au bout d'un certain temps la suite atteint toujours la valeur 1 puis finit par se répèter indéfiniment (1,4,2,1,4,2…).
+Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir qu'il s'agit d'une suite de valeurs construite à partir d'une valeur initiale ; pour obtenir la valeur suivante :
+
+* on divise la valeur initiale par 2 si celle-ci est paire,
+* on la multiplie par 3 en lui ajoutant 1 si la valeur initiale est impaire ; 
+
+il s'avère qu'au bout d'un certain temps la suite atteint toujours la valeur 1 puis finit par se répèter indéfiniment (1,4,2,1,4,2…).
 
 * commencer par écrire la première fonction `syracuse` sans docstring. Profiter de 
   l'ouverture de la parenthèse des paramètres pour souligner la coloration syntaxique (en gris).
@@ -155,8 +161,8 @@ Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir 
       renvoie le terme suivant u d'une suite de Syracuse
     
       :param u: (int) entier quelconque
-      :return: (int)
-      :CU: aucune
+	    :return: (int)
+	    :CU: aucune
     
       >>> syracuse(0)
       0
