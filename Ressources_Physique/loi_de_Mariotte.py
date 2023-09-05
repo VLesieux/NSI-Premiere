@@ -17,7 +17,7 @@ while i<=5:
     val_V.append(float(couple[1]))
     i+=1
 val_inverse_V=[1/element for element in val_V]
-plt.axis([0, 0.03, 0, 2000])
+plt.axis([0, 0.2, 0, 2000])
 plt.plot(val_inverse_V,val_p,'+',markersize=10,color="blue")
 plt.xlabel("1/V(cm3)")
 plt.ylabel("P(hPa)")
@@ -29,10 +29,11 @@ print("Coefficient directeur de la droite modèle : ",coefficient)
 oorigine=droite.intercept
 print("Ordonnée à l'origine de la droite modèle : ",oorigine)
 x = np.linspace(0, 0.03 , 200)#200 est le nombre de points
-y=coefficient * x + oorigine
-titre="modélisation : y ="+str(coefficient)+" *x +"+str(oorigine)
-plt.plot(x,y,"r,-",label=titre)
-plt.legend(loc='upper center')
+y=coefficient * x
+#titre="modélisation : y ="+str(coefficient)+" *x +"+str(oorigine)
+#plt.plot(x,y,"r,-",label=titre)
+plt.plot(x,y,"r,-")
+#plt.legend(loc='upper center')
 ################################################################################
 plt.show()
 plt.close()

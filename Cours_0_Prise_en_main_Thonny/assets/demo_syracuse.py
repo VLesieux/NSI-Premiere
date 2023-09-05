@@ -1,15 +1,4 @@
 def syracuse(valeur):
-    """renvoie le terme suivant de la suite de syracuse :
-    : param valeur : (int) entier quelconque
-    :return: (int)
-    :CU: aucune condition d'utilisation
-    >>> syracuse(0)
-    0
-    >>> syracuse(3)
-    10
-    >>> syracuse(10)
-    5
-    """
     resultat=0
     if valeur%2==0:
         resultat=valeur//2
