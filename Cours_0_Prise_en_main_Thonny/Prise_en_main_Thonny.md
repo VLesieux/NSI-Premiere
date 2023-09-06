@@ -78,7 +78,12 @@ Si le script vient d'être créé (onglet nommé `<untitled>`), boîte de dialog
 * ne contenir que des définitions de variables, fonctions, ... et on utilise ces définitions dans le shell
 * contenir des instructions d'affichage (ou d'`input`) qui seront immédiatement exécutées et laisseront des traces dans le shell (éviter leur abus en phase de développement de fonctions).
 
-### Illustration de ces points avec un exemple simple: la suite Syracuse
+
+### Illustration de ces points sur un premier exemple : l'affichage d'une variable
+
+![Premier_programme](assets/mon_premier_programme.png)
+
+### Illustration de ces points sur un deuxième exemple : la suite Syracuse
 cf fichier [demo_syracuse.py](assets/demo_syracuse.py)
 
 Cet exemple sera étudié dans le détail ; pour le moment il faut juste savoir qu'il s'agit d'une suite de valeurs construite à partir d'une valeur initiale ; pour obtenir la valeur suivante :
