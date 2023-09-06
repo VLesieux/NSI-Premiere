@@ -1,6 +1,6 @@
 # Projet : Les séquences nucléiques de l'ADN et ARN
 
-<img src="adn.png">
+<img src="assets/adn.png">
 
 ## Quelques connaissances en biologie moléculaire
 

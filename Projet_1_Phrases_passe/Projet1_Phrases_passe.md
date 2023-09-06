@@ -63,7 +63,7 @@ C'est ce que vous allez découvrir dans ce qui suit.
 Pour construire des passe-phrases, vous avez besoin d'une liste dans laquelle vous puiserez des mots choisis au hasard.
 
 Pour cela vous utiliserez le fichier Python
-[liste_7776_mots.py](liste_7776_mots.py) qui définit une variable
+[liste_7776_mots.py](assets/liste_7776_mots.py) qui définit une variable
 nommée `LISTE_MOTS`. Pour utiliser cette variable il vous suffit donc
 de l'importer depuis son module.
 
