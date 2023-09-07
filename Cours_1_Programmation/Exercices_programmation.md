@@ -24,6 +24,10 @@ Vérifier avec Thonny en ajoutant l'instruction :
 ```Python
 print("La valeur de n est : ",n,", et la valeur de x est : ",x,".")
 ```
+ou 
+```Python
+print(f"La valeur de n est : {n}, et la valeur de x est : {x}.")
+```
 
 ## Exercice 2
 

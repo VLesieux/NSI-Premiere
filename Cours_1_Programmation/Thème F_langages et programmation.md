@@ -7,7 +7,7 @@ Quelques éléments d'histoire : le langage Python a été créé en 1989 par le
 Un programme est composé de **séquences** : des **instructions** exécutées les unes après les autres dans l'ordre où elles sont écrites, de définitions de **variables** et de **fonctions**, d'**instructions conditionnelles**, de **bloucles conditionnelles**  ou **non conditionnelles**, utilisant des **expressions**, en particulier des **appels de fonctions**.   
 Une **instruction** est une commande que doit exécuter la machine tandis qu'une **expression** est un valeur renvoyée généralement par une fonction suite à une combinaison d'opérations.
 
-HTML, CSS ne sont pas des langages de programmation mais de description à la différence de C++.
+HTML, CSS ne sont pas des langages de programmation mais de description à la différence de Python ou C++.
 
 
 ## Les attendus du programme
