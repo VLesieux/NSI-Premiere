@@ -24,7 +24,8 @@ Vérifier avec Thonny en ajoutant l'instruction :
 ```Python
 print("La valeur de n est : ",n,", et la valeur de x est : ",x,".")
 ```
-ou 
+ou, en réalisant une f-string, où f désigne format :    
+
 ```Python
 print(f"La valeur de n est : {n}, et la valeur de x est : {x}.")
 ```
