@@ -115,14 +115,14 @@ On peut en effet parcourir une liste ou un tuple de deux manières différentes.
 
 ```Python
 >>> liste=[3,5,9]
->>> for i in range(len(liste)):
+>>> for i in range(len(liste)):#utilisation de l'indice de position
     print(liste[i])
     
 3
 5
 9
 
->>> for element in liste:
+>>> for element in liste:#parcours des éléments d'une liste
     print(element)
     
 3
