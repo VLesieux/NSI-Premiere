@@ -156,7 +156,7 @@ Dans la première formulation, `i` joue le rôle d'un indice qui commence à 0 e
 
 Dans la seconde formulation, `element` joue le rôle d'un élément constitutif de la liste.
 
-Remarque : une chaîne de caractère est assimilable à un tuple car elle est non mutable.
+Remarque : une chaîne de caractère est assimilable à un tuple car elle est non mutable (non modifiable) à la différence d'une liste. On s'en aperçoit sur cet exemple où on ne peut pas changer la valeur de la chaîne de caractères.
 
 ```Python
 >>> mot="objet"
@@ -164,6 +164,12 @@ Remarque : une chaîne de caractère est assimilable à un tuple car elle est no
 Traceback (most recent call last):
   File "<pyshell>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
+```
+```Python
+>>> liste=[4,8,3]
+>>> liste[1]=5
+>>> liste
+[4, 5, 3]
 ```
 
 ## Exercice 8
