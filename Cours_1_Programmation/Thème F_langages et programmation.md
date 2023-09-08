@@ -370,7 +370,7 @@ liste2=[f(u) for u in liste1]
 ### 5) Gestion des erreurs
 
 Un mécanisme d'**assertion** proposé par Python permet de vérifier les préconditions d'une fonction.  
-Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien, sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
+Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien mais arrête immédiatement l'exécution du programme en affichant la phrase qui lui est associée.
 
 ```python
 >>> def percentage(score, total):
@@ -402,10 +402,20 @@ Traceback (most recent call last):
   File "<pyshell>", line 5, in <module>
   File "<pyshell>", line 2, in f
 AssertionError: le deuxième argument est nul
-
 ```
+On observe une erreur AssertionError: le deuxième argument est nul et cela commande l'arrêt du programme.
 
-On observe une erreur AssertionError: le deuxième argument est nul et l'arrêt de l'exécution.
+**Gestion d'une erreur sans bloquage du programme** 
+
+```python
+def division(a,b):
+    try:
+        return a/b
+    except ZeroDivisionError:
+        return None
+>>> division(5,0)
+>>> 
+```
 
 ### 6) Modules et bibliothèques
 
