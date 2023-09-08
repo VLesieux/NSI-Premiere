@@ -157,7 +157,7 @@ Dans la première formulation, `i` joue le rôle d'un indice qui commence à 0 e
 Dans la seconde formulation, `element` joue le rôle d'un élément constitutif de la liste.
 
 Remarque : une chaîne de caractère est assimilable à un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
-On s'en aperçoit sur cet exemple où on ne peut pas changer la valeur d'une lettre d'une chaîne de caractères tandis que l'on peut modifier la valeur d'un élément d'une liste.
+On s'en aperçoit sur cet exemple où on ne peut pas changer la valeur d'une lettre d'une chaîne de caractères tandis que l'on peut modifier la valeur d'un élément d'une liste connaissant son indice de position.
 
 ```Python
 >>> mot="objet"
