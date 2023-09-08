@@ -1,6 +1,7 @@
 # Exercices de programmation en Python
 
-Il est demandé d'écrire les docstring pour toutes les fonctions en utilisant les résultats escomptés en sortie lorsque ceux-ci sont donnés (à partir de l'exercice 3).
+Il est demandé d'écrire les docstrings pour toutes les fonctions en utilisant les résultats escomptés en sortie lorsque ceux-ci sont donnés (à partir de l'exercice 3).
+Voici le bloc de code à placer à la fin du programme.
 
 ```Python
 if __name__ == '__main__':
@@ -10,7 +11,7 @@ if __name__ == '__main__':
 
 ## Exercice 1
 
-Soit le code suivant. Déterminer la valeur finale de x. Utiliser un papier et un stylo. 
+Soit le code suivant. Déterminer la valeur finale de x. Utiliser au départ un papier et un stylo. 
 
 ```Python
 x=1
@@ -19,12 +20,12 @@ while n>1:
     x=x*n
     n=n-1
 ```
-Vérifier avec Thonny en ajoutant l'instruction :
+Vérifier avec Thonny en ajoutant à la fin du programme l'instruction :
 
 ```Python
 print("La valeur de n est : ",n,", et la valeur de x est : ",x,".")
 ```
-ou, en réalisant une f-string, où f désigne format :    
+ou, en réalisant une f-string, où f désigne le formatage de la chaîne de caractères :    
 
 ```Python
 print(f"La valeur de n est : {n}, et la valeur de x est : {x}.")
@@ -32,7 +33,7 @@ print(f"La valeur de n est : {n}, et la valeur de x est : {x}.")
 
 ## Exercice 2
 
-Soit le code suivant. Déterminer la valeur finale de x. Utiliser un papier et un stylo.
+Soit le code suivant. Déterminer la valeur finale de x. Utiliser au départ un papier et un stylo.
 
 ```Python
 x=0
@@ -46,7 +47,8 @@ Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas (cela 
 
 ## Exercice 3
 
-Écrire une fonction `somme_premiers_carre` qui prend en paramètre un entier strictement positif k et renvoie la somme des k premiers carrés non nuls : `1+2**2+3**3+.....k*k`.
+Écrire une fonction `somme_premiers_carre` qui prend en paramètre un entier strictement positif k et renvoie la somme des k premiers carrés non nuls : `1+2**2+3**3+.....k*k`.   
+Exemple à vérifier et à introduire dans la docstring.
 
 ```Python
 >>> print(somme_premiers_carre(3))
@@ -62,19 +64,33 @@ Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas (cela 
 13
 ```
 
-2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à son double 2*n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel non nul et renvoie True s'il est parfait et False sinon.
+2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à son double 2*n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel non nul et renvoie `True` s'il est parfait et `False` sinon.
 
 ```Python
 >>> est_parfait(6)
 True
 ```
 
-3. Déterminer les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
+3. Proposer un programme qui permet de déterminer les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
+
+Indication : on peut créer une liste vide à laquelle on ajoute des valeurs:
+
+```Python
+>>> liste=[]
+>>> liste.append(5)
+>>> liste
+[5]
+>>> liste.append(3)
+>>> liste
+[5, 3]
+```
 
 
 ## Exercice 5
 
 1. Écrire une fonction _est_premier_ qui prend en paramètre un nombre entier et renvoie True si ce nombre est premier et False sinon. Un nombre premier est un nombre qui ne peut être divisé que par 1 et par lui-même. 
+
+Tests à vérifier dans la docstring :
 
 ```Python
 >>> est_premier(13)
@@ -83,7 +99,7 @@ True
 False
 ```
 
-2. Écrire une fonction `affichage_premiers` qui prend en paramètre un nombre entier et affiche la liste de tous les nombres premiers inférieurs strictement à ce nombre. 1 n'est pas considéré comme premier.
+2. Écrire une fonction `affichage_premiers` qui prend en paramètre un nombre entier et affiche la liste de tous les nombres premiers inférieurs strictement à ce nombre. Attention, 1 n'est pas considéré comme un nombre premier.
 
 ```Python
 >>> affichage_premiers(10)
@@ -93,12 +109,16 @@ False
 7
 ```
 
-
 ## Exercice 6
 
-Écrire un fonction qui détermine le pourcentage de 6 après n lancers de dés. 
+Écrire un fonction `pourcentage_lancer` qui détermine le pourcentage de 6 obtenus après n lancers de dés à 6 faces. 
 
-Utiliser la fonction `randint` du module `random` (utiliser les deux manières d'importer la fonction) après avoir recherché sa documentation.
+Utiliser la fonction `randint` du module `random` (utiliser les deux manières d'importer la fonction, cf cours) après avoir recherché sa documentation en utilisant `help`.
+
+```Python
+>>> import random
+>>> help(random.randint)
+```
 
 ## Exercice 7
 
@@ -112,17 +132,18 @@ Utiliser la fonction `randint` du module `random` (utiliser les deux manières d
 On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot.
 
 On peut en effet parcourir une liste ou un tuple de deux manières différentes.
+`len(liste)` désigne la longueur (length) de la liste.
 
 ```Python
 >>> liste=[3,5,9]
->>> for i in range(len(liste)):#utilisation de l'indice de position
+>>> for i in range(len(liste)):#utilisation de l'indice de position des éléments dans la liste
     print(liste[i])
     
 3
 5
 9
 
->>> for element in liste:#parcours des éléments d'une liste
+>>> for element in liste:#parcours des éléments d'une liste dans l'ordre d'écriture des éléments
     print(element)
     
 3
@@ -148,13 +169,16 @@ TypeError: 'str' object does not support item assignment
 
 1. Écrire une fonction qui prend en argument un mot et renvoie True si le mot commence et se termine par la même lettre et False sinon.
 
+Exemple à tester dans la docstring:
+
 ```Python
 >>> a_meme_debut_et_fin("tout")
 True
 ```
 
-Remarque : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0 et de droite à gauche à partir de -1 en décroissant.
+Remarque : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0 mais peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
 
+Exemple :
 ```Python
 >>> mot="saucisson"
 >>> mot[7]
@@ -165,6 +189,7 @@ Remarque : les indices de position dans une liste, un tuple, ou une chaîne de c
 
 2. Écrire une fonction qui prend en argument deux mots et renvoie True si les deux mots commencent par la même lettre et se terminent également par la même lettre, et False sinon.
 
+Exemples à tester dans la docstring:
 ```Python
 >>> meme_debut_et_fin("tomba","tonna")
 True
@@ -176,6 +201,7 @@ False
 ## Exercice 9
 
 On utilise le module `turtle` que l'on importera dans sa totalité, on utilise les fonctions forward, left après avoir lu leur documentation.
+
 1. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Les carrés sont inclus les uns dans les autres et ont un sommet commun. On définira une fonction _carre_ admettant le paramètre _n_ chargée de représenter un carré de côté _n_.
 
 <img width="400" height="400" src="assets/turtle1.png">
