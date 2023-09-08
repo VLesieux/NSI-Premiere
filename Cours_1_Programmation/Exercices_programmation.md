@@ -1,7 +1,8 @@
 # Exercices de programmation en Python
 
-Il est demandé d'écrire les docstrings pour toutes les fonctions en utilisant les résultats escomptés en sortie lorsque ceux-ci sont donnés (à partir de l'exercice 3).
-**Voici le bloc de code à placer à la fin de votre programme pour tester sa validité sur un ou plusieurs exemples**
+Il est demandé d'écrire les docstrings pour toutes les fonctions en utilisant les résultats escomptés en sortie lorsque ceux-ci sont donnés (à partir de l'exercice 3).   
+
+**Voici le bloc de code à placer à la fin de votre programme pour tester sa validité sur un ou plusieurs exemples.**
 
 ```Python
 if __name__ == '__main__':
