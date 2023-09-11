@@ -218,11 +218,11 @@ On utilise le module `turtle` que l'on importera dans sa totalité, on utilise l
 
 1. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Les carrés sont inclus les uns dans les autres et ont un sommet commun. On définira une fonction _carre_ admettant le paramètre _n_ chargée de représenter un carré de côté _n_.
 
-<img width="400" height="400" src="assets/turtle1.png">
+<img width="400" height="300" src="assets/turtle1.png">
 
 2. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Chaque carré est incliné de 18 degrés par rapport au précédent et les carrés ont un sommet commun.
 
-<img width="400" height="400" src="assets/turtle2.png">
+<img width="400" height="300" src="assets/turtle2.png">
 
 ## Exercice 10
 
@@ -234,14 +234,15 @@ L'appel _trace(a,b,f,n)_ permet d'obtenir le tracé de la courbe. (cf.cours)
 ```Python
 import matplotlib.pyplot as plt
 def f(x):
-    return x**2 
+    return x**2
+
+def trace(a,b,f,n):
+	................à compléter ..................
+	plt.plot(x,y)#représente y en fonction de x
+	plt.grid()
+	plt.show()
+ 
 trace(-5,5,f,100)
 ```
 
 <img width="400" height="400" src="assets/graphe.png">
-
-```Python
-plt.plot(x,y)#représente y en fonction de x
-plt.grid()
-plt.show()
-```
