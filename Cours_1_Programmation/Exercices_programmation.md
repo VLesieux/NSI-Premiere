@@ -130,7 +130,7 @@ Utiliser la fonction `randint` du module `random` (utiliser les deux manières d
 'bboonn'
 ```
 
-On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot.
+On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot. Dans les deux cas on fait une boucle `for` (a `for` loop).
 
 *On peut en effet parcourir une liste ou un tuple de deux manières différentes.*
 
