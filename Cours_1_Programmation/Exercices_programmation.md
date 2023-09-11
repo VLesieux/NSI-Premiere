@@ -136,7 +136,7 @@ On envisagera deux écritures possibles pour la fonction ; soit en parcourant le
 
 `len(liste)` désigne la longueur (length) de la liste.
 
-# Première méthode
+#### Première méthode
 ```Python
 >>> liste=[3,5,9]
 >>> for i in range(len(liste)):#utilisation de l'indice de position des éléments dans la liste
@@ -148,7 +148,7 @@ On envisagera deux écritures possibles pour la fonction ; soit en parcourant le
 ```
 Dans la première méthode, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs que prend l'indice des éléments dans la liste.
 
-# Deuxième méthode
+#### Deuxième méthode
 ```Python
 >>> for element in liste:#parcours des éléments d'une liste dans l'ordre d'écriture des éléments
     print(element)
