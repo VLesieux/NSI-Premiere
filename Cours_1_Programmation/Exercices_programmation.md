@@ -89,7 +89,7 @@ Indication : on peut créer une liste vide à laquelle on ajoute des valeurs:
 
 ## Exercice 5
 
-1. Écrire une fonction _est_premier_ qui prend en paramètre un nombre entier et renvoie True si ce nombre est premier et False sinon. Un nombre premier est un nombre qui ne peut être divisé que par 1 et par lui-même. 
+1. Écrire une fonction _est_premier_ qui prend en paramètre un nombre entier et renvoie `True` si ce nombre est premier et `False` sinon. Un nombre premier est un nombre qui ne peut être divisé que par 1 et par lui-même. 
 
 Tests à vérifier dans la docstring :
 
@@ -132,9 +132,11 @@ Utiliser la fonction `randint` du module `random` (utiliser les deux manières d
 
 On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot.
 
-On peut en effet parcourir une liste ou un tuple de deux manières différentes.
+*On peut en effet parcourir une liste ou un tuple de deux manières différentes.*
+
 `len(liste)` désigne la longueur (length) de la liste.
 
+# Première méthode
 ```Python
 >>> liste=[3,5,9]
 >>> for i in range(len(liste)):#utilisation de l'indice de position des éléments dans la liste
@@ -143,7 +145,11 @@ On peut en effet parcourir une liste ou un tuple de deux manières différentes.
 3
 5
 9
+```
+Dans la première méthode, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs que prend l'indice des éléments dans la liste.
 
+# Deuxième méthode
+```Python
 >>> for element in liste:#parcours des éléments d'une liste dans l'ordre d'écriture des éléments
     print(element)
     
@@ -152,11 +158,9 @@ On peut en effet parcourir une liste ou un tuple de deux manières différentes.
 9
 ```
 
-Dans la première formulation, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs d'indice des éléments de la liste.
+Dans la seconde méthode, la variable `element` joue le rôle d'un élément constitutif de la liste. On pourrait choisir tout autre nom comme variable mais celui-ci a du sens (meaningful).
 
-Dans la seconde formulation, `element` joue le rôle d'un élément constitutif de la liste.
-
-Remarque : une chaîne de caractère est assimilable à un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
+*Remarque* : une chaîne de caractère est assimilable à un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
 On s'en aperçoit sur cet exemple où on ne peut pas changer la valeur d'une lettre d'une chaîne de caractères tandis que l'on peut modifier la valeur d'un élément d'une liste connaissant son indice de position.
 
 ```Python
@@ -175,7 +179,7 @@ TypeError: 'str' object does not support item assignment
 
 ## Exercice 8
 
-1. Écrire une fonction qui prend en argument un mot et renvoie True si le mot commence et se termine par la même lettre et False sinon.
+1. Écrire une fonction qui prend en argument un mot et renvoie `True` si le mot commence et se termine par la même lettre et `False` sinon.
 
 Exemple à tester dans la docstring:
 
@@ -184,9 +188,10 @@ Exemple à tester dans la docstring:
 True
 ```
 
-Remarque : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0 mais peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
+*Remarque* : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0 mais peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
 
 Exemple :
+
 ```Python
 >>> mot="saucisson"
 >>> mot[7]
@@ -195,9 +200,10 @@ Exemple :
 'o'
 ```
 
-2. Écrire une fonction qui prend en argument deux mots et renvoie True si les deux mots commencent par la même lettre et se terminent également par la même lettre, et False sinon.
+2. Écrire une fonction qui prend en argument deux mots et renvoie `True` si les deux mots commencent par la même lettre et se terminent également par la même lettre, et `False` sinon.
 
 Exemples à tester dans la docstring:
+
 ```Python
 >>> meme_debut_et_fin("tomba","tonna")
 True
@@ -208,7 +214,7 @@ False
 
 ## Exercice 9
 
-On utilise le module `turtle` que l'on importera dans sa totalité, on utilise les fonctions forward, left après avoir lu leur documentation.
+On utilise le module `turtle` que l'on importera dans sa totalité, on utilise les fonctions `forward`, `left` après avoir lu leur documentation.
 
 1. Construire vingt carrés de côté variant de 10 à 200 pixels par pas de 10. Les carrés sont inclus les uns dans les autres et ont un sommet commun. On définira une fonction _carre_ admettant le paramètre _n_ chargée de représenter un carré de côté _n_.
 
@@ -220,9 +226,10 @@ On utilise le module `turtle` que l'on importera dans sa totalité, on utilise l
 
 ## Exercice 10
 
-Écrire une fonction `trace` qui trace, à l'aide de la bibliothèque Matplotlib, la courbe représentative de la fonction f(x) sur un intervalle [a;b] en utilisant n points. On importe au préalable le module pyplot de Matplotlib.
+Écrire une fonction `trace` qui trace, à l'aide de la bibliothèque Matplotlib, la courbe représentative de la fonction f(x) sur un intervalle [a;b] en utilisant n points.  
+On importe au préalable le module pyplot de Matplotlib.
 La fonction prend en arguments deux nombres a et b, une fonction f et un entier n.
-L'appel _trace(a,b,f,n)_ permet d'obtenir le tracé de la courbe.
+L'appel _trace(a,b,f,n)_ permet d'obtenir le tracé de la courbe. (cf.cours)
 
 ```Python
 import matplotlib.pyplot as plt
