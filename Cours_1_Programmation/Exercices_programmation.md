@@ -52,7 +52,7 @@ Utilisez le **debugger** de Thonny pour exécuter le programme pas-à-pas (cela 
 Exemple à vérifier et à introduire dans la docstring.
 
 ```Python
->>> print(somme_premiers_carre(3))
+>>> somme_premiers_carre(3)
 14
 ```
 
@@ -61,7 +61,7 @@ Exemple à vérifier et à introduire dans la docstring.
 1. Écrire une fonction _somme_diviseurs_ qui prend en paramètre un entier naturel non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
 
 ```Python
->>> print(somme_diviseurs(9))
+>>> somme_diviseurs(9)
 13
 ```
 
@@ -85,7 +85,6 @@ Indication : on peut créer une liste vide à laquelle on ajoute des valeurs:
 >>> liste
 [5, 3]
 ```
-
 
 ## Exercice 5
 
