@@ -143,11 +143,11 @@ Le microcontroleur de l'antimissile *patriot* stocke la valeur 1/10 en ne conser
 On observe que :
 
 ```Python
-0.1=1.6*0.0625 soit :
-0.1=1.6*2^(-4) ou :
-0.1=1*2^(-4)+(0.5+0.1)*2^(-4) ou
-0.1=1*2^(-4)+(2^(-1)+0.1)*2^(-4) ou
-0.1=1*2^(-4)+2^(-5)+0.1*2^(-4) ou
+0.1=1.6*0.0625 soit :  
+0.1=1.6*2^(-4) ou :  
+0.1=1*2^(-4)+(0.5+0.1)*2^(-4) ou :  
+0.1=1*2^(-4)+(2^(-1)+0.1)*2^(-4) ou :  
+0.1=1*2^(-4)+2^(-5)+0.1*2^(-4) ou :  
 en remplaçant le 0.1 du membre de droite par l'expression trouvée :
 
 0.1=1*2^(-4)+2^(-5)+[1*2^(-4)+2^(-5)+0.1*2^(-4)]*2^(-4)
