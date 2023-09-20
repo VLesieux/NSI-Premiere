@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
 (3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.  
 
-(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste.    
+(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste ; il suffira de lui ajouter 10 pour trouver la valeur décimale de ce caractère si le caractère appartient à cette liste.
 
 (5) Rajouter au préalable des 0 au début du mot pour qu'il puisse être découpé en parties de 4 ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.    
 
