@@ -5,46 +5,111 @@
 Les nombres sont écrits en binaire.
 1. Calculer la somme 100110 + 001101 en posant l'addition.
 2. Traduire le calcul en décimal.
-3. Vérifier dans le Shell en utilisant la notation en base 2 : 0b......
+3. Vérifier dans la console en utilisant la notation en base 2 : 0b......
 
 ## Exercice 2
 
-1. Écrire en base cinq puis en base seize le nombre qui s'écrit 172 en base dix.
-2. Le nombre B3 est écrit en base seize. Écrire ce nombre en base deux puis en base cinq.
-3. Vérifier dans le Shell en utilisant l'instruction int(str, base) qui crée un nombre entier à partir de son écriture sous forme de string dans la base. La notation en base 16 est aussi : 0x....
-Par exemple : 
-
-```python 	
->>> int("A2",16)
-162
-```
+1. Déterminer à la main l'écriture hexadécimale (en base 16) du nombre qui s'écrit 172 en base dix.
+2. Donner l'écriture binaire du mot hexadécimal 'B3'.
+3. Vérifier dans la console en utilisant la notation en base 16 : 0x...... puis bin()
 
 ## Exercice 3
 
-Un nombre entier représenté par plusieurs octets est stocké en mémoire ou dans un fichier suivant un ordre qui s'appelle "l'endianness". Par exemple, le nombre qui s'écrit B35F en hexadécimal peut être stocké sous la forme B35F ou sous la forme 5FB3.
-Dans le premier cas on parle d'orientation _big-endian_ et dans le deuxième cas d'orientation _little-endian_. Avec l'orientation _big-endian_, 08 00 correspond à 8×16<sup>2</sup>=2048 en décimal alors qu'avec l'orientation _little-endian_ 08 00 correspond à 8 en décimal.
-Écrire une fonction qui prend en paramètres 2 octets écrits en hexadécimal (directement et non sous forme de string), représentés par deux entiers compris entre 0 et 255, et une chaîne de caractères "BE" ou "LE" et renvoie la valeur décimale du nombre représenté suivant l'encodage _big-endian_ (pour "BE") ou _little-endian_ (pour "LE").
+Compléter les fonctions suivantes
 
 ```Python
-def valeur(valeur_dec_octet1,valeur_dec_octet2,choix):
+def conversion_decimal_binaire(n):
     """
-    Renvoie la valeur décimale en fonction du choix de la représentation
-    param : valeur_dec_octet 1 : int
-    param : valeur_dec_octet 2 : int
-    param : choix : str
-    return : int
-    >>> valeur(8,0,"BE")
-    2048
-    >>> valeur(8,0,"LE")
-    8
+    (1) Donne la représentation binaire du nombre entier décimal n
+    param : n : int
+    return : str
+    >>> conversion_decimal_binaire(18)
+    '10010'
+    >>> conversion_decimal_binaire(141)
+    '10001101'
     """
+	pass        
 
+def conversion_binaire_decimal(mot):
+    """
+    (2) Donne la représentation binaire du nombre entier décimal n
+    param : n : int
+    return : str
+    >>> conversion_binaire_decimal('110011')
+    51
+    >>> conversion_binaire_decimal('1010101')
+    85
+    """
+	pass 
+
+def conversion_decimal_hexadecimal(n):
+    """
+    (3) Donne la représentation hexadécimale du nombre entier décimal n
+    param : n : int
+    return : str
+    >>> conversion_decimal_hexadecimal(18)
+    '12'
+    >>> conversion_decimal_hexadecimal(141)
+    '8d'
+    """
+	pass 
+
+
+def conversion_hexadecimal_decimal(mot):
+    """
+    (4) Donne la valeur décimale du mot hexadécimal
+    param : mot : str
+    return : int
+    >>> conversion_hexadecimal_decimal('ae')
+    174
+    >>> conversion_hexadecimal_decimal('34a')
+    842
+    """
+	pass 
+
+def conversion_binaire_hexadecimal(mot):
+    """
+    (5) Donne la représentation hexadécimale d'un mot binaire
+    param: str
+    return : str
+    >>> conversion_binaire_hexadecimal('101101001')
+    '169'
+    >>> conversion_binaire_hexadecimal('110111')
+    '37'
+    """
+	pass 
+
+def conversion_hexadecimal_binaire(mot):
+    """
+    (6) Donne la représentation binaire d'un mot hexadécimal
+    param: str
+    return : str
+    >>> conversion_hexadecimal_binaire('169')
+    '101101001'
+    >>> conversion_hexadecimal_binaire('37')
+    '110111'
+    """
+    pass 
     
-if __name__ == '__main__':
-  import doctest
-  doctest.testmod(verbose=True)
-  
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose = True) 
 ```
+
+**Indications:**
+
+(1) Écrire l'algorithme de divisions successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas le nombre de tour de boucle, mais on peut écrire une boucle conditionnelle en utilisant `while`.  
+(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera un boucle `for` en passant en revue les caractères du mot binaire.  
+(3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.
+(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste.  
+(5) Rajouter au préalable des 0 au début du mot pour qu'il puisse être découpé en parties de 4 ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.  
+(6) Utiliser `conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))`
+
+
+
+
+
 
 
 ## Exercice 4
