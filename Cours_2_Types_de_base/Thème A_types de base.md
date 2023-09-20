@@ -240,7 +240,7 @@ giga, téra, etc.). Il existe cependant les préfixes kibi (2<sup>10</sup>=1024)
 
 ## a) Taille d'un entier positif dans l'écriture en base 2
 
-En utilisant exactement *`n`* bits **avec un nième bit non nul** on peut représenter les entiers naturels de
+En utilisant exactement *`n`* bits avec le nième bit (le bit le plus à gauche, le bit de poids de plus fort) non nul, on peut représenter les entiers naturels de
 *`2^(n-1)`* (le bit 1 suivi de (n-1) bits 0) à *`(2^n)-1`* (le bit 1 suivi de (n-1) bits 1).  
 
 Si on veut connaître le nombre de bits pour représenter un entier donné, il faut utiliser la fonction inverse de 2^n soit *`log_2`* (mais qui n'est pas présentée en 1è).
