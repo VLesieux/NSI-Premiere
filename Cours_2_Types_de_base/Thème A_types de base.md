@@ -175,7 +175,7 @@ Il faut penser à réaliser des regroupements de 4 bits : 1100 a pour valeur dé
 '0xc3'
 ```
 
-Application à voir : [le codage des couleurs](http://isnangellier.alwaysdata.net/php/colours.html) ; les couleurs sont codées en code RGB (Red Green Blue) avec chaque niveau de couleur codé sur 1 octet : soit 256 niveaux de 0 à 255 pour chaque couleur et un total de 256x256x256 couleurs soit 2<sup>24</sup>=16 777 216 couleurs possibles sur un écran.
+Application à voir : [le codage des couleurs](http://vfsilesieux.free.fr/colours.html) ; les couleurs sont codées en code RGB (Red Green Blue) avec chaque niveau de couleur codé sur 1 octet : soit 256 niveaux de 0 à 255 pour chaque couleur et un total de 256x256x256 couleurs soit 2<sup>24</sup>=16 777 216 couleurs possibles sur un écran.
 
 > Exemple 5 : La couleur "vert impérial" est codée en écriture décimale par (0,86,27). Recherchons son codage hexadécimal.
 

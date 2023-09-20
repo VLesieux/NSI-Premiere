@@ -112,39 +112,69 @@ if __name__ == "__main__":
 (6) Utiliser `conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))`
 
 
-
-
-
-
-
 ## Exercice 4
 
 1. Comment code-t-on le nombre 9 sur 5 bits ?
 2. Comment code-t-on le nombre -15 sur 5 bits ? Réaliser les deux méthodes et vérifier.
-3. Si on utilise p bits pour coder les entiers relatifs, combien de nombres peut-on coder et lesquels ?
-4. Comment se code - 56 sur le nombre de bit nécessaire à sa représentation ?
+3. Comment se code - 56 sur le nombre de bit nécessaire à sa représentation ?
 
 ## Exercice 5
 
 Écrire le nombre 3,625 en binaire.
-Proposer deux méthodes :
-- une méthode utilisant la décomposition en puissances négatives de 2
+Proposer deux méthodes :  
+- une méthode utilisant la décomposition en puissances négatives de 2.  
 - une méthode utilisant le décalage à gauche suite à la multiplication par 2
 
 ## Exercice 6
 
 Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour le signe, 11 bits pour l'exposant décalé et 52 bits pour la mantisse tronquée (cf.cours).
-1. Comment est codé le nombre - 4.5 ?
+1. Comment est codé le nombre - 4.5 ?  
 2. Quel est le nombre réel codé par 1011 1111 1110 1000 0000 ... 0000 ?
 
 Pour vérifier, utiliser le [convertisseur](https://www.binaryconvert.com/result_double.html?decimal=050048)
+
+
 ## Exercice 7
+
+Lors du premier conflit États-Unis/Irak en 1991, les américains disposaient d'antimissiles *patriot* pour intercepter les missiles irakiens *scud*. Les *patriot* disposaient d'une horloge interne émettant un signal tous les 0.1 seconde. Le temps écoulé était obtenu en multipliant 0.1 par le nombre de signaux d'horloge reçus. 
+
+Le microcontroleur de l'antimissile *patriot* stocke la valeur 1/10 en ne conservant que 23 bits pour la partie décimale (codage en virgule fixe).
+
+On observe que :
+
+```Python
+0.1=1.6*0.0625 soit :
+0.1=1.6*2^(-4) ou :
+0.1=1*2^(-4)+(0.5+0.1)*2^(-4) ou
+0.1=1*2^(-4)+(2^(-1)+0.1)*2^(-4) ou
+0.1=1*2^(-4)+2^(-5)+0.1*2^(-4) ou
+en remplaçant le 0.1 du membre de droite par l'expression trouvée :
+
+0.1=1*2^(-4)+2^(-5)+[1*2^(-4)+2^(-5)+0.1*2^(-4)]*2^(-4)
+
+soit : 
+
+0.1=1*2^(-4)+1*2^(-5)+1*2^(-8)+1*2^(-9)+0.1*2^(-8)
+
+```
+et on peut recommencer, on a affaire à une **écriture infinie et périodique**.
+
+Ainsi: 0.1<sub>10</sub>=0.000110011001100110011001100110...<sub>2</sub>
+
+1. Quelle est, en base 10, la valeur exacte qui est effectivement codéepà la place de 1/10 ?
+3. Quelle est l'erreur approximative commise sur la représentation de 1/10 ?
+4. En tenant compte de cette erreur, quel est le décalage d'horloge du patriot par rapport à l'heure locale au bout de 100 h.
+5. Sachant que le missile se déplace à une vitesse d'environ 1676 m.s<sup>-1</sup>, à quelle erreur de position en mètre correspond le décalage d'horloge après 100h de fonctionnemt.
+6. Conclure, sachant que pour atteindre sa cible, un *patriot* doit l'approcher à moins de 500 m.
+
+
+## Exercice 8
 
 Vérifier, à l'aide d'une table de vérités, l'égalité suivante entre expressions booléennes : 
 
 `a xor b = (a and not(b)) or (not(a) and b)`.
 
-Rappel : XOR is a binary operation, it stands for "exclusive or", that is to say the resulting bit evaluates to one if **only exactly one** of the bits is set.
+Rappel : XOR is a binary operation, it stands for "exclusive or", that is to say the resulting bit evaluates to one if **only exactly one** of the bits is set to 1.
 
 This is its function table:
 
@@ -156,7 +186,7 @@ a | b | a xor b
 1 | 1 | 0
 
 
-## Exercice 8
+## Exercice 9
 
 Comparer les résultats renvoyés par les trois fonctions suivantes, où x et y sont de type quelconque, sans les programmer en machine :
 ```python
@@ -173,92 +203,26 @@ def compare3(x,y):
     return not(not x or not y)
 ```
 
-## Exercice 9 
-
-On considère le code python suivant qui permet de créer un fichier HTML pour obtenir une page contenant les caractères "ééé".
-
-```python
-f=open('page.html','w')##ouverture du fichier
-ch="""<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8"/>
-    </head>
-    <body>
-    ééé
-    </body>
-</html>"""
-f.write(ch)##écriture du fichier
-f.close()##fermeture du fichier 
-```
-
-Voir l'effet en modifiant l'encodage de la page html utf-8 ou ISO-8859-1.
-
 ## Exercice 10
 
-Compléter le code suivant :
-
-**Indications** :
+Les couleurs sont souvent exprimées en code hexadécimal. 
+Par exemple la couleur verte pomme est codée par #C7E180 ; les codes C7, E1 et 80 représentent les valeurs hexadécimales sur 256 niveaux (1 octet) des niveaux de rouge, de vert et de bleu.
+Montrer que l'on peut utiliser le masque 0xFF pour extraire le niveau de bleu selon :
 
 ```python
->>> str(10)#on transforme le nombre en chaîne de caractères
-'10'
->>> int('10')#on transforme la chaîne de caractères en nombre entier
-10
->>> "A"+str(2)#on concatène les chaînes de caractères pour obtenir une plus longue chaîne
-'A2'
->>> liste=["A","B","C","D","E","F"]
->>> len(liste)#donne la longueur de liste
-6
->>> liste[2]#on prend l'élement en position 2; les indices de position commencent à 0 jusque len(liste)-1.
-'C'
->>> liste.index("D")#on demande l'indice de position de l'élément dans la liste (ou dans le tuple ou dans la chaîne)
-3
->>> "E" in liste#permet de savoir si un caractère est dans une liste
-True
->>> code="70F"
->>> code.index("F")#une chaîne de caractère fonctionne comme un tuple
-2
->>> "F" in code#une chaîne de caractère fonctionne comme un tuple
-True
->>> code[::-1]#on retourne la chaîne de caractères
-'F07'
->>> for caractere in code:#on parcourt les éléments de la chaîne de caractères
-    print(caractere)#on les affiche
-    
-7
-0
-F
+>>> code=0xC7E180
+>>> mask=0xFF
+>>> hex(code & mask)
+'0x80'
+```
+Montrer que l'on peut extraire le niveau de rouge selon :
+
+```python
+>>> code=0xC7E180
+>>> mask=0xFF<<8
+>>> hex((code & mask)>>8)
+'0xe1'
 ```
 
- ```python
- def conversion_decimal_hexadecimal(n):
-    """
-    Renvoie la conversion en hexadécimal d'un nombre décimal
-    param : n : int
-    return : str
-    >>> conversion_decimal_hexadecimal(1807)
-    '70F'
-    """
-    resultat=""
-    liste=["A","B","C","D","E","F"]
-
-
-def conversion_hexadecimal_decimal(code):
-    """
-    Renvoie la conversion en décimal du code hexadécimal
-    param : code : str
-    return : int
-    >>> conversion_hexadecimal_decimal('70F')
-    1807
-    """
-    resultat=0
-    i=0
-    liste=["A","B","C","D","E","F"]
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose = True)  
-```
+Montrer comment extraire le niveau de vert avec ce masque.
 
