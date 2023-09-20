@@ -209,12 +209,13 @@ Les [couleurs](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées 
 Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu. L'écriture binaire en 3 octets est aussi possible :
 11000111 11100001 10000000 ; ce qui correspond aux niveaux : 199, 225, 128.
 
-
-Montrer que l'on peut utiliser le masque 0xFF pour extraire le niveau de bleu selon :
+Montrer que l'on peut utiliser le masque 0xFF ou 0b11111111 pour extraire le niveau de bleu selon :
 
 ```python
 >>> code=0xC7E180
 >>> mask=0xFF
+>>> mask==0b11111111
+True
 >>> hex(code & mask)
 '0x80'
 ```
