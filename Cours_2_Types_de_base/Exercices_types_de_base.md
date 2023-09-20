@@ -99,11 +99,16 @@ if __name__ == "__main__":
 
 **Indications:**
 
-(1) Écrire l'algorithme de divisions successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas le nombre de tour de boucle, mais on peut écrire une boucle conditionnelle en utilisant `while`.  
-(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera un boucle `for` en passant en revue les caractères du mot binaire. Penser à transformer une chaîne de caractères formée de nombres en nombre avec `int()`. 
-(3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.
-(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste.  
-(5) Rajouter au préalable des 0 au début du mot pour qu'il puisse être découpé en parties de 4 ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.  
+(1) Écrire l'algorithme de divisions successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas le nombre de tour de boucle, mais on peut écrire une boucle conditionnelle en utilisant `while`.    
+
+(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera un boucle `for` en passant en revue les caractères du mot binaire. Penser à transformer une chaîne de caractères formée de nombres en nombre avec `int()`.   
+
+(3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.  
+
+(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste.    
+
+(5) Rajouter au préalable des 0 au début du mot pour qu'il puisse être découpé en parties de 4 ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.    
+
 (6) Utiliser `conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))`
 
 
