@@ -273,7 +273,7 @@ En effet, pour un entier N qui s'écrit sur n bits :
 N=a<sub>0</sub>×2<sup>0</sup>+.........+a<sub>n-1</sub>×2<sup>n-1</sup>.   
 2×N=0×2<sup>0</sup>+a<sub>0</sub>×2<sup>1</sup>+.........+a<sub>n-1</sub>×2<sup>n</sup>. 
 
-La multiplication par 2 a pour effet de placer un 0 à droite et de décaler tous les bits vers la gauche. Ajouter 3 chiffres 0 à droite consiste à faire 3 fois la multiplication par 2, c'est-à-dire la multiplication par 8. 
+**La multiplication par 2 a pour effet de placer un 0 à droite et de décaler tous les bits vers la gauche**. Ajouter 3 chiffres 0 à droite consiste à faire 3 fois la multiplication par 2, c'est-à-dire la multiplication par 8. 
 Par exemple : 
 
 ```python
