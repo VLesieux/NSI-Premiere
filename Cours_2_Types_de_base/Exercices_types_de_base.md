@@ -1,4 +1,4 @@
-# Exercices : représentation des données 
+# Exercices : Représentation des données 
 
 ## Exercice 1
 
@@ -10,7 +10,7 @@ Les nombres sont écrits en binaire.
 ## Exercice 2
 
 1. Déterminer à la main l'écriture hexadécimale (en base 16) du nombre qui s'écrit 172 en base dix.
-2. Donner l'écriture binaire du mot hexadécimal 'B3'.
+2. Donner l'écriture binaire du mot hexadécimal B3.
 3. Vérifier dans la console en utilisant la notation en base 16 : 0x...... puis bin()
 
 ## Exercice 3
@@ -32,7 +32,7 @@ def conversion_decimal_binaire(n):
 
 def conversion_binaire_decimal(mot):
     """
-    (2) Donne la représentation binaire du nombre entier décimal n
+    (2) Donne la valeur décimale d'un mot binaire
     param : n : int
     return : str
     >>> conversion_binaire_decimal('110011')
@@ -44,7 +44,7 @@ def conversion_binaire_decimal(mot):
 
 def conversion_decimal_hexadecimal(n):
     """
-    (3) Donne la représentation hexadécimale du nombre entier décimal n
+    (3) Donne la représentation hexadécimale d'un nombre décimal n
     param : n : int
     return : str
     >>> conversion_decimal_hexadecimal(18)
@@ -57,7 +57,7 @@ def conversion_decimal_hexadecimal(n):
 
 def conversion_hexadecimal_decimal(mot):
     """
-    (4) Donne la valeur décimale du mot hexadécimal
+    (4) Donne la valeur décimale d'un mot hexadécimal
     param : mot : str
     return : int
     >>> conversion_hexadecimal_decimal('ae')
