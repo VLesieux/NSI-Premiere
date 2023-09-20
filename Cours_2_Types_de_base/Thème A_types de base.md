@@ -285,40 +285,38 @@ Par exemple :
 
 ## b) Écriture en complément à 2 d'un entier négatif
 
-Pour représenter un **nombre signé** on pense intuitivement qu'il suffit d'ajouter
+Pour représenter un **nombre signé** on pense intuitivement qu'il suffirait d'ajouter
 un bit de signe. Mais cette représentation (appelée *signe-valeur absolue*) ne
-permet pas d'additionner directement deux nombres.
+permet pas d'additionner correctement deux nombres.
 
 Par exemple si le bit de poids fort est le bit de signe et qu'on représente
 les entiers relatifs sur 3 bits et qu'on fait 2 + (-1). Cela donne, en
 représentation signe-valeur absolue : 010 + 101 = 111. Or 111 en
-représentation signe-valeur absolue correspond à -3, ce qui est incorrect.
+représentation signe-valeur absolue correspond à -3, ce qui est incorrect, car on attend 1.
 
-À la place, la représentation en complément à 2 est généralement préférée.
+À la place, la **représentation en complément à 2 sur p bits** est préférée.
 
-Soit *`n`* l'entier relatif à représenter sur *`p`* bits (avec *`|n| < 2^(p-1)`*):
-- si *`n > 0`* : *`n`* est représenté en binaire sur *`p`* bits.
-- sinon : le complément à 2 de *`-n`* est représenté sur *`p`* bits.
+Soit *`n`* l'entier relatif à représenter sur *`p`* bits : le choix du nombre p de bits pour cette représentation est toujours tel que  *`|n| < 2^(p-1)`*, ainsi :   
 
-Le complément à 2 d'un entier positif *`N`* sur *`p`* bits est tel que la somme de *`N`* et de son complément à 2 soit nulle sur *`p`* bits.
-Il peut se calculer de deux méthodes :     
+- si *`n > 0`* : *`n`* est représenté en binaire sur *`p`* bits. On a rien à faire, le bit de poids le plus fort sera 0.
 
+- si *`n > 0`* : on écrit le complément à 2 de *`-n`* sur *`p`* bits. Le complément à 2 d'un entier positif *`N`* sur *`p`* bits est tel que la somme de *`N`* et de son complément à 2 soit nulle sur *`p`* bits. Il s'obtient de deux méthodes :     
 
-- **Première méthode** : On prend le complément à deux de la représentation binaire de *`N`* et on lui ajoute 1    
+- **Première méthode** : On prend le complément à deux de la représentation binaire de *`N`* (c'est-à-dire qu'on transforme les 0 en 1 et les 1 en 0) et on ajoute 1 à ce mot binaire   
 
-- **Deuxième méthode** : on calcule *`2^p-N`* qu'on représente en binaire sur *`p`* bits.
+- **Deuxième méthode** : on calcule *`2^p-N`* que l'on représente en binaire sur *`p`* bits.
 
 **Attention** *complément à 2* désigne à la fois l'opération mathématique de
 conversion et une méthode de représentation des entiers relatifs (qui
 n'implique pas forcément de calculer un complément à 2 !)
 
 > Avec la représentation en complément à 2 sur *`p`* bits, il est possible de représenter tous les entiers relatifs compris entre : 
-> - l'entier le plus négatif :  -2^(p-1) : représenté par le mot binaire : `10...0`
-> - et l'entier le plus positif : 2^(p-1)-1 : représenté par le mot binaire :  `01...1`
+> - l'entier le plus négatif :  -2^(p-1) : représenté par le mot binaire sur p bits : ``10...0` ; c'est en effet l'opposé de `10...0` qui vaut 2^(p-1) car sur p bits l'addition  `10...0`+`10...0`=`00...0`
+> - et l'entier le plus positif : 2^(p-1)-1 : représenté par le mot binaire sur p bits :  `011.11`
 
-Les entiers négatifs ont leur bit de plus haut poids égal à 1 
+**Dans cette représentation des entiers relatifs sur p bits, les entiers négatifs auront donc toujours leur bit de plus haut poids égal à 1, les entiers positifs l'auront toujours égal à 0.**
 
-Cas particulier : la valeur -1 est codée par la suite de p bits de valeur 1
+Cas particulier : la valeur -1 est codée par la suite de p bits de valeur 1 ; ce que l'on retrouve avec l'une ou l'autre des deux méthodes.
 
 ### Exemples
 
@@ -392,6 +390,7 @@ précision aussi bien des très petits nombres que de très grands nombres.
 Cependant on ne peut représenter que des nombres rationnels, mais pas tous.
 
 Par exemple, en faisant le choix de la base 10,  *`b=10`* :
+
 * *`0,1 = (-1)^0× 10^(-1)× 1`*
 * *`0,25 = (-1)^0× 10^(-2)× 25`*
 * *`1/3 = (-1)^0× 10^(-beaucoup)× 33333.....`*
@@ -399,6 +398,7 @@ Par exemple, en faisant le choix de la base 10,  *`b=10`* :
 * *`-421000 = (-1)^1× 10^(3)× 421`*
 
 Mais lorsque la représentation se fait sur ordinateur, il est plus aisé d'avoir une base *`b=2`*.
+
 En base 2 le nombre 1,110001<sub>2</sub> est *`1+1/2+1/4+1/64`*.
 Voici quelques valeurs pour les puissances de 2 négatives :
 
@@ -431,6 +431,7 @@ Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de mani
 langage) qui n'affiche pas toutes les décimales stockées du nombre flottant.
 On peut cependant accéder à plus de décimales en utilisant par exemple les
 options de formattage de `format`. Attention aux yeux !
+
 ```python
 >>> .1
 0.1
@@ -631,7 +632,7 @@ Exemple :
 
 ### 4) Caractère séquentiel des expressions booléennes
 
-Les expressions booléennes sont évaluées de manière paresseuses : dès que le résultat est connu l'évaluation est stoppée.
+Les expressions booléennes sont évaluées de manière paresseuse mais efficace : dès que le résultat est connu l'évaluation est stoppée.
 
 Par exemple avec `a ET b ET c`. Si `a` est faux, `b` et `c` ne sont même pas
 évaluées puisque le résultat sera nécessairement faux.
