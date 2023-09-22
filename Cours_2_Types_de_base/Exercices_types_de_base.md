@@ -3,9 +3,7 @@
 ## Exercice 1
 
 1. Ecrire 52 sur un octet, c'est-à-dire sur 8 bits. Procéder à la main et vérifier dans la console.  
-2. Calculer la somme 100110 + 001101 en posant l'addition.   
-3. Traduire le calcul en décimal pour vérifier votre résultat.  
-4. Vérifier dans la console en utilisant la notation en base 2 : 0b......
+2. Calculer la somme 100110 + 001101 en posant l'addition. Traduire le calcul en décimal pour vérifier votre résultat. Vérifier dans la console en utilisant la notation en base 2 : 0b......
 
 ## Exercice 2
 
