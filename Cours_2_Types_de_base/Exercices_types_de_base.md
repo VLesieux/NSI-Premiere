@@ -2,7 +2,6 @@
 
 ## Exercice 1
 
-Les nombres sont écrits en binaire.
 1. Ecrire 52 sur un octet, c'est-à-dire sur 8 bits. Procéder à la main et vérifier dans la console.  
 2. Calculer la somme 100110 + 001101 en posant l'addition.   
 3. Traduire le calcul en décimal pour vérifier votre résultat.  
