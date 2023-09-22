@@ -127,7 +127,7 @@ Pour faire une découpe ou slice dans un mot, utiliser l'écriture mot[a:b] qui 
 '11'
 ```
 
-(6) Utiliser `conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))`
+(6) Utiliser les deux fonctions précédentes `conversion_decimal_binaire` et `conversion_hexadecimal_decimal`
 
 
 ## Exercice 4
