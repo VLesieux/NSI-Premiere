@@ -187,7 +187,7 @@ Ainsi: 0.1<sub>10</sub>=0.000110011001100110011001100110...<sub>2</sub>
 
 ## Exercice 8
 
-Vérifier, à l'aide d'une table de vérités, l'égalité suivante entre expressions booléennes : 
+1. Vérifier, à l'aide d'une table de vérités, l'égalité suivante entre expressions booléennes : 
 
 `a xor b = (a and not(b)) or (not(a) and b)`.
 
@@ -203,9 +203,7 @@ a | b | a xor b
 1 | 1 | 0
 
 
-## Exercice 9
-
-Comparer les résultats renvoyés par les trois fonctions suivantes, où x et y sont de type quelconque, sans les programmer en machine :
+2. Comparer les résultats renvoyés par les trois fonctions suivantes, où x et y sont de type quelconque, sans les programmer en machine :
 ```python
 def compare1(x,y):
     if x and y :
@@ -219,6 +217,68 @@ def compare2(x,y):
 def compare3(x,y):
     return not(not x or not y)
 ```
+
+## Exercice 9
+
+L'ASCII définit 128 caractères numérotés de 0 à 127 et codés en binaire de 0000000 à 1111111. Sept bits suffisent donc. Toutefois, les ordinateurs travaillant presque tous sur un multiple de huit bits (un octet) depuis les années 1970, chaque caractère d'un texte en ASCII est souvent stocké dans un octet dont le 8e bit est 0.
+
+<img src="Assets/ascii.png"> 
+
+Pour obtenir le code ASCII d'un caractère :
+
+```Python
+>>> ord("k")
+107
+```
+
+Écrire au préalable la fonction `conversion_decimal_binaire_complet` qui retourne un octet à partir d'une valeur décimale. Par rapport à la fonction `conversion_decimal_binaire` elle rajoute des 0 devant si nécessaire pour obtenir un octet.
+
+```Python
+def conversion_decimal_binaire_complet(n):
+    """
+    Donne la représentation binaire du nombre entier décimal n
+    param : n : int
+    return : str
+    >>> conversion_decimal_binaire_complet(18)
+    '00010010'
+    >>> conversion_decimal_binaire_complet(141)
+    '10001101'
+    """
+```
+
+Compléter maintenant la fonction ci-dessous : 
+
+```Python
+def encodage_texte_ascII_binaire(texte):
+    """
+    Code un texte ascII en binaire
+    param : texte : str
+    return : str
+    >>> encodage_texte_ascII_binaire("vive la nsi !")
+    '01110110011010010111011001100101001000000110110001100001001000000110111001110011011010010010000000100001'
+    """
+```
+
+Compléter maintenant la fonction ci-dessous qui permet de décoder le code binaire représentatif d'un texte.
+
+Pour obtenir le caractère correspondant à un code décimal, utiliser 
+
+```Python
+>>> chr(52)
+'4'
+```
+
+```Python
+def decodage_binaire_texte_ascII(code_binaire):
+    """
+    Décode Code un texte ascII en binaire
+    param : texte : str
+    return : str
+    >>> decodage_binaire_texte_ascII('01110110011010010111011001100101001000000110110001100001001000000110111001110011011010010010000000100001')
+    'vive la nsi !'
+    """
+```
+
 
 ## Exercice 10
 
