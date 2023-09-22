@@ -118,7 +118,7 @@ mot='0'*(4-len(mot)%4)+mot
 ```
 en effet `len(mot)%4` nous dit combien il reste de bits après avoir fait des découpes de 4.
 
-Pour faire une découpe ou slice dans un mot :
+Pour faire une découpe ou slice dans un mot, utiliser l'écriture mot[a:b] qui prend les caractères entre la position a comprise et la position b non comprise, par exemple:
 
 ```Python
 >>> mot="001100"
