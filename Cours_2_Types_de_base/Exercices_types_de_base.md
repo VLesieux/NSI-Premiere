@@ -3,19 +3,20 @@
 ## Exercice 1
 
 Les nombres sont écrits en binaire.
-1. Calculer la somme 100110 + 001101 en posant l'addition.
-2. Traduire le calcul en décimal.
-3. Vérifier dans la console en utilisant la notation en base 2 : 0b......
+1. Ecrire 52 sur un octet, c'est-à-dire sur 8 bits. Procéder à la main et vérifier dans la console.  
+2. Calculer la somme 100110 + 001101 en posant l'addition.   
+3. Traduire le calcul en décimal pour vérifier votre résultat.  
+4. Vérifier dans la console en utilisant la notation en base 2 : 0b......
 
 ## Exercice 2
 
 1. Déterminer à la main l'écriture hexadécimale (en base 16) du nombre qui s'écrit 172 en base dix.
 2. Donner l'écriture binaire du mot hexadécimal B3.
-3. Vérifier dans la console en utilisant la notation en base 16 : 0x...... puis bin()
+3. Vérifier l'égalité des écritures en écrivant dans la console : 0x...... == 0b...... 
 
 ## Exercice 3
 
-Compléter les fonctions suivantes
+Compléter les fonctions suivantes :
 
 ```Python
 def conversion_decimal_binaire(n):
@@ -99,24 +100,23 @@ if __name__ == "__main__":
 
 **Indications:**
 
-(1) Écrire l'algorithme de divisions successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas le nombre de tour de boucle, mais on peut écrire une boucle conditionnelle en utilisant `while`.    
+(1) Écrire l'algorithme de divisions successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas le nombre de tour de boucle mais on peut écrire une **boucle conditionnelle**  `while`.    
 
-(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera un boucle `for` en passant en revue les caractères du mot binaire. Penser à transformer une chaîne de caractères formée de nombres en nombre avec `int()`.   
+(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera pour cela une **boucle non conditionnelle** `for` en passant en revue les caractères du mot binaire. Penser à transformer une chaîne de caractères formée de nombres en nombre avec `int()`.   
 
 (3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.  
 
 (4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste ; il suffira de lui ajouter 10 pour trouver la valeur décimale de ce caractère si le caractère appartient à cette liste.
 
-(5) Rajouter au préalable des 0 au début du mot pour qu'il puisse être découpé en parties de 4 bits ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.    
+(5) Rajouter au préalable autant de 0 au début du mot pour qu'il puisse être découpé en parties de 4 bits ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.    
 
 (6) Utiliser `conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))`
 
 
 ## Exercice 4
 
-1. Comment code-t-on le nombre 9 sur 5 bits ?
-2. Comment code-t-on le nombre -15 sur 5 bits ? Réaliser les deux méthodes et vérifier.
-3. Comment se code - 56 sur le nombre de bit nécessaire à sa représentation ?
+1. Comment code-t-on le nombre -15 sur 5 bits ? Réaliser les deux méthodes et vérifier votre résultat final en réalisant l'addition binaire sur 5 bits : 15 + (-15).
+2. Comment se code - 56 sur le nombre de bit nécessaire à sa représentation ?
 
 ## Exercice 5
 
