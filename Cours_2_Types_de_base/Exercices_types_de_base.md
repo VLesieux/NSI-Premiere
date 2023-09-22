@@ -111,10 +111,11 @@ if __name__ == "__main__":
 
 (5) Ajouter au préalable autant de 0 au début du mot que nécessaire pour qu'il puisse être découpé en parties de 4 bits ; convertir chaque partie de 4 bits (utiliser slice[ : ]) en décimal, puis chaque valeur décimale en hexadécimal. 
 
-Pour rajouter des 0 à gauche du mot binaire afin que la longueur de celui-ci soit un multiple de 4 et qu'il puisse être découpé en parties de 4 bits, on peut écrire :
+Pour rajouter des 0 à gauche du mot binaire afin que sa longueur soit un multiple de 4 si ce n'est pas le cas, et qu'il puisse être découpé en parties de 4 bits, on peut écrire :
 
 ```Python
-mot='0'*(4-len(mot)%4)+mot   
+if len(mot)%4>0:
+    mot='0'*(4-len(mot)%4)+mot  
 ```
 en effet `len(mot)%4` nous dit combien il reste de bits après avoir fait des découpes de 4.
 
