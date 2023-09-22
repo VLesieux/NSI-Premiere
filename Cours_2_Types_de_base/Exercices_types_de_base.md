@@ -7,7 +7,7 @@
 
 ## Exercice 2
 
-1. Déterminer à la main l'écriture hexadécimale du nombre qui s'écrit décimal 172.
+1. Déterminer à la main l'écriture hexadécimale du nombre dont l'écriture décimale est 172.
 2. Donner l'écriture binaire du mot hexadécimal B3.
 3. Vérifier l'égalité des écritures en écrivant dans la console : 0x...... == 0b...... 
 
