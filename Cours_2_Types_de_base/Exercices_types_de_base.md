@@ -97,15 +97,34 @@ if __name__ == "__main__":
 
 **Indications:**
 
-(1) Écrire l'algorithme de divisions successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas le nombre de tour de boucle mais on peut écrire une **boucle conditionnelle**  `while`.    
+(1) Écrire l'algorithme de divisions euclidiennes successives par 2 aussi longtemps que le quotient est strictement positif ; on ne connaît pas d'avance le nombre de tour de boucle à effectuer mais on peut écrire une **boucle conditionnelle**  `while`.    
 
-(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera pour cela une **boucle non conditionnelle** `for` en passant en revue les caractères du mot binaire. Penser à transformer une chaîne de caractères formée de nombres en nombre avec `int()`.   
-
+(2) Les bits du mot binaire sont à multiplier par les puissances de 2 croissantes de droite à gauche à partir de 0 ; on fera pour cela une **boucle non conditionnelle** `for` en passant en revue les caractères du mot binaire. Penser à transformer une chaîne de caractères formée de nombres en nombre avec `int()`.
+  
+```Python
+>>> int('7')
+7
+```
 (3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.  
 
-(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste ; il suffira de lui ajouter 10 pour trouver la valeur décimale de ce caractère si le caractère appartient à cette liste.
+(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste ; il suffira d'ajouter 10 à cet indice de position pour trouver sa valeur décimale s'il appartient à cette liste.
 
-(5) Rajouter au préalable autant de 0 au début du mot pour qu'il puisse être découpé en parties de 4 bits ; convertir chaque partie (utiliser slice[ : ]) en décimal, puis en binaire.    
+(5) Ajouter au préalable autant de 0 au début du mot que nécessaire pour qu'il puisse être découpé en parties de 4 bits ; convertir chaque partie de 4 bits (utiliser slice[ : ]) en décimal, puis chaque valeur décimale en hexadécimal. 
+
+Pour rajouter des 0 à gauche du mot binaire afin que la longueur de celui-ci soit un multiple de 4 et qu'il puisse être découpé en parties de 4 bits, on peut écrire :
+
+```Python
+mot='0'*(4-len(mot)%4)+mot   
+```
+en effet `len(mot)%4` nous dit combien il reste de bits après avoir fait des découpes de 4.
+
+Pour faire une découpe ou slice dans un mot :
+
+```Python
+>>> mot="001100"
+>>> mot[2:4]
+'11'
+```
 
 (6) Utiliser `conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))`
 
