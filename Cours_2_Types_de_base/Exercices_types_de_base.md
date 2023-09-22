@@ -222,7 +222,7 @@ def compare3(x,y):
 
 L'ASCII définit 128 caractères numérotés de 0 à 127 et codés en binaire de 0000000 à 1111111. Sept bits suffisent donc. Toutefois, les ordinateurs travaillant presque tous sur un multiple de huit bits (un octet) depuis les années 1970, chaque caractère d'un texte en ASCII est souvent stocké dans un octet dont le 8e bit est 0.
 
-<img src="Assets/ascii.png"> 
+<img src="assets/ascii.png"> 
 
 Pour obtenir le code ASCII d'un caractère :
 
