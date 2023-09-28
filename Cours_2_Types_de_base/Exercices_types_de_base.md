@@ -137,10 +137,12 @@ Pour faire une découpe ou slice dans un mot, utiliser l'écriture `mot[a:b]` qu
 
 ## Exercice 5
 
-Écrire le nombre 3,625 en binaire.
-Proposer deux méthodes :  
+En proposant deux méthodes :  
 - une méthode utilisant la décomposition en puissances négatives de 2.  
 - une méthode utilisant le décalage à gauche suite à la multiplication par 2
+
+1. Écrire le nombre 3,625 en binaire.
+2. Écrire le nombre 2,6875 en binaire.
 
 ## Exercice 6
 
