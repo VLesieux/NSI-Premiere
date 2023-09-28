@@ -14,28 +14,6 @@ def conversion_decimal_binaire(n):
         n=n//2
     return resultat
         
-def conversion_decimal_binaire_complet(n):
-    """
-    Donne la représentation binaire du nombre entier décimal n
-    param : n : int
-    return : str
-    >>> conversion_decimal_binaire_complet(18)
-    '00010010'
-    >>> conversion_decimal_binaire_complet(141)
-    '10001101'
-    """
-    resultat=""
-    while n>0:
-        resultat=str(n%2)+resultat
-        n=n//2
-    if len(resultat)%8>0:
-        resultat='0'*(8-len(resultat)%8)+resultat
-    return resultat
-#nombre=input("Quel est le nombre dont vous voulez connaître la représentation binaire ? ")
-#
-#print("La représentation binaire de",nombre,"est : ",conversion_decimal_binaire(int(nombre)))
-
-
 def conversion_binaire_decimal(mot):
     """
     Donne la représentation binaire du nombre entier décimal n
@@ -121,34 +99,6 @@ def conversion_hexadecimal_binaire(mot):
     """
     resultat=conversion_decimal_binaire(conversion_hexadecimal_decimal(mot))
     return resultat
-
-
-def encodage_texte_ascII_binaire(texte):
-    """
-    Code un texte ascII en binaire
-    param : texte : str
-    return : str
-    >>> encodage_texte_ascII_binaire("vive la nsi !")
-    '01110110011010010111011001100101001000000110110001100001001000000110111001110011011010010010000000100001'
-    """
-    resultat=""
-    for caractere in texte:
-        resultat+=conversion_decimal_binaire_complet(ord(caractere))
-    return resultat
-        
-def decodage_binaire_texte_ascII(code_binaire):
-    """
-    Décode Code un texte ascII en binaire
-    param : texte : str
-    return : str
-    >>> decodage_binaire_texte_ascII('01110110011010010111011001100101001000000110110001100001001000000110111001110011011010010010000000100001')
-    'vive la nsi !'
-    """
-    resultat=''
-    for i in range(len(code_binaire)//8):
-        resultat+=chr(conversion_binaire_decimal(code_binaire[i*8:i*8+8]))   
-    return resultat
-
 
 
 if __name__ == "__main__":
