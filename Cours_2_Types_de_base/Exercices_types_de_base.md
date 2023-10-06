@@ -284,8 +284,9 @@ def decodage_binaire_texte_ascII(code_binaire):
 
 ## Exercice 10
 
-Les [couleurs](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal. 
-Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu. L'écriture binaire en 3 octets est aussi possible :
+Les [couleurs](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
+Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu.  
+L'écriture binaire en 3 octets (1 octet pour chacune des couleurs primaires dans la synthèse additive des couleurs) est aussi possible :
 11000111 11100001 10000000 ; ce qui correspond aux niveaux : 199, 225, 128.
 
 Montrer que l'on peut utiliser le masque 0xFF ou 0b11111111 pour extraire le niveau de bleu selon :
@@ -298,7 +299,7 @@ True
 >>> hex(code & mask)
 '0x80'
 ```
-Montrer que l'on peut extraire le niveau de rouge selon :
+Montrer que l'on peut extraire le niveau de vert selon :
 
 ```python
 >>> code=0xC7E180
@@ -307,5 +308,5 @@ Montrer que l'on peut extraire le niveau de rouge selon :
 '0xe1'
 ```
 
-Montrer comment extraire le niveau de vert avec ce masque.
+Montrer comment extraire le niveau de rouge avec ce masque.
 
