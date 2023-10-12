@@ -240,6 +240,45 @@ On cherche à accéder à la température la plus élevée. Proposer un code.
 > Exemple 8 : Écrire une fonction construitTable(L,C) capable de construire un tableau de L lignes et C colonnes, contenant les entiers consécutifs de 0 à n-1 où n représente le produit L*C.
 Ainsi construitTable(2,3) renvoie [ [0, 1, 2],[3, 4, 5] ].
 
+**Attention :**  
+
+```Python
+>>> liste=[[0]*3]*2
+>>> liste[0][1]=1
+>>> liste
+[[0, 1, 0], [0, 1, 0]]
+
+>>> liste=[[0 for i in range(3)] for i in range(2)]
+>>> liste[0][1]=1
+>>> liste
+[[0, 1, 0], [0, 0, 0]]
+```
+
+
+```Python
+def construitTable(L,C):
+    """
+    Renvoie un tableau de L lignes et C colonnes
+    contenant les entiers compris entre 0 et L*C-1
+    param : L, C : int
+    return : list
+    >>> construitTable(2,3)
+    [[0, 1, 2], [3, 4, 5]]
+    >>> construitTable(3,4)
+    [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]]
+    """
+	pass
+
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+```
+
+
+
+
+
+
 3) `dict` : dictionnaire
 
 ```Python

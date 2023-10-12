@@ -65,7 +65,8 @@ def mystere(liste1,liste2):
     return liste
 ```
 On appelle cette fonction avec l'instruction mystere([2,5,6,8],[1,4,7,8,9]). Quel est le résultat renvoyé ?   
-Le trouver d'abord avec un crayon avant de tester sur machine.
+Le trouver d'abord avec un crayon avant de tester sur machine.   
+Vérifier l'évolution des variables liste1,liste2,liste avec le debugger.
 
 
 ## Exercice 4
