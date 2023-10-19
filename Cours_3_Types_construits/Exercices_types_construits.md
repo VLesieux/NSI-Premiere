@@ -309,7 +309,7 @@ def calcul_distance_totale(dictionnaire):
     """
 ```
 
-3. En déduire une fonction `calcul_distance_polygone` qui calcule la longueur totale du chemin : AB + BC + CD + DA, ou périmètre du plygone, et qui peut s'appliquer à n'importe quelle série de points fournie sous la forme d'un dictionnaire.
+3. En déduire une fonction `calcul_distance_polygone` qui calcule la longueur totale du chemin : AB + BC + CD + DA, ou périmètre du polygone, et qui peut s'appliquer à n'importe quelle série de points fournie sous la forme d'un dictionnaire.
 
 
 ```Python
