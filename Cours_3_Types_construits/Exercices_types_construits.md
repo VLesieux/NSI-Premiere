@@ -241,7 +241,7 @@ def points(mot):
     >>> points('RESSAC')
     14
     >>> points('ECRASES')
-    13
+    11
     """
 ```
 
@@ -262,11 +262,11 @@ Exemple :
 ```Python
 def classement_mots(possibles):
     """
-    Renvoie un dictionnaire associant mot et valeur avec les valeurs rangées dans l'ordre décroissant
+    Renvoie un dictionnaire avec les valeurs des possibles dans l'ordre décroissant
     param : possibles : tuple
-    return : dict
+    return : int
     >>> classement_mots(("CASSER","RESSAC","ECRASES"))
-    {'RESSAC': 14, 'ECRASES': 13, 'CASSER': 10}
+    {'RESSAC': 14, 'ECRASES': 11, 'CASSER': 10}
     """
 ```
 
