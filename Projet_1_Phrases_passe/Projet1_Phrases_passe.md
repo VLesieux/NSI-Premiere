@@ -532,7 +532,7 @@ Voici un exemple de ce que vous devez obtenir :
 >>> genere_phrase_passe('111116666624521')
 'montes-tour-morigener'
 >>> genere_phrase_passe('1141116666624521')
-la longueur de la chaîne doit être un multiple de 5
+'la longueur de la chaîne doit être un multiple de 5'
 ```
 
 Indication : 
