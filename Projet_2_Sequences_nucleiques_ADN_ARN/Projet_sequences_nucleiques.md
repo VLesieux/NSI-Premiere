@@ -109,7 +109,7 @@ def estADN(chaine):
 
 ### Question 2 
 
-Réaliser une fonction nommée `baseComplementaire` qui renvoie la base complémentaire de la base passée en paramètre, selon le type de séquence démandée en sortie, qui peut être soit 'ADN', soit 'ARN'.
+Réaliser une fonction nommée `baseComplementaire` qui renvoie la base complémentaire de la base passée en paramètre, selon le type de séquence démandée **en sortie**, qui peut être soit 'ADN', soit 'ARN'.
 
 ```python
 def baseComplementaire(base,chaine):
