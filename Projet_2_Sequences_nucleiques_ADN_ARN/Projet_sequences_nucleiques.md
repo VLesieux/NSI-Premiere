@@ -187,7 +187,7 @@ True
 
 ### Question 5
 
-Réaliser une fonction nommée `réplique` qui construit la séquence ADN complémentaire et inversée de celle passée en paramètre.
+Réaliser une fonction nommée `réplique` qui construit la séquence ADN complémentaire et renversée de celle passée en paramètre.
 Cette fonction utilise la fonction `baseComplementaire`.
 
 ```python
@@ -199,4 +199,12 @@ def replique(sequence):
     >>> replique('ACTG')
     'CAGT'
     """
+```  
+
+**Indication** : Pour renverser une chaîne de caractères, encore une fois le slicing, avec un pas négatif.
+
+```python
+>>> sequence='ACTG'
+>>> sequence[::-1]
+'GTCA'
 ```  
