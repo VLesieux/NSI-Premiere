@@ -176,7 +176,7 @@ def traduit(sequence):
 1) Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.     
 Réaliser un parcours de ce dictionnaire à l'aide du code `for cle,val in code.items()`.
 
-2) 
+2) Appartenance à un tuple :
 
 ```python
 >>> 'GAC' in ('GAU','GAC')
