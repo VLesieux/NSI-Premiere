@@ -28,7 +28,7 @@ Il est composé des 4 **nucléotides** suivants :
 
 4) La **transcription** : certaines parties spécifiques de l'ADN sont transcrites en ARN. 
 
-La transcription consiste en l'assemblage des nucléotides ARN en suivant le modèle ADN et en prenant les **bases complémentaires** à savoir : 
+La transcription consiste en l'assemblage des nucléotides ARN en suivant le modèle ADN et en prenant les **bases complémentaires** de chaque base à savoir : 
 
 - le A de l'ADN est remplacé par le U dans l'ARN  
 - le T par le A   
