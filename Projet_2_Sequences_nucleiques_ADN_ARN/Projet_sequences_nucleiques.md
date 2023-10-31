@@ -5,6 +5,7 @@
 ## Quelques connaissances en biologie moléculaire
 
 1) **ADN** : c'est le support stable et transmissible de l'information génétique.  
+
 Il est composé des 4 **nucléotides** suivants, appelés aussi **bases** :   
 
 - A : Adénine 
@@ -14,7 +15,8 @@ Il est composé des 4 **nucléotides** suivants, appelés aussi **bases** :
 
 Dans l'ADN, les bases A et T sont **complémentaires** ainsi que les bases G et C (cf.image)
 
-2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique. 
+2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique.   
+
 Il est composé des 4 **nucléotides** suivants :
 
 - A : Adénine 
@@ -35,12 +37,13 @@ La transcription consiste en l'assemblage des nucléotides ARN en suivant le mod
 
 5) La **traduction** : les ARN messagers sont traduits en protéine.  
 Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés se fait à l'aide du **code génétique**. 
-Chaque **acide aminé** est représenté sur l'ADN par un triplet de bases appelé **codon**.      
+
+Chaque **acide aminé** est représenté sur l'ADN par un **triplet** de bases appelé **codon**.      
 Il est possible de construire 4^3=64 codons différents à l'aide de 4 bases (4 possibilités pour le premier, idem pour le second, idem pour le troisième). 
 Ce code est donc dégénéré ; plusieurs codons correspondent au même acide aminé.       
 Les codons sont lus sans chevauchement, les uns à la suite des autres.       
 La table ci-dessous donne la traduction des codons en acides aminés dans le code génétique standard.       
-Par exemple, l'acide aminé qui correspond à la phénylalanine et qui est désigné par la lettre F par l'Union internationale de biochimie et de biologie moléculaire est encodé sur les ARN messagers par les codons UUU et UUC.      
+Par exemple, l'acide aminé qui correspond à la phénylalanine et qui est désigné par la lettre F (par l'Union internationale de biochimie et de biologie moléculaire) est encodé sur les ARN messagers par les codons UUU et UUC.      
 
 ```python
 'UUU','UUC' : 'F'   
@@ -122,7 +125,7 @@ def baseComplementaire(base,chaine):
     """
 ```
 
-**Indication** : réaliser deux dictionnaires `vers_ARN` et `vers_ADN`.
+**Indication** : réaliser deux dictionnaires `complement_ARN` et `complement_ADN`.
 
 
 ### Question 3
@@ -134,7 +137,7 @@ Attention, la première base de la séquence est numérotée ici 1.
 def transcrit(sequence,debut,fin):
     """
     Renvoie l'ARN construit à partir de la sous-séquence d'ADN comprise entre les deux positions
-    passées en paramètres incluses.
+    passées en paramètres incluses, attention numérotation à partir de 1
     param : sequence : str
     param : debut : int
     param : fin : int
