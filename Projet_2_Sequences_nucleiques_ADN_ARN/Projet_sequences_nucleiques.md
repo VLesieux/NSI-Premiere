@@ -150,7 +150,7 @@ def transcrit(sequence,debut,fin):
 **Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères illustré ci-dessous et la fonction précédente `baseComplementaire`.
 
 ```python
->>> "animal"[1:4]
+>>> "animal"[1:4]#1 pris, 4 exclu
 'nim' 
 ```  
 
