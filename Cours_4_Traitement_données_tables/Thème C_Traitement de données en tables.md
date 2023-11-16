@@ -420,7 +420,8 @@ def fusion(table1,i1,table2,i2):
 >>> t1
 [['France', 67, 643], ['Espagne', 127, 242]]
 #on a bien réussi à créer une nouvelle version étendue de table1 avec les champs supplémentaires apportés par table2
-#on observe que la copie profonde n'a pas modifié la version première de table1, ce qui peut être intéressant.```
+#on observe que la copie profonde n'a pas modifié la version première de table1, ce qui peut être intéressant.
+```
 
 On peut également construire une nouvelle liste de champs.
 
