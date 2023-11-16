@@ -246,37 +246,37 @@ On souhaite écrire une fonction capable de renvoyer sous forme de liste uniquem
 
 Cherchons à éliminer les **doublons** qui auraient par exemple tous les deux le même nom de pays.   
 
-Premier cas : supposons que la table est déjà triée suivant les noms.  
-Dans ce cas, il suffit de comparer les lignes de la table avec la dernière ligne enregistrée dans la nouvelle table.   
-L'indice -1 correspond en effet au dernier élément placé dans la liste.
+- Premier cas : supposons que la table est déjà triée suivant les noms, de sorte que les doublons se succède dans la table.  
+Dans ce cas, il suffit de comparer la nouvelle ligne de la table avec la dernière ligne enregistrée.   
+Pour cela l'indice -1 correspond au dernier élément placé dans la liste.
 
 ```python
 def sans_doublons(table,indice):
-    rep=[table[0]]
+    resultat=[table[0]]
     for ligne in table:
-        if ligne[indice] != rep[-1][indice]:
-            rep.append(ligne)
-    return rep
+        if ligne[indice] != resultat[-1][indice]:
+            resultat.append(ligne)
+    return resultat
 ```
 
-Deuxième cas : supposons que la table n'est pas déjà été triée suivant les noms.     
+- Deuxième cas : supposons que la table n'est pas déjà été triée suivant les noms.     
 Le principe est le suivant : pour chaque nouvelle ligne ajoutée, il faut vérifier son absence dans la nouvelle table.
 
 ```python
 
 def sans_doublons(table,indice):
-    rep=[table[0]]
+    resultat=[table[0]]
     for i in range(1,len(table)):
         test=True
         ligne=table[i]
         valeur=ligne[indice]
-        for j in range(len(rep)):
-            if rep[j][indice]==valeur:
+        for j in range(len(resultat)):
+            if resultat[j][indice]==valeur:
                 test=False
                 break
         if test:
-            rep.append(ligne)
-    return rep
+            resultat.append(ligne)
+    return resultat
 ```
 
 Exemple :
