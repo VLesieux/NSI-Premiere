@@ -106,10 +106,7 @@ Par exemple :
 'ceci est un texte présentant quatre * en fin de ligne'
 ```
 
-[Remarque : définition de `strip` : to remove something that covers something
-
-Examples : We spent the weekend stripping wallpaper.
-The wind had stripped the leaves from the trees.]
+[Remarque : définition de `strip` : to remove something that covers something]
 
 - str.split(';') qui renvoie une liste en utilisant ';' comme **séparateur**
 
@@ -120,11 +117,7 @@ Par exemple :
 ['Autriche', 'Europe', '83871.0', '8754400', 'Vienne']
 ```
 
-[Remarque : définition de `split` : to divide into smaller groups, or to divide people into smaller groups
-
-Examples : Let’s split into groups and work separately.
-
-Many American families are split by large geographical distances.]
+[Remarque : définition de `split` : to divide into smaller groups, or to divide people into smaller groups]
 
 En utilisant un `.` pour les séparer, les deux méthodes peuvent s'appliquer à la suite sur chaque ligne qui compose le document.
 
@@ -249,7 +242,6 @@ On souhaite écrire une fonction capable de renvoyer sous forme de liste uniquem
 ['Hopper', 'Lovelace']
 ```
 
-
 ### 4) Élimination de doublons dans une table de données
 
 Cherchons à éliminer les **doublons** qui auraient par exemple tous les deux le même nom de pays.   
@@ -259,6 +251,7 @@ Dans ce cas, il suffit de comparer les lignes de la table avec la dernière lign
 L'indice -1 correspond en effet au dernier élément placé dans la liste.
 
 ```python
+def sans_doublons(table,indice):
     rep=[table[0]]
     for ligne in table:
         if ligne[indice] != rep[-1][indice]:
@@ -270,6 +263,7 @@ Deuxième cas : supposons que la table n'est pas déjà été triée suivant les
 Le principe est le suivant : pour chaque nouvelle ligne ajoutée, il faut vérifier son absence dans la nouvelle table.
 
 ```python
+
 def sans_doublons(table,indice):
     rep=[table[0]]
     for i in range(1,len(table)):
