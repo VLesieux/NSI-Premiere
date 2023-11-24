@@ -232,10 +232,12 @@ def denombre(departement,table):
 
 3. Quel est le nom du cinéma d'Île de France (tous départements confondus) qui a fait le plus d'entrée en 2020 ? Quel est son son nombre d'entrée ?
 
+Penser à transformer le nombre d'entrées de chaîne de caractères à valeur numérique avec float.
+
 ```Python
 def cinema_plus_d_entree(table):
     """
-    Renvoie le nom du cinéma qui a fait le plus d'entrée
+    Renvoie le nom du cinéma qui a fait le plus d'entrée et son nombre d'entrée
     param : table : list
     return : str
     >>> cinema_plus_d_entree(table_des_donnees)
@@ -250,9 +252,9 @@ def cinema_plus_d_entree_par_code(table,code):
     """
     Renvoie le nom du cinéma qui a fait le plus d'entrée et son nombre d'entrée
     param : table : list
-    param : code : int (#attention, penser à convertir la donnée str en int)
+    param : code : str
     return : str
-    >>> cinema_plus_d_entree_par_code(table_des_donnees,95)
+    >>> cinema_plus_d_entree_par_code(table_des_donnees,"95")
     ('MEGARAMA', 150948.0)
     """
 ```
