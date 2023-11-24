@@ -239,7 +239,7 @@ def cinema_plus_d_entree(table):
     param : table : list
     return : str
     >>> cinema_plus_d_entree(table_des_donnees)
-    ('LES 2 SCENES', '9987.0')
+    ('UGC CINE CITE LES HALLES', 1082659.0)
     """
 ```
 
@@ -253,7 +253,7 @@ def cinema_plus_d_entree_par_code(table,code):
     param : code : int (#attention, penser à convertir la donnée str en int)
     return : str
     >>> cinema_plus_d_entree_par_code(table_des_donnees,95)
-    ('STUDIO CINE', '9939.0')
+    ('MEGARAMA', 150948.0)
     """
 ```
 
