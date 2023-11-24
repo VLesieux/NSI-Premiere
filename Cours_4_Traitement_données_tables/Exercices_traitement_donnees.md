@@ -248,7 +248,7 @@ def cinema_plus_d_entree(table):
 ```Python
 def cinema_plus_d_entree_par_code(table,code):
     """
-    Renvoie le nom du cinéma qui a fait le plus d'entrée
+    Renvoie le nom du cinéma qui a fait le plus d'entrée et son nombre d'entrée
     param : table : list
     param : code : int (#attention, penser à convertir la donnée str en int)
     return : str
