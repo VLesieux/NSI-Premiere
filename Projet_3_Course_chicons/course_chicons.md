@@ -40,7 +40,9 @@ Pour le petit jeu de données, on doit obtenir l'affichage :
      
 On observe que les coureurs sont classés d'après leur performance à la course et que ceux qui ont abandonné la course apparaissent en dernier dans l'ordre alphabétique.
 
+Toutes les fonctions proposées doivent être accompagnées d'une docstring avec au moins un exemple à valider.
 
-      
-
-
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
