@@ -12,9 +12,9 @@ La course du chicon
 Introduction
 ------------
 
-Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord frontalière de la Belgique, la "course du chicon".
+Le dimanche 27 octobre 2019 a eu lieu à Baisieux, commune du Nord frontalière de la Belgique, la "course du chicon", course qui s'effectue sur 15 km.
 
-Cette course se décline sur plusieurs distances de 15 km à 0.5 km. Nous ne nous intéresserons dans ce TP qu'à la version de 15 km.
+Avant le lancement de la course, un brassard numéroté est donné aux inscrits dans l'ordre dans lequel ils ont été inscrits. Lorsque le coureur franchit la ligne d'arrivée, son temps de course est associé à son numéro de brassard.
 
 Vous imaginez que vous avez la responsabilité du traitement informatique des données : gestion des inscriptions, récolte des performances des concurrents, publication des résultats.
 
@@ -38,7 +38,7 @@ Pour le petit jeu de données, on doit obtenir l'affichage :
      [9]: Avelaine CinqMars (F - 14/2/1983)=> None
      [2]: Paien Gilbert (M - 26/11/1953)=> None
      
-On observe que les inscrits sont classés d'après leur performance à la course et que les non-inscrits apparaissent en dernier dans l'ordre alphabétique.
+On observe que les coureurs sont classés d'après leur performance à la course et que ceux qui ont abandonné la course apparaissent en dernier dans l'ordre alphabétique.
 
 
       
