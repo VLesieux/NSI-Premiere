@@ -27,17 +27,19 @@ Dans le dossier `assets` se trouvent le sous-dossier [`data/`](./data) : il cont
 L'objectif à atteindre est de publier les résultats de la course.   
 Pour le petit jeu de données, on doit obtenir l'affichage :
 
-     [7]: Archard Rivard (M - 10/6/1950)=>  0h 46mn 31s
-     [8]: Cheney Chassé (M - 21/3/1949)=>  0h 48mn 10s
-     [4]: Saville Marier (M - 19/11/1969)=>  0h 56mn 29s
-     [5]: Namo Lereau (M - 26/3/1980)=>  1h 6mn 20s
-     [10]: Sidney Charest (M - 5/3/1981)=>  1h 6mn 38s
-     [1]: Sidney Robert (M - 21/7/1970)=>  1h 8mn 55s
-     [6]: Romaine Hughes (F - 17/10/1943)=>  1h 17mn 8s
-     [3]: Vincent Riquier (M - 16/9/1980)=>  1h 21mn 23s
-     [9]: Avelaine CinqMars (F - 14/2/1983)=> None
-     [2]: Paien Gilbert (M - 26/11/1953)=> None
-     
+```python
+[7]: Archard Rivard (M -10/6/1950)=> 0h 46mn 31s
+[8]: Cheney Chassé (M -21/3/1949)=> 0h 48mn 10s
+[4]: Saville Marier (M -19/11/1969)=> 0h 56mn 29s
+[5]: Namo Lereau (M -26/3/1980)=> 1h 6mn 20s
+[10]: Sidney Charest (M -5/3/1981)=> 1h 6mn 38s
+[1]: Sidney Robert (M -21/7/1970)=> 1h 8mn 55s
+[6]: Romaine Hughes (F -17/10/1943)=> 1h 17mn 8s
+[3]: Vincent Riquier (M -16/9/1980)=> 1h 21mn 23s
+[2]: Paien Gilbert (M -26/11/1953)=> None
+[9]: Avelaine CinqMars (F -14/2/1983)=> None
+```  
+   
 On observe que les coureurs sont classés d'après leur performance à la course et que ceux qui ont abandonné la course apparaissent en dernier dans l'ordre alphabétique.
 
 Toutes les fonctions proposées doivent être accompagnées d'une docstring avec au moins un exemple à valider.
@@ -46,3 +48,12 @@ Toutes les fonctions proposées doivent être accompagnées d'une docstring avec
 if __name__ == '__main__':
     import doctest
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```  
+    
+On pourra utiliser pour le formatage de la chaîne de caractères :
+
+```python
+>>> n=0
+print(f"La valeur de n est : {n}")
+La valeur de n est : 0
+``` 
