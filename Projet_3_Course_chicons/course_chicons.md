@@ -21,7 +21,7 @@ Vous imaginez que vous avez la responsabilité du traitement informatique des do
 Objectif
 -----------
 
-Dans le dossier `assets` se trouvent le sous-dossier [`data/`](./data) : il contient deux jeux de données dans quatre fichiers de données : un petit jeu  de données pour faire des tests simples `small_inscrits.csv` et `small_performances.csv`, et un gros jeu de données `inscrits.csv` et `performances.csv`.
+Dans le dossier `assets` se trouve le sous-dossier [`data/`](./data) : il contient deux jeux de données dans quatre fichiers de données : un petit jeu  de données pour faire des tests simples `small_inscrits.csv` et `small_performances.csv`, et un gros jeu de données `inscrits.csv` et `performances.csv`.
 
 
 L'objectif à atteindre est de publier les résultats de la course.   
@@ -40,7 +40,7 @@ Pour le petit jeu de données, on doit obtenir l'affichage :
 [9]: Avelaine CinqMars (F -14/2/1983)=> None
 ```  
    
-On observe que les coureurs sont classés d'après leur performance à la course et que ceux qui ont abandonné la course apparaissent en dernier dans l'ordre alphabétique.
+On observe que les coureurs sont classés d'après leur performance durant la course et que ceux qui ont abandonné la course apparaissent en dernier avec l'indication None.
 
 Toutes les fonctions proposées doivent être accompagnées d'une docstring avec au moins un exemple à valider.
 
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```  
     
-On pourra utiliser pour le formatage de la chaîne de caractères :
+On pourra utiliser pour le formatage des chaînes de caractères :
 
 ```python
 >>> n=0
