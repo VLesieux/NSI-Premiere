@@ -11,7 +11,7 @@ def est_valide(i,j,n,m):
     >>> est_valide(-3, 4, 10, 10)
     False
     """
-    if i>=0 and i<=n-1 and j>=0 and j<=n-1:
+    if i>=0 and i<=n-1 and j>=0 and j<=m-1:
         return True
     else:
         return False
