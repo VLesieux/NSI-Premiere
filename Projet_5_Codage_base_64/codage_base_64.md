@@ -98,37 +98,172 @@ Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, l
 		  
 Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 	
-### Exercices à faire manuellement
+### Fonction `to_base64` programmée de deux méthodes différentes
 
-1. Codez la séquence d'octets (12, 133, 4, 32, 178, 200, 44, 177). Dans la console, utilisez `bin()`.
-2. Décodez la chaîne de caractères `Hyk7Ag==`.
-3. Quels sont les symboles possibles précédent un simple symbole `=` ? Même question pour un double.
-4. Si on code une donnée constituée de `n` octets, exprimez en fonction de `n` la longueur de la chaîne de caractères obtenue en incluant les éventuels symboles `=`.
+On se munit d'une table définissant les 64 symboles de la base 64.
 
-## Programmation en Python
+```python
+BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                  'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+                  'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+                  'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+                  'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                  'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
+                  'w', 'x', 'y', 'z', '0', '1', '2', '3',
+                  '4', '5', '6', '7', '8', '9', '+', '/']
+```
 
-### Rappels sur les entiers littéraux
+Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un tuple d'octets (donnés chacun de façon décimale) en une chaîne de symboles de la base 64, ainsi que l'opération inverse de décodage.
 
-* écriture usuelle décimale
-* possibilité d'écrire 
-  
-    - en binaire (base 2) en préfixant par les littéraux par `0b`
-  
-    ```python
-	>>> 0b10100
-	20
-	>>> -0b11 * 0b10100
-	-60
-  	```
-  
-	- en hexadécimal (base 16) en préfixant par les littéraux par `0x`
-	
-	```python
-	>>> 0x14
-	20
-	>>> -0x3 * 0x14
-	-60
-	```
+Code pour la vérification des docstring :
+
+```python
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
+------------
+**Première méthode** : Réalisez la fonction `to_base64_slice(n_uplet)` en suivant les indications ci-dessous
+
+a) Compléter la fonction `conversion_binaire_decimal(mot_binaire)` qui retourne la valeur décimale d'un mot binaire.     
+
+```python
+def conversion_binaire_decimal(mot_binaire):
+    """
+    Renvoie la valeur décimale d'un mot binaire
+    param : mot_binaire
+    return : int
+    >>> conversion_binaire_decimal("00101")
+    5
+    """
+```
+
+b) Compléter la fonction `conversion_decimal_binaire_6bits(nombre)` qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 6 bits.
+
+```python
+def conversion_decimal_binaire_6bits(nombre):
+    """
+    Renvoie le code binaire sur 6 bits
+    param : dec : int
+    return : str
+    >>> conversion_decimal_binaire_6bits(3)
+    '000011'    
+    """
+```
+
+c) Compléter la fonction `conversion_decimal_binaire_8bits(nombre)` qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout d'un ou de plusieurs 0 pour aller jusque 8 bits.
+
+```python
+def conversion_decimal_binaire_8bits(nombre):
+    """
+    Renvoie le code binaire sur 8 bits
+    param : dec : int
+    return : str
+    >>> conversion_decimal_binaire_8bits(3)
+    '00000011'    
+    """
+```
+
+d) Créer un dictionnaire appelé `equivalence` qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On réalisera la création de ce dictionnaire **par compréhension**.
+
+Pour gagner du temps, on utilisera ici la liste appelée `lettres` donnée ci-dessous (qui respecte la position des caractères dans la table) et on reprendra la fonction précédente `conversion_decimal_binaire_6bits(dec)`.
+
+En d'autres termes, on réalise un dictionnaire où la clé est un caractère situé à l'indice de position i dans la liste `lettres` et la valeur la conversion binaire sur 6 bits de ce même entier i.
+
+```python
+lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"]
+```
+
+Exemple à vérifier dans la console : 
+
+```python
+>>> equivalence['B']
+'000001'
+```
+
+e) Compléter la fonction `get_in_dictionary(sixtet)` qui renvoie la clé du dictionnaire `equivalence` à partir de la donnée du sixtet.  
+
+
+```python 
+def get_in_dictionary(sixtet):
+    """
+    Renvoie la clé du dictionnaire à partir du sixtet
+    param : str
+    return : str
+    >>> get_in_dictionary('000001')
+    'B'
+    """
+```
+
+f) Compléter la fonction `sequence_binaire(n_uplet)` qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres).   
+Pour cela, utiliser la fonction précédente : `conversion_decimal_binaire_8bits(dec)`.     
+     
+```python
+def sequence_binaire(n_uplet):
+    """
+    Renvoie un mot binaire à partir d'un tuple d'octet
+    param : n_uplet : tuple
+    return : str
+    >>> sequence_binaire((105,86,66))
+    '011010010101011001000010'
+    """
+```
+g) Réaliser un découpage dans la chaîne de caractères appelée `sequence` en utilisant le `slicing` d'une chaîne de caractères. Des explications sont données ci-après.
+
+```python
+def to_base64_slice(n_uplet):
+    '''
+    convertit le tuple d'octets en une chaîne de symboles    
+    :param n_uplet:  tuple : une séquence d'octets
+    :return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
+    :CU: les entiers du tuple tous compris entre 0 et 255
+    :Exemples:
+    >>> to_base64_slice((18, 184, 156))
+    'Eric'
+    >>> to_base64_slice((18, 184))
+    'Erg='
+    >>> to_base64_slice((18,))
+    'Eg=='
+    '''
+```
+
+Exemple de `slicing` : 
+
+```python
+>>> s="parapluie"
+>>> s[4:9]#4 compris, 9 exclu
+'pluie'
+```
+
+Faire un schéma peut nous aider.   
+Trois cas sont en effet à distinguer.  
+**Premier cas** : le nombre de bits est un multiple de 6, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6.  
+**Deuxième cas** : le reste de la division du nombre de bits par 6 est égal à 4. On ajoute '00' à la séquence, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6, et on ajoute au code '='.   
+**Troisième cas** : le reste de la division du nombre de bits par 6 est égal à 2. On ajoute '0000' à la séquence, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6, et on ajoute au code '=='.   
+
+<img src="assets/schema.png">
+
+------------
+**Deuxième méthode** :
+
+On se propose de réaliser maintenant la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
+
+```python
+def to_base64_logique(n_uplet):
+    '''
+    convertit le tuple d'octets en une chaîne de symboles    
+    :param n_uplet:  tuple : une séquence d'octets
+    :return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
+    :CU: les entiers du tuple tous compris entre 0 et 255
+    :Exemples:
+    >>> to_base64_logique((18, 184, 156))
+    'Eric'
+    >>> to_base64_logique((18, 184))
+    'Erg='
+    >>> to_base64_logique((18,))
+    'Eg=='
+    '''
+```    
 
 ### Rappels sur les opérations logiques sur les entiers
 
@@ -180,190 +315,6 @@ En plus de ces opérations logiques, Python propose deux opérateurs de décalag
 	32
 	```
 
-### Base 64 programmée en Python
-
-On se munit d'une table définissant les 64 symboles de la base 64.
-
-```python
-BASE64_SYMBOLS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
-                  'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-                  'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                  'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
-                  'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-                  'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-                  'w', 'x', 'y', 'z', '0', '1', '2', '3',
-                  '4', '5', '6', '7', '8', '9', '+', '/']
-```
-
-Armé de cette table et des opérations logiques présentées ci-dessus, il est facile de programmer l'encodage d'un tuple d'octets (donnés chacun de façon décimale) en une chaîne de symboles de la base 64, ainsi que l'opération inverse de décodage.
-
-Code pour la vérification des docstring :
-
-```python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-```
-
-1.Réalisez la fonction `to_base64(n_uplet)` dont la docstring est donnée ci-dessous :
-
-```python
-def to_base64(n_uplet):
-	'''
-	convertit le tuple d'octets en une chaîne de symboles
-	:param n_uplet:  tuple : une séquence d'octets
-	:return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
-	:CU: les entiers du tuple tous compris entre 0 et 255
-	:Exemples:
-	>>> to_base64((18, 184, 156))
-	'Eric'
-	>>> to_base64((18, 184))
-	'Erg='
-	>>> to_base64((18,))
-	'Eg=='
-	'''
-```
-
-**Indications** : à faire au préalable
-
-a) Compléter la fonction `conversion_binaire_decimal(mot_binaire)` qui retourne la valeur décimale d'un mot binaire.     
-
-```python
-def conversion_binaire_decimal(mot_binaire):
-    """
-    Renvoie la valeur décimale d'un mot binaire
-    param : mot_binaire
-    return : int
-    >>> conversion_binaire_decimal("00101")
-    5
-    """
-```
-
-b) Compléter la fonction `conversion_decimal_binaire_6bits(nombre)` qui retourne un mot binaire écrit sur 6 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 6 bits.
-
-```python
-def conversion_decimal_binaire_6bits(nombre):
-    """
-    Renvoie le code binaire sur 6 bits
-    param : dec : int
-    return : str
-    >>> conversion_decimal_binaire_6bits(3)
-    '000011'    
-    """
-```
-
-c) Compléter la fonction `conversion_decimal_binaire_8bits(nombre)` qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout d'un ou de plusieurs 0 pour aller jusque 8 bits.
-
-```python
-def conversion_decimal_binaire_8bits(nombre):
-    """
-    Renvoie le code binaire sur 8 bits
-    param : dec : int
-    return : str
-    >>> conversion_decimal_binaire_8bits(3)
-    '00000011'    
-    """
-```
-
-d) Créer un dictionnaire appelé `equivalence` qui associe aux 64 symboles leur code binaire écrit sur 6 bits. On réalisera la création de ce dictionnaire **par compréhension**.
-
-Pour gagner du temps, on utilisera la liste appelée `lettres` donnée ci-dessous (qui respecte la position des caractères dans la table) et on reprendra la fonction précédente `conversion_decimal_binaire_6bits(dec)`.
-
-En d'autres termes, on réalise un dictionnaire où la clé est un caractère situé à l'indice de position i dans la liste `lettres` et la valeur la conversion binaire sur 6 bits de ce même entier i.
-
-```python
-lettres=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","+","/"]
-```
-
-Exemple à vérifier : 
-
-```python
->>> equivalence['B']
-'000001'
-```
-
-e) Compléter la fonction `get_in_dictionary(sixtet)` qui renvoie la clé du dictionnaire `equivalence` à partir de la donnée du sixtet.  
-
-
-```python 
-def get_in_dictionary(sixtet):
-    """
-    Renvoie la clé du dictionnaire à partir du sixtet
-    param : str
-    return : str
-    >>> get_in_dictionary('000001')
-    'B'
-    """
-```
-
-f) Compléter la fonction `sequence_binaire(n_uplet)` qui renvoie un mot binaire à partir d'un tuple constitué d'octets (on obtient ainsi un mot de 24 bits à partir d'un triplet de nombres).   
-Pour cela, utiliser la fonction précédente : `conversion_decimal_binaire_8bits(dec)`.     
-     
-```python
-def sequence_binaire(n_uplet):
-    """
-    Renvoie un mot binaire à partir d'un tuple d'octet
-    param : n_uplet : tuple
-    return : str
-    >>> sequence_binaire((105,86,66))
-    '011010010101011001000010'
-    """
-```
-g) Pour réaliser la fonction `to_base64(n_uplet)`, une première méthode consiste à réaliser un découpage dans la chaîne de caractères appelée `sequence` en utilisant le `slicing` d'une chaîne de caractères. Cette première version de la fonction sera appelée : `to_base64_slice(n_uplet)`.   
-
-```python
-def to_base64_slice(n_uplet):
-    '''
-    convertit le tuple d'octets en une chaîne de symboles    
-    :param n_uplet:  tuple : une séquence d'octets
-    :return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
-    :CU: les entiers du tuple tous compris entre 0 et 255
-    :Exemples:
-    >>> to_base64_slice((18, 184, 156))
-    'Eric'
-    >>> to_base64_slice((18, 184))
-    'Erg='
-    >>> to_base64_slice((18,))
-    'Eg=='
-    '''
-```
-
-Exemple de `slicing` : 
-
-```python
->>> s="parapluie"
->>> s[4:9]#4 compris, 9 exclu
-'pluie'
-```
-
-Faire un schéma peut nous aider.   
-Trois cas sont en effet à distinguer.  
-**Premier cas** : le nombre de bits est un multiple de 6, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6.  
-**Deuxième cas** : le reste de la division du nombre de bits par 6 est égal à 4. On ajoute '00' à la séquence, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6, et on ajoute au code '='.   
-**Troisième cas** : le reste de la division du nombre de bits par 6 est égal à 2. On ajoute '0000' à la séquence, on va chercher les équivalents dans le dictionnaire pour chaque découpe de 6, et on ajoute au code '=='.   
-
-
-<img src="assets/schema.png">
-
-h) On se propose de réaliser maintenant la fonction d'une autre méthode en écrivant la fonction `to_base64(n_uplet)_logique` qui utilise les opérateurs logiques présentés plus haut.
-
-```python
-def to_base64_logique(n_uplet):
-    '''
-    convertit le tuple d'octets en une chaîne de symboles    
-    :param n_uplet:  tuple : une séquence d'octets
-    :return: str : la chaîne de symboles de la base 64 représentant le tuple d'octets
-    :CU: les entiers du tuple tous compris entre 0 et 255
-    :Exemples:
-    >>> to_base64_logique((18, 184, 156))
-    'Eric'
-    >>> to_base64_logique((18, 184))
-    'Erg='
-    >>> to_base64_logique((18,))
-    'Eg=='
-    '''
-```    
-    
 **Exemple pour comprendre le principe** : 
      
 Admettons que le tuple soit (105,86,66) et que la sequence_binaire obtenue soit '011010010101011001000010', c'est-à-dire, en faisant apparaître les sextets à l'aide de points  insérés pour plus de lisibilité : '011010.010101.011001.000010'.      
@@ -418,4 +369,4 @@ Exemple de conversion de liste en tuple :
 (3, 4, 5)
 ```
 
-On reproduira la méthode des opérateurs logiques utilisée à la question précédente.
+On reproduira la méthode des opérateurs logiques ou la méthode du slicing utilisée à la question précédente.
