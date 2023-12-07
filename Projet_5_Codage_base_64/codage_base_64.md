@@ -98,7 +98,7 @@ Ainsi le couple d'octets (18, 184) est encodé par les quatre symboles `Erg=`, l
 		  
 Ainsi l'octet 18 est encodé par les quatre symboles `Eg==`.
 	
-### Fonction `to_base64` programmée de deux méthodes différentes
+### I] Fonction `to_base64` programmée de deux méthodes différentes
 
 On se munit d'une table définissant les 64 symboles de la base 64.
 
@@ -338,8 +338,7 @@ Supposons que l'on souhaite extraire la deuxième découpe de 6 bits en partant 
 
 On pourra proposer une conversion de la droite vers la gauche.
 
-
-2.Compléter maintenant la fonction `from_base64(b64_string)` dont la docstring est donnée ci-dessous :
+### II] Fonction `from_base64` programmée de deux méthodes différentes
 
 ```python
 def from_base64(b64_string):
@@ -369,4 +368,4 @@ Exemple de conversion de liste en tuple :
 (3, 4, 5)
 ```
 
-On reproduira la méthode des opérateurs logiques ou la méthode du slicing utilisée à la question précédente.
+On reproduira la méthode du slicing ou/et la méthode des opérateurs logiques.
