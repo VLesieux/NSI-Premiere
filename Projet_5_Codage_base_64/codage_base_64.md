@@ -23,7 +23,7 @@ base64 image_originale.png > texte_image2.txt
 **Sous Windows**, accéder à `Invite de commande` dans `Système Windows`, puis `dir` au lieu de `ls` et écrire `certutil -decode NSI_2022\projet_codage_base64\image.txt NSI_2022\projet_codage_base64\image.png`
 
 * observer le principe du codage en base 64 : 3 octets, donc 24 bits, consécutifs de la donnée binaire à encoder sont découpés en 4 paquets de 6 bits, chaque paquet de 6 bits étant associé à l'un des 64 symboles (2<sup>6</sup>=64).
-* la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas un multiple de 3 (ou dit autrement si le nombre de bits de la donnée binaire n'est pas un multiple de 6) ? on complète avec un ou 2 `=`.
+* la question du bourrage : que faire si la taille en octets de la donnée binaire n'est pas un multiple de 3 (ou, dit autrement, si le nombre de bits de la donnée binaire n'est pas un multiple de 6) ? on complète avec un ou 2 `=`.
 * nous allons programmer un codeur puis un décodeur base 64.
   
 ## Description du codage en base 64
@@ -224,7 +224,7 @@ def to_base64(n_uplet):
 	'''
 ```
 
-**Indications** :
+**Indications** : à faire au préalable
 
 a) Compléter la fonction `conversion_binaire_decimal(mot_binaire)` qui retourne la valeur décimale d'un mot binaire.     
 
@@ -252,7 +252,7 @@ def conversion_decimal_binaire_6bits(nombre):
     """
 ```
 
-c) Compléter la fonction `conversion_decimal_binaire_8bits(nombre)` qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout de un ou plusieurs 0 pour aller jusque 8 bits.
+c) Compléter la fonction `conversion_decimal_binaire_8bits(nombre)` qui retourne un mot binaire écrit sur 8 bits à partir de la valeur décimale de celui-ci. Il faut envisager l'ajout d'un ou de plusieurs 0 pour aller jusque 8 bits.
 
 ```python
 def conversion_decimal_binaire_8bits(nombre):
