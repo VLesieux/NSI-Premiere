@@ -374,7 +374,7 @@ Réaliser une fonction ```cases_voisines``` prenant comme paramètres :
 Cette fonction doit retourner une liste de 4 coordonnées sous la forme de 4 tuples (x,y) des cases voisines selon les 4 directions cardinales : OUEST, NORD, SUD et EST.
 Il sera de plus nécessaire de réfléchir aux coordonnées des voisines d'une case située sur le bord de la grille dans la mesure où l'environnement est torique (retournement sur lui-même).
 
-*Indication* :
+**Indication** :
 
 ```python
 >>> ((-1)%3)
