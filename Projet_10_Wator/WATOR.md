@@ -24,7 +24,7 @@ La représentation choisie pour une case sera un _**tuple**_ de forme _(n,g,e)_ 
 Les tuples représentant les cases seront ainsi placés dans un tableau à deux dimensions ou liste de listes.    
 Par exemple, la grille de jeu suivante :   ```[[(0,0,0),(0,0,0),(0,0,0)],[(1,2,0),(2,5,3),(1,2,0)]]  ``` est constituée de deux lignes (deux cases en hauteur) et de trois colonnes (trois cases en largeur) : la première ligne est vide et ne contient que la mer, la deuxième contient dans l'ordre un thon de temps de gestation 2, d'énergie 0 ; un requin de temps de gestation 5 et d'énergie 3 ; un thon de temps de gestation 2 et d'énergie 0.
 
-On rappelle que les tuples (type _tuple_) et les listes (type _list_) sont toutes les deux des structures  _**indicées**_ et **_itérables_**. Les opérations que l'on peut effectuer sur ces deux types sont similaires si ce n'est que les tuples ne sont pas modifiables : on dit que les listes sont **_mutables_** tandis que les tuples sont _**non mutables**_.
+On rappelle que les tuples (type _tuple_) et les listes (type _list_) sont tous les deux des structures  _**indicées**_ et **_itérables_**. Les opérations que l'on peut effectuer sur ces deux types sont similaires si ce n'est que les tuples ne sont pas modifiables : on dit que les listes sont **_mutables_** tandis que les tuples sont _**non mutables**_.
 
 ```python
 >>> tuple=("a",3,8)
@@ -42,7 +42,7 @@ TypeError: 'tuple' object does not support item assignment#on obtient une erreur
 ['a', 4, 8] #affectaction réussie
 ```
 
-Les tuples et listes sont tous les deux des _**itérables**_, c'est-à-dire que l'on peut parcourir les éléments qui les composent à l'aide d'une boucle ```for```.
+Les tuples et les listes sont tous les deux des _**itérables**_, c'est-à-dire que l'on peut parcourir les éléments qui les composent à l'aide d'une boucle ```for```.
 
 ```python
 >>> tuple=("a",3,8)
