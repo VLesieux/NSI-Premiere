@@ -8,7 +8,7 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
-Règle du jeu : **[à consulter ici](assets/Wator_regles_du_jeu.md)**
+Règles du jeu : **[à consulter ici](assets/Wator_regles_du_jeu.md)**
 
 ## Première partie : représentation et affichage de la grille 
 

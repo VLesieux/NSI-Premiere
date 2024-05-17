@@ -9,6 +9,8 @@ On définit la fonction mux qui prend en paramètres trois paramètres a, b, c d
 
 **Exercice 2** : 
 
+[Voir ici une simulationde CAN.](https://physique-chimie.ac-normandie.fr/IMG/html/can.html)   
+
 On dispose d'un capteur de température qui peut mesurer des températures allant de - 20°C à + 50°C. Ces températures sont converties en une tension électrique allant de 0 à 5 V.
 
 1. Si on dispose de convertisseurs analogique-numérique avec une résolution de 6, 8 ou 10 bits. Quel(s) convertisseur(s) choisir pour avoir une précision d'au moins 1 degré ?
