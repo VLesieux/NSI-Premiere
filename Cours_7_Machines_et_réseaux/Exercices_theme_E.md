@@ -62,8 +62,7 @@ def conversion_binaire_decimal(binaire):
 
 def calculateur_masque_IPV4(adresseIP,CIDR):
     """
-    Renvoie les adresses du masque et de la première et dernière machine
-    du sous-réseau
+    Renvoie les adresses du masque, ainsi que de la première et dernière machine du sous-réseau
     param : adresseIP : str
     param : CIDR : int
     >>> calculateur_masque_IPV4("192.168.1.12",28)
