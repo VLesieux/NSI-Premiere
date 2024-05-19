@@ -43,7 +43,7 @@ Compléter le code suivant :
 
 def conversion_decimal_binaire_sur_8_bit(decimal):
     """
-    Renvoie le code binaire sur 8 bits d'un nombre décimal
+    Renvoie le code binaire sur 8 bits d'un nombre décimal
     param : decimal : int
     return : str
     >>> conversion_decimal_binaire_sur_8_bit(192)
