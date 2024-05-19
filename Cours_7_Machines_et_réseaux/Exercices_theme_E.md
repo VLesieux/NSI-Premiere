@@ -15,7 +15,7 @@ On dispose d'un capteur de température qui peut mesurer des températures allan
 
 1. Si on dispose de convertisseurs analogique-numérique avec une résolution de 6, 8 ou 10 bits. Quel(s) convertisseur(s) choisir pour avoir une précision d'au moins 1 degré ?
 
-Indication : on étalira que pour un convertisseur analogique-numérique de N bits le pas de conversion est donné par p=(plage de conversion)/(2<sup>N</sup>-1)
+Indication : on étalira que pour un convertisseur analogique-numérique de N bits le pas de conversion ou pas de quantification est donné par p=(plage de conversion)/(2<sup>N</sup>).
 
 
 2. On utilise un convertisseur analogique-numérique à 10 bits, pour des températures définies avec une précision de 0.1 degré, à quelle température correspond le nombre 512 ?
@@ -40,18 +40,35 @@ Un appareil connecté sur un sous-réseau possède une adresse sous la forme 192
 Compléter le code suivant :
 
 ```Python
+def conversion_decimal_binaire_sur_8_bit(decimal):
+    """
+    Renvoie le code binaire sur 8 bits d'un nombre décimal
+    >>> conversion_decimal_binaire_sur_8_bit(192)
+    '11000000'
+    """
+
+
+def conversion_binaire_decimal(binaire):
+    """
+    Renvoie la valeur décimale du code binaire
+    >>> conversion_binaire_decimal("00000101")
+    5
+    """
+
+
 def calculateur_masque_IPV4(adresseIP,CIDR):
     """
-    Renvoie les adresses de la première et de la dernière machine
+    Renvoie les adresses du masque et de la première et dernière machine
     du sous-réseau
     param : adresseIP : str
     param : CIDR : int
     >>> calculateur_masque_IPV4("192.168.1.12",28)
-    ('192.168.1.1', '192.168.1.14')
+    'masque : 255.255.255.240 ; première machine : 192.168.1.1, dernière machine : 192.168.1.14'
     >>> calculateur_masque_IPV4("192.168.1.43",26)
-    ('192.168.1.1', '192.168.1.62')
+    'masque : 255.255.255.192 ; première machine : 192.168.1.1, dernière machine : 192.168.1.62'
     """
-    pass
+
+
     
 if __name__ == '__main__':
     import doctest
