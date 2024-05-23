@@ -46,9 +46,14 @@ def conversion_decimal_binaire_sur_8_bit(decimal):
     Renvoie le code binaire sur 8 bits d'un nombre décimal
     param : decimal : int
     return : str
+    >>> conversion_decimal_binaire_sur_8_bit(12)
+    '00001100'
     >>> conversion_decimal_binaire_sur_8_bit(192)
     '11000000'
+    >>> conversion_decimal_binaire_sur_8_bit(168)
+    '10101000'
     """
+
 
 def conversion_binaire_decimal(binaire):
     """
