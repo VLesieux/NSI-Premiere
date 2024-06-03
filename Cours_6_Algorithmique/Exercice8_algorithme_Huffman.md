@@ -68,7 +68,7 @@ Partons du texte encodé 011110011000110100111100 et décomposons-le bit par bit
 •	0 : Gauche → Trouve A → Texte décodé : ABRACADABRA
 
 
-<img src="assets/Huffman.jpg">
+<img width="600" height="600" src="assets/Huffman.jpg">
 
 
 ```Python
