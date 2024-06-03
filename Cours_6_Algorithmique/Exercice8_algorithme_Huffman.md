@@ -5,51 +5,51 @@ Le codage de Huffman est un algorithme de compression de données sans perte. Le
 
 [Vidéo](https://www.youtube.com/watch?v=JsTptu56GM8&t=346s)
 
-Étapes du Codage de Huffman
+Étapes du Codage de Huffman>>
 1.	Calcul des Fréquences des Symboles :
 -	Comptez la fréquence d'apparition de chaque symbole dans le texte à compresser.
 2.	Construction de l'Arbre de Huffman :
-o	Créez un nœud feuille pour chaque symbole avec sa fréquence associée.
-o	Ajoutez tous les nœuds dans une file de priorité (ou un tas), ordonnée par fréquence (les nœuds avec les fréquences les plus basses sont en tête).
-o	Répétez les étapes suivantes jusqu'à ce qu'il ne reste plus qu'un seul nœud dans la file :
-	Retirez les deux nœuds avec les plus basses fréquences de la file.
-	Créez un nouveau nœud interne avec ces deux nœuds comme enfants et une fréquence égale à la somme de leurs fréquences.
-	Ajoutez ce nouveau nœud dans la file.
-o	Le dernier nœud restant est la racine de l'arbre de Huffman.
+>>	Créez un nœud feuille pour chaque symbole avec sa fréquence associée.
+>>	Ajoutez tous les nœuds dans une file de priorité (ou un tas), ordonnée par fréquence (les nœuds avec les fréquences les plus basses sont en tête).
+>>	Répétez les étapes suivantes jusqu'à ce qu'il ne reste plus qu'un seul nœud dans la file :
+>>>	Retirez les deux nœuds avec les plus basses fréquences de la file.
+>>>	Créez un nouveau nœud interne avec ces deux nœuds comme enfants et une fréquence égale à la somme de leurs fréquences.
+>>>	Ajoutez ce nouveau nœud dans la file.
+>>	Le dernier nœud restant est la racine de l'arbre de Huffman.
 3.	Génération des Codes de Huffman :
-o	Parcourez l'arbre de Huffman à partir de la racine pour assigner des codes binaires à chaque symbole.
-o	À chaque nœud interne, assignez "0" à la branche gauche et "1" à la branche droite (ou vice versa).
-o	Les codes binaires pour chaque symbole sont obtenus en suivant les branches de la racine aux feuilles.
+>>	Parcourez l'arbre de Huffman à partir de la racine pour assigner des codes binaires à chaque symbole.
+>>	À chaque nœud interne, assignez "0" à la branche gauche et "1" à la branche droite (ou vice versa).
+>>	Les codes binaires pour chaque symbole sont obtenus en suivant les branches de la racine aux feuilles.
 4.	Encodage des Données :
-o	Remplacez chaque symbole du texte par son code binaire correspondant pour obtenir la séquence compressée.
+>>	Remplacez chaque symbole du texte par son code binaire correspondant pour obtenir la séquence compressée.
 Exemple Illustratif
 Supposons que nous voulons compresser la chaîne "ABRACADABRA".
 1.	Calcul des Fréquences :
-o	A: 5, B: 2, R: 2, C: 1, D: 1
+>>	A: 5, B: 2, R: 2, C: 1, D: 1
 2.	Construction de l'Arbre :
-o	Créez les nœuds pour chaque symbole :
-	A: 5, B: 2, R: 2, C: 1, D: 1
-o	Insérez-les dans une file de priorité :
-	[(C, 1), (D, 1), (B, 2), (R, 2), (A, 5)]
-o	Combinez les deux nœuds avec les fréquences les plus basses :
-	Combinez (C, 1) et (D, 1) en un nœud interne (CD, 2)
-	[(CD, 2), (B, 2), (R, 2), (A, 5)]
-o	Répétez ce processus :
-	Combinez (CD, 2) et (B, 2) en un nœud (CDB, 4)
-	[(R, 2), (CDB, 4), (A, 5)]
-	Combinez (R, 2) et (CDB, 4) en un nœud (RCDB, 6)
-	[(A, 5), (RCDB, 6)]
-	Combinez (A, 5) et (RCDB, 6) en un nœud (Root, 11)
+>>	Créez les nœuds pour chaque symbole :
+>>>	A: 5, B: 2, R: 2, C: 1, D: 1
+>>	Insérez-les dans une file de priorité :
+>>>	[(C, 1), (D, 1), (B, 2), (R, 2), (A, 5)]
+>>	Combinez les deux nœuds avec les fréquences les plus basses :
+>>>	Combinez (C, 1) et (D, 1) en un nœud interne (CD, 2)
+>>>	[(CD, 2), (B, 2), (R, 2), (A, 5)]
+>>	Répétez ce processus :
+>>>	Combinez (CD, 2) et (B, 2) en un nœud (CDB, 4)
+>>>	[(R, 2), (CDB, 4), (A, 5)]
+>>>	Combinez (R, 2) et (CDB, 4) en un nœud (RCDB, 6)
+>>>	[(A, 5), (RCDB, 6)]
+>>>	Combinez (A, 5) et (RCDB, 6) en un nœud (Root, 11)
 3.	Génération des Codes :
-o	Parcourez l'arbre de la racine aux feuilles pour générer les codes :
-	A: 0
-	R: 10
-	C: 1100
-	D: 1101
-	B: 111
+>>	Parcourez l'arbre de la racine aux feuilles pour générer les codes :
+>>>	A: 0
+>>>	R: 10
+>>>	C: 1100
+>>>	D: 1101
+>>>	B: 111
 4.	Encodage des Données :
-o	Remplacez chaque symbole par son code :
-	"ABRACADABRA" devient "0111101011001100011110010"
+>>	Remplacez chaque symbole par son code :
+>>>	"ABRACADABRA" devient "0111101011001100011110010"
 Conclusion
 Le codage de Huffman est efficace car il utilise des codes plus courts pour les symboles les plus fréquents et des codes plus longs pour les symboles moins fréquents, ce qui minimise la longueur totale du texte encodé. Il est largement utilisé dans diverses applications de compression de données, y compris les formats de fichiers tels que JPEG (image) et MP3.
  
@@ -68,7 +68,7 @@ Partons du texte encodé 011110011000110100111100 et décomposons-le bit par bit
 •	0 : Gauche → Trouve A → Texte décodé : ABRACADABRA
 
 
-<img width="600" height="600" src="assets/Huffman.jpg">
+<img width="600" height="6>>00" src="assets/Huffman.jpg">
 
 
 ```Python
