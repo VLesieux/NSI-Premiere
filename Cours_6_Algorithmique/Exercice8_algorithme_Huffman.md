@@ -3,15 +3,11 @@
 
 Le codage de Huffman est un algorithme de compression de données sans perte. Le codage de Huffman utilise un code à longueur variable pour représenter un symbole de la source (par exemple un caractère dans un fichier). Le code est déterminé à partir d'une estimation des probabilités d'apparition des symboles de source, un code court étant associé aux symboles de source les plus fréquents. 
 
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="How Computers Compress Text: Huffman Coding and Huffman Trees" width="840" height="473" src="https://www.youtube.com/embed/JsTptu56GM8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div><figcaption>Compression par l&rsquo;encodage de Huffman.</figcaption></figure>
-
-
+[Vidéo](https://www.youtube.com/watch?v=JsTptu56GM8&t=346s)
 
 Étapes du Codage de Huffman
 1.	Calcul des Fréquences des Symboles :
-o	Comptez la fréquence d'apparition de chaque symbole dans le texte à compresser.
+-	Comptez la fréquence d'apparition de chaque symbole dans le texte à compresser.
 2.	Construction de l'Arbre de Huffman :
 o	Créez un nœud feuille pour chaque symbole avec sa fréquence associée.
 o	Ajoutez tous les nœuds dans une file de priorité (ou un tas), ordonnée par fréquence (les nœuds avec les fréquences les plus basses sont en tête).
@@ -70,6 +66,9 @@ Partons du texte encodé 011110011000110100111100 et décomposons-le bit par bit
 •	111 : Droite, Droite, Droite → Trouve B → Texte décodé : ABRACADAB
 •	10 : Droite, Gauche → Trouve R → Texte décodé : ABRACADABR
 •	0 : Gauche → Trouve A → Texte décodé : ABRACADABRA
+
+
+<img width="600" height="300" src="assets/Huffman.jpg">
 
 
 ```Python
