@@ -15,7 +15,7 @@ HTML, CSS ne sont pas des langages de programmation mais de description à la di
 ![Programme officiel ](assets/bo1.png)
 
 
-## I. Variables ; affectation
+## I. Variables ; affectation d'une valeur à une variable
 
 Les **données** utilisées par les programmes sont stockées dans des **variables**, ce qui se fait en réalisant une **affectation** en utilisant l'**opérateur d'affectation** `=` . 
 
