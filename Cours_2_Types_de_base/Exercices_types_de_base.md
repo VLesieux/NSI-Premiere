@@ -105,9 +105,9 @@ if __name__ == "__main__":
 >>> int('7')
 7
 ```
-(3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e"]`.  
+(3) Réutiliser (1) en introduisant `liste_remplaçant=["a","b","c","d","e","f"]`.  
 
-(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste ; il suffira d'ajouter 10 à l'indice de position pour trouver la valeur décimale du caractère s'il appartient à cette liste.
+(4) Réutiliser (2) en introduisant `liste_remplaçant=["a","b","c","d","e","f"]` et utiliser liste_remplaçant.index() pour trouver l'indice de position du caractère dans cette liste ; il suffira d'ajouter 10 à l'indice de position pour trouver la valeur décimale du caractère s'il appartient à cette liste.
 
 (5) Ajouter au préalable autant de 0 au début du mot que nécessaire pour qu'il puisse être découpé en parties de 4 bits ; convertir chaque partie de 4 bits (utiliser slice[ : ]) en décimal, puis chaque valeur décimale en hexadécimal. 
 
