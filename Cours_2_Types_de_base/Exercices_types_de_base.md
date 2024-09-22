@@ -65,27 +65,47 @@ def conversion_hexadecimal_decimal(mot):
     """
 	pass 
 
-def conversion_binaire_hexadecimal(mot):
+def conversion_binaire_hexadecimal_v1(mot):#la première version consiste à utiliser les deux fonctions précédentes
+    #on transforme le binaire en décimal puis on transforme le décimal en hexadécimal
     """
     (5) Donne la représentation hexadécimale d'un mot binaire
     param: str
     return : str
-    >>> conversion_binaire_hexadecimal('101101001')
+    >>> conversion_binaire_hexadecimal_v1('101101001')
     '169'
-    >>> conversion_binaire_hexadecimal('110111')
+    >>> conversion_binaire_hexadecimal_v1('110111')
     '37'
+    >>> conversion_binaire_hexadecimal_v1('11111101')
+    'fd'
     """
 	pass 
 
-def conversion_hexadecimal_binaire(mot):
+def conversion_binaire_hexadecimal_v2(mot):#cette deuxième version consiste à faire des groupements de 4 bits
+    #à chaque groupement on associe un code hexadécimal
+    """
+    (5) Donne la représentation hexadécimale d'un mot binaire
+    param: str
+    return : str
+    >>> conversion_binaire_hexadecimal_v2('101101001')
+    '169'
+    >>> conversion_binaire_hexadecimal_v2('110111')
+    '37'
+    >>> conversion_binaire_hexadecimal_v2('11111101')
+    'fd'
+    """
+	pass
+
+def conversion_hexadecimal_binaire(mot):#chaque caractere du code hexadecimal est transformé en un paquet de 4 bits avec ajouts de 0 si nécessaire
     """
     (6) Donne la représentation binaire d'un mot hexadécimal
     param: str
     return : str
     >>> conversion_hexadecimal_binaire('169')
-    '101101001'
+    '000101101001'
     >>> conversion_hexadecimal_binaire('37')
-    '110111'
+    '00110111'
+    >>> conversion_hexadecimal_binaire('fd')
+    '11111101'
     """
     pass 
     
