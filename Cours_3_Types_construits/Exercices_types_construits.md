@@ -24,13 +24,13 @@ def separe(t):
 ```
 
 __Indications__ : 
-1) revoir dans le cours sur les tuples le moyen de parcourir les éléments d'un tuple
+1) revoir dans le cours sur les tuples les deux moyens de parcourir les éléments d'un tuple
 2) revoir le moyen de tester la parité d'un nombre
 3) revoir le moyen d'ajouter un élément à une liste
 
 ## Exercice 2
 
-Écrire une fonction _produit_ qui prend en paramètres une liste de nombres appelée _nombres_ et un entier naturel appelé _n_ non nul et qui renvoie une liste obtenue en multipliant chaque élément de la liste _nombres_ par _n_. On proposera différentes écritures du programme.
+Écrire une fonction _produit_ qui prend en paramètres une liste de nombres appelée _nombres_ et un entier naturel appelé _n_ non nul et qui renvoie une liste obtenue en multipliant chaque valeur de la liste _nombres_ par _n_. On proposera différentes écritures du programme.
 
 ```Python
 def produit(nombres,n):
@@ -45,8 +45,8 @@ def produit(nombres,n):
 ```
     
 __Indications__ : 
-1) Réaliser une première écriture en passant par la création d'une liste vierge _nouvelle_liste_ que l'on complète au fur et à mesure du parcours de la liste _nombres_
-2) Proposer une deuxième méthode beaucoup plus efficace en créant une liste par compréhension qui répond à la demande (voir les exemples du cours), et la renvoyer directement sans avoir à créer de liste intermédiaire 
+1) Réaliser une première écriture en passant par la création d'une liste vierge _nouvelle_liste_ que l'on complète au fur et à mesure du parcours de la liste _nombres_.
+2) Proposer une deuxième méthode, beaucoup plus efficace, en créant une liste par compréhension qui répond à la demande (voir les exemples du cours), et la renvoyer directement sans avoir à créer de liste intermédiaire 
 
 ## Exercice 3
 
@@ -65,14 +65,14 @@ def mystere(liste1,liste2):
     return liste
 ```
 On appelle cette fonction avec l'instruction mystere([2,5,6,8],[1,4,7,8,9]). Quel est le résultat renvoyé ?   
-Le trouver d'abord avec un crayon avant de tester sur machine.   
-Vérifier l'évolution des variables liste1,liste2,liste avec le debugger.
+Le trouver d'abord avec un crayon avant de le tester sur la machine.   
+Vérifier également l'évolution des variables liste1,liste2,liste avec le debugger.
 
 
 ## Exercice 4
 
 L'instruction `tuple(sorted(t))` renvoie le tuple ordonné dans l'ordre croissant.   
-Écrire une fonction `maxi` qui renvoie le maximum d'une suite de valeurs données dans un tuple en utilisant cette instruction.
+Écrire une fonction `maxi` qui renvoie, en une seule ligne, le maximum d'une suite de valeurs données dans un tuple en utilisant cette instruction.
 
 ```Python
 def maxi(valeurs):
@@ -86,7 +86,7 @@ def maxi(valeurs):
 
 ## Exercice 5
 
-On construit un dictionnaire ayant pour clés des couples contenant les coordonnées GPS de villes (Latitude et Longitude) et pour valeur les noms des villes correspondantes. On trouve les coordonnées sur Internet par exemple. Les données sont sous forme décimale en degré.      
+On construit un dictionnaire ayant pour clés des couples contenant les coordonnées GPS de villes (Latitude et Longitude) et pour valeur les noms des villes correspondantes. On trouve les coordonnées sur Internet par exemple. Les données sont fournies sous forme décimale en degré.      
 
 ```Python
 positions={}
@@ -119,9 +119,10 @@ def renvoie_position(position,dictionnaire):
 
 ## Exercice 6
 
-Écrire une fonction _stat_ qui prend en paramètre un texte et renvoie un dictionnaire _statistiques_ dont les clés sont les différentes lettres du texte et les valeurs le nombre d'occurrences de chaque lettre dans le texte. Le texte peut contenir des espaces ou des caractères de ponctuation qui ne devront pas être comptabilisés dans le dictionnaire fourni par la fonction.
+Écrire une fonction _stat_ qui prend en paramètre un texte et renvoie un dictionnaire _statistiques_ dont les clés sont les différentes lettres du texte et les valeurs le nombre d'occurrences de chaque lettre dans le texte (nombre de fois où la lettre apparaît dans le texte). Le texte peut contenir des espaces ou des caractères de ponctuation qui ne devront pas être comptabilisés dans le dictionnaire fourni par la fonction.
 
-__Indications__ : parcourir les lettres du textes, créer s'il n'existe pas encore le nouvel item (lettre:1) dans le dictionnaire _statistiques_, ou augmenter de 1 sa valeur si l'item existe déjà.
+__Indications__ : parcourir les lettres du textes, créer, s'il n'existe pas encore, le nouvel item (lettre:1) dans le dictionnaire _statistiques_, ou augmenter de 1 sa valeur si l'item existe déjà.
+
 Utiliser la méthode `get` des dictionnaires pour ne pas bloquer le programme en cas d'absence d'une clé.
 
 ```Python
@@ -210,7 +211,7 @@ print(time()-st)
 
 ## Exercice 8
 
-Au scrable, les valeurs des pièces sont les suivantes:  
+Au scrable français, les valeurs des pièces sont les suivantes:  
 
     1 point : E , A , I , N , O , R , S , T , U , L    
     2 points : D , M , G    
