@@ -387,7 +387,7 @@ Un carré de côté n est dit magique si les sommes des nombres de chaque rangé
 
 Par exemple, vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8]] est bien magique.
 
-Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on utilisera la fonction all.
+Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on réalisera le parcours des éléments de la liste en les comparant à la première valeur.
 
 ```Python
 def valeur_commune(liste):
@@ -402,7 +402,40 @@ def valeur_commune(liste):
     """
 ```
 
-Compléter les 4 fonctions suivantes:
+Proposer une seconde version de la fonction utilisant la fonction all().
+
+Rappel :
+
+```Python
+>>> all([True,True,True])
+True
+>>> all([True,False,True])
+False
+```
+
+
+```Python
+def valeur_commune_version2(liste):
+    """
+    Renvoie la valeur commune de la liste sinon renvoie False
+    param : liste : list
+    return : int ou bool
+    >>> valeur_commune_version2([4,4,4,4])
+    4
+    >>> valeur_commune_version2([4,4,3,4])
+    False    
+    """
+```
+
+Compléter maintenant les 4 fonctions suivantes ; on utilisera la fonction sum()
+
+
+Rappel : 
+
+```Python
+>>> sum([3,2,4])
+9
+```
 
 ```Python
 def somme_rangees(carre):
