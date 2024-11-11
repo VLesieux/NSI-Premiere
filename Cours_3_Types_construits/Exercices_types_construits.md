@@ -435,7 +435,7 @@ def valeur_commune_version2(liste):
 	pass
 ```
 
-Compléter maintenant les 4 fonctions suivantes ; on utilisera la fonction sum()
+Compléter maintenant les 4 fonctions suivantes ; on utilisera la fonction sum() qui s'appliquera sur 4 listes écrites par compréhension.
 
 
 Rappel : 
