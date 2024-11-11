@@ -381,5 +381,80 @@ Calculer le prix de revient de cette commande.
 Indication : travailler avec les nombres, retirer les '€'.
 
 
+### Exercice 11
 
+Un carré de côté n est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes de chaque diagonale principale (première et deuxième diagonale) sont égales à une valeur commune.
 
+Par exemple, vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8]] est bien magique.
+
+Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on utilisera la fonction all.
+
+```Python
+def valeur_commune(liste):
+    """
+    Renvoie la valeur commune de la liste sinon renvoie False
+    param : liste : list
+    return : int ou bool
+    >>> valeur_commune([4,4,4,4])
+    4
+    >>> valeur_commune([4,4,3,4])
+    False    
+    """
+```
+
+Compléter les 4 fonctions suivantes:
+
+```Python
+def somme_rangees(carre):
+    """
+    Renvoie la somme des valeurs des rangées
+    param : carre
+    return : int
+    >>> somme_rangees([[2,5,3],[3,2,1],[2,2,1]])
+    [10, 6, 5]
+    """
+
+def somme_colonnes(carre):
+    """
+    Renvoie la somme des valeurs des colonnes
+    param : carre
+    return : int
+    >>> somme_colonnes([[2,5,3],[3,2,1],[2,2,1]])
+    [7, 9, 5]
+    """
+
+def somme_premiere_diagonale(carre):
+    """
+    Renvoie la somme des valeurs de la première diagonale
+    param : carre
+    return : int
+    >>> somme_premiere_diagonale([[2,5,3],[3,2,1],[2,2,1]])
+    5
+    """
+
+def somme_deuxieme_diagonale(carre):
+    """
+    Renvoie la somme des valeurs de la deuxième diagonale
+    param : carre
+    return : int
+    >>> somme_deuxieme_diagonale([[2,5,3],[3,2,1],[2,2,1]])
+    7
+    """
+```
+
+Utiliser ces fonctions pour compléter la fonction est_magique
+
+```Python
+def est_magique(carre):
+    """
+    Renvoie la valeur commune des sommes selon rangées,colonnes, et les deux diagonales si le carre est magique, False sinon
+    param : carre : list
+    return : bool
+    >>> est_magique([[2,7,6],[9,5,1],[4,3,8]])
+    15
+    >>> est_magique([[4,5,11,14],[15,10,8,1],[6,3,13,12],[9,16,2,7]])
+    34
+    >>> est_magique([[4,2,11,14],[15,10,8,1],[6,3,13,12],[9,16,2,7]])
+    False
+    """
+```
