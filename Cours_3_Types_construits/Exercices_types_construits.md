@@ -387,7 +387,7 @@ Un carré de côté n est dit magique si les sommes des nombres de chaque rangé
 
 Par exemple, vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8]] est bien magique.
 
-Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on réalisera le parcours des éléments de la liste en les comparant à la première valeur.
+Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on réalisera le parcours des éléments de la liste en les comparant à la première valeur de celle-ci.
 
 ```Python
 ############################### À faire 1. ##################################
@@ -445,7 +445,7 @@ Rappel :
 ############################### À faire 3. ##################################
 def somme_rangees(carre):
     """
-    Renvoie la somme des valeurs des rangées
+    Renvoie la somme des valeurs des différentes rangées
     param : carre
     return : int
     >>> somme_rangees([[2,5,3],[3,2,1],[2,2,1]])
@@ -457,7 +457,7 @@ def somme_rangees(carre):
 ############################### À faire 4. ##################################
 def somme_colonnes(carre):
     """
-    Renvoie la somme des valeurs des colonnes
+    Renvoie la somme des valeurs des différentes colonnes
     param : carre
     return : int
     >>> somme_colonnes([[2,5,3],[3,2,1],[2,2,1]])
@@ -490,7 +490,7 @@ def somme_deuxieme_diagonale(carre):
 	pass
 ```
 
-Utiliser ces fonctions pour compléter la fonction <i>est_magique</i>
+Utiliser ces quatre fonctions ainsi que la fonction <i>valeur_commune</i> pour compléter la fonction <i>est_magique</i>
 
 ```Python
 ############################### À faire 7. ##################################
