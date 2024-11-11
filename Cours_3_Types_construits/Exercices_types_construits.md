@@ -475,7 +475,7 @@ def somme_deuxieme_diagonale(carre):
     """
 ```
 
-Utiliser ces fonctions pour compléter la fonction est_magique
+Utiliser ces fonctions pour compléter la fonction <i>est_magique</i>
 
 ```Python
 def est_magique(carre):
