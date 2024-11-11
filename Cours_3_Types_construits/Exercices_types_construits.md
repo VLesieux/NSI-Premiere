@@ -390,6 +390,7 @@ Par exemple, vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8]] es
 Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on réalisera le parcours des éléments de la liste en les comparant à la première valeur.
 
 ```Python
+############################### À faire 1. ##################################
 def valeur_commune(liste):
     """
     Renvoie la valeur commune de la liste sinon renvoie False
@@ -400,6 +401,7 @@ def valeur_commune(liste):
     >>> valeur_commune([4,4,3,4])
     False    
     """
+	pass
 ```
 
 Proposer une seconde version de la fonction utilisant la fonction all().
@@ -415,6 +417,7 @@ False
 
 
 ```Python
+############################### À faire 2. ##################################
 def valeur_commune_version2(liste):
     """
     Renvoie la valeur commune de la liste sinon renvoie False
@@ -425,6 +428,7 @@ def valeur_commune_version2(liste):
     >>> valeur_commune_version2([4,4,3,4])
     False    
     """
+	pass
 ```
 
 Compléter maintenant les 4 fonctions suivantes ; on utilisera la fonction sum()
@@ -438,6 +442,7 @@ Rappel :
 ```
 
 ```Python
+############################### À faire 3. ##################################
 def somme_rangees(carre):
     """
     Renvoie la somme des valeurs des rangées
@@ -446,7 +451,10 @@ def somme_rangees(carre):
     >>> somme_rangees([[2,5,3],[3,2,1],[2,2,1]])
     [10, 6, 5]
     """
+	pass
 
+
+############################### À faire 4. ##################################
 def somme_colonnes(carre):
     """
     Renvoie la somme des valeurs des colonnes
@@ -455,6 +463,9 @@ def somme_colonnes(carre):
     >>> somme_colonnes([[2,5,3],[3,2,1],[2,2,1]])
     [7, 9, 5]
     """
+	pass
+
+############################### À faire 5. ##################################
 
 def somme_premiere_diagonale(carre):
     """
@@ -464,6 +475,9 @@ def somme_premiere_diagonale(carre):
     >>> somme_premiere_diagonale([[2,5,3],[3,2,1],[2,2,1]])
     5
     """
+	pass
+
+############################### À faire 6. ##################################
 
 def somme_deuxieme_diagonale(carre):
     """
@@ -473,11 +487,13 @@ def somme_deuxieme_diagonale(carre):
     >>> somme_deuxieme_diagonale([[2,5,3],[3,2,1],[2,2,1]])
     7
     """
+	pass
 ```
 
 Utiliser ces fonctions pour compléter la fonction <i>est_magique</i>
 
 ```Python
+############################### À faire 7. ##################################
 def est_magique(carre):
     """
     Renvoie la valeur commune des sommes selon rangées,colonnes, et les deux diagonales si le carre est magique, False sinon
