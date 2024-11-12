@@ -500,17 +500,16 @@ Utiliser ces quatre fonctions ainsi que la fonction <i>valeur_commune</i> pour c
 ############################### À faire 7. ##################################
 def est_magique(carre):
     """
-    Renvoie la valeur commune des sommes selon rangées,colonnes, et les deux diagonales si le carre est magique, False sinon
+    Renvoie True si le carre est magique, False sinon
     param : carre : list
     return : bool
     >>> est_magique([[2,7,6],[9,5,1],[4,3,8]])
-    15
+    True
     >>> est_magique([[4,5,11,14],[15,10,8,1],[6,3,13,12],[9,16,2,7]])
-    34
+    True
     >>> est_magique([[4,2,11,14],[15,10,8,1],[6,3,13,12],[9,16,2,7]])
     False
     """
-```
 ############################### À faire 8 (bonus) ##################################
 
 Écrire un programme (utilisant la méthode de force brute) qui vous donnera une liste formée de 5 carrés magiques différents (formés de nombres compris entre 1 et 5).
