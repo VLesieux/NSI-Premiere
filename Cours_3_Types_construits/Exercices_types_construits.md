@@ -511,3 +511,10 @@ def est_magique(carre):
     False
     """
 ```
+############################### À faire 8 (bonus) ##################################
+
+Écrire un programme qui vous donnera une liste formée de 5 carrés magiques différents (formés de nombres compris entre 1 et 3).
+On pourra obtenir ceci :
+
+[[[2, 3, 1], [1, 2, 3], [3, 1, 2]], [[2, 1, 3], [3, 2, 1], [1, 3, 2]], [[1, 1, 1], [1, 1, 1], [1, 1, 1]], [[1, 3, 2], [3, 2, 1], [2, 1, 3]], [[3, 1, 2], [1, 2, 3], [2, 3, 1]]]
+
