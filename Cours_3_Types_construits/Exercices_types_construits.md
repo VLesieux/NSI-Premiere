@@ -458,11 +458,11 @@ Rappel :
 ############################### À faire 3. ##################################
 def somme_rangees(carre):
     """
-    Renvoie la somme des valeurs des différentes rangées
+    Renvoie la somme des valeurs des rangées
     param : carre
     return : int
-    >>> somme_rangees([[2,5,3],[3,2,1],[2,2,1]])
-    [10, 6, 5]
+    >>> somme_rangees([[2,7,6],[9,5,1],[4,3,8]])
+    [15, 15, 15]
     """
 	pass
 
@@ -470,11 +470,11 @@ def somme_rangees(carre):
 ############################### À faire 4. ##################################
 def somme_colonnes(carre):
     """
-    Renvoie la somme des valeurs des différentes colonnes
+    Renvoie la somme des valeurs des colonnes
     param : carre
     return : int
-    >>> somme_colonnes([[2,5,3],[3,2,1],[2,2,1]])
-    [7, 9, 5]
+    >>> somme_colonnes([[2,7,6],[9,5,1],[4,3,8]])
+    [15, 15, 15]
     """
 	pass
 
@@ -485,8 +485,8 @@ def somme_premiere_diagonale(carre):
     Renvoie la somme des valeurs de la première diagonale
     param : carre
     return : int
-    >>> somme_premiere_diagonale([[2,5,3],[3,2,1],[2,2,1]])
-    5
+    >>> somme_premiere_diagonale([[2,7,6],[9,5,1],[4,3,8]])
+    15
     """
 	pass
 
@@ -497,8 +497,8 @@ def somme_deuxieme_diagonale(carre):
     Renvoie la somme des valeurs de la deuxième diagonale
     param : carre
     return : int
-    >>> somme_deuxieme_diagonale([[2,5,3],[3,2,1],[2,2,1]])
-    7
+    >>> somme_deuxieme_diagonale([[2,7,6],[9,5,1],[4,3,8]])
+    15
     """
 	pass
 ```
