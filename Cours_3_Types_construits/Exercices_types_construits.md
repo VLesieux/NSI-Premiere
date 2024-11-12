@@ -387,7 +387,7 @@ Indication : travailler avec les nombres, retirer les '€'.
 
 ### Exercice 11
 
-Un carré de côté n est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes de chaque diagonale principale (première et deuxième diagonale) sont égales à une valeur commune.
+Un carré de côté n est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes des nombres des deux diagonales principales (première et deuxième diagonale) sont égales à une valeur commune.
 
 Par exemple, vérifier avec un crayon que le carré [[2,5,3],[3,2,1],[2,2,1]] est bien magique.
 Il est important de repérer sur ce schéma les lignes et les colonnes.
