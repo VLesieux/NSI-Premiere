@@ -389,15 +389,15 @@ Indication : travailler avec les nombres, retirer les '€'.
 
 Un carré de côté n est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes des nombres des deux diagonales principales (première et deuxième diagonale) sont égales à une valeur commune.
 
-Par exemple, vérifier avec un crayon que le carré [[2,5,3],[3,2,1],[2,2,1]] est bien magique.
+Par exemple, vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8] est bien magique.
 Il est important de repérer sur ce schéma les lignes et les colonnes.
 
 On rappelle que dans ces conditions :
 
 ```Python
->>> carre=[[2,5,3],[3,2,1],[2,2,1]]
+>>> carre=[[2,7,6],[9,5,1],[4,3,8]
 >>> carre[1][0]
-3
+9
 ```
 
 Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on réalisera le parcours des éléments de la liste en les comparant à la première valeur de celle-ci.
