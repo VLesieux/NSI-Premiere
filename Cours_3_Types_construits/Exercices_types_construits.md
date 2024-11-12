@@ -513,7 +513,7 @@ def est_magique(carre):
 ```
 ############################### À faire 8 (bonus) ##################################
 
-Écrire un programme (en utilisant la méthode de force brute) qui vous donnera une liste formée de 5 carrés magiques différents (formés de nombres compris entre 1 et 5).
+Écrire un programme (utilisant la méthode de force brute) qui vous donnera une liste formée de 5 carrés magiques différents (formés de nombres compris entre 1 et 5).
 
 On obtiendra par exemple après un laps de temps :
 
