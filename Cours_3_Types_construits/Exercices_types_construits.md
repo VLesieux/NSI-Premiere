@@ -395,7 +395,7 @@ Il est important de repérer sur ce schéma les lignes et les colonnes.
 On rappelle que dans ces conditions :
 
 ```Python
->>> carre=[[2,7,6],[9,5,1],[4,3,8]
+>>> carre=[[2,7,6],[9,5,1],[4,3,8]]
 >>> carre[1][0]
 9
 ```
