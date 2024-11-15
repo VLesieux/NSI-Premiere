@@ -412,7 +412,7 @@ def valeur_commune(liste):
     >>> valeur_commune([4,4,4,4])
     4
     >>> valeur_commune([4,4,3,4])
-    False    
+    False
     """
 	pass
 ```
