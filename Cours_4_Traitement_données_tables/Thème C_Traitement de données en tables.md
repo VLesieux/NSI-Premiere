@@ -400,7 +400,7 @@ def ajout(table1,table2,indice):
 Supposons que nous disposions d'une deuxième table avec le nom de pays en commun et d'autres champs non communs comme le PIB, la langue officielle, etc...   
 Nous allons construire une nouvelle table contenant toutes les informations des deux tables sans que le nom de pays figure deux fois. Si un pays est présent dans une table et pas dans l'autre, on donne la valeur *None* aux différents champs vides. On suppose de plus que les deux tables sont sans doublon.   
 Les paramètres `i1` et `i2` désignent les indices du champ 'Nom' dans chacune des deux tables.
-Techniquement, comme `table1` figure comme paramètre de la fonction, il est nécessaire de faire une **copie profonde** de table 1 afin d'ajouter sur ses lignes les valeurs de table2, nous verrons l'intérêt de cela dans un deuxième temps.
+Techniquement, comme `table1` figure comme paramètre de la fonction, il est nécessaire de faire une **copie profonde** de table 1 afin d'ajouter sur ses lignes les valeurs de table2, l'intérêt est de préserver ainsi la table 1.
 
 ```python
 from copy import deepcopy#importation de deepcopy de la bibliothèque copy
