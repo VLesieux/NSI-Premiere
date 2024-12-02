@@ -112,5 +112,5 @@ Image du jeu : <img src="assets/exemple_jeu.png">
 
 - Étudier le code mise en œuvre dans ce [jeu de casse briques](http://isnangellier.alwaysdata.net/php/Casse_briques/casse_briques_solution.html).
 
-- Étudier le code mise en œuvre dans ce [jeu de plateforme](https://drive.google.com/file/d/10PuX_KuHb0fyeRNXCRV4aulG4F7B-0cE/view?pli=1).
+- Étudier le code mise en œuvre dans ce [jeu de taquin](http://isnangellier.alwaysdata.net/php/Taquin_ISN.html).
 
