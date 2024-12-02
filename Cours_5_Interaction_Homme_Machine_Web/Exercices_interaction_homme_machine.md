@@ -104,8 +104,13 @@ Indication : on trouvera ici une [ébauche de simulation](http://isnangellier.al
 
 Image du jeu : <img src="assets/exemple_jeu.png">
 
-## Exercice 5
+## Exercice 5 (pour aller plus loin)
 
 - S'approprier le code expliqué de ce [quiz anglais](http://isnangellier.alwaysdata.net/php/Creation_quizz.html) et réalisez vous-même un quiz sur le thème de votre choix.
 
 - Étudier le code mise en œuvre dans ce [jeu de pendu](http://isnangellier.alwaysdata.net/php/Lependu.html).
+
+- Étudier le code mise en œuvre dans ce [jeu de casse briques](http://isnangellier.alwaysdata.net/php/Casse_briques/casse_briques_solution.html).
+
+- Étudier le code mise en œuvre dans ce [jeu de plateforme](https://drive.google.com/file/d/10PuX_KuHb0fyeRNXCRV4aulG4F7B-0cE/view?pli=1).
+
