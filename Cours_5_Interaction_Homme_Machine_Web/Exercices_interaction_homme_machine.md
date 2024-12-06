@@ -35,7 +35,7 @@ Math.floor(0.40961663444922125)
 
 Pour avoir un nombre compris entre 1 et 100 compris, on peut utiliser : Math.floor(Math.random()*100+1) 
 
-Utiliser la console pour visualiser l'avancement des variables.
+Utiliser la **console** pour visualiser l'avancement des variables.
 ```js
 console.log(nombre_mystere);
 console.log(nombre_de_coups);
