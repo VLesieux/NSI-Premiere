@@ -1,4 +1,5 @@
 
+**Projet : LABYRINTHE**
 
 
 
@@ -9,7 +10,13 @@
 
 
 
-
+La représentation du labyrinthe ci-dessous
+<img src="Assets/lab1.png">
+se fait ainsi : 
+0 pour un espace vide ; 
+1 pour un mur ; 
+2 pour l'entrée ; 
+3 pour la sortie
 
 ```Python
 labyrinthe=[
@@ -26,7 +33,6 @@ labyrinthe=[
 [1,0,0,0,0,0,1,1,0,1,1]
       ]
 ```
-<img src="Assets/lab1.png">
 
 ```Python
 lab1=[
@@ -202,7 +208,7 @@ def representation_solution(graphe):
     """
 	pass
 ```
-
+```Python
 if __name__ == '__main__':
   import doctest
   doctest.testmod(verbose=True)
