@@ -10,13 +10,21 @@
 
 
 
-La représentation du labyrinthe ci-dessous
+Le projet consiste à résoudre un labyrinthe.
+
+La représentation du labyrinthe ci-dessous :
+
+
 <img src="Assets/lab1.png">
-se fait ainsi : 
+
+
+se fait sous la forme d'une liste à deux dimensions (matrice) 
+de la manière suivante : 
+
 0 pour un espace vide ; 
 1 pour un mur ; 
 2 pour l'entrée ; 
-3 pour la sortie
+3 pour la sortie.
 
 ```Python
 labyrinthe=[
@@ -34,6 +42,8 @@ labyrinthe=[
       ]
 ```
 
+On utilise également ce labyrinthe plus simple pour réaliser nos tests.
+
 ```Python
 lab1=[
 [1,1,1,1,1,1,1],
@@ -47,6 +57,7 @@ lab1=[
 
 ```
  <img src="Assets/lab2.png">
+
 
 ```Python
 def nombre_colonnes(graphe):
@@ -93,6 +104,8 @@ def representation(graphe):
 	pass
 
 ```
+indication : le passage à la ligne se fait avec `print("\n")`
+
     
 ```Python    
 def est_valide(i,j,graphe):
@@ -176,7 +189,6 @@ def marquer_case(i,j,graphe):
 	pass
 ```
 
-import copy
 
 ```Python
 def solution(graphe):
@@ -189,6 +201,11 @@ def solution(graphe):
     """
 	pass
 ```
+
+Indication : on crée une liste `chemin` ; aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste en écrivant `chemin.pop()`.
+
+
+import copy
        
 ```Python
 def representation_solution(graphe):
