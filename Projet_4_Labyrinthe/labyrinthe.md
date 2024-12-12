@@ -202,7 +202,7 @@ def solution(graphe):
 	pass
 ```
 
-**Indication** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste, en écrivant `chemin.pop()`.
+**Indication** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` et marquée en plaçant un `4` dans la case ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste `chemin`, en écrivant `chemin.pop()`.
 
 
 import copy
