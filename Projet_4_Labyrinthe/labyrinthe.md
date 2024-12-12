@@ -204,8 +204,6 @@ def solution(graphe):
 
 **Indication** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` et marquée en plaçant un `4` dans la case ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste `chemin`, en écrivant `chemin.pop()`.
 
-
-import copy
        
 ```Python
 def representation_solution(graphe):
@@ -225,6 +223,13 @@ def representation_solution(graphe):
     """
 	pass
 ```
+Indication : on sera amené à faire une copie du labyrinthe pour ne pas le modifier.
+
+```Python
+import copy
+copie=copy.deepcopy(graphe)
+```
+
 ```Python
 if __name__ == '__main__':
   import doctest
