@@ -12,13 +12,13 @@
 
 Le projet consiste à résoudre un labyrinthe.
 
-La représentation du labyrinthe ci-dessous :
+
 
 
 <img src="Assets/lab1.png">
 
 
-se fait sous la forme d'une liste à deux dimensions (matrice) 
+La représentation du labyrinthe ci-dessus se fait sous la forme d'une liste à deux dimensions (matrice) 
 de la manière suivante : 
 
 0 pour un espace vide ; 
