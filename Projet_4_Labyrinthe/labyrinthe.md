@@ -1,9 +1,9 @@
 
 
-<img src="Assets/lab1.png">
 
 
- <img src="Assets/lab2.png">
+
+
 
 
 
@@ -26,6 +26,11 @@ labyrinthe=[
 [1,0,0,0,0,0,1,1,0,1,1]
       ]
 
+<img src="Assets/lab1.png">
+
+```
+
+```Python
 lab1=[
 [1,1,1,1,1,1,1],
 [2,0,0,0,0,0,1],
@@ -36,9 +41,10 @@ lab1=[
 [1,1,1,1,1,3,1]
     ]
 
+```
+ <img src="Assets/lab2.png">
 
-
-
+```Python
 def nombre_colonnes(graphe):
     """
     Renvoie le nombre de colonnes du graphe
