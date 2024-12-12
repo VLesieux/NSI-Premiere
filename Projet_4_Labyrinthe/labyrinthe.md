@@ -53,6 +53,9 @@ def nombre_colonnes(graphe):
     """
     pass
 
+```
+
+```Python
 def nombre_lignes(graphe):
     """
     Renvoie le nombre de lignes du graphe
@@ -63,6 +66,9 @@ def nombre_lignes(graphe):
     """
     pass
 
+```
+
+```Python
 def representation(graphe):
     """
     Affiche une représentation du graphe
@@ -79,8 +85,10 @@ def representation(graphe):
     <BLANKLINE>
     """
 	pass
+
+```
     
-    
+```Python    
 def est_valide(i,j,graphe):
     """
     Renvoie True si le couple (i,j) correspond à des coordonnées valides
@@ -94,8 +102,10 @@ def est_valide(i,j,graphe):
     False
     """
     pass
-    
 
+```
+    
+```Python
 def entree(graphe):
     """
     Renvoie les coordonnées du point de départ
@@ -105,7 +115,9 @@ def entree(graphe):
     (1, 0)
     """
 	pass
-            
+```
+
+```Python            
 def arrivee(graphe):
     """
     Renvoie les coordonnées du point de départ
@@ -115,7 +127,9 @@ def arrivee(graphe):
     (6, 5)
     """
 	pass
-            
+```
+
+```Python            
 def nombre_cases_vides(graphe):
     """
     Renvoie le nombre de cases vides(0) du graphe, entrée(2), sortie(3), visités (4) comprises.
@@ -125,8 +139,9 @@ def nombre_cases_vides(graphe):
     19
     """
 	pass
+```
     
-
+```Python
 def voisines_valides(x,y,graphe):
     """
     Renvoie la liste des cases valides qui ne sont pas des murs autour de la case (x,y)
@@ -139,7 +154,9 @@ def voisines_valides(x,y,graphe):
     [(1, 4), (2, 5)]
     """
 	pass
+```
 
+```Python
 def marquer_case(i,j,graphe):
     """
     Place 4 dans la case (i,j) pour indiquer que celle-ci est visitée
@@ -151,9 +168,11 @@ def marquer_case(i,j,graphe):
     [[1, 1, 1, 1, 1, 1, 1], [2, 0, 0, 0, 4, 0, 1], [1, 1, 1, 1, 1, 0, 1], [1, 0, 1, 0, 0, 0, 1], [1, 0, 1, 0, 1, 0, 1], [1, 0, 0, 0, 1, 0, 1], [1, 1, 1, 1, 1, 3, 1]]
     """
 	pass
+```
 
 import copy
 
+```Python
 def solution(graphe):
     """
     Renvoie la solution du labyrinthe
@@ -163,8 +182,9 @@ def solution(graphe):
     [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5)]
     """
 	pass
+```
        
-
+```Python
 def representation_solution(graphe):
     """
     Affiche une représentation du graphe
@@ -181,6 +201,7 @@ def representation_solution(graphe):
     <BLANKLINE>
     """
 	pass
+```
 
 if __name__ == '__main__':
   import doctest
