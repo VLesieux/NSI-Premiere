@@ -163,8 +163,7 @@ def nombre_cases_vides(graphe):
 ```Python
 def voisines_valides(x,y,graphe):
     """
-    Renvoie la liste des cases valides qui ne sont pas des murs autour de la case (x,y)
-    On tourne dans le sens des aiguilles d'une montre à partir du haut à gauche
+    Renvoie la liste des cases valides non visités (!=4) qui ne sont pas des murs autour de la case (x,y)
     param : i : int
     param : j : int
     param : graphe : list
@@ -188,7 +187,12 @@ def marquer_case(i,j,graphe):
     """
 	pass
 ```
+Indication : on sera amené à faire une copie du labyrinthe pour ne pas le modifier.
 
+```Python
+import copy
+copie=copy.deepcopy(graphe)
+```
 
 ```Python
 def solution(graphe):
@@ -223,12 +227,7 @@ def representation_solution(graphe):
     """
 	pass
 ```
-Indication : on sera amené à faire une copie du labyrinthe pour ne pas le modifier.
 
-```Python
-import copy
-copie=copy.deepcopy(graphe)
-```
 
 ```Python
 if __name__ == '__main__':
