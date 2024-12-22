@@ -141,18 +141,6 @@ def voisins_case(grille,abscisse,ordonnee):
 
 **Indications** : 
 
-- on peut utiliser l'instruction `try_except` qui permet de passer au-dessus d'éventuelles erreurs de dépassement d'index :
-
-```
-liste=[1,2,3,4]
-print(liste[4])
->>> IndexError: list index out of range
-try:
-    print(liste[4])
-except IndexError:
-        pass
-#passe sur l'erreur de dépassement d'index et ne fait rien
-```
 
 - on peut utiliser deux boucles imbriquées l'une dans l'autre, dont la première vous est donnée ci-dessous:
 
