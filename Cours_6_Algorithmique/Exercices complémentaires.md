@@ -3,4 +3,4 @@
 
 [exercice 2 : algorithme glouton](http://vfsilesieux.free.fr/exercice_algorithme_glouton.html)
 
-[exercice 3 : dichotomie](http://vfsilesieux.free.fr/sujet_dichotomie.html)
+[exercice 3 : dichotomie + tri insertion](http://vfsilesieux.free.fr/sujet_dichotomie.html)
