@@ -40,6 +40,8 @@ Une machine fonctionnant selon l'architecture de Von Neumann doit s’organiser 
 -  Une **unité de contrôle** chargée du « séquençage » des opérations grâce à une **horloge** pour synchroniser le fonctionnement.     
 -  Des **périphériques entrées/sorties**.  
 
+[Architecture de Van Neumann](assets/images/Archi_von_neumann.jpeg)
+
 Les différents éléments échangent des éléments à l’aide de **bus**.   
 
 Physiquement, un système informatique est constitué de plusieurs éléments :  
