@@ -6,7 +6,7 @@
 
 Euclide est un mathématicien de la Grèce antique, auteur du livre <i>les éléments de mathématiques</i>, qui constituent l'un des textes fondateurs de cette discipline en Occident. 
 
-En arithmétique élémentaire, le plus grand commun diviseur ou PGCD de deux nombres entiers non nuls est le plus grand entier qui les divise simultanément. Par exemple, le PGCD de 20 et de 30 est 10, puisque leurs diviseurs communs sont 1, 2, 5 et 10.
+En arithmétique élémentaire, le plus grand commun diviseur ou PGCD de deux nombres entiers non nuls est le plus grand entier qui les divise simultanément. Par exemple, le PGCD de 360 et de 252 est 36.
 
 Étape 1 : on divise m par n et on note r le reste de la division euclidienne  
 Étape 2 : si le reste est nul, c'est terminé, le pgcd est n     
@@ -14,29 +14,37 @@ En arithmétique élémentaire, le plus grand commun diviseur ou PGCD de deux no
 
 ![Exemple ](assets/exemple.png)
 
-Explications :
-```python
-360=252*1+108
-252=108*2+36
-108=36*3
-
-360=252*1+108=(108*2+36)*1+108=((36*3)*2+36)*1+(36*3)=36*10
-252=108*2+36=(36*3)*2+36=36*7
-```
+Proposer une explication au fait que cet algorithme produit bien le p.g.c.d de deux nombres.
 
 **Implémentation en Python** :
 
 ```python
-def pgcd(m,n):
-    r=m%n
-    while r!=0:
-        m,n=n,r# permutation du diviseur avec le dividende et permutation du reste avec le diviseur
-        r=m%n
-    return n
+def pgcd(m,p):
+    """
+    Renvoie le p.g.c.d de deux nombres m et p
+    param : m : int
+    param : p : int
+    return : int
+    >>> pgcd(360,252)
+    36
+    """
 
->>> pgcd(252,360)
-36
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
 ```
+
+Indications :
+
+1. Voir au préalable le point 2. ci-dessous à propos de la permutation des valeurs
+2. Pour voir ce qui se passe, ajouter la ligne suivante dans votre code et utiliser le débogueur.
+
+```python
+pgcd(360,252)
+```
+
+
 
 # II. Les outils utilisés pour la construction des algorithmes
 
