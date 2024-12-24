@@ -2,17 +2,18 @@
 
 ![Programme officiel ](assets/bo.png)
 
-# I. Un exemple classique d'algorithme: l'algorithme d'Euclide pour la recherche du pgcd de deux nombres
+# I. Introduction : un exemple classique d'algorithme: l'algorithme d'Euclide pour la recherche du pgcd de deux nombres
 
-Euclide est un mathématicien de la Grèce antique, auteur du livre <i>les éléments de mathématiques</i>, qui constituent l'un des textes fondateurs de cette discipline en Occident. 
+Euclide est un mathématicien de la Grèce antique, auteur du livre <i>les éléments de mathématiques</i>, qui constitue l'un des textes fondateurs de cette discipline en Occident. 
 
-En arithmétique élémentaire, le plus grand commun diviseur ou PGCD de deux nombres entiers non nuls est le plus grand entier qui les divise simultanément. Par exemple, le PGCD de 360 et de 252 est 36.
+En arithmétique élémentaire, le plus grand commun diviseur ou PGCD de deux nombres entiers non nuls est le plus grand entier qui les divise simultanément.   
+Par exemple, le PGCD de 360 et de 252 est 36.
 
 Étape 1 : on divise m par n et on note r le reste de la division euclidienne  
 Étape 2 : si le reste est nul, c'est terminé, le pgcd est n     
 Étape 3 : sinon, on remplace m par n et n par r et on recommence l'étape 1
 
-![Exemple ](assets/exemple.png)
+![Exemple de recherche de PGCD ](assets/exemple.png)
 
 Proposer une explication au fait que cet algorithme produit bien le p.g.c.d de deux nombres.
 
@@ -37,8 +38,8 @@ if __name__ == '__main__':
 
 Indications :
 
-1. Voir au préalable le point 2. ci-dessous à propos de la permutation des valeurs
-2. Pour voir ce qui se passe, ajouter la ligne suivante dans votre code et utiliser le débogueur.
+1. Voir au préalable le point 2. du II ci-dessous à propos de la permutation des valeurs
+2. Pour voir ce qui se passe, ajouter la ligne suivante dans votre code et **utiliser le débogueur**.
 
 ```python
 pgcd(360,252)
@@ -59,47 +60,53 @@ def ecrire(n):
     compteur=0
     for i in range(n):
         for j in range(i):
-            print('NSI')
             compteur+=1
-    return compteur
+            print(f'NSI ; i={i} ; j={j} ; compteur={compteur}')
 >>> ecrire(5)
-NSI
-NSI
-NSI
-NSI
-NSI
-NSI
-NSI
-NSI
-NSI
-NSI
-10
+
 ```
 À chaque fois que i varie de 0 à n-1, c'est-à-dire n fois, on affiche le mot 'NSI' i fois.
-Au total le nombre de fois où le mot est affiché est donc : 0+1+2+...(n-1).  
+Au total, on observe, en suivant la variable i, que le nombre de fois où le mot est affiché est donc : 1+2+...(n-1).  
 Cette somme se rencontre souvent ; il s'agit de la somme des termes d'une suite arithmétique de raison 1. Une astuce permet de donner rapidement la valeur de cette somme.
  
 S=1+2+...(n-1).   
-S=(n-1)+(n-2)+.....+1.   
-2S=nx(n-1) donc S=nx(n-1)/2 ; pour n=5 : S=10.
-
->>Pour les exercices, réaliser les docstrings et vérifier les tests :
-
-```python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True)
-```
+S=(n-1)+(n-2)+.....+1.   on réécrit S dans l'ordre inverse.
+Puis on additionne membre à membre les deux égalités.
+2xS=nx(n-1) donc S=nx(n-1)/2 ; pour n=5 : S=10.
 
 Pour chacun de ces 3 exercices, on réalisera un compteur.
 
-<u>Exercice 1</u>  
+**Exercice 1**
+
+En partant de la fonction qui permet de donner l'écriture binaire d'un nombre.  
+
+**Rappel** : 
+
+            
+```python            
+def binaire(n):
+    """
+    Renvoie l'écriture binaire de l'entier n
+    param : n : int
+    return : str
+    >>> binaire(11)
+    '1011'
+    """
+    binaire=""
+    while n>0:
+        r=n%2
+        n=n//2
+        binaire=str(r)+binaire
+    return binaire 
+```
+
+  
 Écrire une fonction `taille_binaire(n)` qui renvoie le nombre de chiffres dans l'écriture binaire de l'entier n (c'est-à-dire le nombre de divisions euclidiennes successives de n par 2 jusqu'à arriver à un quotient nul).
 
 ```python
 def taille_binaire(n):
     """
-    Renvoie le nombre de bits dans l'écriture binaire de n
+    Renvoie le nombre de bits dans l'écriture binaire d'un entier n
     param : n : int
     return : int
     >>> taille_binaire(9)
@@ -109,7 +116,7 @@ def taille_binaire(n):
     """
 ```
 
-<u>Exercice 2</u>   
+**Exercice 2**  
 Écrire une fonction `nombre_de_1(n)`, indépendante de la fonction précédente, qui renvoie le nombre de 1 dans l'écriture binaire du nombre.
 
 ```python
@@ -125,7 +132,7 @@ def nombre_de_1(n):
     """
 ```
 
-<u>Exercice 3</u>   
+**Exercice 3**   
 Écrire une fonction `diviseurs(n)` qui renvoie le nombre de diviseurs de n.
 
 ```python
@@ -155,7 +162,7 @@ def produit(tab):
 Ici p joue le rôle d'accumulateur qui est initialisé à 1.
 
 
-<u>Exercice 4</u>   
+**Exercice 4**
 Écrire une fonction `somme(liste)` qui renvoie la somme des termes d'une liste de nombres.
 
 ```python
@@ -169,7 +176,7 @@ def somme(liste):
     """
 ```
 
-<u>Exercice 5</u>     
+**Exercice 5**    
 Écrire une fonction `somme_paire(liste)` qui renvoie la somme des termes paires d'une liste de nombres.
 
 ```python
@@ -185,7 +192,7 @@ def somme_pairs(liste):
 
 ## 2. La permutation des valeurs
 
-La permutation des valeurs nécessite de prendre soin de la manière de procéder.  
+La permutation des valeurs nécessite de prendre soin à la manière de procéder.  
 
 Exemple :  
 
@@ -291,7 +298,7 @@ Enfin, puisqu'à la sortie de la boucle, on a m=a, on peut bien affirmer que la 
 
 ### b. Terminaison de l'algorithme
 
-Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On ne parle ici que des boucles conditionnelles (utilisant `while`) car dans les boucles inconditionnelles (utilisant `for`) le nombre d'étapes est nécessairement déterminé.
+Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On ne parle ici que des boucles conditionnelles (boucles `while`) car dans les boucles inconditionnelles (boucles `for`) le nombre d'étapes est nécessairement déterminé.
 
 On choisit donc un **variant**, c'est-à-dire une expression, la plus simple étant une variable, telle que la suite formée par les valeurs de cette expression au cours des itérations **converge** en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt. 
 
@@ -321,7 +328,7 @@ def multiplie(a,b):
 ```
 les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passages dans la boucle. À chaque passage nous effectuons deux additions et deux affectations, soit 4 opérations, donc nous effectuons au total 4×a opérations. Nous dirons que le coût est proportionnel à a, ou qu'il est **linéaire**, on dit aussi que l'algorithme a une **complexité linéaire** car si n désigne la taille des données, le nombre d'opérations s'écrit α×n+β, l'ordre de grandeur asymptotique noté Θ est Θ(n), car quand n est grand, le nombre d'opérations est proportionnel à n. 
  
-On dira ainsi que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ, l'ordre de grandeur asymptotique noté Θ est Θ(n<sup>2</sup>), , car quand n est grand, le nombre d'opérations est proportionnel à n<sup>2</sup> (c'est la puissance la plus forte qui donne la tendance).
+On dira ainsi que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ, l'ordre de grandeur asymptotique noté Θ est Θ(n<sup>2</sup>), , car quand n est grand, le nombre d'opérations est proportionnel à n<sup>2</sup> (c'est la puissance la plus grande d'un polynome qui donne la tendance).
 
 Dans le cas de deux boucles imbriquées, on peut avoir, selon les cas, soit une complexité linéaire soit une complexité quadratique.
 
