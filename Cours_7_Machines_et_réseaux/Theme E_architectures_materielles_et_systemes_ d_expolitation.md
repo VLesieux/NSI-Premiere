@@ -48,7 +48,7 @@ Les différents éléments échangent des éléments à l’aide de **bus**.
 
 Physiquement, un système informatique est constitué de plusieurs éléments :  
 
-Un boîtier contenant une **carte mère** avec un **microprocesseur**, des **barrettes de mémoire**, une **carte graphique**, une **carte réseau**, des **ports de communication** en contact direct, et des **périphériques** éloignés comme un disque dur, des **périphériques externes** parmi lesquels on distinguera les **périphériques d'entrée** comme un clavier, une souris, un scanneur et des **périphériques de sortie** comme un moniteur, des enceintes ou des écouteurs, une imprimante, qui se connectent par des ports ou par des systèmes sans fil comme le wifi ou le Bluetooth.   
+Un boîtier contenant une **carte mère** avec un **microprocesseur (contenant UC et UAL) **, des **barrettes de mémoire**, une **carte graphique**, une **carte réseau**, des **ports de communication** en contact direct, et des **périphériques** éloignés comme un disque dur, des **périphériques externes** parmi lesquels on distinguera les **périphériques d'entrée** comme un clavier, une souris, un scanneur et des **périphériques de sortie** comme un moniteur, des enceintes ou des écouteurs, une imprimante, qui se connectent par des ports ou par des systèmes sans fil comme le wifi ou le Bluetooth.   
 
 La **carte mère** est un circuit imprimé, l’élément central d’un ordinateur, PC ou portable, d’une tablette ou d’un smartphone dont le rôle est de **connecter les différents éléments de l'ordinateur**. Le chipset gère le flux des données entre le processeur, la mémoire et les périphériques. Il détermine la vitesse des bus de communication permettant d’échanger des informations.  
 
