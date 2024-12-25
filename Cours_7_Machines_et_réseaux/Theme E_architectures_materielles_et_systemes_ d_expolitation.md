@@ -35,10 +35,12 @@ L’architecture des ordinateurs actuels repose sur le **modèle de Von Neumann*
 
 Une machine fonctionnant selon l'architecture de Von Neumann doit s’organiser en quatre parties différentes avec :    
 
--	Une **mémoire**. 
--  Une **unité arithmétique et logique** située dans le processeur et chargée d'effectuer les calculs et les opérations de base.  
--  Une **unité de contrôle** chargée du « séquençage » des opérations grâce à une **horloge** pour synchroniser le fonctionnement.     
--  Des **périphériques entrées/sorties**.  
+-  Une **unité arithmétique et logique** ou UAL (ALU en anglais) située dans le processeur et chargée d'effectuer les calculs et les opérations de base.  
+-  Une **unité de contrôle** ou UC (CU en anglais) chargée du « séquençage » des opérations grâce à une **horloge** pour synchroniser le fonctionnement. Elle prend ses instructions dans la mémoire et donne ses ordres à l'UAL.     
+-	Une **mémoire** : elle peut être décrite comme une suite de cases numérotées, chaque case pouvant contenir une information. Cette information peut être une instruction ou un morceau d'instruction du programme ou une donnée. C'est l'UC qui a comme rôle central de contrôler l'accès à la mémoire pour le programme et les données.
+-  Des **périphériques entrées/sorties** ou E/S (I/O : input, output en anglais) : un clavier pour entrer les données, un écran pour afficher les résultats.
+
+Ainsi les instructions du programme sont présentes dans la mémoire. L'UC va prendre la première instruction du programme et l'exécuter. Si l'instruction est par exemple d'additionner deux nombres, elle va demander à l'UAL de prendre ces deux nombres en mémoire et de les additionner, éventuellement de placer le résultat dans une nouvelle case. Puis l'UC passe à l'instruction suivante. Si elle consiste à l'afficher, alors l'UC va lire le contenu de la mémoire à l'adresse où est placé le résultat, puis va envoyer le résultat via le composant d'E/S adéquat.
 
 <img src="assets/images/Archi_von_neumann.jpeg" width="300" height="300">
 
