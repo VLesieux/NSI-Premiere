@@ -127,7 +127,7 @@ oscillateur=[[0, 0, 1, 0], [1, 0, 0, 1], [1, 0, 0, 1], [0, 1, 0, 0]]
 planeur=[[0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 
 #evolution_n_generations(oscillateur,10)
-evolution_n_generations(planeur,10)
+#evolution_n_generations(planeur,10)
 
 if __name__ == '__main__':
     import doctest
