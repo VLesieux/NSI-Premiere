@@ -293,20 +293,20 @@ Cet algorithme simple a pour but de renvoyer le produit a×b sans utiliser le si
 On se propose de montrer que la propriété "p=m×b" est un invariant de boucle ; c'est-à-dire qu'en tout point de la boucle, on a bien "p=m×b".
 
 La propriété se vérifie aisément à la phase d'initialisation.  
-Supposons maintenant que la propriété soit vraie à l'entrée de la boucle, vérifions qu'elle reste vraie à la sortie de la boucle, lorsque m et p prennent les nouvelles valeurs m' et p'. On a bien : p'=p+b=m×b+b=(m+1)×b=m'×b.
-Enfin, puisqu'à la sortie de la boucle, on a m=a, on peut bien affirmer que la fonction renvoie le produit a×b.
+Supposons maintenant que la propriété soit vraie à l'entrée de la boucle, vérifions qu'elle reste vraie à la sortie de la boucle, lorsque m et p prennent de nouvelles valeurs m' et p'. On a bien : p'=p+b=m×b+b=(m+1)×b=m'×b.
+Enfin, puisqu'à la sortie de la boucle, on a m=a, on peut bien affirmer que la fonction renvoie bien le produit a×b.
 
 ### b. Terminaison de l'algorithme
 
-Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On ne parle ici que des boucles conditionnelles (boucles `while`) car dans les boucles inconditionnelles (boucles `for`) le nombre d'étapes est nécessairement déterminé.
+Un algorithme ne doit comporter qu'un nombre fini d'étapes. Afin de prouver la **terminaison** d'un algorithme itératif, nous utilisons la notion de **variant**. On ne parle ici que des boucles **conditionnelles** (ce sont les boucles `while`) car dans les boucles inconditionnelles (boucles `for`) le nombre d'étapes est nécessairement déterminé.
 
 On choisit donc un **variant**, c'est-à-dire une expression, la plus simple étant une variable, telle que la suite formée par les valeurs de cette expression au cours des itérations **converge** en un nombre fini d'étapes vers une valeur satisfaisant la condition d'arrêt. 
 
-Dans notre exemple, si nous choisissons `m` comme variant, celui-ci prend les valeurs 0,1,... jusque `a`, et donc il y a exactement `a` passages dans la boucle, ce qui prouve sa terminaison.
+Dans notre exemple précédent, si nous choisissons `m` comme variant, celui-ci prend les valeurs 0,1,... jusque `a`, et donc il y a exactement `a` passages dans la boucle, ce qui prouve effectivement sa terminaison.
 
 ## 2. Coût d'un algorithme ou complexité
 
-Au préalable, on se propose d'avoir une première approche de cette notion en parcourant quelques pages du [dictionnaire des sciences](assets/Dictionnaire_sciences.md) de Michel Serres et Nayla Farouki écrit dans un style de vulgarisation scientifique. 
+La question que l'on se pose est la suivante :
 
 Supposons q'un programme ait à traiter une liste de 10<sup>7</sup> éléments puis une liste de 10<sup>8</sup> éléments ; le **temps d'exécution du programme** sera-t-il multiplié par 10 ? 
 
