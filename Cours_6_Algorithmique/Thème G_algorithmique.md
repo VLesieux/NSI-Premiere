@@ -331,7 +331,7 @@ les passages dans la boucle ont lieu pour les valeurs m=0,1,..a-1 soit a passage
  
 On dira ainsi que la complexité est **quadratique** dans le cas où le nombre d'opérations s'écrit α×n<sup>2</sup>+β×n+γ, l'ordre de grandeur asymptotique noté Θ est Θ(n<sup>2</sup>), , car quand n est grand, le nombre d'opérations est proportionnel à n<sup>2</sup> (c'est la puissance la plus grande d'un polynome qui donne la tendance).
 
-Dans le cas de deux boucles imbriquées, on peut avoir, selon les cas, soit une complexité linéaire soit une complexité quadratique.
+Dans le cas de **deux boucles imbriquées**, on peut avoir, selon les cas, soit une complexité linéaire soit une complexité quadratique.
 
 <u>Premier cas</u> :
 
