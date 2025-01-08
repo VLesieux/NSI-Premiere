@@ -581,7 +581,7 @@ Sinon, si `x≥liste[k]`, on obtient `liste[k]≤x<liste[d]`, dans ce cas la nou
 
 ### 1.Tri bulle 
 
-[Vidéo](https://www.youtube.com/watch?v=MtcrEhrt_K0&feature=youtu.be) 
+[Vidéo](https://www.youtube.com/watch?v=LTN97u8rSY0) 
 
 <u>Principe</u> : **cet algorithme consiste à faire remonter les valeurs les plus grandes les uns après les autres par permutations sucessives à la manière d'une bulle ; d'où le nom de tri bulle pour cet algorithme de tri.**
 
