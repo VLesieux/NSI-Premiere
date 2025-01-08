@@ -549,15 +549,18 @@ def recherche_dichotomie(T,valeur):
     return : tuple
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],18)
     (4, 4)
+    >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],90)
+    "La valeur recherchée n'est pas comprises dans les bornes de la liste"
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],40)
     'La valeur recherchée est absente de la liste'
-    >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],90)
-    "La valeur recherchée n'est pas dans les bornes de la liste"
     """
 ```
 
-**Indication** : On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'`indice` de position de `valeur` dans `liste`.
-Écrire les choses à la main dans un premier temps.
+**Indications** : 
+
+1) On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'`indice` de position de `valeur` dans `liste`.
+2) Quelles valeurs d'indice pour `g` et `d` est-on amené à prendre **au mieux** quand T(m) > valeur ou quand T(m) < valeur pour enserrer la valeur recherchée ?
+3) Que se passe-t-il pour `g` et `d` si la valeur recherchée n'est pas dans la liste ?
 
 
 - Faisons la preuve de la **terminaison** de l'algorithme en choisissant comme **variant** de la boucle : (`d-g`). 

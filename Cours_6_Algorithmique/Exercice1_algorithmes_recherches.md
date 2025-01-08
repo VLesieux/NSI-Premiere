@@ -26,3 +26,22 @@ if __name__ == '__main__':
 #### Exercice 4 : Recherche par dichotomie
 
 [Sujet Bac Terminale exercice 2](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_03/21_NSI_03.pdf)
+
+
+#### Exercice 5 : Recherche d'un mot dans un texte
+
+```Python
+def recherche_mot_dans_un_texte(mot,texte):
+    """
+    Renvoie, si elle existe, la première occurence du mot dans le texte
+    param : mot : str
+    param : texte : str
+    return : int
+    >>> recherche_mot_dans_un_texte("oui","ce n'était pas si dur, oui, il fallait y croire")
+    23
+    >>> recherche_mot_dans_un_texte("oui","ce n'était pas si dur, il fallait y croire")
+    'Le mot est absent du texte'
+    """
+```
+
+Proposer deux écritures avec les deux types de boucle.
