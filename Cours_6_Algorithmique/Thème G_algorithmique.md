@@ -807,7 +807,7 @@ print(liste1)
 
 Prenons le cas de 40 données, le temps du tri insertion (courbe orange) est de 0.0125 s; dans le cas de 120 données, 3 fois plus de données, le temps devient 0.1125 s, il est 0.1125/0.0125=9=3^2 fois plus long ; on a bien la preuve du **coût quadratique** de ce tri, à savoir que le coût (le temps nécessaire pour trier) est proportionnel au carré du nombre de données.
 
-## 4. L'algorithme des k plus proches voisins [Projet : les iris](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_6_Les%20iris/Les_iris.md)
+## 4. L'algorithme des k plus proches voisins : [Projet : les iris](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_7_Les%20iris/Les_iris.md)
 
 **Intérêt**: En vue d'attribuer une classe ou une valeur numérique à un élément appartenant à un ensemble d'éléments, l'idée est de lui attribuer la classe la plus présente ou la valeur numérique moyenne parmi ses k plus proches voisins ; comme dit l'adage : " Dis-moi qui sont tes amis, je te dirai qui tu es." Quand on parle de proximité, ce n'est pas nécessairement dans le sens d'une distance euclidienne mais la distance peut être calculée selon différents critères. En intelligence artificielle, plus précisément en apprentissage automatique, la méthode des k plus proches voisins est une méthode d’apprentissage supervisé ; on parle d'**algorithme de classification et d’apprentissage**.
 <br>
@@ -853,7 +853,7 @@ E=list(range(1000))
 [16, 17, 14, 15]
 ```
 
-## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_7_Voyageur_de_commerce/TSP.md)
+## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_9_Voyageur_de_commerce/Voyageur_de_commerce.md)
 
 L'**algorithme glouton** est un type d'algorithme de résolution de problème qui consiste à prendre des décisions localement optimales dans l'espoir de parvenir à une solution globale optimale. Il fonctionne en sélectionnant à chaque étape la meilleure option disponible, sans se soucier des conséquences à long terme de cette décision.
 
