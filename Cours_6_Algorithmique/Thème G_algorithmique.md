@@ -543,14 +543,13 @@ Proposer une fonction `recherche_dichotomie`.
 def recherche_dichotomie(T,valeur):
     """
     Recherche valeur dans T par dichotomie
-    Renvoie son indice de position, et le nombre d'étapes
+    Renvoie deux choses : l'indice de position de valeur dans T, et le nombre d'étapes nécessaires
     param : T : list
     param : valeur : int
     return : int
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],18)
     (4, 3)
     """
-    pass
 ```
 
 **Indication** : On appellera `g` et `d` les bornes respectivement de gauche et de droite qui enserre de plus en plus l'`indice` de position de `valeur` dans `liste`.
