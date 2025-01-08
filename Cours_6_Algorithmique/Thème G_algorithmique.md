@@ -548,9 +548,11 @@ def recherche_dichotomie(T,valeur):
     param : valeur : int
     return : tuple
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],18)
-    (4, 3)
+    (4, 4)
+    >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],40)
+    'La valeur recherchée est absente de la liste'
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],90)
-    "la valeur recherchée n'est pas dans les bornes de la liste"
+    "La valeur recherchée n'est pas dans les bornes de la liste"
     """
 ```
 
