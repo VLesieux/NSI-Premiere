@@ -535,7 +535,7 @@ Avec Python, nous disposons de deux procédés pour trier :
 
 Le principe de la dichotomie (**binary search** en anglais) repose sur le principe **<i>diviser pour mieux régner</i> (en anglais divide-and-conquer)** : il consiste à diviser répétitivement la liste en deux parties égales jusqu'à ce que l'élément recherché soit trouvé.
 
-Pour l'implémenter en Python, on utilise une boucle `while` pour continuer à diviser la liste en deux jusqu'à ce que la taille de la liste soit égale à 1. Utilisez la variable de milieu pour vérifier si l'élément recherché est plus grand ou plus petit que l'élément du milieu, puis décider de continuer à rechercher dans la moitié supérieure ou inférieure de la liste. Il faut retourner l'index de la valeur trouvée.
+Pour l'implémenter en Python, on utilise une boucle **`while`** pour continuer à diviser la liste en deux jusqu'à ce que la taille de la liste soit égale à 1. Utilisez la variable de milieu pour vérifier si l'élément recherché est plus grand ou plus petit que l'élément du milieu, puis décider de continuer à rechercher dans la moitié supérieure ou inférieure de la liste. Il faut retourner l'index de la valeur trouvée.
 
 Proposer une fonction `recherche_dichotomie`.
 
@@ -549,6 +549,8 @@ def recherche_dichotomie(T,valeur):
     return : tuple
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],18)
     (4, 3)
+    >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],90)
+    "la valeur recherchée n'est pas dans les bornes de la liste"
     """
 ```
 
@@ -562,14 +564,8 @@ Supposons que la taille du tableau soit inférieure à 2<sup>n</sup>, après k i
 - On peut également parler de la complexité de l'algorithme. Par exemple, il faut sept étapes pour un tableau dont la taille est de l'ordre de 100 (2<sup>7</sup>=128) et 10 étapes pour un tableau dont la taille est de l'ordre de 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc **nettement inférieur au nombre d'étapes d'une recherche linéaire**, d'où son intérêt pratique !
 
 - Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.     
-Il faut évidemment que cela soit vrai avant l'entrée dans la boucle, d'où la possibilité, afin d'améliorer le programme, d'ajouter une assertion dans le programme avant de commencer la recherche et ainsi ne pas effectuer la boucle pour rien. Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien et sinon elle arrête immédiatement l'exécution du programme en affichant éventuellement la phrase qui lui est associée.
-
-
-```python
-    assert liste[g]<= x and x < liste[d],"la valeur dépasse les bornes de la liste"
-```
-
-Si l'assertion est vérifiée, alors la propriété est vraie avant l'entrée dans la boucle.    
+Il faut évidemment que cela soit vrai avant l'entrée dans la boucle sinon le programme nous enverra un message d'avertissement.
+   
 Supposons maintenant la propriété vraie avant le passage dans la boucle : `liste[g]≤x<liste[d]`.    
 D'après le choix de k, k=(g+d)//2 ,liste[g]≤liste[k]≤liste[d] puisque la liste est triée.  
 Si `x<liste[k]`, on obtient `liste[g]≤x<liste[k]`, dans ce cas la nouvelle valeur de d est k, et donc la propriété `liste[g]≤x<liste[d]` est vraie en sortant de la boucle.   
