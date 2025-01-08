@@ -430,7 +430,7 @@ Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n 
 
 ### b. Recherche d'une occurence
 
-On recherche de manière séquentielle la présence d'une valeur dans un tableau ; ce tableau peut être une liste, un p-uplet ou une chaîne de caractères.
+On recherche, de **manière séquentielle** (c'est-à-dire en passant en revue les éléments), la présence d'une valeur dans un tableau ; ce tableau peut être une liste, un p-uplet ou une chaîne de caractères.
 
 Proposer l'écriture de la fonction `recherche(x,t)` qui recherche l'élément x dans le tableau t de longueur n et renvoie la position de cet élément dans la liste.  
 On utilisera une boucle conditionnelle puis une boucle inconditionnelle.
