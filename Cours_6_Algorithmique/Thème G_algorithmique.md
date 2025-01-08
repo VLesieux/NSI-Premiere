@@ -546,7 +546,7 @@ def recherche_dichotomie(T,valeur):
     Renvoie deux choses : l'indice de position de valeur dans T, et le nombre d'étapes nécessaires
     param : T : list
     param : valeur : int
-    return : int
+    return : tuple
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],18)
     (4, 3)
     """
