@@ -513,7 +513,7 @@ La recherche dichotomique dans une liste doit s'effectuer nécessairement sur un
 
 Avec Python, nous disposons de deux procédés pour trier :
 
-- de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. 
+- de la **fonction** `sorted(liste)` qui prend en argument la liste et renvoie la liste triée sans modification de la liste initiale. 
 
 ```python
 >>> liste=[4,1,3,2]
