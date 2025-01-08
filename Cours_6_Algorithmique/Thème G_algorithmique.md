@@ -310,7 +310,8 @@ La question que l'on se pose est la suivante :
 
 Supposons q'un programme ait à traiter une liste de 10<sup>7</sup> éléments puis une liste de 10<sup>8</sup> éléments ; le **temps d'exécution du programme** sera-t-il multiplié par 10 ? 
 
-Les réponses sont variées et dépendent de l'algorithme et de la liste. Pour une liste donnée, un programme peut être plus rapide qu'un autre, mais avec une autre liste, cela peut être le contraire. Le même programme peut être plus rapide avec une liste plus longue. L'étude n'est pas simple et pour comparer deux algorithmes nous allons nous concentrer sur le nombre d'opérations à effectuer en essayant d'évaluer un **ordre de grandeur** de ce nombre en fonction de la taille des données. Nous nous placerons toujours dans le pire des cas, celui où le coût en terme d'opérations est le plus important.
+Les réponses sont variées et dépendent de l'algorithme et de la liste. Pour une liste donnée, un programme peut être plus rapide qu'un autre, mais avec une autre liste, cela peut être le contraire. Le même programme peut être plus rapide avec une liste plus longue. L'étude n'est pas simple et pour comparer deux algorithmes nous allons nous concentrer sur le **nombre d'opérations** à effectuer en essayant d'évaluer un **ordre de grandeur** de ce nombre en fonction de la taille des données. 
+Nous nous placerons toujours dans le pire des cas, celui où le coût en terme d'opérations est le plus important.
 
 Dans l'exemple précédent que nous reprenons ci-dessous :
 
