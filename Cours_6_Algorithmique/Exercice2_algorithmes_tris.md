@@ -28,7 +28,7 @@ Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/bl
 Traiter l'[exercice1 du sujet n°13](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_13/21_NSI_13.pdf) de la banque des sujets de Terminale NSI.
 
 
-#### Exercice 5 : Application du tri par sélection : ordre lexicographique
+#### Exercice 5 : Application pratique du tri par sélection : l'ordre lexicographique.
 
 L'objectif est d'écrire un programme qui trie une liste de mots et les range suivant l'ordre lexicographique (ordre des dictionnaires).
 
@@ -99,7 +99,7 @@ def tri_lexicographique(tab):
     """
 ```
 
-#### Exercice 6 : Application du tri par insertion : trier des points
+#### Exercice 6 : Application pratique du tri par insertion : trier des points.
 
 On dispose de points dans un plan muni d'un repère orthonormé d'origine O. Ces points possèdent un couple de coordonnées représenté par la liste [x,y].  
 On se propose de trier ces points en fonction de leur distance à O, de la plus petite à la plus grande.
