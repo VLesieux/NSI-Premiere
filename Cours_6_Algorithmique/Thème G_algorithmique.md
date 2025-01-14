@@ -628,7 +628,7 @@ def tri_bulle_direct(liste):
     return liste
 ```
 
-Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste la plus désordonnée.
+Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste **la plus désordonnée**.
 
 On choisit la liste de 10 éléments [10,9,8,7,6,5,4,3,2,1] et on lui fait subir la fonction.
 
@@ -655,15 +655,15 @@ S = 1 + 2 + ......+ (n-1)   puis en additionnant membre à membre les deux équa
 2xS=nx(n-1) soit S=nx(n-1)/2.  
 Pour 10 éléments, on a ainsi : S=10x9/2=45 opérations.
 
-On obtient une complexité quadratique : Θ(n<sup>2</sup>).
-C'est l'algorithme de tri le plus lent et il n'est guère utilisé en pratique.
+On obtient une **complexité quadratique** : Θ(n<sup>2</sup>).
+C'est l'algorithme de tri le plus lent, et il n'est guère utilisé en pratique.
 
 
 ### 2. Tri par sélection
 
 [Vidéo](https://www.youtube.com/watch?v=8u3Yq-5DTN8) 
 
-<u>Principe</u> : On dispose de n données. **On sélectionne la plus petite donnée et on la place en première position, puis on sélectionne à nouveau la plus petite donnée parmi les données restantes et on la place en deuxième position et ainsi de suite.**  
+**Principe** : On dispose de n données. **On sélectionne la plus petite donnée, et on la place en première position, puis on sélectionne à nouveau la plus petite donnée, parmi les données restantes, et on la place en deuxième position, et ainsi de suite.**  
 
 <u>Exemple</u> : 
 
@@ -725,17 +725,18 @@ def tri_selection_direct(liste):
     """
 ```
 
-<u>Terminaison de l'algorithme</u> : dans la mesure où les boucles utilisées sont deux boucles inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
+**Terminaison de l'algorithme** : dans la mesure où les boucles utilisées sont deux boucles `for` inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
 
-<u>Correction de l'algorithme</u>  : L'invariant est le suivant : "pour chaque i, la liste est une permutation de la liste initiale, la liste `liste[0:i+1]` est triée et tous les éléments de la liste `liste[i+1:n]` sont supérieurs à tous les éléments de la liste `liste[0:i+1]`."
+**Correction de l'algorithme**  : L'invariant est le suivant : "pour chaque i, la liste est une permutation de la liste initiale, la liste `liste[0:i+1]` est triée et tous les éléments de la liste `liste[i+1:n]` sont supérieurs à tous les éléments de la liste `liste[0:i+1]`."
 
 Après le premier passage dans la boucle, pour i égal à 0, la liste `liste[0:1]` ne contient qu'un élément qui est le minimum de la liste, inférieur à tous les éléments de la liste. La propriété est donc vraie pour i=0.
 
-Supposons la propriété vraie pour i=k,  on a donc la liste `liste[0:k+1]` triée et tous les éléments de la liste `liste[k+1:n]` sont supérieurs à tous les éléments de la liste `liste[0:k+1]`. Au passage suivant, le minimum de la liste `liste[k+1:n]` est placé en position k+1, cette valeur est supérieure à toutes les valeurs de la liste `liste[0:k+1]` et inférieure à toutes les valeurs de la liste `liste[k+2:n]` ; la propriété est donc bien vraie à l'ordre k+1.
+Supposons à présent la propriété vraie pour i=k,  on a donc la liste `liste[0:k+1]` triée et tous les éléments de la liste `liste[k+1:n]` sont supérieurs à tous les éléments de la liste `liste[0:k+1]`. Au passage suivant, le minimum de la liste `liste[k+1:n]` est placé en position k+1, cette valeur est supérieure à toutes les valeurs de la liste `liste[0:k+1]` et inférieure à toutes les valeurs de la liste `liste[k+2:n]` ; la propriété est donc bien vraie à l'ordre k+1.
 
-La propriété est vraie au dernier passage pour i égal à n-2. À ce moment-là, la liste `liste[0:n-1]` est triée et l'élément n-1, dernier de la liste, est supérieur à tous les éléments de la liste `liste[0:n-1]` donc la liste `liste[0:n]` est triée.
+La propriété est également vraie au dernier passage pour i égal à n-2. À ce moment-là, la liste `liste[0:n-1]` est triée et l'élément n-1, dernier de la liste, est supérieur à tous les éléments de la liste `liste[0:n-1]` donc la liste `liste[0:n]` est triée.
 
 **Coût de l'algorithme** : Nous sommes dans le cas de deux boucles imbriquées. 
+
 ```python
     for i in range(n-1):
             .....................
@@ -743,14 +744,18 @@ La propriété est vraie au dernier passage pour i égal à n-2. À ce moment-l�
                 ....................
 ```
 Pour chaque valeur de i, j prend des valeurs de i+1 à n-1 soit n-i-1 valeurs. Et pour chaque valeur de j, une unique comparaison est effectuée. Donc pour chaque valeur de i, nous avons n-i-1 comparaisons.
-Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc un **coût quadratique** de l'ordre de n<sup>2</sup> comparaisons, quelque soit la liste de longueur n, même si celle-ci est triée ! Le tri par sélection a l'avantage d'être facile à programmer mais il n'est pas recommandé si la liste contient plus de 10000 éléments.
+Au total, nous avons donc : (n-1)+(n-2)+....+2+1=n×(n+1)/2 comparaisons, donc un **coût quadratique** de l'ordre de n<sup>2</sup> comparaisons, quelque soit la liste de longueur n, même si celle-ci est triée ! 
+
+Conclusion : le tri par sélection a l'avantage d'être facile à programmer mais il n'est pas recommandé si la liste contient plus de 10000 éléments.
 
 ### 3. Tri par insertion
 
 [Vidéo](https://www.youtube.com/watch?v=bRPHvWgc6YM) 
 
-<u>Principe</u> : C'est le tri utilisé par les joueurs de cartes. On dispose de n données et on procède par étapes. **À chaque étape, on suppose les k premières données triées, et on insère une donnée supplémentaire à la bonne place parmi ces k données déjà triées.**   
-Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle clé. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé ou key après chaque comparaison.  
+**Principe** : C'est le tri utilisé par les joueurs de cartes.
+
+On dispose de n données et on procède par étapes. **À chaque étape, on suppose les k premières données triées, et on insère une donnée supplémentaire à la bonne place parmi ces k données déjà triées.**   
+Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle **la clé**. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé ou key après chaque comparaison.  
 
 
 Implémentons l'algorithme du tri par insertion :
@@ -772,22 +777,26 @@ def tri_insertion(liste):
     return liste
 ```
 
-<u>Terminaison</u> : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
+**Terminaison** : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
 
-<u>Correction</u>  : Nous utilisons l'invariant de boucle : "pour chaque i, la liste est une permutation de la liste initiale et la liste `liste[0:i+2]` est triée."  
+**Correction**  : Nous utilisons l'invariant de boucle : "pour chaque i, la liste est une permutation de la liste initiale et la liste `liste[0:i+2]` est triée."  
 Après le premier passage dans la boucle, pour i égal à 0, l'élément `liste[0]` et la clé d'indice 1 sont rangés dans l'ordre. Donc la liste `liste[0:2]` est triée.  
 Si après un passage pour i égal à un k quelconque, la liste `liste[0:k+2]` est triée, alors au passage suivant l'élément `liste[k+2]` est inséré à la bonne place parmi les éléments de la liste `liste[0:k+2]` ou reste à sa place. Donc la liste `liste[0:k+3]` est triée. La propriété est donc vraie pour i égal à k+1. La propriété est encore vraie après le dernier passage, pour i égal à n-2. À ce moment, la liste `liste[0:n]`, c'est-à-dire la liste, est triée.
 
-**Coût de l'algorithme** : Si la liste est déjà triée dans l'ordre croissant, pour chaque valeur de i, k prend la valeur de i+1 et il n'y a qu'une seule comparaison, le test `cle<liste[k-1]`. La variable i prenant n-1 valeurs, cela fait un total de n-1 comparaisons. Le coût de l'algorithme est donc de n.  
-Si dans le pire des cas où les éléments de la liste sont rangés dans l'ordre décroissant, alors pour chaque valeur de i, k prend les valeurs de i+1 à 1 soit i+1 valeurs et donc i+1 comparaisons. Au total nous avons 1+2+...(n-2)+(n-1) comparaisons soit n×(n-1)/2, le coût est de l'ordre de n<sup>2</sup> comparaisons ; il s'agit d'un coût **quadratique**. En conclusion, cet algorithme de tri s'avère efficace sur une liste déjà presque triée. 
+**Coût de l'algorithme** : Si la liste est déjà triée dans l'ordre croissant, pour chaque valeur de i, k prend la valeur de i+1 et il n'y a qu'une seule comparaison, qui est le test `cle<liste[k-1]`. La variable i prenant n-1 valeurs, cela fait un total de n-1 comparaisons. Le coût de l'algorithme est donc de n.  
+Si dans le pire des cas, où les éléments de la liste sont rangés dans l'ordre décroissant, alors pour chaque valeur de i, k prend les valeurs de i+1 à 1, soit i+1 valeurs, et donc i+1 comparaisons.  
+Au total nous avons 1+2+...(n-2)+(n-1) comparaisons soit n×(n-1)/2, le coût est de l'ordre de n<sup>2</sup> comparaisons ; il s'agit d'un coût **quadratique**. 
+En conclusion, cet algorithme de tri s'avère efficace sur une liste déjà presque triée. 
 
 ### 4. Tri en Python
 
-Avec Python, comme nous l'avons déjà vu, nous disposons de la fonction `sorted(liste)` qui prend en argument la liste et renvoie la liste triée <u>sans modification de la liste initiale</u>. Nous disposons également de la méthode sort() des objets liste qui trie la liste à laquelle elle s'applique.
+Avec Python, comme nous l'avons déjà vu, nous disposons de la **fonction** `sorted(liste)` qui prend en argument la liste et renvoie la liste triée <u>sans modification de la liste initiale</u>. Nous disposons également de la **méthode** sort() des objets liste qui trie la liste à laquelle elle s'applique.
 
 L'algorithme de tri utilisé par la méthode `sort` et la fonction `sorted` s'appelle `timsort`, du nom de son inventeur Tim Peters en 2002. C'est un tri performant, dérivé d'un tri fusion, qui utilise l'algorithme du tri par insertion sur des parties presque triées.
 
-Remarque : `sorted(liste)` peut s'accompagner des paramètres key (pour préciser le critère de classement) et reverse (pour préciser si le classement se fait dans l'ordre croissant ou décroissant). 
+**Remarque** : `sorted(liste)` peut s'accompagner des paramètres key (pour préciser le critère de classement) et reverse (pour préciser si le classement se fait dans l'ordre croissant ou décroissant). 
+
+Exemple : 
 
 ```python
 def square(x):
@@ -800,12 +809,12 @@ print(liste1)
 
 >>> %Run algorithmes.py
 [4, -3, 2, -1]##les valeurs sont classées dans l'ordre décroissant de leur carré.
-[-3, -1, 2, 4]##liste1 n'est pas modifiée pour autant
+[-3, -1, 2, 4]##liste1 n'est pas modifiée pour autant.
 ```
 
 <img src="assets/Temps_tri.png">
 
-Prenons le cas de 40 données, le temps du tri insertion (courbe orange) est de 0.0125 s; dans le cas de 120 données, 3 fois plus de données, le temps devient 0.1125 s, il est 0.1125/0.0125=9=3^2 fois plus long ; on a bien la preuve du **coût quadratique** de ce tri, à savoir que le coût (le temps nécessaire pour trier) est proportionnel au carré du nombre de données.
+Prenons le cas de 40 données, le temps du tri insertion (courbe orange) est de 0.0125 s; dans le cas de 120 données, c'est-à-dire 3 fois plus de données, le temps devient 0.1125 s, il est bien : 0.1125/0.0125=9=3^2 fois plus long ; on a bien la preuve du **coût quadratique** de ce tri, à savoir que le coût (le temps nécessaire pour trier suite au nombre d'opérations effectuées) est proportionnel au carré du nombre de données.
 
 ## 4. L'algorithme des k plus proches voisins : [Projet : les iris](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_7_Les%20iris/Les_iris.md)
 
