@@ -554,6 +554,7 @@ def recherche_dichotomie(T,valeur):
     >>> recherche_dichotomie([1,7,12,16,18,20,24,28,35,43,69],40)
     'La valeur recherchée est absente de la liste'
     """
+	pass
 ```
 
 **Indications** : 
