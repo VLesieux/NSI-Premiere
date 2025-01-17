@@ -620,12 +620,7 @@ def tri_bulle_direct(liste):
     >>> tri_bulle_direct([2, 25, 10, 24, 5, 32, 3])
     [2, 3, 5, 10, 24, 25, 32]
     """
-    n = len(liste)
-    for i in range(n):
-        for j in range(n-i-1):
-            if liste[j] > liste[j+1]:
-                liste[j], liste[j+1] = liste[j+1], liste[j]
-    return liste
+	pass
 ```
 
 Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste **la plus désordonnée**.
@@ -768,13 +763,7 @@ def tri_insertion(liste):
     >>> tri_insertion([43,12,18,31,10])
     [10, 12, 18, 31, 43]
     """
-    for i in range(1,len(liste)):
-        key=liste[i]
-        while key<liste[i-1] and i>0:
-            liste[i]=liste[i-1]
-            i-=1
-        liste[i]=key
-    return liste
+	pass
 ```
 
 **Terminaison** : La boucle externe est une boucle for dont le nombre de passages est fini. La boucle interne est une boucle while conditionnée par les valeurs de k qui constituent une suite décroissante de i+1 à 1, soit au plus i+1 passages.
