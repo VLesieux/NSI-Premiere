@@ -624,7 +624,7 @@ def tri_bulle_direct(liste):
 	pass
 ```
 
-**Indication**
+**Indication :**
 Pour faire la permutation de deux valeurs dans une liste:
 
 ```python
