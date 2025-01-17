@@ -624,6 +624,16 @@ def tri_bulle_direct(liste):
 	pass
 ```
 
+**Indication**
+Pour faire la permutation de deux valeurs dans une liste:
+
+```python
+>>> liste=[3,5,9,2]
+>>> liste[1],liste[3]=liste[3],liste[1]
+>>> liste
+[3, 2, 9, 5]
+```
+
 Pour évaluer la complexité de cet algorithme, on se place dans le pire des cas d'une liste **la plus désordonnée**.
 
 On choisit la liste de 10 éléments [10,9,8,7,6,5,4,3,2,1] et on lui fait subir la fonction.
