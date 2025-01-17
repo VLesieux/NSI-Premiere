@@ -691,6 +691,7 @@ def minimum(liste,i):
     >>> minimum([2, 25, 3, 10, 24],4)
     4
     """    
+	pass
 ```
 
 Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec le minimum.
@@ -706,6 +707,7 @@ def tri_selection_indirect(liste):
     >>> tri_selection_indirect([30, 25, 10, 24])
     [10, 24, 25, 30]
     """
+	pass
 ```
 
 Implémentons maintenant l'algorithme de tri par sélection sans faire appel à la fonction intermédiaire : 
@@ -718,6 +720,7 @@ def tri_selection_direct(liste):
     >>> tri_selection_direct([43,12,18,31,10])
     [10, 12, 18, 31, 43]
     """
+	pass
 ```
 
 **Terminaison de l'algorithme** : dans la mesure où les boucles utilisées sont deux boucles `for` inconditionnelles imbriquées, il n'y a pas de problème de terminaison.
