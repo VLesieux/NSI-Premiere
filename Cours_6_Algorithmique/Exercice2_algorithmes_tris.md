@@ -122,6 +122,7 @@ def ordre_alphabet(c1,c2):
     >>> ordre_alphabet('m','m')
     0
     """
+	pass
  ```   
     
 2. Écrire une fonction `ordre_lexicographique` qui prend en arguments deux mots m1 et m2 et renvoie -1 si m1 est avant m2, 0 si m1 et m2 sont identiques et 1 si m1 est après m2.
@@ -142,6 +143,7 @@ def ordre_lexicographique(m1,m2):
     >>> ordre_lexicographique('mari','mari')
     0
     """
+	pass
 ```
 
 3. Écrire une fonction `tri_lexicographique` qui prend en argument une liste de mots et trie cette liste, en adaptant la fonction `tri_selection` ; ce sera l'occasion de retrouver son écriture par soi-même.
@@ -157,6 +159,7 @@ def tri_lexicographique(tab):
     >>> tri_lexicographique(['chameau', 'ange', 'pipeau', 'pomme', 'enfer'])
     ['ange', 'chameau', 'enfer', 'pipeau', 'pomme']
     """
+	pass
 ```
 
 #### Exercice 6 : Application pratique du tri par insertion : trier des points.
@@ -180,6 +183,7 @@ def distance(x,y):
     >>> distance(4,3)
     5.0
     """
+	pass
 ```
 
 - écrire une fonction `compare` qui prend en paramètre deux tuples p1 et p2 représentant deux points P1 et P2 et qui renvoie -1 si P1 est plus proche de O que P2, 1 si P2 est plus proche de O que P1, et 0 si les deux points sont équidistants
@@ -200,6 +204,7 @@ def compare(p1,p2):
     >>> compare((1,0),(1,0))
     0
     """
+	pass
 ```
 
 - écrire une fonction `tri_points` qui prend en paramètre une liste de points et qui trie cette liste suivant la distance à O, en utilisant la fonction `tri_insertion`; ce sera l'occasion de la retrouver par soi-même.
@@ -214,4 +219,5 @@ def tri_points(tab):
     >>> tri_points([(2,0), (1,0), (0,3)])
     [(1, 0), (2, 0), (0, 3)]
     """
+	pass
 ```
