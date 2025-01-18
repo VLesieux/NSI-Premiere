@@ -13,17 +13,77 @@ if __name__ == '__main__':
 Traiter l'[exercice 2 du sujet n°2](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_02/21-NSI-02.pdf) de la banque des sujets de Terminale NSI.
 
 
+```python
+def tri(tab):
+    """
+    Renvoie une liste triée avec les 0 à gauche, les 1 à droite
+    param : tab : list
+    return : tab : list
+    >>> tri([0,1,0,1,0,1,0,1,0])
+     [0, 0, 0, 0, 0, 1, 1, 1, 1]
+    """
+	pass
+```
+
+
 #### Exercice 2 : tri bulles
 
 Traiter l'[exercice 2 du sujet n°11](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_11/21_NSI_11.pdf) de la banque des sujets de Terminale NSI.
 
 
+```python
+def tri_bulles_v1(T):
+    """
+    Renvoie une liste triée par l'algorithme bulle
+    param : T : list
+    return : T : list
+    >>> tri_bulles_v1([4,7,2,9,1])
+    [1, 2, 4, 7, 9]
+    """
+	pass
+```
+
+```python
+def tri_bulles_v2(T):
+    """
+    Renvoie une liste triée par l'algorithme bulle
+    param : T : list
+    return : T : list
+    >>> tri_bulles_v2([4,7,2,9,1])
+    [1, 2, 4, 7, 9]
+    """
+	pass
+```
+
 #### Exercice 3: tri par insertion
 
 Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_05/21_NSI_05.pdf) de la banque des sujets de Terminale NSI.
 
+```python
+def tri_insertion(L):
+    """
+    Renvoie la liste triée par l'algorithme d'insertion
+    param : T : list
+    return : T : list
+    >>> tri_bulles_v2([4,7,2,9,1])
+    [1, 2, 4, 7, 9]
+    """
+	pass
+```
 
 #### Exercice 4 : tri par sélection
+
+```python
+def tri_selection(L):
+    """
+    Renvoie la liste triée par l'algorithme de sélection
+    param : T : list
+    return : T : list
+    >>> tri_bulles_v2([4,7,2,9,1])
+    [1, 2, 4, 7, 9]
+    """
+	pass
+```
 
 Traiter l'[exercice1 du sujet n°13](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_13/21_NSI_13.pdf) de la banque des sujets de Terminale NSI.
 
