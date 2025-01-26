@@ -890,7 +890,7 @@ def proches_voisins_v2(E,x,k,d):
     >>> proches_voisins_v2(list(range(1000)),15.2,4,d)
     [15, 16, 14, 17]
     """
-    liste=[(d(x,y),y) for y in E]#on créé par compréhension la liste des tuples (distances de y à x,y)
+    liste=[(d(x,y),y) for y in E]#on crée par compréhension la liste des tuples (distances de y à x,y)
     liste_ordonnee=sorted(liste,key=critere)#on trie la liste selon les distances à x, premier élément du tuple en 0
     resultat=liste_ordonnee[:k]#on prend les k premiers éléments
     return [element[1] for element in resultat]#on renvoie uniquement les y, élément du tuple en 1
