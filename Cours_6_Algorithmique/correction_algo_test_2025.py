@@ -109,95 +109,100 @@ def tri_insertion(liste):
         liste[i]=key
     return liste
 # 
-# #########################################################################################
-# 
-# 
-# def f(x):
-#     """
-#     Renvoie l'image de x par la fonction
-#     param : x : float
-#     return : float
-#     >>> f(2)
-#     -1
-#     """
-#     pass
-# 
-# def recherche_solution_dichotomie(fonction,a,b,precision):
-#     """
-#     Renvoie la valeur approchée de l'équation f(x)=0 avec x entre a et b avec la precision
-#     demandée, et le nombre d'opérations effectuée
-#     param : f : function
-#     param : a : float
-#     param : b : float
-#     param : precision : float
-#     return : tuple
-#     >>> recherche_solution_dichotomie(f,1,3,0.001)
-#     (2.0947265625, 11)
-#     """
-#     pass
-# 
-# #########################################################################################
-# 
-# 
-# def tri_insertion(tab):
-#     """
-#     Renvoie une liste triée par insertion
-#     param : tab
-#     return : tab
-#     >>> tri_insertion([3, 5, 10, 11, 20, 7, 12])
-#     [3, 5, 7, 10, 11, 12, 20]
-#     """
-#     for i in range(1, len(tab)):
-#         key=tab[i]
-# ..............................................
-# #décale vers la droite pour faire de la place à key aussi longtemps que...
-# ..........................................
-# ..............................................
-# #positionne la clé au bon endroit  
-# ...............................      
-#     return tab
-# 
-# #########################################################################################
-# 
-# def recherche_indice_position_insertion_par_dichotomie(tab,x):
-#     """
-#     Renvoie  par dichotomie l'indice de position où insérer une valeur dans une liste supposée ordonnée
-#     param : tab : list
-#     param : x : int
-#     return : int
-#     >>> recherche_indice_position_insertion_par_dichotomie([3, 5, 10, 11, 20],7)
-#     2    
-#     """
-#     gauche=0
-#     droite=len(tab)-1
-#     while gauche<=droite:
-#         milieu=(gauche+droite)//2
-#         if tab[milieu]>x:
-# ..........................................
-#         else:
-# ..........................................
-#     return gauche
-# 
-# #########################################################################################
-# 
-# def tri_insertion_dicho(tab):
-#     """
-#     Renvoie une liste triée par insertion en utilisant la dichotomie
-#     param : tab : list
-#     return : list
-#     >>> tri_insertion_dicho([3, 5, 10, 11, 20, 7, 12])
-#     [3, 5, 7, 10, 11, 12, 20]
-#     """
-#     for i in range(1, len(tab)):
-#         key = tab[i]
-#         # Trouver par dichotomie l'indice d'insertion pour la clé dans la liste supposée ordonnée jusque i-1, c.a.d dans tab[:i]
-#         ..........................................
-#         # Décaler les éléments vers la droite pour faire de la place à key avec une boucle for (puisqu'on sait sa position finale)
-#         ..........................................
-#         ..........................................
-#         # Insérer key à la bonne position
-#         ..........
-#     return tab
+#########################################################################################
+
+
+def f(x):
+    """
+    Renvoie l'image de x par la fonction
+    param : x : float
+    return : float
+    >>> f(2)
+    -1
+    """
+    return x**3-2*x-5
+
+def recherche_solution_dichotomie(fonction,a,b,precision):
+    """
+    Renvoie la valeur approchée de l'équation f(x)=0 avec x entre a et b avec la precision
+    demandée, et le nombre d'opérations effectuée
+    param : f : function
+    param : a : float
+    param : b : float
+    param : precision : float
+    return : tuple
+    >>> recherche_solution_dichotomie(f,1,3,0.001)
+    (2.0947265625, 11)
+    """
+    operation=0
+    while b-a>precision:
+        operation+=1
+        m=(a+b)/2
+        if fonction(m)*fonction(a)<0:
+            b=m
+        else:
+            a=m
+    return m,operation
+
+#########################################################################################
+
+
+def tri_insertion(tab):
+    """
+    Renvoie une liste triée par insertion
+    param : tab
+    return : tab
+    >>> tri_insertion([3, 5, 10, 11, 20, 7, 12])
+    [3, 5, 7, 10, 11, 12, 20]
+    """
+    for i in range(1, len(tab)):
+        key=tab[i]
+        while tab[i-1]>key and i>0:
+            tab[i]=tab[i-1]
+            i=i-1
+        tab[i]=key
+    return tab
+
+#########################################################################################
+
+def recherche_indice_position_insertion_par_dichotomie(tab,x):
+    """
+    Renvoie  par dichotomie l'indice de position où insérer une valeur dans une liste supposée ordonnée
+    param : tab : list
+    param : x : int
+    return : int
+    >>> recherche_indice_position_insertion_par_dichotomie([3, 5, 10, 11, 20],7)
+    2
+    """
+    gauche=0
+    droite=len(tab)-1
+    while gauche<=droite:
+        milieu=(gauche+droite)//2
+        if tab[milieu]>x:
+            droite=milieu-1
+        else:
+            gauche=milieu+1
+    return gauche
+
+#########################################################################################
+
+def tri_insertion_dicho(tab):
+    """
+    Renvoie une liste triée par insertion en utilisant la dichotomie
+    param : tab : list
+    return : list
+    >>> tri_insertion_dicho([3, 5, 10, 11, 20, 7, 12])
+    [3, 5, 7, 10, 11, 12, 20]
+    """
+    for i in range(1, len(tab)):
+        key = tab[i]
+        # Trouver par dichotomie l'indice d'insertion pour la clé dans la liste supposée ordonnée jusque i-1, c.a.d dans tab[:i]
+        indice=recherche_indice_position_insertion_par_dichotomie(tab[:i],key)
+        # Décaler les éléments vers la droite pour faire de la place à key avec une boucle for (puisqu'on sait sa position finale)
+        for j in range(i,indice,-1):
+            tab[j]=tab[j-1]
+        tab[indice]=key
+    return tab
 
 
 
