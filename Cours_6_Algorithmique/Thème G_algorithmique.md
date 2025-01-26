@@ -837,7 +837,16 @@ Voici un exemple d'algorithme où on construit une liste appelés `voisins` qui 
 Voici la concrétisation de l'algorithme en Python où `d` désigne dans le cas présent une fonction chargée de déterminer la distance euclidienne entre deux points, mais toute autre fonction chargée d'évaluer la proximité peut être utilisée.
 
 ```python
-def proches_voisins(E,x,k,d):
+def proches_voisins_v1(E,x,k,d):
+    """
+    Renvoie les k plus proches voisins de x en terme de distance d
+    param : E : ensemble des valeurs : list
+    param : x : float
+    param : d : function
+    return : list
+    >>> proches_voisins_v1(list(range(1000)),15.2,4,d)
+    [16, 17, 14, 15]
+    """
     voisins=[]
     for i in range(k):
         voisins.append(E[i])# on crée la liste des k voisins
@@ -853,16 +862,42 @@ def proches_voisins(E,x,k,d):
     return voisins
 
 def d(x,y):
+    """
+    Renvoie la distance entre x et y, qui est la valeur absolue de la différence
+    param : x : float
+    param : y : float
+    return : float
+    >>> d(2,5)
+    3
+    """
     return abs(x-y)
-```
 
-```python
-#Application
-E=list(range(1000))
->>> proches_voisins(E,15.2,1,d)
-[15]
->>> proches_voisins(E,15.2,4,d)
-[16, 17, 14, 15]
+def critere(element):
+    """
+    Renvoie la valeur de l'élément à la position 0
+    >>> critere((2,4))
+    2
+    """
+    return element[0]
+
+def proches_voisins_v2(E,x,k,d):
+    """
+    Renvoie les k plus proches voisins de x en terme de distance d
+    param : E : ensemble des valeurs : list
+    param : x : float
+    param : d : function
+    return : list
+    >>> proches_voisins_v2(list(range(1000)),15.2,4,d)
+    [15, 16, 14, 17]
+    """
+    liste=[(d(x,y),y) for y in E]#on créé par compréhension la liste des tuples (distances de y à x,y)
+    liste_ordonnee=sorted(liste,key=critere)#on trie la liste selon les distances à x, premier élément du tuple en 0
+    resultat=liste_ordonnee[:k]#on prend les k premiers éléments
+    return [element[1] for element in resultat]#on renvoie uniquement les y, élément du tuple en 1
+
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
 ```
 
 ## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_9_Voyageur_de_commerce/Voyageur_de_commerce.md)
