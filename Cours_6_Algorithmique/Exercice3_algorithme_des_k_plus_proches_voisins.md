@@ -79,17 +79,39 @@ Rappel : cherchons à créer par compréhension la liste des [i,i**2] pour i de 
 
 
 ```python
-def k_plus_proches_voisins(liste_positions,k,x):
+def k_plus_proches_voisins_v1(liste_positions,k,x):
     """
     renvoie la liste des indices des k objets les plus proches de l'élément d'abscisse x
     param : liste : list
     param : k : int
     param : x : float
     return : list
-    >>> k_plus_proches_voisins(L,3,3.0)
+    >>> k_plus_proches_voisins_v1(L,3,3.0)
     [3, 2, 1]
     """
+	pass
 ```
+
+Une autre version sans utiliser de fonction de tri consiste à ajouter les indices des minimums en ajoutant progressivement de nouveaux indices de minimum en excluant les précédents.
+
+
+```python
+def k_plus_proches_voisins_v2(liste_positions,k,x):
+    """
+    renvoie la liste des indices des k objets les plus proches de l'élément d'abscisse x
+    param : liste : list
+    param : k : int
+    param : x : float
+    return : list
+    >>> k_plus_proches_voisins_v2(L,3,3.0)
+    [3, 1, 2]
+    """
+	pass
+```
+
+
+
+
 
 2. Attribution de la classe
 
