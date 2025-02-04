@@ -921,15 +921,18 @@ amount = 63
 
 # Initialise un compteur pour le nombre de pièces utilisées
 coin_count = 0
+liste_des_pieces_choisies=[]
 
 # Parcours les pièces disponibles dans l'ordre décroissant de valeur
 for coin in sorted(coins, reverse=True):
     # Ajoute autant de pièces de cette valeur que possible
     while amount >= coin:
+        liste_des_pieces_choisies.append(coin)
         amount -= coin
         coin_count += 1
 
 print("Nombre de pièces utilisées :", coin_count)
+print(liste_des_pieces_choisies)
 ```
 
 <u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
