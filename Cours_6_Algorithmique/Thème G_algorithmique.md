@@ -935,9 +935,9 @@ print("Nombre de pièces utilisées :", coin_count)
 print(liste_des_pieces_choisies)
 ```
 
-<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui n objets. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
+<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui `n` objets qu'il peut emporter. Chaque objet `o<sub>i</sub>` a une valeur `v<sub>i</sub>` et un poids `p<sub>i</sub>`. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
 
-L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis à recommencer en prenant parmi les objets de poids (P-P<sub>1</sub>) celui de plus grande valeur, et ainsi de suite.
+L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet `O<sub>1</sub>` de plus grande valeur et de poids `P<sub>1</sub>` puis à recommencer en prenant parmi les objets de poids `(P-P<sub>1</sub>)` celui de plus grande valeur, et ainsi de suite.
 
 Prenons un exemple : supposons que le sac à dos peut supporter au maximum 15 kg.   
 Soit le tableau ci-dessous donnant pour différents objets leur nom, leur valeur en euro et leur poids en kg.
@@ -986,17 +986,24 @@ Les objets décrits sous forme de tuples sont introduits dans une liste :
 objets=[('Objet1',126,14),('Objet2',32,2),('Objet3',20,5),('Objet4',5,1),('Objet5',18,6),('Objet6',80,8)]
 ```
 
-Nous définissons dans un premier temps 3 fonctions chargées de retourner respectivement : la valeur de l'objet, l'inverse du poids de l'objet et le rapport valeur/poids de l'objet. Ces fonctions serviront de critère de tri par la suite. Ce tri se fera dans l'ordre décroissant du critère selectionné.
+Nous définissons dans un premier temps trois fonctions chargées de retourner respectivement : 
+
+- la valeur de l'objet
+- l'inverse du poids de l'objet
+- le rapport valeur/poids de l'objet.
+
+Ces fonctions serviront de critère de tri par la suite. 
+Ce tri se fera dans l'ordre décroissant du critère selectionné.
 
 ```python
 def valeur(objet):
     return objet[1]#pour trier dans l'ordre décroissant de la valeur financière pour que le gain financier soit le plus élevé
 
 def poids(objet):
-    return 1/objet[2]#trier dans l'ordre décroissant de l'inverse de la masse revient à trier dans l'ordre croissant de la masse pour que le nombre d'objets emportés soit le plus grand
+    return 1/objet[2]#pour trier dans l'ordre décroissant de l'inverse de la masse, ce qui revient à trier dans l'ordre croissant de la masse pour que le nombre d'objets emportés soit le plus grand
                 
 def rapport(objet):
-    return objet[1]/objet[2]#réalise un compromis entre les deux critères précédents
+    return objet[1]/objet[2]#réalise un compromis entre les deux critères précédents.
 ```
 
 Nous définissons ensuite une fonction `glouton` qui prend en paramètres une liste d'objets, un poids maximal (celui que peut supporter le sac à dos) et le type de choix utilisé (par valeur, par poids ou par rapport valeur/poids). La première chose à faire est de trier la liste par ordre décroissant. Nous utilisons pour cela la fonction `sorted` avec ses paramètres de critère de classement et d'ordre choisi. Puis nous parcourons la liste triée et ajoutons dans la liste de sortie les noms des objets un par un tant que le poids total ne dépasse pas le poids maximal du sac. La valeur totale et le poids du sac sont stockés dans deux variables `valeur` et `poids`.
