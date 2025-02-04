@@ -935,9 +935,9 @@ print("Nombre de pièces utilisées :", coin_count)
 print(liste_des_pieces_choisies)
 ```
 
-<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui `n` objets qu'il peut emporter. Chaque objet `o<sub>i</sub>` a une valeur `v<sub>i</sub>` et un poids `p<sub>i</sub>`. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
+<u>Exemple 2</u> : **problème du sac à dos** : imaginer un voleur dans une maison qui a devant lui `n` objets qu'il peut emporter. Chaque objet o<sub>i</sub> a une valeur v<sub>i</sub> et un poids p<sub>i</sub>. Il s'agit pour le voleur d'emporter dans son sac à dos un ensemble d'objets qui a la plus grande valeur possible sachant que le sac peut supporter au maximum un poids P. Comment résoudre ce problème ? Quels objets doit-il prendre ?  
 
-L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet `O<sub>1</sub>` de plus grande valeur et de poids `P<sub>1</sub>` puis à recommencer en prenant parmi les objets de poids `(P-P<sub>1</sub>)` celui de plus grande valeur, et ainsi de suite.
+L'algorithme glouton porte bien son nom ; il consiste, une fois triée la liste des objets dans l'ordre décroissant des valeurs, à prendre dans un premier temps l'objet O<sub>1</sub> de plus grande valeur et de poids P<sub>1</sub> puis à recommencer en prenant parmi les objets de poids (P-P<sub>1</sub>) celui de plus grande valeur, et ainsi de suite.
 
 Prenons un exemple : supposons que le sac à dos peut supporter au maximum 15 kg.   
 Soit le tableau ci-dessous donnant pour différents objets leur nom, leur valeur en euro et leur poids en kg.
