@@ -158,5 +158,4 @@ if __name__ == '__main__':
 
 7. Utiliser TSP_biblio.trace pour obtenir le tracé de la tournée
 
-
 ![Tournée Annecy (plus proche voisin)](assets/tournee_Lille.png)
