@@ -158,4 +158,6 @@ if __name__ == '__main__':
 
 7. Utiliser TSP_biblio.trace pour obtenir le tracé de la tournée
 
+TSP_biblio.trace(tournee('Lille',"exemple.txt")) doit donner :
+
 ![Tournée Annecy (plus proche voisin)](assets/tournee_Lille.png)
