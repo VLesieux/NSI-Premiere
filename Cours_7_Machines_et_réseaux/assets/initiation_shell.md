@@ -130,25 +130,28 @@ La gestion des droits s’applique aussi aux répertoires. Modifier les droits d
 **6. Challenge Python** : compléter le code
 
 ```Python
+dictionnaire={
+    "---":"0",
+    "--x":"1",
+    "-w-":"2",
+    "-wx":"3",
+    "r--":"4",
+    "r-x":"5",
+    "rw-":"6",
+    "rwx":"7"
+    }
+
+
 def encode(chaine):
     """
     encode la chaine à partir du deuxième caractère
     param: chaine : str
     return : str
     >>> encode("-rw-rw-rw-")
-    '110110110'
+    '666'
     """
 	pass
-
-def conversion_binaire_decimal(chaine):
-    """
-    renvoie la valeur décimale d'un code binaire
-    param : chaine : str
-    return : int
-    >>> conversion_binaire_decimal("0100")
-    4
-    """
-	pass
+    
 
 def donne_la_valeur_octale(chaine):
     """
