@@ -9,7 +9,7 @@ On définit la fonction mux qui prend en paramètres trois paramètres a, b, c d
 
 **Exercice 2** : 
 
-[Voir ici une simulation de CAN.](https://physique-chimie.ac-normandie.fr/IMG/html/can.html)   
+[Voir ici une simulation de CAN.](https://www.hatier-clic.fr/miniliens/mie/9782401059054/can/index.html)   
 
 On dispose d'un capteur de température qui peut mesurer des températures allant de - 20°C à + 50°C. Ces températures sont converties en une tension électrique allant de 0 à 5 V.
 
