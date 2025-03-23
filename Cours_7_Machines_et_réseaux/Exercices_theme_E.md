@@ -89,3 +89,8 @@ if __name__ == '__main__':
 <img  src="assets/page1.png">
 <img  src="assets/page2.png">
 
+**Exercice 5** :
+
+<img  src="assets/routage1.png">
+<img  src="assets/routage2.png">
+
