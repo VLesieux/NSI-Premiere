@@ -20,7 +20,13 @@ Indication : on étalira que pour un convertisseur analogique-numérique de N bi
 
 2. On utilise un convertisseur analogique-numérique à 10 bits, pour des températures définies avec une précision de 0.1 degré, à quelle température correspond le nombre 512 ?
 
-**Exercice 3** :
+
+**Exercice 3** : 
+
+[Numérisation d'un signal audio](assets/Sujet-ImplantCochleaire.pdf).  
+
+
+**Exercice 4** :
 
 On dispose d'un réseau d'adresse 192.168.1.0 avec le masque 255.255.255.0. Des sous-réseaux ont été constitués mais on souhaite avoir le nombre maximum de sous-réseaux et que chaque sous-réseau accueille une trentaine de postes.
 
@@ -84,12 +90,12 @@ if __name__ == '__main__':
 ```
 
 
-**Exercice 4** :
+**Exercice 5** :
 
 <img  src="assets/page1.png">
 <img  src="assets/page2.png">
 
-**Exercice 5** :
+**Exercice 6** :
 
 <img  src="assets/routage1.png">
 <img  src="assets/routage2.png">
