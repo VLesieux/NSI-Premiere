@@ -396,10 +396,10 @@ Tester son bon fonctionnement avec le doctest.
 3.17 Écrire la fonction &quot; aff\_evolution\_jeu&quot; qui affiche le plateau de jeu dont le plateau de jeu est passé en paramètre.
 
 ```python
->>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
-['0', '0', 'X']
-['0', '0', 'X']
-['0', 'X', '0']
+    >>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
+    [ 0 , 0 , X ]
+    [ 0 , 0 , X ]
+    [ 0 , X , 0 ]
 ```
 
 Tester son bon fonctionnement avec le doctest.
@@ -408,11 +408,14 @@ Tester son bon fonctionnement avec le doctest.
 3.18 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
 
 ```python
->>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
->>> etat_final([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
-(True, False)
->>> etat_final([['X', 'X', '0'], ['X', '0', 'X'], ['0', 'X', '0']])
-(True, False)
+    >>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
+    [ 0 , 0 , X ]
+    [ 0 , 0 , X ]
+    [ 0 , X , 0 ]
+    >>> etat_final([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
+    (True, False)
+    >>> etat_final([['X', 'X', '0'], ['X', '0', 'X'], ['0', 'X', '0']])
+    (True, False)
 ```
 
 Tester le bon fonctionnement de l'ensemble en important le module jeu_tic_tac dans principal_jeu.
@@ -565,4 +568,124 @@ JOUEUR II :Choisir la position de votre pion par exemple 1,1 : 0,2
 ['-', '-', '-']
 ['-', '-', '-']
 JOUEUR I :Choisir la position de votre pion par exemple 1,1 : 
+```
+
+******************************************************************************************
+
+Réaliser maintenant le jeu Othello : [règles du jeu](https://fr.wikipedia.org/wiki/Othello_(jeu))) en utilisant les mêmes fonctions de façon à pouvoir jouer à ce jeu avec la même interface que les jeux précédents.
+
+Certaines fonctions vous sont déjà données ou sont à compléter pour que les tests soient fonctionnels.
+
+
+```python
+
+def situation_init():
+    """
+    : création de la situation initiale du jeu
+    : renvoie le plateau initiale
+    : param : Rien
+    Exemple:
+    """
+    plateau=[
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 2, 1, 0, 0, 0],
+    [0, 0, 0, 1, 2, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0]]
+    return plateau
+
+
+def aff_evolution_jeu(plateau):
+    """
+    : permet d'afficher le nombre d'allumettes restantes
+    : param : int(param_jeu) nombres d'allumettes
+    : return : None
+    Exemple:
+    >>> aff_evolution_jeu(situation_init())
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · · · · 
+    4 · · · □ ■ · · · 
+    5 · · · ■ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    """
+	pass
+
+
+def evolution_jeu(valeur_joueur,plateau,choix_joueur):
+    """
+    : permet de faire évoluer le jeu
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
+    : param : plateau : list
+    : param : choix_joueur : tuple: 
+	return : le nouveau plateau : list
+    >>> aff_evolution_jeu(situation_init())
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · · · · 
+    4 · · · □ ■ · · · 
+    5 · · · ■ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    >>> aff_evolution_jeu(evolution_jeu(True,situation_init(),(4,6)))
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · · · · 
+    4 · · · □ ■ □ · · 
+    5 · · · ■ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    """
+	pass
+
+def test_validite_choix(valeur_joueur,le_choix,plateau):
+    """
+    : test de la validité de la position
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
+    : param le_choix: tuple
+    : param plateau : la grille de jeu
+    : return : le choix validé ou non du joueur
+    >>> aff_evolution_jeu(situation_init())
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · · · · 
+    4 · · · □ ■ · · · 
+    5 · · · ■ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    >>> test_validite_choix(True,(4,6),situation_init())
+    True
+    >>> test_validite_choix(True,(3,5),situation_init())
+    True
+    >>> aff_evolution_jeu(evolution_jeu(True,situation_init(),(3,6)))
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · · 
+    2 · · · · · · · · 
+    3 · · · · · □ · · 
+    4 · · · □ ■ · · · 
+    5 · · · ■ □ · · · 
+    6 · · · · · · · · 
+    7 · · · · · · · · 
+    8 · · · · · · · · 
+    >>> test_validite_choix(True,(6,3),evolution_jeu(True,situation_init(),(3,6)))
+    True
+    """
+	pass
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
 ```
