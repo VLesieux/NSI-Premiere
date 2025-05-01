@@ -689,3 +689,185 @@ if __name__ == '__main__':
     doctest.testmod(verbose=True)
 
 ```
+
+******************************************************************************************
+
+Réaliser enfin le jeu de Puissance4 : [voir les règles du jeu](https://fr.wikipedia.org/wiki/Puissance_4) en utilisant les mêmes fonctions de façon à pouvoir jouer à ce jeu avec la même interface que les jeux précédents.
+
+Certaines fonctions vous sont déjà données ou sont à compléter pour que les tests soient fonctionnels.
+
+```python
+
+def situation_init():
+    """
+    : création de la situation initiale du jeu
+    : renvoie le plateau initiale
+    : param : Rien
+    Exemple:
+    """
+    plateau=[[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0]]
+	return plateau
+
+
+def aff_evolution_jeu(param_jeu):
+    """
+    : affiche la configuration courante du jeu
+    : param : list
+    : return : str
+    Exemple:
+    >>> afficher_config(situation_init())
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    """
+    print("1 2 3 4 5 6 7")
+    numero=1
+    for ligne in param_jeu:
+        for element in ligne:
+            if element==0:
+                print('\u00B7',end=' ')
+            if element==1:
+                print('■',end=' ')
+            if element==2:
+                print('□',end=' ')
+        numero +=1
+        print()
+
+def test_colonne(configuration,joueur):
+    """
+    Renvoie True si alignement selon colonne des jetons de joueur sinon False
+    >>> config = [[0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 0, 0, 2, 0, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · ■ · · · · · 
+    · □ · · □ · · 
+    · □ · · □ · · 
+    >>> test_colonne(config,JOUEUR_NOIR)
+    True
+    >>> test_colonne(config,JOUEUR_BLANC)
+    False
+    >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config1)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    □ ■ · · · · · 
+    >>> test_colonne(config1,JOUEUR_BLANC)
+    False
+    """
+	pass
+
+def test_ligne(configuration,joueur):
+    """
+    Renvoie True si alignement selon colonne des jetons de joueur sinon False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 0], [0, 1, 2, 2, 2, 2, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ · · ■ · · 
+    · ■ □ □ □ □ · 
+    >>> test_ligne(config,JOUEUR_NOIR)
+    False
+    >>> test_ligne(config,JOUEUR_BLANC)
+    True
+    >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config1)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    □ ■ · · · · · 
+    >>> test_ligne(incrementer_config(config1,4,incrementer_joueur(JOUEUR_NOIR)),JOUEUR_BLANC)
+    False
+    """
+	pass
+
+def test_diagonale_up(configuration,joueur):
+    """
+    Renvoie True si alignement selon diagonale montante des jetons de joueur sinon False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 1, 0], [0, 0, 0, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · ■ ■ · 
+    · · · ■ ■ □ · 
+    · ■ ■ □ ■ ■ · 
+    · ■ □ □ □ ■ · 
+    >>> test_diagonale_up(config,JOUEUR_NOIR)
+    True
+    >>> test_diagonale_up(config,JOUEUR_BLANC)
+    False
+    >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config1)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    □ ■ · · · · · 
+    >>> test_diagonale_up(config1,JOUEUR_BLANC)
+    False
+    """
+	pass
+
+def test_diagonale_down(configuration,joueur):
+    """
+    Renvoie True si alignement selon diagonale descendante des jetons de joueur sinon False
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 1, 1, 0], [0, 0, 2, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
+    >>> afficher_config(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · ■ · ■ ■ · 
+    · · □ ■ ■ □ · 
+    · ■ ■ □ ■ ■ · 
+    · ■ □ □ □ ■ · 
+    >>> test_diagonale_down(config,JOUEUR_NOIR)
+    True
+    >>> test_diagonale_down(config,JOUEUR_BLANC)
+    False
+    >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
+    >>> afficher_config(config1)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    □ ■ · · · · · 
+    >>> test_diagonale_down(config1,JOUEUR_BLANC)
+    False
+    """
+	pass
+
+
+
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
+```
