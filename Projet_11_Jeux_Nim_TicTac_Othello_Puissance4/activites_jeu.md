@@ -572,7 +572,7 @@ JOUEUR I :Choisir la position de votre pion par exemple 1,1 :
 
 ******************************************************************************************
 
-Réaliser maintenant le jeu Othello : [règles du jeu](https://fr.wikipedia.org/wiki/Othello_(jeu))) en utilisant les mêmes fonctions de façon à pouvoir jouer à ce jeu avec la même interface que les jeux précédents.
+Réaliser maintenant le jeu Othello : [voir les règles du jeu](https://fr.wikipedia.org/wiki/Othello_(jeu)) en utilisant les mêmes fonctions de façon à pouvoir jouer à ce jeu avec la même interface que les jeux précédents.
 
 Certaines fonctions vous sont déjà données ou sont à compléter pour que les tests soient fonctionnels.
 
