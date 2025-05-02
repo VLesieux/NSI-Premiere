@@ -669,29 +669,19 @@ def test_validite_choix(valeur_joueur,le_choix,plateau):
     True
     >>> test_validite_choix(True,(3,5),situation_init())
     True
-    >>> aff_evolution_jeu(evolution_jeu(True,situation_init(),(3,6)))
-      1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · · · □ · · 
-    4 · · · □ ■ · · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
-    >>> test_validite_choix(True,(6,3),evolution_jeu(True,situation_init(),(3,6)))
-    False
     >>> aff_evolution_jeu(evolution_jeu(True,situation_init(),(3,5)))
       1 2 3 4 5 6 7 8
     1 · · · · · · · · 
     2 · · · · · · · · 
-    3 · · · · □ · · · 
-    4 · · · □ ■ · · · 
+    3 · · · · □ · · ·
+    4 · · · □ □ · · · 
     5 · · · ■ □ · · · 
     6 · · · · · · · · 
     7 · · · · · · · · 
     8 · · · · · · · · 
-    >>> test_validite_choix(True,(6,3),evolution_jeu(True,situation_init(),(3,5)))
+    >>> test_validite_choix(False,(4,6),evolution_jeu(True,situation_init(),(3,5)))
+    False
+    >>> test_validite_choix(False,(5,6),evolution_jeu(True,situation_init(),(3,5)))
     True
     """
 	pass
