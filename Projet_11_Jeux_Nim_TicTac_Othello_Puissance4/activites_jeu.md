@@ -640,7 +640,7 @@ def evolution_jeu(valeur_joueur,plateau,choix_joueur):
     1 · · · · · · · · 
     2 · · · · · · · · 
     3 · · · · · · · · 
-    4 · · · □ ■ □ · · 
+    4 · · · □ □ □ · · 
     5 · · · ■ □ · · · 
     6 · · · · · · · · 
     7 · · · · · · · · 
