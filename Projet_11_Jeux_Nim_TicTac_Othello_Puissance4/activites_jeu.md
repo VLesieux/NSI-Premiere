@@ -864,7 +864,48 @@ def test_diagonale_down(configuration,joueur):
     """
 	pass
 
-
+def incrementer_config(jeu,colonne,joueur):
+    """
+    : modifie la configuration du jeu en ajoutant le nouveau pion et en retournant le ou les pions de couleur opposée
+    : param : configuration (list)
+    : param : joueur (str) 
+    : return : liste
+    >>> s =[[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 0, 0, 0]]
+    >>> afficher_config(s)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ □ · · · · 
+    >>> s1=incrementer_config(s,2,JOUEUR_NOIR)
+    >>> afficher_config(s1)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ · · · · · 
+    · ■ □ · · · · 
+    >>> afficher_config(incrementer_config(s1,3,JOUEUR_BLANC))
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ □ · · · · 
+    · ■ □ · · · · 
+    >>> afficher_config(incrementer_config(s1,1,JOUEUR_BLANC))
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · · · · · · · 
+    · ■ □ · · · · 
+    □ ■ □ · · · · 
+    """   
+	pass
 
 
 
