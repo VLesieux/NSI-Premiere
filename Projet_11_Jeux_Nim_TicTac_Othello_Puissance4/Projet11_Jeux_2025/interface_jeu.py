@@ -1,8 +1,17 @@
-# coding: UTF-8
+choix=int(input('Choisissez votre jeu : 1.morpion  ; 2. nim ; 3. Othello ; 4. Puissance 4 : '))
+#si 1 importer fichier fonctions voyelle
+if choix==1:
+    module = 'jeu_nim'
+elif choix==2:
+    module='jeu_morpion'
+elif choix==3:
+    module='jeu_othello'
+elif choix==4:
+    module='jeu_puissance4'
+    
+jeu=__import__(module)
 
-import jeu_morpion as jeu #importation des fonctions du jeu Nim 
-
-def aff_mess_vainqueur(valeur_joueur,per_gag):
+def aff_mess_vainqueur(valeur_joueur,per_gag,module):
     """
     : affichage du gagnant
     : param : bool(valeur_joueur)  identification du joueur (True:I;False:II)
@@ -16,16 +25,23 @@ def aff_mess_vainqueur(valeur_joueur,per_gag):
         joueur='I'
     else:
         joueur='II'      
-        
-    if per_gag:
-        print('Egalité !!!!')
-    else:
-        if valeur_joueur:
-            #gagné
-            print('Le joueur {} a gagné'.format(joueur))
+
+    if module=='jeu_nim' or module=='jeu_morpion' or module=='jeu_puissance4':
+        if per_gag:
+            print('Egalité !!!!')
         else:
-            #perdu
-            print('Le joueur {} a gagné'.format(joueur))
+            if valeur_joueur:
+                #gagné
+                print('Le joueur {} a gagné'.format(joueur))
+            else:
+                #perdu
+                print('Le joueur {} a gagné'.format(joueur))
+    elif module=='jeu_othello':
+        if per_gag==True:
+            print('Le joueur I a gagné')
+        else:
+            print('Le joueur II a gagné')
+            
 
     return None
 
@@ -45,6 +61,6 @@ while not fini: # Voir le point 3 de l'introduction : si le jeu n'est pas fini
     fini,per_gag=jeu.etat_final(param_jeu)
     valeur_joueur=not(valeur_joueur)
 
-aff_mess_vainqueur(not(valeur_joueur),per_gag)   # jeu fini et affichage du résultat.
+aff_mess_vainqueur(not(valeur_joueur),per_gag,module)   # jeu fini et affichage du résultat.
 # cette ligne de code sera réalisée lorsque la partie sera finie
 

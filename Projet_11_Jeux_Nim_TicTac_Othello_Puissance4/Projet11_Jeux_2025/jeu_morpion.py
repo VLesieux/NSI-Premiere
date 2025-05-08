@@ -117,8 +117,9 @@ def test_validite_choix(valeur_joueur,lechoix,param_jeu):
     >>> test_validite_choix(True,(1,1),[['-', 'X', '-'], ['X', '-', 'X'], ['0', '-', '0']])
     (1, 1)
     """
-    if lechoix[0] >2 or lechoix[1] >2:
-        return False
+    if lechoix != False:
+        if lechoix[0] >2 or lechoix[1] >2:
+            return False
     if param_jeu[lechoix[0]][lechoix[1]] =='-':
         return lechoix
     else:
