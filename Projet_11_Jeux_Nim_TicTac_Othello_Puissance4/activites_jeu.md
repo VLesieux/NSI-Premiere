@@ -574,7 +574,7 @@ JOUEUR I :Choisir la position de votre pion par exemple 1,1 :
 
 Réaliser maintenant le jeu d'Othello : [voir les règles du jeu](https://fr.wikipedia.org/wiki/Othello_(jeu)) en utilisant les mêmes fonctions de façon à pouvoir jouer à ce jeu avec la même interface que les jeux précédents.
 
-Certaines fonctions vous sont déjà données ou sont à compléter pour que les tests soient fonctionnels.
+Les fonctions vous sont données et sont à compléter pour que les tests fonctionnent.
 
 
 ```python
@@ -617,6 +617,7 @@ def aff_evolution_jeu(plateau):
     """
 	pass
 
+import copy
 
 def evolution_jeu(valeur_joueur,plateau,choix_joueur):
     """
@@ -624,27 +625,127 @@ def evolution_jeu(valeur_joueur,plateau,choix_joueur):
     : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
     : param : plateau : list
     : param : choix_joueur : tuple: 
-	return : le nouveau plateau : list
+    return : le nouveau plateau : list
     >>> aff_evolution_jeu(situation_init())
       1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · · · · · · 
-    4 · · · □ ■ · · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · · · · · ·
+    4 · · · □ ■ · · ·
+    5 · · · ■ □ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
     >>> aff_evolution_jeu(evolution_jeu(True,situation_init(),(4,6)))
       1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · · · · · · 
-    4 · · · □ □ □ · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · · · · · ·
+    4 · · · □ □ □ · ·
+    5 · · · ■ □ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> aff_evolution_jeu(evolution_jeu(False,situation_init(),(6,5)))
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · · · · · ·
+    4 · · · □ ■ · · ·
+    5 · · · ■ ■ · · ·
+    6 · · · · ■ · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> plateau_exemple=[[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 3, 1, 0, 0, 0],[0, 0, 0, 3, 1, 3, 0, 0],[0, 0, 0, 3, 1, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0]]
+    >>> aff_evolution_jeu(plateau_exemple)
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · □ ■ · · ·
+    4 · · · □ ■ □ · ·
+    5 · · · □ ■ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> aff_evolution_jeu(evolution_jeu(True,plateau_exemple,(3,6)))
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · □ □ □ · ·
+    4 · · · □ □ □ · ·
+    5 · · · □ ■ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> config=evolution_jeu(False,plateau_exemple,(2,5))
+    >>> aff_evolution_jeu(config)
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · ·
+    2 · · · · ■ · · ·
+    3 · · · □ ■ □ · ·
+    4 · · · □ ■ □ · ·
+    5 · · · □ ■ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> config1=[[0, 0, 3, 1, 1, 1, 0, 0],[0, 3, 3, 3, 1, 1, 0, 1],[0, 0, 3, 1, 3, 1, 3, 0],[0, 0, 3, 1, 1, 1, 3, 3],[0, 0, 3, 3, 1, 3, 0, 0],[1, 1, 1, 3, 3, 3, 1, 0],[1, 1, 1, 1, 3, 3, 0, 1],[3, 3, 3, 3, 3, 3, 0, 0]]
+    >>> aff_evolution_jeu(config1)
+      1 2 3 4 5 6 7 8
+    1 · · □ ■ ■ ■ · ·
+    2 · □ □ □ ■ ■ · ■
+    3 · · □ ■ □ ■ □ ·
+    4 · · □ ■ ■ ■ □ □
+    5 · · □ □ ■ □ · ·
+    6 ■ ■ ■ □ □ □ ■ ·
+    7 ■ ■ ■ ■ □ □ · ■
+    8 □ □ □ □ □ □ · ·
+    >>> config2=evolution_jeu(True,config1,(1,7))
+    >>> aff_evolution_jeu(config2)
+      1 2 3 4 5 6 7 8
+    1 · · □ □ □ □ □ ·
+    2 · □ □ □ ■ □ · ■
+    3 · · □ ■ □ ■ □ ·
+    4 · · □ ■ ■ ■ □ □
+    5 · · □ □ ■ □ · ·
+    6 ■ ■ ■ □ □ □ ■ ·
+    7 ■ ■ ■ ■ □ □ · ■
+    8 □ □ □ □ □ □ · ·
+    """
+	pass
+
+
+def compteur_pieces(valeur_joueur,param_jeu):
+    """
+    Compte le nombre de pièces du joueur
+    param : valeur_joueur : bool
+    param : param_jeu : list
+    >>> aff_evolution_jeu(situation_init())
+      1 2 3 4 5 6 7 8
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · · · · · ·
+    4 · · · □ ■ · · ·
+    5 · · · ■ □ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> compteur_pieces(True,situation_init())
+    2
+    >>> compteur_pieces(False,situation_init())
+    2
+    """
+
+def test_jeu_rempli(param_jeu):
+    """
+    Renvoie True si le jeu est rempli sinon False
+    """
+	pass
+
+def etat_final(param_jeu):
+    """
+    : vérification si fin jeu
+    : param : int(param_jeu)
+    : return : bool(fini),bool(per_gag)
     """
 	pass
 
@@ -657,32 +758,32 @@ def test_validite_choix(valeur_joueur,le_choix,plateau):
     : return : le choix validé ou non du joueur
     >>> aff_evolution_jeu(situation_init())
       1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · · · · · · 
-    4 · · · □ ■ · · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
-    >>> test_validite_choix(True,(4,6),situation_init())
-    True
+    1 · · · · · · · ·
+    2 · · · · · · · ·
+    3 · · · · · · · ·
+    4 · · · □ ■ · · ·
+    5 · · · ■ □ · · ·
+    6 · · · · · · · ·
+    7 · · · · · · · ·
+    8 · · · · · · · ·
+    >>> test_validite_choix(False,(4,6),situation_init())
+    False
+    >>> test_validite_choix(True,(10,10),situation_init())
+    False
     >>> test_validite_choix(True,(3,5),situation_init())
     True
-    >>> aff_evolution_jeu(evolution_jeu(True,situation_init(),(3,5)))
-      1 2 3 4 5 6 7 8
-    1 · · · · · · · · 
-    2 · · · · · · · · 
-    3 · · · · □ · · ·
-    4 · · · □ □ · · · 
-    5 · · · ■ □ · · · 
-    6 · · · · · · · · 
-    7 · · · · · · · · 
-    8 · · · · · · · · 
-    >>> test_validite_choix(False,(4,6),evolution_jeu(True,situation_init(),(3,5)))
-    False
-    >>> test_validite_choix(False,(5,6),evolution_jeu(True,situation_init(),(3,5)))
+    >>> test_validite_choix(False,(6,5),situation_init())
     True
+    """
+	pass
+
+def choix_joueur(valeur_joueur,param_jeu):
+    """
+    : Demande au joueur d'effectuer un choix de position
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
+    : param : param_jeu : list : la grille
+    : return : choix du joueur
+    Remarque: Ne pas faire de doctest sur des fonctions d'entrées /sorties
     """
 	pass
 
@@ -696,7 +797,8 @@ if __name__ == '__main__':
 
 Réaliser enfin le jeu de Puissance4 : [voir les règles du jeu](https://fr.wikipedia.org/wiki/Puissance_4) en utilisant les mêmes fonctions de façon à pouvoir jouer à ce jeu avec la même interface que les jeux précédents.
 
-Certaines fonctions vous sont déjà données ou sont à compléter pour que les tests soient fonctionnels.
+Les fonctions vous sont données et sont à compléter pour que les tests fonctionnent.
+
 
 ```python
 
@@ -738,9 +840,9 @@ def aff_evolution_jeu(param_jeu):
             if element==0:
                 print('\u00B7',end=' ')
             if element==1:
-                print('■',end=' ')
+                print('●',end=' ')
             if element==2:
-                print('□',end=' ')
+                print('○',end=' ')
         numero +=1
         print()
 
@@ -748,28 +850,26 @@ def test_colonne(configuration,joueur):
     """
     Renvoie True si alignement selon colonne des jetons de joueur sinon False
     >>> config = [[0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 0, 0, 2, 0, 0]]
-    >>> afficher_config(config)
+    >>> aff_evolution_jeu(config)
     1 2 3 4 5 6 7
-    · ■ · · · · · 
-    · ■ · · · · · 
-    · ■ · · · · · 
-    · ■ · · · · · 
-    · □ · · □ · · 
-    · □ · · □ · · 
-    >>> test_colonne(config,JOUEUR_NOIR)
+    · ● · · · · · 
+    · ● · · · · · 
+    · ● · · · · · 
+    · ● · · · · · 
+    · ○ · · ○ · · 
+    · ○ · · ○ · · 
+    >>> test_colonne(config)
     True
-    >>> test_colonne(config,JOUEUR_BLANC)
-    False
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
-    >>> afficher_config(config1)
+    >>> aff_evolution_jeu(config1)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    □ ■ · · · · · 
-    >>> test_colonne(config1,JOUEUR_BLANC)
+    ○ ● · · · · · 
+    >>> test_colonne(config1)
     False
     """
 	pass
@@ -777,29 +877,27 @@ def test_colonne(configuration,joueur):
 def test_ligne(configuration,joueur):
     """
     Renvoie True si alignement selon colonne des jetons de joueur sinon False
-    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 0], [0, 1, 2, 2, 2, 2, 0]]
-    >>> afficher_config(config)
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 1, 1, 1, 1, 0]]
+    >>> aff_evolution_jeu(config)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    · ■ · · ■ · · 
-    · ■ □ □ □ □ · 
-    >>> test_ligne(config,JOUEUR_NOIR)
-    False
-    >>> test_ligne(config,JOUEUR_BLANC)
+    · ○ · · ○ · · 
+    · ○ ● ● ● ● · 
+    >>> test_ligne(config)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
-    >>> afficher_config(config1)
+    >>> aff_evolution_jeu(config1)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    □ ■ · · · · · 
-    >>> test_ligne(incrementer_config(config1,4,incrementer_joueur(JOUEUR_NOIR)),JOUEUR_BLANC)
+    ○ ● · · · · · 
+    >>> test_ligne(config1)
     False
     """
 	pass
@@ -808,28 +906,26 @@ def test_diagonale_up(configuration,joueur):
     """
     Renvoie True si alignement selon diagonale montante des jetons de joueur sinon False
     >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 1, 0], [0, 0, 0, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
-    >>> afficher_config(config)
+    >>> aff_evolution_jeu(config)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
-    · · · · ■ ■ · 
-    · · · ■ ■ □ · 
-    · ■ ■ □ ■ ■ · 
-    · ■ □ □ □ ■ · 
-    >>> test_diagonale_up(config,JOUEUR_NOIR)
+    · · · · ● ● · 
+    · · · ● ● ○ · 
+    · ● ● ○ ● ● · 
+    · ● ○ ○ ○ ● · 
+    >>> test_diagonale_up(config)
     True
-    >>> test_diagonale_up(config,JOUEUR_BLANC)
-    False
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
-    >>> afficher_config(config1)
+    >>> aff_evolution_jeu(config1)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    □ ■ · · · · · 
-    >>> test_diagonale_up(config1,JOUEUR_BLANC)
+    ○ ● · · · · · 
+    >>> test_diagonale_up(config1)
     False
     """
 	pass
@@ -838,76 +934,128 @@ def test_diagonale_down(configuration,joueur):
     """
     Renvoie True si alignement selon diagonale descendante des jetons de joueur sinon False
     >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 1, 1, 0], [0, 0, 2, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
-    >>> afficher_config(config)
+    >>> aff_evolution_jeu(config)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
-    · · ■ · ■ ■ · 
-    · · □ ■ ■ □ · 
-    · ■ ■ □ ■ ■ · 
-    · ■ □ □ □ ■ · 
-    >>> test_diagonale_down(config,JOUEUR_NOIR)
+    · · ● · ● ● · 
+    · · ○ ● ● ○ · 
+    · ● ● ○ ● ● · 
+    · ● ○ ○ ○ ● · 
+    >>> test_diagonale_down(config)
     True
-    >>> test_diagonale_down(config,JOUEUR_BLANC)
-    False
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
-    >>> afficher_config(config1)
+    >>> aff_evolution_jeu(config1)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    □ ■ · · · · · 
-    >>> test_diagonale_down(config1,JOUEUR_BLANC)
+    ○ ● · · · · · 
+    >>> test_diagonale_down(config1)
     False
     """
 	pass
 
-def incrementer_config(jeu,colonne,joueur):
+def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     """
     : modifie la configuration du jeu en ajoutant le nouveau pion et en retournant le ou les pions de couleur opposée
-    : param : configuration (list)
+    : param : param_jeu (list)
     : param : joueur (str) 
     : return : liste
     >>> s =[[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 0, 0, 0]]
-    >>> afficher_config(s)
+    >>> aff_evolution_jeu(s)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    · ■ □ · · · · 
-    >>> s1=incrementer_config(s,2,JOUEUR_NOIR)
-    >>> afficher_config(s1)
+    · ● ○ · · · · 
+    >>> s1=evolution_jeu(False,s,2)
+    >>> aff_evolution_jeu(s1)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    · ■ · · · · · 
-    · ■ □ · · · · 
-    >>> afficher_config(incrementer_config(s1,3,JOUEUR_BLANC))
+    · ● · · · · · 
+    · ● ○ · · · · 
+    >>> aff_evolution_jeu(evolution_jeu(True,s1,3))
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    · ■ □ · · · · 
-    · ■ □ · · · · 
-    >>> afficher_config(incrementer_config(s1,1,JOUEUR_BLANC))
+    · ● ○ · · · · 
+    · ● ○ · · · · 
+    >>> aff_evolution_jeu(evolution_jeu(True,s1,2))
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
     · · · · · · · 
-    · · · · · · · 
-    · ■ □ · · · · 
-    □ ■ □ · · · · 
-    """   
+    · ○ · · · · · 
+    · ● ○ · · · · 
+    · ● ○ · · · · 
+    """
 	pass
 
+def test_validite_choix(valeur_joueur,lechoix,param_jeu):
+    """
+    : teste la validité d'une colonne
+    : param : valeur_joueur : bool
+    : param : lechoix : int
+    : param : param_jeu : list
+    : return : bool
+    >>> config = [[0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0]]
+    >>> aff_evolution_jeu(config)
+    1 2 3 4 5 6 7
+    · ● · · · · · 
+    · ● · · · · · 
+    · ● · · · · · 
+    · ● · · · · · 
+    · ● · · · · · 
+    · ● · · · · · 
+    >>> test_validite_choix(False,2,config)
+    False
+    >>> test_validite_choix(True,1,config)
+    True
+    """  
+	pass
 
+def choix_joueur(valeur_joueur,param_jeu):
+    """
+    : Demande au joueur d'effectuer un choix de position
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
+    : param : param_jeu : list 
+    : return : choix du joueur
+    """
+	pass
+
+def test_jeu_rempli(param_jeu):
+    """
+    Renvoie True si le jeu est rempli sinon False
+    """
+	pass
+
+def etat_final(param_jeu):
+    """
+    : vérification si fin jeu
+    : param : int(param_jeu)
+    : return : bool(fini),bool(per_gag)
+    Exemple:
+    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 2, 0, 0], [0, 1, 2, 2, 2, 0, 0], [0, 1, 2, 1, 1, 0, 0], [0, 2, 1, 2, 2, 0, 0]]
+    >>> aff_evolution_jeu(config)
+    1 2 3 4 5 6 7
+    · · · · · · · 
+    · · · · · · · 
+    · ● ○ · ○ · · 
+    · ● ○ ○ ○ · · 
+    · ● ○ ● ● · · 
+    · ○ ● ○ ○ · · 
+    """
+	pass
 
 if __name__ == '__main__':
     import doctest
