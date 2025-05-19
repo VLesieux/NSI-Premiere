@@ -1,0 +1,17 @@
+canvas /* PropriÃ©tÃ©s communes aux deux canvas */ 
+{
+border:2px solid blue;
+top:2%; 
+left:10%;
+position: absolute;
+}
+
+/* PropriÃ©tÃ© spÃ©cifique au canvas sprite */ 
+#sprite {
+		z-index: 0;
+			}
+
+/* PropriÃ©tÃ© spÃ©cifique au canvas background */ 
+#background {
+		z-index: -1;
+			}
