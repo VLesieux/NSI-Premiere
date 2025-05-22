@@ -17,53 +17,103 @@ L'algorithme de Huffman est utilisé dans de nombreux formats de compression (ZI
 ## 📦 Code Python
 
 ```python
-import heapq
-from collections import Counter
+# Définition d'une classe pour représenter chaque nœud de l'arbre de Huffman
+class Noeud:
+    def __init__(self, caractere, frequence):
+        self.caractere = caractere
+        self.frequence = frequence
+        self.gauche = None
+        self.droite = None
 
-class Node:
-    def __init__(self, char=None, freq=0, left=None, right=None):
-        self.char = char
-        self.freq = freq
-        self.left = left
-        self.right = right
+    def est_feuille(self):
+        return self.gauche is None and self.droite is None
 
-    def __lt__(self, other):
-        return self.freq < other.freq
+# Fonction pour construire l'arbre de Huffman à partir des fréquences
+def creer_arbre_huffman(frequences):
+    liste_noeuds = [Noeud(c, f) for c, f in frequences]
 
-def build_huffman_tree(text):
-    freq = Counter(text)
-    heap = [Node(char, f) for char, f in freq.items()]
-    heapq.heapify(heap)
-    while len(heap) > 1:
-        left = heapq.heappop(heap)
-        right = heapq.heappop(heap)
-        merged = Node(None, left.freq + right.freq, left, right)
-        heapq.heappush(heap, merged)
-    return heap[0]
+    while len(liste_noeuds) > 1:
+        liste_noeuds.sort(key=lambda n: n.frequence)
+        gauche = liste_noeuds.pop(0)
+        droite = liste_noeuds.pop(0)
 
-def build_codes(node, prefix="", code_dict=None):
-    if code_dict is None:
-        code_dict = {}
-    if node.char is not None:
-        code_dict[node.char] = prefix
-    else:
-        build_codes(node.left, prefix + "0", code_dict)
-        build_codes(node.right, prefix + "1", code_dict)
-    return code_dict
+        nouveau_noeud = Noeud(None, gauche.frequence + droite.frequence)
+        nouveau_noeud.gauche = gauche
+        nouveau_noeud.droite = droite
 
-def encode(text, codes):
-    return ''.join(codes[char] for char in text)
+        liste_noeuds.append(nouveau_noeud)
 
-def decode(encoded_text, tree):
-    result = []
-    node = tree
-    for bit in encoded_text:
-        node = node.left if bit == "0" else node.right
-        if node.char is not None:
-            result.append(node.char)
-            node = tree
-    return ''.join(result)
+    return liste_noeuds[0]
+
+# Fonction pour générer les codes de Huffman à partir de l'arbre
+def generer_codes(noeud, code_actuel="", codes={}):
+    if noeud is not None:
+        if noeud.est_feuille():
+            codes[noeud.caractere] = code_actuel
+        else:
+            generer_codes(noeud.gauche, code_actuel + "0", codes)
+            generer_codes(noeud.droite, code_actuel + "1", codes)
+    return codes
+
+# Fonction pour encoder un message en utilisant les codes de Huffman
+def encoder_message(message, codes):
+    message_code = ""
+    for caractere in message:
+        message_code += codes[caractere]
+    return message_code
+
+# Fonction pour décoder un message binaire à l'aide de l'arbre de Huffman
+def decoder_message(message_code, arbre):
+    message_decode = ""
+    noeud_actuel = arbre
+    for bit in message_code:
+        if bit == '0':
+            noeud_actuel = noeud_actuel.gauche
+        else:
+            noeud_actuel = noeud_actuel.droite
+
+        # Si on atteint une feuille, on ajoute le caractère et on repart de la racine
+        if noeud_actuel.est_feuille():
+            message_decode += noeud_actuel.caractere
+            noeud_actuel = arbre
+    return message_decode
+
+# Exemple d'utilisation
+# Message de base
+texte = "abacabad"
+
+# Calcul des fréquences manuellement (ou à partir du texte)
+frequences = []
+for caractere in set(texte):
+    frequences.append((caractere, texte.count(caractere)))
+
+# Création de l’arbre et des codes
+arbre = creer_arbre_huffman(frequences)
+codes = generer_codes(arbre)
+
+# Affichage des codes
+print("Codes de Huffman :")
+for caractere in codes:
+    print(f"{caractere} : {codes[caractere]}")
+
+# Encodage
+message_code = encoder_message(texte, codes)
+print("\nMessage encodé :", message_code)
+
+# Décodage
+message_decode = decoder_message(message_code, arbre)
+print("Message décodé :", message_decode)
+
 ```
+
+Codes de Huffman :
+d : 00
+c : 01
+b : 10
+a : 11
+
+Message encodé : 11101011001100
+Message décodé : abacabad
 
 ## ✍️ Questions
 
