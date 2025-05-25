@@ -28,7 +28,7 @@ Créez un nouveau nœud interne avec ces deux nœuds comme enfants et une fréqu
 Ajoutez ce nouveau nœud dans la file. 
 Le dernier nœud restant est la racine de l'arbre de Huffman. 
 
-<img src="Assets/arbre.jpg">
+<img src="assets/arbre.jpg">
 
 3.	Génération des Codes de Huffman : 
 
