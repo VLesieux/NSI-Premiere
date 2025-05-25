@@ -206,8 +206,7 @@ def fonction_economie(texte):
     >>> fonction_economie("HELLO")
     30
     """
-    message=affichage_du_code(texte)
-    return abs(len(message)-len(texte)*8)
+	pass
 
 texte = "HELLO"
 message_code, arbre = affichage_du_code(texte), _last_arbre
@@ -237,8 +236,8 @@ Message décodé : abacabad
    - À quoi sert l’algorithme de Huffman ?
    - Pourquoi les caractères fréquents ont-ils des codes plus courts ?
 
-2. **Aller plus loin
+2. **Aller plus loin**
 
-Écrire une fonction, qui permet de compter le nombre de bits économisés par Huffman par rapport à l’encodage ASCII (8 bits/lettre).
+Écrire la fonction qui permet de compter le nombre de bits économisés par Huffman par rapport à l’encodage ASCII (8 bits/lettre).
 
 
