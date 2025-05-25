@@ -14,6 +14,69 @@ L'algorithme de Huffman est utilisé dans de nombreux formats de compression (ZI
 - À l’inverse, les caractères rares peuvent avoir des codes plus longs.
 - On construit un **arbre binaire** en fusionnant les caractères les moins fréquents petit à petit.
 
+
+Étapes du Codage de Huffman 
+
+1.	Calcul des Fréquences des Symboles : comptez la fréquence d'apparition de chaque symbole dans le texte à compresser. 
+2.	Construction de l'Arbre de Huffman : 
+
+Créez un nœud feuille pour chaque symbole avec sa fréquence associée. 
+Ajoutez tous les nœuds dans une file de priorité (ou un tas), ordonnée par fréquence (les nœuds avec les fréquences les plus basses sont en tête).   
+Répétez les étapes suivantes jusqu'à ce qu'il ne reste plus qu'un seul nœud dans la file : 
+Retirez les deux nœuds avec les plus basses fréquences de la file. 
+Créez un nouveau nœud interne avec ces deux nœuds comme enfants et une fréquence égale à la somme de leurs fréquences. 
+Ajoutez ce nouveau nœud dans la file. 
+Le dernier nœud restant est la racine de l'arbre de Huffman. 
+
+<img src="Assets/arbre.jpg">
+
+3.	Génération des Codes de Huffman : 
+
+Parcourez l'arbre de Huffman à partir de la racine pour assigner des codes binaires à chaque symbole. 
+
+À chaque nœud interne, assignez "0" à la branche gauche et "1" à la branche droite (ou vice versa). 
+
+Les codes binaires pour chaque symbole sont obtenus en suivant les branches de la racine aux feuilles.
+
+4.	Encodage des Données : 
+
+Remplacez chaque symbole du texte par son code binaire correspondant pour obtenir la séquence compressée. 
+Exemple Illustratif 
+Supposons que nous voulons compresser la chaîne "ABRACADABRA". 
+
+1.	Calcul des Fréquences : 
+
+A: 5, B: 2, R: 2, C: 1, D: 1 
+
+2.	Construction de l'Arbre : 
+
+Créez les nœuds pour chaque symbole : 
+A: 5, B: 2, R: 2, C: 1, D: 1 
+Insérez-les dans une file de priorité : 
+[(C, 1), (D, 1), (B, 2), (R, 2), (A, 5)] 
+Combinez les deux nœuds avec les fréquences les plus basses : 
+Combinez (C, 1) et (D, 1) en un nœud interne (CD, 2) 
+[(CD, 2), (B, 2), (R, 2), (A, 5)] 
+Répétez ce processus : 
+Combinez (CD, 2) et (B, 2) en un nœud (CDB, 4) 
+[(R, 2), (CDB, 4), (A, 5)] 
+Combinez (R, 2) et (CDB, 4) en un nœud (RCDB, 6) 
+[(A, 5), (RCDB, 6)] 
+Combinez (A, 5) et (RCDB, 6) en un nœud (Root, 11) 
+
+3.	Génération des Codes : Parcourez l'arbre de la racine aux feuilles pour générer les codes : 
+
+A: 0 
+R: 10 
+C: 1100 
+D: 1101 
+B: 111 
+
+4.	Encodage des Données : 
+
+	Remplacez chaque symbole par son code : 
+	"ABRACADABRA" devient "0111101011001100011110010"
+
 ## 📦 Code Python
 
 ```python
