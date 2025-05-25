@@ -200,10 +200,10 @@ def decodage_du_message(message,_last_arbre):
     texte = decoder_message(message,_last_arbre)
     print(texte)
     
-def fonction_economie(texte):
+def economie(texte):
     """
     Compte l'économie entre le code de Hufmann et le code ASCII (8 bits par caractère)
-    >>> fonction_economie("HELLO")
+    >>> economie("HELLO")
     30
     """
 	pass
@@ -221,23 +221,17 @@ if __name__ == '__main__':
 
 ```
 
-Codes de Huffman :
-d : 00
-c : 01
-b : 10
-a : 11
-
-Message encodé : 11101011001100
-Message décodé : abacabad
 
 ## ✍️ Questions
 
 1. **Compréhension du texte**
    - À quoi sert l’algorithme de Huffman ?
    - Pourquoi les caractères fréquents ont-ils des codes plus courts ?
+	- Réaliser l'arbre à la main pour le mot "mississippi"
+	- Vérifier votre résultat avec le code.
 
 2. **Aller plus loin**
 
-Écrire la fonction qui permet de compter le nombre de bits économisés par Huffman par rapport à l’encodage ASCII (8 bits/lettre).
+Écrire la fonction `economie(texte)` qui permet de compter le nombre de bits économisés par l'algorithme d'Huffman par rapport à l’encodage ASCII (8 bits/lettre).
 
 
