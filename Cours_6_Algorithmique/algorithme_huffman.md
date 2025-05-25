@@ -91,6 +91,38 @@ def creer_arbre_huffman(frequences):
 
     return liste_noeuds[0]
 
+def arbre_en_texte(noeud, prefixe="", est_gauche=True):
+    """
+    Retourne une représentation textuelle ASCII de l’arbre de Huffman.
+    
+    >>> n1 = Noeud('A', 1)
+    >>> n2 = Noeud('B', 2)
+    >>> racine = Noeud(None, 3)
+    >>> racine.gauche = n1
+    >>> racine.droite = n2
+    >>> print(arbre_en_texte(racine))
+    └── 3
+        └── 1 'A'
+        ├── 2 'B'
+    """
+    lignes = []
+    if noeud is not None:
+        branche = "└── " if est_gauche else "├── "
+        if noeud.est_feuille():
+            lignes.append(prefixe + branche + f"{noeud.frequence} '{noeud.caractere}'")
+        else:
+            lignes.append(prefixe + branche + f"{noeud.frequence}")
+        nouveau_prefixe = prefixe + ("    " if est_gauche else "│   ")
+        lignes += arbre_en_texte(noeud.gauche, nouveau_prefixe, True).splitlines()
+        lignes += arbre_en_texte(noeud.droite, nouveau_prefixe, False).splitlines()
+    return "\n".join(lignes)
+
+def afficher_arbre_huffman(noeud):
+    """
+    Affiche l’arbre de Huffman dans la console.
+    """
+    print(arbre_en_texte(noeud))
+
 
 def generer_codes(noeud, code_actuel="", codes={}):
     """
@@ -159,8 +191,6 @@ def affichage_du_code(texte):
     message_code = encoder_message(texte, codes)
     return message_code
     
-
-
 def decodage_du_message(message,_last_arbre):
     """
     Affiche le texte auquel correspond le message codé
@@ -169,15 +199,27 @@ def decodage_du_message(message,_last_arbre):
     """
     texte = decoder_message(message,_last_arbre)
     print(texte)
+    
+def fonction_economie(texte):
+    """
+    Compte l'économie entre le code de Hufmann et le code ASCII (8 bits par caractère)
+    >>> fonction_economie("HELLO")
+    30
+    """
+    message=affichage_du_code(texte)
+    return abs(len(message)-len(texte)*8)
 
 texte = "HELLO"
 message_code, arbre = affichage_du_code(texte), _last_arbre
 print("Message encodé :", message_code)
 print("Message décodé :", decodage_du_message(message_code, arbre))
+print("\nArbre de Huffman :")
+afficher_arbre_huffman(arbre)
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
+
 ```
 
 Codes de Huffman :
@@ -195,16 +237,8 @@ Message décodé : abacabad
    - À quoi sert l’algorithme de Huffman ?
    - Pourquoi les caractères fréquents ont-ils des codes plus courts ?
 
-2. **Analyse du code**
-   - Que fait la fonction `build_huffman_tree` ?
-   - Quel est le rôle de `heapq` ?
-   - Pourquoi surcharge-t-on l’opérateur `<` dans la classe `Node` ?
+2. **Aller plus loin
 
-3. **Expérimentation**
-   - Essayez de compresser un mot comme `mississippi` avec ce code.
-   - Vérifiez si le texte encodé est plus court en bits que le texte original (en supposant 8 bits par lettre).
+Écrire une fonction, qui permet de compter le nombre de bits économisés par Huffman par rapport à l’encodage ASCII (8 bits/lettre).
 
-## 🧪 Aller plus loin
 
-- Compter le nombre de bits économisés par Huffman par rapport à l’encodage ASCII (8 bits/lettre).
-- Modifier le code pour afficher l’arbre de Huffman de manière textuelle.
