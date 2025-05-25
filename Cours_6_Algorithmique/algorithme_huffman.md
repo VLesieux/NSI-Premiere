@@ -58,24 +58,29 @@ Remplacez chaque symbole par son code :
 ## 📦 Code Python
 
 ```python
-# Définition d'une classe pour représenter chaque nœud de l'arbre de Huffman
 class Noeud:
-    def __init__(self, caractere, frequence):
+    """
+    Définition d'une classe pour représenter chaque nœud de l'arbre de Huffman
+    """
+    def __init__(self, caractere, frequence):#initialisation des attributs de la classe à partir de deux paramètres caractere et fréquence
         self.caractere = caractere
         self.frequence = frequence
         self.gauche = None
         self.droite = None
 
-    def est_feuille(self):
+    def est_feuille(self):#définition d'une méthode pour les objets noeuds qui dérivent de la classe Noeud
         return self.gauche is None and self.droite is None
 
-# Fonction pour construire l'arbre de Huffman à partir des fréquences
+
 def creer_arbre_huffman(frequences):
+    """
+    Fonction pour construire l'arbre de Huffman à partir des fréquences
+    """
     liste_noeuds = [Noeud(c, f) for c, f in frequences]
 
     while len(liste_noeuds) > 1:
-        liste_noeuds.sort(key=lambda n: n.frequence)
-        gauche = liste_noeuds.pop(0)
+        liste_noeuds.sort(key=lambda n: n.frequence)#classement par fréquence croissante 
+        gauche = liste_noeuds.pop(0)# la méthode pop() des listes retire l'élément à l'indice spécifié, ici 0.
         droite = liste_noeuds.pop(0)
 
         nouveau_noeud = Noeud(None, gauche.frequence + droite.frequence)
@@ -86,8 +91,11 @@ def creer_arbre_huffman(frequences):
 
     return liste_noeuds[0]
 
-# Fonction pour générer les codes de Huffman à partir de l'arbre
+
 def generer_codes(noeud, code_actuel="", codes={}):
+    """
+    Fonction pour générer les codes de Huffman à partir de l'arbre
+    """
     if noeud is not None:
         if noeud.est_feuille():
             codes[noeud.caractere] = code_actuel
@@ -96,15 +104,30 @@ def generer_codes(noeud, code_actuel="", codes={}):
             generer_codes(noeud.droite, code_actuel + "1", codes)
     return codes
 
-# Fonction pour encoder un message en utilisant les codes de Huffman
+
 def encoder_message(message, codes):
+    """
+    Fonction pour encoder un message en utilisant les codes de Huffman
+    >>> codes = {'A': '0', 'B': '10', 'C': '11'}
+    >>> encoder_message('ABAC', codes)
+    '010011'
+    """
     message_code = ""
     for caractere in message:
         message_code += codes[caractere]
     return message_code
 
-# Fonction pour décoder un message binaire à l'aide de l'arbre de Huffman
+
 def decoder_message(message_code, arbre):
+    """
+    Fonction pour décoder un message binaire à l'aide de l'arbre de Huffman
+    >>> frequences = [('A', 5), ('B', 2), ('C', 1)]
+    >>> arbre = creer_arbre_huffman(frequences)
+    >>> codes = generer_codes(arbre)
+    >>> message = encoder_message("ABAC", codes)
+    >>> decoder_message(message, arbre)
+    'ABAC'
+    """
     message_decode = ""
     noeud_actuel = arbre
     for bit in message_code:
@@ -119,32 +142,42 @@ def decoder_message(message_code, arbre):
             noeud_actuel = arbre
     return message_decode
 
-# Exemple d'utilisation
-# Message de base
-texte = "abacabad"
+_last_arbre = None
 
-# Calcul des fréquences manuellement (ou à partir du texte)
-frequences = []
-for caractere in set(texte):
-    frequences.append((caractere, texte.count(caractere)))
+def affichage_du_code(texte):
+    """
+    Affiche le message codé à partir de message
+    >>> sorted(set("HELLO"))
+    ['E', 'H', 'L', 'O']
+    >>> affichage_du_code("HELLO")
+    '0100111110'
+    """
+    frequences = [(c, texte.count(c)) for c in sorted(set(texte))]
+    global _last_arbre
+    _last_arbre = creer_arbre_huffman(frequences)
+    codes = generer_codes(_last_arbre)
+    message_code = encoder_message(texte, codes)
+    return message_code
+    
 
-# Création de l’arbre et des codes
-arbre = creer_arbre_huffman(frequences)
-codes = generer_codes(arbre)
 
-# Affichage des codes
-print("Codes de Huffman :")
-for caractere in codes:
-    print(f"{caractere} : {codes[caractere]}")
+def decodage_du_message(message,_last_arbre):
+    """
+    Affiche le texte auquel correspond le message codé
+    >>> decodage_du_message('0100111110',_last_arbre)
+    HELLO
+    """
+    texte = decoder_message(message,_last_arbre)
+    print(texte)
 
-# Encodage
-message_code = encoder_message(texte, codes)
-print("\nMessage encodé :", message_code)
+texte = "HELLO"
+message_code, arbre = affichage_du_code(texte), _last_arbre
+print("Message encodé :", message_code)
+print("Message décodé :", decodage_du_message(message_code, arbre))
 
-# Décodage
-message_decode = decoder_message(message_code, arbre)
-print("Message décodé :", message_decode)
-
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
 ```
 
 Codes de Huffman :
