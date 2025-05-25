@@ -22,17 +22,17 @@ L'algorithme de Huffman est utilisé dans de nombreux formats de compression (ZI
 
 Créez un nœud feuille pour chaque symbole avec sa fréquence associée.  
 
-Ajoutez tous les nœuds dans une file de priorité (ou un tas), ordonnée par fréquence (les nœuds avec les fréquences les plus basses sont en tête).   
+Ajoutez tous les nœuds dans une file de priorité (ou un tas), ordonnée par fréquence croissante  (les nœuds avec les fréquences les plus basses sont en tête).   
 
-Répétez les étapes suivantes jusqu'à ce qu'il ne reste plus qu'un seul nœud dans la file.
+Répétez les étapes suivantes jusqu'à ce qu'il ne reste plus qu'un seul nœud dans la file :
 
-Retirez les deux nœuds avec les plus basses fréquences de la file.
+ 	- Retirez les deux nœuds avec les plus basses fréquences de la file.
 
-Créez un nouveau nœud interne avec ces deux nœuds comme enfants et une fréquence égale à la somme de leurs fréquences.
+  	- Créez un nouveau nœud interne avec ces deux nœuds comme enfants et une fréquence égale à la somme de leurs fréquences.
 
-Ajoutez ce nouveau nœud dans la file. 
+	- Ajoutez ce nouveau nœud dans la file. 
 
-Le dernier nœud restant est la racine ou root de l'arbre de Huffman. 
+	- Le dernier nœud restant est la racine ou root de l'arbre de Huffman. 
 
 3.	Génération des Codes de Huffman : 
 
