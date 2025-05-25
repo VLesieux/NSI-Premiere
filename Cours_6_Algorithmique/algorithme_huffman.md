@@ -224,14 +224,18 @@ if __name__ == '__main__':
 
 ## ✍️ Questions
 
-1. **Compréhension du texte**
-   - À quoi sert l’algorithme de Huffman ?
-   - Pourquoi les caractères fréquents ont-ils des codes plus courts ?
+1. **Compréhension du texte et du code**
+
+   	- À quoi sert l’algorithme de Huffman ?
+   	- Pourquoi les caractères fréquents ont-ils des codes plus courts ?
+	- À quoi sert la classe Noeud ?
+	- Que retourne la méthode est_feuille ?
 	- Réaliser l'arbre à la main pour le mot "mississippi"
 	- Vérifier votre résultat avec le code.
+	- Comment le code 0100111110 est-il décodé en HELLO ?
 
 2. **Aller plus loin**
 
-Écrire la fonction `economie(texte)` qui permet de compter le nombre de bits économisés par l'algorithme d'Huffman par rapport à l’encodage ASCII (8 bits/lettre).
+Compléter la fonction `economie(texte)` qui permet de compter le nombre de bits économisés par l'algorithme d'Huffman par rapport à l’encodage ASCII (8 bits/lettre).
 
 
