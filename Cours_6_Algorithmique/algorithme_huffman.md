@@ -34,8 +34,6 @@ Ajoutez ce nouveau nœud dans la file.
 
 Le dernier nœud restant est la racine ou root de l'arbre de Huffman. 
 
-<img src="assets/arbre.jpg">
-
 3.	Génération des Codes de Huffman : 
 
 Parcourez l'arbre de Huffman à partir de la racine pour assigner des codes binaires à chaque symbole. 
@@ -43,6 +41,8 @@ Parcourez l'arbre de Huffman à partir de la racine pour assigner des codes bina
 À chaque nœud interne, assignez "0" à la branche gauche et "1" à la branche droite (ou vice versa). 
 
 Les codes binaires pour chaque symbole sont obtenus en suivant les branches de la racine aux feuilles.
+
+<img src="assets/arbre.jpg">
 
 4.	Encodage des Données : 
 
