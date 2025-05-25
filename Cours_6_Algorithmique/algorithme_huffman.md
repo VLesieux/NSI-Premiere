@@ -42,46 +42,18 @@ Parcourez l'arbre de Huffman à partir de la racine pour assigner des codes bina
 
 Les codes binaires pour chaque symbole sont obtenus en suivant les branches de la racine aux feuilles.
 
+
+4.	Exemple.
+
 <img src="assets/arbre.jpg">
 
-4.	Encodage des Données : 
+
+5.	Encodage des Données : 
 
 Remplacez chaque symbole du texte par son code binaire correspondant pour obtenir la séquence compressée. 
-Exemple Illustratif 
 Supposons que nous voulons compresser la chaîne "ABRACADABRA". 
-
-1.	Calcul des Fréquences : 
-
-A: 5, B: 2, R: 2, C: 1, D: 1 
-
-2.	Construction de l'Arbre : 
-
-Créez les nœuds pour chaque symbole : 
-A: 5, B: 2, R: 2, C: 1, D: 1 
-Insérez-les dans une file de priorité : 
-[(C, 1), (D, 1), (B, 2), (R, 2), (A, 5)] 
-Combinez les deux nœuds avec les fréquences les plus basses : 
-Combinez (C, 1) et (D, 1) en un nœud interne (CD, 2) 
-[(CD, 2), (B, 2), (R, 2), (A, 5)] 
-Répétez ce processus : 
-Combinez (CD, 2) et (B, 2) en un nœud (CDB, 4) 
-[(R, 2), (CDB, 4), (A, 5)] 
-Combinez (R, 2) et (CDB, 4) en un nœud (RCDB, 6) 
-[(A, 5), (RCDB, 6)] 
-Combinez (A, 5) et (RCDB, 6) en un nœud (Root, 11) 
-
-3.	Génération des Codes : Parcourez l'arbre de la racine aux feuilles pour générer les codes : 
-
-A: 0 
-R: 10 
-C: 1100 
-D: 1101 
-B: 111 
-
-4.	Encodage des Données : 
-
-	Remplacez chaque symbole par son code : 
-	"ABRACADABRA" devient "0111101011001100011110010"
+Remplacez chaque symbole par son code : 
+"ABRACADABRA" devient "0111101011001100011110010"
 
 ## 📦 Code Python
 
