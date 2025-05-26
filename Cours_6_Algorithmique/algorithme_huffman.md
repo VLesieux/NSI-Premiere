@@ -226,13 +226,22 @@ if __name__ == '__main__':
 
 1. **Compréhension du texte et du code**
 
-   	- À quoi sert l’algorithme de Huffman ?
-   	- Pourquoi les caractères fréquents ont-ils des codes plus courts ?
-	- À quoi sert la classe Noeud ?
-	- Que retourne la méthode est_feuille ?
-	- Réaliser l'arbre à la main pour le mot "mississippi"
-	- Vérifier votre résultat avec le code.
-	- Comment le code 0100111110 est-il décodé en HELLO ?
+   	1) À quoi sert l’algorithme de Huffman ?
+   	2) Pourquoi les caractères fréquents ont-ils des codes plus courts ?
+	3) À quoi sert la classe Noeud ?
+	4) Que retourne la méthode est_feuille ?
+	5) Qu’y-a-t-il de particulier dans la fonction generer_codes ? Que fait-elle, comment fonctionne-t-elle ?
+	6) Réaliser l'arbre à la main pour le mot "mississippi"
+	7) Calculer le taux de compression sur cet exemple par rapport à l’encodage ASCII (8 bits/lettre défini) par :    
+
+taux = ((taille_initiale - taille_compressee) / taille_initiale) * 100.   
+
+8) Comment le code 0100111110 est-il décodé en HELLO ?
+9) Expliquer pourquoi le code ne peut pas être équivoque ? (il ne peut être interprété que d’une seule manière).
+10) Compléter le code de la fonction économie.
+
+
+
 
 2. **Aller plus loin**
 
