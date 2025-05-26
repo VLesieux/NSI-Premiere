@@ -236,15 +236,12 @@ if __name__ == '__main__':
 
 taux = ((taille_initiale - taille_compressee) / taille_initiale) * 100.   
 
-8) Comment le code 0100111110 est-il décodé en HELLO ?
-9) Expliquer pourquoi le code ne peut pas être équivoque ? (il ne peut être interprété que d’une seule manière).
-10) Compléter le code de la fonction économie.
-
-
+	8) Comment le code 0100111110 est-il décodé en HELLO ?
+	9) Expliquer pourquoi le code ne peut pas être équivoque ? (il ne peut être interprété que d’une seule manière).
+	10) Compléter le code de la fonction économie.
 
 
 2. **Aller plus loin**
 
-Compléter la fonction `economie(texte)` qui permet de compter le nombre de bits économisés par l'algorithme d'Huffman par rapport à l’encodage ASCII (8 bits/lettre).
-
+Réaliser une application qui réalise la compression de Huffman sur un texte entré.
 
