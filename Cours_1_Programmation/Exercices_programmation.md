@@ -187,7 +187,7 @@ Exemple à tester dans la docstring:
 True
 ```
 
-*Remarque* : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0, mais ils peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
+**Remarque** : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0, mais ils peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
 
 Exemple :
 
