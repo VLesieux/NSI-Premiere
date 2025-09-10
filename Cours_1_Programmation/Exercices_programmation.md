@@ -159,7 +159,7 @@ Dans cette première méthode, `i` joue le rôle d'un indice qui commence à 0 e
 
 Dans la seconde méthode, la variable `element` joue le rôle d'un élément constitutif de la liste. On pourrait choisir tout autre nom comme variable (la variable `item` serait un bon choix) mais le nom choisi doit avoir du sens pour nous.
 
-*Remarque * : une chaîne de caractère est plus exactement un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
+**Remarque** : une chaîne de caractère est plus exactement un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
 On s'en aperçoit sur cet exemple où on ne peut pas changer la valeur d'une lettre d'une chaîne de caractères tandis que l'on peut modifier la valeur d'un élément d'une liste connaissant son indice de position.
 
 ```Python
