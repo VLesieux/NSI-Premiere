@@ -223,6 +223,17 @@ Exemple :
 
 2. Écrire une fonction qui prend en argument deux mots et renvoie `True` si les deux mots commencent par la même lettre et se terminent également par la même lettre, et `False` sinon.
 
+Si deux conditions doivent être satisfaistes simultanément, utiliser l'opérateur logique : `and`.
+
+```Python
+>>> for i in range(10):
+    if i%2==0 and i%3==0:
+        print(i)
+        
+0
+6
+```
+
 Exemples à tester dans la docstring:
 
 ```Python
