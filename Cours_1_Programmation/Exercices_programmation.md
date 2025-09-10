@@ -74,7 +74,7 @@ True
 
 3. Proposer un programme qui permet de déterminer les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
 
-Indication : on peut créer une liste vide à laquelle on ajoute des valeurs:
+Indication : on peut créer une liste vide à laquelle on ajoute des valeurs avec la **méthode** append associée aux listes :
 
 ```Python
 >>> liste=[]
@@ -99,14 +99,11 @@ True
 False
 ```
 
-2. Écrire une fonction `affichage_premiers` qui prend en paramètre un nombre entier et affiche la liste de tous les nombres premiers inférieurs strictement à ce nombre. Attention, 1 n'est pas considéré comme un nombre premier.
+2. Écrire une fonction `liste_premiers` qui prend en paramètre un nombre entier et renvoie la liste de tous les nombres premiers inférieurs à ce nombre. Attention, 1 n'est pas considéré comme un nombre premier.
 
 ```Python
->>> affichage_premiers(10)
-2
-3
-5
-7
+>>> liste_premiers(10)
+[2, 3, 5, 7]
 ```
 
 ## Exercice 6
@@ -120,6 +117,7 @@ Utiliser la fonction `randint` du module `random` (utiliser les deux manières d
 >>> help(random.randint)
 ```
 
+
 ## Exercice 7
 
 Écrire une fonction _double_ qui prend en argument un mot (une chaîne de caractères) et renvoie le mot obtenu en doublant les unes après les autres chaque lettre du mot. 
@@ -129,7 +127,9 @@ Utiliser la fonction `randint` du module `random` (utiliser les deux manières d
 'bboonn'
 ```
 
-On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot. Dans les deux cas on fait une boucle `for` (a `for` loop).
+On envisagera deux écritures possibles pour la fonction ; soit en parcourant les lettres constitutives du mot, soit en repérant les lettres par leur indice de position dans le mot. 
+
+Dans les deux cas on fait une boucle `for`.
 
 *On peut en effet parcourir une liste ou un tuple de deux manières différentes.*
 
@@ -145,7 +145,7 @@ On envisagera deux écritures possibles pour la fonction ; soit en parcourant le
 5
 9
 ```
-Dans la première méthode, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs que prend l'indice des éléments dans la liste.
+Dans cette première méthode, `i` joue le rôle d'un indice qui commence à 0 et va jusque len(liste)-1 parcourant ainsi les n valeurs que prend l'indice des éléments de la liste (ou des lettres du mot vu comme une liste de lettres).
 
 #### Deuxième méthode
 ```Python
@@ -157,9 +157,9 @@ Dans la première méthode, `i` joue le rôle d'un indice qui commence à 0 et v
 9
 ```
 
-Dans la seconde méthode, la variable `element` joue le rôle d'un élément constitutif de la liste. On pourrait choisir tout autre nom comme variable (la variable `item` serait un bon choix) mais le nom choisi doit avoir du sens pour nous (meaningful).
+Dans la seconde méthode, la variable `element` joue le rôle d'un élément constitutif de la liste. On pourrait choisir tout autre nom comme variable (la variable `item` serait un bon choix) mais le nom choisi doit avoir du sens pour nous.
 
-*Remarque* : une chaîne de caractère est assimilable à un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
+*Remarque * : une chaîne de caractère est plus exactement un tuple car elle est non mutable (non modifiable) à la différence d'une liste.  
 On s'en aperçoit sur cet exemple où on ne peut pas changer la valeur d'une lettre d'une chaîne de caractères tandis que l'on peut modifier la valeur d'un élément d'une liste connaissant son indice de position.
 
 ```Python
@@ -187,7 +187,7 @@ Exemple à tester dans la docstring:
 True
 ```
 
-*Remarque* : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0 mais peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
+*Remarque* : les indices de position dans une liste, un tuple, ou une chaîne de caractères se lisent de gauche à droite en croissant à partir de 0, mais ils peuvent aussi se lire de droite à gauche à partir de -1 en décroissant.
 
 Exemple :
 
