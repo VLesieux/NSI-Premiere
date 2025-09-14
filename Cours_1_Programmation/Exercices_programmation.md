@@ -278,3 +278,6 @@ trace(-5,5,f,100)
 ```
 
 <img width="400" height="400" src="assets/graphe.png">
+
+
+
