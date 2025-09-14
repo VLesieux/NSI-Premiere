@@ -74,7 +74,7 @@ True
 
 3. Proposer une fonction `liste_nombres_parfaits` qui admet pour paramètre un entier `q`, et renvoie la liste des nombres parfaits inférieurs ou égaux à ce nombre q.
 
-Indication : on peut créer une liste vide à laquelle on ajoute des valeurs avec la **méthode** `append` associée aux listes :
+Indication : on crée une liste vide à laquelle on ajoute des valeurs avec la **méthode** `append` associée aux listes :
 
 ```Python
 >>> liste=[]
