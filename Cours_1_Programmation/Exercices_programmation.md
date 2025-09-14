@@ -72,7 +72,7 @@ Exemple à vérifier et à introduire dans la docstring.
 True
 ```
 
-3. Proposer un programme qui permet de déterminer les nombres parfaits inférieurs à 100 puis le premier nombre parfait supérieur à 100.
+3. Proposer un programme qui permet de déterminer les nombres parfaits inférieurs ou égaux à 100.
 
 Indication : on peut créer une liste vide à laquelle on ajoute des valeurs avec la **méthode** `append` associée aux listes :
 
