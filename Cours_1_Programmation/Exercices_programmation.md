@@ -58,21 +58,21 @@ Exemple à vérifier et à introduire dans la docstring.
 
 ## Exercice 4
 
-1. Écrire une fonction _somme_diviseurs_ qui prend en paramètre un entier naturel non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
+1. Écrire une fonction `somme_diviseurs` qui prend en paramètre un entier naturel `n` non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
 
 ```Python
 >>> somme_diviseurs(9)
 13
 ```
 
-2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à son double 2*n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel non nul et renvoie `True` s'il est parfait et `False` sinon.
+2. Un entier naturel n est parfait si la somme de ses diviseurs est égale à son double 2*n. Écrire une fonction _est_parfait_ qui prend en argument un entier naturel `n` non nul et renvoie `True` s'il est parfait et `False` sinon.
 
 ```Python
 >>> est_parfait(6)
 True
 ```
 
-3. Proposer un programme qui permet de déterminer les nombres parfaits inférieurs ou égaux à 100.
+3. Proposer une fonction `liste_nombres_parfaits` qui admet pour paramètre un entier `q`, et renvoie la liste des nombres parfaits inférieurs ou égaux à ce nombre q.
 
 Indication : on peut créer une liste vide à laquelle on ajoute des valeurs avec la **méthode** `append` associée aux listes :
 
