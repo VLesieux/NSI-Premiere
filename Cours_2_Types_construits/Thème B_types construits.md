@@ -318,6 +318,8 @@ if __name__ == '__main__':
   doctest.testmod(verbose=True)
 ```
 
+Proposer une version boucle plus longue et une version compréhension.
+
 3) `dict` : dictionnaire
 
 ```Python
