@@ -230,6 +230,61 @@ for i in range(3):
     m[i][2]=m[i][2]+i+1
 ```
 
+**Remarque importante** : 
+```Python
+m = [3*[0] for i in range(3)]
+```
+
+Ici, 3*[0] est évalué à [0, 0, 0], et chaque itération de la compréhension de liste crée une nouvelle liste indépendante.
+
+```Python
+[
+    [0, 0, 0],  # une nouvelle liste
+    [0, 0, 0],  # une autre nouvelle liste
+    [0, 0, 0]   # encore une autre
+]
+```
+Quand on fait 
+```Python
+m[0][0] = 1
+```
+Seule la première sous-liste est modifiée, d’où :
+```Python
+[[1, 0, 0], [0, 0, 0], [0, 0, 0]]
+```
+
+Si on écrit: 
+```Python
+p = [3*[0]] * 3
+```
+
+Ici, 3*[0] est calculé une seule fois → [0, 0, 0].
+Ensuite, *3 répète la même référence à cette liste 3 fois.
+Donc p n’est pas 3 listes indépendantes, mais 3 pointeurs vers la même liste :
+Si on fait 
+```Python
+[
+    ref -> [0, 0, 0],
+    ref -> [0, 0, 0],
+    ref -> [0, 0, 0]
+]
+```
+Quand on fait 
+```Python
+m[0][0] = 1
+```
+On modifie cette unique liste partagée → ce qui se reflète dans toutes les “lignes” :
+```Python
+[[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+
+```
+
+Conclusion: pour créer une matrice avec des lignes indépendantes → utiliser la compréhension de liste :
+```Python
+m = [[0]*3 for _ in range(3)]
+```
+
+
 > Exemple 6 : Cherchons le code utilisant la méthode par compréhension permettant d'obtenir la liste : [[0,1,2], [3,4,5], [6,7,8], [9,10,11], [12,13,14]].
 
 
