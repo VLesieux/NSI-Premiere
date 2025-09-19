@@ -244,7 +244,8 @@ Ici, 3*[0] est évalué à [0, 0, 0], et chaque itération de la compréhension 
     [0, 0, 0]   # encore une autre
 ]
 ```
-Quand on fait 
+Quand on fait :
+
 ```Python
 m[0][0] = 1
 ```
@@ -253,7 +254,7 @@ Seule la première sous-liste est modifiée, d’où :
 [[1, 0, 0], [0, 0, 0], [0, 0, 0]]
 ```
 
-Si on écrit: 
+Par contre, si on écrit: 
 ```Python
 p = [3*[0]] * 3
 ```
@@ -261,7 +262,7 @@ p = [3*[0]] * 3
 Ici, 3*[0] est calculé une seule fois → [0, 0, 0].
 Ensuite, *3 répète la même référence à cette liste 3 fois.
 Donc p n’est pas 3 listes indépendantes, mais 3 pointeurs vers la même liste :
-Si on fait 
+
 ```Python
 [
     ref -> [0, 0, 0],
@@ -269,7 +270,8 @@ Si on fait
     ref -> [0, 0, 0]
 ]
 ```
-Quand on fait 
+Quand on fait :
+
 ```Python
 m[0][0] = 1
 ```
@@ -284,6 +286,7 @@ Conclusion: pour créer une matrice avec des lignes indépendantes → utiliser 
 m = [[0]*3 for _ in range(3)]
 ```
 
+En Python, l’underscore _ est souvent utilisé comme variable jetable : une convention qui signifie « je n’ai pas besoin de la valeur de cette variable ».
 
 > Exemple 6 : Cherchons le code utilisant la méthode par compréhension permettant d'obtenir la liste : [[0,1,2], [3,4,5], [6,7,8], [9,10,11], [12,13,14]].
 
