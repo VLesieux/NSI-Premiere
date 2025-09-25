@@ -220,16 +220,13 @@ Au scrable français, les valeurs des pièces sont les suivantes:
     8 points : J , Q    
     10 points : K , W , X , Y, Z    
 
-On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la sixième lettre compte triple, il a plusieurs mots possibles à son actif avec les mêmes lettres et cherche à connaître le meilleur choix.
-
-On cherche à écrire une fonction capable de renvoyer à partir d'un tuple de mots possibles un dictionnaire associant une valeur en points à chacun des mots de ce tuple en plaçant les mots dans l'ordre décroissant des points.   
-
+On suppose qu'un joueur s'apprête à réaliser un mot sur un emplacement où la dernière lettre compte triple.   
 
 Indications :
 
-1) Créer un dictionnaire associant une valeur à un tuple de lettres.
+1) Créer un dictionnaire associant une valeur en points à un tuple de lettres.
 
-2) Créer une première fonction appelée _points_ retournant la valeur en points d'un mot entré en paramètre
+2) Créer une fonction appelée _points_ retournant la valeur en points du mot entré en paramètre.
 
 ```Python
 def points(mot):
@@ -246,30 +243,6 @@ def points(mot):
     """
 ```
 
-3) Utiliser les méthodes `sort()` et `reverse()` des listes dans une nouvelle fonction `classement_mots`; il s'agira en effet de créer une liste contenant les valeurs des mots, puis d'ordonner et de renverser cette liste. On sera ensuite amené à créer un nouveau dictionnaire initialement vide que l'on remplira avec des mots (les clés) qui ont pour valeur les valeurs de cette dernière liste.
-
-Exemple :
-
-```Python
->>> liste=[1,8,9,3]
->>> liste.sort()
->>> liste
-[1, 3, 8, 9]
->>> liste.reverse()
->>> liste
-[9, 8, 3, 1]
-```
-
-```Python
-def classement_mots(possibles):
-    """
-    Renvoie un dictionnaire avec les valeurs des possibles dans l'ordre décroissant
-    param : possibles : tuple
-    return : int
-    >>> classement_mots(("CASSER","RESSAC","ECRASES"))
-    {'RESSAC': 14, 'ECRASES': 11, 'CASSER': 10}
-    """
-```
 
 ### Exercice 9
 
