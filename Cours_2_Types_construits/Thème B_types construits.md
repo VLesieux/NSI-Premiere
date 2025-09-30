@@ -344,6 +344,9 @@ Traceback (most recent call last):
 KeyError: 'mi5'#Erreur de clé KeyError car la clé 'mi5' demandée n'existe pas
 >>> frequences.get('mi5')
 >>> #pas de réponse mais ne provoque pas de signalement d'erreur KeyError en l'absence de la clé
+>>> frequences.get('mi5',2)
+2
+#On peut demander à get de renvoyer une valeur par défaut si la clé est absente
 >>> len(frequences)#longueur du dictionnaire
 3
 >>> frequences.keys()#la méthode keys renvoie les clés du dictionnaire, ne pas oublier () ;
