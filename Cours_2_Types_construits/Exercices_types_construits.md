@@ -125,7 +125,7 @@ __Indications__ : parcourir les lettres du textes, créer, s'il n'existe pas enc
 
 Utiliser la méthode `get` des dictionnaires pour ne pas bloquer le programme en cas d'absence d'une clé.
 
-On peut demander à la fonction `get` de renvoyer une valeur par défaut si la clé n'est pas présente.
+On peut demander à la fonction `get` de renvoyer une valeur par défaut si la clé est absente.
 
 ```Python
 >>> frequences={"do4":523.25,"la3":440}
@@ -139,7 +139,7 @@ KeyError: 'mi5'
 2
 ```
 
-✨ : Utiliser la valeur par défaut de get() pour compléter le code suivant :
+💡 : Utiliser la valeur par défaut de get() pour compléter le code suivant :
 
 ```Python
 def stat(texte):
