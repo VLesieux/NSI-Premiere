@@ -428,3 +428,23 @@ regions = { 'Mayotte': 376, 'Pays de la Loire': 32082,'La Réunion': 2504, 'Gra
 > Exemple 5 : On dispose du dictionnaire ci-suivant :  dico = { 'a': (1,2,3), 'b': (4,5,6) }. On se demande comment atteindre la valeur 2 placée dans le tuple associé à la clé 'a'.
 
 > Exemple 6 : On dispose du dictionnaire ci-suivant :  dico = { 'a': (1,2,3), 'b': (4,5,6) }. On se demande comment réaliser le dictionnaire par compréhension : {'ar': (2, 4, 6), 'br': (8, 10, 12)}
+
+
+
+
+## 📌 Les compréhensions en Python
+
+| Syntaxe                  | Type obtenu    | Exemple                          | Résultat                   |
+|---------------------------|----------------|----------------------------------|-----------------------------|
+| `[x*2 for x in iterable]` | **liste**      | `[x*2 for x in range(4)]`        | `[0, 2, 4, 6]`              |
+| `{k:v for ...}`           | **dictionnaire** | `{x: x*2 for x in range(3)}`     | `{0: 0, 1: 2, 2: 4}`        |
+| `(x*2 for x in iterable)` | **générateur** | `(x*2 for x in range(4))`        | `<generator object ...>`    |
+| `tuple(x*2 for x in ...)` | **tuple**      | `tuple(x*2 for x in range(4))`   | `(0, 2, 4, 6)`              |
+
+---
+
+💡 **À retenir :**  
+- Les crochets `[]` créent une **liste par compréhension**.  
+- Les accolades `{}` avec `:` créent un **dictionnaire par compréhension**.  
+- Les parenthèses `()` créent un **générateur** (suite calculée à la demande).  
+- Pour un **tuple**, il faut appeler explicitement `tuple(...)` autour de l’expression.
