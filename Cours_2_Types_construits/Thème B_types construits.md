@@ -426,3 +426,5 @@ d = { 'couleur': 'vert', 'taille': 42, 'marque': 'le coq sportif' }.
 regions = { 'Mayotte': 376, 'Pays de la Loire': 32082,'La Réunion': 2504, 'Grand Est': 57441,'Martinique': 1128, 'Corse': 8680,'Bretagne': 27208, 'Nouvelle-Aquitaine': 84036 } ; on se demande ce qu'il faut utiliser comme code pour ajouter la valeur 31806 pour 'Hauts de France'.
 
 > Exemple 5 : On dispose du dictionnaire ci-suivant :  dico = { 'a': (1,2,3), 'b': (4,5,6) }. On se demande comment atteindre la valeur 2 placée dans le tuple associé à la clé 'a'.
+
+> Exemple 6 : On dispose du dictionnaire ci-suivant :  dico = { 'a': (1,2,3), 'b': (4,5,6) }. On se demande comment réaliser le dictionnaire par compréhension : {'ar': (2, 4, 6), 'br': (8, 10, 12)}
