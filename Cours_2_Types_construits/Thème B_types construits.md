@@ -358,7 +358,11 @@ les notes sont do4
 les notes sont la3
 >>> frequences.values()#la méthode values renvoie les valeurs des clés du dictionnaire
 dict_values([523.25, 440, 659.26])
->>> for j in frequences.values():#on peut parcourir les valeurs du dictionnaire
+#on peut rechercher la valeur du maximum des valeurs du dictionnaire
+>>> maximum=max(frequences.values())
+>>> maximum
+659.26
+>>> for j in frequences.values():#on peut aussi parcourir les valeurs du dictionnaire
     print("les fréquences sont",j)    
 les fréquences sont 523.25
 les fréquences sont 440
