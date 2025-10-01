@@ -113,7 +113,7 @@ def cles_max(d):
     ['x']
     """
     ###########A compléter 9 : cherche le max des valeurs de d en utilisant max()###########################
-    ###########A compléter 10 : renvoie un dictionnaire créé par compréhension###########################
+    ###########A compléter 10 : renvoie une liste créée par compréhension###########################
     
 
 if __name__ == '__main__':
