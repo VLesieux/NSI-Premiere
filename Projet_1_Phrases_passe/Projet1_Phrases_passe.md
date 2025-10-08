@@ -422,6 +422,9 @@ On peut vérifier dans la console :
 2094
 ```
 
+ ![En résumé ](assets/explication.jpeg)
+
+
 ### À faire n°6
 
 Réalisez, avec sa docstring, une fonction nommée `en_nombre`, paramétrée par une séquence
