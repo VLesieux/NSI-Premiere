@@ -24,8 +24,7 @@ Chaque nucléotide est fait de :
 
 	•	une base (A, T, G ou C).
 
-Le sucre et le phosphate s’enchaînent comme des maillons :
-→ sucre–phosphate–sucre–phosphate–…
+Le sucre et le phosphate s’enchaînent comme des maillons : sucre–phosphate–sucre–phosphate–…
 
 Mais ces maillons ont un sens chimique, un peu comme une flèche :
 
@@ -43,7 +42,7 @@ Cela permet aux bases de s’apparier et à la double hélice d’être stable.
 
    Brin 2 : 3′ ── T ── A ── C ── G ── 5′
 
-Pour obtenir le bon sens de lecture du brin 2 (5′ → 3′), il faut renverser la chaîne complémentaire.
+Pour obtenir le bon sens de lecture du brin 2 (5′ → 3′), il faut renverser donc la chaîne complémentaire.
 
 2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique. C'est une molécule simple brin. 
 
