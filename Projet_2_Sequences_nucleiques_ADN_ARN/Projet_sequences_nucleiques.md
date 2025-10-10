@@ -13,9 +13,9 @@ Il est composé des 4 **nucléotides** suivants, appelés aussi **bases** :
 - G : Guanine
 - C : Cytosine
 
-Dans l'ADN, les bases A et T sont **complémentaires** ainsi que les bases G et C (cf.image)
+Les deux brins d’ADN sont enroulés en double hélice, stabilisée par les liaisons hydrogène entre bases complémentaires. Les deux brins d’ADN sont dits antiparallèles : ils s’enroulent en sens opposé dans la double hélice et sont liés par des paires de **bases complémentaires** (A–T et C–G), comme on le voit sur l’image ci-dessus.
 
-2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique.   
+2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique. C'est une molécule simple brin. 
 
 Il est composé des 4 **nucléotides** suivants :
 
@@ -147,9 +147,17 @@ def transcrit(sequence,debut,fin):
 
 **Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères **illustré ci-dessous** et la fonction précédente `baseComplementaire(base,'ARN')`.
 
+
+sequence[debut:fin:pas]
+Si on ne précise ni début ni fin, il prend toute la chaîne.
+
 ```python
 >>> "animal"[1:4]#1 pris, 4 exclu
-'nim' 
+'nim'
+>>> "animal"[::1]
+'animal'
+>>> "animal"[::-1]
+'lamina'#renverse la chaîne
 ```  
 
 ## La traduction
@@ -199,10 +207,28 @@ def replique(sequence):
     """
 ```  
 
-**Indication** : Pour renverser une chaîne de caractères, encore une fois le slicing, avec un pas négatif.
+
+### Question 6
+
+Cette question utilise la question précédente.
 
 ```python
->>> sequence='ACTG'
->>> sequence[::-1]
-'GTCA'
+def sont_complementaires(brin1, brin2):
+    """
+    Vérifie si deux séquences ADN sont complémentaires et antiparallèles.
+
+    Deux brins sont complémentaires si :
+    - chaque base de l'un correspond à la base complémentaire de l'autre
+      (A<->T et C<->G),
+    - et s'ils sont orientés en sens opposé (antiparallèles).
+
+    param : brin1 : str
+    param : brin2 : str
+    return : bool
+
+    >>> sont_complementaires("ATGC", "GCAT")
+    True
+    >>> sont_complementaires("ATGC", "TACG")  # pas antiparallèles
+    False
+    """
 ```  
