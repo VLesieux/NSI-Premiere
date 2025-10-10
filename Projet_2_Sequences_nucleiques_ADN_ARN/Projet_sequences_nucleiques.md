@@ -182,7 +182,7 @@ def traduit(sequence):
 1) Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.     
 Réaliser un parcours de ce dictionnaire.
 
-2)Voir l'appartenance à un tuple :
+2) Voir l'appartenance à un tuple :
 
 ```python
 >>> 'GAC' in ('GAU','GAC')
