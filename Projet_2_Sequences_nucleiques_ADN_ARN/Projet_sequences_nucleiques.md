@@ -15,6 +15,32 @@ Il est composé des 4 **nucléotides** suivants, appelés aussi **bases** :
 
 Les deux brins d’ADN sont enroulés en double hélice, stabilisée par les liaisons hydrogène entre bases complémentaires. Les deux brins d’ADN sont dits antiparallèles : ils s’enroulent en sens opposé dans la double hélice et sont liés par des paires de **bases complémentaires** (A–T et C–G), comme on le voit sur l’image ci-dessus.
 
+Chaque brin d’ADN a un sens. C’est une longue chaîne de petits éléments appelés nucléotides.
+Chaque nucléotide est fait de :
+	•	un sucre (le désoxyribose),
+	•	un groupe phosphate,
+	•	une base (A, T, G ou C).
+
+Le sucre et le phosphate s’enchaînent comme des maillons :
+→ sucre–phosphate–sucre–phosphate–…
+
+Mais ces maillons ont un sens chimique, un peu comme une flèche :
+	•	un côté a un groupe phosphate libre (appelé 5′),
+	•	l’autre côté a un groupe hydroxyle (-OH) (appelé 3′).
+
+Donc, chaque brin a une direction : du 5′ vers le 3′.
+
+Les deux brins d’ADN sont antiparallèles parce qu’ils sont disposés côte à côte,
+mais orientés en sens inverses : l’un de 5′ à 3′, l’autre de 3′ à 5′.
+Cela permet aux bases de s’apparier et à la double hélice d’être stable.
+
+   Brin 1 : 5′ ── A ── T ── G ── C ── 3′
+                     │    │    │
+                     │    │    │
+   Brin 2 : 3′ ── T ── A ── C ── G ── 5′
+
+Pour obtenir le bon sens de lecture du brin 2 (5′ → 3′), il faut renverser la chaîne complémentaire.
+
 2) **ARN** : c'est le support temporaire permettant l'expression de l'information génétique. C'est une molécule simple brin. 
 
 Il est composé des 4 **nucléotides** suivants :
