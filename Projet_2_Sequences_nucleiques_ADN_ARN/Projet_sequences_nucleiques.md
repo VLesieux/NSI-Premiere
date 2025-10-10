@@ -35,8 +35,7 @@ mais orientés en sens inverses : l’un de 5′ à 3′, l’autre de 3′ à 5
 Cela permet aux bases de s’apparier et à la double hélice d’être stable.
 
    Brin 1 : 5′ ── A ── T ── G ── C ── 3′
-                     │    │    │
-                     │    │    │
+
    Brin 2 : 3′ ── T ── A ── C ── G ── 5′
 
 Pour obtenir le bon sens de lecture du brin 2 (5′ → 3′), il faut renverser la chaîne complémentaire.
