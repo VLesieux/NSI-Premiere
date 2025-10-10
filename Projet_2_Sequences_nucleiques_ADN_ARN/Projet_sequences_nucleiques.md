@@ -17,15 +17,20 @@ Les deux brins d’ADN sont enroulés en double hélice, stabilisée par les lia
 
 Chaque brin d’ADN a un sens. C’est une longue chaîne de petits éléments appelés nucléotides.
 Chaque nucléotide est fait de :
+
 	•	un sucre (le désoxyribose),
+
 	•	un groupe phosphate,
+
 	•	une base (A, T, G ou C).
 
 Le sucre et le phosphate s’enchaînent comme des maillons :
 → sucre–phosphate–sucre–phosphate–…
 
 Mais ces maillons ont un sens chimique, un peu comme une flèche :
+
 	•	un côté a un groupe phosphate libre (appelé 5′),
+
 	•	l’autre côté a un groupe hydroxyle (-OH) (appelé 3′).
 
 Donc, chaque brin a une direction : du 5′ vers le 3′.
