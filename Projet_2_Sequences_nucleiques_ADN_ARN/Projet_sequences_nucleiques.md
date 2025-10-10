@@ -145,10 +145,11 @@ def transcrit(sequence,debut,fin):
     """
 ```
 
-**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères **illustré ci-dessous** et la fonction précédente `baseComplementaire(base,'ARN')`.
+**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères illustré ci-dessous.
 
 
 sequence[debut:fin:pas]
+
 Si on ne précise ni début ni fin, il prend toute la chaîne.
 
 ```python
