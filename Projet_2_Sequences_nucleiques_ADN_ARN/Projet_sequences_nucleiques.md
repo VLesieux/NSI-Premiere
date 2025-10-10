@@ -103,8 +103,6 @@ def estADN(chaine):
     """
 ```
 
-**Indication** : utiliser la fonction prédéfinie `all()`
-
 ## La transcription
 
 ### Question 2 
@@ -112,11 +110,11 @@ def estADN(chaine):
 Réaliser une fonction nommée `baseComplementaire` qui renvoie la base complémentaire de la base passée en paramètre, selon le type de séquence démandée **en sortie**, qui peut être soit 'ADN', soit 'ARN'.
 
 ```python
-def baseComplementaire(base,chaine):
+def baseComplementaire(base,type):
     """
-    Renvoie la base complémentaire dans chaine qui est soit 'ADN', soit 'ARN'
+    Renvoie la base complémentaire selon type, qui est soit 'ADN', soit 'ARN'
     param : base : str
-    param : chaine : str
+    param : type : str
     return : str
     >>> baseComplementaire('G','ADN')
     'C'
@@ -125,7 +123,7 @@ def baseComplementaire(base,chaine):
     """
 ```
 
-**Indication** : réaliser deux dictionnaires `complement_ARN` et `complement_ADN`.
+**Indication** : réaliser pour cela deux dictionnaires `complement_ARN` et `complement_ADN`.
 
 
 ### Question 3
@@ -147,7 +145,7 @@ def transcrit(sequence,debut,fin):
     """
 ```
 
-**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères **illustré ci-dessous** et la fonction précédente `baseComplementaire`.
+**Indication** : Utiliser le `slicing` (découpe) des chaînes de caractères **illustré ci-dessous** et la fonction précédente `baseComplementaire(base,'ARN')`.
 
 ```python
 >>> "animal"[1:4]#1 pris, 4 exclu
@@ -174,9 +172,9 @@ def traduit(sequence):
 **Indications** : 
 
 1) Construire un dictionnaire appelé `code` qui associe à un acide aminé un tuple de codons.     
-Réaliser un parcours de ce dictionnaire à l'aide du code `for cle,val in code.items()`.
+Réaliser un parcours de ce dictionnaire.
 
-2) Appartenance à un tuple :
+2)Voir l'appartenance à un tuple :
 
 ```python
 >>> 'GAC' in ('GAU','GAC')
@@ -188,12 +186,12 @@ True
 ### Question 5
 
 Réaliser une fonction nommée `réplique` qui construit la séquence ADN complémentaire et renversée de celle passée en paramètre.
-Cette fonction utilise la fonction `baseComplementaire`.
+Cette fonction utilise la fonction précédente `baseComplementaire(base,'ADN')`.
 
 ```python
 def replique(sequence):
     """
-    Renvoie la sequence ADN complémentaire et inversée de la séquence ADN
+    Renvoie la sequence ADN complémentaire puis inversée de la séquence ADN
     param : sequence : str
     return : str
     >>> replique('ACTG')
