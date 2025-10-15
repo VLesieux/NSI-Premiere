@@ -362,6 +362,10 @@ Une autre méthode consiste à calculer 2<sup>8</sup>-255 car 255 est la valeur 
 
 On prend le complément à deux : 1001 0001 puis on lui ajoute 1 : 1001 0010
 
+> Exemple 7 : Calculer -4 + (-3) sur 4 bits
+
+> Exemple 8 : Calculer -6 + 3 sur 4 bits
+
 ### Représentation des entiers de taille arbitraire en Python
 
 Dans un langage où les entiers sont de taille fixe, par exemple sur 32 bits,
@@ -468,6 +472,8 @@ Sur 64 bits, la règle est la suivante :
 - 11 bits (2<sup>11</sup>=2048) pour l'exposant décalé noté e qui vaut p+1023 avec la condition -1022≤p≤1023, donc 1≤e≤2046 (les valeurs 0 et 2047 sont réservées pour coder par exemple -∞ ou +∞)
 - 52 bits pour la mantisse tronquée qui vaut m'=m-1 avec la condition 1≤m<2.
 Ces trois parties sont codées en binaire et concaténées pour former un nombre de 64 bits (1+11+52).
+
+![Norme IEEE754 ](assets/IEEE754.png)
 
 Par exemple, codons le réel - 0,375.
 On note que 0,375=1,5×2<sup>-2</sup> ce qui permet d'avoir une mantisse comprise entre 1 et 2. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101' sur 11 bits (on le trouve en faisant `bin(1021)`), la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec cinquante et un 0.
