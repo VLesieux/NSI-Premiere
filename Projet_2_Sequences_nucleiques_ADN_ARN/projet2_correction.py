@@ -1,3 +1,5 @@
+bases=['A','C','G','T']
+
 def estADN(chaine):
     """
     Renvoie True si la chaine contient les bases A, C, G, et T, False sinon, True si vide
@@ -12,7 +14,6 @@ def estADN(chaine):
     """
     if chaine=='':
         return True
-    bases=['A','C','G','T']
     for caractere in chaine:
         if caractere not in bases:
             return False

@@ -52,7 +52,7 @@ def description(n_uplet):
 
 def en_nombre(cinq_lancers):
     """
-    renvoie l'indice de position du mot correspondant
+    renvoie l'indice de position du mot dans LISTE_MOTS
     param : cinq_lancers
     return : int
     >>> en_nombre('11111')
@@ -61,7 +61,6 @@ def en_nombre(cinq_lancers):
     7775
     >>> en_nombre('24521')
     2094
-
     """
     nombre = int(cinq_lancers)-11111
     return int(str(nombre), 6)
