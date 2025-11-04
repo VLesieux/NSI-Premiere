@@ -434,7 +434,8 @@ Ainsi, de la même manière qu'il n'est pas possible de représenter 1/3 de mani
 **Attention :** Il ne faut pas se fier à l'affichage de Python (ou d'un autre
 langage) qui n'affiche pas toutes les décimales stockées du nombre flottant.
 On peut cependant accéder à plus de décimales en utilisant par exemple les
-options de formattage de `format`. Attention aux yeux !
+options de formattage de `format`. 
+➡️ Cela affiche la valeur décimale la plus proche du nombre binaire réellement stocké en mémoire. Attention aux yeux !
 
 ```python
 >>> .1
