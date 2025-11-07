@@ -474,8 +474,6 @@ Sur 64 bits, la règle est la suivante :
 - 52 bits pour la mantisse tronquée qui vaut m'=m-1 avec la condition 1≤m<2.
 Ces trois parties sont codées en binaire et concaténées pour former un nombre de 64 bits (1+11+52).
 
-![Norme IEEE754 ](assets/IEEE754.png)
-
 Par exemple, codons le réel - 0,375.
 On note que 0,375=1,5×2<sup>-2</sup> ce qui permet d'avoir une mantisse comprise entre 1 et 2. On réalise donc la concaténation de '1' pour le signe, du code de -2 + 1023 = 1021 soit '011 1111 1101' sur 11 bits (on le trouve en faisant `bin(1021)`), la mantisse 1,5 s'écrit 1,1 en binaire et on ne garde que la partie décimale 1 et on complète avec cinquante et un 0.
 Au final, le codage de - 0,375 en norme IEEE754 64 bits(8 octets) est :
