@@ -175,7 +175,33 @@ Pour vérifier, utiliser le [convertisseur](https://www.binaryconvert.com/result
 
 ## Exercice 7
 
-Lors du premier conflit États-Unis/Irak en 1991, les américains disposaient d'antimissiles *patriot* pour intercepter les missiles irakiens *scud*. Les *patriot* disposaient d'une horloge interne émettant un signal tous les 0.1 seconde. Le temps écoulé était obtenu en multipliant 0.1 par le nombre de signaux d'horloge reçus. 
+🛰️ Contexte historique
+	•	Conflit : Guerre du Golfe (janvier–février 1991).
+	•	Belligérants principaux :
+	•	Irak de Saddam Hussein,
+	•	Coalition internationale menée par les États-Unis.
+	•	L’Irak tirait des missiles Scud (des missiles balistiques modifiés) contre :
+	•	Israël (pour provoquer une riposte israélienne),
+	•	et l’Arabie saoudite, où se trouvaient les troupes américaines.
+
+🎯 Le rôle du Patriot
+	•	Les missiles Patriot étaient des missiles antimissiles américains.
+	•	Leur but : intercepter les Scud irakiens en plein vol.
+	•	Le Patriot n’était donc pas offensif, mais défensif : il essayait de protéger les bases et les villes alliées contre les tirs irakiens.
+
+
+💥 L’incident de Dhahran (25 février 1991)
+	•	Un Scud irakien est lancé vers Dhahran, en Arabie saoudite.
+	•	Une batterie Patriot américaine doit l’intercepter.
+	•	Mais à cause de l’erreur d’horloge accumulée (≈ 0,34 s après ~100 h de fonctionnement),
+le radar du Patriot calculait mal la position du Scud.
+	•	Résultat : l’interception a échoué.
+	•	Le missile irakien a frappé une caserne américaine, tuant 28 soldats et en blessant plus de 90.
+
+Les Patriot disposaient d'une horloge interne émettant un signal tous les 0.1 seconde. Le temps écoulé était obtenu en multipliant 0.1 par le nombre de signaux d'horloge reçus.
+
+Ces systèmes Patriot américains étaient déployés depuis plusieurs jours, fonctionnant en continu.
+Leur horloge interne n’était jamais réinitialisée entre les opérations, donc l’erreur de temps due à la mauvaise représentation de 0,1 s s’accumulait.
 
 Le microcontroleur de l'antimissile *patriot* stocke la valeur 1/10 en ne conservant que 23 bits pour la partie décimale (codage en virgule fixe).
 
@@ -202,8 +228,8 @@ Ainsi: 0.1<sub>10</sub>=0.000110011001100110011001100110...<sub>2</sub>
 
 1. Quelle est, en base 10, la valeur exacte qui est effectivement codée à la place de 1/10 ?
 3. Quelle est l'erreur approximative commise sur la représentation de 1/10 ?
-4. En tenant compte de cette erreur, quel est le décalage d'horloge du *patriot* par rapport à l'heure locale au bout de 100 h ?
-5. Sachant que le missile se déplace à une vitesse d'environ 1676 m.s<sup>-1</sup>, à quelle erreur de position en mètre correspond le décalage d'horloge après 100h de fonctionnemt.
+4. En tenant compte de cette erreur, montrer que le décalage d'horloge du *patriot* par rapport à l'heure locale au bout de 100 h est de 0.34 s.
+5. Sachant que le missile se déplace à une vitesse d'environ 1676 m.s<sup>-1</sup>, à quelle erreur de position en mètre correspond le décalage d'horloge après 100h de fonctionnement.
 6. Conclure, sachant que pour atteindre sa cible, un *patriot* doit l'approcher à moins de 500 m.
 
 

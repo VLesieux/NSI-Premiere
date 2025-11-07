@@ -50,20 +50,37 @@ def description(n_uplet):
     
 ##############Afaire#n#6#########
 
-def en_nombre(cinq_lancers):
+def en_nombre_proposition1(cinq_lancers):
     """
     renvoie l'indice de position du mot dans LISTE_MOTS
     param : cinq_lancers
     return : int
-    >>> en_nombre('11111')
+    >>> en_nombre_proposition1('11111')
     0
-    >>> en_nombre('66666')
+    >>> en_nombre_proposition1('66666')
     7775
-    >>> en_nombre('24521')
+    >>> en_nombre_proposition1('24521')
     2094
     """
     nombre = int(cinq_lancers)-11111
     return int(str(nombre), 6)
+
+def en_nombre_proposition2(cinq_lancers):
+    """
+    renvoie l'indice de position du mot dans LISTE_MOTS
+    param : cinq_lancers
+    return : int
+    >>> en_nombre_proposition2('11111')
+    0
+    >>> en_nombre_proposition2('66666')
+    7775
+    >>> en_nombre_proposition2('24521')
+    2094
+    """
+    decalage=""
+    for caractere in cinq_lancers:
+        decalage=decalage+str(int(caractere)-1)
+    return int(decalage,6)
 
 def conversion_dans_base(n,b):
     """
@@ -106,7 +123,7 @@ def donne_mot(sequence):
     >>> donne_mot('24521')
     'morigener'
     """
-    return LISTE_MOTS[en_nombre(sequence)]
+    return LISTE_MOTS[en_nombre_proposition1(sequence)]
 
 import random
 
