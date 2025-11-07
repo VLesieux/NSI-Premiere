@@ -222,9 +222,9 @@ et on peut recommencer, on a affaire à une **écriture infinie et périodique**
 
 Ainsi: 0.1<sub>10</sub>=0.000110011001100110011001100110...<sub>2</sub>
 
-1. Quelle est, en base 10, la valeur exacte qui est effectivement codée à la place de 1/10 ?
+1. Quelle est, en base 10, la valeur exacte qui est effectivement codée sur 23 bits à la place de 1/10 ?
 3. Quelle est l'erreur approximative commise sur la représentation de 1/10 ?
-4. En tenant compte de cette erreur, montrer que le décalage d'horloge du *patriot* par rapport à l'heure locale au bout de 100 h est de 0.34 s.
+4. En tenant compte de cette erreur, montrer que le décalage d'horloge du *patriot* par rapport à l'heure locale au bout de 100 h de fonctionnement sans réinitialisation est de 0.34 s.
 5. Sachant que le missile se déplace à une vitesse d'environ 1676 m.s<sup>-1</sup>, à quelle erreur de position en mètre correspond le décalage d'horloge après 100h de fonctionnement.
 6. Conclure, sachant que pour atteindre sa cible, un *patriot* doit l'approcher à moins de 500 m.
 
@@ -326,7 +326,7 @@ def decodage_binaire_texte_ascII(code_binaire):
 
 ## Exercice 10
 
-Les couleurs [voir la simulation en JavaScript](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
+Les couleurs [(voir la simulation en JavaScript)](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
 Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu.  
 L'écriture binaire en 3 octets (1 octet pour chacune des couleurs primaires dans la synthèse additive des couleurs) est aussi possible :
 11000111 11100001 10000000 ; ce qui correspond aux niveaux : 199, 225, 128.
