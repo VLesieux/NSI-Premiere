@@ -175,28 +175,24 @@ Pour vérifier, utiliser le [convertisseur](https://www.binaryconvert.com/result
 
 ## Exercice 7
 
-🛰️ Contexte historique
-	•	Conflit : Guerre du Golfe (janvier–février 1991).
-	•	Belligérants principaux :
-	•	Irak de Saddam Hussein,
-	•	Coalition internationale menée par les États-Unis.
-	•	L’Irak tirait des missiles Scud (des missiles balistiques modifiés) contre :
-	•	Israël (pour provoquer une riposte israélienne),
-	•	et l’Arabie saoudite, où se trouvaient les troupes américaines.
+🛰️ Contexte historique :
+
+	•	Conflit : Guerre du Golfe (janvier–février 1991)
+
+	•	Belligérants principaux :	Irak de Saddam Hussein, Coalition internationale menée par les États-Unis
+
+	•	L’Irak tirait des missiles Scud (des missiles balistiques modifiés) contre Israël (pour provoquer une riposte israélienne), et sur l’Arabie saoudite où se trouvaient les troupes américaines.
 
 🎯 Le rôle du Patriot
-	•	Les missiles Patriot étaient des missiles antimissiles américains.
-	•	Leur but : intercepter les Scud irakiens en plein vol.
-	•	Le Patriot n’était donc pas offensif, mais défensif : il essayait de protéger les bases et les villes alliées contre les tirs irakiens.
+
+	•	Les missiles Patriot étaient des missiles antimissiles américains,leur but : intercepter les Scud irakiens en plein vol, le Patriot n’était donc pas offensif, mais défensif : il essayait de protéger les bases et les villes alliées contre les tirs irakiens.
 
 
-💥 L’incident de Dhahran (25 février 1991)
-	•	Un Scud irakien est lancé vers Dhahran, en Arabie saoudite.
-	•	Une batterie Patriot américaine doit l’intercepter.
-	•	Mais à cause de l’erreur d’horloge accumulée (≈ 0,34 s après ~100 h de fonctionnement),
-le radar du Patriot calculait mal la position du Scud.
-	•	Résultat : l’interception a échoué.
-	•	Le missile irakien a frappé une caserne américaine, tuant 28 soldats et en blessant plus de 90.
+💥 L’incident de Dhahran en Arabie saoudite (25 février 1991)
+
+	•	Un Scud irakien est lancé vers Dhahran, une batterie Patriot américaine doit l’intercepter, mais à cause de l’erreur d’horloge accumulée (≈ 0,34 s après ~100 h de fonctionnement), le radar du Patriot calculait mal la position du Scud.
+
+	•	Résultat : l’interception a échoué, le missile irakien a frappé une caserne américaine, tuant 28 soldats et en blessant plus de 90.
 
 Les Patriot disposaient d'une horloge interne émettant un signal tous les 0.1 seconde. Le temps écoulé était obtenu en multipliant 0.1 par le nombre de signaux d'horloge reçus.
 
@@ -330,7 +326,7 @@ def decodage_binaire_texte_ascII(code_binaire):
 
 ## Exercice 10
 
-Les [couleurs](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
+Les couleurs [voir la simulation en JavaScript](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
 Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu.  
 L'écriture binaire en 3 octets (1 octet pour chacune des couleurs primaires dans la synthèse additive des couleurs) est aussi possible :
 11000111 11100001 10000000 ; ce qui correspond aux niveaux : 199, 225, 128.
