@@ -346,6 +346,8 @@ Montrer que l'on peut extraire le niveau de vert selon :
 ```python
 >>> code=0xC7E180
 >>> mask=0xFF<<8#<<8 pour décaler de 8 bits vers la gauche
+>>> mask==0b1111111100000000
+True
 >>> hex((code & mask)>>8)#>>8 pour décaler de 8 bits vers la droite
 '0xe1'
 ```

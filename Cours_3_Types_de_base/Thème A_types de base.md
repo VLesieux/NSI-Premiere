@@ -581,17 +581,7 @@ elif a > b+10:
 else:
 	c = False
 ```
-Ceci est équivalent à la table de vérité:
-
-| (a==b) | a > b+10 | c |
-|---|---|---|---------------|
-|  True |  True |  True | 
-|  True | False |  True | 
-| False |  True |  True | 
-| False | False | False | 
-
-
-Comme on retrouve la table de vérité de OR, on peut synthétiser les six lignes de code précédentes en une seule ligne :
+Montrer que comme on retrouve la table de vérité de OR, on peut synthétiser les six lignes de code précédentes en une seule ligne :
 
 ```python
 c = (a==b) or (a > b+10)
