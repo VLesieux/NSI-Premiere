@@ -592,6 +592,7 @@ c = (a==b) or (a > b+10)
 #### 1) L'opérateur ET 
 Il permet par exemple de créer des masques afin de ne conserver que certains
 bits d'une valeur.
+Voir exercice 10.
 
 #### 2) Parité d'un nombre
 
