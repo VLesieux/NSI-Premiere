@@ -229,7 +229,46 @@ Ainsi: 0.1<sub>10</sub>=0.000110011001100110011001100110...<sub>2</sub>
 6. Conclure, sachant que pour atteindre sa cible, un *patriot* doit l'approcher à moins de 500 m.
 
 
+
 ## Exercice 8
+
+L’échec du vol Ariane 5(1996)
+
+⸻
+
+🚀 Contexte historique
+
+Le 4 juin 1996, la fusée Ariane 5 décolle de Kourou (Guyane).
+Après seulement 37 secondes de vol, elle dévie de sa trajectoire et s’autodétruit.
+Perte : plus de 370 millions $.
+
+L’enquête révèle que l’erreur provenait du logiciel de guidage inertiel, réutilisé depuis Ariane 4.
+Ce logiciel convertissait une variable en virgule flottante (64 bits) en un entier signé (16 bits).
+Mais la nouvelle fusée était plus rapide, et la valeur à convertir a dépassé ce que le format entier pouvait stocker.
+
+⸻
+
+🧮 Étape 1 – Comprendre le dépassement
+
+L’unité de guidage calculait la vitesse horizontale sous forme d’un nombre réel (64 bits).
+Cette valeur devait être convertie en entier signé 16 bits pour un autre module.
+
+1️⃣ Question :
+
+Quel est le domaine de valeurs possibles pour un entier signé codé sur 16 bits ?
+
+
+🔢 Étape 2 – La valeur fautive
+
+Lors du vol, la vitesse horizontale atteignait à un moment donné environ v = 32768.5 m/s par exemple.
+
+2️⃣ Question :
+
+Explique pourquoi la conversion vers un entier 16 bits a provoqué une erreur (overflow).
+Que se passe-t-il lors de ce type de dépassement ?
+
+
+## Exercice 9
 
 1. Vérifier, à l'aide d'une table de vérités, l'égalité suivante entre expressions booléennes : 
 
@@ -262,7 +301,7 @@ def compare3(x,y):
     return not(not x or not y)
 ```
 
-## Exercice 9
+## Exercice 10
 
 L'ASCII définit 128 caractères numérotés de 0 à 127 et codés en binaire de 0000000 à 1111111. Sept bits suffisent donc. Toutefois, les ordinateurs travaillant presque tous sur un multiple de huit bits (un octet) depuis les années 1970, chaque caractère d'un texte en ASCII est souvent stocké dans un octet dont le 8e bit est 0.
 
@@ -324,7 +363,7 @@ def decodage_binaire_texte_ascII(code_binaire):
 ```
 
 
-## Exercice 10
+## Exercice 11
 
 Les couleurs [(voir la simulation en JavaScript)](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
 Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu.  
