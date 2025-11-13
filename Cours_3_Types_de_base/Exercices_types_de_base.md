@@ -5,13 +5,13 @@
 1. Ecrire 52 sur un octet, c'est-à-dire sur 8 bits. Procéder à la main et vérifier dans la console.  
 2. Calculer la somme 100110 + 001101 en posant l'addition. Traduire le calcul en décimal pour vérifier votre résultat. Vérifier dans la console en utilisant la notation en base 2 : 0b......
 
-## Exercice 2 ; Coder en hexadécimal
+## Exercice 2 : Coder en hexadécimal
 
 1. Déterminer à la main l'écriture hexadécimale du nombre dont l'écriture décimale est 172.
 2. Donner l'écriture binaire du code hexadécimal B3.
 3. Vérifier l'égalité des écritures en écrivant dans la console : 0x...... == 0b...... 
 
-## Exercice 3 : Coder les conversions en Python
+## Exercice 3 : Coder les conversions en python
 
 Compléter les fonctions suivantes :
 
