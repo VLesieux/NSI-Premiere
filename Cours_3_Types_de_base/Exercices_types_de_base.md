@@ -1,17 +1,17 @@
 # Exercices : Représentation des données 
 
-## Exercice 1
+## Exercice 1 : Coder en binaire
 
 1. Ecrire 52 sur un octet, c'est-à-dire sur 8 bits. Procéder à la main et vérifier dans la console.  
 2. Calculer la somme 100110 + 001101 en posant l'addition. Traduire le calcul en décimal pour vérifier votre résultat. Vérifier dans la console en utilisant la notation en base 2 : 0b......
 
-## Exercice 2
+## Exercice 2 ; Coder en hexadécimal
 
 1. Déterminer à la main l'écriture hexadécimale du nombre dont l'écriture décimale est 172.
 2. Donner l'écriture binaire du code hexadécimal B3.
 3. Vérifier l'égalité des écritures en écrivant dans la console : 0x...... == 0b...... 
 
-## Exercice 3
+## Exercice 3 : Coder les conversions en Python
 
 Compléter les fonctions suivantes :
 
@@ -150,12 +150,12 @@ Pour faire une découpe ou slice dans un mot, utiliser l'écriture `mot[a:b]` qu
 (6) Utiliser les deux fonctions précédentes `conversion_decimal_binaire` et `conversion_hexadecimal_decimal`
 
 
-## Exercice 4
+## Exercice 4 : Coder les nombres relatifs
 
 1. Comment code-t-on le nombre -15 sur 5 bits ? Réaliser les deux méthodes et vérifier votre résultat final en réalisant l'addition binaire sur 5 bits : 15 + (-15).
 2. Comment se code - 56 sur le nombre de bit nécessaire à sa représentation ?
 
-## Exercice 5
+## Exercice 5 : Coder les nombres à virgule
 
 En proposant deux méthodes :  
 - une méthode utilisant la décomposition en puissances négatives de 2.  
@@ -164,7 +164,7 @@ En proposant deux méthodes :
 1. Écrire le nombre 3,625 en binaire.
 2. Écrire le nombre 2,6875 en binaire.
 
-## Exercice 6
+## Exercice 6 : Coder les nombres à virgule selon la norme IEEE 754
 
 Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour le signe, 11 bits pour l'exposant décalé et 52 bits pour la mantisse tronquée (cf.cours).
 1. Comment est codé le nombre - 4.5 ?  
@@ -173,7 +173,7 @@ Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour
 Pour vérifier, utiliser le [convertisseur](https://www.binaryconvert.com/result_double.html?decimal=050048)
 
 
-## Exercice 7
+## Exercice 7 : Une application pratique catastrophique du codage des nombres à virgule
 
 🛰️ Contexte historique :
 
@@ -230,8 +230,7 @@ Ainsi: 0.1<sub>10</sub>=0.000110011001100110011001100110...<sub>2</sub>
 
 
 
-## Exercice 8
-
+## Exercice 8 : Une application pratique catastrophique du codage des nombres relatifs
 L’échec du vol Ariane 5(1996)
 
 ⸻
@@ -268,7 +267,7 @@ Explique pourquoi la conversion vers un entier 16 bits a provoqué une erreur (o
 Que se passe-t-il lors de ce type de dépassement ?
 
 
-## Exercice 9
+## Exercice 9 : Les opérations entre booléens
 
 1. Vérifier, à l'aide d'une table de vérités, l'égalité suivante entre expressions booléennes : 
 
@@ -301,7 +300,7 @@ def compare3(x,y):
     return not(not x or not y)
 ```
 
-## Exercice 10
+## Exercice 10 : Le codage des caractères : codage et encodage en python
 
 L'ASCII définit 128 caractères numérotés de 0 à 127 et codés en binaire de 0000000 à 1111111. Sept bits suffisent donc. Toutefois, les ordinateurs travaillant presque tous sur un multiple de huit bits (un octet) depuis les années 1970, chaque caractère d'un texte en ASCII est souvent stocké dans un octet dont le 8e bit est 0.
 
@@ -363,7 +362,7 @@ def decodage_binaire_texte_ascII(code_binaire):
 ```
 
 
-## Exercice 11
+## Exercice 11 : Une application de l'opérateur booléen & : le masque
 
 Les couleurs [(voir la simulation en JavaScript)](http://vfsilesieux.free.fr/colours.html) sont souvent exprimées en code hexadécimal selon le format RVB.   
 Par exemple la couleur verte pomme peut être codée par #C7E180 ; les codes C7, E1 et 80 représentent respectivement les valeurs hexadécimales des niveaux de rouge, de vert et de bleu.  
