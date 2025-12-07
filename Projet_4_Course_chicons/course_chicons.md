@@ -4,9 +4,9 @@ La course du chicon
 
 **Objectifs** : Mettre en œuvre
 
--   le traitement des données en tables (la lecture des fichiers textes au format CSV)
+-   le traitement des données en tables (la lecture des fichiers au format CSV)
 -   l'utilisation des tris
--   la fusion de tables
+-   la fusion des tables
 
 
 
