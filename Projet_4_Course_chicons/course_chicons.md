@@ -4,9 +4,10 @@ La course du chicon
 
 **Objectifs** : Mettre en œuvre
 
--   le traitement des données en tables
+-   le traitement des données en tables (la lecture des fichiers textes au format CSV)
 -   l'utilisation des tris
--   la lecture des fichiers textes au format CSV
+-   la fusion de tables
+
 
 
 Introduction
@@ -21,11 +22,11 @@ Vous imaginez que vous avez la responsabilité du traitement informatique des do
 Objectif
 -----------
 
-Dans le dossier `assets` se trouve le sous-dossier [`data/`](./data) : il contient deux jeux de données dans quatre fichiers de données : un petit jeu  de données pour faire des tests simples `small_inscrits.csv` et `small_performances.csv`, et un gros jeu de données `inscrits.csv` et `performances.csv`.
+Dans le dossier `assets` se trouve le sous-dossier [`data/`](./data) : il contient deux jeux de données dans quatre fichiers de données : un petit jeu  de données que l'on utilisera pour faire des tests simples `small_inscrits.csv` et `small_performances.csv`, et un gros jeu de données `inscrits.csv` et `performances.csv`.
 
 
 L'objectif à atteindre est de publier les résultats de la course.   
-Pour le petit jeu de données, on doit obtenir l'affichage :
+Pour le petit jeu de données, l'affichage à obtenir est le suivant :
 
 ```python
 [7]: Archard Rivard (M -10/6/1950)=> 0h 46mn 31s
@@ -40,9 +41,9 @@ Pour le petit jeu de données, on doit obtenir l'affichage :
 [9]: Avelaine CinqMars (F -14/2/1983)=> None
 ```  
    
-On observe que les coureurs sont classés d'après leur performance durant la course et que ceux qui ont abandonné la course apparaissent en dernier avec l'indication None.
+On observe que les coureurs sont classés d'après leur performance durant la course, et que ceux qui ont abandonné la course apparaissent en dernier avec l'indication None.
 
-Toutes les fonctions proposées doivent être accompagnées d'une docstring avec au moins un exemple à valider.
+Toutes les fonctions proposées devront être accompagnées d'une docstring avec au moins un exemple à valider.
 
 ```python
 if __name__ == '__main__':
@@ -50,7 +51,7 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```  
     
-On pourra utiliser pour le formatage des chaînes de caractères :
+On utilisera le formatage des chaînes de caractères, selon cet exemple :
 
 ```python
 >>> n=0
