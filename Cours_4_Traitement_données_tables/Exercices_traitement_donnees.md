@@ -298,3 +298,73 @@ def nombre_de_cinemas_a_distance_de_Paris(table,d):
 >>> float(table_des_donnees[1][36].split(",")[0])
 48.872265
 ```
+
+### Exercice 6
+
+On utilise une version améliorée avec with open, lecture + modification + écriture
+
+```python
+# --- LECTURE ---
+table = []
+
+with open("Tableau_capitales.csv", "r", encoding="utf-8") as f:
+    champs = f.readline().rstrip().split(";")
+    
+    for ligne in f:
+        liste = ligne.rstrip().split(";")
+        liste[2] = float(liste[2])
+        liste[3] = int(liste[3])
+        table.append(tuple(liste))
+
+print("Table lue :", table)
+
+# --- MODIFICATION D'UN ELEMENT (exemple) ---
+# On change la capitale de l'Autriche
+table_mod = []
+for t in table:
+    if t[0] == "Autriche":
+        t = (t[0], t[1], t[2], t[3], "Capitale modifiée")
+    table_mod.append(t)
+
+# --- ÉCRITURE ---
+with open("Tableau_capitales.csv", "w", encoding="utf-8") as f:
+    f.write(";".join(champs) + "\n")
+    for ligne in table_mod:
+        f.write(";".join(str(x) for x in ligne) + "\n")
+
+print("Fichier réécrit.")
+```
+
+Réaliser une application qui utilise un fichier eleves.csv
+
+eleve,note
+Alice,10
+Bob,12
+Charlie,8
+
+et un fichier questions.csv
+
+question,reponse
+Combien font 2+2 ?,4
+Quelle est la capitale de la France ?,Paris
+Combien de côtés a un triangle ?,3
+
+L'application interroge aléatoirement un éleve, si la réponse est bonne, elle modifie sa note directement dans le fichier.
+
+```python
+Élève choisi : Bob
+Question : Combien de côtés a un triangle ?
+Réponse : 3
+✅ Bonne réponse !
+Nouvelle note de Bob : 13.0
+
+Poser une nouvelle question ? (o/n) : o
+
+Élève choisi : Charlie
+Question : Combien de côtés a un triangle ?
+Réponse : 2
+❌ Mauvaise réponse. La bonne réponse était : 3
+Nouvelle note de Charlie : 5.0
+
+Poser une nouvelle question ? (o/n) : 
+```
