@@ -339,8 +339,8 @@ Réaliser une application qui utilise un fichier eleves.csv
 ```python
 eleve,note
 Alice,10
-Bob,12
-Charlie,8
+Bob,10
+Charlie,10
 ```
 et un fichier questions.csv
 ```python
@@ -353,18 +353,18 @@ L'application interroge aléatoirement un éleve, si la réponse est bonne, elle
 
 ```python
 Élève choisi : Bob
-Question : Combien de côtés a un triangle ?
-Réponse : 3
-✅ Bonne réponse !
-Nouvelle note de Bob : 13.0
+Question : Quelle est la capitale de la France ?
+Réponse : d
+❌ Mauvaise réponse. La bonne réponse était : Paris
+Nouvelle note de Bob : 9.0
 
 Poser une nouvelle question ? (o/n) : o
 
 Élève choisi : Charlie
 Question : Combien de côtés a un triangle ?
-Réponse : 2
-❌ Mauvaise réponse. La bonne réponse était : 3
-Nouvelle note de Charlie : 5.0
+Réponse : 3
+✅ Bonne réponse !
+Nouvelle note de Charlie : 11.0
 
 Poser une nouvelle question ? (o/n) : 
 ```
