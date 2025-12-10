@@ -352,19 +352,15 @@ Combien de côtés a un triangle ?;3
 L'application interroge aléatoirement un éleve, si la réponse est bonne, elle modifie sa note directement dans le fichier.
 
 ```python
-Élève choisi : Bob
-Question : Quelle est la capitale de la France ?
-Réponse : d
-❌ Mauvaise réponse. La bonne réponse était : Paris
-Nouvelle note de Bob : 9.0
-
-Poser une nouvelle question ? (o/n) : o
-
-Élève choisi : Charlie
+Eleve choisi : Alice
 Question : Combien de côtés a un triangle ?
 Réponse : 3
 ✅ Bonne réponse !
-Nouvelle note de Charlie : 11.0
-
-Poser une nouvelle question ? (o/n) : 
+nouvelle note de  Alice : 11.0
+Eleve choisi : Charlie
+Question : Quelle est la capitale de la France ?
+Réponse : Lille
+❌ Mauvaise réponse
+La réponse était Paris
+nouvelle note de  Charlie : 9.0 
 ```
