@@ -336,19 +336,19 @@ print("Fichier réécrit.")
 ```
 
 Réaliser une application qui utilise un fichier eleves.csv
-
+```python
 eleve,note
 Alice,10
 Bob,12
 Charlie,8
-
+```
 et un fichier questions.csv
-
+```python
 question,reponse
 Combien font 2+2 ?,4
 Quelle est la capitale de la France ?,Paris
 Combien de côtés a un triangle ?,3
-
+```
 L'application interroge aléatoirement un éleve, si la réponse est bonne, elle modifie sa note directement dans le fichier.
 
 ```python
