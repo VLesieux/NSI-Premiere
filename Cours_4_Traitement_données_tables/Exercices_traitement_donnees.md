@@ -349,7 +349,7 @@ Combien font 2+2 ?;4
 Quelle est la capitale de la France ?;Paris
 Combien de côtés a un triangle ?;3
 ```
-L'application interroge de façon continue  et aléatoirement un éleve (utiliser random.choice), si la réponse fournie est bonne, elle modifie sa note directement dans le fichier.
+L'application interroge, de façon continue  et de façon aléatoire, un éleve (utiliser random.choice), si la réponse fournie est bonne, elle modifie sa note directement dans le fichier.
 
 ```python
 Eleve choisi : Alice
