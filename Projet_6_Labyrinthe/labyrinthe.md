@@ -10,10 +10,13 @@
 
 
 
-Le projet consiste à résoudre un labyrinthe.
+Le projet consiste à résoudre un labyrinthe. 10 tests sont à valider.
 
-
-
+```Python
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+```
 
 <img src="Assets/lab1.png">
 
@@ -200,11 +203,4 @@ def representation_solution(graphe):
     ⬛⬛⬛⬛⬛🔴⬛
     """
 	pass
-```
-
-
-```Python
-if __name__ == '__main__':
-  import doctest
-  doctest.testmod(verbose=True)
 ```
