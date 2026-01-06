@@ -60,32 +60,6 @@ lab1=[
 
 
 ```Python
-def nombre_colonnes(graphe):
-    """
-    Renvoie le nombre de colonnes du graphe
-    param : graphe : list
-    return : int
-    >>> nombre_colonnes(lab1)
-    7
-    """
-    pass
-
-```
-
-```Python
-def nombre_lignes(graphe):
-    """
-    Renvoie le nombre de lignes du graphe
-    param : graphe : list
-    return : int
-    >>> nombre_lignes(lab1)
-    7
-    """
-    pass
-
-```
-
-```Python
 def representation(graphe):
     """
     Affiche une représentation du graphe
@@ -152,7 +126,7 @@ def arrivee(graphe):
 ```Python            
 def nombre_cases_vides(graphe):
     """
-    Renvoie le nombre de cases vides(0) du graphe, entrée(2), sortie(3), visités (4) comprises.
+    Renvoie le nombre de cases vides(0) du graphe, l'entrée(2), la sortie(3), les cases visitées (4) comprises.
     param : graphe : list
     return : int
     >>> nombre_cases_vides(lab1)
@@ -164,7 +138,7 @@ def nombre_cases_vides(graphe):
 ```Python
 def voisines_valides(x,y,graphe):
     """
-    Renvoie la liste des cases valides non visités (!=4) qui ne sont pas des murs autour de la case (x,y)
+    Renvoie la liste des cases valides voisines, non visités (!=4) et qui ne sont pas des murs autour de la case (x,y)
     param : i : int
     param : j : int
     param : graphe : list
@@ -207,7 +181,7 @@ def solution(graphe):
 	pass
 ```
 
-**Indication** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` et marquée en plaçant un `4` dans la case ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste `chemin`, en écrivant `chemin.pop()`.
+**Indication** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` et marquée en plaçant un `4` dans la case ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste `chemin`, en écrivant `chemin.pop()`. Il faut sortir de la boucle while dès que le voisin sélectionné est la sortie. On peut aussi penser à utiliser le débugger en cas de difficulté.
 
        
 ```Python
@@ -224,7 +198,6 @@ def representation_solution(graphe):
     ⬛⬜⬛⬜⬛🔴⬛
     ⬛⬜⬜⬜⬛🔴⬛
     ⬛⬛⬛⬛⬛🔴⬛
-    <BLANKLINE>
     """
 	pass
 ```
