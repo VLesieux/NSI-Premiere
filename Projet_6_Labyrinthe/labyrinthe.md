@@ -99,12 +99,13 @@ def representation(graphe):
     ⬛⬜⬛⬜⬛⬜⬛
     ⬛⬜⬜⬜⬛⬜⬛
     ⬛⬛⬛⬛⬛⬜⬛
-    <BLANKLINE>
     """
 	pass
 
 ```
 indication : le passage à la ligne se fait avec `print("\n")`
+
+pour supprimer le dernier passage à la ligne, on peut écrire : `texte=texte.strip("\n")`
 
     
 ```Python    
