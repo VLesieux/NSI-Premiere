@@ -80,9 +80,9 @@ def representation(graphe):
 	pass
 
 ```
-indication : le passage à la ligne se fait avec `print("\n")`
+**Indications** : le passage à la ligne se fait avec `print("\n")`
 
-pour supprimer le dernier passage à la ligne, on peut écrire : `texte=texte.strip("\n")`
+Pour supprimer le dernier passage à la ligne, on peut écrire : `texte=texte.strip("\n")`
 
     
 ```Python    
@@ -184,7 +184,7 @@ def solution(graphe):
 	pass
 ```
 
-**Indication** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` et marquée en plaçant un `4` dans la case ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste `chemin`, en écrivant `chemin.pop()`. Il faut penser à sortir de la boucle while dès que le voisin sélectionné est la sortie. Utiliser le débugger en cas de difficulté.
+**Indications** : on crée une liste `chemin` et on suit l'algorithme suivant : aussi longtemps que l'on a pas atteint la sortie, on prend parmi les cases voisines valides une case qui n'a pas déjà été marquée, celle-ci est ajoutée à `chemin` et marquée en plaçant un `4` dans la case ; lorsqu'il n'y a pas de telle case, on rebrousse chemin, en supprimant la dernière case de la liste `chemin`, en écrivant `chemin.pop()`. Attention, il faut penser à sortir de la boucle while dès que le voisin sélectionné est la sortie. Utiliser le débugger en cas de difficulté.
 
        
 ```Python
