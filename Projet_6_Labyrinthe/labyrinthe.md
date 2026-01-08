@@ -139,7 +139,7 @@ def nombre_cases_vides(graphe):
 ```
     
 ```Python
-def voisines_valides(x,y,graphe):
+def voisines_valides(i,j,graphe):
     """
     Renvoie la liste des cases valides voisines, non visités (!=4) et qui ne sont pas des murs autour de la case (x,y)
     param : i : int
