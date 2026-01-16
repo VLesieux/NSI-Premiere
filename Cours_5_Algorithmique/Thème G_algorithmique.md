@@ -589,7 +589,7 @@ Après :
 - 2 étapes → `n / 2²`
 - k étapes → `n / 2ᵏ`
 
-# Condition d’arrêt de l’algorithme
+#### Condition d’arrêt de l’algorithme
 
 La recherche s’arrête lorsque l’intervalle devient vide ou contient un seul élément :
 
@@ -597,7 +597,7 @@ n / 2ᵏ ≤ 1
 
 On cherche le nombre d’itérations maximal `k`.
 
-# Résolution de l’inéquation
+#### Résolution de l’inéquation
 
 n / 2ᵏ ≤ 1  
 
