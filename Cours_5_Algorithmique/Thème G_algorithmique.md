@@ -568,11 +568,14 @@ def recherche_dichotomie(T,valeur):
 **À retenir** : La recherche dichotomique continue tant que l’intervalle [g, d] n’est pas vide.
 La valeur est absente uniquement lorsque g > d.
 
+---
 
-- Faisons la preuve de la **terminaison** de l'algorithme en choisissant comme **variant** de la boucle : (`d-g`). 
+- Faisons la preuve de la **terminaison** de l'algorithme (« Est-ce que l’algorithme s’arrête ? »)
+En choisissant comme **variant** de la boucle : (`d-g`). 
 Supposons que la taille du tableau soit inférieure à 2<sup>n</sup>, après k itérations, l'intervalle `d-g` sera tel que : d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.  
 
-- On peut également parler de la complexité de l'algorithme. 
+---
+- On peut également parler de la complexité de l'algorithme (« Combien de temps ça prend ? »). 
 
 Soit :
 - `n` la taille initiale du tableau
@@ -583,8 +586,6 @@ Après :
 - 2 étapes → `n / 2²`
 - k étapes → `n / 2ᵏ`
 
----
-
 ### Condition d’arrêt de l’algorithme
 
 La recherche s’arrête lorsque l’intervalle devient vide ou contient un seul élément :
@@ -592,8 +593,6 @@ La recherche s’arrête lorsque l’intervalle devient vide ou contient un seul
 n / 2ᵏ ≤ 1
 
 On cherche le nombre d’itérations maximal `k`.
-
----
 
 ### Résolution de l’inéquation
 
@@ -611,8 +610,9 @@ k = O(log₂(n))
 
 👉 Le nombre d’étapes croît comme le logarithme de la taille du tableau.
 
+---
 
-- Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.     
+- Faisons maintenant la preuve de la **correction** de l'algorithme (« Est-ce que le résultat est fiable ? ») en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.     
 Il faut évidemment que cela soit vrai avant l'entrée dans la boucle sinon le programme nous enverra un message d'avertissement.
    
 Supposons maintenant la propriété vraie avant le passage dans la boucle : `liste[g]≤x<liste[d]`.    
