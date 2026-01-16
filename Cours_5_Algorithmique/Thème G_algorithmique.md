@@ -572,7 +572,45 @@ La valeur est absente uniquement lorsque g > d.
 - Faisons la preuve de la **terminaison** de l'algorithme en choisissant comme **variant** de la boucle : (`d-g`). 
 Supposons que la taille du tableau soit inférieure à 2<sup>n</sup>, après k itérations, l'intervalle `d-g` sera tel que : d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.  
 
-- On peut également parler de la complexité de l'algorithme. Par exemple, il faut sept étapes pour un tableau dont la taille est de l'ordre de 100 (2<sup>7</sup>=128) et 10 étapes pour un tableau dont la taille est de l'ordre de 1000 (2<sup>10</sup>=1024). Cela prouve que le nombre d'étape est de l'ordre du nombre de chiffres dans l'écriture binaire de la taille du tableau, donc **nettement inférieur au nombre d'étapes d'une recherche linéaire**, d'où son intérêt pratique !
+- On peut également parler de la complexité de l'algorithme. 
+
+Soit :
+- `n` la taille initiale du tableau
+- `k` le nombre d’itérations effectuées
+
+Après :
+- 1 étape → il reste au plus `n / 2` éléments
+- 2 étapes → `n / 2²`
+- k étapes → `n / 2ᵏ`
+
+---
+
+### Condition d’arrêt de l’algorithme
+
+La recherche s’arrête lorsque l’intervalle devient vide ou contient un seul élément :
+
+n / 2ᵏ ≤ 1
+
+On cherche le nombre d’itérations maximal `k`.
+
+---
+
+### Résolution de l’inéquation
+
+n / 2ᵏ ≤ 1  
+
+n ≤ 2ᵏ  
+
+En prenant le logarithme en base 2 :
+
+log₂(n) ≤ k  
+
+Donc :
+
+k = O(log₂(n))
+
+👉 Le nombre d’étapes croît comme le logarithme de la taille du tableau.
+
 
 - Faisons maintenant la preuve de la **correction** de l'algorithme en montrant que la propriété suivante : `liste[g]≤x<liste[d]` est un **invariant** de la boucle.     
 Il faut évidemment que cela soit vrai avant l'entrée dans la boucle sinon le programme nous enverra un message d'avertissement.
