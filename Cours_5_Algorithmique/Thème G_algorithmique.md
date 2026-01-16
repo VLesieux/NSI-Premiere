@@ -565,6 +565,10 @@ def recherche_dichotomie(T,valeur):
 3) Que se passe-t-il pour `g` et `d` si la valeur recherchée n'est pas dans la liste ?
 
 
+**À retenir** : La recherche dichotomique continue tant que l’intervalle [g, d] n’est pas vide.
+La valeur est absente uniquement lorsque g > d.
+
+
 - Faisons la preuve de la **terminaison** de l'algorithme en choisissant comme **variant** de la boucle : (`d-g`). 
 Supposons que la taille du tableau soit inférieure à 2<sup>n</sup>, après k itérations, l'intervalle `d-g` sera tel que : d-g≤2<sup>n</sup>/2<sup>k</sup>=2<sup>n-k</sup>, donc, après n étapes : d-g≤1, ainsi la boucle s'arrête car le variant converge en un nombre fini d'étapes vers la valeur qui satisfait la condition d'arrêt.  
 
