@@ -408,7 +408,7 @@ En effet dans le cas simple où n=2, on voit que L est une liste de 4 valeurs :
 
 ## 1. Les parcours séquentiels
 
-Un parcours séquentiel signifie que la liste ou le tuple sont parcourus élément après élément suivant l'ordre des éléments.
+Un parcours séquentiel signifie que la liste ou le tuple sont parcourus élément après élément en suivant l'ordre des éléments.
 
 ### a. Calcul d'une moyenne
 
@@ -430,7 +430,7 @@ Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n 
 
 ### b. Recherche d'une occurence
 
-On recherche, de **manière séquentielle** (c'est-à-dire en passant en revue les éléments), la présence d'une valeur dans un tableau ; ce tableau peut être une liste, un p-uplet ou une chaîne de caractères.
+On recherche, de **manière séquentielle** (c'est-à-dire en passant en revue tous les éléments), la présence d'une valeur dans un tableau ; ce tableau peut être une liste, un p-uplet ou une chaîne de caractères.
 
 Proposer l'écriture de la fonction `recherche(x,t)` qui recherche l'élément x dans le tableau t de longueur n et renvoie la position de cet élément dans la liste.  
 On utilisera une boucle conditionnelle puis une boucle inconditionnelle.
@@ -462,7 +462,8 @@ Déterminer, en justifiant, le coût de l'algorithme en fonction de la taille n 
 ### c. Recherche d'un extremum
 
 On recherche l'extremum, minimum ou maximum, d'une liste de nombres.    
-Recherche du maximum : l'idée est la suivante : on suppose que le premier élément est le maximum, puis on parcourt la liste et chaque fois que l'on rencontre un élément plus grand que le maximum provisoire, on dit que c'est le nouveau maximum provisoire.
+
+-> Recherche du maximum : l'idée est la suivante : on suppose que le premier élément est le maximum, puis on parcourt la liste et chaque fois que l'on rencontre un élément plus grand que le maximum provisoire, on dit que c'est le nouveau maximum provisoire.
 
 Proposer l'écriture des fonctions `maximum(liste)` puis `minimum(liste)` de deux manières différentes : parcours des éléments de la liste ou parcours des indices de la liste.
 
