@@ -373,9 +373,9 @@ soit q×n+r×(1+2+...(n-1))=q×n+r×n×(n-1)/2=(r/2)×n<sup>2</sup>+(q-r/2)×n, 
 
 ```python
 def fonction(n):
-    L = [ i+j for i in range(n) for j in range(n) ]
+    L = [ i+j for i in range(n) for j in range(n) ]#liste créée par compréhension en donnant à i et j n valeurs possibles entre 0 et n-1.
     for x in L:
-    	print('Hello')
+    	print('Hello')#affichage pour chaque valeur de L, donc autant d'affichage qu'il y a de valeurs dans L.
 ```
 
 Comme l'affichage compte pour une opération, on peut calculer le nombre d'opérations en utilisant un compteur.
@@ -393,7 +393,7 @@ def fonction(n):
 9
 ```
 
-On voit que le coût du programme de départ est ici quadratique puisque le nombre d'opérations est proportionnel à n<sup>2</sup>.  
+On voit que le coût du programme de départ est ici <u>quadratique</u> puisque le nombre d'opérations est proportionnel à n<sup>2</sup>.  
 En effet dans le cas simple où n=2, on voit que L est une liste de 4 valeurs :
 
 
