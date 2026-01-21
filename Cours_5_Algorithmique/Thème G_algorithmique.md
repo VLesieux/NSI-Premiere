@@ -536,6 +536,9 @@ Avec Python, nous disposons de deux procédés pour trier :
 
 Le principe de la **dichotomie** (du grec : dicho (en deux) - tomie (coupure, cf. anatomie), **binary search** en anglais, repose sur le principe **<i>diviser pour mieux régner</i> (en anglais divide-and-conquer)** : il consiste à diviser répétitivement la liste en deux parties égales jusqu'à ce que l'élément recherché soit trouvé.
 
+![exemple de recherche par dichotomie](assets/dichotomie.jpeg)
+
+
 Pour l'implémenter en Python, on utilise une boucle **`while`** pour continuer à diviser la liste en deux jusqu'à ce que la taille de la liste soit égale à 1. Utilisez la variable de milieu pour vérifier si l'élément recherché est plus grand ou plus petit que l'élément du milieu, puis décider de continuer à rechercher dans la moitié supérieure ou inférieure de la liste. Il faut retourner l'index de la valeur trouvée.
 
 Proposer une fonction `recherche_dichotomie`.
