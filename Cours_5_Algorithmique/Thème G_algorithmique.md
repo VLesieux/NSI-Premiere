@@ -900,6 +900,8 @@ Si les données sont les éléments d'une liste de longueur n, l'algorithme cons
 
 Implémentons l'algorithme du tri par insertion :
 
+**Remarque** : penser à avoir toujours la condition k>=0 respectée si on écrit liste[k].
+
 ```python  
 def tri_insertion(liste):
     """
