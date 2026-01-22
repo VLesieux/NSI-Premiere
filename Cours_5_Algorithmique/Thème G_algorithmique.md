@@ -742,22 +742,22 @@ Pour chaque valeur de i, on cherche dans la tranche `liste[i:n]` le plus petit �
 On connaît déjà l'algorithme de recherche du minimum vu précédemment ; on réalise une fonction intermédiaire qui donne le minimum à partir d'un certain indice.
 
 ```python
-def minimum(liste,i):
+def indice_minimum(liste,i):
     """
     renvoie l'indice du minimum de la liste à partir de l'indice i
     param : liste : list
     return : int
-    >>> minimum([2, 25, 3, 10, 24],2)
+    >>> indice_minimum([2, 25, 3, 10, 24],2)
     2
-    >>> minimum([2, 25, 3, 10, 24],4)
+    >>> indice_minimum([2, 25, 3, 10, 24],4)
     4
-    """    
+    """   
 	pass
 ```
 
 Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec le minimum.
 
-Implémentons l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum` : 
+Implémentons l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum`, **attention**, il va falloir passer par une variable intermédiaire j = indice_minimum(liste, i).
 
 ```python
 def tri_selection_indirect(liste):
