@@ -757,7 +757,7 @@ def indice_minimum(liste,i):
 
 Pour obtenir l'algorithme du tri selection, il ne reste qu'à insérer cette partie dans une boucle où i varie de 0 à n-2 et pour chaque valeur de i faire l'échange de liste[i] avec le minimum.
 
-Implémentons l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum`, **attention**, il va falloir passer par une variable intermédiaire j = indice_minimum(liste, i).
+Implémentons l'algorithme de tri par sélection en faisant appel à la fonction intermédiaire `minimum`. **Attention**, il va falloir passer par une variable intermédiaire j = indice_minimum(liste, i).
 
 ```python
 def tri_selection_indirect(liste):
@@ -813,8 +813,68 @@ Conclusion : le tri par sélection a l'avantage d'être facile à programmer mai
 
 **Principe** : C'est le tri utilisé par les joueurs de cartes.
 
+Exemple:
+
+Liste initiale :
+[43, 12, 18, 31, 10]
+
+
+Partie triée au départ = [43]
+
+⸻
+
+Étape 1 — insérer 12 (par rapport à [43])
+	•	12 < 43, on décale 43 à droite, puis on place 12.
+
+Évolution :
+	•	[43, 43, 18, 31, 10]  (décalage de 43)
+	•	[12, 43, 18, 31, 10] (insertion de 12)
+
+⸻
+
+Étape 2 — insérer 18 (par rapport à [12, 43])
+	•	18 < 43 ⇒ on décale 43
+	•	18 > 12 ⇒ on s’arrête et on insère après 12
+
+Évolution :
+	•	[12, 43, 43, 31, 10]  (décalage de 43)
+	•	[12, 18, 43, 31, 10] (insertion de 18)
+
+⸻
+
+Étape 3 — insérer 31 (par rapport à [12, 18, 43])
+	•	31 < 43 ⇒ on décale 43
+	•	31 > 18 ⇒ on insère après 18
+
+Évolution :
+	•	[12, 18, 43, 43, 10]  (décalage de 43)
+	•	[12, 18, 31, 43, 10] (insertion de 31)
+
+⸻
+
+Étape 4 — insérer 10 (par rapport à [12, 18, 31, 43])
+	•	10 < 43 ⇒ décale 43
+	•	10 < 31 ⇒ décale 31
+	•	10 < 18 ⇒ décale 18
+	•	10 < 12 ⇒ décale 12
+	•	on insère 10 au début
+
+Évolution :
+	•	[12, 18, 31, 43, 43]  (décalage de 43)
+	•	[12, 18, 31, 31, 43]  (décalage de 31)
+	•	[12, 18, 18, 31, 43]  (décalage de 18)
+	•	[12, 12, 18, 31, 43]  (décalage de 12)
+	•	[10, 12, 18, 31, 43] (insertion de 10)
+
+⸻
+
+Résultat final
+
+[10, 12, 18, 31, 43]
+
+
 On dispose de n données et on procède par étapes. **À chaque étape, on suppose les k premières données triées, et on insère une donnée supplémentaire à la bonne place parmi ces k données déjà triées.**   
-Si les données sont les éléments d'une liste, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle **la clé**. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé ou key après chaque comparaison.  
+Si les données sont les éléments d'une liste de longueur n, l'algorithme consiste donc à faire varier un indice i de 0 à n-2. Pour chaque valeur de i, on cherche dans la liste `liste[0:i+1]` à quelle place doit être inséré l'élément liste[i+1] qu'on appelle **la clé**. Pour cela, on compare la clé successivement aux données précédentes, en commençant par la donnée d'indice i puis en remontant dans la liste vers la gauche (vers les plus petits indices) jusqu'à trouver la bonne place, c'est-à-dire entre deux données successives, l'une étant plus petite et l'autre étant plus grande que la clé. Pour ce faire, on décale d'une place vers la droite les données plus grandes que la clé après chaque comparaison. Si la clé est plus petite que toutes les données précédentes, elle se place en premier. 
 
 
 Implémentons l'algorithme du tri par insertion :
