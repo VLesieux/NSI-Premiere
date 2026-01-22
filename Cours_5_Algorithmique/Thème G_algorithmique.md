@@ -825,67 +825,67 @@ Partie triée au départ = [43]
 
 Étape 1 : insérer 12 (par rapport à [43])
        
-	•	12 < 43, on décale 43 à droite, puis on place 12.
+	12 < 43, on décale 43 à droite, puis on place 12.
 
 Évolution :   
 
-	•	[43, 43, 18, 31, 10]  (décalage de 43)
+	[43, 43, 18, 31, 10]  (décalage de 43)
 
-	•	[12, 43, 18, 31, 10] (insertion de 12)
+	[12, 43, 18, 31, 10] (insertion de 12)
 
 ⸻
 
 Étape 2 : insérer 18 (par rapport à [12, 43])
 
-	•	18 < 43 ⇒ on décale 43
+	18 < 43 ⇒ on décale 43
 
-	•	18 > 12 ⇒ on s’arrête et on insère après 12
+	18 > 12 ⇒ on s’arrête et on insère après 12
 
 Évolution :
 
-	•	[12, 43, 43, 31, 10]  (décalage de 43)
+	[12, 43, 43, 31, 10]  (décalage de 43)
 
-	•	[12, 18, 43, 31, 10] (insertion de 18)
+	[12, 18, 43, 31, 10] (insertion de 18)
 
 ⸻
 
 Étape 3 : insérer 31 (par rapport à [12, 18, 43])
 
-	•	31 < 43 ⇒ on décale 43
+	31 < 43 ⇒ on décale 43
 
-	•	31 > 18 ⇒ on insère après 18
+	31 > 18 ⇒ on insère après 18
 
 Évolution :
 
-	•	[12, 18, 43, 43, 10]  (décalage de 43)
+	[12, 18, 43, 43, 10]  (décalage de 43)
 
-	•	[12, 18, 31, 43, 10] (insertion de 31)
+	[12, 18, 31, 43, 10] (insertion de 31)
 
 ⸻
 
 Étape 4 : insérer 10 (par rapport à [12, 18, 31, 43])
 
-	•	10 < 43 ⇒ décale 43
+	10 < 43 ⇒ décale 43
 
-	•	10 < 31 ⇒ décale 31
+	10 < 31 ⇒ décale 31
 
-	•	10 < 18 ⇒ décale 18
+	10 < 18 ⇒ décale 18
 
-	•	10 < 12 ⇒ décale 12
+	10 < 12 ⇒ décale 12
 
-	•	on insère 10 au début
+	on insère 10 au début
 
 Évolution :
 
-	•	[12, 18, 31, 43, 43]  (décalage de 43)
+	[12, 18, 31, 43, 43]  (décalage de 43)
 
-	•	[12, 18, 31, 31, 43]  (décalage de 31)
+	[12, 18, 31, 31, 43]  (décalage de 31)
 
-	•	[12, 18, 18, 31, 43]  (décalage de 18)
+	[12, 18, 18, 31, 43]  (décalage de 18)
 
-	•	[12, 12, 18, 31, 43]  (décalage de 12)
+	[12, 12, 18, 31, 43]  (décalage de 12)
 
-	•	[10, 12, 18, 31, 43] (insertion de 10)
+	[10, 12, 18, 31, 43] (insertion de 10)
 
 ⸻
 
