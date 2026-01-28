@@ -55,7 +55,7 @@ def recherche_solution_dichotomie(fonction, a, b, precision):
     pass
 ```
 
-##Deuxième application : augmenter le temps d’exécution du tri par insertion
+## Deuxième application : augmenter le temps d’exécution du tri par insertion
 
 ```python
 def tri_insertion(tab):
@@ -103,7 +103,7 @@ def recherche_indice_position_insertion_par_dichotomie(tab, x):
     return gauche
 ```
 
-## Tri par insertion avec dichotomie
+## Dichotomie avec tri par insertion
 
 Utiliser maintenant cette fonction pour proposer une autre écriture du tri par insertion utilisant l’algorithme de la dichotomie.
 
