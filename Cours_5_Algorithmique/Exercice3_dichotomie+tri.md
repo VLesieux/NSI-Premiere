@@ -7,7 +7,7 @@ if __name__ == '__main__':
 ```
 
 
-##Première application : recherche d’une racine en mathématiques
+## Première application : recherche d’une racine en mathématiques
 
 
 
@@ -77,7 +77,7 @@ def tri_insertion(tab):
 
 ```
 
-##Recherche de l’indice d’insertion par dichotomie
+## Recherche de l’indice d’insertion par dichotomie
 
 On réalise d’abord la fonction suivante 
 
@@ -103,7 +103,7 @@ def recherche_indice_position_insertion_par_dichotomie(tab, x):
     return gauche
 ```
 
-##Tri par insertion avec dichotomie
+## Tri par insertion avec dichotomie
 
 Utiliser maintenant cette fonction pour proposer une autre écriture du tri par insertion utilisant l’algorithme de la dichotomie.
 
@@ -129,7 +129,7 @@ def tri_insertion_dicho(tab):
     return tab
 ```
 
-##Comparaison des temps d’exécution
+## Comparaison des temps d’exécution
 
 Afin de vérifier le gain de temps dans l’exécution, on utilisera le code ci-dessous :
 
