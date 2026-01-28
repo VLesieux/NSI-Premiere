@@ -32,28 +32,17 @@ Traiter l'[exercice 2 du sujet n°11](https://github.com/VLesieux/NSI-Terminale/
 
 
 ```python
-def tri_bulles_v1(T):
+def tri_bulles(T):
     """
     Renvoie une liste triée par l'algorithme bulle
     param : T : list
     return : T : list
-    >>> tri_bulles_v1([4,7,2,9,1])
+    >>> tri_bulles([4,7,2,9,1])
     [1, 2, 4, 7, 9]
     """
 	pass
 ```
 
-```python
-def tri_bulles_v2(T):
-    """
-    Renvoie une liste triée par l'algorithme bulle
-    param : T : list
-    return : T : list
-    >>> tri_bulles_v2([4,7,2,9,1])
-    [1, 2, 4, 7, 9]
-    """
-	pass
-```
 
 #### Exercice 3: tri par insertion
 
@@ -65,7 +54,7 @@ def tri_insertion(L):
     Renvoie la liste triée par l'algorithme d'insertion
     param : T : list
     return : T : list
-    >>> tri_bulles_v2([4,7,2,9,1])
+    >>> tri_insertion([4,7,2,9,1])
     [1, 2, 4, 7, 9]
     """
 	pass
@@ -79,7 +68,7 @@ def tri_selection(L):
     Renvoie la liste triée par l'algorithme de sélection
     param : T : list
     return : T : list
-    >>> tri_bulles_v2([4,7,2,9,1])
+    >>> tri_selection([4,7,2,9,1])
     [1, 2, 4, 7, 9]
     """
 	pass
