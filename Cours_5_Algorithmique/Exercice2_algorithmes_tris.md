@@ -14,11 +14,11 @@ Traiter l'[exercice 2 du sujet n°2](https://github.com/VLesieux/NSI-Terminale/b
 
 
 ```python
-def tri(tab):
+def tri(T):
     """
     Renvoie une liste triée avec les 0 à gauche, les 1 à droite
-    param : tab : list
-    return : tab : list
+    param : T : list
+    return : list
     >>> tri([0,1,0,1,0,1,0,1,0])
      [0, 0, 0, 0, 0, 1, 1, 1, 1]
     """
@@ -36,7 +36,7 @@ def tri_bulles(T):
     """
     Renvoie une liste triée par l'algorithme bulle
     param : T : list
-    return : T : list
+    return : list
     >>> tri_bulles([4,7,2,9,1])
     [1, 2, 4, 7, 9]
     """
@@ -49,11 +49,11 @@ def tri_bulles(T):
 Traiter l'[exercice2 du sujet n°5](https://github.com/VLesieux/NSI-Terminale/blob/master/Evaluation_pratique/21_NSI_05/21_NSI_05.pdf) de la banque des sujets de Terminale NSI.
 
 ```python
-def tri_insertion(L):
+def tri_insertion(T):
     """
     Renvoie la liste triée par l'algorithme d'insertion
     param : T : list
-    return : T : list
+    return : list
     >>> tri_insertion([4,7,2,9,1])
     [1, 2, 4, 7, 9]
     """
@@ -63,11 +63,11 @@ def tri_insertion(L):
 #### Exercice 4 : tri par sélection
 
 ```python
-def tri_selection(L):
+def tri_selection(T):
     """
     Renvoie la liste triée par l'algorithme de sélection
     param : T : list
-    return : T : list
+    return : list
     >>> tri_selection([4,7,2,9,1])
     [1, 2, 4, 7, 9]
     """
