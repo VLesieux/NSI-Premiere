@@ -88,7 +88,7 @@ def indice_position_insertion_par_dichotomie(T, valeur):
 	pass
 ```
 
-## dichotomie avec tri par insertion
+## tri par insertion en utilisant la dichotomie
 
 Utiliser maintenant cette fonction pour proposer une autre écriture du tri par insertion utilisant l’algorithme de la dichotomie.
 
