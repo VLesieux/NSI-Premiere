@@ -97,12 +97,12 @@ On réduit largement le nombre de comparaisons en déterminant l'indice de posit
 <img src="assets/insertion_dicho.jpeg" width="600"/>
 
 ```python
-def tri_insertion_dicho(T):
+def tri_insertion_dichotomie(T):
     """
     Renvoie une liste triée par insertion en utilisant la dichotomie
     param : T : list
     return : list
-    >>> tri_insertion_dicho([3, 5, 10, 11, 20, 7, 12])
+    >>> tri_insertion_dichotomie([3, 5, 10, 11, 20, 7, 12])
     [3, 5, 7, 10, 11, 12, 20]
     """
     for i in range(1, len(T)):
@@ -136,7 +136,7 @@ duree=temps_fin - temps_debut
 print("Temps écoulé tri_insertion :",duree , "secondes")
 
 temps_debut = time.time()#relève le chrono pour la durée du tri_insertion par dichotomie
-tri_insertion_dicho(liste)
+tri_insertion_dichotomie(liste)
 temps_fin = time.time()
 duree=temps_fin - temps_debut
 print("Temps écoulé tri_insertion_dicho :", duree, "secondes")
