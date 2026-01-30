@@ -31,7 +31,7 @@ Proposer une recherche par dichotomie qui permet de déterminer cette solution a
 ```python
 def f(x):
     """
-    Renvoie l'image de x par la fonction
+    renvoie l'image de x par la fonction
     param : x : float
     return : float
     >>> f(2)
@@ -42,7 +42,7 @@ def f(x):
 
 def recherche_solution_dichotomie(fonction, a, b, precision):
     """
-    Renvoie la valeur approchée de l'équation f(x)=0 avec x entre a et b
+    renvoie la valeur approchée de l'équation f(x)=0 avec x entre a et b
     avec la précision demandée, et le nombre d'opérations effectuées
     param : f : function
     param : a : float
@@ -60,7 +60,7 @@ def recherche_solution_dichotomie(fonction, a, b, precision):
 ```python
 def tri_insertion(T):
     """
-    Renvoie une liste triée par insertion
+    renvoie une liste triée par insertion
     param : T : list
     return : list
     >>> tri_insertion([3, 5, 10, 11, 20, 7, 12])
@@ -77,7 +77,7 @@ On réalise d’abord la fonction suivante :
 ```python
 def indice_position_insertion_par_dichotomie(T, valeur):
     """
-    Renvoie par dichotomie l'indice de position où insérer une valeur
+    renvoie par dichotomie l'indice de position où insérer une valeur
     dans une liste supposée ordonnée
     param : T : list
     param : valeur : int
@@ -99,7 +99,7 @@ On réduit largement le nombre de comparaisons en déterminant l'indice de posit
 ```python
 def tri_insertion_dichotomie(T):
     """
-    Renvoie une liste triée par insertion en utilisant la dichotomie
+    renvoie une liste triée par insertion en utilisant la dichotomie
     param : T : list
     return : list
     >>> tri_insertion_dichotomie([3, 5, 10, 11, 20, 7, 12])
