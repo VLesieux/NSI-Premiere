@@ -21,7 +21,7 @@ f(x)=x**3−2x−5
 <img src="assets/courbe.png" width="600"/>
 
 
-On admet pour cela le théorème mathématique selon lequel si f(a)*f(b)<0 alors il existe un réel x entre a et b tel que f(x)=0
+## On admet pour cela le théorème mathématique selon lequel si f(a)*f(b)<0 alors il existe un réel x entre a et b tel que f(x)=0
 
 
 Proposer une recherche par dichotomie qui permet de déterminer cette solution avec la précision requise en validant le test de la documentation.
@@ -72,7 +72,7 @@ def tri_insertion(T):
 
 ## recherche de l’indice d’insertion par dichotomie
 
-On réalise d’abord la fonction suivante 
+On réalise d’abord la fonction suivante :
 
 ```python
 def indice_position_insertion_par_dichotomie(T, valeur):
@@ -131,11 +131,11 @@ random.shuffle(liste)##mélange de la liste
 
 temps_debut = time.time()#déclanche le chrono
 tri_insertion(liste)
-temps_fin = time.time()#relève le chrono
+temps_fin = time.time()#relève le chrono pour la durée du tri_insertion classique
 duree=temps_fin - temps_debut
 print("Temps écoulé tri_insertion :",duree , "secondes")
 
-temps_debut = time.time()
+temps_debut = time.time()#relève le chrono pour la durée du tri_insertion par dichotomie
 tri_insertion_dicho(liste)
 temps_fin = time.time()
 duree=temps_fin - temps_debut
