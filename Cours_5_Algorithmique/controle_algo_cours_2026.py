@@ -10,8 +10,8 @@ def recherche_indice_du_maximum(T):
     j=0
     for i in range(len(T)):
         if T[i]>maximum:
-            j=i
-            maximum=T[i]
+            j=i#on retient l'indice du nouveau maximum
+            maximum=T[i]#un nouveau maximum
     return j
     
 
@@ -54,9 +54,9 @@ def tri_bulle(T):
     [2, 3, 5, 10, 24, 25, 32]
     """
     for i in range(len(T)):
-        for j in range(len(T)-i-1):
+        for j in range(len(T)-i-1):#on restreint au fur et à mesure car la fin est triée
             if T[j]>T[j+1]:
-                T[j],T[j+1]=T[j+1],T[j]
+                T[j],T[j+1]=T[j+1],T[j]#permutation des valeurs qui se suivent
     return T
     
 
@@ -70,7 +70,7 @@ def tri_selection(T):
     for i in range(len(T)):
         minimum=T[i]
         indice_minimum=i
-        for j in range(i+1,len(T)):
+        for j in range(i+1,len(T)):#recherche de l'indice du minimum
             if T[j]<minimum:
                  minimum=T[j]
                  indice_minimum=j
@@ -88,12 +88,11 @@ def tri_insertion(T):
     for i in range(1,len(T)):
         j=i
         cle=T[i]
-        while j>0 and cle<T[j-1]:#l'odre est important car la première condition doit être vérifiée
-            T[j]=T[j-1]
+        while j>0 and cle<T[j-1]:#l'odre est important car la première condition doit être vérifiée en premier
+            T[j]=T[j-1]#on décale vers la droite
             j=j-1
-        T[j]=cle
+        T[j]=cle#on insère la clé au bon endroit
     return T
-        
             
             
     
