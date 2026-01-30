@@ -107,9 +107,9 @@ def tri_insertion_dicho(T):
     """
     for i in range(1, len(T)):
         cle = tab[i]
-        # Trouver par dichotomie l'indice d'insertion pour la clé dans la liste supposée ordonnée jusque i-1 (c'est-à-dire la liste T[:i])
+        # Trouver par dichotomie l'indice d'insertion pour la clé dans la liste supposée ordonnée jusque i-1 (T[:i])
         ..........................................
-        # Décaler les éléments pas à pas vers la droite pour faire de la place à la clé (voir schéma fait pour vous par mes petits mains) avec une variable j qui décidera de l'arrêt du décalage.
+        # Décaler les éléments pas à pas (voir schéma) avec une variable j qui décide de l'arrêt du décalage.
         ..........................................
         ..........................................
         # insérer la cle à la bonne position
@@ -119,23 +119,25 @@ def tri_insertion_dicho(T):
 
 ## Comparaison des temps d’exécution
 
-Afin de vérifier le gain de temps dans l’exécution, on utilisera le code ci-dessous :
+Afin de vérifier le gain de temps d’exécution, on utilisera le code ci-dessous avec une liste aléatoire obtenue en mélangeant la liste des 1000 premiers nombres :
 
 
 ```python
 import random
 import time
 
-liste = [i for i in range(1000)]
-random.shuffle(liste)
+liste = [i for i in range(1000)]#liste formée par compréhension des 1000 premiers entiers.
+random.shuffle(liste)##mélange de la liste
 
-temps_debut = time.time()
+temps_debut = time.time()#déclanche le chrono
 tri_insertion(liste)
-temps_fin = time.time()
-print("Temps écoulé tri_insertion :", temps_fin - temps_debut, "secondes")
+temps_fin = time.time()#relève le chrono
+duree=temps_fin - temps_debut
+print("Temps écoulé tri_insertion :",duree , "secondes")
 
 temps_debut = time.time()
 tri_insertion_dicho(liste)
 temps_fin = time.time()
-print("Temps écoulé tri_insertion_dicho :", temps_fin - temps_debut, "secondes")
+duree=temps_fin - temps_debut
+print("Temps écoulé tri_insertion_dicho :", duree, "secondes")
 ```
