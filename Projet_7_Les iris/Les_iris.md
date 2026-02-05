@@ -28,21 +28,23 @@ Voici le principe de l’algorithme de k plus proches voisins :
 Nous avons choisi ici de nous baser sur le jeu de données ”iris de Fisher” dont les trois espèces sont représentées ci-dessous :
 
 
-<div style="display: flex; justify-content: center; gap: 20px; text-align: center;">
-  <figure>
-    <img src="assets/Iris_virginica.jpg" alt="Iris virginica" height="200" width="200">
-    <figcaption>Iris virginica</figcaption>
-  </figure>
+<div style="display: flex; justify-content: center; gap: 20px;">
+  
+  <div style="width: 200px; text-align: center;">
+    <img src="assets/Iris_virginica.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+    <div><em>Iris virginica</em></div>
+  </div>
 
-  <figure>
-    <img src="assets/Iris_versicolor_3.jpg" alt="Iris versicolor" height="200" width="200">
-    <figcaption>Iris versicolor</figcaption>
-  </figure>
+  <div style="width: 200px; text-align: center;">
+    <img src="assets/Iris_versicolor_3.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+    <div><em>Iris versicolor</em></div>
+  </div>
 
-  <figure>
-    <img src="assets/Iris_setosa.jpg" alt="Iris setosa" height="200" width="200">
-    <figcaption>Iris setosa</figcaption>
-  </figure>
+  <div style="width: 200px; text-align: center;">
+    <img src="assets/Iris_setosa.jpg" style="width: 200px; height: 200px; object-fit: cover;">
+    <div><em>Iris setosa</em></div>
+  </div>
+
 </div>
 
 
