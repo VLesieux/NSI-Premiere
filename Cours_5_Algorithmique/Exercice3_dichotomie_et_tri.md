@@ -15,7 +15,7 @@ La recherche par dichotomie permet en mathématiques la recherche d'une solution
 
 Dans le cas présent, la fonction considérée est :
 
-f(x)=x**3−2x−5
+f(x)=x**3-2*x-5
 
 
 <img src="assets/courbe.png" width="600"/>
@@ -106,12 +106,14 @@ def tri_insertion_dichotomie(T):
     [3, 5, 7, 10, 11, 12, 20]
     """
     for i in range(1, len(T)):
-        cle = tab[i]
+        cle = T[i]
         # Trouver par dichotomie l'indice d'insertion pour la clé dans la liste supposée ordonnée jusque i-1 (T[:i])
         ..........................................
         # Décaler les éléments pas à pas (voir schéma) avec une variable j qui décide de l'arrêt du décalage.
         ..........................................
         ..........................................
+		..........................................
+		..........................................
         # insérer la cle à la bonne position
         ..........
     return T
@@ -130,13 +132,13 @@ liste = [i for i in range(1000)]#liste formée par compréhension des 1000 premi
 random.shuffle(liste)##mélange de la liste
 
 temps_debut = time.time()#déclanche le chrono
-tri_insertion(liste)
+tri_insertion(liste.copy())#on travaille sur la même copie
 temps_fin = time.time()#relève le chrono pour la durée du tri_insertion classique
 duree=temps_fin - temps_debut
 print("Temps écoulé tri_insertion :",duree , "secondes")
 
 temps_debut = time.time()#relève le chrono pour la durée du tri_insertion par dichotomie
-tri_insertion_dichotomie(liste)
+tri_insertion_dichotomie(liste.copy())#on travaille sur la même copie
 temps_fin = time.time()
 duree=temps_fin - temps_debut
 print("Temps écoulé tri_insertion_dicho :", duree, "secondes")

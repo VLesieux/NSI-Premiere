@@ -571,6 +571,52 @@ def recherche_dichotomie(T,valeur):
 **À retenir** : La recherche dichotomique continue tant que l’intervalle [g, d] n’est pas vide.
 La valeur est absente uniquement lorsque g > d.
 
+
+Application : recherche de l'indice de position où insérer une valeur dans une liste où celle-ci n'est pas présente.
+
+```
+def indice_position_insertion_par_dichotomie(T, valeur):
+    """
+    renvoie par dichotomie l'indice de position où insérer une valeur
+    dans une liste supposée ordonnée
+    param : T : list
+    param : valeur : int
+    return : int
+    >>> indice_position_insertion_par_dichotomie([3, 5, 10, 11, 20], 7)
+    2
+    """
+	pass
+```
+
+
+Pour aller plus loin :
+
+```
+def indice_position_insertion_par_dichotomie_recursif(T,g,d,valeur):
+    """
+    renvoie par dichotomie l'indice de position où insérer une valeur
+    dans une liste supposée ordonnée
+    param : T : list
+    param : valeur : int
+    return : int
+    >>> tab=[3, 5, 10, 11, 20]
+    >>> indice_position_insertion_par_dichotomie_recursif(tab,0,len(tab)-1, 7)
+    2
+    """
+    if g>d:
+        return g
+    m=(d+g)//2
+    if T[m]>valeur:
+            return indice_position_insertion_par_dichotomie_recursif(T,g,m-1,valeur)#en récursif, chaque appel doit renvoyer quelque chose            
+    elif T[m]<valeur:
+            return indice_position_insertion_par_dichotomie_recursif(T,m+1,d,valeur)#en récursif, chaque appel doit renvoyer quelque chose
+    else:
+        return m
+```
+
+
+
+
 ---
 
 Faisons la preuve de la **terminaison** de l'algorithme (« Est-ce que l’algorithme s’arrête ? »)
