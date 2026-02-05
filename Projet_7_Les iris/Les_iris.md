@@ -28,7 +28,7 @@ Voici le principe de l’algorithme de k plus proches voisins :
 Nous avons choisi ici de nous baser sur le jeu de données ”iris de Fisher” dont les trois espèces sont représentées ci-dessous :
 
 
-<div style="display: flex; gap: 10px;">
+<p align="center">
   <img src="assets/Iris_virginica.jpg" alt="Iris_virginica" heigth="200" width="200">
   <img src="assets/Iris_versicolor_3.jpg" alt="Iris_versicolor" heigth="200" width="200">
   <img src="assets/Iris_setosa.jpg" alt="Iris_setosa" heigth="200" width="200">
