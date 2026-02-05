@@ -29,13 +29,16 @@ Nous avons choisi ici de nous baser sur le jeu de données ”iris de Fisher” 
 
 
 <div style="display: flex; gap: 10px;">
-  <img src="assets/Iris_virginica.jpg" alt="Iris_virginica" width="200">
-  <img src="assets/Iris_versicolor_3.jpg" alt="Iris_versicolor" width="200">
-  <img src="assets/Iris_setosa.jpg" alt="Iris_setosa" width="200">
+  <img src="assets/Iris_virginica.jpg" alt="Iris_virginica" heigth="200" width="200">
+  <img src="assets/Iris_versicolor_3.jpg" alt="Iris_versicolor" heigth="200" width="200">
+  <img src="assets/Iris_setosa.jpg" alt="Iris_setosa" heigth="200" width="200">
 </div>
 
 
 Iris_virginica ; Iris_versicolor ; Iris_setosa
+
+
+
 Ce jeu de données est composé de 50 entrées, pour chaque entrée nous avons :   
 
 ▷ la longueur des sépales (en cm)  
