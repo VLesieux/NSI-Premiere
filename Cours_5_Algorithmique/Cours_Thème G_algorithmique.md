@@ -589,7 +589,7 @@ def indice_position_insertion_par_dichotomie(T, valeur):
 ```
 
 
-#### Pour aller plus loin : la méthode récursive versus la méthode itérative
+### Pour aller plus loin : la méthode récursive versus la méthode itérative
 
 
 **Exemple type : la fonction factorielle**
