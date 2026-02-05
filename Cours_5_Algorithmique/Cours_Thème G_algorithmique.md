@@ -589,7 +589,44 @@ def indice_position_insertion_par_dichotomie(T, valeur):
 ```
 
 
-Pour aller plus loin :
+##Pour aller plus loin : la méthode récursive versus la méthode itérative
+
+
+**Exemple type : la fonction factorielle**
+
+```
+def factorielle_iteratif(n):
+    """
+    Renvoie n!=1*2*3*....n
+    >>> factorielle_iteratif(0)
+    1
+    >>> factorielle_iteratif(4)
+    24
+    """
+    resultat=1
+    for i in range(1,n+1):
+        resultat*=i
+    return resultat
+
+def factorielle_recursif(n):
+    """
+    Renvoie n!
+    >>> factorielle_recursif(0)
+    1
+    >>> factorielle_recursif(4)
+    24
+    """
+    if n==1 or n==0:
+        return 1
+    return factorielle_recursif(n-1)*n
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+```
+ 
+
+Application : 
 
 ```
 def indice_position_insertion_par_dichotomie_recursif(T,g,d,valeur):
