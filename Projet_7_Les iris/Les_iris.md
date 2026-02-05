@@ -49,6 +49,10 @@ Nous avons choisi ici de nous baser sur le jeu de données ”iris de Fisher” 
 
 
 
+
+
+
+
 Ce jeu de données est composé de 50 entrées, pour chaque entrée nous avons :   
 
 ▷ la longueur des sépales (en cm)  
