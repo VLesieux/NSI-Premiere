@@ -594,6 +594,9 @@ def indice_position_insertion_par_dichotomie(T, valeur):
 
 **Exemple type : la fonction factorielle**
 
+En mathématiques, la fonction factorielle est le produit des nombres entiers inférieurs ou égaux à un nombre donné.
+
+
 ```
 def factorielle_iteratif(n):
     """
