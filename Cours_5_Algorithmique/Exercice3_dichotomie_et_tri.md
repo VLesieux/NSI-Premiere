@@ -121,14 +121,14 @@ def tri_insertion_dichotomie(T):
 
 ## Comparaison des temps d’exécution
 
-Afin de vérifier le gain de temps d’exécution, on utilisera le code ci-dessous avec une liste aléatoire obtenue en mélangeant la liste des 1000 premiers nombres :
+Afin de vérifier le gain de temps d’exécution, on utilisera le code ci-dessous avec une liste aléatoire obtenue en mélangeant la liste des 10000 premiers nombres :
 
 
 ```python
 import random
 import time
 
-liste = [i for i in range(1000)]#liste formée par compréhension des 1000 premiers entiers.
+liste = [i for i in range(10000)]#liste formée par compréhension des 1000 premiers entiers.
 random.shuffle(liste)##mélange de la liste
 
 temps_debut = time.time()#déclanche le chrono
