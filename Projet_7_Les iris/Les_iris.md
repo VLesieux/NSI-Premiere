@@ -219,12 +219,13 @@ def caractere_le_plus_commun(liste):
     pass
         
         
-def proches_voisins(k,p,liste):
+def proches_voisins(k,p,dico):
     """
     Renvoie la liste des k plus proches voisins
     :param p : le doublet des coordonnées du point considéré
     :param k : le nombre de voisins considérés
-    :return: liste 
+	: param dico : dict
+    :return: list
     :Exemple:
     >>> proches_voisins(3,(0,0),donnees)
     [(1.019803902718557, '0'), (1.104536101718726, '0'), (1.2165525060596438, '0')]
