@@ -12,6 +12,7 @@ Les différents types sont :
 ['Acier','Combat','Dragon','Eau','Electrik','Fée','Feu','Glace','Insecte','Normal','Plante','Poison','Psy','Roche','Sol','Spectre','Ténèbres','Vol']
 
 L'objectif de ce projet est de produire une fonction qui sera capable de prédire pour un Pokemon donné le type auquel il appartient.
+
 En l'occurence, on se propose de trouver le type de 'Krabby' à partir de ses caractéristiques.
   
 L'algorithme utilisé pour cela sera celui des k plus proches voisins. On recherche les K plus proches voisins d'un individu donné, on détermine ensuite le type majoritaire parmi ces k voisins, et on affecte ce type à notre inconnu. 
@@ -34,10 +35,10 @@ import csv
 
 def lecture(text):
     '''
-    Renvoie une table à partir du fichier csv
+    renvoie une table de données à partir du fichier csv
     param : fichier : csv file
     return : list
-    remarque : la ligne des descripteurs est éliminée
+    remarque : la ligne des descripteurs sera à éliminer
     >>> lecture('pokemon.csv')[0]
     ['Clic', '60', '80', '95', '50', 'Acier']
     '''
@@ -46,7 +47,7 @@ def lecture(text):
 
 def creation_dictionnaire(text):
     """
-    Renvoie un dictionnaire dont la clé est le nom du pokemon
+    renvoie un dictionnaire dont les clés sont les noms des pokemon, les valeurs leurs caracteristiques dans un tuple
     param: text : fichier
     return : dict
     >>> creation_dictionnaire('pokemon.csv')['Clic']
@@ -57,7 +58,7 @@ def creation_dictionnaire(text):
 
 def distance(p1,p2):
     '''
-    Renvoie la distance entre deux pokemons p1 et p2
+    renvoie la distance entre deux pokemons p1 et p2
     param : pokemon1 : list
     param : pokemon2 : list
     return : float
@@ -68,7 +69,7 @@ def distance(p1,p2):
 
 def critere(donnee):
     """
-    Renvoie la deuxième valeur de la donnée
+    renvoie la deuxième valeur de la donnée
     param : donnee : tuple
     return : int
     >>> critere((42,15))
@@ -77,14 +78,14 @@ def critere(donnee):
     pass
 
 
-def K_plus_proches_voisins(text,p,k):
+def k_plus_proches_voisins(text,p,k):
     '''
-    Renvoie la liste des k plus proches voisins de pokemon
+    renvoie la liste des k plus proches voisins de pokemon
     param : text : file
     param : p : list
     param : k : int
-    return : list formée des tuples (indice de position dans le tableau des données extrait de text,distance)
-    >>> K_plus_proches_voisins('pokemon.csv',['Tic', '40', '55', '70', '30', 'Acier'],3)
+    return : list formée des tuples (indice dans le tableau des données extrait de text,distance)
+    >>> k_plus_proches_voisins('pokemon.csv',['Tic', '40', '55', '70', '30', 'Acier'],3)
     [(42, 16.09347693943108), (274, 17.635192088548397), (44, 18.303005217723125)]
     '''
 	pass
@@ -92,7 +93,7 @@ def K_plus_proches_voisins(text,p,k):
 
 def renvoie_type(text,p,k):
     '''
-    Renvoie le type correspondant à p
+    renvoie le type correspondant à p
     param : text : file
     param : p : list
     param : k : int
