@@ -84,7 +84,7 @@ def k_plus_proches_voisins(text,p,k):
     param : text : file
     param : p : list
     param : k : int
-    return : list formée des tuples (indice dans le tableau des données extrait de text,distance)
+    return : list, liste formée des tuples (indice dans le tableau des données extrait de text,distance)
     >>> k_plus_proches_voisins('pokemon.csv',['Tic', '40', '55', '70', '30', 'Acier'],3)
     [(42, 16.09347693943108), (274, 17.635192088548397), (44, 18.303005217723125)]
     '''
