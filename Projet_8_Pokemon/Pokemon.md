@@ -1,5 +1,5 @@
 
-<img width="450" height="500" src="assets/Krabby.png">
+<img width="650" height="700" src="assets/Krabby.png">
 
 
 Les Pokemons sont des animaux imaginaires inventés par Nintendo.   
