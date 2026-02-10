@@ -12,8 +12,9 @@ Les différents types sont :
 ['Acier','Combat','Dragon','Eau','Electrik','Fée','Feu','Glace','Insecte','Normal','Plante','Poison','Psy','Roche','Sol','Spectre','Ténèbres','Vol']
 
 L'objectif de ce projet est de produire une fonction qui sera capable de prédire pour un Pokemon donné le type auquel il appartient.
+En l'occurence, on se propose de trouver le type de 'Krabby' à partir de ses caractéristiques.
   
-L'algorithme utilisé pour cela sera celui des K plus proches voisins. En effet, on recherche les K plus proches voisins d'un individu donné, on détermine ensuite le type majoritaire parmi ces K voisins, et on affecte ce type à notre inconnu. 
+L'algorithme utilisé pour cela sera celui des k plus proches voisins. On recherche les K plus proches voisins d'un individu donné, on détermine ensuite le type majoritaire parmi ces k voisins, et on affecte ce type à notre inconnu. 
  
 La notion de distance entre deux pokemons se calculera de façon euclidienne, c'est-à-dire en calculant la racine-carré de la somme des carrés des différences entre les pouvoirs, en considérant que tous les pouvoirs ont le même poids.
 
@@ -22,7 +23,7 @@ La notion de distance entre deux pokemons se calculera de façon euclidienne, c'
 
 2) Il nous faudra ensuite définir le calcul de la distance entre deux pokemons.
 
-3) Il nous faudra rechercher les K plus proches voisins d'un pokemon donné.
+3) Il nous faudra rechercher les k plus proches voisins d'un pokemon donné.
 
 4) Il nous faudra enfin créer la fonction qui pour un pokemon donné de type inconnu lui attribuera le type majoritaire parmi ses k plus proches voisins.
 
@@ -96,7 +97,7 @@ def renvoie_type(text,p,k):
     param : p : list
     param : k : int
     return : str
-    >>> renvoie_type('pokemon.csv',['Krabby','30','105','90','50','Eau'],20)
+    >>> renvoie_type('pokemon.csv',['Krabby','30','105','90','50','?'],20)
     'Eau'
     '''
     pass
