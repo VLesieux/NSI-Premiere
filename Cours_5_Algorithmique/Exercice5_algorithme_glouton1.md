@@ -119,7 +119,7 @@ def choix_glouton(lpoids,lvaleurs,P):
     >>> choix_glouton(lpoids,lvaleurs,15)
     4
     >>> choix_glouton(lpoids,lvaleurs,6)
-    2
+    3
     """
 ```
 
@@ -144,16 +144,16 @@ def ks_glouton(lvaleurs, lpoids,P) :
     - len(lvaleurs) == len(lpoids) 
     - lpoids est triée par ordre croissant
     >>> ks_glouton(lvaleurs, lpoids,15)
-    [4, 2, 1, 0]
+    [4, 3, 1]
     >>> ks_glouton(lvaleurs, lpoids,6)
-    [2, 0]
+    [3]
     """
     copie=deepcopy(lpoids)#la copie doit être refaite pour chaque test
 ```
 
 **Indications** : 
 
-- Introduire une variale `poids_disponible` initialement égale à `P`
+
 - Réaliser le `choix_glouton` aussi longtemps que cette variale est strictement positive et ajouter l'indice du choix dans la liste des résultats si le résultat du choix glouton n'est pas None
 
 
