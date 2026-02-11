@@ -1142,7 +1142,7 @@ amount = 63
 coin_count = 0
 liste_des_pieces_choisies=[]
 
-# Parcours les pièces disponibles dans l'ordre décroissant de valeur
+# Parcours les pièces disponibles dans l'ordre décroissant des valeurs
 for coin in sorted(coins, reverse=True):
     # Ajoute autant de pièces de cette valeur que possible
     while amount >= coin:
@@ -1257,6 +1257,7 @@ On obtient les résultats suivants suivant le critère de choix des objets pour 
 On observe que parmi les trois critères de choix proposés, le critère valeur est le plus intéressant puisqu'il permet de remporter 131 €.
 
 Cependant, cette solution n'est pas optimale et une étude exhaustive montrerait que le choix (['Objet 2', 'Objet 3', 'Objet 6'], 132) est le choix optimal !
+
 On dit que le 'choix glouton' est un choix **localement optimal**, et qu'il n'est pas toujours optimal.
 
 
