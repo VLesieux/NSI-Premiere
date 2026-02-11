@@ -1121,9 +1121,9 @@ if __name__ == '__main__':
 
 ## 5. Les algorithmes gloutons [Projet : voyageur du commerce](https://github.com/VLesieux/NSI-Premiere/blob/master/Projet_9_Voyageur_de_commerce/Voyageur_de_commerce.md)
 
-L'**algorithme glouton** est un type d'algorithme de résolution de problème qui consiste à prendre des décisions localement optimales dans l'espoir de parvenir à une solution globale optimale. Il fonctionne en sélectionnant à chaque étape la meilleure option disponible, sans se soucier des conséquences à long terme de cette décision.
+L'**algorithme glouton** est un type d'algorithme de résolution de problème qui consiste à prendre des décisions localement optimales dans l'espoir de parvenir à une solution globale optimale. Il fonctionne en sélectionnant à chaque étape la meilleure option disponible (la plus immédiate), sans se soucier des conséquences à long terme de cette décision.
 
-En d'autres termes, l'algorithme glouton choisit l'option qui semble la meilleure à chaque étape, sans regarder les effets de cette décision sur les étapes ultérieures. Cela peut entraîner des solutions qui ne sont pas optimales à long terme, mais qui sont généralement proches de l'optimum.
+En d'autres termes, l'algorithme glouton choisit l'option qui semble la meilleure à chaque étape, sans regarder les effets de cette décision sur les étapes ultérieures. Cela peut entraîner des solutions qui ne sont pas optimales à long terme, même si elles sont généralement proches de l'optimum.
 
 Il est important de noter que l'algorithme glouton ne fonctionne que pour certains types de problèmes et ne garantit pas une solution optimale pour tous les types de problèmes. Il est donc important de s'assurer que l'algorithme glouton est approprié pour résoudre un problème donné avant de l'utiliser.
 
