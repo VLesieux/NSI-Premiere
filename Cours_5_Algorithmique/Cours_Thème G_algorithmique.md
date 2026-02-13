@@ -1127,30 +1127,32 @@ En d'autres termes, l'algorithme glouton choisit l'option qui semble la meilleur
 
 Il est important de noter que l'algorithme glouton ne fonctionne que pour certains types de problèmes et ne garantit pas une solution optimale pour tous les types de problèmes. Il est donc important de s'assurer que l'algorithme glouton est approprié pour résoudre un problème donné avant de l'utiliser.
 
-<u>Exemple 1</u> : le **rendu de la monnaie** par le caissier consiste à donner en priorité des pièces ou des billets de plus grosses valeurs pour minimiser le nombre de pièces rendus. 
+<u>Exemple 1</u> : le **rendu de la monnaie** par le caissier consiste à donner en priorité des pièces ou des billets de plus grosses valeurs pour minimiser le nombre de pièces ou de billets rendus. 
 Par exemple, la meilleure façon de rendre 7 euros est de rendre un billet de cinq et une pièce de deux, même si d'autres façons existent (rendre 7 pièces de un euro, par exemple). 
-Pour certains systèmes de monnaie dits canoniques, l'algorithme glouton est **optimal**, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — et cela tant qu'il reste quelque chose à rendre. C'est la méthode employée en pratique, ce qui se justifie car la quasi-totalité des systèmes monétaires ayant cours dans le monde sont canoniques. 
+
+Pour certains systèmes de monnaie dits **canoniques**, l'algorithme glouton est **optimal**, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — et cela tant qu'il reste quelque chose à rendre. 
+C'est la méthode employée en pratique, ce qui se justifie car la quasi-totalité des systèmes monétaires ayant cours dans le monde sont canoniques. 
 
 ```python
 # Définition des pièces disponibles
-coins = [1, 5, 10, 25]
+pieces_disponibles = [1, 5, 10, 25]
 
 # Montant à rendre
-amount = 63
+montant_a_rendre = 63
 
 # Initialise un compteur pour le nombre de pièces utilisées
-coin_count = 0
+compteur_des_pieces = 0
 liste_des_pieces_choisies=[]
 
 # Parcours les pièces disponibles dans l'ordre décroissant des valeurs
-for coin in sorted(coins, reverse=True):
+for piece in sorted(pieces_disponibles, reverse=True):
     # Ajoute autant de pièces de cette valeur que possible
-    while amount >= coin:
-        liste_des_pieces_choisies.append(coin)
-        amount -= coin
-        coin_count += 1
+    while montant_a_rendre >= piece:
+        liste_des_pieces_choisies.append(piece)
+        montant_a_rendre -= piece
+        compteur_des_pieces += 1
 
-print("Nombre de pièces utilisées :", coin_count)
+print("Nombre de pièces utilisées :", compteur_des_pieces)
 print(liste_des_pieces_choisies)
 ```
 
@@ -1211,7 +1213,7 @@ Nous définissons dans un premier temps trois fonctions chargées de retourner r
 - l'inverse du poids de l'objet
 - le rapport valeur/poids de l'objet.
 
-Ces fonctions serviront de critère de tri par la suite. 
+Ces fonctions serviront de **critère de tri** par la fonction suivante.
 Ce tri se fera dans l'ordre décroissant du critère selectionné.
 
 ```python
@@ -1228,20 +1230,20 @@ def rapport(objet):
 Nous définissons ensuite une fonction `glouton` qui prend en paramètres une liste d'objets, un poids maximal (celui que peut supporter le sac à dos) et le type de choix utilisé (par valeur, par poids ou par rapport valeur/poids). La première chose à faire est de trier la liste par ordre décroissant. Nous utilisons pour cela la fonction `sorted` avec ses paramètres de critère de classement et d'ordre choisi. Puis nous parcourons la liste triée et ajoutons dans la liste de sortie les noms des objets un par un tant que le poids total ne dépasse pas le poids maximal du sac. La valeur totale et le poids du sac sont stockés dans deux variables `valeur` et `poids`.
 
 ```python
-def glouton(liste, poids_max, choix):
+def glouton(liste, poids_du_sac_max, choix):
     copie=sorted(liste,key=choix,reverse=True)#on trie les objets par critère dans l'ordre décroissant
     reponse=[]
-    valeur=0
-    poids=0
+    valeur_du_sac=0
+    poids_du_sac=0
     i=0
-    while i<len(liste) and poids<=poids_max:
-        nom, val, pds = copie[i]
-        if poids+pds <= poids_max:
-            reponse.append(nom)
-            poids += pds
-            valeur += val
+    while i<len(liste) and poids_du_sac<=poids_du_sac_max:
+        nom_objet, valeur_objet, poids_objet = copie[i]
+        if poids_du_sac+poids_objet <= poids_du_sac_max:
+            reponse.append(nom_objet)
+            poids_du_sac += poids_objet
+            valeur_du_sac += valeur_objet
         i +=1
-    return reponse,valeur
+    return reponse,valeur_du_sac
 ```
 On obtient les résultats suivants suivant le critère de choix des objets pour une limite de 15 kg :
 
