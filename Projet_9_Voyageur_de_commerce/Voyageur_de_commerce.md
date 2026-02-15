@@ -125,14 +125,14 @@ Remarque : Pour créer une matrice de 3 sur 3
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
 ```
 
-   3. Réaliser une fonction `indice_plus_proche(ville, liste_ville, mat_dist)` qui retourne l'indice de la ville la plus proche à partir de l'indice d'une ville, d'une liste de ville, sous forme d'indice appartenant à liste_ville, et d'une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
+   3. Réaliser une fonction `indice_plus_proche(ville, liste_villes, mat_dist)` qui retourne l'indice de la ville la plus proche à partir de l'indice d'une ville, d'une liste de ville, sous forme d'indice appartenant à liste_ville, et d'une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
 
 ```Python
 >>> indice_plus_proche(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
 9
 ```
 
-   4. réaliser la fonction `glouton(ind_ville,liste_ville,mat_dist)` qui répond à l'heuristique gloutonne donnant le tour parcouru par le voyageur de commerce à partir de l'indice d'une ville donné en paramètre, la liste des villes et la matrice des distances ville à ville. 
+   4. réaliser la fonction `glouton(ind_ville,liste_villes,mat_dist)` qui répond à l'heuristique gloutonne donnant le tour parcouru par le voyageur de commerce à partir de l'indice d'une ville donné en paramètre, la liste des villes et la matrice des distances ville à ville. 
 
 **Indication:** On utilisera la méthode remove des listes qui permet de supprimer une valeur d'une liste en écrivant : `liste.remove(valeur)`.
 
@@ -159,7 +159,7 @@ Remarque : Pour créer une matrice de 3 sur 3
 
 ```Python
 >>> tournee('Lille',"exemple.txt")
-[['Lille', 2.957109928, 50.57350159], ['Lens', 2.786649942, 50.40549088], ['Boulogne', 1.579570055, 50.70875168], ['Le Havre', 0.037500001, 49.45898819], ['Caen', -0.418989986, 49.14748001], ['Rennes', -1.759150028, 48.05683136], ['Nantes', -1.650889993, 47.16867065], ['Bordeaux', -0.643329978, 44.80820084], ['Toulouse', 1.356109977, 43.5388298], ['Saint-Etienne', 4.355700016, 45.39992905], ['Lyon', 4.768929958, 45.70447922], ['Lyon', 4.768929958, 45.70447922], ['Grenoble', 5.684440136, 45.13940048], ['Annecy', 6.082499981, 45.8782196], ['Nice', 7.19904995, 43.6578598], ['Marseille', 5.290060043, 43.1927681], ['Bastia', 9.434300423, 42.66175842], ['Strasbourg', 7.687339783, 48.49562836], ['Nancy', 6.134119987, 48.66695023], ['Metz', 6.11729002, 49.0734787], ['Sedan', 4.896070004, 49.68407059], ['Auxerre', 3.537309885, 47.76720047], ['Paris', 2.086790085, 48.65829086], ['Brest', -4.552110195, 48.36014938], ['Lille', 2.957109928, 50.57350159]]
+    [['Lille', 2.957109928, 50.57350159], ['Lens', 2.786649942, 50.40549088], ['Boulogne', 1.579570055, 50.70875168], ['Le Havre', 0.037500001, 49.45898819], ['Caen', -0.418989986, 49.14748001], ['Rennes', -1.759150028, 48.05683136], ['Nantes', -1.650889993, 47.16867065], ['Bordeaux', -0.643329978, 44.80820084], ['Toulouse', 1.356109977, 43.5388298], ['Saint-Etienne', 4.355700016, 45.39992905], ['Lyon', 4.768929958, 45.70447922], ['Grenoble', 5.684440136, 45.13940048], ['Annecy', 6.082499981, 45.8782196], ['Nice', 7.19904995, 43.6578598], ['Marseille', 5.290060043, 43.1927681], ['Bastia', 9.434300423, 42.66175842], ['Strasbourg', 7.687339783, 48.49562836], ['Nancy', 6.134119987, 48.66695023], ['Metz', 6.11729002, 49.0734787], ['Sedan', 4.896070004, 49.68407059], ['Auxerre', 3.537309885, 47.76720047], ['Paris', 2.086790085, 48.65829086], ['Brest', -4.552110195, 48.36014938], ['Lille', 2.957109928, 50.57350159]]
 ```
 
 7. Utiliser TSP_biblio.trace pour obtenir le tracé de la tournée
@@ -167,3 +167,59 @@ Remarque : Pour créer une matrice de 3 sur 3
 TSP_biblio.trace(tournee('Lille',"exemple.txt")) doit donner :
 
 ![Tournée Annecy (plus proche voisin)](assets/tournee_Lille.png)
+
+
+**Au final :**
+
+```Python
+import TSP_biblio
+
+def matrice_distances(fichier):
+    """
+    génère une matrice qui stocke les distances
+    """
+	pass
+
+def liste_ville(fichier):
+    """
+    renvoie une liste des indices des villes
+    """
+	pass
+
+
+def indice_plus_proche(ville, liste_villes, mat_dist):
+    """
+    renvoie l'indice de la ville la plus proche
+    >>> indice_plus_proche(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
+    9
+    """
+	pass
+
+def glouton(ind_ville,liste_villes,mat_dist):
+    """
+    renvoie le tour parcouru par le voyageur de commerce
+    >>> glouton(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
+    [10, 9, 4, 8, 6, 18, 15, 3, 22, 20, 11, 7, 0, 17, 13, 2, 19, 16, 14, 21, 1, 12, 5, 10]
+    """
+	pass
+
+def indice_ville(ville,fichier):
+    """
+    renvoie l'indice de la ville à partir de son nom
+    >>> indice_ville('Lille',"exemple.txt")
+    10
+    """
+	pass
+
+def tournee(ville,fichier):
+    """
+    renvoie la tournée du voyageur de commerce avec point de départ ville
+    >>> tournee('Lille',"exemple.txt")
+    [['Lille', 2.957109928, 50.57350159], ['Lens', 2.786649942, 50.40549088], ['Boulogne', 1.579570055, 50.70875168], ['Le Havre', 0.037500001, 49.45898819], ['Caen', -0.418989986, 49.14748001], ['Rennes', -1.759150028, 48.05683136], ['Nantes', -1.650889993, 47.16867065], ['Bordeaux', -0.643329978, 44.80820084], ['Toulouse', 1.356109977, 43.5388298], ['Saint-Etienne', 4.355700016, 45.39992905], ['Lyon', 4.768929958, 45.70447922], ['Grenoble', 5.684440136, 45.13940048], ['Annecy', 6.082499981, 45.8782196], ['Nice', 7.19904995, 43.6578598], ['Marseille', 5.290060043, 43.1927681], ['Bastia', 9.434300423, 42.66175842], ['Strasbourg', 7.687339783, 48.49562836], ['Nancy', 6.134119987, 48.66695023], ['Metz', 6.11729002, 49.0734787], ['Sedan', 4.896070004, 49.68407059], ['Auxerre', 3.537309885, 47.76720047], ['Paris', 2.086790085, 48.65829086], ['Brest', -4.552110195, 48.36014938], ['Lille', 2.957109928, 50.57350159]]
+    """
+	pass
+
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
+```
