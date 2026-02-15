@@ -116,10 +116,12 @@ def choix_glouton(lpoids,lvaleurs,P):
     :CU: 
     - len(lvaleurs) == len(lpoids) 
     - lpoids est triée par ordre croissant de poids
+    # Explication : pour une limite de 6 kg, les objets de poids [1,2,5,6] sont possibles
+    # et celui de plus grande valeur est celui d'indice 2 de valeur 22
     >>> choix_glouton(lpoids,lvaleurs,15)
     4
     >>> choix_glouton(lpoids,lvaleurs,6)
-    3
+    2
     """
 ```
 
@@ -143,10 +145,14 @@ def ks_glouton(lvaleurs, lpoids,P) :
     :CU: 
     - len(lvaleurs) == len(lpoids) 
     - lpoids est triée par ordre croissant
+    #Explication : pour une limite de 15
+    #indice 4, reste P=8, indice 2, reste P=3, indice 1, reste P=1 , indice 0
+    # Explication : pour une limite de 6
+    #indice 2, reste P=1, indice 0
     >>> ks_glouton(lvaleurs, lpoids,15)
-    [4, 3, 1]
+    [4, 2, 1, 0]
     >>> ks_glouton(lvaleurs, lpoids,6)
-    [3]
+    [2, 0]
     """
     copie=deepcopy(lpoids)#la copie doit être refaite pour chaque test
 ```
