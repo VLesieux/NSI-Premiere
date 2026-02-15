@@ -23,7 +23,7 @@ On souhaite sélectionner un nombre maximal d'activités toutes compatibles entr
 
 3. On suppose avoir n activités numérotées de 0 à n-1 et deux tableaux `debuts` et `fins` de taille n tels que `debut[i]` et `fin[i]` correspondent respectivement à l'heure du début et à l'heure de fin de l'activité numéro i.  
 
-a. Écrire une fonction `prochaine(horaires_debut,horaires_fin,h)` qui sélectionne parmi les activités dont l'heure de début n'est pas antérieures à `h` une activité s'arrêtant le plus tôt. On demandera également à la fonction de renvoyer 'Impossible' s'il n'y a aucun créneau compatible. 
+a. Écrire une fonction `prochaine(horaires_debut,horaires_fin,h)` qui sélectionne, parmi les activités dont l'heure de début est postérieure ou égale à `h`, l'activité **qui s'arrête le plus tôt**. On demandera également à la fonction de renvoyer 'Impossible' s'il n'y a aucun créneau compatible. 
 
 ```Python
 debuts=[8,12,9,14,11]
