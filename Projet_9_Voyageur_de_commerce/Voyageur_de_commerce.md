@@ -125,7 +125,7 @@ Remarque : Pour créer une matrice de 3 sur 3
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
 ```
 
-   3. Réaliser une fonction `indice_plus_proche(ville, liste_ville, mat_dist)` qui retourne l'indice de la ville la plus proche étant donnée l'indice d'une ville, une liste de ville, sous forme d'indice appartenant à liste_ville, et une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
+   3. Réaliser une fonction `indice_plus_proche(ville, liste_ville, mat_dist)` qui retourne l'indice de la ville la plus proche à partir de l'indice d'une ville, d'une liste de ville, sous forme d'indice appartenant à liste_ville, et d'une matrice de distances. On pourra utiliser l'algorithme de recherche du minimum d'une liste ou la fonction `min(liste)` qui retourne le minimum d'une liste de valeurs et `liste.index(valeur)` qui retourne l'indice d'une `valeur` présente dans `liste`.
 
 ```Python
 >>> indice_plus_proche(10,liste_ville("exemple.txt"),matrice_distances('exemple.txt'))
