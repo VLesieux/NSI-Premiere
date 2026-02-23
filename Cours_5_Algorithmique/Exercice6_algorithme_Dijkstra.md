@@ -7,156 +7,124 @@
 On peut résumer ainsi la construction du tableau : pour passer d'une ligne à l'autre, on détermine le sommet à marquer en retenant le sommet pour lequel on a la plus petite distance (False représente une distance infinie), puis pour chacune des colonnes des sommets non marqués, on écrit la distance (si elle existe, sinon False) entre le sommet marqué et le sommet non marqué si, après addition de la retenue, celle-ci est **strictement inférieure** à la valeur inscrite dans la ligne précédente ; on précise également la provenance correspondant au sommet marqué.
 Pour obtenir le résultat final, on part du sommet d'arrivée et on remonte en passant par les provenances.
 
-3) L'implémentation en Python de cet algorithme est donnée ci-dessous : on y retrouvera la construction du tableau dans `ajout_ligne(T,S_marques,Graphe)` puis dans `calcule_tableau(Graphe, depart)`.
+3) L'implémentation en Python de cet algorithme est donnée ci-dessous.
 
 ```Python
 #  Implémentation  de  l’algorithme  de  Dijkstra
 
-#  Graphe 1 est le graphe correspondant à l'exemple du document ; il faudra donc l'adapter à notre exemple
+Graphe={    
+    "0" : [("1",3),("7",5)],
+    "1" : [("0",3),("7",1),("2",5)],
+    "2" : [("1",5),("6",3),("5",2),("3",5)],
+    "3" : [("2",5),("5",5),("4",2)],
+    "4" : [("3",2),("5",10)],
+    "5" : [("6",1),("2",2),("3",5),("4",10)],
+    "6" : [("7",2),("2",3),("5",1)],
+    "7" : [("0",5),("1",1),("6",2)],    
+    }
 
-Graphe1 = [
-          [0,2,5,False,3,False,False],
-          [2,0,2,1,False,False,8],
-          [5,2,0,1,4,2,False],
-          [False,1,1,0,False,False,5],
-          [3,False,4,False,0,False,False],
-          [False,False,2,False,False,0,1],
-          [False,8,False,5,False,1,False]
-          ]
 
-def SommetSuivant(T, S_marques) :
-    """
-    En  considérant  un  tableau  et  un  ensemble  de  sommets  marqués, détermine  le  prochain  sommet  marqué.
-    param : T : list
-    param : S_marques : list
-    return : int
-    >>> T=[[False, [2, 0], [5, 0], False, [3, 0], False, False],[False, False, [4, 1], [3, 1], [3, 0], False, [10, 1]]]
-    >>> S_marques=[0,1]
-    >>> SommetSuivant(T, S_marques)
-    3
-    """
-    L = T[-1]
-    n = len(L)
-#  minimum  des  longueurs,  initialisation
-    minimum = False
-    for i in range(n) :
-        if not(i in S_marques) :
-#  si  le  sommet  d’indice  i  n’est  pas  marqué
-            if L[i]:
-                if not(minimum) or L[i][0] < minimum :
-#  on  trouve  un  nouveau  minimum
-#  ou  si  le  minimum  n’est  pas  défini
-                    minimum = L[i][0]
-                    marque = i
-    return(marque)
+from math import inf
 
-def ajout_ligne(T,S_marques,Graphe) :
-    """
-    Ajoute  une  ligne  supplémentaire  au  tableau
-    param : T : list
-    param : S_marques : list
-    param : Graphe : list
-    return : list, list    
-    """
-    L = T[-1]
-    n = len(L)
-#  La  prochaine  ligne  est  une  copie  de  la  précédente, #  dont  on  va  modifier  quelques  valeurs.
-    Lnew = L.copy()
-#  sommet  dont  on  va  étudier  les  voisins
-    S = S_marques[-1]
-#  la  longueur  du  (plus  court)  chemin  associé
-    retenue = L[S][0]
-######################## Code à interpréter ###########################
-    for j in range(n) :
-        if j not in S_marques:
-            poids = Graphe[S][j]
-            if poids :
-                if not(L[j]) :
-                    Lnew[j] = [ retenue + poids, S ]
-                else :
-                    if retenue + poids < L[j][0]:
-                        Lnew[j] = [ retenue + poids, S ]
-    T.append(Lnew)
-#######################################################################
-#  Calcul  du  prochain  sommet  marqué
-    S_marques.append(SommetSuivant(T, S_marques))
-    return T, S_marques
+dist = {}
+visited = set()
+pred = {}  # <-- pour reconstruire le chemin
 
-def calcule_tableau(Graphe, depart) :
+def plus_proche(dist, visited):
     """
-    Calcule  le  tableau  de  l’algorithme  de  Dijkstra
-    param : Graphe : list
-    param : depart : int
-    return : list
+    renvoie le sommet le plus proche
+    >>> dist_test = {"0": 0, "1": 3, "2": 5, "3": 2}
+    >>> visited_test = {"0"}
+    >>> plus_proche(dist_test, visited_test)
+    '3'
     """
-    n = len(Graphe)
-#  Initialisation  de  la  première  ligne  du  tableau
-#  Avec  ces  valeurs,  le  premier  appel  à  ajout_ligne
-#  fera  le  vrai  travail  d’initialisation
-    T=[[False] *n]
-    T[0][depart] = [depart, 0]
-#  liste  de  sommets  marques
-    S_marques = [ depart ]
-    while len(S_marques) < n :
-        T, S_marques = ajout_ligne(T, S_marques, Graphe)
-    return T
+    minimum = inf
+    sommet_min = None
+    
+    for sommet in dist:
+        if sommet not in visited and dist[sommet] < minimum:
+            minimum = dist[sommet]
+            sommet_min = sommet
+    return sommet_min
 
-def plus_court_chemin(Graphe, depart, arrivee) :
+def chemin_plus_court(depart, arrivee, graphe):
     """
-    Détermine  le  plus  court  chemin  entre  depart  et  arrivee  dans le  Graphe
-    param : Graphe : list
-    param : depart : int
-    param : arrivee : int
-    return : list
-    >>> plus_court_chemin(Graphe1,0,6)
-    [0, 1, 2, 5, 6]
+    renvoie le chemin le plus court en utilisant l'algorithm de Dijkstra
+    >>> chemin_plus_court("0","4",Graphe)
+    ['0', '1', '7', '6', '5', '3', '4']
     """
-    n = len(Graphe)
-#  calcul  du  tableau  de  Dijkstra
-    T = calcule_tableau (Graphe,depart)
-#  liste  qui  contiendra  le  chemin  le  plus  court,  on  place  l’arrivée
-    C = [ arrivee ]
-    while C[-1] != depart :
-        C.append( T[-1][C[-1]][1] )
-#  Renverse  C,  pour  qu’elle  soit  plus  lisible
-    C.reverse()
-    return C
+    visited.clear()
+    pred.clear()
 
-def distance_deux_points(Graphe,i,j):
+    for sommet in graphe:
+        dist[sommet] = inf
+        pred[sommet] = None
+
+    dist[depart] = 0
+
+    while len(visited) < len(graphe):
+        u = plus_proche(dist, visited)
+        if u is None:
+            break
+
+        visited.add(u)
+
+        if u == arrivee:
+            break
+
+        for (voisin, poids) in graphe[u]:
+            if dist[u] + poids < dist[voisin]:
+                dist[voisin] = dist[u] + poids
+                pred[voisin] = u  # <-- on mémorise le meilleur prédécesseur
+
+    # reconstruction du chemin
+    chemin = []
+    if dist[arrivee] == inf:
+        return []  # pas de chemin
+
+    sommet_courant = arrivee
+    while sommet_courant is not None:
+        chemin.append(sommet_courant)
+        sommet_courant = pred[sommet_courant]
+    chemin.reverse()
+
+    return chemin
+
+def distance_deux_points(graphe,sommeti,sommetj):
     """
     Renvoie la distance entre deux sommets i et j
     param : Graphe : list
-    param : i : int
-    param : j : int
+    param : sommeti : str
+    param : sommetj : str
     return : int
-    >>> distance_deux_points(Graphe1,0,2)
-    5
+    >>> distance_deux_points(Graphe,"0","1")
+    3
     """
     pass
-
-def distance_totale(Graphe,i,j):
+        
+def distance_totale(graphe,depart,arrivee):
     """
     Renvoie la distance correspondant au chemin le plus court du sommet i au sommet j
     param : Graphe : list
-    param : i : int
-    param : j : int
-    return : list
-    >>> distance_totale(Graphe1,0,6)
-    7
+    param : depart : str
+    param : arrivee : str
+    return : int
+    >>> distance_totale(Graphe,"0","4")
+    14
     """
     pass
     
-
+    
+    
+    
 if __name__ == '__main__':
-  import doctest
-  doctest.testmod(verbose=True)    
- 
+    import doctest
+    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+
+
 ```
 
-Compléter le code des deux fonctions `distance_deux_points(graphe,i,j)` et `distance_totale(graphe,liste)`.
+Compléter le code des deux fonctions `distance_deux_points(graphe,sommeti,sommetj)` et `distance_totale(graphe,depart,arrivee)`.
 Les fonctions seront validées par les tests fournis dans les docstrings.
-
-4) Après avoir défini `Graphe2`, retrouvez grâce à votre programme le résultat de la question 1. Indiquer par écrit l'instruction à passer dans la console pour cela.
-
-5) Étudier la fonction `ajout_ligne` et interpréter dans le détail le fonctionnement du code placé dans la partie encadrée en proposant un commentaire pour les différentes lignes.  
+ 
 
