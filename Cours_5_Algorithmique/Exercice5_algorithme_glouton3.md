@@ -10,9 +10,14 @@ if __name__ == '__main__':
 
 Lors d'un festival de cinéma, plusieurs films sont projetés dans la même salle au cours de la journée.
 Chaque film possède :
+
 - une heure de début
 - une heure de fin
+
+
 Un spectateur souhaite voir le plus grand nombre possible de films, mais il ne peut évidemment pas regarder deux films en même temps.
+
+
 Deux films sont compatibles si l'un commence après ou exactement à l'heure de fin de l'autre.
 
 ```Python
