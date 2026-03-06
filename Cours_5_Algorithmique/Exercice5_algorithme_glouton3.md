@@ -18,49 +18,62 @@ debuts=[9,10,11,12,13,15]
 fins=[11,12,13,14,15,17]
 films=["F1","F2","F3","F4","F5","F6"]
 
-
-
 def prochain_film(horaires_debut,horaires_fin,h):
     """
     renvoie l'indice du film qui commence après h
     et qui se termine le plus tôt
     si incompatibilité renvoie "Impossible"
+    param : horaires_debut : list
+    param : horaires_fin : list
+    param : h : int ou float
+    return : int ou str
     >>> prochain_film(debuts,fins,11)
     2
     """
-	
     
     
 def selection_films(debut,fin,horaires_debut,horaires_fin):
     """
     renvoie la liste des films que l'on peut voir
     selon l'algorithme glouton
+    param : debut : int ou float
+    param : fin : int ou float
+    param : horaires_debut : list
+    param : horaires_fin : list
+    return : list
     >>> selection_films(9,18,debuts,fins)
     ['F1', 'F3', 'F5', 'F6']
     """
-	
         
 
-def selection_films_avec_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
+def selection_films_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
     """
     renvoie la liste des films que l'on peut voir
-    selon l'algorithme glouton avec un temps de pause entre deux films consécutifs
-    >>> selection_films_avec_pause(9,18,debuts,fins,0.25)
+    selon l'algorithme glouton
+    param : debut : int ou float
+    param : fin : int ou float
+    param : horaires_debut : list
+    param : horaires_fin : list
+    param : duree_pause : float
+    return : list
+    >>> selection_films_pause(9,18,debuts,fins,0.25)
     ['F1', 'F4', 'F6']
     """
-	
 
-def nombre_et_duree_totale_films_avec_pause(debut, fin, horaires_debut, horaires_fin,duree_pause):
+
+def nombre_et_duree_totale_films(debut, fin, horaires_debut, horaires_fin,duree_pause):
     """
-    renvoie le nombre maximal de films que l'on peut voir tenant compte de la durée de pause,
-	ainsi que la durée totale devant un écran de cinéma
-    >>> nombre_et_duree_totale_films_avec_pause(9,18,debuts,fins,0.25)
+    renvoie le nombre maximal de films que l'on peut voir tenant compte de la durée de pause
+    ainsi que la durée totale devant un écran de cinéma
+    param : debut : int ou float
+    param : fin : int ou float
+    param : horaires_debut : list
+    param : horaires_fin : list
+    param : duree_pause : float
+    return : tuple
+    >>> nombre_et_duree_totale_films(9,18,debuts,fins,0.25)
     (3, 6)
     """
-	
-
-
-
 
     
 if __name__ == '__main__':
