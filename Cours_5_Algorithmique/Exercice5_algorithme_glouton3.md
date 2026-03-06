@@ -52,7 +52,7 @@ def selection_films_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
 
 def nombre_et_duree_totale_films(debut, fin, horaires_debut, horaires_fin,duree_pause):
     """
-    renvoie le nombre maximal de films que l'on peut voir tenant compte de la durée de pause
+    renvoie le nombre maximal de films que l'on peut voir tenant compte de la durée de pause,
 	ainsi que la durée totale devant un écran de cinéma
     
     >>> nombre_et_duree_totale_films(9,18,debuts,fins,0.25)
