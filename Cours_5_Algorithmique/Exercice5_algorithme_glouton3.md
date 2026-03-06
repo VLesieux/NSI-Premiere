@@ -41,20 +41,20 @@ def selection_films(debut,fin,horaires_debut,horaires_fin):
 	
         
 
-def selection_films_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
+def selection_films_avec_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
     """
     renvoie la liste des films que l'on peut voir
     selon l'algorithme glouton
-    >>> selection_films_pause(9,18,debuts,fins,0.25)
+    >>> selection_films_avec_pause(9,18,debuts,fins,0.25)
     ['F1', 'F4', 'F6']
     """
 	
 
-def nombre_et_duree_totale_films(debut, fin, horaires_debut, horaires_fin,duree_pause):
+def nombre_et_duree_totale_films_avec_pause(debut, fin, horaires_debut, horaires_fin,duree_pause):
     """
     renvoie le nombre maximal de films que l'on peut voir tenant compte de la durée de pause,
 	ainsi que la durée totale devant un écran de cinéma
-    >>> nombre_et_duree_totale_films(9,18,debuts,fins,0.25)
+    >>> nombre_et_duree_totale_films_avec_pause(9,18,debuts,fins,0.25)
     (3, 6)
     """
 	
