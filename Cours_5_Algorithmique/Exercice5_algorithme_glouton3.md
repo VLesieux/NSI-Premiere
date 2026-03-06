@@ -44,7 +44,7 @@ def selection_films(debut,fin,horaires_debut,horaires_fin):
 def selection_films_avec_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
     """
     renvoie la liste des films que l'on peut voir
-    selon l'algorithme glouton
+    selon l'algorithme glouton avec un temps de pause entre deux films consécutifs
     >>> selection_films_avec_pause(9,18,debuts,fins,0.25)
     ['F1', 'F4', 'F6']
     """
