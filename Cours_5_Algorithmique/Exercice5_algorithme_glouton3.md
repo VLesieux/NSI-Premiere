@@ -1,14 +1,5 @@
-
-
-On donne le code pour vérifier les docstrings des fonctions à écrire.
-
-```Python
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
-```
-
 Lors d'un festival de cinéma, plusieurs films sont projetés dans la même salle au cours de la journée.
+
 Chaque film possède :
 
 - une heure de début
@@ -18,7 +9,9 @@ Chaque film possède :
 Un spectateur souhaite voir le plus grand nombre possible de films, mais il ne peut évidemment pas regarder deux films en même temps.
 
 
-Deux films sont compatibles si l'un commence après ou exactement à l'heure de fin de l'autre.
+Ainsi deux films sont compatibles si l'un commence après ou exactement à l'heure de fin de l'autre.
+
+Dans une version améliorée, on peut tenir compte d'un temps de pause entre deux projections consécutives qui reste au choix du spectateur.
 
 ```Python
 debuts=[9,10,11,12,13,15]
@@ -35,8 +28,7 @@ def prochain_film(horaires_debut,horaires_fin,h):
     >>> prochain_film(debuts,fins,11)
     2
     """
-
-
+	
     
     
 def selection_films(debut,fin,horaires_debut,horaires_fin):
@@ -46,12 +38,35 @@ def selection_films(debut,fin,horaires_debut,horaires_fin):
     >>> selection_films(9,18,debuts,fins)
     ['F1', 'F3', 'F5', 'F6']
     """
-
+	
         
+
+def selection_films_pause(debut,fin,horaires_debut,horaires_fin,duree_pause):
+    """
+    renvoie la liste des films que l'on peut voir
+    selon l'algorithme glouton
+    >>> selection_films_pause(9,18,debuts,fins,0.25)
+    ['F1', 'F4', 'F6']
+    """
+	
+
+def nombre_et_duree_totale_films(debut, fin, horaires_debut, horaires_fin,duree_pause):
+    """
+    renvoie le nombre maximal de films que l'on peut voir tenant compte de la durée de pause
     
+    >>> nombre_et_duree_totale_films(9,18,debuts,fins,0.25)
+    (3, 6)
+    """
+	
+
+
+
+
     
 if __name__ == '__main__':
     import doctest
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
+
+
 
 ```
