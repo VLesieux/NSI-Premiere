@@ -9,7 +9,9 @@ Pour obtenir le résultat final, on part du sommet d'arrivée et on remonte en p
 
 3) L'implémentation en Python de cet algorithme est donnée ci-dessous.
 
-On utilise ici un set (programme de terminale) et non une liste pour les sommets visités : visited.
+*Remarque* 
+
+On utilise ici un set (programme de terminale) et non une liste pour les sommets visités : `visited = set()`
 
 Avantage : Avec une liste, Python doit parcourir toute la liste pour vérifier si l’élément est présent. Complexité : O(n)
 
@@ -18,7 +20,7 @@ Donc pour les graphes avec beaucoup de sommets, set() est beaucoup plus rapide.
 
 On évite aussi d'avoir des doublons : 
 
-visited.append("3")
+`visited.append("3")
 visited.append("3")
 
 ['3','3']
@@ -35,9 +37,8 @@ Pour marquer un sommet visité : visited.add(u).
 
 un set s’écrit avec des accolades {} comme un dictionnaire, mais sans les paires clé:valeur, seulement des éléments séparés par des virgules.
 
-⚠️ {} n’est pas un set, c’est un dictionnaire vide.
-Pour créer un set vide il faut écrire :
-visited = set()
+⚠️ {} n’est pas un set, c’est un dictionnaire vide. Pour créer un set vide il faut écrire :
+`visited = set()`
 
 ```Python
 #  Implémentation  de  l’algorithme  de  Dijkstra
