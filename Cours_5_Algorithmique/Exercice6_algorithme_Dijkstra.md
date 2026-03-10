@@ -55,26 +55,20 @@ Graphe={
 
 from math import inf
 
-dist = {}
+dictionnaire_distance_sommet = {}
 visited = set()
 pred = {}  # <-- pour reconstruire le chemin
 
-def plus_proche(dist, visited):
+def plus_proche(dictionnaire_distance_sommet, visited):
     """
-    renvoie le sommet le plus proche
-    >>> dist_test = {"0": 0, "1": 3, "2": 5, "3": 2}
+    renvoie le sommet le plus proche et non encore visité
+    >>> dictionnaire_distance_sommet_test = {"0": 0, "1": 3, "2": 5, "3": 2}
     >>> visited_test = {"0"}
-    >>> plus_proche(dist_test, visited_test)
+    >>> plus_proche(dictionnaire_distance_sommet_test, visited_test)
     '3'
     """
-    minimum = inf
-    sommet_min = None
+    pass
     
-    for sommet in dist:
-        if sommet not in visited and dist[sommet] < minimum:
-            minimum = dist[sommet]
-            sommet_min = sommet
-    return sommet_min
 
 def chemin_plus_court(depart, arrivee, graphe):
     """
@@ -86,13 +80,13 @@ def chemin_plus_court(depart, arrivee, graphe):
     pred.clear()
 
     for sommet in graphe:
-        dist[sommet] = inf
+        dictionnaire_distance_sommet[sommet] = inf
         pred[sommet] = None
 
-    dist[depart] = 0
+    dictionnaire_distance_sommet[depart] = 0
 
     while len(visited) < len(graphe):
-        u = plus_proche(dist, visited)
+        u = plus_proche(dictionnaire_distance_sommet, visited)
         if u is None:
             break
 
@@ -102,13 +96,13 @@ def chemin_plus_court(depart, arrivee, graphe):
             break
 
         for (voisin, poids) in graphe[u]:
-            if dist[u] + poids < dist[voisin]:
-                dist[voisin] = dist[u] + poids
+            if dictionnaire_distance_sommet[u] + poids < dictionnaire_distance_sommet[voisin]:
+                dictionnaire_distance_sommet[voisin] = dictionnaire_distance_sommet[u] + poids
                 pred[voisin] = u  # <-- on mémorise le meilleur prédécesseur
 
     # reconstruction du chemin
     chemin = []
-    if dist[arrivee] == inf:
+    if dictionnaire_distance_sommet[arrivee] == inf:
         return []  # pas de chemin
 
     sommet_courant = arrivee
@@ -144,8 +138,6 @@ def distance_totale(graphe,depart,arrivee):
     pass
     
     
-    
-    
 if __name__ == '__main__':
     import doctest
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
@@ -153,7 +145,6 @@ if __name__ == '__main__':
 
 ```
 
-Compléter le code des deux fonctions `distance_deux_points(graphe,sommeti,sommetj)` et `distance_totale(graphe,depart,arrivee)`.
-Les fonctions seront validées par les tests fournis dans les docstrings.
+Compléter les codes des fonctions `plus_proche(dictionnaire_distance_sommet, visited)`,`distance_deux_points(graphe,sommeti,sommetj)` et `distance_totale(graphe,depart,arrivee)`.
  
 
