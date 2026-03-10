@@ -9,11 +9,9 @@ Pour obtenir le résultat final, on part du sommet d'arrivée et on remonte en p
 
 3) L'implémentation en Python de cet algorithme est donnée ci-dessous.
 
-*Remarque* 
+**Remarque** : on utilise ici un set (programme de terminale) et non une liste pour les sommets visités : `visited = set()`
 
-On utilise ici un set (programme de terminale) et non une liste pour les sommets visités : `visited = set()`
-
-Avantage : Avec une liste, Python doit parcourir toute la liste pour vérifier si l’élément est présent. Complexité : O(n)
+**Avantage** : Avec une liste, Python doit parcourir toute la liste pour vérifier si l’élément est présent. Complexité : O(n)
 
 Avec un ensemble set(), Python utilise une table de hachage. Complexité : O(1) (quasi instantané)
 Donc pour les graphes avec beaucoup de sommets, set() est beaucoup plus rapide.
