@@ -78,6 +78,7 @@ def chemin_plus_court(depart, arrivee, graphe):
     """
     visited.clear()
     pred.clear()
+	dictionnaire_distance_sommet.clear()
 
     for sommet in graphe:
         dictionnaire_distance_sommet[sommet] = inf
@@ -87,20 +88,28 @@ def chemin_plus_court(depart, arrivee, graphe):
 
     while len(visited) < len(graphe):
         u = plus_proche(dictionnaire_distance_sommet, visited)
+#on choisit parmi tous les sommets celui qui n'a pas déjà été visité  
+#et qui est à la plus petite distance du sommet marqué
+
+
         if u is None:
             break
 
         visited.add(u)
+#on ajoute ce sommet aux sommets visités
 
         if u == arrivee:
             break
 
         for (voisin, poids) in graphe[u]:
+# on fait le tour des voisins de u
             if dictionnaire_distance_sommet[u] + poids < dictionnaire_distance_sommet[voisin]:
                 dictionnaire_distance_sommet[voisin] = dictionnaire_distance_sommet[u] + poids
-                pred[voisin] = u  # <-- on mémorise le meilleur prédécesseur
+# c'est le principe de la retenue
+                pred[voisin] = u 
+# on mémorise le meilleur prédécesseur au dictionnaire pred
 
-    # reconstruction du chemin
+# reconstruction du chemin
     chemin = []
     if dictionnaire_distance_sommet[arrivee] == inf:
         return []  # pas de chemin
