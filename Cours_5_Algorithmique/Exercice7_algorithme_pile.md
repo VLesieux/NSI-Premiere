@@ -47,40 +47,32 @@ def creer_pile(Nombre_de_place):
     [1, None, None, None, None, None]
     """
 	pass
-```
-	
-Indication :
-
-```python
->>> [None]*5
-[None, None, None, None, None]
-```
 
 
-```python 
-def empiler(P,x):
+def empiler(P, x):
     """
     insère la donnée x au sommet de la pile P
     sinon renvoie 'pile pleine'
     param : P : list
     param : x : int
     return : list
-    >>> empiler([1, None, None, None, None, None],8)
+    >>> empiler([1, None, None, None, None, None], 8)
     [2, 8, None, None, None, None]
-    >>> empiler([2, 8, None, None, None, None],3)
+    >>> empiler([2, 8, None, None, None, None], 3)
     [3, 8, 3, None, None, None]
-    >>> empiler([3, 8, 3, None, None, None],5)
+    >>> empiler([3, 8, 3, None, None, None], 5)
     [4, 8, 3, 5, None, None]
-    >>> empiler([4, 8, 3, 5, None, None],9)
+    >>> empiler([4, 8, 3, 5, None, None], 9)
     [5, 8, 3, 5, 9, None]
-    >>> empiler([5, 8, 3, 5, 9, None],7)
-    [5, 8, 3, 5, 9, 7]
-    >>> empiler([5, 8, 3, 5, 9, 7],4)#le 4 écrase le 7
-    [5, 8, 3, 5, 9, 4]
-    >>> empiler([3, 8, 3, 5, None, None],7)
+    >>> empiler([5, 8, 3, 5, 9, None], 7)
+    [6, 8, 3, 5, 9, 7]
+    >>> empiler([6, 8, 3, 5, 9, 7], 4)
+    'pile pleine'
+    >>> empiler([3, 8, 3, None, None, None], 7)
     [4, 8, 3, 7, None, None]
     """
-    pass
+	pass
+
 
 def depiler(P):
     """
@@ -88,15 +80,15 @@ def depiler(P):
     param : P : list
     return : list ou str
     >>> depiler([4, 8, 3, 5, None, None])
-    [3, 8, 3, 5, None, None]
+    [3, 8, 3, None, None, None]
     >>> depiler([1, None, None, None, None, None])
     'pile vide'
     >>> depiler([1, ')', None, None, None, None])
     'pile vide'
     >>> depiler([1, '(', None, None, None, None])
-    'pile vide'    
+    'pile vide'
     """
-    pass
+	pass
 ```    
 
 **Application 1** :
@@ -127,8 +119,10 @@ def transforme_en_liste(E):
     transforme une expression mathématique en liste de parenthèses
     >>> transforme_en_liste('4*(3+5))')
     ['(', ')', ')']
+    >>> transforme_en_liste('3+4*5')
+    []
     """
-    pass
+	pass
 ```   
  
 Puis, dans la fonction `verifier(E)`, on forme une pile pouvant accueillir au maximum tous ces caractères.  
@@ -141,7 +135,7 @@ Lorsqu'on trouve une parenthèse fermante, on dépile si P[0]>1, sinon on empile
 
 <img src="assets/schema_pile.png">
 
- ```python 
+```python 
 def verifier(E):
     """
     renvoie True si l'expression E est cohérente du point de vue du parenthésage
@@ -152,6 +146,12 @@ def verifier(E):
     True
     >>> verifier('4*(3+((5*7)+9)')
     False
-    """  
-    pass
+    >>> verifier('')
+    True
+    >>> verifier('(()())')
+    True
+    >>> verifier(')(3+5)')
+    False
+    """
+	pass
  ```
