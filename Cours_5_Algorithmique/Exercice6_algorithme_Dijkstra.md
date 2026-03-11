@@ -157,3 +157,7 @@ if __name__ == '__main__':
 Compléter les codes des fonctions `plus_proche(dictionnaire_distance_sommet, visited)`,`distance_deux_points(graphe,sommeti,sommetj)` et `distance_totale(graphe,depart,arrivee)`.
  
 
+
+**Application** :
+
+<img width="600" height="300" src="assets/graphe.jpeg">
