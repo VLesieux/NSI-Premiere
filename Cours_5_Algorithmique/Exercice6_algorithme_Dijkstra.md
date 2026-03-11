@@ -107,7 +107,7 @@ def chemin_plus_court(depart, arrivee, graphe):
                 dictionnaire_distance_sommet[voisin] = dictionnaire_distance_sommet[u] + poids
 # c'est le principe de la retenue
                 pred[voisin] = u 
-# on mémorise le meilleur prédécesseur au dictionnaire pred
+# on mémorise le meilleur prédécesseur
 
 # reconstruction du chemin
     chemin = []
