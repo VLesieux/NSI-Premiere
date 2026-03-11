@@ -158,6 +158,6 @@ Compléter les codes des fonctions `plus_proche(dictionnaire_distance_sommet, vi
  
 
 
-**Application** :
+**Application** : Trouver le chemin le plus court de P à H.
 
 <img width="600" height="300" src="assets/graphe.jpeg">
