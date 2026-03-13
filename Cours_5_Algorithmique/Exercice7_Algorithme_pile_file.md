@@ -134,12 +134,12 @@ def transforme_en_liste(E):
 Puis, dans la fonction `verifier(E)`, on forme une pile pouvant accueillir au maximum tous ces caractères.  
 On parcourt la liste des parenthèses.  
 
-Lorsqu'on trouve une parenthèse ouvrante, on empile cette parenthèse ouvrante.  
+**Algorithme à suivre** : lorsqu'on trouve une parenthèse ouvrante, on empile cette parenthèse ouvrante.  
 Lorsqu'on trouve une parenthèse fermante, on dépile si P[0]>1, sinon on empile une parenthèse fermante.
 
 À la fin, si P[0]=1, l'équation est correcte du point de vue du parenthésage, sinon elle est incorrecte.
 
-<img src="assets/schema_pile.png">
+
 
 ```python 
 def verifier(E):
