@@ -166,6 +166,19 @@ Les opérations principales sur une file sont :
 	•	enfiler : ajouter un élément en queue de la file ;
 	•	défiler : retirer l’élément en tête de la file.
 
+Indication : utiliser la méthode `pop()` des listes :
+
+```python 
+
+>>> liste=[2,5,9]
+>>> liste.pop(1)
+5
+>>> liste
+[2, 9]
+
+```
+
+
 ```python 
 
 def creer_file():
