@@ -1,3 +1,7 @@
+*Notion de pile et de file en algorithmique*
+
+
+
 On donne le code pour vérifier les doctest.
 
 ```python    
@@ -6,7 +10,7 @@ if __name__ == '__main__':
     doctest.testmod(optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS, verbose=True)
 ```
 
-**Notion de pile** :
+**1) Notion de pile** :
 
 Une pile est une structure de données qui donne accès en priorité aux dernières données ajoutées. Ainsi la dernière information ajoutée sera la première à sortir. Autrement dit, on ne peut accéder qu'à l'objet situé au  sommet de la pile.
 Le rangement des assiettes convient à cette description. En effet l'ordre dans lequel les assiettes sont dépilées est l'inverse de celui dans lequel elles ont été empilées, puisque seule l'assiette supérieure est accessible.
@@ -157,7 +161,7 @@ def verifier(E):
 	pass
  ```
 
-**Notion de file** : Une file est une structure de données linéaire dans laquelle les insertions se font à une extrémité appelée queue et les suppressions à l’autre extrémité appelée tête.
+**2) Notion de file** : Une file est une structure de données linéaire dans laquelle les insertions se font à une extrémité appelée queue et les suppressions à l’autre extrémité appelée tête.
 
 Elle suit le principe **FIFO** (First In First Out) :
 le premier élément entré est le premier élément sorti.
@@ -218,7 +222,11 @@ def defiler(f):
     [20]
     """
 	pass
+ ```
 
+**Application**
+
+```python 
 def plus_court_chemin(graphe, depart):
     """
     Parcours en largeur d'un graphe.
