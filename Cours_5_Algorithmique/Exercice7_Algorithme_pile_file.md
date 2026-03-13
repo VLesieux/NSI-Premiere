@@ -228,7 +228,37 @@ def defiler(f):
 **Application au parcours d'un graphe**
 
 
+
 <img width='400px' height='400px' src="assets/graphe2.jpeg">
+
+file = [['A']]
+
+On explore A :
+
+[['A','B'], ['A','D'], ['A','E']]
+
+On explore B :
+
+[['A','D'], ['A','E'], ['A','B','C']]
+
+On explore D :
+
+[['A','E'], ['A','B','C']]
+
+On explore E :
+
+[['A','B','C'], ['A','E','G'], ['A','E','F']]
+
+On explore G :
+
+[['A','E','G','H']]
+
+On trouve H :
+
+['A','E','G','H']
+
+FIN.
+
 
 ```python 
 def plus_court_chemin(graphe, depart,arrivee):
@@ -246,7 +276,7 @@ def plus_court_chemin(graphe, depart,arrivee):
     ... 'H':['G'],
     ... }
     >>> plus_court_chemin(graphe,'A','H')
-    ['A', 'E','G','H']
+    ['A', 'E', 'G', 'H']
     """
     pass
  ```
