@@ -255,9 +255,40 @@ On explore G :
 
 On trouve H :
 
-['A','E','G','H']
+solution : ['A','E','G','H']
 
 FIN.
+
+
+**Pseudo-code**
+
+```python
+
+file = creer_file()
+
+enfiler(file,[depart])    ← on ajoute le premier chemin
+
+visites = [depart]
+
+tant que file non vide :
+
+    chemin = defiler(file)   ← on prend le premier chemin
+
+    sommet = dernier sommet du chemin
+
+    si sommet == arrivee :
+        retourner chemin
+
+    pour chaque voisin du sommet :
+
+        si voisin non visité :
+
+            ajouter voisin dans visites
+
+            nouveau_chemin = chemin + voisin
+
+            enfiler(file,nouveau_chemin)  ← on ajoute à la fin
+ ```
 
 
 ```python 
