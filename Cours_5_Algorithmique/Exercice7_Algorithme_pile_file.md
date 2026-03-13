@@ -1,4 +1,5 @@
-*** Notions de pile et de file en algorithmique ***
+
+***Notions de pile et de file en algorithmique***
 
 
 
