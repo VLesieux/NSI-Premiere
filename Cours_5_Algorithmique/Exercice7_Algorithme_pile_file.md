@@ -225,7 +225,10 @@ def defiler(f):
 	pass
  ```
 
-**Application**
+**Application au parcours d'un graphe orienté**
+
+
+<img src="assets/graphe_oriente.png">
 
 ```python 
 def plus_court_chemin(graphe, depart):
