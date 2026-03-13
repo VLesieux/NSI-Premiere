@@ -10,6 +10,7 @@ if __name__ == '__main__':
 
 Une pile est une structure de données qui donne accès en priorité aux dernières données ajoutées. Ainsi la dernière information ajoutée sera la première à sortir. Autrement dit, on ne peut accéder qu'à l'objet situé au  sommet de la pile.
 Le rangement des assiettes convient à cette description. En effet l'ordre dans lequel les assiettes sont dépilées est l'inverse de celui dans lequel elles ont été empilées, puisque seule l'assiette supérieure est accessible.
+Une pile est ainsi une liste remplie sur le principe du "dernier arrivé, premier sorti", abrégé en **LIFO**, de l'anglais "Last In First Out".
 
 Exemples d'applications pratiques : 
 
@@ -152,6 +153,71 @@ def verifier(E):
     True
     >>> verifier(')(3+5)')
     False
+    """
+	pass
+ ```
+
+**Notion de file** : Une file est une structure de données linéaire dans laquelle les insertions se font à une extrémité appelée queue et les suppressions à l’autre extrémité appelée tête.
+
+Elle suit le principe **FIFO** (First In First Out) :
+le premier élément entré est le premier élément sorti.
+
+Les opérations principales sur une file sont :
+	•	enfiler : ajouter un élément en queue de la file ;
+	•	défiler : retirer l’élément en tête de la file.
+
+```python 
+
+def creer_file():
+    """
+    Crée une file vide.
+
+    >>> f = creer_file()
+    >>> f
+    []
+    """
+    pass
+
+
+def enfiler(f, x):
+    """
+    Ajoute un élément à la fin de la file.
+
+    >>> f = creer_file()
+    >>> enfiler(f, 10)
+    >>> enfiler(f, 20)
+    >>> f
+    [10, 20]
+    """
+    pass
+
+
+def defiler(f):
+    """
+    Retire et retourne le premier élément de la file.
+
+    >>> f = creer_file()
+    >>> enfiler(f, 10)
+    >>> enfiler(f, 20)
+    >>> defiler(f)
+    10
+    >>> f
+    [20]
+    """
+	pass
+
+def plus_court_chemin(graphe, depart):
+    """
+    Parcours en largeur d'un graphe.
+
+    >>> graphe = {
+    ... 'A':['B','C'],
+    ... 'B':['D'],
+    ... 'C':['D'],
+    ... 'D':[]
+    ... }
+    >>> plus_court_chemin(graphe,'A')
+    ['A', 'B', 'C', 'D']
     """
 	pass
  ```
