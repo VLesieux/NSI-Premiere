@@ -240,13 +240,13 @@ def plus_court_chemin(graphe, depart,arrivee):
     ... 'B':['A','C'],
     ... 'C':['B','D'],
     ... 'D':['A','C','E'],
-	... 'E':['A','D','G','F'],
-	... 'F':['E','G'],
-	... 'G':['E','F','H'],
-    ... 'H':['G'],	
+    ... 'E':['A','D','G','F'],
+    ... 'F':['E','G'],
+    ... 'G':['E','F','H'],
+    ... 'H':['G'],
     ... }
     >>> plus_court_chemin(graphe,'A','H')
     ['A', 'E','G','H']
     """
-	pass
+    pass
  ```
