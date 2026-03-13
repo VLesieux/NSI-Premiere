@@ -228,7 +228,7 @@ def defiler(f):
 **Application au parcours d'un graphe orienté**
 
 
-<img width='200px' height='200px' src="assets/graphe2.jpeg">
+<img width='400px' height='400px' src="assets/graphe2.jpeg">
 
 ```python 
 def plus_court_chemin(graphe, depart):
