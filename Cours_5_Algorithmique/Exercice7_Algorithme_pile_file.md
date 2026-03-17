@@ -319,11 +319,7 @@ Idée importante à comprendre 💡
 
 La file contient toujours tous les chemins possibles en cours d’exploration, et chemin est simplement celui qu’on est en train de tester (le premier de la file).
 
-C’est exactement le principe du parcours en largeur (BFS) :
-	•	On explore tous les chemins de longueur 1
-	•	Puis longueur 2
-	•	Puis longueur 3
-	•	etc.
+C’est exactement le principe du parcours en largeur (BFS) : on explore tous les chemins de longueur 1, puis longueur 2, puis longueur 3, etc.
 
 C’est pour ça qu’on trouve forcément le plus court chemin.
 
