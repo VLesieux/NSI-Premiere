@@ -313,6 +313,6 @@ def plus_court_chemin(graphe, depart,arrivee):
  ```
 
 
-<img width='400px' height='400px' src="assets/Tableau_evolution.png">
+<img width='800px' height='800px' src="assets/Tableau_evolution.png">
 
 
