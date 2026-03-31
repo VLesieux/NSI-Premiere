@@ -26,6 +26,10 @@ Indication : on étalira que pour un convertisseur analogique-numérique de N bi
 [Numérisation d'un signal audio](assets/Sujet-ImplantCochleaire.pdf).  
 
 
+<img  src="assets/sujet1_exercice3.png">
+<img  src="assets/sujet2_exercice3.png">
+
+
 **Exercice 4** :
 
 On dispose d'un réseau d'adresse 192.168.1.0 avec le masque 255.255.255.0. Des sous-réseaux ont été constitués mais on souhaite avoir le nombre maximum de sous-réseaux et que chaque sous-réseau accueille une trentaine de postes.
