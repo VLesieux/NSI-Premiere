@@ -23,8 +23,6 @@ Indication : on étalira que pour un convertisseur analogique-numérique de N bi
 
 **Exercice 3** : 
 
-[Numérisation d'un signal audio](assets/Sujet-ImplantCochleaire.pdf).  
-
 
 <img  src="assets/sujet1_exercice3.png">
 <img  src="assets/sujet2_exercice3.png">
