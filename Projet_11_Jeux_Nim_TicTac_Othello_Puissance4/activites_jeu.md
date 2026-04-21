@@ -397,9 +397,9 @@ Tester son bon fonctionnement avec le doctest.
 
 ```python
     >>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
-    [ 0 , 0 , X ]
-    [ 0 , 0 , X ]
-    [ 0 , X , 0 ]
+    [  0    0    X  ]
+    [  0    0    X  ]
+    [  0    X    0  ]
 ```
 
 Tester son bon fonctionnement avec le doctest.
@@ -417,10 +417,6 @@ ceci est la première partie,  et ceci est la deuxième partie sans changement d
 3.18 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
 
 ```python
-    >>> aff_evolution_jeu([['0', '0', 'X'], ['0', '0', 'X'], ['0', 'X', '0']])
-    [ 0 , 0 , X ]
-    [ 0 , 0 , X ]
-    [ 0 , X , 0 ]
     >>> etat_final([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
     (True, False)
     >>> etat_final([['X', 'X', '0'], ['X', '0', 'X'], ['0', 'X', '0']])
@@ -885,7 +881,7 @@ def test_colonne(configuration,joueur):
 
 def test_ligne(configuration,joueur):
     """
-    Renvoie True si alignement selon colonne des jetons de joueur sinon False
+    Renvoie True si alignement selon ligne des jetons de joueur sinon False
     >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 1, 1, 1, 1, 0]]
     >>> aff_evolution_jeu(config)
     1 2 3 4 5 6 7
@@ -895,7 +891,7 @@ def test_ligne(configuration,joueur):
     · · · · · · · 
     · ○ · · ○ · · 
     · ○ ● ● ● ● · 
-    >>> test_ligne(config)
+    >>> test_ligne(config,True)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
     >>> aff_evolution_jeu(config1)
@@ -906,7 +902,7 @@ def test_ligne(configuration,joueur):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_ligne(config1)
+    >>> test_ligne(config1,True)
     False
     """
 	pass
@@ -923,10 +919,10 @@ def test_diagonale_up(configuration,joueur):
     · · · ● ● ○ · 
     · ● ● ○ ● ● · 
     · ● ○ ○ ○ ● · 
-    >>> test_diagonale_up(config)
+    >>> test_diagonale_up(config,True)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
-    >>> aff_evolution_jeu(config1)
+    >>> aff_evolution_jeu(config1,)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
@@ -934,7 +930,7 @@ def test_diagonale_up(configuration,joueur):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_diagonale_up(config1)
+    >>> test_diagonale_up(config1,False)
     False
     """
 	pass
@@ -951,7 +947,7 @@ def test_diagonale_down(configuration,joueur):
     · · ○ ● ● ○ · 
     · ● ● ○ ● ● · 
     · ● ○ ○ ○ ● · 
-    >>> test_diagonale_down(config)
+    >>> test_diagonale_down(config,True)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
     >>> aff_evolution_jeu(config1)
@@ -962,7 +958,7 @@ def test_diagonale_down(configuration,joueur):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_diagonale_down(config1)
+    >>> test_diagonale_down(config1,False)
     False
     """
 	pass
@@ -982,7 +978,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · · · · · · · 
     · · · · · · · 
     · ● ○ · · · · 
-    >>> s1=evolution_jeu(False,s,2)
+    >>> s1=evolution_jeu(True,s,2)
     >>> aff_evolution_jeu(s1)
     1 2 3 4 5 6 7
     · · · · · · · 
@@ -991,7 +987,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · · · · · · · 
     · ● · · · · · 
     · ● ○ · · · · 
-    >>> aff_evolution_jeu(evolution_jeu(True,s1,3))
+    >>> aff_evolution_jeu(evolution_jeu(False,s1,3))
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
@@ -999,7 +995,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · · · · · · · 
     · ● ○ · · · · 
     · ● ○ · · · · 
-    >>> aff_evolution_jeu(evolution_jeu(True,s1,2))
+    >>> aff_evolution_jeu(evolution_jeu(False,s1,2))
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
@@ -1051,18 +1047,10 @@ def test_jeu_rempli(param_jeu):
 def etat_final(param_jeu):
     """
     : vérification si fin jeu
-    : param : int(param_jeu)
-    : return : bool(fini),bool(per_gag)
-    Exemple:
-    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 2, 0, 0], [0, 1, 2, 2, 2, 0, 0], [0, 1, 2, 1, 1, 0, 0], [0, 2, 1, 2, 2, 0, 0]]
-    >>> aff_evolution_jeu(config)
-    1 2 3 4 5 6 7
-    · · · · · · · 
-    · · · · · · · 
-    · ● ○ · ○ · · 
-    · ● ○ ○ ○ · · 
-    · ● ○ ● ● · · 
-    · ○ ● ○ ○ · · 
+    : param : list(param_jeu)
+    : return : bool(fini), bool(per_gag)
+      per_gag=False signifie qu'il y a un gagnant
+      per_gag=True signifie égalité
     """
 	pass
 
