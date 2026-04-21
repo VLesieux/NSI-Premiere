@@ -600,8 +600,8 @@ def situation_init():
 
 def aff_evolution_jeu(plateau):
     """
-    : permet d'afficher le nombre d'allumettes restantes
-    : param : int(param_jeu) nombres d'allumettes
+    : permet d'afficher le plateau
+    : param : plateau : list
     : return : None
     Exemple:
     >>> aff_evolution_jeu(situation_init())
