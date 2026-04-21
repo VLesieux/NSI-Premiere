@@ -404,6 +404,15 @@ Tester son bon fonctionnement avec le doctest.
 
 Tester son bon fonctionnement avec le doctest.
 
+Pour éviter le passage à la ligne en utilisant print, utiliser print("",end="")
+
+exemple :
+
+```python
+>>> print("ceci est la première partie,  ",end="")
+print("et ceci est la deuxième partie sans changement de ligne")
+ceci est la première partie,  et ceci est la deuxième partie sans changement de ligne
+```
 
 3.18 Écrire la fonction &quot;etat\_final&quot; qui a pour résultats la fin du jeu et le résultat du jeu dont le paramètre du jeu est passé en paramètre.
 
