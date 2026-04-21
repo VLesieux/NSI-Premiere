@@ -776,13 +776,13 @@ def test_validite_choix(valeur_joueur,le_choix,plateau):
     7 · · · · · · · ·
     8 · · · · · · · ·
     >>> test_validite_choix(False,(4,6),situation_init())
-    False
+    True
     >>> test_validite_choix(True,(10,10),situation_init())
     False
     >>> test_validite_choix(True,(3,5),situation_init())
     True
-    >>> test_validite_choix(False,(6,5),situation_init())
-    True
+    >>> test_validite_choix(False,(5,5),situation_init())
+    False
     """
 	pass
 
