@@ -431,7 +431,7 @@ Maintenant que nos deux jeux fonctionnent, il serait intéressant de concevoir u
 
 Rappel introduction:  ces jeux partagent un **mécanisme de déroulement** _des parties_  qui est **commun**. Ce sont uniquement les règles du jeu qui différent.
 
-En vous aidant de l&#39;exemple simple suivant, modifier le programme principal du projet 8 afin que celui-ci propose, au lancement, un menu donnant le choix entre le jeu Nim ou le jeu Tic-tac-toe.
+En vous aidant de l&#39;exemple simple suivant, modifier le programme principal du projet afin que celui-ci propose, au lancement, un menu donnant le choix entre le jeu Nim ou le jeu Tic-tac-toe.
 
 ```python
 #pasvoyelle.py
