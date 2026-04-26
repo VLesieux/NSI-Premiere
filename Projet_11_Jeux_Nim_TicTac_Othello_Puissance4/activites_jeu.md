@@ -1094,6 +1094,6 @@ def coups_possibles(param_jeu):
     pass
 ```
 
-
+Modifier la boucle while pour que la machine devienne le joueur II.
 
 
