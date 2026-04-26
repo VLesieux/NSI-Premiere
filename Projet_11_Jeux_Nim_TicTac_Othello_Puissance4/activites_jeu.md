@@ -1052,9 +1052,10 @@ def etat_final(param_jeu):
     """
     : vérification si fin jeu
     : param : list(param_jeu)
-    : return : bool(fini), bool(per_gag)
-      per_gag=False signifie qu'il y a un gagnant
-      per_gag=True signifie égalité
+    : return : bool(per_gag), bool(fini)
+      per_gag=True signifie qu'il y a un gagnant
+      per_gag=False signifie égalité
+      fini=True siginfie que la partie est terminée
     """
 	pass
 
@@ -1098,7 +1099,7 @@ Modifier la boucle while pour que la machine devienne le joueur II.
 
 
 ******************************************************************************************
-🎯 Étape suivante : “voir un coup gagnant immédiat”
+🎯 Étape suivante : voir un coup gagnant immédiat.
 
 def coup_machine_simple(param_jeu, valeur_joueur):
     """
@@ -1106,11 +1107,7 @@ def coup_machine_simple(param_jeu, valeur_joueur):
     sinon elle joue au hasard.
     """
 ******************************************************************************************
-🚀 Prochaine micro-étape (très importante)
-
-Quand ça marche parfaitement, on ajoute :
-
-empêcher l’adversaire de gagner
+🚀 Prochaine étape : empêcher l’adversaire de gagner
 
 Donc la machine fera :
 
@@ -1118,3 +1115,111 @@ Donc la machine fera :
 2. sinon si l’adversaire peut gagner → je bloque
 3. sinon → hasard
 
+******************************************************************************************
+
+Faire une intelligence artificielle pour le morpion
+
+1. Fonction d’évaluation
+
+```python
+def evaluation(param_jeu):
+    """
+    Donne une note à une position finale.
+    +1 : la machine gagne
+    -1 : l'humain gagne
+     0 : égalité
+    """
+    if jeu.test_ligne(param_jeu) or jeu.test_colonne(param_jeu) or jeu.test_diagonale1(param_jeu) or jeu.test_diagonale2(param_jeu):
+        # Si quelqu'un a gagné, on regarde qui a trois pions alignés
+        lignes_gagnantes = [
+            [(0,0), (0,1), (0,2)],
+            [(1,0), (1,1), (1,2)],
+            [(2,0), (2,1), (2,2)],
+            [(0,0), (1,0), (2,0)],
+            [(0,1), (1,1), (2,1)],
+            [(0,2), (1,2), (2,2)],
+            [(0,0), (1,1), (2,2)],
+            [(0,2), (1,1), (2,0)]
+        ]
+
+        for ligne in lignes_gagnantes:
+            a, b, c = ligne
+            symbole = param_jeu[a[0]][a[1]]
+            if symbole != '-' and symbole == param_jeu[b[0]][b[1]] and symbole == param_jeu[c[0]][c[1]]:
+                if symbole == '0':
+                    return 1
+                else:
+                    return -1
+
+    return 0
+```
+
+2. Fonction minimax
+
+```python
+def minimax(param_jeu, valeur_joueur):
+    """
+    Renvoie la valeur d'une position.
+
+    valeur_joueur = False : c'est à la machine de jouer, elle maximise.
+    valeur_joueur = True  : c'est à l'humain de jouer, il minimise.
+    """
+    per_gag, fini = jeu.etat_final(param_jeu)
+
+    if fini:
+        return evaluation(param_jeu)
+
+    coups = jeu.coups_possibles(param_jeu)
+
+    if valeur_joueur == False:
+        meilleur_score = -1000
+
+        for coup in coups:
+            copie = [row[:] for row in param_jeu]
+            copie = jeu.evolution_jeu(False, copie, coup)
+            score = minimax(copie, True)
+
+            if score > meilleur_score:
+                meilleur_score = score
+
+        return meilleur_score
+
+    else:
+        meilleur_score = 1000
+
+        for coup in coups:
+            copie = [row[:] for row in param_jeu]
+            copie = jeu.evolution_jeu(True, copie, coup)
+            score = minimax(copie, False)
+
+            if score < meilleur_score:
+                meilleur_score = score
+
+        return meilleur_score
+```
+
+3. Le coup de la machine minimax
+
+```python
+def coup_machine_minimax(param_jeu):
+    coups = jeu.coups_possibles(param_jeu)
+
+    meilleur_score = -1000
+    meilleur_coup = None
+
+    for coup in coups:
+        copie = [row[:] for row in param_jeu]
+        copie = jeu.evolution_jeu(False, copie, coup)
+
+        score = minimax(copie, True)
+
+        if score > meilleur_score:
+            meilleur_score = score
+            meilleur_coup = coup
+
+    return meilleur_coup
+```
+
+******************************************************************************************
+
+Faire une intelligence artificielle pour le puissance 4
