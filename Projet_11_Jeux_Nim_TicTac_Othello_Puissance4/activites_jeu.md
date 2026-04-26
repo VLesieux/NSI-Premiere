@@ -169,8 +169,12 @@ def aff_mess_vainqueur(valeur_joueur,per_gag):
     : param : bool(per_gag)  identification gagné ou égalité (True:gagné;False:égalité)
     : return : None
     Exemple:
-    >>> aff_mess_vainqueur(True,False)
+    >>> aff_mess_vainqueur(True,True)
     Le joueur I a gagné
+    >>> aff_mess_vainqueur(False,True)
+    Le joueur II a gagné
+    >>> aff_mess_vainqueur(False,False)
+    Egalité !!!!
     """
     if valeur_joueur:
         joueur='I'
