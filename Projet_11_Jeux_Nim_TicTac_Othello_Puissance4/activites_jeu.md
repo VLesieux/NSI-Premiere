@@ -177,7 +177,7 @@ def aff_mess_vainqueur(valeur_joueur,per_gag):
     else:
         joueur='II'      
         
-    if per_gag:
+    if per_gag==False:
         print('Egalité !!!!')
     else:
         if valeur_joueur:
