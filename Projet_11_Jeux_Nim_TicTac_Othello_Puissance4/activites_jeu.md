@@ -1066,7 +1066,7 @@ if __name__ == '__main__':
 
 ******************************************************************************************
 
-Modifier maintenant l'interface pour pouvoir jouer au morpion contre la machine qui joue au hasard.
+Modifier maintenant l'interface pour pouvoir jouer au morpion contre la machine qui elle joue au hasard.
 
 Dans interface_jeu.py, ajouter :
 
@@ -1096,4 +1096,25 @@ def coups_possibles(param_jeu):
 
 Modifier la boucle while pour que la machine devienne le joueur II.
 
+
+******************************************************************************************
+🎯 Étape suivante : “voir un coup gagnant immédiat”
+
+def coup_machine_simple(param_jeu, valeur_joueur):
+    """
+    La machine joue un coup gagnant s'il existe,
+    sinon elle joue au hasard.
+    """
+******************************************************************************************
+🚀 Prochaine micro-étape (très importante)
+
+Quand ça marche parfaitement, on ajoute :
+
+empêcher l’adversaire de gagner
+
+Donc la machine fera :
+
+1. si je peux gagner → je gagne
+2. sinon si l’adversaire peut gagner → je bloque
+3. sinon → hasard
 
