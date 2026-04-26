@@ -418,9 +418,9 @@ ceci est la première partie,  et ceci est la deuxième partie sans changement d
 
 ```python
     >>> etat_final([['-', 'X', '-'], ['X', 'X', 'X'], ['0', '-', '0']])
-    (True, False)
-    >>> etat_final([['X', 'X', '0'], ['X', '0', 'X'], ['0', 'X', '0']])
-    (True, False)
+    (True, True)
+    >>> etat_final([['X', 'X', '0'], ['0', '0', 'X'], ['X', '0', 'X']])
+    (False, True)
 ```
 
 Tester le bon fonctionnement de l'ensemble en important le module jeu_tic_tac dans principal_jeu.
