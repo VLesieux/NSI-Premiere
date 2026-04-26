@@ -1222,4 +1222,66 @@ def coup_machine_minimax(param_jeu):
 
 ******************************************************************************************
 
-Faire une intelligence artificielle pour le puissance 4
+Faire une intelligence artificielle pour le puissance 4, cette fois l'arbre est trop grand, il faut se limiter en profondeur dans l'exploration des possibles.
+
+```python
+def minimax_profondeur(param_jeu, valeur_joueur, profondeur):
+    fini, per_gag = jeu.etat_final(param_jeu)
+
+    if fini or profondeur == 0:
+        return jeu.evaluation(param_jeu)
+
+    coups = jeu.coups_possibles(param_jeu)
+
+    if valeur_joueur == False:  # machine : elle maximise
+        meilleur_score = -1000
+
+        for coup in coups:
+            copie = [row[:] for row in param_jeu]
+            copie = jeu.evolution_jeu(False, copie, coup)
+
+            score = minimax_profondeur(copie, True, profondeur - 1)
+
+            if score > meilleur_score:
+                meilleur_score = score
+
+        return meilleur_score
+
+    else:  # humain : il minimise
+        meilleur_score = 1000
+
+        for coup in coups:
+            copie = [row[:] for row in param_jeu]
+            copie = jeu.evolution_jeu(True, copie, coup)
+
+            score = minimax_profondeur(copie, False, profondeur - 1)
+
+            if score < meilleur_score:
+                meilleur_score = score
+
+        return meilleur_score
+
+    
+def coup_machine_minimax(param_jeu):
+    coups = jeu.coups_possibles(param_jeu)
+
+    meilleur_score = -1000
+    meilleur_coup = None
+
+    for coup in coups:
+        copie = [row[:] for row in param_jeu]
+        copie = jeu.evolution_jeu(False, copie, coup)
+        if choix_du_jeu==2:#morpion
+            score = minimax(copie, True)       
+        if choix_du_jeu==4:#puissance 4
+            score = minimax_profondeur(copie, True,3)
+        
+        
+
+        if score > meilleur_score:
+            meilleur_score = score
+            meilleur_coup = coup
+
+    return meilleur_coup
+
+```
