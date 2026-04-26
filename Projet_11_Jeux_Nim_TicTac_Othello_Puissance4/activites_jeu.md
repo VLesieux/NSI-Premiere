@@ -1068,6 +1068,31 @@ if __name__ == '__main__':
 
 Modifier maintenant l'interface pour pouvoir jouer au morpion contre la machine qui joue au hasard.
 
+Dans interface_jeu.py, ajouter :
+
+```python
+import random
+
+def coup_machine_aleatoire(param_jeu):
+    coups = coups_possibles(param_jeu)
+    return random.choice(coups)
+```
+
+Définir la fonction coups_possibles dans le jeu de morpion.
+
+```python
+def coups_possibles(param_jeu):
+    """
+    Renvoie la liste des cases encore libres.
+
+    Une case libre contient '-'.
+
+    Exemple :
+    >>> coups_possibles([['X', '-', '-'], ['-', '0', '-'], ['-', '-', 'X']])
+    [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
+    """
+    pass
+```
 
 
 
