@@ -1,3 +1,4 @@
+
 def situation_init():
     """
     : création de la situation initiale du jeu
@@ -5,19 +6,20 @@ def situation_init():
     : param : Rien
     Exemple:
     """
-    plateau=[[0, 0, 0, 0, 0, 0, 0],
+    plateau=[
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0]]
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
+    ]
     return plateau
-
 
 
 def aff_evolution_jeu(param_jeu):
     """
-    : affiche la param_jeu courante du jeu
+    : affiche la configuration courante du jeu
     : param : list
     : return : str
     Exemple:
@@ -31,7 +33,6 @@ def aff_evolution_jeu(param_jeu):
     · · · · · · · 
     """
     print("1 2 3 4 5 6 7")
-    numero=1
     for ligne in param_jeu:
         for element in ligne:
             if element==0:
@@ -40,10 +41,9 @@ def aff_evolution_jeu(param_jeu):
                 print('●',end=' ')
             if element==2:
                 print('○',end=' ')
-        numero +=1
         print()
-        
-def test_colonne(param_jeu):
+
+def test_colonne(configuration,joueur):
     """
     Renvoie True si alignement selon colonne des jetons de joueur sinon False
     >>> config = [[0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 0, 0, 2, 0, 0]]
@@ -55,8 +55,10 @@ def test_colonne(param_jeu):
     · ● · · · · · 
     · ○ · · ○ · · 
     · ○ · · ○ · · 
-    >>> test_colonne(config)
+    >>> test_colonne(config,True)
     True
+    >>> test_colonne(config,False)
+    False
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
     >>> aff_evolution_jeu(config1)
     1 2 3 4 5 6 7
@@ -66,24 +68,28 @@ def test_colonne(param_jeu):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_colonne(config1)
+    >>> test_colonne(config1,True)
     False
     """
-    for pion in range(1,3):
-        for colonne in range(7):
-            a=0
-            for ligne in range(6):
-                if param_jeu[ligne][colonne]==pion:
-                    a+=1
-                    if a==4:
-                        return True
-                else:
-                    a=0
-        return False
+    if joueur==True:
+        jeton=1
+    else:
+        jeton=2
+        
+    for colonne in range(7):
 
-def test_ligne(param_jeu):
+        for ligne in range(3):
+
+            if all([configuration[ligne+i][colonne] == jeton for i in range(4)]):
+
+                return True
+
+    return False
+
+
+def test_ligne(configuration,joueur):
     """
-    Renvoie True si alignement selon colonne des jetons de joueur sinon False
+    Renvoie True si alignement selon ligne des jetons de joueur sinon False
     >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 2, 0, 0, 2, 0, 0], [0, 2, 1, 1, 1, 1, 0]]
     >>> aff_evolution_jeu(config)
     1 2 3 4 5 6 7
@@ -93,7 +99,7 @@ def test_ligne(param_jeu):
     · · · · · · · 
     · ○ · · ○ · · 
     · ○ ● ● ● ● · 
-    >>> test_ligne(config)
+    >>> test_ligne(config,True)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
     >>> aff_evolution_jeu(config1)
@@ -104,25 +110,26 @@ def test_ligne(param_jeu):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_ligne(config1)
+    >>> test_ligne(config1,True)
     False
     """
-    for pion in range(1,3):
-        for ligne in range(6):
-            a=0
-            for colonne in range(7):
-                if param_jeu[ligne][colonne]==pion:
-                    a+=1
-                    if a==4:
-                        return True
-                else:
-                    a=0
+    if joueur==True:
+        jeton=1
+    else:
+        jeton=2
+        
+    for ligne in range(6):
+
+        for colonne in range(4):
+
+            if all([configuration[ligne][colonne+i] == jeton for i in range(4)]):
+
+                return True
 
     return False
 
-
-
-def test_diagonale_up(param_jeu):
+# 
+def test_diagonale_up(configuration,joueur):
     """
     Renvoie True si alignement selon diagonale montante des jetons de joueur sinon False
     >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 1, 0], [0, 0, 0, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
@@ -134,10 +141,10 @@ def test_diagonale_up(param_jeu):
     · · · ● ● ○ · 
     · ● ● ○ ● ● · 
     · ● ○ ○ ○ ● · 
-    >>> test_diagonale_up(config)
+    >>> test_diagonale_up(config,True)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
-    >>> aff_evolution_jeu(config1)
+    >>> aff_evolution_jeu(config1,)
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
@@ -145,20 +152,25 @@ def test_diagonale_up(param_jeu):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_diagonale_up(config1)
+    >>> test_diagonale_up(config1,False)
     False
     """
-    for pion in range(1,3):
-        for ligne in range(6):
-            for colonne in range(7):
-                try:
-                    if param_jeu[ligne][colonne]==pion and param_jeu[ligne-1][colonne+1]==pion and param_jeu[ligne-2][colonne+2]==pion and param_jeu[ligne-3][colonne+3]==pion:
-                        return True
-                except IndexError:
-                    pass            
+    if joueur==True:
+        jeton=1
+    else:
+        jeton=2
+        
+    for ligne in range(3,6):
+
+        for colonne in range(4):
+
+            if all([configuration[ligne-i][colonne+i] == jeton for i in range(4)]):
+
+                return True
+
     return False
 
-def test_diagonale_down(param_jeu):
+def test_diagonale_down(configuration,joueur):
     """
     Renvoie True si alignement selon diagonale descendante des jetons de joueur sinon False
     >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 1, 1, 0], [0, 0, 2, 1, 1, 2, 0], [0, 1, 1, 2, 1, 1, 0], [0, 1, 2, 2, 2, 1, 0]]
@@ -170,7 +182,7 @@ def test_diagonale_down(param_jeu):
     · · ○ ● ● ○ · 
     · ● ● ○ ● ● · 
     · ● ○ ○ ○ ● · 
-    >>> test_diagonale_down(config)
+    >>> test_diagonale_down(config,True)
     True
     >>> config1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [2, 1, 0, 0, 0, 0, 0]]
     >>> aff_evolution_jeu(config1)
@@ -181,23 +193,28 @@ def test_diagonale_down(param_jeu):
     · · · · · · · 
     · · · · · · · 
     ○ ● · · · · · 
-    >>> test_diagonale_down(config1)
+    >>> test_diagonale_down(config1,False)
     False
     """
-    for pion in range(1,3):
-        for ligne in range(6):
-            for colonne in range(7):
-                try:
-                    if param_jeu[ligne][colonne]==pion and param_jeu[ligne+1][colonne+1]==pion and param_jeu[ligne+2][colonne+2]==pion and param_jeu[ligne+3][colonne+3]==pion:
-                        return True
-                except IndexError:
-                    pass            
+    if joueur==True:
+        jeton=1
+    else:
+        jeton=2
+        
+    for ligne in range(3):
+
+        for colonne in range(4):
+
+            if all([configuration[ligne+i][colonne+i] == jeton for i in range(4)]):
+
+                return True
+
     return False
 
 def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     """
     : modifie la configuration du jeu en ajoutant le nouveau pion et en retournant le ou les pions de couleur opposée
-    : param : configuration (list)
+    : param : param_jeu (list)
     : param : joueur (str) 
     : return : liste
     >>> s =[[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 0, 0, 0]]
@@ -209,7 +226,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · · · · · · · 
     · · · · · · · 
     · ● ○ · · · · 
-    >>> s1=evolution_jeu(False,s,2)
+    >>> s1=evolution_jeu(True,s,2)
     >>> aff_evolution_jeu(s1)
     1 2 3 4 5 6 7
     · · · · · · · 
@@ -218,7 +235,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · · · · · · · 
     · ● · · · · · 
     · ● ○ · · · · 
-    >>> aff_evolution_jeu(evolution_jeu(True,s1,3))
+    >>> aff_evolution_jeu(evolution_jeu(False,s1,3))
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
@@ -226,7 +243,7 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · · · · · · · 
     · ● ○ · · · · 
     · ● ○ · · · · 
-    >>> aff_evolution_jeu(evolution_jeu(True,s1,2))
+    >>> aff_evolution_jeu(evolution_jeu(False,s1,2))
     1 2 3 4 5 6 7
     · · · · · · · 
     · · · · · · · 
@@ -235,38 +252,20 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     · ● ○ · · · · 
     · ● ○ · · · · 
     """
-    colonne=choix_joueur
     if valeur_joueur==True:
-        pion=2
+        jeton=1
     else:
-        pion=1    
-    liste=[]
-    for ligne in range(6):
-        if param_jeu[ligne][colonne-1] !=0:
-            param_jeu[ligne-1][colonne-1]=pion
-            break
-    if param_jeu[5][colonne-1]==0:
-        param_jeu[5][colonne-1]=pion
+        jeton=2
+    
+    colonne=choix_joueur-1
+    
+    for ligne in range(5,-1,-1):
+        if param_jeu[ligne][colonne] == 0:
+            param_jeu[ligne][colonne]=jeton
+            return param_jeu
     return param_jeu
 
-def etat_final(param_jeu):
-    """
-    : vérification si fin jeu
-    : param : int(param_jeu)
-    : return : bool(fini),bool(per_gag)
-    """
-    per_gag=False
-    fini=False
-    #per_gag=True désigne le cas d'égalité
-    #fini désigne l'état de la partie qui est finie ou non
-    if test_jeu_rempli(param_jeu):
-        fini=True
-        if compteur_pieces(True,param_jeu)>compteur_pieces(False,param_jeu):
-            per_gag=True
-        else:
-            per_gag=False
-    return fini,per_gag
- 
+
 def test_validite_choix(valeur_joueur,lechoix,param_jeu):
     """
     : teste la validité d'une colonne
@@ -287,73 +286,123 @@ def test_validite_choix(valeur_joueur,lechoix,param_jeu):
     False
     >>> test_validite_choix(True,1,config)
     True
-    """        
-    if param_jeu[0][lechoix-1]==0:
-        return True
-    return False
+    """  
+    return param_jeu[0][lechoix-1]==0
 
-        
 def choix_joueur(valeur_joueur,param_jeu):
     """
     : Demande au joueur d'effectuer un choix de position
     : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
-    : param : param_jeu : list 
-    : return : choix du joueur
+    : param : l
+    : return : int(choix) choix du joueur
+    Remarque: Ne pas faire de doctest sur des fonctions d'entrées /sorties
     """
     if valeur_joueur:
         joueur='I'
     else:
         joueur='II'
-
-    choix=False
-    while choix !=True:
-        question= input('JOUEUR {} : Choisir la position de votre pion par exemple 1 : '.format(joueur))
-        colonne= int(question)
-        choix=test_validite_choix(valeur_joueur,colonne,param_jeu)
-        if choix:
-            return colonne
-        
+    #init choix jeu
+    x=0
+    #Les joueurs doivent ramasser tour à tour 2 ou 3 allumettes
+    while (x<1 or x>8):
+        reponse= input('JOUEUR {} : choisir la colonne : '.format(joueur))
+        x=int(reponse)
+        if test_validite_choix(valeur_joueur,x,param_jeu):
+            return x
+    
 def test_jeu_rempli(param_jeu):
     """
     Renvoie True si le jeu est rempli sinon False
     """
-    for i in range(len(param_jeu)):
-        for j in range(len(param_jeu[0])):
-            if param_jeu[i][j]==0:
+    for ligne in range(len(param_jeu)):
+        for colonne in range(len(param_jeu[0])):
+            if param_jeu[ligne][colonne]==0:
                 return False
-    return True
+    return True 
+    
 
 def etat_final(param_jeu):
     """
     : vérification si fin jeu
-    : param : int(param_jeu)
-    : return : bool(fini),bool(per_gag)
-    Exemple:
-    >>> config = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 2, 0, 0], [0, 1, 2, 2, 2, 0, 0], [0, 1, 2, 1, 1, 0, 0], [0, 2, 1, 2, 2, 0, 0]]
-    >>> aff_evolution_jeu(config)
-    1 2 3 4 5 6 7
-    · · · · · · · 
-    · · · · · · · 
-    · ● ○ · ○ · · 
-    · ● ○ ○ ○ · · 
-    · ● ○ ● ● · · 
-    · ○ ● ○ ○ · · 
+    : param : list(param_jeu)
+    : return : bool(per_gag), bool(fini)
+      per_gag=True signifie qu'il y a un gagnant
+      per_gag=False signifie égalité
+      fini=True siginfie que la partie est terminée
     """
-    per_gag=False
-    fini=False
-    #per_gag=True désigne le cas d'égalité
-    #fini désigne l'état de la partie qui est finie ou non
-    if test_jeu_rempli(param_jeu):
-        fini=True
-        per_gag=True
-        
-    if test_colonne(param_jeu) or test_ligne(param_jeu) or test_diagonale_up(param_jeu) or test_diagonale_down(param_jeu) :
-        fini=True
-        per_gag=False
+    victoire_joueur_1 = (
+        test_ligne(param_jeu, True)
+        or test_diagonale_up(param_jeu, True)
+        or test_diagonale_down(param_jeu, True)
+        or test_colonne(param_jeu, True)
+    )
 
-    return fini,per_gag
+    victoire_joueur_2 = (
+        test_ligne(param_jeu, False)
+        or test_diagonale_up(param_jeu, False)
+        or test_diagonale_down(param_jeu, False)
+        or test_colonne(param_jeu, False)
+    )
+
+    if victoire_joueur_1 or victoire_joueur_2:
+        return True, True
+
+    if test_jeu_rempli(param_jeu):
+        return False, True
+
+    return False, False
+
+
+def coups_possibles(param_jeu):
+    """
+    Renvoie les colonnes jouables.
+    Les colonnes vont de 1 à 7.
+    """
+    coups = []
+
+    for colonne in range(1, 8):
+        if param_jeu[0][colonne - 1] == 0:
+            coups.append(colonne)
+
+    return coups
+
+
+def gagnant(param_jeu, valeur_joueur):
+    return (
+        test_ligne(param_jeu, valeur_joueur)
+        or test_colonne(param_jeu, valeur_joueur)
+        or test_diagonale_up(param_jeu, valeur_joueur)
+        or test_diagonale_down(param_jeu, valeur_joueur)
+    )
+
+
+def evaluation(param_jeu):
+    """
+    +100 : la machine gagne
+    -100 : l'humain gagne
+       0 : position neutre
+    """
+    if gagnant(param_jeu, False):  # joueur II = machine
+        return 100
+
+    if gagnant(param_jeu, True):   # joueur I = humain
+        return -100
+
+    return 0
+
+
+
+
+def action_joueur(valeur_joueur,param_jeu):
+    """
+    : permet de connaitre le nombre d'allumettes à enlever
+    : param : bool(valeur_joueur) identification du joueur (True:I;False:II)
+    : return : int(choix) choix du joueur
+    """
+    lechoix=choix_joueur(valeur_joueur,param_jeu)
+    return lechoix
+    
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)
-
