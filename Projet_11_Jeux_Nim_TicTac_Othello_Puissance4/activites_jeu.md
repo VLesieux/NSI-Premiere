@@ -1059,3 +1059,12 @@ if __name__ == '__main__':
     doctest.testmod(verbose=True)
 
 ```
+
+******************************************************************************************
+
+Modifier maintenant l'interface pour pouvoir jouer au morpion contre la machine qui joue au hasard.
+
+
+
+
+
