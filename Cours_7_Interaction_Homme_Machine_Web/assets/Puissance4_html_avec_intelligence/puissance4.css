@@ -1,0 +1,75 @@
+#message 
+{
+	position: absolute;
+	margin-left: 10px;
+	margin-top: 10px;
+} 
+
+table
+{ 
+	border-collapse : collapse;
+	margin : auto;
+}
+
+#ligne1 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("vide.png");
+}
+#ligne2 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("trou.png");
+}
+#ligne3 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("trou.png");
+}
+#ligne4 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("trou.png");
+}
+#ligne5 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("trou.png");
+}
+#ligne6 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("trou.png");
+}
+#ligne7 td 
+{
+	border : 0;
+	width: 99px; 
+	height: 98px;
+	padding : 0px;
+	background-image: url("trou.png");
+}
+
+img
+{
+	display : block;
+	margin-bottom : 0px;
+}

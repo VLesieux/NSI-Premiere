@@ -1,4 +1,4 @@
-
+####################################################SITUATION INITIALE########################################
 def situation_init():
     """
     : création de la situation initiale du jeu
@@ -15,8 +15,7 @@ def situation_init():
     [0, 0, 0, 0, 0, 0, 0]
     ]
     return plateau
-
-
+###################################################AFFICHAGE DU JEU##############################################
 def aff_evolution_jeu(param_jeu):
     """
     : affiche la configuration courante du jeu
@@ -42,7 +41,7 @@ def aff_evolution_jeu(param_jeu):
             if element==2:
                 print('○',end=' ')
         print()
-
+###############################################################LES TESTS GAGNANTS#######################################################
 def test_colonne(configuration,joueur):
     """
     Renvoie True si alignement selon colonne des jetons de joueur sinon False
@@ -81,12 +80,10 @@ def test_colonne(configuration,joueur):
         for ligne in range(3):
 
             if all([configuration[ligne+i][colonne] == jeton for i in range(4)]):
-
                 return True
-
+            
     return False
-
-
+############################
 def test_ligne(configuration,joueur):
     """
     Renvoie True si alignement selon ligne des jetons de joueur sinon False
@@ -125,10 +122,8 @@ def test_ligne(configuration,joueur):
             if all([configuration[ligne][colonne+i] == jeton for i in range(4)]):
 
                 return True
-
     return False
-
-# 
+########################
 def test_diagonale_up(configuration,joueur):
     """
     Renvoie True si alignement selon diagonale montante des jetons de joueur sinon False
@@ -167,9 +162,8 @@ def test_diagonale_up(configuration,joueur):
             if all([configuration[ligne-i][colonne+i] == jeton for i in range(4)]):
 
                 return True
-
     return False
-
+############################
 def test_diagonale_down(configuration,joueur):
     """
     Renvoie True si alignement selon diagonale descendante des jetons de joueur sinon False
@@ -208,9 +202,8 @@ def test_diagonale_down(configuration,joueur):
             if all([configuration[ligne+i][colonne+i] == jeton for i in range(4)]):
 
                 return True
-
     return False
-
+###############################################################EVOLUTION DU JEU À PARTIR DU CHOIX EXECUTÉ PAR LE JOUEUR######################################################
 def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     """
     : modifie la configuration du jeu en ajoutant le nouveau pion et en retournant le ou les pions de couleur opposée
@@ -259,13 +252,12 @@ def evolution_jeu(valeur_joueur,param_jeu,choix_joueur):
     
     colonne=choix_joueur-1
     
-    for ligne in range(5,-1,-1):
+    for ligne in range(5,-1,-1):#on parcourt les lignes de bas en haut à la recherche d'une ligne vacante dans la colonne choisie
         if param_jeu[ligne][colonne] == 0:
             param_jeu[ligne][colonne]=jeton
             return param_jeu
     return param_jeu
-
-
+######################################################################VALIDITÉ DU CHOIX DU JOUEUR################################################
 def test_validite_choix(valeur_joueur,lechoix,param_jeu):
     """
     : teste la validité d'une colonne
@@ -287,8 +279,8 @@ def test_validite_choix(valeur_joueur,lechoix,param_jeu):
     >>> test_validite_choix(True,1,config)
     True
     """  
-    return param_jeu[0][lechoix-1]==0
-
+    return param_jeu[0][lechoix-1]==0###il doit y avoir un espace vide à l'endroit choisi par le joueur###
+###########################################################On demande le choix du joueur sous la forme d'un numéro de colonne#########################
 def choix_joueur(valeur_joueur,param_jeu):
     """
     : Demande au joueur d'effectuer un choix de position
@@ -309,7 +301,7 @@ def choix_joueur(valeur_joueur,param_jeu):
         x=int(reponse)
         if test_validite_choix(valeur_joueur,x,param_jeu):
             return x
-    
+###############################################################TEST DU PLATEAU PLEIN###############################################################################    
 def test_jeu_rempli(param_jeu):
     """
     Renvoie True si le jeu est rempli sinon False
@@ -319,8 +311,7 @@ def test_jeu_rempli(param_jeu):
             if param_jeu[ligne][colonne]==0:
                 return False
     return True 
-    
-
+###############################################################DETERMINATION DE L'ÉTAT FINAL DE LA PARTIE##########################################################  
 def etat_final(param_jeu):
     """
     : vérification si fin jeu
@@ -351,8 +342,7 @@ def etat_final(param_jeu):
         return False, True
 
     return False, False
-
-
+###########################################################################RECHERCHE DES COUPS POSSIBLES##########################################################
 def coups_possibles(param_jeu):
     """
     Renvoie les colonnes jouables.
@@ -361,12 +351,10 @@ def coups_possibles(param_jeu):
     coups = []
 
     for colonne in range(1, 8):
-        if param_jeu[0][colonne - 1] == 0:
+        if param_jeu[0][colonne - 1] == 0:#######toutes les colonnes où la première ligne est vide sont possibles
             coups.append(colonne)
-
     return coups
-
-
+################################################################ÉVALUATION D'UN COUP GAGNANT POUR LA MACHINE OU L'HUMAIN##################################################################################################################
 def gagnant(param_jeu, valeur_joueur):
     return (
         test_ligne(param_jeu, valeur_joueur)
@@ -375,8 +363,7 @@ def gagnant(param_jeu, valeur_joueur):
         or test_diagonale_down(param_jeu, valeur_joueur)
     )
 
-
-def evaluation(param_jeu):
+def evaluation(param_jeu):##################renvoie +100 si la machine gagne, sinon -100 si l'humain gagne##########
     """
     +100 : la machine gagne
     -100 : l'humain gagne
@@ -389,10 +376,7 @@ def evaluation(param_jeu):
         return -100
 
     return 0
-
-
-
-
+#############################################################################################################################################################
 def action_joueur(valeur_joueur,param_jeu):
     """
     : permet de connaitre le nombre d'allumettes à enlever
@@ -400,9 +384,8 @@ def action_joueur(valeur_joueur,param_jeu):
     : return : int(choix) choix du joueur
     """
     lechoix=choix_joueur(valeur_joueur,param_jeu)
-    return lechoix
-    
-
+    return lechoix   
+#############################################################################################################################################################
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)

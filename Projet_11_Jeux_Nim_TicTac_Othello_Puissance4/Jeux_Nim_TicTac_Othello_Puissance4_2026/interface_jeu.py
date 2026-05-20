@@ -1,13 +1,7 @@
-# coding: UTF-8
-import jeu_nim #importation des fonctions du jeu Nim
-import jeu_tic_tac_toe #importation des fonctions du jeu tic tac toe
-import jeu_othello
-
+###########################################################################################################################
 import random
+choix_du_jeu=int(input('Saisir le jeu : [jeu nim : 1 |  jeu tic tac toe : 2 |  jeu othello :  3 | jeu puissance 4 : 4 ] : '))
 
-
-choix_du_jeu=int(input('Saisir le jeu : 1.jeu nim  ou  2. jeu tic tac toe ou 3. jeu othello ou 4. jeu puissance 4 : '))
-#si 1 importer fichier fonctions voyelle
 if choix_du_jeu==1:
     module = 'jeu_nim'
 elif choix_du_jeu==2:
@@ -17,47 +11,44 @@ elif choix_du_jeu==3:
 elif choix_du_jeu==4:
     module='jeu_puissance4'
     
-type_jeu=int(input('jeu contre humain : 1, ou contre machine hasard : 2, ou contre machine intelligente : 3 : '))
-
+type_jeu=int(input('Saisir le type de jeu : [contre humain : 1 | contre machine simple : 2 | contre machine intelligente : 3 ] : '))
     
 jeu=__import__(module)
-
-
+#################################################################LES DIFFERENTS COUPS DE LA MACHINE##############################################################
 def coup_machine_aleatoire(param_jeu):
     coups = jeu.coups_possibles(param_jeu)
     return random.choice(coups)
-
-
-def coup_machine_simple(param_jeu, valeur_joueur):
+##########
+def coup_machine_simple(param_jeu, valeur_joueur):#############pas de recherche avancée : la machine regarde si elle peut gagner immédiatement, ou se place là où l'adversaire peut gagner, ou hasard
     """
-    La machine joue un coup gagnant s'il existe,
-    sinon elle joue au hasard.
+    La machine joue un coup gagnant s'il existe, sinon elle joue au hasard.
     """
-    coups = jeu.coups_possibles(param_jeu)
+    coups = jeu.coups_possibles(param_jeu)########les coups possibles en fonction du jeu
     
 #1.Est-ce que je peux gagner maintenant ?
     
-    for ligne, colonne in coups:
+    for ligne, colonne in coups:######on fait le tour de ces coups possibles
         # on copie le plateau
         copie = [row[:] for row in param_jeu]
 
-        # on simule le coup
+        # on simule le coup sur cette copie
         copie= jeu.evolution_jeu(valeur_joueur,copie,(ligne,colonne))
 
-        # on regarde si ça gagne
+        # on regarde si ça gagne sur cette évolution du jeu
         per_gag, fini = jeu.etat_final(copie)
 
         if per_gag:
-            return (ligne, colonne)
+            return (ligne, colonne)######si le coup est gagnant, on le renvoie
 
 #2. Si je ne fais rien… est-ce que l’adversaire gagne au prochain coup ?
         
-    adversaire=not valeur_joueur
-    for ligne, colonne in coups:
+    adversaire=not valeur_joueur#######la machine se met à la place de l'adversaire humain
+    
+    for ligne, colonne in coups:######on fait le tour de ces coups possibles
         # on copie le plateau
         copie = [row[:] for row in param_jeu]
 
-        # on simule le coup
+        # on simule le coup sur cette copie
         copie= jeu.evolution_jeu(adversaire,copie,(ligne,colonne))
 
         # on regarde si ça gagne
@@ -65,41 +56,40 @@ def coup_machine_simple(param_jeu, valeur_joueur):
 
         if per_gag:
             return (ligne, colonne) 
-
+    ################################cas particulier du jeu_tic_tac_toe###################
+        if choix_du_jeu==3:
     # 3. prendre le centre si possible
-    if (1, 1) in coups:
-        return (1, 1)
-
+            if (1, 1) in coups:
+                return (1, 1)
     # 4. prendre un coin si possible
-    coins = [(0,0), (0,2), (2,0), (2,2)]
-    for coin in coins:
-        if coin in coups:
-            return coin
-
-    # 5. sinon hasard
+            coins = [(0,0), (0,2), (2,0), (2,2)]
+            for coin in coins:
+                if coin in coups:
+                    return coin
+    ##############################
+    # 5. sinon la machine joue au hasard
     return random.choice(coups)
-
+################################################################L'ALGORITHME DU MINIMAX SANS PROFONDEUR#################################
+##########utilisé dans le cas du jeu tic_tac_toe#############
 def minimax(param_jeu, valeur_joueur):
     """
     Renvoie la valeur d'une position.
-
     valeur_joueur = False : c'est à la machine de jouer, elle maximise.
     valeur_joueur = True  : c'est à l'humain de jouer, il minimise.
     """
     per_gag, fini = jeu.etat_final(param_jeu)
-
-    if fini:
+    if fini:####c'est la condition qui permet de sortir de la fonction récursive
         return jeu.evaluation(param_jeu)
-
+    
     coups = jeu.coups_possibles(param_jeu)
 
-    if valeur_joueur == False:
+    if valeur_joueur == False:#########cas de la machine
         meilleur_score = -1000
 
         for coup in coups:
             copie = [row[:] for row in param_jeu]
             copie = jeu.evolution_jeu(False, copie, coup)
-            score = minimax(copie, True)
+            score = minimax(copie, True)##############################minimax est une fonction récursive
 
             if score > meilleur_score:
                 meilleur_score = score
@@ -107,6 +97,7 @@ def minimax(param_jeu, valeur_joueur):
         return meilleur_score
 
     else:
+        
         meilleur_score = 1000
 
         for coup in coups:
@@ -118,12 +109,15 @@ def minimax(param_jeu, valeur_joueur):
                 meilleur_score = score
 
         return meilleur_score
-    
-    
+################################################################L'ALGORITHME DU MINIMAX AVEC PROFONDEUR#################################
+#########################utilisé dans le cas du puissance 4, ou du jeu Othello, la profondeur est choisie au départ, ici on prend 3###########
 def minimax_profondeur(param_jeu, valeur_joueur, profondeur):
+    """
+    Envoie la valeur d'une position.
+    """
     fini, per_gag = jeu.etat_final(param_jeu)
 
-    if fini or profondeur == 0:
+    if fini or profondeur == 0:#c'est la condition qui permet de sortir de la fonction récursive
         return jeu.evaluation(param_jeu)
 
     coups = jeu.coups_possibles(param_jeu)
@@ -135,7 +129,7 @@ def minimax_profondeur(param_jeu, valeur_joueur, profondeur):
             copie = [row[:] for row in param_jeu]
             copie = jeu.evolution_jeu(False, copie, coup)
 
-            score = minimax_profondeur(copie, True, profondeur - 1)
+            score = minimax_profondeur(copie, True, profondeur - 1)#la profondeur diminue d'une unité à chaque appel de la fonction minimax_profondeur
 
             if score > meilleur_score:
                 meilleur_score = score
@@ -155,30 +149,26 @@ def minimax_profondeur(param_jeu, valeur_joueur, profondeur):
                 meilleur_score = score
 
         return meilleur_score
-
-    
+#########################################################################COUP DE LA MACHINE##################################################    
 def coup_machine_minimax(param_jeu):
     coups = jeu.coups_possibles(param_jeu)
-
     meilleur_score = -1000
     meilleur_coup = None
-
     for coup in coups:
         copie = [row[:] for row in param_jeu]
         copie = jeu.evolution_jeu(False, copie, coup)
+        
         if choix_du_jeu==2:#morpion
             score = minimax(copie, True)       
         if choix_du_jeu==4:#puissance 4
-            score = minimax_profondeur(copie, True,3)
-        
-        
+            score = minimax_profondeur(copie, True,3)#on choisit une profondeur de 3        
 
-        if score > meilleur_score:
+        if score > meilleur_score:####on cherche le meilleur coup qui donne le meilleur score
             meilleur_score = score
             meilleur_coup = coup
 
     return meilleur_coup
-
+#########################################################################MESSAGE DU VAINQUEUR ou DE L'ÉGALITÉ#############################
 def aff_mess_vainqueur(valeur_joueur,per_gag):
     """
     : affichage du gagnant
@@ -218,34 +208,33 @@ jeu.aff_evolution_jeu(param_jeu)    #Affichage de l'état du jeu
 
 fini=False  #Initialisation de la situation du jeu
 
-while not fini: # Voir le point 3 de l'introduction : si le jeu n'est pas fini
-
-################################################################################
-    if type_jeu==1:
+################################LA BOUCLE COMMUNE À TOUS LES JEUX################################################
+while not fini:
+    
+    if type_jeu==1:#contre humain
         choix=jeu.action_joueur(valeur_joueur,param_jeu)
-    elif type_jeu==2:
+        
+    elif type_jeu==2:#contre machine simple
         if valeur_joueur:
             choix=jeu.action_joueur(valeur_joueur,param_jeu)
         else:
-#             choix=coup_machine_aleatoire(param_jeu)
-            choix = coup_machine_minimax(param_jeu)
+            choix=coup_machine_simple(param_jeu, valeur_joueur)
+            print()
 
-    else:
+    else:#contre machine intelligente
         if valeur_joueur:
             choix=jeu.action_joueur(valeur_joueur,param_jeu)
         else:
-#             choix=coup_machine_simple(param_jeu, valeur_joueur)
             choix = coup_machine_minimax(param_jeu)
             print()        
-            
-        
-    param_jeu=jeu.evolution_jeu(valeur_joueur,param_jeu,choix)
-    jeu.aff_evolution_jeu(param_jeu)
-    per_gag,fini=jeu.etat_final(param_jeu)
-    valeur_joueur=not(valeur_joueur)
+                    
+    param_jeu=jeu.evolution_jeu(valeur_joueur,param_jeu,choix)#########on fait évoluer le jeu
+    jeu.aff_evolution_jeu(param_jeu)#########on affiche le jeu
+    per_gag,fini=jeu.etat_final(param_jeu)#######on regarde l'état du jeu
+    valeur_joueur=not(valeur_joueur)#########on change de joueur
 
-################################################################################
+############################################################################################
 
 aff_mess_vainqueur(not(valeur_joueur),per_gag)   # jeu fini et affichage du résultat.
-# cette ligne de code sera réalisée lorsque la partie sera finie
+# cette ligne de code sera réalisée lorsque la partie sera finie, à la sortie de la boucle précédente.
 
