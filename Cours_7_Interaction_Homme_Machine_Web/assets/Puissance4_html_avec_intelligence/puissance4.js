@@ -1,4 +1,4 @@
-//#########################Déclaration des variables####################
+/* =====================Déclaration des variables======================== */
 var interval;
 var choix_colonne;
 var ligne;
@@ -9,9 +9,12 @@ var cas;
 var joueur;
 joueur = 1;
 var animationEnCours = false;
-//###########################Initialisation de la partie#####################
+
+/* =====================Initialisation de la partie======================== */
+
 init();
-//###########################SELECTION D'UNE COLONNE LORS DU SURVOL#####################
+
+/* =====================SELECTION D'UNE COLONNE LORS DU SURVOL======================== */
 //Rappel : chiffre des dizaines = colonne à partir de 1 ; chiffre des unités = ligne à partir de 0
 
 function selection(colonne){
@@ -30,14 +33,15 @@ function selection(colonne){
         //on rend la colonne choisie de plus faible opacité pour la distinguer
         if (joueur == 1) {
             document.getElementById(colonne + "" + 0 + "").innerHTML = '<img src="rouge1.png" />';
-        //dans la première ligne, on met un jeuton rouge
+        //dans la première ligne, on met un jeton rouge
         } else {
             document.getElementById(colonne + "" + 0 + "").innerHTML = '<img src="jaune1.png" />';
-        //dans la première ligne, on met un jeuton jaune
+        //dans la première ligne, on met un jeton jaune
         }
     }
 }
-//###########################EFFET DU CLIC SUR UNE COLONNE#####################
+
+/* =====================EFFET DU CLIC SUR UNE COLONNE#======================== */
 function jeu(colonne){
 
     if(animationEnCours) return;//le clic sur la colonne est inactif au cours de l'animation
@@ -45,14 +49,17 @@ function jeu(colonne){
     choix_colonne = colonne;
     ligne = 0;
 
-    if(table[choix_colonne+""+1] == "vide"){//on regarde si la première ligne est vide
+    if(table[choix_colonne+""+1] == "vide"){
+// On vérifie que la colonne n'est pas pleine
+// (la case supérieure du plateau réel doit être libre).
         animationEnCours = true;//l'animation peut être lancée
         interval = setInterval(anim,150);//l'animation se poursuit toutes les 150 ms
     } else {
         alert("Coup impossible");//alert lance un message d'erreur à l'écran
     }
 }
-//###########################L'ANIMATION QUI FAIT DESCENDRE LE JETON#####################
+
+/* =====================L'ANIMATION QUI FAIT DESCENDRE LE JETON======================== */
 function anim(){
 
     ligne += 1;//on descend d'une ligne à chaque fois que anim est lancé
@@ -72,9 +79,12 @@ function anim(){
     //on met un vide à la première ligne dans cette colonne
 
     cas = parseInt(choix_colonne + "" + ligne);
-    //parseInt transforme une chaîne de caractères en nombre entier
+    // Construction de l'identifiant de la case
+    // (exemple : colonne 3, ligne 5 → case 35).
 
-    if (ligne>=6 || table[cas+1] != "vide") {//
+    if (ligne>=6 || table[cas+1] != "vide") {
+// Le jeton s'arrête s'il atteint le bas du plateau
+// ou si la case située juste en dessous est déjà occupée.
 
         if (joueur == 1) {
             table[cas] = "rouge";
@@ -120,7 +130,9 @@ if (detection(liste_jaune)) {//détection d'un alignement pour les jaunes
         }
     }
 }
-//########################################LA DETECTION DES CAS GAGNANTS######################
+
+/* =====================LA DETECTION DES CAS GAGNANTS======================== */
+
 function detection(liste) {//la détection est faite sur liste_rouge et sur liste_jaune
 
     // la verticale
@@ -170,7 +182,9 @@ function detection(liste) {//la détection est faite sur liste_rouge et sur list
     return false;
 }
 
-function init() {//vide le plateau
+// Initialise toutes les cases du plateau à l'état "vide".
+
+function init() {
 
     for(j=10;j<77;j++){
         table[j] = "vide";
@@ -200,12 +214,16 @@ function coupsPossibles(){
         }
     }
 
-    return coups;
-/* une colonne est jouable si sa première case du plateau
-   (11, 21, 31, ...) est encore vide */
+// Une colonne est jouable si sa case supérieure
+// (11, 21, 31...) est encore vide.
+return coups;
+
 }
 /* ========================= COPIE DU TABLEAU=============== */
-function copiertableeau(obj){
+// Crée une copie indépendante du plateau
+// afin que Minimax puisse simuler des coups sans modifier le vrai jeu.
+
+function copierTableau(obj){
     return JSON.parse(JSON.stringify(obj));
 }
 
@@ -228,7 +246,7 @@ function trouverLigne(colonne, plateau){
 
 function simulerCoup(colonne, couleur, plateau){//renvoie l'état du plateau sur une copie
 
-    var nouveau = copiertableeau(plateau);
+    var nouveau = copierTableau(plateau);
 
     var l = trouverLigne(colonne, nouveau);
 
@@ -257,22 +275,74 @@ function listeCouleur(plateau, couleur){
 
 /* ========================= FONCTION D'ÉVALUATION =============== */
 
+
+function compterAlignements(plateau, couleur, taille){
+
+    var total = 0;
+
+    var directions = [1,10,11,9];
+
+    for(var caseID in plateau){
+
+        caseID = parseInt(caseID);
+
+        if(plateau[caseID] != couleur) continue;
+
+        for(var d=0; d<directions.length; d++){
+
+            var direction = directions[d];
+            var ok = true;
+
+            for(var k=1; k<taille; k++){
+
+                var suivante = caseID + direction*k;
+
+                if(plateau[suivante] != couleur){
+                    ok = false;
+                    break;
+                }
+            }
+
+            if(ok){
+                total++;
+            }
+        }
+    }
+
+    return total;
+}
+
 function evaluation(plateau){
+
+// Attribue un score au plateau.
+// Plus le score est élevé, plus la position est favorable à la machine (jaune).
+// Version simple : compte uniquement le nombre de jetons.
 
     var score = 0;
 
-    var jaune = listeCouleur(plateau, "jaune");
-    var rouge = listeCouleur(plateau, "rouge");
+    // bonus centre
 
-    score += jaune.length * 2;
-    score -= rouge.length * 2;
+    if(plateau[43]=="jaune") score += 3;
+
+    // alignements
+
+    score += compterAlignements(plateau,"jaune",3)*50;
+
+    score += compterAlignements(plateau,"jaune",2)*10;
+
+    score -= compterAlignements(plateau,"rouge",3)*50;
+
+    score -= compterAlignements(plateau,"rouge",2)*10;
 
     return score;
+
 }
 /* ========================= FONCTION MINIMAX =============== */
 function minimax(plateau, profondeur, maximisant){
 //maximisant vaut true pour les jaunes (machine)
 // et false pour les rouges (joueur humain)
+// Explore récursivement les coups possibles jusqu'à une profondeur donnée
+// puis renvoie le score estimé du plateau obtenu.
 
     var jaune = listeCouleur(plateau, "jaune");
     var rouge = listeCouleur(plateau, "rouge");
@@ -333,6 +403,8 @@ function minimax(plateau, profondeur, maximisant){
 }
 /* ========================= FONCTION COUP MACHINE =============== */
 function coupMachineMinimax(){
+// Teste chaque colonne disponible
+// et conserve celle qui obtient le meilleur score Minimax.
 
     var coups = coupsPossibles();
 
@@ -356,6 +428,7 @@ function coupMachineMinimax(){
     return meilleurCoup;
 }
 
+// Lance automatiquement le tour de l'ordinateur.
 function jouerMachine(){
 
     var colonne = coupMachineMinimax();

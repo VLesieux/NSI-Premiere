@@ -354,7 +354,7 @@ def coups_possibles(param_jeu):
         if param_jeu[0][colonne - 1] == 0:#######toutes les colonnes où la première ligne est vide sont possibles
             coups.append(colonne)
     return coups
-################################################################ÉVALUATION D'UN COUP GAGNANT POUR LA MACHINE OU L'HUMAIN##################################################################################################################
+################################################################ÉVALUATION D'UNE POSITION POUR LA MACHINE OU L'HUMAIN##################################################################################################################
 def gagnant(param_jeu, valeur_joueur):
     return (
         test_ligne(param_jeu, valeur_joueur)
@@ -363,19 +363,85 @@ def gagnant(param_jeu, valeur_joueur):
         or test_diagonale_down(param_jeu, valeur_joueur)
     )
 
-def evaluation(param_jeu):##################renvoie +100 si la machine gagne, sinon -100 si l'humain gagne##########
+
+def compter_alignements(param_jeu, valeur_joueur, taille):
     """
-    +100 : la machine gagne
-    -100 : l'humain gagne
-       0 : position neutre
+    Compte les alignements de longueur `taille` pour un joueur.
+    C'est l'adaptation Python de compterAlignements(...) du fichier JavaScript.
+
+    valeur_joueur = True  -> joueur humain, jeton 1
+    valeur_joueur = False -> machine, jeton 2
     """
+    if valeur_joueur:
+        jeton = 1
+    else:
+        jeton = 2
+
+    total = 0
+
+    # directions : verticale, horizontale, diagonale descendante, diagonale montante
+    directions = [(1, 0), (0, 1), (1, 1), (-1, 1)]
+
+    for ligne in range(6):
+        for colonne in range(7):
+            if param_jeu[ligne][colonne] != jeton:
+                continue
+
+            for d_ligne, d_colonne in directions:
+                ok = True
+
+                for k in range(1, taille):
+                    nouvelle_ligne = ligne + d_ligne * k
+                    nouvelle_colonne = colonne + d_colonne * k
+
+                    if not (0 <= nouvelle_ligne < 6 and 0 <= nouvelle_colonne < 7):
+                        ok = False
+                        break
+
+                    if param_jeu[nouvelle_ligne][nouvelle_colonne] != jeton:
+                        ok = False
+                        break
+
+                if ok:
+                    total += 1
+
+    return total
+
+
+def evaluation(param_jeu):
+    """
+    Attribue un score au plateau.
+    Plus le score est élevé, plus la position est favorable à la machine.
+
+    +1000 : la machine gagne
+    -1000 : l'humain gagne
+    sinon : score heuristique inspiré du JavaScript
+    """
+    # Scores très forts pour les positions terminales.
+    # Ils remplacent l'ancien +100 / -100 et rendent le minimax plus net.
     if gagnant(param_jeu, False):  # joueur II = machine
-        return 100
+        return 1000
 
     if gagnant(param_jeu, True):   # joueur I = humain
-        return -100
+        return -1000
 
-    return 0
+    score = 0
+
+    # Bonus centre : dans le JavaScript, la case centrale 43 vaut +3 pour la machine.
+    # Ici, on donne le même bonus à chaque jeton machine placé dans la colonne centrale.
+    for ligne in range(6):
+        if param_jeu[ligne][3] == 2:
+            score += 3
+
+    # Alignements favorables à la machine.
+    score += compter_alignements(param_jeu, False, 3) * 50
+    score += compter_alignements(param_jeu, False, 2) * 10
+
+    # Alignements favorables à l'humain : on les pénalise.
+    score -= compter_alignements(param_jeu, True, 3) * 50
+    score -= compter_alignements(param_jeu, True, 2) * 10
+
+    return score
 #############################################################################################################################################################
 def action_joueur(valeur_joueur,param_jeu):
     """

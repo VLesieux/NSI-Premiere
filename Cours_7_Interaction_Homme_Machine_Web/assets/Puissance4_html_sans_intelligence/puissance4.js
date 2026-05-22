@@ -98,7 +98,7 @@ if (detection(liste_jaune)) {
 function detection(liste) {
 
 
-/* dÃ©tection verticale */
+/* dÃ©tection verticale : */
 
 for (var i=0;i<liste.length;i++) {
 
