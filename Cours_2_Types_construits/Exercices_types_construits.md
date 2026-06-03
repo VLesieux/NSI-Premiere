@@ -617,7 +617,7 @@ def total_conso(informations,jour):
     
 def fuite_possible(informations,jour):
     """
-    renvoie true si il n'y a pas trois valeurs consécutives non nulles entre 00:00 et 05:00
+    renvoie True si il y a trois valeurs consécutives non nulles entre 00:00 et 05:00
     >>> fuite_possible(donnees,"2025-02-04")
     False
     >>> fuite_possible(donnees,"2025-02-05")
