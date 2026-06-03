@@ -516,13 +516,18 @@ Les données sont fournies sous forme d’une **liste de dictionnaires**.
 
 On considère que cette liste est triée par jour et heure croissant.
 Chaque mesure est un dictionnaire contenant :
+
 • "jour" : le jour de la mesure (chaîne de caractères au format “AAAA-MM-JJ”) ;
+
 • "heure" : l’heure de la mesure (chaîne de caractères au format “HH:MM”) ;
+
 • "chaude" : le volume d’eau chaude consommé en litres depuis la mesure précédente
 (entier) ;
+
 • "froide" : le volume d’eau froide consommé en litres depuis la mesure précédente (entier).
-Exemple de mesure :
-{"jour": "2025-02-04", "heure": "08:00", "chaude": 5, "froide": 8}
+
+Exemple de mesure : {"jour": "2025-02-04", "heure": "08:00", "chaude": 5, "froide": 8}
+
 La consommation totale d’une mesure est la somme de l’eau chaude et de l’eau froide.
 L’objectif de ce sujet est d’écrire plusieurs fonctions manipulant ces données, puis d’analyser et de corriger une fonction existante qui contient une erreur.
 
