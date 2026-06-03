@@ -512,7 +512,7 @@ On obtiendra par exemple après un laps de temps :
 
 Les compteurs d’eau modernes permettent de mesurer automatiquement la consommation d’un
 foyer. Ils enregistrent, chaque heure, plusieurs informations.
-Les données sont fournies sous forme d’une liste de dictionnaires.
+Les données sont fournies sous forme d’une **liste de dictionnaires**.
 
 On considère que cette liste est triée par jour et heure croissant.
 Chaque mesure est un dictionnaire contenant :
