@@ -545,15 +545,11 @@ les mesures pour ce jour**.
 
 Par convention, si aucune mesure n’existe pour ce jour, la fonction renvoie None.
 
-Par exemple :
-
-“‘ python »> total_conso(donnees, “2025-02-04”) 33 »> total_conso(donnees, “2025-12-25”)
-»>
-
 2) On considère que la nuit, quand tout le monde dort, la consommation d’eau n’est pas censée
 être supérieure à zéro pendant plusieurs heures consécutives. Une fuite est donc suspectée
 lorsqu’il y a au moins 3 mesures consécutives entre 00:00 et 05:00 inclus où la consommation
 totale est toujours non nulle (eau chaude + eau froide > 0).
+
 Écrire une fonction `fuite_possible` qui renvoie True si une fuite est possible ce jour-là,
 False sinon. Cette fonction prend en paramètres : 
 
@@ -570,6 +566,13 @@ Cet exemple renverrait True, car **il y a** trois mesures consécutives non null
 Heure 00:00 01:00 02:00 03:00
 Consommation **2 1 1** 0
 
+Indications : faire une liste `releves` pour toutes les mesures chaude + froide compris entre "00:00" et "05:00"
+
+Remarque : 
+```Python
+>>> "03:00">"02:00"
+True
+```
 
 3) Écrire une fonction `lissage_conso` censée calculer une moyenne sur 3 valeurs pour lisser les mesures de la consommation.
 
