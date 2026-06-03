@@ -529,26 +529,9 @@ Chaque mesure est un dictionnaire contenant :
 Exemple de mesure : {"jour": "2025-02-04", "heure": "08:00", "chaude": 5, "froide": 8}
 
 La consommation totale d’une mesure est la somme de l’eau chaude et de l’eau froide.
-L’objectif de ce sujet est d’écrire plusieurs fonctions manipulant ces données, puis d’analyser et de corriger une fonction existante qui contient une erreur.
 
-```Python
-donnees = [
-    {"jour": "2025-02-04", "heure": "00:00", "chaude": 2, "froide": 3},
-    {"jour": "2025-02-04", "heure": "01:00", "chaude": 1, "froide": 2},
-    {"jour": "2025-02-04", "heure": "02:00", "chaude": 0, "froide": 0},
-    {"jour": "2025-02-04", "heure": "03:00", "chaude": 0, "froide": 0},
-    {"jour": "2025-02-04", "heure": "04:00", "chaude": 0, "froide": 1},
-    {"jour": "2025-02-04", "heure": "05:00", "chaude": 0, "froide": 0},
-    {"jour": "2025-02-04", "heure": "06:00", "chaude": 4, "froide": 6},
-    {"jour": "2025-02-04", "heure": "07:00", "chaude": 6, "froide": 8},
-    {"jour": "2025-02-05", "heure": "00:00", "chaude": 0, "froide": 0},
-    {"jour": "2025-02-05", "heure": "01:00", "chaude": 1, "froide": 1},
-    {"jour": "2025-02-05", "heure": "02:00", "chaude": 1, "froide": 1},
-    {"jour": "2025-02-05", "heure": "03:00", "chaude": 1, "froide": 1},
-    {"jour": "2025-02-05", "heure": "04:00", "chaude": 0, "froide": 0},
-    {"jour": "2025-02-05", "heure": "05:00", "chaude": 0, "froide": 0},
-]
-```
+L’objectif de ce sujet est d’écrire plusieurs fonctions manipulant ces données.
+
 
 1) Écrire une fonction `total_conso` qui prend en paramètres :
 
@@ -588,37 +571,71 @@ Heure 00:00 01:00 02:00 03:00
 Consommation **2 1 1** 0
 
 
-3) On donne la fonction `lissage_conso` censée calculer une moyenne sur 3 valeurs pour lisser les mesures de la consommation.
+3) Écrire une fonction `lissage_conso` censée calculer une moyenne sur 3 valeurs pour lisser les mesures de la consommation.
+
+Pour les cas particuliers : 
+
+- Premier élément : faire la moyenne du premier et du deuxième 
+- Dernier élément : faire la moyenne du dernier et de l’avant-dernier
+
+Pour les éléments intermédiaires : faire la moyenne de trois valeurs (précédente, actuelle, suivante)
 
 ```Python
+
+donnees = [
+    {"jour": "2025-02-04", "heure": "00:00", "chaude": 2, "froide": 3},
+    {"jour": "2025-02-04", "heure": "01:00", "chaude": 1, "froide": 2},
+    {"jour": "2025-02-04", "heure": "02:00", "chaude": 0, "froide": 0},
+    {"jour": "2025-02-04", "heure": "03:00", "chaude": 0, "froide": 0},
+    {"jour": "2025-02-04", "heure": "04:00", "chaude": 0, "froide": 1},
+    {"jour": "2025-02-04", "heure": "05:00", "chaude": 0, "froide": 0},
+    {"jour": "2025-02-04", "heure": "06:00", "chaude": 4, "froide": 6},
+    {"jour": "2025-02-04", "heure": "07:00", "chaude": 6, "froide": 8},
+    {"jour": "2025-02-05", "heure": "00:00", "chaude": 0, "froide": 0},
+    {"jour": "2025-02-05", "heure": "01:00", "chaude": 1, "froide": 1},
+    {"jour": "2025-02-05", "heure": "02:00", "chaude": 1, "froide": 1},
+    {"jour": "2025-02-05", "heure": "03:00", "chaude": 1, "froide": 1},
+    {"jour": "2025-02-05", "heure": "04:00", "chaude": 0, "froide": 0},
+    {"jour": "2025-02-05", "heure": "05:00", "chaude": 0, "froide": 0},
+]
+
+def total_conso(informations,jour):
+    """
+    renvoie la consommation totale d'eau le jour donné
+    param : informations : list
+    param : jour : str
+    return : int ou None
+    >>> total_conso(donnees, "2025-02-04")
+    33
+    >>> total_conso(donnees, "2025-12-25")
+    
+    """
+	pass
+    
+def fuite_possible(informations,jour):
+    """
+    renvoie true si il n'y a pas trois valeurs consécutives non nulles entre 00:00 et 05:00
+    >>> fuite_possible(donnees,"2025-02-04")
+    False
+    >>> fuite_possible(donnees,"2025-02-05")
+    True
+    """
+	pass
+
+
 def lissage_conso(valeurs):
     """
     Calcule une moyenne glissante sur les valeurs.
     Pour chaque valeur, on calcule la moyenne avec ses voisins.
+    param : valeurs : list
+    >>> lissage_conso([10, 20, 30, 40, 50])
+    [15.0, 20.0, 30.0, 40.0, 45.0]
     """
-    
-    lisse = []
-    for i in range(len(valeurs)):
-        if i == 0:
-            m = (valeurs[i] + valeurs[i+1]) / 2
-        elif i == len(valeurs)-1:
-            m = (valeurs[i-1] + valeurs[i]) / 2
-        else:
-            m = (valeurs[i-1] + valeurs[i] + valeurs[i+1]) / 2
-        lisse.append(m)
-    
-    return lisse
+    pass
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
 ```
-
-Pour les cas particuliers : - Premier élément : faire la moyenne du premier et du deuxième -
-Dernier élément : faire la moyenne du dernier et de l’avant-dernier
-Pour les éléments intermédiaires : faire la moyenne de trois valeurs (précédente, actuelle, suivante)
-
-La fonction doit toujours renvoyer une liste de même taille que la liste d’origine.
-Pour chaque valeur, on fait la moyenne avec ses voisins (précédent et suivant). Cependant,
-cette fonction contient une erreur.
-
-Expliquer pourquoi la fonction lissage_conso, testée avec la liste suivante, présente un
-résultat incorrect, et proposer une correction.
-
-test = [10, 20, 30, 40, 50]
