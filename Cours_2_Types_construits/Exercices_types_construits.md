@@ -550,14 +550,22 @@ donnees = [
 ]
 ```
 
-1) Écrire une fonction `total_conso` qui prend en paramètres : - donnees : une liste de
-mesures - jour : une chaîne représentant le jour (ex. “2025-02-04”)
-et renvoie la consommation totale d’eau (somme de l’eau chaude et de l’eau froide) de toutes
-les mesures pour ce jour.
-Par convention, si aucune mesure n’existe pour ce jour, la fonction renvoie None. Par exemple
-:
+1) Écrire une fonction `total_conso` qui prend en paramètres :
+
+- donnees : une liste de mesures 
+
+- jour : une chaîne représentant le jour (ex. “2025-02-04”)
+
+et renvoie la consommation totale d’eau (somme de l’eau chaude et de l’eau froide) de **toutes
+les mesures pour ce jour**.
+
+Par convention, si aucune mesure n’existe pour ce jour, la fonction renvoie None.
+
+Par exemple :
+
 “‘ python »> total_conso(donnees, “2025-02-04”) 33 »> total_conso(donnees, “2025-12-25”)
 »>
+
 2) On considère que la nuit, quand tout le monde dort, la consommation d’eau n’est pas censée
 être supérieure à zéro pendant plusieurs heures consécutives. Une fuite est donc suspectée
 lorsqu’il y a au moins 3 mesures consécutives entre 00:00 et 05:00 inclus où la consommation
