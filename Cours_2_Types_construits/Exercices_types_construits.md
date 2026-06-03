@@ -585,7 +585,7 @@ Consommation 5 3 0 3
 Cet exemple renverrait True, car **il y a** trois mesures consécutives non nulles :
 
 Heure 00:00 01:00 02:00 03:00
-Consommation 2 1 1 0
+Consommation **2 1 1** 0
 
 
 3) On donne la fonction `lissage_conso` censée calculer une moyenne sur 3 valeurs pour lisser les mesures de la consommation.
