@@ -552,9 +552,9 @@ donnees = [
 
 1) Écrire une fonction `total_conso` qui prend en paramètres :
 
-- donnees : une liste de mesures 
+- informations : une liste de mesures 
 
-- jour : une chaîne représentant le jour (ex. “2025-02-04”)
+- jour : une chaîne de caractères représentant la date du jour, au format “AAAA-MM-JJ” (ex. “2025-02-04”)
 
 et renvoie la consommation totale d’eau (somme de l’eau chaude et de l’eau froide) de **toutes
 les mesures pour ce jour**.
@@ -573,15 +573,16 @@ lorsqu’il y a au moins 3 mesures consécutives entre 00:00 et 05:00 inclus où
 totale est toujours non nulle (eau chaude + eau froide > 0).
 Écrire une fonction `fuite_possible` qui renvoie True si une fuite est possible ce jour-là,
 False sinon. Cette fonction prend en paramètres : 
-- donnees : une liste de mesures 
-- jour : une chaîne de caractères représentant la date, au format “AAAA-MM-JJ”
 
-Cet exemple renverrait False, car il n’y a pas trois mesures consécutives non nulles :
+- informations : une liste de mesures 
+- jour : une chaîne de caractères représentant la date du jour, au format “AAAA-MM-JJ” (ex. “2025-02-04”)
+
+L'exemple suivant renverrait False, car **il n’y a pas** trois mesures consécutives non nulles :
 
 Heure 00:00 01:00 02:00 03:00
 Consommation 5 3 0 3
 
-Cet exemple renverrait True, car il y a trois mesures consécutives non nulles :
+Cet exemple renverrait True, car **il y a** trois mesures consécutives non nulles :
 
 Heure 00:00 01:00 02:00 03:00
 Consommation 2 1 1 0
