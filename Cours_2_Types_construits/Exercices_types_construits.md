@@ -571,6 +571,8 @@ Cet exemple renverrait True, car il y a trois mesures consécutives non nulles :
 
 Heure 00:00 01:00 02:00 03:00
 Consommation 2 1 1 0
+
+
 3) On donne la fonction `lissage_conso` censée calculer une moyenne sur 3 valeurs pour lisser les mesures de la consommation.
 
 ```Python
@@ -596,9 +598,12 @@ def lissage_conso(valeurs):
 Pour les cas particuliers : - Premier élément : faire la moyenne du premier et du deuxième -
 Dernier élément : faire la moyenne du dernier et de l’avant-dernier
 Pour les éléments intermédiaires : faire la moyenne de trois valeurs (précédente, actuelle, suivante)
+
 La fonction doit toujours renvoyer une liste de même taille que la liste d’origine.
 Pour chaque valeur, on fait la moyenne avec ses voisins (précédent et suivant). Cependant,
 cette fonction contient une erreur.
+
 Expliquer pourquoi la fonction lissage_conso, testée avec la liste suivante, présente un
 résultat incorrect, et proposer une correction.
+
 test = [10, 20, 30, 40, 50]
