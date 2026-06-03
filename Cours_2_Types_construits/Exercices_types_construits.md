@@ -559,6 +559,7 @@ donnees = [
 et renvoie la consommation totale d’eau (somme de l’eau chaude et de l’eau froide) de **toutes
 les mesures pour ce jour**.
 
+
 Par convention, si aucune mesure n’existe pour ce jour, la fonction renvoie None.
 
 Par exemple :
