@@ -2,13 +2,23 @@
 
 ## Introduction
 
-Quelques éléments d'histoire : le langage Python a été créé en 1989 par le développeur néerlandais Guido van Rossum né en 1956 à Haarlem près d'Amsterdam. Il a fait ses études de mathématiques à l’université d'Amsterdam, obtenant son master en 1982. Il fit partie des développeurs du langage ABC (successeur du BASIC). En 1989, profitant d’une semaine de vacances durant les fêtes de Noël, il utilise son ordinateur personnel pour écrire la première version du langage. Fan de la série télévisée _Monty Python's Flying Circus_ créée par la BBC, il décide avec humour de baptiser ce projet Python. En **1991** sort la première version publique du langage. En 2002, il a reçu le prix pour le développement du logiciel libre décerné par la FSF (Free Sofware Foundation) pour récompenser son travail. Fin 2005, il a été engagé par Google pour travailler sur Python. En décembre 2012, il quitte Google pour rejoindre Dropbox. Le 12 juillet 2018, il annonce son retrait en tant que Benevolent Dictator for Life du projet Python.   
+Quelques éléments d'histoire : le langage Python a été créé en 1989 par le développeur néerlandais Guido van Rossum né en 1956 à Haarlem près d'Amsterdam. Il a fait ses études de mathématiques à l’université d'Amsterdam, obtenant son master en 1982. Il fit partie des développeurs du langage ABC (successeur du BASIC). En 1989, profitant d’une semaine de vacances durant les fêtes de Noël, il utilise son ordinateur personnel pour écrire la première version du langage. Fan de la série télévisée _Monty Python's Flying Circus_ créée par la BBC, il décide avec humour de baptiser ce projet Python. En **1991** sort la première version publique du langage. En 2002, il a reçu le prix pour le développement du logiciel libre décerné par la FSF (Free Software Foundation) pour récompenser son travail. Fin 2005, il a été engagé par Google pour travailler sur Python. En décembre 2012, il quitte Google pour rejoindre Dropbox. Le 12 juillet 2018, il annonce son retrait en tant que Benevolent Dictator for Life du projet Python.   
 
-Un programme est composé de **séquences** : des **instructions** exécutées les unes après les autres dans l'ordre où elles sont écrites, de définitions de **variables** et de **fonctions**, d'**instructions conditionnelles**, de **bloucles conditionnelles**  ou **non conditionnelles**, utilisant des **expressions**, en particulier des **appels de fonctions**.   
+Un programme est composé de **séquences** : des **instructions** exécutées les unes après les autres dans l'ordre où elles sont écrites, de définitions de **variables** et de **fonctions**, d'**instructions conditionnelles**, de **bloucles conditionnelles**  ou **non conditionnelles**, utilisant des **expressions**, en particulier des **appels de fonctions**.
+   
 Une **instruction** est une commande que doit exécuter la machine tandis qu'une **expression** est un valeur renvoyée généralement par une fonction suite à une combinaison d'opérations.
 
 HTML, CSS ne sont pas des langages de programmation mais de description à la différence de Python ou C++.
 
+Exemple:
+```Python
+x = 5#on associe la valeur 5 au nom x
+y = 3#on associe la valeur 3 au nom y
+z = x + y
+# (x+y) est une expression évaluée et vaut 8
+#  z = x + y est une instruction d’affectation : z reçoit la valeur 8.
+print(z)
+```
 
 ## Les attendus du programme
 
@@ -17,7 +27,7 @@ HTML, CSS ne sont pas des langages de programmation mais de description à la di
 
 ## I. Variables ; affectation d'une valeur à une variable
 
-Les **données** utilisées par les programmes sont stockées dans des **variables**, ce qui se fait en réalisant une **affectation** en utilisant l'**opérateur d'affectation** `=` . 
+Une **variable** est un nom auquel on associe une valeur. L’**instruction d’affectation** `=` permet d’associer une valeur à une variable.
 
 Exemple :
 
@@ -34,10 +44,7 @@ Exemple :
 On peut aussi réaliser des **affectations multiples** pour remplacer une **séquence d'instructions** par une instruction unique.
 
 ```Python
->>> x,y,z=3,4,x+y
-# Une instruction unique en remplace trois
->>> z
-7
+>>> x,y=3,4
 ```
 
 En fait chaque variable possède un nom ou identificateur et possède une **adresse en mémoire** donnée ici en décimal que l'on peut obtenir grâce à `id(object)`.
@@ -47,8 +54,6 @@ En fait chaque variable possède un nom ou identificateur et possède une **adre
 4460309648
 >>> id(y)
 4460309680
->>> id(z)
-4460309776
 ```
 
 > Exemple : Soit le script suivant :
@@ -95,7 +100,7 @@ else:#else est toujours suivi immédiatement de deux points
 
 ## III. Boucles conditionnelles et boucles non conditionnelles
 
-1) Une **bloucle conditionnelle** et **non bornée** se fait avec l'instruction `while`: la boucle s'exécute aussi longtemps que la condition booléenne est **True**.
+1) Une **bloucle conditionnelle** ou boucle **non bornée** se fait avec l'instruction `while`: la boucle s'exécute aussi longtemps que la condition booléenne est **True**. Mais on ne connaît pas nécessairement à l'avance le nombre d'itérations.
 
 Dans l'exemple ci-dessous, la condition booléenne est i<3 ; en effet, elle peut être True ou False.
 
@@ -174,7 +179,11 @@ On suit l'évolution des variables s et n en réalisant un tableau :
 </table>
 
 
-2) Une  **bloucle non conditionnelle**  mais **bornée** se fait avec `for i in range(n)` qui produit **n** tours de boucle car i comme à 0 et s'arrête à n-1  :
+2) Une  **bloucle non conditionnelle**  mais **bornée** se fait avec `for i in range(n)` qui produit **n** tours de boucle car i commence à 0 et s'arrête à n-1, on connaît donc exactement le nombre d'itérations.
+
+`range(début, fin, pas)`
+
+fin est toujours exclue.
 
 ```Python
 for i in range(3):#i prend 3 valeurs entières successives à partir de 0 jusque 2, 3 étant exclu
@@ -208,16 +217,16 @@ def tranche_age(age):
     : return : string
     : CU: age est un nombre
     : Exemples :
-    >>> tranche_age(13.5)
+    >>> tranche_age(13)
     'adolescent'
     >>> tranche_age(48)
     'adulte'
     """
     if age<10:
         qualificatif='enfant'
-    elif age>=10 and age<=18:
+    elif age<=18:
         qualificatif='adolescent'
-    elif age>19 and age<=70:
+    elif age<=70:
         qualificatif='adulte'
     else:
         qualificatif='personne agée'
@@ -235,7 +244,7 @@ tranche_age(age)
     : return : string
     : CU: age est un nombre
     : Exemples :
-    >>> tranche_age(13.5)
+    >>> tranche_age(13)
     'adolescent'
     >>> tranche_age(48)
     'adulte'
@@ -336,7 +345,7 @@ def division(a,b):
     renvoie le quotient et le reste de la division euclidienne de a par b sans utiliser les opérateurs // et %
     : param a : (int)
     : param b : (int)
-    : CU : b non nul
+    : CU : a est un entier positif ou nul et b est un entier strictement positif
     : Exemples :
     >>> division(12,4)
     (3, 0)
@@ -370,7 +379,10 @@ liste2=[f(u) for u in liste1]
 ### 5) Gestion des erreurs
 
 Un mécanisme d'**assertion** proposé par Python permet de vérifier les préconditions d'une fonction.  
-Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères. L'instruction `assert` teste si sa condition est satisfaite. Si c'est le cas, elle ne fait rien mais arrête immédiatement l'exécution du programme en affichant la phrase qui lui est associée.
+Une telle instruction se compose d'une condition (une expression booléenne) éventuellement suivie d'une virgule et d'une phrase en langue naturelle, sous forme d'une chaine de caractères.
+
+L’instruction assert évalue une expression booléenne. Si celle-ci vaut True, l’exécution continue normalement. Si elle vaut False, Python lève une exception AssertionError et interrompt normalement l’exécution.
+
 
 ```python
 >>> def percentage(score, total):
@@ -405,7 +417,7 @@ AssertionError: le deuxième argument est nul
 ```
 On observe une erreur AssertionError: le deuxième argument est nul et cela commande l'arrêt du programme.
 
-**Gestion d'une erreur sans bloquage du programme** 
+**Intercepter une exception ou gérer certaines erreurs d’exécution** 
 
 ```python
 def division(a,b):
@@ -418,6 +430,10 @@ def division(a,b):
 ```
 
 ### 6) Modules et bibliothèques
+
+Un **module** est un fichier Python contenant notamment des définitions de fonctions, de classes ou de variables que l’on peut importer dans un autre programme.
+
+Une **bibliothèque** est un ensemble de fonctionnalités, souvent organisé en plusieurs modules.
 
 Exemple : On réalise un programme appelé max_deux_nombres.py dans lequel on a défini une fonction maximum_deux_nombres.
 
