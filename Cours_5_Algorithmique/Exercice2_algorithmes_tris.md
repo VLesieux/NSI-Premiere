@@ -156,7 +156,7 @@ def tri_lexicographique(T):
 
 indications:
 
-1)on peut utiliser :
+1) on peut utiliser :
 ```python
 >>> liste=[2,7,3,4]
 >>> liste.sort()
@@ -173,7 +173,7 @@ mais on peut transformer une liste en tuple en utilisant tuple(liste).
 
 alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
-#bib_alphabet=# à compléter tel que
+#bib_alphabet=# à compléter par compréhension tel que :
 #>>> bib_alphabet["b"]
 #1
 
