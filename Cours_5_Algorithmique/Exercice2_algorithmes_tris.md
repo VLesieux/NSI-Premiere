@@ -154,6 +154,8 @@ def tri_lexicographique(T):
 
 #### Exercice 6 : Rechercher des anagrammes dans une suite de mots
 
+L'idée est de déterminer une signature pour chaque mot, telle que deux mots sont des anagrammes l'un de l'autre si et seulement si ils ont la même signature.
+
 indications:
 
 1) on peut utiliser :
@@ -166,7 +168,6 @@ indications:
 
 2) une clé de dictionnaire peut être un tuple et non une liste,
 mais on peut transformer une liste en tuple en utilisant tuple(liste).
-
 
 
 ```python
@@ -212,9 +213,6 @@ if __name__ == '__main__':
     doctest.testmod(verbose=True)
 
 ```
-
-
-
 
 
 #### Exercice 7 : Application pratique du tri par insertion : trier des points.
