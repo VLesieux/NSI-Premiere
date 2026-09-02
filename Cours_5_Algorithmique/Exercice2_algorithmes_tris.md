@@ -156,6 +156,8 @@ def tri_lexicographique(T):
 
 L'idée est de déterminer une signature pour chaque mot, telle que deux mots sont des anagrammes l'un de l'autre si et seulement si ils ont la même signature.
 
+La structure de données utilisée est un dictionnaire qui associe à chaque signature la liste des mots qui ont cette signature.
+
 indications:
 
 1) on peut utiliser :
