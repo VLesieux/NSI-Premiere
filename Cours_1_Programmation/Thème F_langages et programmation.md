@@ -6,9 +6,13 @@
 
 ## Introduction
 
-<u>Quelques éléments d'histoire</u> : 
+Quelques éléments d'histoire : 
 
-le langage Python a été créé en 1989 par le développeur néerlandais Guido van Rossum né en 1956 à Haarlem près d'Amsterdam. Il a fait ses études de mathématiques à l’université d'Amsterdam, obtenant son master en 1982. Il fit partie des développeurs du langage ABC (successeur du BASIC). En 1989, profitant d’une semaine de vacances durant les fêtes de Noël, il utilise son ordinateur personnel pour écrire la première version du langage. Fan de la série télévisée _Monty Python's Flying Circus_ créée par la BBC, il décide avec humour de baptiser ce projet Python. En **1991** sort la première version publique du langage. En 2002, il a reçu le prix pour le développement du logiciel libre décerné par la FSF (Free Software Foundation) pour récompenser son travail. Fin 2005, il a été engagé par Google pour travailler sur Python. En décembre 2012, il quitte Google pour rejoindre Dropbox. Le 12 juillet 2018, il annonce son retrait en tant que Benevolent Dictator for Life du projet Python.   
+Le langage Python a été créé en 1989 par le développeur néerlandais Guido van Rossum né en 1956 à Haarlem près d'Amsterdam.
+
+Il a fait ses études de mathématiques à l’université d'Amsterdam, obtenant son master en 1982. Il fit partie des développeurs du langage ABC (successeur du BASIC). En 1989, profitant d’une semaine de vacances durant les fêtes de Noël, il utilise son ordinateur personnel pour écrire la première version du langage. Fan de la série télévisée _Monty Python's Flying Circus_ créée par la BBC, il décide avec humour de baptiser ce projet Python.
+
+En **1991** sort la première version publique du langage. En 2002, il a reçu le prix pour le développement du logiciel libre décerné par la FSF (Free Software Foundation) pour récompenser son travail. Fin 2005, il a été engagé par Google pour travailler sur Python. En décembre 2012, il quitte Google pour rejoindre Dropbox. Le 12 juillet 2018, il annonce son retrait en tant que Benevolent Dictator for Life du projet Python.   
 
 Un programme est composé de **séquences** : des **instructions** exécutées les unes après les autres dans l'ordre où elles sont écrites, de définitions de **variables** et de **fonctions**, d'**instructions conditionnelles**, de **bloucles conditionnelles**  ou **non conditionnelles**, utilisant des **expressions**, en particulier des **appels de fonctions**.
    
@@ -17,6 +21,7 @@ Une **instruction** est une commande que doit exécuter la machine tandis qu'une
 HTML, CSS ne sont pas des langages de programmation mais de description à la différence de Python ou C++.
 
 Exemple:
+
 ```Python
 x = 5#on associe la valeur 5 au nom x
 y = 3#on associe la valeur 3 au nom y
@@ -28,7 +33,9 @@ print(z)
 
 ## I. Variables ; affectation d'une valeur à une variable
 
-Une **variable** est un nom auquel on associe une valeur. L’**instruction d’affectation** `=` permet d’associer une valeur à une variable.
+Une **variable** est un nom auquel on associe une valeur.
+
+L’**instruction d’affectation** `=` permet d’associer une valeur à une variable.
 
 Exemple :
 
@@ -75,19 +82,22 @@ On suit l'évolution des variables. Initialement les variables passées dans les
 
 ## II. Instructions conditionnelles
 
-On prendra soin de respecter l'**indentation**, élément important de la **syntaxe** de Python, qui consiste en un décalage vers la droite dans le but d'identifier des **blocs** d'instructions. On utilise l'instruction conditionnelle `if`.
+On prendra soin de respecter l'**indentation**, élément très important de la **syntaxe** de Python, qui consiste en un décalage vers la droite dans le but d'identifier des **blocs** d'instructions.
+
+On utilise l'instruction conditionnelle `if`.
 
 Exemples :
 
 ```Python
-#Une seule alternative
 
-if n%2==0:##ici la notation double égal représente une expression booléenne qui renvoie True ou False
+#Cas d'une seule alternative
+
+if n%2==0:##**⚠ Attention**, ici la notation double égal représente une expression booléenne qui renvoie True ou False
     print("n est pair")
 else:
     print("n est impair")
 
-#Plusieurs alternatives
+#Cas de plusieurs alternatives
 
 if age<10:
     print("enfant")
