@@ -151,7 +151,73 @@ def tri_lexicographique(T):
 	pass
 ```
 
-#### Exercice 6 : Application pratique du tri par insertion : trier des points.
+
+#### Exercice 6 : Rechercher des anagrammes dans une suite de mots
+
+indications:
+
+1)on peut utiliser :
+```python
+>>> liste=[2,7,3,4]
+>>> liste.sort()
+>>> liste
+[2, 3, 4, 7]
+```
+
+2) une clé de dictionnaire peut être un tuple et non une liste,
+mais on peut transformer une liste en tuple en utilisant tuple(liste).
+
+
+
+```python
+
+alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+#bib_alphabet=# à compléter tel que
+#>>> bib_alphabet["b"]
+#1
+
+
+def codage(mot):
+    """
+    renvoie un code qui est les positions des lettres dans l'alphabet mises dans l'ordre croissant
+    >>> codage("niche")
+    (2, 4, 7, 8, 13)
+    """
+	pass
+    
+
+def etre_anagramme(mot1,mot2):
+    """
+    renvoie True si mot1 et mot2 sont des anagramme
+    >>> etre_anagramme("marche","charme")
+    True
+    """
+    pass
+    
+
+def anagrammes(texte):
+    """
+    param : texte : str
+    renvoie les annagrammes présents dans le texte
+    >>> anagrammes("le chien marche vers sa niche et trouve une limace de chine nue pleine de malice qui lui fait du charme")
+    [['chien', 'niche', 'chine'], ['marche', 'charme'], ['une', 'nue'], ['limace', 'malice']]
+    """
+    pass
+        
+    
+    
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
+```
+
+
+
+
+
+#### Exercice 7 : Application pratique du tri par insertion : trier des points.
 
 On dispose de points dans un plan muni d'un repère orthonormé d'origine O. Ces points possèdent un couple de coordonnées représenté par la liste [x,y].  
 On se propose de trier ces points en fonction de leur distance à O, de la plus petite à la plus grande.
