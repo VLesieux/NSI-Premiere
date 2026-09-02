@@ -94,7 +94,7 @@ Exemples :
 
 if n%2==0:# Attention : == est l’opérateur de comparaison d’égalité.
 #L’expression n % 2 == 0 est une expression booléenne : elle prend la valeur True ou False.
-#L'opérateur %, appelé modulo, donne le le reste de la division euclidienne de n par 2.
+#L'opérateur %, appelé modulo, donne le reste de la division euclidienne de n par 2.
 #Il ne faut pas confondre == avec =, qui est utilisé pour l’affectation.
     print("n est pair")
 else:
