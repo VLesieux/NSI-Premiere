@@ -92,7 +92,7 @@ Exemples :
 
 #Cas d'une seule alternative
 
-if n%2==0:##**⚠ Attention**, ici la notation double égal représente une expression booléenne qui renvoie True ou False
+if n%2==0:##Attention, la notation double égal représente une expression booléenne qui renvoie True ou False
     print("n est pair")
 else:
     print("n est impair")
