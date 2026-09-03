@@ -67,7 +67,8 @@ Exemple à vérifier et à introduire dans la docstring.
 
 1. Écrire une fonction `somme_diviseurs` qui prend en paramètre un entier naturel `n` non nul et renvoie la somme de ses diviseurs. Un diviseur d'un entier n est un entier dont n est un multiple. Par exemple les diviseurs de 9 sont : 1, 3, 9.
 
-Test à valider.
+Test à valider :
+
 ```Python
 >>> somme_diviseurs(9)
 13
@@ -77,7 +78,8 @@ Test à valider.
 
 Écrire une fonction _est_parfait_ qui prend en argument un entier naturel `n` non nul et renvoie `True` s'il est parfait et `False` sinon.
 
-Test à valider.
+Test à valider :
+
 ```Python
 >>> est_parfait(6)
 True
