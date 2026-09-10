@@ -5,7 +5,7 @@
 
 ![Programme officiel ](assets/bo2.png)
 
-Le type d'une variable est l'ensemble des valeurs qui peuvent être affectées à cette variable.
+Le type d’une valeur détermine la nature de cette valeur et les opérations que l’on peut effectuer sur elle. Une variable Python peut référencer successivement des valeurs de types différents.
 
 On distingue :   
 - les **types simples** : `int` (les nombres entiers), `bool` (les valeurs booléennes True ou False), `float` (nombres à virgule flottante, permettant notamment de représenter de manière approchée des nombres réels), `str` (abréviation de string ou chaîne de caractères écrite entre des guillemets " " ou des apostrophes ' '), `None` : valeur particulière utilisée pour représenter l’absence de valeur.
@@ -103,7 +103,7 @@ True #condition d'appartenance de 4 au tuple t, 4 est effectivement présent à 
 
 > Exemple 1: On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
 
-> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué de la racine carré d'un nombre (positif) et de son carré.
+> Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué de la racine carrée d'un nombre (positif) et de son carré.
 
 ```Python
 from math import sqrt
