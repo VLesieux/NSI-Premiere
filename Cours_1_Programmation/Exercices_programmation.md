@@ -354,7 +354,7 @@ On définira une fonction `carre` admettant le paramètre `n` chargée de repré
 
 <img width="400" height="300" src="assets/turtle2.png">
 
-3. ★★★ Modifier le programme afin que le nombre de carrés, l’écart entre leurs tailles et l’angle de rotation puissent être choisis par l’utilisateur. 
+3. ★★★ Modifier le programme afin que la taille maximale, l’écart entre leurs tailles et l’angle de rotation puissent être choisis par l’utilisateur. 
 
 
 ## Exercice 10 : Matplotlib : listes de valeurs et représentation graphique.
