@@ -159,6 +159,27 @@ Ajoutez au moins un test de votre choix dans la docstring.
 
 3. ★★★ Améliorer `est_premier` afin de ne pas tester tous les entiers jusqu’à n - 1. Jusqu’à quelle valeur suffit-il de chercher un diviseur ?
 
+Explication : Il suffit de chercher les diviseurs jusqu’à sqrt(n).
+
+En effet les diviseurs vont par paires. Si n n’est pas premier, on peut écrire :
+
+n=a*b
+
+Par exemple, pour 36 :
+
+36=1*36=2*18=3*12=4*9=6*6
+
+À partir de 6=sqrt(36), les couples ne font que se répéter dans l’autre sens : 9*4, 12*3, etc.
+
+Plus généralement, si les deux diviseurs a et b étaient supérieurs à sqrt(n), alors :
+
+a*b>sqrt(n)*sqrt(n)=n
+
+ce qui est impossible puisque a*b=n.
+
+Donc, si n possède un diviseur autre que 1 et lui-même, il en possède forcément au moins un inférieur ou égal à sqrt(n). Il est donc inutile de chercher au-delà.
+
+
 ## Exercice 6 : simulation aléatoire
 
 1. ★ Écrire une fonction `pourcentage_lancer` qui détermine le pourcentage de 6 obtenus après n lancers d'un dé à 6 faces.
