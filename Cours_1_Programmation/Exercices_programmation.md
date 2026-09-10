@@ -161,17 +161,13 @@ Ajoutez au moins un test de votre choix dans la docstring.
 
 Explication : Il suffit de chercher les diviseurs jusqu’à sqrt(n).
 
-En effet les diviseurs vont par paires. Si n n’est pas premier, on peut écrire :
-
-n=a*b
+En effet les diviseurs vont par paires. Si n n’est pas premier, on peut écrire : n=a×b
 
 Par exemple, pour 36 : 36=1×36=2×18=3×12=4×9=6×6
 
 À partir de 6=sqrt(36), les couples ne font que se répéter dans l’autre sens : 9×4, 12×3, etc.
 
-Plus généralement, si les deux diviseurs a et b étaient supérieurs à sqrt(n), alors :
-
-a×b>sqrt(n)×sqrt(n)=n
+Plus généralement, si les deux diviseurs a et b étaient supérieurs à sqrt(n), alors : a×b>sqrt(n)×sqrt(n)=n
 
 ce qui est impossible puisque a×b=n.
 
