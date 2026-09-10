@@ -8,7 +8,7 @@
 Le type d'une variable est l'ensemble des valeurs qui peuvent être affectées à cette variable.
 
 On distingue :   
-- les **types simples** : `int` (les nombres entiers), `bool` (les valeurs booléennes True ou False), `float` (nombres réels), `str` (abréviation de string ou chaîne de caractères écrite entre des guillemets " " ou des apostrophes ' '), `None` qui n'a pas de valeur
+- les **types simples** : `int` (les nombres entiers), `bool` (les valeurs booléennes True ou False), `float` (nombres à virgule flottante, permettant notamment de représenter de manière approchée des nombres réels), `str` (abréviation de string ou chaîne de caractères écrite entre des guillemets " " ou des apostrophes ' '), `None` : valeur particulière utilisée pour représenter l’absence de valeur.
 
 
 Opérations sur les types simples
@@ -22,7 +22,7 @@ Opérations sur les types simples
 2
 >>> 1/2#division
 0.5
->>> 1//2#division entière : renvoie le quotient entier de la division, ou quotient de la division euclidienne
+>>> 1//2#division entière : renvoie le quotient entier de la division, ou quotient de la division euclidienne pour des entiers positifs
 0
 >>> 5%2#renvoie le reste de la division
 1#c'est le cas des entiers impairs
@@ -47,7 +47,7 @@ Opérations sur les types simples
 'o'
 >>> chaine[-2]#on peut indicer de droite à gauche avec des indices négatifs
 'o'
->>> chaine[2:4]#on réalise une découpe la chaîne (slice) entre 2 inclus et 4 non inclus
+>>> chaine[2:4]#on réalise une découpe de la chaîne (slice) entre 2 inclus et 4 non inclus
 'is'
 >>> chaine+" plat"#ajout de chaînes à la suite l'une de l'autre : concaténation à l'aide de l'opérateur +
 #l'opérateur - ne s'applique pas sur les chaînes de caractères
@@ -93,9 +93,8 @@ t=((1,2,3),('bonjour','auto'),4)#un tuple peut être constitué lui-même de tup
 True #condition d'appartenance de 4 au tuple t, 4 est effectivement présent à l'indice 2
 >>> (2,4)*3 
 (2, 4, 2, 4, 2, 4)#et non (6,12)
-Remarque : l'affectation multiple résulte de l'égalité des tuples : x,y,z=3,4,x+y
 >>> t=((1,2,3),('bonjour','auto'),4)
->>> for i in t:#on parcourt ainsi les éléments de la liste, i représente un élément constitutif de t
+>>> for i in t:#on parcourt ainsi les éléments du tuple, i représente un élément constitutif de t
     print(i)  
 (1, 2, 3)
 ('bonjour', 'auto')
@@ -105,6 +104,10 @@ Remarque : l'affectation multiple résulte de l'égalité des tuples : x,y,z=3,4
 > Exemple 1: On considère le n-uplet t=(3,5,1). Qu'obtient-on après l'instruction t[1]=4 ?
 
 > Exemple 2: Une fonction peut retourner un tuple. Proposer une fonction qui renvoie le tuple constitué de la racine carré d'un nombre (positif) et de son carré.
+
+```Python
+from math import sqrt
+```
 
 2) `list` : liste ou tableau
 
@@ -273,12 +276,11 @@ Donc p n’est pas 3 listes indépendantes, mais 3 pointeurs vers la même liste
 Quand on fait :
 
 ```Python
-m[0][0] = 1
+p[0][0] = 1
 ```
 On modifie cette unique liste partagée → ce qui se reflète dans toutes les “lignes” :
 ```Python
-[[0, 1, 0], [0, 1, 0], [0, 1, 0]]
-
+[[1, 0, 0], [1, 0, 0], [1, 0, 0]]
 ```
 
 Conclusion: pour créer une matrice avec des lignes indépendantes → utiliser la compréhension de liste :
@@ -325,9 +327,9 @@ Proposer une version boucle plus longue et une version compréhension.
 ```Python
 >>> frequences={"do4":523.25,"la3":440}#dictionnaire clé-valeur : clé=nom de la note, valeur=fréquence en Hz
 #à l'intérieur d'une accolade
->>> frequences=[["do4",523.25],["la3",440]]
->>> dico=dict(frequences)
->>> dico
+>>> donnees=[["do4",523.25],["la3",440]]
+>>> frequences=dict(donnees)
+>>> frequences
 {'do4': 523.25, 'la3': 440}#un dictionnaire peut être créé à partir d'une liste, ce qui est pratique.
 >>> frequences["do4"]#c'est ainsi que l'on obtient la valeur associée à une clé 
 523.25
@@ -356,6 +358,7 @@ dict_keys(['do4', 'la3', 'mi4'])
     print("les notes sont",j)    
 les notes sont do4
 les notes sont la3
+les notes sont mi4
 >>> frequences.values()#la méthode values renvoie les valeurs des clés du dictionnaire
 dict_values([523.25, 440, 659.26])
 #on peut rechercher la valeur du maximum des valeurs du dictionnaire
@@ -366,12 +369,14 @@ dict_values([523.25, 440, 659.26])
     print("les fréquences sont",j)    
 les fréquences sont 523.25
 les fréquences sont 440
+les fréquences sont 659.26
 >>> frequences.items()
 dict_items([('do4', 523.25), ('la3', 440), ('mi4', 659.26)])
 >>> for j in frequences.items():#on peut parcourir les items qui constituent le dictionnaire
     print("item",j)   
 item ('do4', 523.25)
 item ('la3', 440)
+item ('mi4', 659.26)
 >>> 'do4' in frequences#on interroge pour savoir si une clé est présente dans le dictionnaire : très utile
 True
 >>> for cle,val in frequences.items():#on peut parcourir les items en dissociant clé et valeur
@@ -379,7 +384,7 @@ True
 do4 523.25
 la3 440
 mi4 659.26
->>> del(frequences['la3'])#supprime une clé du dictionnaire
+>>> del frequences['la3']#instruction pour supprimer une clé du dictionnaire
 >>> frequences
 {'do4': 523.25, 'mi4': 659.26}
 >>> frequences2=frequences#les deux dictionnaires pointent vers le même objet
