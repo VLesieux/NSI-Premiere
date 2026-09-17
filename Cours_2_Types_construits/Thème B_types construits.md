@@ -440,6 +440,7 @@ regions = { 'Mayotte': 376, 'Pays de la Loire': 32082,'La Réunion': 2504, 'Gra
 
 **Remarque**: 
 a = (1, 2, 3)
+
 (nombre * 2 for nombre in a)
 
 L’expression entre parenthèses crée un générateur. Python affichera quelque chose comme : <generator object <genexpr> at ...>.
@@ -448,7 +449,7 @@ Intérêt : il ne construit pas immédiatement toute la collection en mémoire. 
 ```Python
 >>> (x * 2 for x in range(1_000_000))
 <generator object <genexpr> at 0x103993b50>
-sum(x * 2 for x in range(1_000_000))
+
 >>> sum(x * 2 for x in range(1_000_000))
 999999000000
 >>> a = (1, 2, 3)
