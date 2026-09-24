@@ -290,7 +290,7 @@ def calcul_distance_totale(dictionnaire):
 ```
 
 
-Remarque : une première méthode consistera à créer une nouvelle liste appelée `coordonnees` en y ajoutant avec `append` les coordonnées des points en parcourant les items du dictionnaire, une deuxième méthode consistera à utiliser `list(dictionnaire.values())` puis à itérer sur celle-ci.
+Remarque : une première méthode consistera à créer une nouvelle liste appelée `coordonnees` en y ajoutant avec `append` les coordonnées des points en parcourant les items du dictionnaire, une deuxième méthode consistera à utiliser (ne pas oublier les parenthèses finales) `list(dictionnaire.values())` puis à itérer sur celle-ci.
 
 
 3. En déduire une fonction `calcul_distance_polygone` qui calcule la longueur totale du chemin : AB + BC + CD + DA, ou périmètre du polygone, et qui peut s'appliquer à n'importe quelle série de points fournie sous la forme d'un dictionnaire.
