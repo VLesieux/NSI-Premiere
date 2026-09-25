@@ -366,7 +366,7 @@ Indication : travailler avec les nombres, retirer les '€'.
 
 ### Exercice 11
 
-Un carré de côté `n` est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes des nombres des deux diagonales principales (première et deuxième diagonale) sont égales à une valeur commune.
+Un carré de taille n×n est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes des nombres des deux diagonales principales (première et deuxième diagonale) sont égales à une valeur commune.
 
 Par exemple, faire un schéma sur le papier, et vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8] est bien magique.
 
@@ -441,7 +441,7 @@ def somme_rangees(carre):
     Renvoie la somme des valeurs des rangées
     param : carre
     return : list
-    >>> somme_rangees([[2,8,6],[9,5,1],[4,3,8]])#ce carre n'est donc pas magique
+    >>> somme_rangees([[2,8,6],[9,5,1],[4,3,8]])# ce carre n'est donc pas magique
     [16, 15, 15]
     """
 	pass
@@ -453,7 +453,7 @@ def somme_colonnes(carre):
     Renvoie la somme des valeurs des colonnes
     param : carre
     return : list
-    >>> somme_colonnes([[2,8,6],[9,5,1],[4,3,8]])#ce carre n'est donc pas magique
+    >>> somme_colonnes([[2,8,6],[9,5,1],[4,3,8]])# ce carre n'est donc pas magique
     [15, 16, 15]
     """
 	pass
