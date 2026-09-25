@@ -498,9 +498,9 @@ def est_magique(carre):
     >>> est_magique([[4,2,11,14],[15,10,8,1],[6,3,13,12],[9,16,2,7]])
     False
     """
-############################### À faire 8 (bonus) ##################################
+############################### À faire 8 ##################################
 ```
-Écrire un programme (utilisant la méthode de force brute) qui vous donnera une liste formée de 5 carrés magiques différents (formés de nombres compris entre 1 et 5).
+Écrire un programme (utilisant la méthode de force brute) qui vous donnera une liste formée de 5 carrés magiques différents de taille 3×3 (formés de nombres compris entre 1 et 5).
 
 On obtiendra par exemple après un laps de temps :
 
