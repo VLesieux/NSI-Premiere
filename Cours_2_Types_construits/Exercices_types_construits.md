@@ -383,7 +383,7 @@ On rappelle que dans ces conditions :
 Dans un premier temps, compléter la fonction <i>valeur_commune</i> ci-dessous ; on réalisera le parcours des éléments de la liste en les comparant à la première valeur de celle-ci.
 
 ```Python
-############################### À faire 1. ##################################
+############################### À faire 1 (2 pts) ##################################
 def valeur_commune(liste):
     """
     Renvoie la valeur commune de la liste sinon renvoie False
@@ -410,7 +410,7 @@ False
 
 
 ```Python
-############################### À faire 2. ##################################
+############################### À faire 2 (2 pts) ##################################
 def valeur_commune_version2(liste):
     """
     Renvoie la valeur commune de la liste sinon renvoie False
@@ -435,7 +435,7 @@ Rappel :
 ```
 
 ```Python
-############################### À faire 3. ##################################
+############################### À faire 3 (2,5 pts) ##################################
 def somme_rangees(carre):
     """
     Renvoie la somme des valeurs des rangées
@@ -447,7 +447,7 @@ def somme_rangees(carre):
 	pass
 
 
-############################### À faire 4. ##################################
+############################### À faire 4 (2,5 pts) ##################################
 def somme_colonnes(carre):
     """
     Renvoie la somme des valeurs des colonnes
@@ -458,7 +458,7 @@ def somme_colonnes(carre):
     """
 	pass
 
-############################### À faire 5. ##################################
+############################### À faire 5 (1,5 pt) ##################################
 
 def somme_premiere_diagonale(carre):
     """
@@ -470,7 +470,7 @@ def somme_premiere_diagonale(carre):
     """
 	pass
 
-############################### À faire 6. ##################################
+############################### À faire 6 (2 pts) ##################################
 
 def somme_deuxieme_diagonale(carre):
     """
@@ -486,7 +486,7 @@ def somme_deuxieme_diagonale(carre):
 Utiliser ces quatre fonctions ainsi que la fonction valeur_commune pour compléter la fonction `est_magique`.
 
 ```Python
-############################### À faire 7. ##################################
+############################### À faire 7 (3 pts) ##################################
 def est_magique(carre):
     """
     Renvoie True si le carre est magique, False sinon
@@ -499,7 +499,7 @@ def est_magique(carre):
     >>> est_magique([[4,2,11,14],[15,10,8,1],[6,3,13,12],[9,16,2,7]])
     False
     """
-############################### À faire 8 ##################################
+############################### À faire 8 (4,5 pts)##################################
 ```
 Écrire un programme utilisant la méthode de force brute, c’est-à-dire testant les 5^9 = 1 953 125 carrés possibles, qui donnera une liste de carrés magiques de taille 3×3, dont les cases contiennent des nombres entiers compris entre 1 et 5.
 
