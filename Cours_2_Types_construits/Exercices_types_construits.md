@@ -418,7 +418,7 @@ def valeur_commune_version2(liste):
     >>> valeur_commune_version2([4,4,4,4])
     4
     >>> valeur_commune_version2([4,4,3,4])
-    False    
+    False
     """
 	pass
 ```
@@ -439,8 +439,8 @@ def somme_rangees(carre):
     """
     Renvoie la somme des valeurs des rangées
     param : carre
-    return : int
-    >>> somme_rangees([[2,8,6],[9,5,1],[4,3,8]])
+    return : list
+    >>> somme_rangees([[2,8,6],[9,5,1],[4,3,8]])#ce carre n'est donc pas magique
     [16, 15, 15]
     """
 	pass
@@ -451,8 +451,8 @@ def somme_colonnes(carre):
     """
     Renvoie la somme des valeurs des colonnes
     param : carre
-    return : int
-    >>> somme_colonnes([[2,8,6],[9,5,1],[4,3,8]])
+    return : list
+    >>> somme_colonnes([[2,8,6],[9,5,1],[4,3,8]])#ce carre n'est donc pas magique
     [15, 16, 15]
     """
 	pass
@@ -500,7 +500,9 @@ def est_magique(carre):
     """
 ############################### À faire 8 ##################################
 ```
-Écrire un programme (utilisant la méthode de force brute) qui vous donnera une liste formée de 5 carrés magiques différents de taille 3×3 (formés de nombres compris entre 1 et 5).
+Écrire un programme (utilisant la méthode de force brute) qui vous donnera une liste formée de carrés magiques différents de taille 3×3 (formés de nombres compris entre 1 et 5).
+
+On les cherchera donc sous la forme : [[a,b,c],[d,e,f],[g,h,i]].
 
 On obtiendra par exemple après un laps de temps :
 
