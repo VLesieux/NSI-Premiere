@@ -372,7 +372,7 @@ Par exemple, faire un schéma sur le papier, et vérifier avec un crayon que le 
 
 Il est important de bien repérer les rangées, les colonnes et les deux diagonales principales.
 
-On rappelle que dans ces conditions :
+Indication : on rappelle que :
 
 ```Python
 >>> carre=[[2,7,6],[9,5,1],[4,3,8]]
