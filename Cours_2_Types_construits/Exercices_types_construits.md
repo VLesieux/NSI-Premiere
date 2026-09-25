@@ -424,7 +424,7 @@ def valeur_commune_version2(liste):
 	pass
 ```
 
-Compléter maintenant les quatre fonctions suivantes ; on pourra utiliser la fonction sum() en l’appliquant à des listes écrites par compréhension.
+Compléter maintenant les quatre fonctions suivantes ; on pourra utiliser la fonction `sum()` en l’appliquant à des listes écrites par compréhension.
 
 
 Rappel : 
@@ -483,7 +483,7 @@ def somme_deuxieme_diagonale(carre):
 	pass
 ```
 
-Utiliser ces quatre fonctions ainsi que la fonction valeur_commune pour compléter la fonction `est_magique`.
+Utiliser ces quatre fonctions ainsi que la fonction `valeur_commune` pour compléter la fonction `est_magique`.
 
 ```Python
 ############################### À faire 7 (3 pts) ##################################
