@@ -368,8 +368,9 @@ Indication : travailler avec les nombres, retirer les '€'.
 
 Un carré de côté `n` est dit magique si les sommes des nombres de chaque rangée, les sommes des nombres de chaque colonne et les sommes des nombres des deux diagonales principales (première et deuxième diagonale) sont égales à une valeur commune.
 
-Par exemple, vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8] est bien magique.
-Il est important de repérer sur ce schéma les lignes et les colonnes.
+Par exemple, faire un schéma sur le papier, et vérifier avec un crayon que le carré [[2,7,6],[9,5,1],[4,3,8] est bien magique.
+
+Il est important de bien repérer les rangées, les colonnes et les deux diagonales principales.
 
 On rappelle que dans ces conditions :
 
@@ -423,7 +424,7 @@ def valeur_commune_version2(liste):
 	pass
 ```
 
-Compléter maintenant les 4 fonctions suivantes ; on pourra utiliser la fonction sum() en l'appliquant sur 4 listes écrites par compréhension.
+Compléter maintenant les quatre fonctions suivantes ; on pourra utiliser la fonction sum() en l’appliquant à des listes écrites par compréhension.
 
 
 Rappel : 
@@ -482,7 +483,7 @@ def somme_deuxieme_diagonale(carre):
 	pass
 ```
 
-Utiliser ces quatre fonctions ainsi que la fonction <i>valeur_commune</i> pour compléter la fonction <i>est_magique</i>
+Utiliser ces quatre fonctions ainsi que la fonction valeur_commune pour compléter la fonction `est_magique`.
 
 ```Python
 ############################### À faire 7. ##################################
@@ -500,11 +501,11 @@ def est_magique(carre):
     """
 ############################### À faire 8 ##################################
 ```
-Écrire un programme (utilisant la méthode de force brute, c'est-à-dire cherchant parmi les 5^9=1 953 125 carrés possibles) qui vous donnera une liste formée de carrés magiques différents de taille 3×3 (formés de nombres compris entre 1 et 5).
+Écrire un programme utilisant la méthode de force brute, c’est-à-dire testant les 5^9 = 1 953 125 carrés possibles, qui donnera une liste de carrés magiques de taille 3×3, dont les cases contiennent des nombres entiers compris entre 1 et 5.
 
 On les cherchera donc sous la forme : [[a,b,c],[d,e,f],[g,h,i]].
 
-On obtiendra par exemple après un laps de temps :
+Parmi les carrés magiques obtenus, on trouvera par exemple :
 
 ```Python
 [[[4, 5, 3], [3, 4, 5], [5, 3, 4]], [[3, 1, 5], [5, 3, 1], [1, 5, 3]], [[1, 1, 1], [1, 1, 1], [1, 1, 1]], [[2, 1, 3], [3, 2, 1], [1, 3, 2]], [[3, 5, 1], [1, 3, 5], [5, 1, 3]]]
