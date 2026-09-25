@@ -500,7 +500,7 @@ def est_magique(carre):
     """
 ############################### À faire 8 ##################################
 ```
-Écrire un programme (utilisant la méthode de force brute, c'est-à-dire cherchant parmi les 5^9=1 953 125 carrés possibles.) qui vous donnera une liste formée de carrés magiques différents de taille 3×3 (formés de nombres compris entre 1 et 5).
+Écrire un programme (utilisant la méthode de force brute, c'est-à-dire cherchant parmi les 5^9=1 953 125 carrés possibles) qui vous donnera une liste formée de carrés magiques différents de taille 3×3 (formés de nombres compris entre 1 et 5).
 
 On les cherchera donc sous la forme : [[a,b,c],[d,e,f],[g,h,i]].
 
