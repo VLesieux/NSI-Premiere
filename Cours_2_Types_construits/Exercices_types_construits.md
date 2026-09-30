@@ -440,6 +440,7 @@ def somme_rangees(carre):
     """
     Renvoie la somme des valeurs des rangées
     param : carre
+	condition d'utilisation : le carré n'est pas forcèment de 3 sur 3, mais de dimension n
     return : list
     >>> somme_rangees([[2,8,6],[9,5,1],[4,3,8]])# ce carre n'est donc pas magique
     [16, 15, 15]
@@ -452,6 +453,7 @@ def somme_colonnes(carre):
     """
     Renvoie la somme des valeurs des colonnes
     param : carre
+	condition d'utilisation : le carré n'est pas forcèment de 3 sur 3, mais de dimension n
     return : list
     >>> somme_colonnes([[2,8,6],[9,5,1],[4,3,8]])# ce carre n'est donc pas magique
     [15, 16, 15]
@@ -464,6 +466,7 @@ def somme_premiere_diagonale(carre):
     """
     Renvoie la somme des valeurs de la première diagonale
     param : carre
+	condition d'utilisation : le carré n'est pas forcèment de 3 sur 3, mais de dimension n
     return : int
     >>> somme_premiere_diagonale([[2,7,6],[9,5,1],[4,3,8]])
     15
@@ -476,6 +479,7 @@ def somme_deuxieme_diagonale(carre):
     """
     Renvoie la somme des valeurs de la deuxième diagonale
     param : carre
+	condition d'utilisation : le carré n'est pas forcèment de 3 sur 3, mais de dimension n
     return : int
     >>> somme_deuxieme_diagonale([[2,7,6],[9,5,1],[5,3,8]])
     16
@@ -491,6 +495,7 @@ def est_magique(carre):
     """
     Renvoie True si le carre est magique, False sinon
     param : carre : list
+	condition d'utilisation : le carré n'est pas forcèment de 3 sur 3, mais de dimension n
     return : bool
     >>> est_magique([[2,7,6],[9,5,1],[4,3,8]])
     True
