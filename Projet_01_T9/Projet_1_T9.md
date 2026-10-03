@@ -479,9 +479,9 @@ def affiche_saisie(prop, seq):
 Pour lancer les doctests :
 
 ``` python
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod(verbose=True)
 ```
 
 ------------------------------------------------------------------------
