@@ -29,9 +29,9 @@ Cours, activités et projets réalisés au cours de l'année.
 | 06 | Jeu de la vie |
 | 07 | Labyrinthe |
 | 08 | Les iris |
-| ... | ... |
+| 09 | Pokemon |
 | 10 | Voyageur de commerce |
-| 11 | Wa-Tor |
+| 11 | WaTor |
 | 12 | Nim, Tic-Tac-Toe, Othello... |
 | 13 | Alien Invasion |
 | 14 | Chess |
