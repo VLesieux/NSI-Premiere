@@ -2,6 +2,8 @@
 
 ## Objectifs
 
+![T9 ](assets/T9.png)
+
 Les anciens téléphones portables ne possédaient généralement pas de
 clavier alphabétique complet. Les lettres étaient réparties sur les
 touches numériques de **2 à 9** :
