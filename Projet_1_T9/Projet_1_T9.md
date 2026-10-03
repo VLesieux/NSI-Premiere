@@ -1,4 +1,4 @@
-# Projet --- Un clavier prédictif T9
+# Un clavier prédictif T9
 
 ## Objectifs
 
