@@ -317,7 +317,7 @@ Avec la représentation en complément à 2 sur *`p`* bits, il est possible de r
 > - l'entier le plus négatif :  -2^(p-1) : représenté par le mot binaire sur p bits : ``10...0` ; c'est en effet l'opposé de `10...0` qui vaut 2^(p-1) car sur p bits l'addition  `10...0`+`10...0`=`00...0`
 > - et l'entier le plus positif : 2^(p-1)-1 : représenté par le mot binaire sur p bits :  `011...11`
 
-<img width="550" src="assets/exemple_4bits.png" />
+<img width="750" src="assets/exemple_4bits.png" />
 
 Pour vérifier: 
 ```python
