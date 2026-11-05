@@ -296,10 +296,10 @@ représentation signe-valeur absolue correspond à -3, ce qui est incorrect, car
 
 À la place, la **représentation en complément à 2 sur p bits** est préférée.
 
-Soit *`n`* l'entier relatif à représenter sur *`p`* bits : le choix du nombre p de bits pour cette représentation est toujours tel que :\
+Soit *`n`* l'entier relatif à représenter sur *`p`* bits : le choix du nombre p de bits pour cette représentation est toujours tel que :   
 
 
-  *`- [2^(p-1)]<n<[2^(p-1)]-1`*, ainsi :   
+  *`- [2^(p-1)]<= n <=[2^(p-1)]-1`*, ainsi :   
 
 - si *`n > 0`* : *`n`* est représenté en binaire sur *`p`* bits. On a rien à faire, le bit de poids le plus fort sera 0.
 
@@ -316,6 +316,8 @@ n'implique pas forcément de calculer un complément à 2 !)
 Avec la représentation en complément à 2 sur *`p`* bits, il est possible de représenter tous les entiers relatifs compris entre : 
 > - l'entier le plus négatif :  -2^(p-1) : représenté par le mot binaire sur p bits : ``10...0` ; c'est en effet l'opposé de `10...0` qui vaut 2^(p-1) car sur p bits l'addition  `10...0`+`10...0`=`00...0`
 > - et l'entier le plus positif : 2^(p-1)-1 : représenté par le mot binaire sur p bits :  `011...11`
+
+<img width="150" src="assets/exemple_4bits.png" />
 
 **Dans cette représentation des entiers relatifs sur p bits, les entiers négatifs auront donc toujours leur bit de plus haut poids égal à 1, les entiers positifs l'auront toujours égal à 0.**
 
