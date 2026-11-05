@@ -297,6 +297,8 @@ représentation signe-valeur absolue correspond à -3, ce qui est incorrect, car
 À la place, la **représentation en complément à 2 sur p bits** est préférée.
 
 Soit *`n`* l'entier relatif à représenter sur *`p`* bits : le choix du nombre p de bits pour cette représentation est toujours tel que :
+
+
   *`- [2^(p-1)]<n<[2^(p-1)]-1`*, ainsi :   
 
 - si *`n > 0`* : *`n`* est représenté en binaire sur *`p`* bits. On a rien à faire, le bit de poids le plus fort sera 0.
