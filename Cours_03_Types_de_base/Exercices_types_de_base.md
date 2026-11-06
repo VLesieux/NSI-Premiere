@@ -170,6 +170,9 @@ Les flottants sont codés suivant la norme IEEE 754 sur 64 bits, soit 1 bit pour
 1. Comment est codé le nombre - 4.5 ?  
 2. Quel est le nombre réel codé par 1011 1111 1110 1000 0000 ... 0000 ?
 
+<img width="850" src="assets/64_bits.png" />
+
+
 Pour vérifier, utiliser le [convertisseur](https://www.binaryconvert.com/result_double.html?decimal=050048)
 
 
